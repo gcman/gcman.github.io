@@ -117,7 +117,7 @@ def live(port=8080):
 	server.watch('*.css')  # 10
 	server.serve(liveport=35729, port=port)  # 11
 
-def publish(publish_drafts=False): # 2
+def publish(message,publish_drafts=False): # 2
 	try:  # 3
 		if os.path.exists('output/drafts'):
 			if not publish_drafts:
@@ -126,6 +126,9 @@ def publish(publish_drafts=False): # 2
 		pass
 	clean()
 	build()
+	local('git add -A')
+	local('git commit -m"' + message + '"')
+	local('git push')
 	local('ghp-import output')  # 4
 	local('git push git@github.com:gcman/gcman.github.io.git gh-pages:master --force') # 5
 	local('git rm -rf output')  # 6
