@@ -1,4 +1,4 @@
-Title: Exponentiating $e$ and $pi$
+Title: Comparing $e^\pi\quad\!\!\!$ and $\pi^e$
 Date: 2018-2-2 22:26
 Category: math
 Tags: calculus, proof
@@ -73,7 +73,7 @@ It's a little less intuitive than the others, but I think it's beautiful.
 We use the arithmetic-geometric mean inequality.
 \begin{equation}
 	\begin{split}
-		\sqrt[n]{1+x} &= \sqrt[\leftroot{-2}\uproot{5}n]{\underbrace{1\cdot1\cdots1}_{\text{$n-1$ times}}\cdot(1+x)} \\
+		\sqrt[n]{1+x} &= \sqrt[n]{\smash[b]{\underbrace{1\cdot1\cdots1}_{\text{$n-1$ times}}\cdot(1+x)}} \\[1em]
 		&\le \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}}{n} \\
 		&= \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}+(1+x)}{n} \\
 		&= \frac{\overbrace{1+\dotsb+1}^{\text{$n$ times}}+x}{n} \\
@@ -87,7 +87,7 @@ Raising both sides to the $n$-th power gives
 \begin{equation}
 	1 + x < \left(1 + \frac{x}{n}\right)^n.
 \end{equation}
-Taking the limit as $n$ approaches $\inf$ on both sides yields
+Taking the limit as $n$ approaches $\infty$ on both sides yields
 \begin{equation}
 	\begin{split}
 		\lim_{n\to\infty} (1 + x) &< \lim_{n\to\infty} \left(1 + \frac{x}{n}\right)^n \\

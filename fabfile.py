@@ -18,11 +18,6 @@ DEPLOY_PATH = env.deploy_path
 production = 'root@localhost:22'
 dest_path = '/var/www'
 
-# Rackspace Cloud Files configuration settings
-env.cloudfiles_username = 'my_rackspace_username'
-env.cloudfiles_api_key = 'my_rackspace_api_key'
-env.cloudfiles_container = 'my_cloudfiles_container'
-
 # Github Pages configuration
 env.github_pages_branch = "master"
 
@@ -109,9 +104,9 @@ def live(port=8080):
 	os.chdir('output')
 	server = livereload.Server()  # 4
 	webbrowser.open("http://127.0.0.1:8080")
-	server.watch('../content/*.rst',  # 5
+	server.watch('../content/*.md',  # 5
 		livereload.shell('pelican -s ../pelicanconf.py -o ../output'))  # 6
-	server.watch('../pelican-themes/cebong',  # 7
+	server.watch('../pelican-themes/cebong/',  # 7
 		livereload.shell('pelican -s ../pelicanconf.py -o ../output'))  # 8
 	server.watch('*.html')  # 9
 	server.watch('*.css')  # 10

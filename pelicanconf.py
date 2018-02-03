@@ -34,4 +34,4 @@ EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 PLUGIN_PATHS=['../pelican-plugins']
 PLUGINS = ["render_math"]
 
-RELATIVE_URLS = True
+#RELATIVE_URLS = True
