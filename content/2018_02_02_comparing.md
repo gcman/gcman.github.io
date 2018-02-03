@@ -6,4 +6,4 @@ Slug: comparing
 Summary:
 Status:
 
-Today we will compare the size of $e^\pi$ and $\pi^e$.
+Today we will compare the size of $e^\pi$ and $\pi^e$. Test.
