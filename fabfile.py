@@ -127,7 +127,10 @@ def publish(message,publish_drafts=False): # 2
 	clean()
 	build()
 	local('git add -A')
-	local('git commit -m"' + message + '"')
+	try:
+		local('git commit -m"' + message + '"')
+	except Exception:
+		pass
 	local('git push')
 	local('ghp-import output')  # 4
 	local('git push git@github.com:gcman/gcman.github.io.git gh-pages:master --force') # 5
