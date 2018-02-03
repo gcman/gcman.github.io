@@ -1,0 +1,9 @@
+Test Post
+#########
+
+:date: 2018-2-2 21:04
+:tags:
+:category:
+:slug: test-post
+:summary:
+:status: draft
