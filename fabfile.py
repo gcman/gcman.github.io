@@ -62,7 +62,7 @@ def serve():
 	"""Serve site at http://localhost:8000/"""
 	os.chdir(env.deploy_path)
 
-	class AddressReuseTCPServer(SocketServer.TCPServer):
+	class AddressReuseTCPServer(socketserver.TCPServer):
 		allow_reuse_address = True
 
 	server = AddressReuseTCPServer(('', PORT), ComplexHTTPRequestHandler)
@@ -111,7 +111,7 @@ def live(port=8080):
 	webbrowser.open("http://127.0.0.1:8080")
 	server.watch('../content/*.rst',  # 5
 		livereload.shell('pelican -s ../pelicanconf.py -o ../output'))  # 6
-	server.watch('../pelican-themes/cebong/',  # 7
+	server.watch('../pelican-themes/cebong',  # 7
 		livereload.shell('pelican -s ../pelicanconf.py -o ../output'))  # 8
 	server.watch('*.html')  # 9
 	server.watch('*.css')  # 10
