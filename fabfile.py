@@ -29,15 +29,13 @@ env.github_pages_branch = "master"
 # Port for `serve`
 PORT = 8000
 TEMPLATE = """
-{title}
-{hashes}
-
-:date: {year}-{month}-{day} {hour}:{minute:02d}
-:tags:
-:category:
-:slug: {slug}
-:summary:
-:status: draft
+Title: {title}
+Date: {year}-{month}-{day} {hour}:{minute:02d}
+Category:
+Tags:
+Slug: {slug}
+Summary:
+Status: draft
 
 
 """
@@ -82,29 +80,13 @@ def preview():
 	local('pelican -s publishconf.py')
 
 @hosts(production)
-def publish():
-	"""Publish to production via rsync"""
-	local('pelican -s publishconf.py')
-	project.rsync_project(
-		remote_dir=dest_path,
-		exclude=".DS_Store",
-		local_dir=DEPLOY_PATH.rstrip('/') + '/',
-		delete=True,
-		extra_opts='-c',
-	)
-
-def gh_pages():
-	"""Publish to GitHub Pages"""
-	rebuild()
-	local("ghp-import -b {github_pages_branch} {deploy_path} -p".format(**env))
 
 def post(title):
 	today = datetime.today()
 	slug = title.lower().strip().replace(' ', '-')
-	f_create = "content/{}_{:0>2}_{:0>2}_{}.rst".format(
+	f_create = "content/{}_{:0>2}_{:0>2}_{}.md".format(
 		today.year, today.month, today.day, slug)
 	t = TEMPLATE.strip().format(title=title,
-								hashes='#' * len(title),
 								year=today.year,
 								month=today.month,
 								day=today.day,
@@ -135,6 +117,15 @@ def live(port=8080):
 	server.watch('*.css')  # 10
 	server.serve(liveport=35729, port=port)  # 11
 
-def enter_dns_file():  # 1
-	with open('output/CNAME', 'w') as f:
-		f.write('gautammanohar.com')
+def publish(publish_drafts=False): # 2
+	try:  # 3
+		if os.path.exists('output/drafts'):
+			if not publish_drafts:
+				local('rm -rf output/drafts')
+	except Exception:
+		pass
+	clean()
+	build()
+	local('ghp-import output')  # 4
+	local('git push git@github.com:gcman/gcman.github.io.git gh-pages:master --force') # 5
+	local('git rm -rf output')  # 6
