@@ -132,6 +132,7 @@ def make_source():
 						copyfile(file,os.path.join(srcdir,slug+".md"))
 						local("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex "
 							+ file + " -o " + "../output/pdf/" + slug + ".pdf")
+	os.chdir("..")
 
 def publish(message,publish_drafts=False):
 	try:
@@ -148,7 +149,6 @@ def publish(message,publish_drafts=False):
 		local('git commit -m"' + message + '"')
 	except Exception:
 		pass
-	os.chdrir("..")
 	local('git push')
 	local('ghp-import output')
 	local('git push git@github.com:gcman/gcman.github.io.git gh-pages:master --force') # 5
