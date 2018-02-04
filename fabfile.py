@@ -143,12 +143,12 @@ def publish(message,publish_drafts=False):
 	clean()
 	build()
 	make_source()
+	print(os.getcwd())
 	local('git add -A')
 	try:
 		local('git commit -m"' + message + '"')
 	except Exception:
 		pass
-	print(os.getcwd())
 	local('git push')
 	local('ghp-import output')
 	local('git push git@github.com:gcman/gcman.github.io.git gh-pages:master --force') # 5
