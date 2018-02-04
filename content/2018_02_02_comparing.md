@@ -97,5 +97,6 @@ Taking the limit as $n$ approaches $\infty$ on both sides yields
 		1 + x &< e^x.
 	\end{split}
 \end{equation}
+We use the definition of $e$ to conclude our proof.
 
 If you have another method, please let me know!
