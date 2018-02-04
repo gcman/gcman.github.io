@@ -10,6 +10,6 @@ status: draft
 
 A well-known fact in Euclidean geometry is the following expression for the area of a triangle given its side lengths:
 \begin{equation}
-    
-    mar
+	A = \sqrt{s(s-a)(s-b)(s-c)},
 \end{equation}
+where $s$ is the semiperimeter of the triangle, $\frac{a+b+c}{2}$.

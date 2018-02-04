@@ -125,11 +125,11 @@ def make_source():
 					if "status" not in data or data["status"].lower() != "draft":
 						slug = data["slug"].lower()
 						out = os.path.join(os.path.dirname(os.getcwd()),"output")
-						srcdir = os.path.join(out,"src")
+						rawdir = os.path.join(out,"raw")
 						pdfdir = os.path.join(out,"pdf")
-						os.makedirs(srcdir,exist_ok=True)
+						os.makedirs(rawdir,exist_ok=True)
 						os.makedirs(pdfdir,exist_ok=True)
-						copyfile(file,os.path.join(srcdir,slug+".md"))
+						copyfile(file,os.path.join(rawdir,slug+".md"))
 						local("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex "
 							+ file + " -o " + "../output/pdf/" + slug + ".pdf")
 	os.chdir("..")
