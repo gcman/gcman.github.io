@@ -7,7 +7,9 @@ import socketserver
 from datetime import datetime
 import livereload
 import webbrowser
-
+import markdown2
+from itertools import chain
+from glob import iglob
 from pelican.server import ComplexHTTPRequestHandler
 
 # Local path configuration (can be absolute or relative to fabfile)
@@ -24,18 +26,30 @@ env.github_pages_branch = "master"
 # Port for `serve`
 PORT = 8000
 TEMPLATE = """
+---
 Title: {title}
-Date: {day} {month} {year}
+Date: {year}-{month}-{day}
 Category:
 Tags:
 Slug: {slug}
 Summary:
 ShortTitle: {title}
 Status: draft
+---
 
 
 """
 
+def make_source():
+	os.chdir('content')
+	rootdir = os.getcwd()
+	for subdir, dirs, files in os.walk(rootdir):
+		for file in files:
+			ext = os.path.splitext(file)[-1].lower()
+			if ext == ".md":
+				with open (file, "r") as f:
+					data = markdown2.markdown(f, extras=["metadata"])
+					print(data.metadata)
 def clean():
 	"""Remove generated files"""
 	if os.path.isdir(DEPLOY_PATH):
@@ -78,14 +92,14 @@ def preview():
 @hosts(production)
 
 def post(title):
-	today = date.today()
+	today = datetime.today()
 	slug = title.lower().strip().replace(' ', '-')
 	f_create = "content/{}_{:0>2}_{:0>2}_{}.md".format(
 		today.year, today.month, today.day, slug)
 	t = TEMPLATE.strip().format(title=title,
 								year=today.strftime("%Y"),
-								month=today.strftime("%B"),
-								day=today.strftime("%-d"),
+								month=today.strftime("%m"),
+								day=today.strftime("%d"),
 								slug=slug)
 	with open(f_create, 'w') as w:
 		w.write(t)

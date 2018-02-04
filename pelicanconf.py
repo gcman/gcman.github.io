@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Gautam Manohar'
-SITENAME = "Gautam's Blog"
+SITENAME = "Gautam Manohar"
 SITEURL = 'http://gautammanohar.com'
 
 PATH = 'content'
@@ -26,6 +26,7 @@ LINKS = ()
 SOCIAL = ()
 
 TYPOGRIFY = True
+MATH_JAX = {'tex_extensions': ['color.js']}
 
 DEFAULT_PAGINATION = False
 

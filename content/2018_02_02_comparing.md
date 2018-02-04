@@ -1,11 +1,13 @@
-Title: Comparing $e^\pi\quad\!\!\!$ and $\pi^e$
-Date: 2 February 2018
+---
+Title: Comparing $e^\pi$ and $\pi^e$
+Date: 2018-02-02
 Category: math
 Tags: calculus, proof
 Slug: e-pi
 Summary:
-ShortTitle: Comparing e and pi
+ShortTitle: Comparing Powers of e and pi
 Status:
+---
 
 The constants $e$ and $\pi$ are everywhere in mathematics.
 Determining the greater of the two expressions $e^\pi$ and $\pi^e$ (without using a calculator, of course...) is a fun puzzle that you can approach in many ways.
@@ -99,4 +101,4 @@ Taking the limit as $n$ approaches $\infty$ on both sides yields
 \end{equation}
 We use the limit definition of $e$ to conclude our proof.
 
-If you have another method, please let me know!
+I get the feeling that there are many other ways to attack this problem. If you can solve it with a method that I have not shown, please let me know!
