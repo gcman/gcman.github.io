@@ -142,7 +142,7 @@ def publish(message,publish_drafts=False):
 		pass
 	clean()
 	build()
-	#make_source()
+	make_source()
 	local('git add -A')
 	try:
 		local('git commit -m"' + message + '"')
