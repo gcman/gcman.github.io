@@ -1,9 +1,10 @@
 Title: Comparing $e^\pi\quad\!\!\!$ and $\pi^e$
-Date: 2018-2-2 22:26
+Date: 2-2-2018 22:26
 Category: math
 Tags: calculus, proof
 Slug: e-pi
 Summary:
+ShortTitle: Comparing e and pi
 Status:
 
 The constants $e$ and $\pi$ are everywhere in mathematics.
@@ -40,6 +41,7 @@ And so $e^{\frac{1}{e}} > \pi^{\frac{1}{\pi}}$, which shows that $e^\pi > \pi^e$
 
 # Inequality
 If we use the inequality $1 + x < e^x$ (I will present three proofs of this below), then a very simple solution presents itself.
+The equality holds for all $x$, but we only require it to hold for positive $x$.
 Make the substitution $x = \frac{\pi}{e} - 1$, in an effort to cancel out the 1 on the right side of the inequality and introduce $\pi$.
 Because $\pi>e$, $\frac{\pi}{e} - 1 > 0$, and so
 \begin{equation}
@@ -54,6 +56,7 @@ Wonderful, isn't it?
 
 ## Taylor Series
 This is the most standard proof I have; I think it's the least exciting.
+We only prove the equality for positive $x$.
 We know
 \begin{equation}
 	e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
@@ -63,7 +66,7 @@ Thus for $x > 0$, all the terms on the right side will be positive, and so $e^x 
 ## Concavity
 This method requires a little more "geometric intuition" than the last.
 At $x = 0$, we have $e^x = 1$.
-At this point $(0,1)$, the tangent line to $e^x$ has slope 1 and has the equation $y = 1 + x$.
+At this point $(0,1)$, the tangent line to $e^x$ has slope $1$ and has the equation $y = 1 + x$.
 Because $(e^x)'' = e^x > 0$, $e^x$ is always concave up, so it is always above its tangent line.
 Therefore, $1 + x < e^x$.
 
@@ -94,3 +97,5 @@ Taking the limit as $n$ approaches $\infty$ on both sides yields
 		1 + x &< e^x.
 	\end{split}
 \end{equation}
+
+If you have another method, please let me know!

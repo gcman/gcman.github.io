@@ -25,11 +25,12 @@ env.github_pages_branch = "master"
 PORT = 8000
 TEMPLATE = """
 Title: {title}
-Date: {year}-{month}-{day} {hour}:{minute:02d}
+Date: {day}-{month}-{year} {hour}:{minute:02d}
 Category:
 Tags:
 Slug: {slug}
 Summary:
+ShortTitle: {title}
 Status: draft
 
 
