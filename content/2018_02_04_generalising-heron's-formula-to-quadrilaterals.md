@@ -1,11 +1,9 @@
 ---
-Title: Generalising Heron's Formula to Quadrilaterals
-Subtitle: Deriving Brahmagupta's Formula
-Date: 2018-02-04
-Category: math
-Tags: geometry, proof
-Slug: herons-formula
-Summary:
-ShortTitle: Generalising Heron's Formula to Quadrilaterals
-Status: draft
+title: Generalising Heron's Formula to Quadrilaterals
+subtitle: Deriving Brahmagupta's Formula
+date: 4 February 2018
+category: math
+tags: geometry, proof
+slug: herons-formula
+status: draft
 ---

@@ -1,12 +1,10 @@
 ---
-Title: Comparing $e^\pi$ and $\pi^e$
-Date: 2018-02-02
-Category: math
-Tags: calculus, proof
-Slug: e-pi
-Summary:
-ShortTitle: Comparing Powers of e and pi
-Status:
+title: Comparing $e^\pi$ and $\pi^e$
+shorttitle: Comparing Powers of e and pi
+date: 2 February 2018
+category: math
+tags: calculus, proof
+slug: e-pi
 ---
 
 The constants $e$ and $\pi$ are everywhere in mathematics.
@@ -29,7 +27,7 @@ Then we can implicitly differentiate to find the critical points.
 	\begin{split}
 		\ln{y} &= \ln{x^{\frac{1}{x}}} \\
 		\ln{y} &= \frac{\ln{x}}{x} \\
-		\frac{d}{dx}\ln{y} &= \frac{d}{dx}\frac{\ln{x}}{x} \\
+		\diff{}{x}\ln{y} &= \diff{}{x}\frac{\ln{x}}{x} \\
 		\frac{1}{y}y' &= \frac{x\left(\frac{1}{x}\right) - \ln{x}\cdot1}{x^2} \\
 		y' &= x^{\frac{1}{x}}\frac{1 - \ln{x}}{x^2}.
 	\end{split}

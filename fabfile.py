@@ -10,6 +10,7 @@ import webbrowser
 import markdown2
 from itertools import chain
 from glob import iglob
+from shutil import copyfile
 from pelican.server import ComplexHTTPRequestHandler
 
 # Local path configuration (can be absolute or relative to fabfile)
@@ -27,29 +28,16 @@ env.github_pages_branch = "master"
 PORT = 8000
 TEMPLATE = """
 ---
-Title: {title}
-Date: {year}-{month}-{day}
-Category:
-Tags:
-Slug: {slug}
-Summary:
-ShortTitle: {title}
-Status: draft
+title: {title}
+date: {day} {month} {year}
+category:
+tags:
+slug: {slug}
+status: draft
 ---
 
 
 """
-
-def make_source():
-	os.chdir('content')
-	rootdir = os.getcwd()
-	for subdir, dirs, files in os.walk(rootdir):
-		for file in files:
-			ext = os.path.splitext(file)[-1].lower()
-			if ext == ".md":
-				with open (file, "r") as f:
-					data = markdown2.markdown(f, extras=["metadata"])
-					print(data.metadata)
 def clean():
 	"""Remove generated files"""
 	if os.path.isdir(DEPLOY_PATH):
@@ -98,8 +86,8 @@ def post(title):
 		today.year, today.month, today.day, slug)
 	t = TEMPLATE.strip().format(title=title,
 								year=today.strftime("%Y"),
-								month=today.strftime("%m"),
-								day=today.strftime("%d"),
+								month=today.strftime("%B"),
+								day=today.strftime("%d").lstrip("0"),
 								slug=slug)
 	with open(f_create, 'w') as w:
 		w.write(t)
@@ -125,20 +113,41 @@ def live(port=8080):
 	server.watch('*.css')  # 10
 	server.serve(liveport=35729, port=port)  # 11
 
-def publish(message,publish_drafts=False): # 2
-	try:  # 3
+def make_source():
+	os.chdir('content')
+	rootdir = os.getcwd()
+	for subdir, dirs, files in os.walk(rootdir):
+		for file in files:
+			ext = os.path.splitext(file)[-1].lower()
+			if ext == ".md":
+				with open (file, "r") as f:
+					data = markdown2.markdown(f.read(), extras=["metadata"]).metadata
+					if "status" not in data or data["status"].lower() != "draft":
+						slug = data["slug"].lower()
+						out = os.path.join(os.path.dirname(os.getcwd()),"output")
+						srcdir = os.path.join(out,"src")
+						pdfdir = os.path.join(out,"pdf")
+						os.makedirs(srcdir,exist_ok=True)
+						os.makedirs(pdfdir,exist_ok=True)
+						copyfile(file,os.path.join(srcdir,slug+".md"))
+						local("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex "
+							+ file + " -o " + "../output/pdf/" + slug + ".pdf")
+
+def publish(message,publish_drafts=False):
+	try:
 		if os.path.exists('output/drafts'):
 			if not publish_drafts:
-				local('rm -rf output/drafts')
+				local('rd /s /q "output/drafts"')
 	except Exception:
 		pass
 	clean()
 	build()
+	#make_source()
 	local('git add -A')
 	try:
 		local('git commit -m"' + message + '"')
 	except Exception:
 		pass
 	local('git push')
-	local('ghp-import output')  # 4
+	local('ghp-import output')
 	local('git push git@github.com:gcman/gcman.github.io.git gh-pages:master --force') # 5
