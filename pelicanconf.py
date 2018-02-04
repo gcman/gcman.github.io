@@ -25,13 +25,17 @@ LINKS = ()
 # Social widget
 SOCIAL = ()
 
+TYPOGRIFY = True
+
 DEFAULT_PAGINATION = False
 
-THEME = "../pelican-themes/cebong"
+DEFAULT_DATE_FORMAT = ('%-d %B %Y')
+
+THEME = "../pelican-themes/gcman"
 STATIC_PATHS = ['images', 'extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
 PLUGIN_PATHS=['../pelican-plugins']
 PLUGINS = ["render_math"]
 
-#RELATIVE_URLS = True
+RELATIVE_URLS = True

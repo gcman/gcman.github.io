@@ -25,7 +25,7 @@ env.github_pages_branch = "master"
 PORT = 8000
 TEMPLATE = """
 Title: {title}
-Date: {day}-{month}-{year} {hour}:{minute:02d}
+Date: {day} {month} {year}
 Category:
 Tags:
 Slug: {slug}
@@ -78,16 +78,14 @@ def preview():
 @hosts(production)
 
 def post(title):
-	today = datetime.today()
+	today = date.today()
 	slug = title.lower().strip().replace(' ', '-')
 	f_create = "content/{}_{:0>2}_{:0>2}_{}.md".format(
 		today.year, today.month, today.day, slug)
 	t = TEMPLATE.strip().format(title=title,
-								year=today.year,
-								month=today.month,
-								day=today.day,
-								hour=today.hour,
-								minute=today.minute,
+								year=today.strftime("%Y"),
+								month=today.strftime("%B"),
+								day=today.strftime("%-d"),
 								slug=slug)
 	with open(f_create, 'w') as w:
 		w.write(t)

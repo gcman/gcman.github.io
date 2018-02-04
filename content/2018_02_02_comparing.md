@@ -1,5 +1,5 @@
 Title: Comparing $e^\pi\quad\!\!\!$ and $\pi^e$
-Date: 2-2-2018 22:26
+Date: 2 February 2018
 Category: math
 Tags: calculus, proof
 Slug: e-pi
