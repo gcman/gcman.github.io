@@ -8,4 +8,8 @@ slug: herons-formula
 status: draft
 ---
 
-A well
+A well-known fact in Euclidean geometry is the following expression for the area of a triangle given its side lengths:
+\begin{equation}
+    
+    mar
+\end{equation}
