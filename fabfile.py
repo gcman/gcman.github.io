@@ -11,6 +11,7 @@ import markdown2
 from itertools import chain
 from glob import iglob
 from shutil import copyfile
+from git import Repo
 from pelican.server import ComplexHTTPRequestHandler
 
 # Local path configuration (can be absolute or relative to fabfile)
@@ -38,6 +39,15 @@ status: draft
 
 
 """
+repo = Repo(os.path.dirname(__file__))
+assert not repo.bare
+diff = [os.path.basename(x) for x in [item.a_path for item in repo.index.diff(None)]]
+
+def remove_prefix(text, prefix):
+    if text.startswith(prefix):
+        return text[len(prefix):]
+    return text
+
 def clean():
 	"""Remove generated files"""
 	if os.path.isdir(DEPLOY_PATH):
@@ -136,18 +146,26 @@ def make_source():
 		for file in files:
 			ext = os.path.splitext(file)[-1].lower()
 			if ext == ".md":
-				with open(file, "r") as f:
-					data = markdown2.markdown(f.read(), extras=["metadata"]).metadata
-					slug = data["slug"].lower()
-					out = os.path.join(os.path.dirname(os.getcwd()),"output")
-					rawdir = os.path.join(out,"raw")
-					pdfdir = os.path.join(out,"pdf")
-					os.makedirs(rawdir,exist_ok=True)
-					os.makedirs(pdfdir,exist_ok=True)
-					copyfile(file,os.path.join(rawdir,slug+".md"))
-					local("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex "
-						+ file + " -o " + "../output/pdf/" + slug + ".pdf")
+				if os.path.basename(file) in diff:
+					with open(file, "r") as f:
+						data = markdown2.markdown(f.read(), extras=["metadata"]).metadata
+						slug = data["slug"].lower()
+						out = os.path.join(os.path.dirname(os.getcwd()),"output")
+						rawdir = os.path.join(out,"raw")
+						pdfdir = os.path.join(out,"pdf")
+						os.makedirs(rawdir,exist_ok=True)
+						os.makedirs(pdfdir,exist_ok=True)
+						copyfile(file,os.path.join(rawdir,slug+".md"))
+						local("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex "
+							+ file + " -o " + "../output/pdf/" + slug + ".pdf")
 	os.chdir("..")
+
+def del_tex2pdf():
+	os.chdir('content')
+	rootdir = os.getcwd()
+	for d in os.listdir(rootdir):
+		if d.startswith("tex2pdf"):
+			local('rd /s /q ' + d)
 
 def publish(message,publish_drafts=False):
 	try:
@@ -160,6 +178,7 @@ def publish(message,publish_drafts=False):
 	build()
 	make_figs()
 	make_source()
+	del_tex2pdf()
 	local('git add -A')
 	try:
 		local('git commit -m"' + message + '"')
