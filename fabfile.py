@@ -166,6 +166,7 @@ def del_tex2pdf():
 	for d in os.listdir(rootdir):
 		if d.startswith("tex2pdf"):
 			local('rd /s /q ' + d)
+	os.chdir("..")
 
 def publish(message,publish_drafts=False):
 	try:
