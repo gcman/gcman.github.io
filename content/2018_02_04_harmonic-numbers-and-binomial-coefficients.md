@@ -13,6 +13,7 @@ The $n$-th harmonic number is defined as the sum of reciprocals of the first $n$
 We wish to prove the following identity involving harmonic numbers and binomial coefficients:
 \begin{equation}
 	\sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
+	\label{identity}
 \end{equation}
 I have two solutions: one with calculus, and one by induction.
 
@@ -20,8 +21,9 @@ I have two solutions: one with calculus, and one by induction.
 First, we notice that
 \begin{equation}
 	\int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Bigr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.
+	\label{integral-rep}
 \end{equation}
-Then
+Then, substituting \eqref{integral-rep} into \eqref{identity} gives
 \begin{equation}
 	\sum\limits_{k=1}^n \frac{1}{k} = \sum\limits_{k=1}^n \int_0^1 x^{k-1} \d x.
 \end{equation}
@@ -29,15 +31,20 @@ Because this is a finite sum of converging integrals, we can switch the sum and 
 \begin{equation}
 	\int_0^1 \sum\limits_{k=1}^n x^{k-1} \d x.
 \end{equation}
-Notice that the sum is a geometric series:
+This sum is a geometric series!
+We can use the formula for the $n$-th partial sum of a geometric series.
 \begin{equation}
 	1 + x + x^2 + \cdots + x^{n-1} = \frac{1 - x^n}{1-x}.
 \end{equation}
-Then we can solve the integral, using the substitution $x = 1-u, \d x = -\d u$ and applying the binomial theorem:
+Then we can solve the integral, using the substitution $x = 1-u, \d x = -\d u$.
+\begin{equation}
+	\int_0^1 \frac{1 - x^n}{1-x} \d x = -\int_1^0 \frac{1 - (1-u)^n}{u} \d u \\
+\end{equation}
+Now the motivation for substituting $x = 1-u$ becomes clear.
+We can expand the $(1-u)^n$ term using the binomial theorem:
 \begin{equation}
 	\begin{split}
-		\int_0^1 \frac{1 - x^n}{1-x} \d x &= -\int_1^0 \frac{1 - (1-u)^n}{u} \d u \\
-		&= \int_0^1 \frac{1}{u}\left( 1 - \sum\limits_{k=0}^n \binom{n}{k}(-1)^ku^k \right) \d x \\
+		-\int_1^0 \frac{1 - (1-u)^n}{u} \d u &= \int_0^1 \frac{1}{u}\left( 1 - \sum\limits_{k=0}^n \binom{n}{k}(-1)^ku^k \right) \d x \\
 		&= -\int_0^1 \frac{1}{u}\left(\sum\limits_{k=0}^n \binom{n}{k}(-1)^ku^k - 1 \right) \d x \\
 		&= -\int_0^1 \frac{1}{u}\sum\limits_{k=1}^n \binom{n}{k}(-1)^ku^k \d x \\
 		&= -\int_0^1 \sum\limits_{k=1}^n \binom{n}{k}(-1)^ku^{k-1} \d x \\
@@ -45,7 +52,7 @@ Then we can solve the integral, using the substitution $x = 1-u, \d x = -\d u$ a
 		&= -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
 	\end{split}
 \end{equation}
-This concludes our proof.
+This concludes our proof of \eqref{identity}.
 
 # Induction
 We first show that
@@ -53,8 +60,8 @@ We first show that
 	\frac{1}{k+1}\binom{n}{k} = \frac{1}{n+1}\binom{n+1}{k+1}.
 	\label{lemma-1}
 \end{equation}
-We use the factorial representation.
-The left-hand side equals
+We can expand the binomial coefficients with their factorial representation.
+Then the left-hand side equals
 \begin{equation}
 	\frac{1}{k+1}\binom{n}{k} = \frac{1}{k+1}\frac{n!}{k!(n-k)!} = \frac{n!}{(k+1)!(n-k)!},
 \end{equation}
@@ -78,7 +85,10 @@ We use \eqref{lemma-1}:
 		&= \frac{1}{n+1}.
 	\end{split}
 \end{equation}
-We now use induction to prove our main claim.
+We can now use induction to prove our main claim.
+Let's first show the base case for $n = 1$.
+The left side of \eqref{identity} is clearly $1$, while the right side is $-(-1) = 1$.
+So the base case holds.
 Assume inductively that
 \begin{equation}
 	\sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
@@ -112,6 +122,9 @@ Applying \eqref{lemma-2} yields
 \end{equation}
 By the inductive hypothesis, we have
 \begin{equation}
-	- \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \frac{1}{n+1} = \sum\limits_{k=1}^n \frac{1}{k} + \frac{1}{n+1} = \sum\limits_{k=1}^{n+1} \frac{1}{k},
+	\begin{split}
+		- \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \frac{1}{n+1} &= \sum\limits_{k=1}^n \frac{1}{k} + \frac{1}{n+1} \\
+		&= \sum\limits_{k=1}^{n+1} \frac{1}{k},
+	\end{split}
 \end{equation}
 which closes the induction.
