@@ -33,7 +33,7 @@ DEFAULT_PAGINATION = False
 DEFAULT_DATE_FORMAT = ('%-d %B %Y')
 
 THEME = "../pelican-themes/gcman"
-STATIC_PATHS = ['images', 'extra/CNAME']
+STATIC_PATHS = ['images', 'figures', 'extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
 PLUGIN_PATHS=['../pelican-plugins']

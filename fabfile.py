@@ -113,6 +113,22 @@ def live(port=8080):
 	server.watch('*.css')  # 10
 	server.serve(liveport=35729, port=port)  # 11
 
+def make_figs():
+	os.chdir('content/figures')
+	rootdir = os.getcwd()
+	for subdir, dirs, files in os.walk(rootdir):
+		for file in files:
+			ext = os.path.splitext(file)[-1].lower()
+			if ext == ".tex":
+				local("latexmk " + file + " -pdf -quiet")
+				local("latexmk -c")
+	for subdir, dirs, files in os.walk(rootdir):
+		for file in files:
+			ext = os.path.splitext(file)[-1].lower()
+			if ext == ".pdf":
+				local("magick -density 400 -background none -colorspace rgb -type truecolor " + file + " -quality 1000 -trim " + file.strip(".pdf") + ".jpg")
+	os.chdir("../..")
+
 def make_source():
 	os.chdir('content')
 	rootdir = os.getcwd()
@@ -120,18 +136,17 @@ def make_source():
 		for file in files:
 			ext = os.path.splitext(file)[-1].lower()
 			if ext == ".md":
-				with open (file, "r") as f:
+				with open(file, "r") as f:
 					data = markdown2.markdown(f.read(), extras=["metadata"]).metadata
-					if "status" not in data or data["status"].lower() != "draft":
-						slug = data["slug"].lower()
-						out = os.path.join(os.path.dirname(os.getcwd()),"output")
-						rawdir = os.path.join(out,"raw")
-						pdfdir = os.path.join(out,"pdf")
-						os.makedirs(rawdir,exist_ok=True)
-						os.makedirs(pdfdir,exist_ok=True)
-						copyfile(file,os.path.join(rawdir,slug+".md"))
-						local("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex "
-							+ file + " -o " + "../output/pdf/" + slug + ".pdf")
+					slug = data["slug"].lower()
+					out = os.path.join(os.path.dirname(os.getcwd()),"output")
+					rawdir = os.path.join(out,"raw")
+					pdfdir = os.path.join(out,"pdf")
+					os.makedirs(rawdir,exist_ok=True)
+					os.makedirs(pdfdir,exist_ok=True)
+					copyfile(file,os.path.join(rawdir,slug+".md"))
+					local("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex "
+						+ file + " -o " + "../output/pdf/" + slug + ".pdf")
 	os.chdir("..")
 
 def publish(message,publish_drafts=False):
@@ -143,6 +158,7 @@ def publish(message,publish_drafts=False):
 		pass
 	clean()
 	build()
+	make_figs()
 	make_source()
 	local('git add -A')
 	try:
