@@ -44,15 +44,20 @@ assert not repo.bare
 diff = [os.path.basename(x) for x in [item.a_path for item in repo.index.diff(None)]]
 
 def remove_prefix(text, prefix):
-    if text.startswith(prefix):
-        return text[len(prefix):]
-    return text
+	if text.startswith(prefix):
+		return text[len(prefix):]
+	return text
 
 def clean():
 	"""Remove generated files"""
 	if os.path.isdir(DEPLOY_PATH):
-		shutil.rmtree(DEPLOY_PATH)
-		os.makedirs(DEPLOY_PATH)
+		keep = ["pdf","raw","figures"]
+		for file in [x for x in os.walk(DEPLOY_PATH)][0][2]:
+			os.remove(os.path.join(DEPLOY_PATH,file))
+		for dir in [x for x in os.walk(DEPLOY_PATH)][0][1]:
+			if dir not in keep:
+				shutil.rmtree(os.path.join(DEPLOY_PATH,dir))
+		os.makedirs(DEPLOY_PATH,exist_ok=True)
 
 def build():
 	"""Build local version of site"""
@@ -130,13 +135,15 @@ def make_figs():
 		for file in files:
 			ext = os.path.splitext(file)[-1].lower()
 			if ext == ".tex":
-				local("latexmk " + file + " -pdf -quiet")
-				local("latexmk -c")
+				if file in diff or not os.path.isfile(os.path.join(rootdir,os.path.splitext(file)[0]+".pdf")):
+					local("latexmk " + file + " -pdf -quiet")
+					local("latexmk -c")
 	for subdir, dirs, files in os.walk(rootdir):
 		for file in files:
 			ext = os.path.splitext(file)[-1].lower()
 			if ext == ".pdf":
-				local("magick -density 400 -background none -colorspace rgb -type truecolor " + file + " -quality 1000 -trim " + file.strip(".pdf") + ".jpg")
+				if file in diff or not os.path.isfile(os.path.join(rootdir,os.path.splitext(file)[0]+".jpg")):
+					local("magick -density 400 -background none -colorspace rgb -type truecolor " + file + " -quality 1000 -trim " + file.strip(".pdf") + ".jpg")
 	os.chdir("../..")
 
 def make_source():
@@ -146,16 +153,17 @@ def make_source():
 		for file in files:
 			ext = os.path.splitext(file)[-1].lower()
 			if ext == ".md":
-				if os.path.basename(file) in diff:
-					with open(file, "r") as f:
-						data = markdown2.markdown(f.read(), extras=["metadata"]).metadata
-						slug = data["slug"].lower()
-						out = os.path.join(os.path.dirname(os.getcwd()),"output")
-						rawdir = os.path.join(out,"raw")
-						pdfdir = os.path.join(out,"pdf")
-						os.makedirs(rawdir,exist_ok=True)
-						os.makedirs(pdfdir,exist_ok=True)
+				with open(file, "r") as f:
+					data = markdown2.markdown(f.read(), extras=["metadata"]).metadata
+					slug = data["slug"].lower()
+					out = os.path.join(os.path.dirname(os.getcwd()),"output")
+					rawdir = os.path.join(out,"raw")
+					pdfdir = os.path.join(out,"pdf")
+					os.makedirs(rawdir,exist_ok=True)
+					os.makedirs(pdfdir,exist_ok=True)
+					if file in diff or not os.path.isfile(os.path.join(rawdir,slug+".md")):
 						copyfile(file,os.path.join(rawdir,slug+".md"))
+					if file in diff or not os.path.isfile(os.path.join(pdfdir,slug+".pdf")):
 						local("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex "
 							+ file + " -o " + "../output/pdf/" + slug + ".pdf")
 	os.chdir("..")
@@ -175,7 +183,7 @@ def publish(message,publish_drafts=False):
 				local('rd /s /q "output/drafts"')
 	except Exception:
 		pass
-	clean()
+	#clean()
 	build()
 	make_figs()
 	make_source()

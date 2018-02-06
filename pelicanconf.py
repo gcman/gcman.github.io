@@ -37,6 +37,18 @@ STATIC_PATHS = ['images', 'figures', 'extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
 PLUGIN_PATHS=['../pelican-plugins']
-PLUGINS = ["render_math"]
+PLUGINS = ["render_math","pelican-toc"]
+
+TOC = {
+    'TOC_HEADERS'       : '^h[1-2]', # What headers should be included in
+                                     # the generated toc
+                                     # Expected format is a regular expression
+
+    'TOC_RUN'           : 'true',    # Default value for toc generation,
+                                     # if it does not evaluate
+                                     # to 'true' no toc will be generated
+
+    'TOC_INCLUDE_TITLE': 'false',     # If 'true' include title in toc
+}
 
 RELATIVE_URLS = True
