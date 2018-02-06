@@ -37,7 +37,7 @@ STATIC_PATHS = ['images', 'figures', 'extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
 PLUGIN_PATHS=['../pelican-plugins']
-PLUGINS = ["render_math","pelican-toc"]
+PLUGINS = ["render_math","pelican-toc","neighbors"]
 
 TOC = {
     'TOC_HEADERS'       : '^h[1-2]', # What headers should be included in

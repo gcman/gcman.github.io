@@ -1,7 +1,7 @@
 ---
 title: Generalizing Heron's Formula to Quadrilaterals
 subtitle: Deriving Brahmagupta's Formula
-date: 4 February 2018
+date: 3 February 2018
 category: math
 tags: geometry, proof
 slug: herons-formula
