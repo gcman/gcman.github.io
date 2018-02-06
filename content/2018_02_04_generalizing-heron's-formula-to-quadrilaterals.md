@@ -20,7 +20,7 @@ Just like in proofs of Heron's formula that use trigonometry, we will use the fo
 and the cosine law.
 Our strategy will be to square these expressions and use the Pythagorean trigonometric identity.
 Consider a quadrilateral $ABCD$ with side lengths $a,b,c,d$.
-![**Figure 1.** Constructing our quadrilateral.](http://gautammanohar.com/figures/herons-quadrilateral.jpg{ width=50% }
+![**Figure 1.** Constructing our quadrilateral.](http://gautammanohar.com/figures/herons-quadrilateral.jpg){ width=50% }
 
 Then its area is the sum of the areas of the triangles $ABD$ and $BCD$.
 Let $A$ denote the area of quadrilateral $ABCD$.
