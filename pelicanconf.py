@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+import markdown
+import figureAltCaption
 
 AUTHOR = 'Gautam Manohar'
 SITENAME = "Gautam Manohar"
@@ -26,11 +28,12 @@ LINKS = ()
 SOCIAL = ()
 
 TYPOGRIFY = True
-MATH_JAX = {'tex_extensions': ['color.js']}
 
 DEFAULT_PAGINATION = False
 
 DEFAULT_DATE_FORMAT = ('%-d %B %Y')
+
+DEFAULT_CATEGORY = 'misc'
 
 THEME = "../pelican-themes/gcman"
 STATIC_PATHS = ['images', 'figures', 'extra/CNAME', 'extra/404.html']
@@ -38,7 +41,7 @@ EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},'extra/404.html': {'path
 
 READERS = {'html': None}
 
-PLUGIN_PATHS=['../pelican-plugins']
+PLUGIN_PATHS = ['../pelican-plugins']
 PLUGINS = ["render_math","pelican-toc","neighbors"]
 
 TOC = {
@@ -51,6 +54,15 @@ TOC = {
                                      # to 'true' no toc will be generated
 
     'TOC_INCLUDE_TITLE': 'false',     # If 'true' include title in toc
+}
+
+MARKDOWN = {
+    'extensions' : ['markdown.extensions.codehilite',
+    'markdown.extensions.extra',
+    ],
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'css_class': 'highlight', 'guess_lang': 'True','use_pygments': 'True'},
+    }
 }
 
 RELATIVE_URLS = True
