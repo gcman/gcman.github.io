@@ -3,8 +3,7 @@ title: Inspheres and Circumspheres of Simplices
 date: 11 February 2018
 category: math
 tags: algebra, proof
-slug: tetrahedra-sphere
-status: draft
+slug: simplex-sphere
 ---
 
 *This post was inspired by the fifth question on the University of Toronto Math Academy 2018 [Qualifying Quiz](http://mathplus.math.utoronto.ca/home/ma/MathAcademyQualifyingQuiz5.pdf)*
@@ -38,6 +37,8 @@ Thus the ratio of the circumradius to the inradius in a regular tetrahedron is $
 # Irregular Tetrahedra
 We use coordinate geometry and linear algebra to find the inradius and circumradius (and incenter and circumcenter) of a tetrahedron given the coordinates of its vertices.
 To avoid immense computational tedium, we use programming to numerically solve for the desired ratio.
+
+## Insphere 
 
 Let's first deal with the insphere.
 Let $(a,b,c)$ be the vector that gives the coordinates of the incenter, and let $r$ be the inradius.
@@ -145,6 +146,9 @@ Then
 \end{equation}
 And so the inradius $r$ is the fourth element of $\vec{v}$, or $\vec{v}_4$.
 
+
+## Circumsphere
+
 Now we deal with the circumsphere.
 Let the circumsphere have center $(A,B,C)$ and radius $R$.
 It then has the equation
@@ -216,63 +220,8 @@ Let's use the first one.
 \end{equation}
 
 Although we could compute the components of $\vec{n}_i$ by doing long and tedious calculations with cross products, dot products, and norms and invert our matrices using, say, Gaussian elimination, the closed form expressions for the inradius $r$ and the circumradius $R$ would be very unwieldy and so not very useful.
-Instead, we shall use `Python` and its `numpy` package.
 
-Let's set up two functions: one to find the tetrahedron's insphere and one for its circumsphere.
-We have our function `insphere` take an input `v`, which is a list of four objects, each a list (vector) with the $x,y,z$ coordinates of the tetrahedron's vertices.
-Then we set up `faces`.
-Each face of the tetrahedron comprises three vertices.
-Then there are $\binom{4}{3} = 4$ ways to choose those vertices and thus $4$ faces.
-Each list in `faces` contains the three vertices that make up a face and, as its last element, the final vertex.
-
-```python
-from math import sqrt
-def insphere(v):
-    faces = [[v[0],v[1],v[2],v[3]],
-            [v[0],v[1],v[3],v[2]],
-            [v[0],v[2],v[3],v[1]],
-            [v[1],v[2],v[3],v[0]]]
-```
-
-Now we can carry out the procedure in \eqref{normalized}.
-For each face, we pick a point (let's use the first point of the face) and compute the cross product of the displacement vectors from it to the other two vertices of the face (the edge vectors).
-We then scale that cross product by the dot product of the displacement vector between that point and the remaining point.
-We finally normalize the vector.
-
-```python
-    normals = []
-    for f in faces:
-        c = np.cross(f[1] - f[0], f[2] - f[0])
-        unnormed = c * np.vdot(c, f[3] - f[0])
-        normals.append(-unnormed / np.linalg.norm(unnormed))
-```
-
-We now have a list `normals` such that the $i$-th element is the unit outward-facing normal vector for the $i$-th face.
-We can now set up the matrices and solve, as in \eqref{insphere-A} and \eqref{insphere-B}.
-
-```python
-    A = np.array([[i[0], i[1], i[2], i[0]**2 + i[1]**2 + i[2]**2] for i in normals])
-    B = np.array([sum([v[i][j]*normals[i][j] for j in range(3)]) for i in range(4)])
-    return np.linalg.solve(A,B)
-```
-We return the solution set, as in \eqref{insphere-sols}.
-Next we can set up the `circumsphere` function.
-First, we set up the matrices and solve the equation (as in \eqref{circumsphere-A} and \eqref{circumsphere-B}).
-
-```python
-def circumsphere(v):
-    A = 2 * np.array([[v[0][i] - v[j+1][i] for i in range(3)] for j in range(3)])
-    B = np.array([[sum([v[0][i]**2 - v[j+1][i]**2 for i in range(3)])] for j in range(3)])
-    sols = np.linalg.solve(A,B)
-```
-Then we use those values to solve for the circumradius $R$, which we append to our solution set and return.
-
-```python
-    R = sqrt(sum([(v[0][i] - sols[i][0])**2 for i in range(3)]))
-    return np.append(sols,[R])
-```
-
-# Generalizing to $n$-Simplices
+# Generalizing to n-Simplices
 
 Our method generalizes readily to higher dimensions.
 The dot product generalizes very simply.
@@ -298,6 +247,10 @@ We can then write our generalized cross product of $n-1$ vectors in $n$-dimensio
 		\vec{b}_1 & \cdots & \vec{b}_{n}
 	\end{vmatrix}
 \end{equation}
+But we can get even simpler.
+Determinants can get hard to compute as they get large.
+And because we are only interested in the cross product for its *direction* (and not its magnitude; we normalize everything later anyway), we can use a simpler method.
+Any element of the kernel of the $n-1$ by $n$ matrix given by taking the $n-1$ vectors to be rows is in the orthogonal direction to all the given vectors.
 
 An $n$ simplex is given by $n+1$ points, given by the vectors $\vec{V}_i$, where $i$ is an integer from $1$ to $n+1$.
 Each of these vectors has $n$ components, $\vec{V}_i^j$, where $j$ is an integer from $1$ to $n$.
@@ -307,7 +260,7 @@ Again, let's first deal with the insphere:
 ## Insphere
 Let the vector representing the insphere's coordinates have $n$ components $c_i$.
 Imitating \eqref{normalized}, we have
-\begin{equation}
+\begin{equation} \label{general-insphere}
 	\vec{n}_1 = -\frac{\vec{C}(\vec{C}\cdot(\vec{V}_{n+1} - \vec{V}_1))}{\vec{C}(\vec{C}\cdot(\vec{V}_{n+1} - \vec{V}_1))},
 \end{equation}
 where
@@ -315,13 +268,13 @@ where
 	\vec{C} = \mathscr{C}((\vec{V}_2 - \vec{V}_1)\times(\vec{V}_3 - \vec{V}_1)\times \cdots \times (\vec{V}_{n} - \vec{V}_1)).
 \end{equation}
 Then we can use matrices again:
-\begin{equation}
+\begin{equation} \label{general-insphere-A}
 	\vec{A} =
 	\begin{bmatrix}
 		\vec{n}_i^j & \sum (\vec{n}_i^j)^2
 	\end{bmatrix}
 \end{equation}
-\begin{equation}
+\begin{equation} \label{general-insphere-B}
 	\vec{u} =
 	\begin{bmatrix}
 		\sum \vec{V}_i^j \vec{n}_i^j
@@ -379,20 +332,75 @@ Then
 
 ## Implementing Our Higher Dimensional Processes
 
-
-# The "Average" Ratio for Irregular Tetrahedra
-
-As we showed earlier, the ratio between the circumsphere and the insphere is $3$ for regular tetrahedra.
-Let's explore what the "average" ratio is across all possible tetrahedra.
-We generate four sets of three-vectors, where each coordinate is a random number between $0$ and $1$.
-Let's define a function to find the ratio:
+We'll use `Python`'s `numpy` library.
+Let's first set up a function to compute our generalized cross product using the kernel method.
+Here's a standard implementation of finding the kernel, or nullspace, of a matrix, sourced from [here](http://scipy-cookbook.readthedocs.io/items/RankNullspace.html).
 
 ```python
-def ratio(v):
-	circumsphere(v)[3]/insphere(v)[3]
+def nullspace(A, atol=1e-13, rtol=0):
+	A = np.atleast_2d(A)
+	u, s, vh = np.linalg.svd(A)
+	tol = max(atol, rtol * s[0])
+	nnz = (s >= tol).sum()
+	ns = vh[nnz:].conj().T
+	return np.array([k[0] for k in ns])
 ```
 
-We can use the `mpmath` library to calculate this ratio to arbitrary precision.
-I generated approximately 26 million samples of four random points (the wonders of leaving your computer running overnight!), found the ratio between the inradius and circumradius of the tetrahedron they formed, and recorded the cumulative/moving average of the ratio.
-I obtained a ratio of about ``0.1046``, which suggests that, on average, a tetrahedron's circumsphere is somewhere between $9.5$ and $9.6$ times larger in radius than its insphere, far from the ratio of $3$ for regular tetrahedron.
-This makes sense, as most tetrahedra might be oblong or fat in one direction, rather than perfectly even, and so their circumsphere must be very large, but the volume of the tetrahedron might not be so big, so the insphere must be rather small.
+We return the element of the nullspace that is a vector of norm 1 and use it to calculate the generalized cross product.
+
+```python
+def gen_cross(v):
+	n = len(v)
+	m = np.array([[v[i][j] for j in range(n+1)] for i in range(n)])
+	return nullspace(m)
+```
+
+The argument `v` will always be a list of lists; each element represents a vector.
+Now we can calculate the incenter and inradius:
+
+```python
+def insphere(v):
+	n = len(v) - 1
+	faces = []
+	normals = []
+```
+
+Note that `n` is the "dimension" of the tetrahedron.
+```python
+for i in range(n+1):
+		faces.append(v + [v[n-i]])
+		del faces[i][n-i]
+	if n % 2 == 0:
+		faces = list(reversed(faces))
+	faces = np.array(faces)
+```
+
+Each face of an $n$-simplex consists of some $n$ of the given $n+1$ vertices.
+Each element of `faces` has $n+1$ elements: the $n$ vertices of the face, and the other vertex that is not part of the face.
+The statement involving the modulo ensures that the orientation is correct in even dimensions.
+Then we can finish it off by performing the calculations in \eqref{general-insphere} and setting up the matrices as in \eqref{general-insphere-A} and \eqref{general-insphere-B}.
+
+```python
+	for f in faces:
+		c = gen_cross([f[i] - f[0] for i in range(1,n)])
+		unnormed = c * np.vdot(c, f[n] - f[0])
+		normals.append((-1)**(n%2) * unnormed / np.linalg.norm(unnormed))
+	A = np.array([[k[i] for i in range(n)] + [sum([k[i]**2 for i in range(n)])] for k in normals])
+	B = np.array([sum([v[i][j]*normals[i][j] for j in range(n)]) for i in range(n+1)])
+	return np.linalg.solve(A,B)
+```
+
+We go along a similar line for the circumsphere: we set up the matrices and solve.
+
+```python
+def circumsphere(v):
+	n = len(v) - 1
+	A = 2 * np.array([[v[0][j] - v[i][j] for j in range(n)] for i in range(1,n+1)])
+	B = np.array([sum([v[0][j]**2 - v[i][j]**2 for j in range(n)]) for i in range(1,n+1)])
+	sols = np.linalg.solve(A,B)
+	R = sqrt(sum([(v[0][i] - sols[i])**2 for i in range(n)]))
+	return np.append(sols, R)
+```
+And there you have it!
+It would be interesting to see how the ratio between circumsphere and insphere (3 in 3 dimensions) changes as the dimension increases.
+It will probably get much larger (because most of a high-dimensional sphere's volume is near its surface and because the insphere's volume will become very small), but how quickly?
