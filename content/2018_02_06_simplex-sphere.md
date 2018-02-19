@@ -1,6 +1,6 @@
 ---
 title: Inspheres and Circumspheres of Simplices
-date: 11 February 2018
+date: 17 February 2018
 category: math
 tags: algebra, proof
 slug: simplex-sphere
