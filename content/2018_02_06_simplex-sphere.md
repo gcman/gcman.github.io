@@ -332,7 +332,7 @@ Then
 
 ## Implementing Our Higher Dimensional Processes
 
-We'll use `Python`'s `numpy` library.
+We'll use `Python` and its `numpy` package.
 Let's first set up a function to compute our generalized cross product using the kernel method.
 Here's a standard implementation of finding the kernel, or nullspace, of a matrix, sourced from [here](http://scipy-cookbook.readthedocs.io/items/RankNullspace.html).
 
