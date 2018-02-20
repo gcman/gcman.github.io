@@ -14,6 +14,8 @@ from shutil import copyfile
 from git import Repo
 from pelican.server import ComplexHTTPRequestHandler
 
+ROOT = os.getcwd()
+
 # Local path configuration (can be absolute or relative to fabfile)
 env.deploy_path = 'output'
 DEPLOY_PATH = env.deploy_path
@@ -142,9 +144,9 @@ def make_figs():
 		for file in files:
 			ext = os.path.splitext(file)[-1].lower()
 			if ext == ".pdf":
-				if file in diff or not os.path.isfile(os.path.join(rootdir,os.path.splitext(file)[0]+".jpg")):
-					local("magick -density 400 -background none -colorspace rgb -type truecolor " + file + " -quality 1000 -trim " + file.strip(".pdf") + ".jpg")
-	os.chdir("../..")
+				if file in diff or not os.path.isfile(os.path.join(rootdir,os.path.splitext(file)[0]+".png")):
+					local("magick -density 400 -background none -antialias " + file + " -quality 1000 -trim " + file.strip(".pdf") + ".png")
+	os.chdir(ROOT)
 
 def make_source():
 	os.chdir('content')
@@ -163,10 +165,11 @@ def make_source():
 					os.makedirs(pdfdir,exist_ok=True)
 					if file in diff or not os.path.isfile(os.path.join(rawdir,slug+".md")):
 						copyfile(file,os.path.join(rawdir,slug+".md"))
-					if file in diff or not os.path.isfile(os.path.join(pdfdir,slug+".pdf")):
-						local("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex "
+					if file in diff or os.path.join(ROOT, "/content/extra/header.tex") in diff or not os.path.isfile(os.path.join(pdfdir,slug+".pdf")):
+						local("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex --listings "
 							+ file + " -o " + "../output/pdf/" + slug + ".pdf")
-	os.chdir("..")
+						os.chdir(ROOT + "/content")
+	os.chdir(ROOT)
 
 def del_tex2pdf():
 	os.chdir('content')
@@ -174,7 +177,7 @@ def del_tex2pdf():
 	for d in os.listdir(rootdir):
 		if d.startswith("tex2pdf"):
 			local('rd /s /q ' + d)
-	os.chdir("..")
+	os.chdir(ROOT)
 
 def publish(message,publish_drafts=False):
 	try:

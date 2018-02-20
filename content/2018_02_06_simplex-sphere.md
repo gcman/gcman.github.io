@@ -6,7 +6,7 @@ tags: algebra, proof
 slug: simplex-sphere
 ---
 
-*This post was inspired by the fifth question on the University of Toronto Math Academy 2018 [Qualifying Quiz](http://mathplus.math.utoronto.ca/home/ma/MathAcademyQualifyingQuiz5.pdf)*
+*This post was inspired by the fifth question on the University of Toronto Math Academy 2018 [Qualifying Quiz](http://mathplus.math.utoronto.ca/home/ma/MathAcademyQualifyingQuiz5.pdf).*
 
 Every triangle can be circumscribed by a circle, because a circle can always be drawn through three given points, so long as they are not colinear.
 In fact, every triangle also has a circle that is inscribed in it.
