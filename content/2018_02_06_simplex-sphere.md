@@ -261,7 +261,7 @@ Again, let's first deal with the insphere:
 Let the vector representing the insphere's coordinates have $n$ components $c_i$.
 Imitating \eqref{normalized}, we have
 \begin{equation} \label{general-insphere}
-	\vec{n}_1 = -\frac{\vec{C}(\vec{C}\cdot(\vec{V}_{n+1} - \vec{V}_1))}{\vec{C}(\vec{C}\cdot(\vec{V}_{n+1} - \vec{V}_1))},
+	\vec{n}_1 = -\frac{\vec{C}(\vec{C}\cdot(\vec{V}_{n+1} - \vec{V}_1))}{\norm{\vec{C}(\vec{C}\cdot(\vec{V}_{n+1} - \vec{V}_1))}},
 \end{equation}
 where
 \begin{equation}
