@@ -146,6 +146,7 @@ def make_figs():
 			if ext == ".pdf":
 				if file in diff or not os.path.isfile(os.path.join(rootdir,os.path.splitext(file)[0]+".png")):
 					local("magick -density 400 -background none -antialias " + file + " -quality 1000 -trim " + file.strip(".pdf") + ".png")
+		break # Prevents digging into subdirectories
 	os.chdir(ROOT)
 
 def make_source():
