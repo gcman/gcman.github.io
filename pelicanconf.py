@@ -42,7 +42,7 @@ EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},'extra/404.html': {'path
 READERS = {'html': None}
 
 PLUGIN_PATHS = ['../pelican-plugins']
-PLUGINS = ["render_math","pelican-toc","neighbors"]
+PLUGINS = ["render_math","pelican-toc","neighbors","figure-ref"]
 
 TOC = {
     'TOC_HEADERS'       : '^h[1-2]', # What headers should be included in
@@ -53,15 +53,17 @@ TOC = {
                                      # if it does not evaluate
                                      # to 'true' no toc will be generated
 
-    'TOC_INCLUDE_TITLE': 'false',     # If 'true' include title in toc
+    'TOC_INCLUDE_TITLE': 'false',    # If 'true' include title in toc
 }
 
 MARKDOWN = {
     'extensions' : ['markdown.extensions.codehilite',
     'markdown.extensions.extra',
+    'emdash',
+    'figureAltCaption',
     ],
     'extension_configs': {
-        'markdown.extensions.codehilite': {'css_class': 'highlight', 'guess_lang': 'True','use_pygments': 'True'},
+        'markdown.extensions.codehilite': {'css_class': 'highlight','guess_lang': 'True','use_pygments': 'True'},
     }
 }
 
