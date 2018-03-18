@@ -75,7 +75,7 @@ def remove_prefix(text, prefix):
 def clean():
 	# Remove generated files
 	if path.isdir(DEPLOY_PATH):
-		keep = ["pdf","figures"]
+		keep = ["pdf","figures","raw"]
 		files = [x for x in os.walk(DEPLOY_PATH)][0]
 		for file in files[2]:
 			os.remove(path.join(DEPLOY_PATH,file))
