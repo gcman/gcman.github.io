@@ -124,14 +124,16 @@ def live(port=8080):
 	webbrowser.open("http://127.0.0.1:8080")
 	server.watch('../content/*.md',  # 5
 		livereload.shell('pelican -s ../pelicanconf.py -o ../output'))  # 6
-	server.watch('../pelican-themes/cebong/',  # 7
+	server.watch('../pelican-themes/gcman/',  # 7
 		livereload.shell('pelican -s ../pelicanconf.py -o ../output'))  # 8
 	server.watch('*.html')  # 9
 	server.watch('*.css')  # 10
 	server.serve(liveport=35729, port=port)  # 11
 
 def make_figs():
-	os.chdir('content/figures')
+	os.chdir('output')
+	os.makedirs(os.path.join('figures'),exist_ok=True)
+	os.chdir('../content/figures')
 	rootdir = os.getcwd()
 	for subdir, dirs, files in os.walk(rootdir):
 		for file in files:
@@ -145,7 +147,7 @@ def make_figs():
 			ext = os.path.splitext(file)[-1].lower()
 			if ext == ".pdf":
 				if file in diff or not os.path.isfile(os.path.join(rootdir,os.path.splitext(file)[0]+".png")):
-					local("magick -density 400 -background none -antialias " + file + " -quality 1000 -trim " + file.strip(".pdf") + ".png")
+					local("magick -density 400 -background none -antialias " + file + " -quality 1000 -trim " + "../../output/figures/" + file.strip(".pdf") + ".png")
 		break # Prevents digging into subdirectories
 	os.chdir(ROOT)
 
@@ -187,7 +189,6 @@ def publish(message,publish_drafts=False):
 				local('rd /s /q "output/drafts"')
 	except Exception:
 		pass
-	#clean()
 	build()
 	make_figs()
 	make_source()
