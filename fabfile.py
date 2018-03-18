@@ -160,7 +160,7 @@ def make_source():
 				os.makedirs(pdfdir,exist_ok=True)
 				MD = path.join(rawdir,slug+".md")
 				if file in diff or not path.isfile(MD):
-					print("Building raw source from {}".format(file))
+					print("Copying {}".format(file))
 					copyfile(file,path.join(MD))
 				if file in diff or path.join(ROOT, "/content/extra/header.tex") in diff or not path.isfile(path.join(pdfdir,slug+".pdf")):
 					print("Building PDF from {}".format(file))
