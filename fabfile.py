@@ -1,6 +1,7 @@
 from fabric.api import *
 import fabric.contrib.project as project
 import os
+import os.path as path
 import shutil
 import sys
 import socketserver
@@ -13,6 +14,7 @@ from glob import iglob
 from shutil import copyfile
 from git import Repo
 from pelican.server import ComplexHTTPRequestHandler
+from contextlib import contextmanager
 
 ROOT = os.getcwd()
 
@@ -41,9 +43,29 @@ status: draft
 
 
 """
-repo = Repo(os.path.dirname(__file__))
+repo = Repo(path.dirname(__file__))
 assert not repo.bare
-diff = [os.path.basename(x) for x in [item.a_path for item in repo.index.diff(None)]]
+diff = [path.basename(x) for x in [item.a_path for item in repo.index.diff(None)]]
+
+def ext(f):
+	return path.splitext(f)[-1].lower()
+
+def bare(f):
+	return f.strip(ext(f))
+
+@contextmanager
+def suppress_stdout():
+	with open(os.devnull, "w") as devnull:
+		old_stdout = sys.stdout
+		sys.stdout = devnull
+		try:  
+			yield
+		finally:
+			sys.stdout = old_stdout
+
+def shell(command):
+	with suppress_stdout():
+		local(command)
 
 def remove_prefix(text, prefix):
 	if text.startswith(prefix):
@@ -51,48 +73,28 @@ def remove_prefix(text, prefix):
 	return text
 
 def clean():
-	"""Remove generated files"""
-	if os.path.isdir(DEPLOY_PATH):
-		keep = ["pdf","raw","figures"]
-		for file in [x for x in os.walk(DEPLOY_PATH)][0][2]:
-			os.remove(os.path.join(DEPLOY_PATH,file))
-		for dir in [x for x in os.walk(DEPLOY_PATH)][0][1]:
+	# Remove generated files
+	if path.isdir(DEPLOY_PATH):
+		keep = ["pdf","figures"]
+		files = [x for x in os.walk(DEPLOY_PATH)][0]
+		for file in files[2]:
+			os.remove(path.join(DEPLOY_PATH,file))
+		for dir in files[1]:
 			if dir not in keep:
-				shutil.rmtree(os.path.join(DEPLOY_PATH,dir))
+				shutil.rmtree(path.join(DEPLOY_PATH,dir))
 		os.makedirs(DEPLOY_PATH,exist_ok=True)
 
 def build():
-	"""Build local version of site"""
+	# Build local version of site
 	local('pelican -s pelicanconf.py')
-
-def rebuild():
-	"""`build` with the delete switch"""
-	local('pelican -d -s pelicanconf.py')
-
-def regenerate():
-	"""Automatically regenerate site upon file modification"""
-	local('pelican -r -s pelicanconf.py')
-
-def serve():
-	"""Serve site at http://localhost:8000/"""
-	os.chdir(env.deploy_path)
-
-	class AddressReuseTCPServer(socketserver.TCPServer):
-		allow_reuse_address = True
-
-	server = AddressReuseTCPServer(('', PORT), ComplexHTTPRequestHandler)
-
-	sys.stderr.write('Serving on port {0} ...\n'.format(PORT))
-	server.serve_forever()
-
-def reserve():
-	"""`build`, then `serve`"""
-	build()
-	serve()
-
-def preview():
-	"""Build production version of site"""
-	local('pelican -s publishconf.py')
+	# Workaround: renames README.txt to README.md
+	f = path.join("output/README.txt")
+	out = path.splitext(f)[0] + ".md"
+	try:
+		os.rename(f, out)
+	except WindowsError:
+		os.remove(out)
+		os.rename(f, out)
 
 @hosts(production)
 
@@ -116,62 +118,48 @@ if __name__ == '__main__':
 	else:
 		print("No title given")
 
-def live(port=8080):
-	clean()
-	rebuild()
-	os.chdir('output')
-	server = livereload.Server()  # 4
-	webbrowser.open("http://127.0.0.1:8080")
-	server.watch('../content/*.md',  # 5
-		livereload.shell('pelican -s ../pelicanconf.py -o ../output'))  # 6
-	server.watch('../pelican-themes/gcman/',  # 7
-		livereload.shell('pelican -s ../pelicanconf.py -o ../output'))  # 8
-	server.watch('*.html')  # 9
-	server.watch('*.css')  # 10
-	server.serve(liveport=35729, port=port)  # 11
-
 def make_figs():
-	os.chdir('output')
-	os.makedirs(os.path.join('figures'),exist_ok=True)
-	os.chdir('../content/figures')
-	rootdir = os.getcwd()
-	for subdir, dirs, files in os.walk(rootdir):
+	CONTENT_DIR = path.abspath(path.join(__file__ ,"../content/figures"))
+	OUTPUT_DIR =  path.abspath(path.join(__file__ ,"../output/figures"))
+	commands = []
+	os.makedirs(path.join(OUTPUT_DIR),exist_ok=True)
+	for subdir, dirs, files in os.walk(CONTENT_DIR):
 		for file in files:
-			ext = os.path.splitext(file)[-1].lower()
-			if ext == ".tex":
-				if file in diff or not os.path.isfile(os.path.join(rootdir,os.path.splitext(file)[0]+".pdf")):
-					local("latexmk " + file + " -pdf -quiet")
-					local("latexmk -c")
-	for subdir, dirs, files in os.walk(rootdir):
-		for file in files:
-			ext = os.path.splitext(file)[-1].lower()
-			if ext == ".pdf":
-				if file in diff or not os.path.isfile(os.path.join(rootdir,os.path.splitext(file)[0]+".png")):
-					local("magick -density 400 -background none -antialias " + file + " -quality 1000 -trim " + "../../output/figures/" + file.strip(".pdf") + ".png")
+			if ext(file) == ".tex":
+				if file in diff or not path.isfile(path.join(CONTENT_DIR,bare(file)+".pdf")):
+					print("Creating figure from {}".format(file))
+					shell("latexmk -shell-escape -pdf -quiet " + file)
+					shell("latexmk -c")
+				if bare(file) + ".pdf" in diff or not path.isfile(OUTPUT_DIR+bare(file)+".png"):
+					print("Creating PNG from {}".format(bare(file) + ".pdf"))
+					commands.append("magick -quiet -density 400 -background none -antialias " 
+						+ path.join(CONTENT_DIR,bare(file)+".pdf") 
+						+ " -quality 1000 -trim " + path.join(OUTPUT_DIR,bare(file) + ".png"))
 		break # Prevents digging into subdirectories
+	for file in os.listdir(OUTPUT_DIR):
+		if ext(file) == ".png":
+			if not path.isfile(path.join(CONTENT_DIR + bare(file) + ".pdf")):
+				os.remove(path.join(OUTPUT_DIR,file))
+	for c in commands:
+		shell(c)
 	os.chdir(ROOT)
 
-def make_source():
+def make_pdfs():
 	os.chdir('content')
 	rootdir = os.getcwd()
 	for subdir, dirs, files in os.walk(rootdir):
 		for file in files:
-			ext = os.path.splitext(file)[-1].lower()
-			if ext == ".md":
+			if ext(file) == ".md":
 				with open(file, "r") as f:
 					data = markdown2.markdown(f.read(), extras=["metadata"]).metadata
 					slug = data["slug"].lower()
-					out = os.path.join(os.path.dirname(os.getcwd()),"output")
-					rawdir = os.path.join(out,"raw")
-					pdfdir = os.path.join(out,"pdf")
-					os.makedirs(rawdir,exist_ok=True)
-					os.makedirs(pdfdir,exist_ok=True)
-					if file in diff or not os.path.isfile(os.path.join(rawdir,slug+".md")):
-						copyfile(file,os.path.join(rawdir,slug+".md"))
-					if file in diff or os.path.join(ROOT, "/content/extra/header.tex") in diff or not os.path.isfile(os.path.join(pdfdir,slug+".pdf")):
-						local("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex --listings "
-							+ file + " -o " + "../output/pdf/" + slug + ".pdf")
-						os.chdir(ROOT + "/content")
+				out = path.join(path.dirname(rootdir),"output")
+				pdfdir = path.join(out,"pdf")
+				os.makedirs(pdfdir,exist_ok=True)
+				if file in diff or path.join(ROOT, "/content/extra/header.tex") in diff or not path.isfile(path.join(pdfdir,slug+".pdf")):
+					print("Building PDF from {}".format(file))
+					shell("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex --listings "
+						+ file + " -o " + "../output/pdf/" + slug + ".pdf")
 	os.chdir(ROOT)
 
 def del_tex2pdf():
@@ -179,25 +167,27 @@ def del_tex2pdf():
 	rootdir = os.getcwd()
 	for d in os.listdir(rootdir):
 		if d.startswith("tex2pdf"):
-			local('rd /s /q ' + d)
+			shell('rd /s /q ' + d)
 	os.chdir(ROOT)
 
 def publish(message,publish_drafts=False):
 	try:
-		if os.path.exists('output/drafts'):
+		if path.exists('output/drafts'):
 			if not publish_drafts:
-				local('rd /s /q "output/drafts"')
+				shell('rd /s /q "output/drafts"')
 	except Exception:
 		pass
+	clean()
 	build()
 	make_figs()
-	make_source()
+	make_pdfs()
 	del_tex2pdf()
-	local('git add -A')
+	shell('git add -A')
 	try:
-		local('git commit -m"' + message + '"')
+		shell('git commit -m"' + message + '"')
+		print("Committing {}".format(message))
 	except Exception:
 		pass
-	local('git push')
-	local('ghp-import output')
-	local('git push git@github.com:gcman/gcman.github.io.git gh-pages:master --force') # 5
+	shell('git push')
+	shell('ghp-import output')
+	local('git push git@github.com:gcman/gcman.github.io.git gh-pages:master --force')
