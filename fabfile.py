@@ -144,7 +144,7 @@ def make_figs():
 		shell(c)
 	os.chdir(ROOT)
 
-def make_pdfs():
+def make_source():
 	os.chdir('content')
 	rootdir = os.getcwd()
 	for subdir, dirs, files in os.walk(rootdir):
@@ -155,7 +155,13 @@ def make_pdfs():
 					slug = data["slug"].lower()
 				out = path.join(path.dirname(rootdir),"output")
 				pdfdir = path.join(out,"pdf")
+				rawdir = path.join(out,"raw")
+				os.makedirs(rawdir,exist_ok=True)
 				os.makedirs(pdfdir,exist_ok=True)
+				MD = path.join(rawdir,slug+".md")
+				if file in diff or not path.isfile(MD):
+					print("Building raw source from {}".format(file))
+					copyfile(file,path.join(MD))
 				if file in diff or path.join(ROOT, "/content/extra/header.tex") in diff or not path.isfile(path.join(pdfdir,slug+".pdf")):
 					print("Building PDF from {}".format(file))
 					shell("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex --listings "
@@ -180,12 +186,11 @@ def publish(message,publish_drafts=False):
 	clean()
 	build()
 	make_figs()
-	make_pdfs()
+	make_source()
 	del_tex2pdf()
 	shell('git add -A')
 	try:
 		shell('git commit -m"' + message + '"')
-		print("Committing {}".format(message))
 	except Exception:
 		pass
 	shell('git push')
