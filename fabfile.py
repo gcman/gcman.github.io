@@ -183,7 +183,7 @@ def publish(message,publish_drafts=False):
 				shell('rd /s /q "output/drafts"')
 	except Exception:
 		pass
-	#clean()
+	clean()
 	build()
 	make_figs()
 	make_source()
