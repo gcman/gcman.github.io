@@ -189,10 +189,7 @@ def publish(message,publish_drafts=False):
 	make_source()
 	del_tex2pdf()
 	shell('git add -A')
-	try:
-		shell('git commit -m"' + message + '"')
-	except Exception:
-		pass
+	shell('git commit --allow-empty -m"' + message + '"')
 	shell('git push')
 	shell('ghp-import output')
 	local('git push git@github.com:gcman/gcman.github.io.git gh-pages:master --force')
