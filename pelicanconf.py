@@ -6,7 +6,9 @@ import figureAltCaption
 
 AUTHOR = 'Gautam Manohar'
 SITENAME = "Gautam Manohar"
-SITEURL = 'http://gautammanohar.com'
+SITEURL = 'https://gautammanohar.com'
+
+GOOGLE_ANALYTICS = 'UA-115904815-1'
 
 PATH = 'content'
 
