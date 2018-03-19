@@ -141,7 +141,7 @@ def make_figs():
 					print("Creating PNG from {}".format(bare(file) + ".pdf"))
 					commands.append("magick -quiet -density 400 -background none -antialias " 
 						+ path.join(CONTENT_DIR,bare(file)+".pdf") 
-						+ " -quality 1000 -trim " + path.join(OUTPUT_DIR,bare(file) + ".png"))
+						+ " -quality 1000 -trim png24:" + path.join(OUTPUT_DIR,bare(file) + ".png"))
 		break # Prevents digging into subdirectories
 	for file in os.listdir(OUTPUT_DIR):
 		if ext(file) == ".png":
