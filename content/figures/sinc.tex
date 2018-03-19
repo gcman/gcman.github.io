@@ -1,0 +1,10 @@
+\documentclass[preview]{standalone}
+\usepackage{pgfplots}
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[no markers,samples=1000]
+    \addplot gnuplot [domain=-15:15] {sin(x)/x};
+    \legend{$\mathrm{sinc}\,x$}
+  \end{axis}
+\end{tikzpicture}
+\end{document}

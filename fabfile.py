@@ -45,16 +45,6 @@ status: draft
 
 
 """
-repo = Repo(path.dirname(__file__))
-assert not repo.bare
-diff = [path.basename(x) for x in [item.a_path for item in repo.index.diff(None)]]
-
-def ext(f):
-	return path.splitext(f)[-1].lower()
-
-def bare(f):
-	return f.strip(ext(f))
-
 @contextmanager
 def suppress_stdout():
 	with open(os.devnull, "w") as devnull:
@@ -68,6 +58,19 @@ def suppress_stdout():
 def shell(command):
 	with suppress_stdout():
 		local(command)
+
+repo = Repo(path.dirname(__file__))
+assert not repo.bare
+shell("git add -A")
+untracked = [path.basename(x) for x in [item.a_path for item in repo.index.diff(None)]]
+staged = [path.basename(x) for x in [item.a_path for item in repo.index.diff("HEAD")]]
+diff = untracked + staged
+
+def ext(f):
+	return path.splitext(f)[-1].lower()
+
+def bare(f):
+	return f.strip(ext(f))
 
 def remove_prefix(text, prefix):
 	if text.startswith(prefix):
@@ -130,9 +133,11 @@ def make_figs():
 			if ext(file) == ".tex":
 				if file in diff or not path.isfile(path.join(CONTENT_DIR,bare(file)+".pdf")):
 					print("Creating figure from {}".format(file))
+					os.chdir(CONTENT_DIR)
 					shell("latexmk -shell-escape -pdf -quiet " + file)
 					shell("latexmk -c")
-				if bare(file) + ".pdf" in diff or not path.isfile(OUTPUT_DIR+bare(file)+".png"):
+					os.chdir(ROOT)
+				if file in diff or not path.isfile(OUTPUT_DIR+bare(file)+".png"):
 					print("Creating PNG from {}".format(bare(file) + ".pdf"))
 					commands.append("magick -quiet -density 400 -background none -antialias " 
 						+ path.join(CONTENT_DIR,bare(file)+".pdf") 
@@ -142,6 +147,9 @@ def make_figs():
 		if ext(file) == ".png":
 			if not path.isfile(path.join(CONTENT_DIR + bare(file) + ".pdf")):
 				os.remove(path.join(OUTPUT_DIR,file))
+	for file in os.listdir(CONTENT_DIR):
+		if ext(file) in [".table",".gnuplot"]:
+			os.remove(path.join(CONTENT_DIR,file))
 	for c in commands:
 		shell(c)
 	os.chdir(ROOT)
