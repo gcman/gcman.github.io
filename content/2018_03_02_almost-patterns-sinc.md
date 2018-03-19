@@ -17,7 +17,7 @@ I will share interesting patterns that, although they seem to *surely* continue,
 
 You may have noticed that I spelled "sink" incorrectly in the title.
 Sharp eye.
-That's because today, we'll investigate the $\mathrm{sinc}$ function:
+That's because we're investigating some interesting properties the $\mathrm{sinc}$ function:
 \begin{equation}
 	\mathrm{sinc}\, x =
 	\begin{cases}
@@ -63,7 +63,8 @@ It turns out that, in general, for real numbers $a_1,\ldots,a_n$,
 \end{equation}
 evaluates to $\pi$ if $\sum_k a_k \le 2$.
 In particular, $1 + \frac{1}{3} + \cdots + \frac{1}{13} = \frac{88069}{45045} = 2 - \frac{2021}{45045}$, but adding $\frac{1}{15}$ pushes it over the edge.
-So we can construct sequences of numbers $a_k$ such that the pattern holds for arbitrarily many terms before failing.
+So we can construct sequences of numbers $a_k$ such that the pattern holds for arbitrarily many terms before failing, when the partial sum of the numbers $a_k$ crosses $2$.
+Similarly, we can make it so the pattern always holds.
 For example, the series $1 + \frac{1}{2} + \frac{1}{4} + \cdots$ famously converges to $2$, so if we set $a_k$ to be the reciprocal powers of two, the corresponding integral will be equal to $\pi$... forever.
 
 But not all patterns hold forever---certainly not this one!
