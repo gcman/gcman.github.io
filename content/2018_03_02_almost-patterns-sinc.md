@@ -47,11 +47,11 @@ Even as we multiply the integrand by another $\mathrm{sinc}$ function, the value
 The pattern continues for quite a while.
 In fact,
 \begin{equation}
-	\int_{-\infty}^\infty \frac{\sin x}{x}\frac{\sin \frac{x}{3}}{\frac{x}{3}}\frac{\sin \frac{x}{5}}{\frac{x}{5}}\cdots\frac{\sin \frac{x}{13}}{\frac{x}{13}} \d x = \pi.
+	\int_{-\infty}^\infty \mathrm{sinc}\, x\, \mathrm{sinc}\, \frac{x}{3}\, \mathrm{sinc}\, \frac{x}{5}\,\cdots\mathrm{sinc}\, \frac{x}{13} \d x = \pi.
 \end{equation}
 But with one more term, the pattern fails spectacularly:
 \begin{equation}
-	\int_{-\infty}^\infty \frac{\sin x}{x}\frac{\sin \frac{x}{3}}{\frac{x}{3}}\frac{\sin \frac{x}{5}}{\frac{x}{5}}\cdots\frac{\sin \frac{x}{15}}{\frac{x}{15}} \d x = \frac{467807924713440738696537864469}{467807924720320453655260875000}\pi.
+	\int_{-\infty}^\infty \mathrm{sinc}\, x\, \mathrm{sinc}\, \frac{x}{3}\, \mathrm{sinc}\, \frac{x}{5}\,\cdots\mathrm{sinc}\, \frac{x}{15} \d x = \frac{467807924713440738696537864469}{467807924720320453655260875000}\pi.
 \end{equation}
 This value is $4.62 \times 10^{-11}$ less than $\pi$.
 
