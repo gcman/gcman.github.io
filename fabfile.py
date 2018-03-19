@@ -91,7 +91,7 @@ def clean():
 
 def build():
 	# Build local version of site
-	local('pelican -s pelicanconf.py')
+	shell('pelican -s pelicanconf.py')
 	# Workaround: renames README.txt to README.md
 	f = path.join("output/README.txt")
 	out = path.splitext(f)[0] + ".md"

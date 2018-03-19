@@ -2,7 +2,7 @@
 \usepackage{pgfplots}
 \begin{document}
 \begin{tikzpicture}
-  \begin{axis}[no markers,samples=1000]
+  \begin{axis}[no markers,samples=1000,legend style={fill=none}]
     \addplot gnuplot [domain=-15:15] {sin(x)/x};
     \legend{$\mathrm{sinc}\,x$}
   \end{axis}

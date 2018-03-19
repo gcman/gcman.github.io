@@ -5,7 +5,6 @@ date: 2 March 2018
 category: math
 tags: fun
 slug: almost-patterns-sinc
-status: draft
 ---
 
 Mathematics students are often told not to carelessly extrapolate small sample sizes into general claims.
@@ -27,6 +26,7 @@ That's because today, we'll investigate the $\mathrm{sinc}$ function:
 	\end{cases}
 \end{equation}
 It looks like this:
+![The graph of $\mathrm{sinc}\,x$. Note that at $x = 0$, this function is defined to be equal to 1.](https://gautammanohar.com/figures/sinc.png){ width=50% }
 
 This function famously has no elementary antiderivative, yet its definite integral over the real line evaluates to
 \begin{equation}
@@ -59,8 +59,11 @@ What happened?
 After some research, I found that such integrals were documented in [this paper](https://carma.newcastle.edu.au/jon/sinc-sums.pdf).
 It turns out that, in general, for real numbers $a_1,\ldots,a_n$,
 \begin{equation}
-	\int_{-\infty}^\infty \prod_{k=1}^n \mathrm{sinc}\, a_kx \dx
+	\int_{-\infty}^\infty \prod_{k=1}^n \mathrm{sinc}\, a_kx \d x
 \end{equation}
 evaluates to $\pi$ if $\sum_k a_k \le 2$.
 In particular, $1 + \frac{1}{3} + \cdots + \frac{1}{13} = \frac{88069}{45045} = 2 - \frac{2021}{45045}$, but adding $\frac{1}{15}$ pushes it over the edge.
 So we can construct sequences of numbers $a_k$ such that the pattern holds for arbitrarily many terms before failing.
+For example, the series $1 + \frac{1}{2} + \frac{1}{4} + \cdots$ famously converges to $2$, so if we set $a_k$ to be the reciprocal powers of two, the corresponding integral will be equal to $\pi$... forever.
+
+But not all patterns hold forever---certainly not this one!
