@@ -100,6 +100,14 @@ def build():
 	except WindowsError:
 		os.remove(out)
 		os.rename(f, out)
+	f = path.join("output/index.html")
+	out = path.join("output/home.html")
+	try:
+		os.rename(f,out)
+	except WindowsError:
+		os.remove(out)
+		os.rename(f, out)
+	shutil.copy(path.join("content/extra/index.html"),path.join("output/"))
 
 @hosts(production)
 
