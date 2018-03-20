@@ -157,44 +157,43 @@ def make_figs():
 def make_source():
 	os.chdir('content')
 	rootdir = os.getcwd()
-	for subdir, dirs, files in os.walk(rootdir):
-		for file in files:
-			if ext(file) == ".md":
+	for file in os.listdir(rootdir):
+		if ext(file) == ".md":
+			with open(file, "r") as f:
+				data = markdown2.markdown(f.read(), extras=["metadata"]).metadata
+				slug = data["slug"].lower()
+				if "status" in data:
+					status = data["status"].lower()
+				else:
+					status = None
+			out = path.join(path.dirname(rootdir),"output")
+			pdfdir = path.join(out,"pdf")
+			rawdir = path.join(out,"raw")
+			os.makedirs(rawdir,exist_ok=True)
+			os.makedirs(pdfdir,exist_ok=True)
+			MD = path.join(rawdir,slug+".md")
+			if file in diff or not path.isfile(MD):
+				print("Copying {}".format(file))
 				with open(file, "r") as f:
-					data = markdown2.markdown(f.read(), extras=["metadata"]).metadata
-					slug = data["slug"].lower()
-					if "status" in data:
-						status = data["status"].lower()
-					else:
-						status = None
-				out = path.join(path.dirname(rootdir),"output")
-				pdfdir = path.join(out,"pdf")
-				rawdir = path.join(out,"raw")
-				os.makedirs(rawdir,exist_ok=True)
-				os.makedirs(pdfdir,exist_ok=True)
-				MD = path.join(rawdir,slug+".md")
-				if file in diff or not path.isfile(MD):
-					print("Copying {}".format(file))
-					with open(file, "r") as f:
-						lines = [line for line in f]
-						to_replace = []
-						s = "---\n"
-						for i,line in enumerate(lines):
-							if s in line:
-								to_replace.append(i)
-							if len(to_replace) == 2:
-								break
-					with open(MD, "w", encoding="utf-8") as f:
-						for i,line in enumerate(lines):
-							if i in to_replace:
-								f.write(line.replace("---",u"\u2010\u2010\u2010"))
-							else:
-								f.write(line)
-				if status != "draft":
-					if file in diff or path.join(ROOT, "/content/extra/header.tex") in diff or not path.isfile(path.join(pdfdir,slug+".pdf")):
-						print("Building PDF from {}".format(file))
-						shell("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex --listings "
-							+ file + " -o " + "../output/pdf/" + slug + ".pdf")
+					lines = [line for line in f]
+					to_replace = []
+					s = "---\n"
+					for i,line in enumerate(lines):
+						if s in line:
+							to_replace.append(i)
+						if len(to_replace) == 2:
+							break
+				with open(MD, "w", encoding="utf-8") as f:
+					for i,line in enumerate(lines):
+						if i in to_replace:
+							f.write(line.replace("---",u"\u2010\u2010\u2010"))
+						else:
+							f.write(line)
+			if status != "draft":
+				if file in diff or path.join(ROOT, "/content/extra/header.tex") in diff or not path.isfile(path.join(pdfdir,slug+".pdf")):
+					print("Building PDF from {}".format(file))
+					shell("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex --listings "
+						+ file + " -o " + "../output/pdf/" + slug + ".pdf")
 	os.chdir(ROOT)
 
 def del_tex2pdf():
