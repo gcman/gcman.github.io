@@ -5,14 +5,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Gautam Manohar</title>
+        <title>Error 404</title>
         <meta charset="utf-8" />
         <meta name="generator" content="Pelican" />
         <meta name="author" content="Gautam Manohar" />
         <meta name="copyright" content="Gautam Manohar" />
         <meta name="robots" content="noindex,follow">
         <link rel="stylesheet" href="https://gautammanohar.com/theme/css/normalize/normalize.min.css" type="text/css" />
-        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <link rel="shortcut icon" type="image/png" href="https://gautammanohar.com/theme/images/icons/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="https://gautammanohar.com/favicon.ico">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
         <!--[if IE]>
                 <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -24,15 +26,57 @@
         <!--[if lt IE 7]>
                 <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
 </head>
+<style>
+.odd {
+  opacity: .75;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.odd a {
+    color: black;
+}
+.odd a:hover {
+    cursor: default;
+}
+</style>
 <body>
 <article>
      <header style="margin-top: 150px">
       <h1 class="title" style="font-size: 150px">
-        <a href="https://gautammanohar.com">404</a>
+        <span class="odd" id="1"><a href="#">5</a></span>
+        <span><a href="./">6</a></span>
+        <span class="odd" id="2"><a href="#">3</a></span>
+        <span class="odd" id="3"><a href="#">7</a></span>
+        <span class="odd" id="4"><a href="#">17</a></span>
       </h1>
     </header>
     <div style="margin-top: -4em; margin-left: auto; margin-right: auto; text-align: center; vertical-align: middle;">
-        It looks like there's nothing here. Perhaps you should find your way back <a href ="http://gautammanohar.com">home</a>.
+        Uh-oh&hellip; It looks like you've wound up somewhere odd. Click the even number to find your way back home.
     </div>
 </article>
+<script>
+$('#1').on('click', function() {
+    if ($('#1').css('opacity') == 0.75) {
+        $('#1').css('opacity', 0);
+    }
+});
+$('#2').on('click', function() {
+    if ($('#2').css('opacity') == 0.75) {
+        $('#2').css('opacity', 0);
+    }
+});
+$('#3').on('click', function() {
+    if ($('#3').css('opacity') == 0.75) {
+        $('#3').css('opacity', 0);
+    }
+});
+$('#4').on('click', function() {
+    if ($('#4').css('opacity') == 0.75) {
+        $('#4').css('opacity', 0);
+    }
+});
+</script>
 </body>
