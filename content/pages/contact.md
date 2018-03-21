@@ -13,13 +13,8 @@ title: Contact Me
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
 <script type="text/javascript">
+function Redirect() {window.location="./thanks.html";} 
 $('#gform').on('submit', function(e) {
-  $('#gform *').fadeOut(2000);
-  $('#gform').prepend('Thank you for your submission! You will be redirected shortly');
+  Redirect()
   });
-function Redirect() 
-{  
-window.location="./"; 
-} 
-setTimeout('Redirect()', 4000);  
 </script>
