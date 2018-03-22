@@ -19,7 +19,7 @@ This sequence is deeply connected with the golden ratio
 For example, the ratio of the $n$-th Fibonacci number with the one before it tends to $\varphi$ as $n$ gets very large.
 
 # Fibonacci and Phi
-To examine this connection, let's look at the origins of the golden ratio; it describes two lengths $a$ and $b$ whose ratio is the same as the ratio between their sum and the larger of them.
+Let's take a closer look at the origins of the golden ratio; it describes two lengths $a$ and $b$ whose ratio is the same as the ratio between their sum and the larger of them.
 That is,
 \begin{equation}
 	\frac{a+b}{a} = \frac{a}{b}.
@@ -36,6 +36,6 @@ We first break up the left side.
 \end{equation}
 Applying the quadratic formula, we find two values that satisfy this relation: $\frac{1+\sqrt{5}}{2}$ and $\frac{1-\sqrt{5}}{2}$.
 The latter is negative, so it can't be the ratio between two positive lengths.
-And so we've found $\varphi$, as well as its cousin.
+And so we've found $\varphi$, as well as its cousin, which we'll get back to later.
 
 Note that the powers of $\varphi$ satisfy the Fibonacci relation: each term is the sum of the previous two terms, as demonstrated in \ref{phi-rel}.
