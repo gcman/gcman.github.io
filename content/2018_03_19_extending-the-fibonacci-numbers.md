@@ -25,6 +25,7 @@ That is,
 	\frac{a+b}{a} = \frac{a}{b}.
 \end{equation}
 Let's let this expression equal $x$ and solve.
+We first break up the left side.
 \begin{equation}
 	\begin{split}
 		\frac{a+b}{a} &= 1 + \frac{b}{a} \\
