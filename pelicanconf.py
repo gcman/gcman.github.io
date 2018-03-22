@@ -38,12 +38,13 @@ DEFAULT_DATE_FORMAT = ('%-d %B %Y')
 DEFAULT_CATEGORY = 'misc'
 
 THEME = "../pelican-themes/gcman"
-STATIC_PATHS = ['extra/CNAME', 'extra/404.html', 'extra/favicon.ico', 'extra/README.txt','extra/thanks.html']
+STATIC_PATHS = ['extra/CNAME', 'extra/404.html', 'extra/favicon.ico', 'extra/README.txt','extra/thanks.html','extra/google9cbd00c2e42ee352.html']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
 'extra/404.html': {'path': '404.html'},
 'extra/favicon.ico': {'path': 'favicon.ico'},
 'extra/README.txt': {'path': 'README.txt'},
-'extra/thanks.html':{'path': 'thanks.html'}}
+'extra/thanks.html': {'path': 'thanks.html'},
+'extra/google9cbd00c2e42ee352.html': {'path': 'google9cbd00c2e42ee352.html'}}
 
 READERS = {'html': None}
 
