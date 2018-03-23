@@ -172,7 +172,6 @@ def make_source():
 				PDF_DIR = path.join(OUTPUT_DIR,"../pdf")
 				MD = path.join(OUTPUT_DIR, "src.md")
 				PDF = path.join(OUTPUT_DIR,"post.pdf")
-				os.makedirs(PDF_DIR,exist_ok=True)
 				if file in diff or not path.isfile(MD):
 					print("Copying {}".format(file))
 					with open(file, "r") as f:
