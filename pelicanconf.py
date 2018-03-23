@@ -38,13 +38,14 @@ DEFAULT_DATE_FORMAT = ('%-d %B %Y')
 DEFAULT_CATEGORY = 'misc'
 
 THEME = "../pelican-themes/gcman"
-STATIC_PATHS = ['extra/CNAME', 'extra/404.html', 'extra/favicon.ico', 'extra/README.txt','extra/thanks.html','extra/google9cbd00c2e42ee352.html']
+STATIC_PATHS = ['extra/CNAME', 'extra/404.html', 'extra/favicon.ico', 'extra/README.txt','extra/thanks.html','extra/google9cbd00c2e42ee352.html','extra/index.html']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
 'extra/404.html': {'path': '404.html'},
 'extra/favicon.ico': {'path': 'favicon.ico'},
 'extra/README.txt': {'path': 'README.txt'},
-'extra/thanks.html': {'path': 'thanks.html'},
-'extra/google9cbd00c2e42ee352.html': {'path': 'google9cbd00c2e42ee352.html'}}
+'extra/thanks.html': {'path': 'thanks/index.html'},
+'extra/google9cbd00c2e42ee352.html': {'path': 'google9cbd00c2e42ee352.html'},
+'extra/index.html': {'path': 'index.html'}}
 
 READERS = {'html': None}
 
@@ -75,3 +76,13 @@ MARKDOWN = {
 }
 
 RELATIVE_URLS = True
+
+ARTICLE_URL = "{slug}/"
+ARTICLE_SAVE_AS = "{slug}/index.html"
+PAGE_URL = "{slug}/"
+PAGE_SAVE_AS = "{slug}/index.html"
+CATEGORY_URL = "category/{slug}/"
+CATEGORY_SAVE_AS = "category/{slug}/index.html"
+TAG_URL = "tag/{slug}/"
+TAG_SAVE_AS = "tag/{slug}/index.html"
+INDEX_SAVE_AS = "blog/index.html"

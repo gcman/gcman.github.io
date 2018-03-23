@@ -13,7 +13,7 @@ title: Contact Me
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
 <script type="text/javascript">
-function Redirect() {window.location="https://gautammanohar.com/thanks.html";} 
+function Redirect() {window.location="https://gautammanohar.com/thanks";} 
 $('#gform').on('submit', function(e) {
   Redirect()
   });

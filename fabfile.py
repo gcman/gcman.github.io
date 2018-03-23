@@ -80,13 +80,14 @@ def remove_prefix(text, prefix):
 def clean():
 	# Remove generated files
 	if path.isdir(DEPLOY_PATH):
-		keep = ["pdf","figures","raw"]
+		keep = ["figures"]
 		files = [x for x in os.walk(DEPLOY_PATH)][0]
 		for file in files[2]:
 			os.remove(path.join(DEPLOY_PATH,file))
 		for dir in files[1]:
-			if dir not in keep:
-				shutil.rmtree(path.join(DEPLOY_PATH,dir))
+			for file,subdir,subfiles in os.walk(dir):
+				if ext(file) != ".pdf":
+					os.remove(file)
 		os.makedirs(DEPLOY_PATH,exist_ok=True)
 
 def build():
@@ -100,14 +101,6 @@ def build():
 	except WindowsError:
 		os.remove(out)
 		os.rename(f, out)
-	f = path.join("output/index.html")
-	out = path.join("output/home.html")
-	try:
-		os.rename(f,out)
-	except WindowsError:
-		os.remove(out)
-		os.rename(f, out)
-	shutil.copy(path.join("content/extra/index.html"),path.join("output/"))
 
 @hosts(production)
 
@@ -174,34 +167,33 @@ def make_source():
 					status = data["status"].lower()
 				else:
 					status = None
-			out = path.join(path.dirname(rootdir),"output")
-			pdfdir = path.join(out,"pdf")
-			rawdir = path.join(out,"raw")
-			os.makedirs(rawdir,exist_ok=True)
-			os.makedirs(pdfdir,exist_ok=True)
-			MD = path.join(rawdir,slug+".md")
-			if file in diff or not path.isfile(MD):
-				print("Copying {}".format(file))
-				with open(file, "r") as f:
-					lines = [line for line in f]
-					to_replace = []
-					s = "---\n"
-					for i,line in enumerate(lines):
-						if s in line:
-							to_replace.append(i)
-						if len(to_replace) == 2:
-							break
-				with open(MD, "w", encoding="utf-8") as f:
-					for i,line in enumerate(lines):
-						if i in to_replace:
-							f.write(line.replace("---",u"\u2010\u2010\u2010"))
-						else:
-							f.write(line)
 			if status != "draft":
-				if file in diff or path.join(ROOT, "/content/extra/header.tex") in diff or not path.isfile(path.join(pdfdir,slug+".pdf")):
+				OUTPUT_DIR = path.join(path.dirname(rootdir),"output/" + slug)
+				PDF_DIR = path.join(OUTPUT_DIR,"../pdf")
+				MD = path.join(OUTPUT_DIR, "src.md")
+				PDF = path.join(OUTPUT_DIR,"post.pdf")
+				os.makedirs(PDF_DIR,exist_ok=True)
+				if file in diff or not path.isfile(MD):
+					print("Copying {}".format(file))
+					with open(file, "r") as f:
+						lines = [line for line in f]
+						to_replace = []
+						s = "---\n"
+						for i,line in enumerate(lines):
+							if s in line:
+								to_replace.append(i)
+							if len(to_replace) == 2:
+								break
+					with open(MD, "w", encoding="utf-8") as f:
+						for i,line in enumerate(lines):
+							if i in to_replace:
+								f.write(line.replace("---",u"\u2010\u2010\u2010"))
+							else:
+								f.write(line)
+				if file in diff or path.join(ROOT, "/content/extra/header.tex") in diff or not path.isfile(PDF):
 					print("Building PDF from {}".format(file))
 					shell("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex --listings "
-						+ file + " -o " + "../output/pdf/" + slug + ".pdf")
+						+ file + " -o " + PDF)
 	os.chdir(ROOT)
 
 def del_tex2pdf():
@@ -217,7 +209,7 @@ def sitemap():
 	PATH = path.abspath(path.join(__file__ ,"../output/sitemap.xml"))
 	shell('sitemap-generator -f ' + PATH + " https://gautammanohar.com")
 
-def publish(message,publish_drafts=False):
+def preview():
 	try:
 		if path.exists('output/drafts'):
 			if not publish_drafts:
@@ -230,6 +222,9 @@ def publish(message,publish_drafts=False):
 	make_source()
 	del_tex2pdf()
 	sitemap()
+
+def publish(message,publish_drafts=False):
+	preview()
 	shell('git add -A')
 	shell('git commit --allow-empty -m"' + message + '"')
 	shell('git push')
