@@ -212,6 +212,11 @@ def del_tex2pdf():
 			shell('rd /s /q ' + d)
 	os.chdir(ROOT)
 
+def sitemap():
+	print("Building sitemap")
+	PATH = path.abspath(path.join(__file__ ,"../output/sitemap.xml"))
+	shell('sitemap-generator -f ' + PATH + " https://gautammanohar.com")
+
 def publish(message,publish_drafts=False):
 	try:
 		if path.exists('output/drafts'):
@@ -224,6 +229,7 @@ def publish(message,publish_drafts=False):
 	make_figs()
 	make_source()
 	del_tex2pdf()
+	sitemap()
 	shell('git add -A')
 	shell('git commit --allow-empty -m"' + message + '"')
 	shell('git push')
