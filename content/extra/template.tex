@@ -1,7 +1,5 @@
 \PassOptionsToPackage{hyphens}{url}
-$if(colorlinks)$
 \PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
-$endif$
 %
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$if(beamer)$ignorenonframetext,$if(handout)$handout,$endif$$if(aspectratio)$aspectratio=$aspectratio$,$endif$$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 $if(beamer)$
@@ -120,11 +118,15 @@ $endif$
 $if(verbatim-in-note)$
 \usepackage{fancyvrb}
 $endif$
-$if(colorlinks)$
 \usepackage{xcolor}
-$endif$
+\definecolor{MidnightBlue}{rgb}{0.1, 0.1, 0.44}
 \usepackage{hyperref}
 \hypersetup{
+colorlinks=true,
+linkcolor=Maroon,
+citecolor=MidnightBlue,
+urlcolor=MidnightBlue,
+breaklinks=true,
 $if(shorttitle)$
   pdftitle={$shorttitle$},
 $else$
@@ -137,18 +139,8 @@ $if(summary)$
   pdfsubject={$summary$}
 $endif$
 $if(keywords)$
-            pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
-$endif$
-$if(colorlinks)$
-            colorlinks=true,
-            linkcolor=Maroon,
-            citecolor=MidnightBlue,
-            urlcolor=MidnightBlue,
-$else$
-            pdfborder={0 0 0},
-$endif$
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
+  pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+$endif$}
 $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
 $endif$
@@ -353,7 +345,7 @@ $abstract$
 \end{abstract}
 $endif$
 $endif$
-\emph{This document originally appeared as a blog post on my website. Find it at} \texttt{\href{http://gautammanohar.com/$slug$.html}{gautammanohar.com/$slug$.html}}.
+\emph{This document originally appeared as a blog post on my website. Find it at} \texttt{\href{http://gautammanohar.com/$slug$}{gautammanohar.com/$slug$}}.
 
 $for(include-before)$
 $include-before$
@@ -366,9 +358,7 @@ $if(beamer)$
 \end{frame}
 $else$
 {
-$if(colorlinks)$
 \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
-$endif$
 \setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
 }
