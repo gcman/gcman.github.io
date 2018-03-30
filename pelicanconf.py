@@ -29,7 +29,7 @@ LINKS = ()
 # Social widget
 SOCIAL = ()
 
-TYPOGRIFY = True
+TYPOGRIFY = False
 
 DEFAULT_PAGINATION = False
 
@@ -50,7 +50,7 @@ EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
 READERS = {'html': None}
 
 PLUGIN_PATHS = ['../pelican-plugins']
-PLUGINS = ["render_math","pelican-toc","neighbors","figure-ref"]
+PLUGINS = ["render_math","pelican-toc","neighbors"]
 
 TOC = {
     'TOC_HEADERS'       : '^h[1-2]', # What headers should be included in

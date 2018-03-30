@@ -220,7 +220,7 @@ def preview():
 	make_figs()
 	make_source()
 	del_tex2pdf()
-	sitemap()
+	#sitemap()
 
 def publish(message,publish_drafts=False):
 	preview()
