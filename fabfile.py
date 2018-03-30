@@ -40,6 +40,7 @@ date: {day} {month} {year}
 category:
 tags:
 slug: {slug}
+summary:
 status: draft
 ---
 
@@ -70,7 +71,7 @@ def ext(f):
 	return path.splitext(f)[-1].lower()
 
 def bare(f):
-	return f.strip(ext(f))
+	return "".join(path.splitext(f)[:-1]).lower()
 
 def remove_prefix(text, prefix):
 	if text.startswith(prefix):
@@ -81,13 +82,12 @@ def clean():
 	# Remove generated files
 	if path.isdir(DEPLOY_PATH):
 		keep = ["figures"]
-		files = [x for x in os.walk(DEPLOY_PATH)][0]
-		for file in files[2]:
-			os.remove(path.join(DEPLOY_PATH,file))
-		for dir in files[1]:
-			for file,subdir,subfiles in os.walk(dir):
+		for subdir, dirs, files in os.walk(DEPLOY_PATH,topdown=True):
+			dirs[:] = [d for d in dirs if d not in keep]
+			for file in files:
+				p = path.join(subdir,file)
 				if ext(file) != ".pdf":
-					os.remove(file)
+					os.remove(p)
 		os.makedirs(DEPLOY_PATH,exist_ok=True)
 
 def build():
@@ -138,7 +138,7 @@ def make_figs():
 					shell("latexmk -shell-escape -pdf -quiet " + file)
 					shell("latexmk -c")
 					os.chdir(ROOT)
-				if file in diff or not path.isfile(OUTPUT_DIR+bare(file)+".png"):
+				if file in diff or not path.isfile(path.join(OUTPUT_DIR,bare(file)+".png")):
 					print("Creating PNG from {}".format(bare(file) + ".pdf"))
 					commands.append("magick -quiet -density 400 -background none -antialias " 
 						+ path.join(CONTENT_DIR,bare(file)+".pdf") 
@@ -146,7 +146,8 @@ def make_figs():
 		break # Prevents digging into subdirectories
 	for file in os.listdir(OUTPUT_DIR):
 		if ext(file) == ".png":
-			if not path.isfile(path.join(CONTENT_DIR + bare(file) + ".pdf")):
+			if not path.isfile(path.join(CONTENT_DIR, bare(file) + ".pdf")):
+				print(path.join(CONTENT_DIR, bare(file) + ".pdf"))
 				os.remove(path.join(OUTPUT_DIR,file))
 	for file in os.listdir(CONTENT_DIR):
 		if ext(file) in [".table",".gnuplot"]:
@@ -220,7 +221,7 @@ def preview():
 	make_figs()
 	make_source()
 	del_tex2pdf()
-	#sitemap()
+	sitemap()
 
 def publish(message,publish_drafts=False):
 	preview()

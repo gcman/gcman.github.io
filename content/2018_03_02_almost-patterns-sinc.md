@@ -5,6 +5,7 @@ date: 2 March 2018
 category: math
 tags: fun
 slug: almost-patterns-sinc
+summary: Some patterns in mathematics go on forever. But many "patterns" do anything but, instead ending spectacularly. Explore patterns that are "almost there."
 ---
 
 Mathematics students are often told not to carelessly extrapolate small sample sizes into general claims.
