@@ -20,7 +20,7 @@ I have two solutions: one with calculus, and one by induction.
 # Calculus
 First, we notice that
 \begin{equation}
-	\int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Bigr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.
+	\int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Biggr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.
 	\label{integral-rep}
 \end{equation}
 Then, substituting \eqref{integral-rep} into \eqref{identity} gives
