@@ -26,10 +26,14 @@
 	emph={MyClass,__init__},
 }
 \usepackage{mathrsfs}
+\usepackage{mathtools}
 \let\Pr\relax
 \DeclareMathOperator\LCM{LCM}
 \DeclareMathOperator\Pr{P}
 \DeclareMathOperator\arccot{arccot}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+
 \DeclareMathOperator{\I}{\mathcal{I}}
 
 \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
@@ -45,3 +49,11 @@
 \newcommand*{\qed}{\hfill\ensuremath{\square}}
 
 \renewcommand\mathscr{\mathcal}
+
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
