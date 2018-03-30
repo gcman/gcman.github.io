@@ -125,11 +125,10 @@ $if(colorlinks)$
 $endif$
 \usepackage{hyperref}
 \hypersetup{
-$if(title)$
-  pdftitle={$title$},
-$endif$
 $if(shorttitle)$
   pdftitle={$shorttitle$},
+$else$
+  pdftitle={$title$},
 $endif$
 $if(author)$
   pdfauthor={$author$},
