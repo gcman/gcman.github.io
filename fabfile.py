@@ -137,6 +137,7 @@ def make_figs():
 					os.chdir(CONTENT_DIR)
 					shell("latexmk -shell-escape -pdf -quiet " + file)
 					shell("latexmk -c")
+					shell("pdfcrop " + bare(file) + ".pdf " + bare(file) + ".pdf")
 					os.chdir(ROOT)
 				if file in diff or not path.isfile(path.join(OUTPUT_DIR,bare(file)+".png")):
 					print("Creating PNG from {}".format(bare(file) + ".pdf"))
@@ -150,7 +151,7 @@ def make_figs():
 				print(path.join(CONTENT_DIR, bare(file) + ".pdf"))
 				os.remove(path.join(OUTPUT_DIR,file))
 	for file in os.listdir(CONTENT_DIR):
-		if ext(file) in [".table",".gnuplot"]:
+		if ext(file) in [".table",".gnuplot",".gz",".xdv"]:
 			os.remove(path.join(CONTENT_DIR,file))
 	for c in commands:
 		shell(c)
@@ -173,27 +174,34 @@ def make_source():
 				PDF_DIR = path.join(OUTPUT_DIR,"../pdf")
 				MD = path.join(OUTPUT_DIR, "src.md")
 				PDF = path.join(OUTPUT_DIR,"post.pdf")
-				if file in diff or not path.isfile(MD):
-					print("Copying {}".format(file))
-					with open(file, "r") as f:
-						lines = [line for line in f]
-						to_replace = []
-						s = "---\n"
-						for i,line in enumerate(lines):
-							if s in line:
-								to_replace.append(i)
-							if len(to_replace) == 2:
-								break
-					with open(MD, "w", encoding="utf-8") as f:
-						for i,line in enumerate(lines):
-							if i in to_replace:
-								f.write(line.replace("---",u"\u2010\u2010\u2010"))
-							else:
-								f.write(line)
+				with open(file, "r") as f:
+					lines = [line for line in f]
+					empty = 0
+					for i,line in enumerate(lines):
+						if line == "\n":
+							empty = i
+							break
+				print("Copying {}".format(file))
+				with open(MD, "w", encoding="utf-8") as f:
+					s = "---\n"
+					f.write(s)
+					for i,line in enumerate(lines):
+						if i == empty:
+							f.write(s + "\n")
+						else:
+							f.write(line)
 				if file in diff or path.join(ROOT, "/content/extra/header.tex") in diff or not path.isfile(PDF):
 					print("Building PDF from {}".format(file))
 					shell("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex --listings "
-						+ file + " -o " + PDF)
+						+ MD + " -o " + PDF)
+					with open(MD, "w", encoding="utf-8") as f:
+						s = u"\u2010\u2010\u2010\n"
+						f.write(s)
+						for i, line in enumerate(lines):
+							if i == empty:
+								f.write(s + "\n")
+							else:
+								f.write(line)
 	os.chdir(ROOT)
 
 def del_tex2pdf():

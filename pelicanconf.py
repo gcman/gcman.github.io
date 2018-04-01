@@ -50,7 +50,17 @@ EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
 READERS = {'html': None}
 
 PLUGIN_PATHS = ['../pelican-plugins']
-PLUGINS = ["render_math","pelican-toc","neighbors"]
+PLUGINS = ["render_math","pelican-toc","neighbors","pandoc_reader","figure-ref"]
+
+PANDOC_ARGS = [
+  '--mathjax',
+]
+
+PANDOC_EXTENSIONS = [
+  "+yaml_metadata_block",
+  "+smart",
+  '-citations'
+]
 
 TOC = {
     'TOC_HEADERS'       : '^h[1-2]', # What headers should be included in

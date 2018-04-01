@@ -1,11 +1,9 @@
----
 title: Inspheres and Circumspheres of Simplices
 date: 17 February 2018
 category: math
 tags: algebra, proof
 slug: simplex-sphere
 summary: Every triangle has an inscribed and circumscribed circle. We extend this to tetrahedra and their higher dimensional analogues, simplices.
----
 
 *This post was inspired by the fifth question on the University of Toronto Math Academy 2018 [Qualifying Quiz](http://mathplus.math.utoronto.ca/home/ma/MathAcademyQualifyingQuiz5.pdf).*
 

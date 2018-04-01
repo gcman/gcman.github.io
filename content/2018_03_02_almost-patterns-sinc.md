@@ -1,4 +1,3 @@
----
 title: Almost There I
 subtitle: The Pattern That Sincs Eventually 
 date: 2 March 2018
@@ -6,7 +5,6 @@ category: math
 tags: fun
 slug: almost-patterns-sinc
 summary: Some patterns in mathematics go on forever. But many "patterns" do anything but, instead ending spectacularly. Explore patterns that are "almost there."
----
 
 Mathematics students are often told not to carelessly extrapolate small sample sizes into general claims.
 Indeed, this is a general truth of life: isolated examples do not constitute general proof.
@@ -27,6 +25,7 @@ That's because we're investigating some interesting properties the $\mathrm{sinc
 	\end{cases}
 \end{equation}
 It looks like this:
+
 ![The graph of $\mathrm{sinc}\,x$. Note that at $x = 0$, this function is defined to be equal to 1.](https://gautammanohar.com/figures/sinc.png){ width=50% }
 
 This function famously has no elementary antiderivative, yet its definite integral over the real line evaluates to
