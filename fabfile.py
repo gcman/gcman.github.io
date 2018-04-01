@@ -214,7 +214,7 @@ def del_tex2pdf():
 
 def sitemap():
 	print("Building sitemap")
-	PATH = path.abspath(path.join(__file__ ,"../output/sitemap.xml"))
+	PATH = path.abspath(path.join(__file__,"../output/sitemap.xml"))
 	shell('sitemap-generator -f ' + PATH + " https://gautammanohar.com")
 
 def preview():
@@ -224,10 +224,10 @@ def preview():
 				shell('rd /s /q "output/drafts"')
 	except Exception:
 		pass
-	clean()
+	#clean()
 	build()
 	make_figs()
-	make_source()
+	#make_source()
 	del_tex2pdf()
 	sitemap()
 
