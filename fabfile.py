@@ -237,4 +237,4 @@ def publish(message,publish_drafts=False):
 	shell('git commit --allow-empty -m"' + message + '"')
 	shell('git push')
 	shell('ghp-import output')
-	local('git push git@github.com:gcman/gcman.github.io.git gh-pages:master --force')
+	shell('git push git@github.com:gcman/gcman.github.io.git gh-pages:master --force')
