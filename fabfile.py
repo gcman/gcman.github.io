@@ -71,7 +71,7 @@ def ext(f):
 	return path.splitext(f)[-1].lower()
 
 def bare(f):
-	return "".join(path.splitext(f)[:-1]).lower()
+	return "".join(path.splitext(f)[:-1])
 
 def remove_prefix(text, prefix):
 	if text.startswith(prefix):
