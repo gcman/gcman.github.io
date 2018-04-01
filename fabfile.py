@@ -224,10 +224,10 @@ def preview():
 				shell('rd /s /q "output/drafts"')
 	except Exception:
 		pass
-	#clean()
+	clean()
 	build()
 	make_figs()
-	#make_source()
+	make_source()
 	del_tex2pdf()
 	sitemap()
 
