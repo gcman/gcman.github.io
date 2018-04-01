@@ -141,9 +141,9 @@ def make_figs():
 					os.chdir(ROOT)
 				if file in diff or not path.isfile(path.join(OUTPUT_DIR,bare(file)+".png")):
 					print("Creating PNG from {}".format(bare(file) + ".pdf"))
-					commands.append("magick -quiet -density 400 -background none -antialias " 
+					commands.append("magick -quiet -density 800 -background none -antialias " 
 						+ path.join(CONTENT_DIR,bare(file)+".pdf") 
-						+ " -channel rgba -alpha on -quality 1000 -trim png32:" + path.join(OUTPUT_DIR,bare(file) + ".png"))
+						+ " -channel rgba -alpha on -quality 2500 -trim png32:" + path.join(OUTPUT_DIR,bare(file) + ".png"))
 		break # Prevents digging into subdirectories
 	for file in os.listdir(OUTPUT_DIR):
 		if ext(file) == ".png":
