@@ -5,8 +5,6 @@ tags: algebra, proof
 slug: simplex-sphere
 summary: Every triangle has an inscribed and circumscribed circle. We extend this to tetrahedra and their higher dimensional analogues, simplices.
 
-*This post was inspired by the fifth question on the University of Toronto Math Academy 2018 [Qualifying Quiz](http://mathplus.math.utoronto.ca/home/ma/MathAcademyQualifyingQuiz5.pdf).*
-
 Every triangle can be circumscribed by a circle, because a circle can always be drawn through three given points, so long as they are not colinear.
 In fact, every triangle also has a circle that is inscribed in it.
 These two circles are called the triangle's circumcircle and incircle.
@@ -335,7 +333,7 @@ We'll use `Python` and its `numpy` package.
 Let's first set up a function to compute our generalized cross product using the kernel method.
 Here's a standard implementation of finding the kernel, or nullspace, of a matrix, sourced from [here](http://scipy-cookbook.readthedocs.io/items/RankNullspace.html).
 
-```{python}
+```python
 def nullspace(A, atol=1e-13, rtol=0):
 	A = np.atleast_2d(A)
 	u, s, vh = np.linalg.svd(A)
@@ -365,6 +363,7 @@ def insphere(v):
 ```
 
 Note that `n` is the "dimension" of the tetrahedron.
+
 ```python
 for i in range(n+1):
 		faces.append(v + [v[n-i]])
@@ -400,6 +399,7 @@ def circumsphere(v):
 	R = sqrt(sum([(v[0][i] - sols[i])**2 for i in range(n)]))
 	return np.append(sols, R)
 ```
+
 And there you have it!
 It would be interesting to see how the ratio between circumsphere and insphere (3 in 3 dimensions) changes as the dimension increases.
 It will probably get much larger (because most of a high-dimensional sphere's volume is near its surface and because the insphere's volume will become very small), but how quickly?

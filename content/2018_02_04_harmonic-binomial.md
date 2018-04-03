@@ -54,6 +54,7 @@ We can expand the $(1-u)^n$ term using the binomial theorem:
 This concludes our proof of \eqref{identity}.
 
 # Induction
+
 We first show that
 \begin{equation}
 	\frac{1}{k+1}\binom{n}{k} = \frac{1}{n+1}\binom{n+1}{k+1}.

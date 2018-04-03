@@ -34,7 +34,6 @@ env.github_pages_branch = "master"
 # Port for `serve`
 PORT = 8000
 TEMPLATE = """
----
 title: {title}
 date: {day} {month} {year}
 category:
@@ -42,7 +41,6 @@ tags:
 slug: {slug}
 summary:
 status: draft
----
 
 
 """
@@ -93,14 +91,6 @@ def clean():
 def build():
 	# Build local version of site
 	shell('pelican -s pelicanconf.py')
-	# Workaround: renames README.txt to README.md
-	f = path.join("output/README.txt")
-	out = path.splitext(f)[0] + ".md"
-	try:
-		os.rename(f, out)
-	except WindowsError:
-		os.remove(out)
-		os.rename(f, out)
 
 @hosts(production)
 
@@ -227,7 +217,7 @@ def preview():
 	clean()
 	build()
 	make_figs()
-	make_source()
+	#make_source()
 	del_tex2pdf()
 	sitemap()
 

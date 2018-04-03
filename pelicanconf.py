@@ -8,6 +8,8 @@ AUTHOR = 'Gautam Manohar'
 SITENAME = 'Gautam Manohar'
 SITEURL = 'https://gautammanohar.com'
 
+CSS_FILE = 'article.css'
+
 GOOGLE_ANALYTICS = 'UA-115904815-1'
 
 PATH = 'content'
@@ -42,7 +44,7 @@ STATIC_PATHS = ['extra/CNAME', 'extra/404.html', 'extra/favicon.ico', 'extra/REA
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
 'extra/404.html': {'path': '404.html'},
 'extra/favicon.ico': {'path': 'favicon.ico'},
-'extra/README.txt': {'path': 'README.txt'},
+'extra/README.txt': {'path': 'README.md'},
 'extra/thanks.html': {'path': 'thanks/index.html'},
 'extra/google9cbd00c2e42ee352.html': {'path': 'google9cbd00c2e42ee352.html'},
 'extra/index.html': {'path': 'index.html'}}
@@ -50,7 +52,7 @@ EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
 READERS = {'html': None}
 
 PLUGIN_PATHS = ['../pelican-plugins']
-PLUGINS = ["render_math","pelican-toc","neighbors","pandoc_reader","figure-ref"]
+PLUGINS = ["pelican-toc","neighbors","pandoc_reader"]
 
 PANDOC_ARGS = [
   '--mathjax',
@@ -59,7 +61,9 @@ PANDOC_ARGS = [
 PANDOC_EXTENSIONS = [
   "+yaml_metadata_block",
   "+smart",
-  '-citations'
+  '-citations',
+  "+markdown_in_html_blocks",
+  "+backtick_code_blocks"
 ]
 
 TOC = {
@@ -72,17 +76,6 @@ TOC = {
                                      # to 'true' no toc will be generated
 
     'TOC_INCLUDE_TITLE': 'false',    # If 'true' include title in toc
-}
-
-MARKDOWN = {
-    'extensions' : ['markdown.extensions.codehilite',
-    'markdown.extensions.extra',
-    'emdash',
-    'figureAltCaption',
-    ],
-    'extension_configs': {
-        'markdown.extensions.codehilite': {'css_class': 'highlight','guess_lang': 'True','use_pygments': 'True'},
-    }
 }
 
 RELATIVE_URLS = True

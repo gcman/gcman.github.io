@@ -1,0 +1,12 @@
+\documentclass{article}
+\pagenumbering{gobble}
+\usepackage{chemfig}
+\begin{document}
+	\schemestart
+	\chemfig{[:30,0.8]HO-(=[2]O)-[::-60]-N(-[2]CH_3)-[::-60](=[::-60]O)--[::-60]OH} 
+	\arrow{->}
+	\chemfig{[:30,0.8]HO-(=[2]O)-[::-60]OH}
+	\+
+	\chemfig{[:30,0.8]\chemabove[0pt]{N}{\scriptstyle\hspace{13pt}+}(-[2]CH_3)(-[:170]H)(-[:240]H)-[::-60](=[::-60]O)--[::-60]OH} 
+	\schemestop
+\end{document}
