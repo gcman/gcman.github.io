@@ -217,7 +217,7 @@ def preview():
 	clean()
 	build()
 	make_figs()
-	#make_source()
+	make_source()
 	del_tex2pdf()
 	sitemap()
 
