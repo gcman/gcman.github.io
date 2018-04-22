@@ -39,7 +39,7 @@ DEFAULT_DATE_FORMAT = ('%-d %B %Y')
 
 DEFAULT_CATEGORY = 'misc'
 
-THEME = "../pelican-themes/gcman"
+THEME = "content/theme"
 STATIC_PATHS = ['extra/CNAME', 'extra/404.html', 'extra/favicon.ico', 'extra/README.txt','extra/thanks.html','extra/google9cbd00c2e42ee352.html','extra/index.html']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
 'extra/404.html': {'path': '404.html'},
@@ -74,7 +74,6 @@ TOC = {
     'TOC_RUN'           : 'true',    # Default value for toc generation,
                                      # if it does not evaluate
                                      # to 'true' no toc will be generated
-
     'TOC_INCLUDE_TITLE': 'false',    # If 'true' include title in toc
 }
 

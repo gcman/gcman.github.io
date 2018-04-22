@@ -1,0 +1,61 @@
+<style>
+  .title .math {
+    font-size: 50% !important;
+  }
+</style>
+<script type="text/x-mathjax-config">
+  MathJax.Ajax.config.path["mhchem"] =
+    "https://cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0";
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
+    jax: ["input/TeX","output/HTML-CSS", "output/PreviewHTML"],
+    "HTML-CSS": {
+      styles: {
+      ".MathJax .mo, .MathJax .mi, .math": {color: "black;"}},
+      scale: 100,
+      afonts: ["TeX"],
+      webFont: "Latin-Modern"
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    TeX: {
+      equationNumbers: {  autoNumber: "all"  },
+      extensions: ["[mhchem]/mhchem.js","AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    });
+    MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
+      var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
+      VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+      VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+      VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+      VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+      });
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js">
+</script>
+<div class="invisible">
+  \(
+  \let\Pr\relax
+  \DeclareMathOperator\LCM{LCM}
+  \DeclareMathOperator\Pr{P}
+  \DeclareMathOperator\arccot{arccot}
+  \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1 )}
+  \renewcommand{\vec}[1]{\mathbf{ #1 }}
+  \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+  \newcommand{\abs}[1]{\lvert #1 \rvert}
+
+  \newcommand{\inn}[1]{\in\left\{ #1 \right\}}
+  \newcommand{\ninn}[1]{\not\in\left\{ #1 \right\}}
+  \newcommand{\orr}{\qquad&amp;\,\text{or}\qquad}
+
+  \renewcommand\d{\mathop{}\!\mathrm{d}}
+  \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
+  \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
+  \DeclareMathOperator\G{\Gamma}
+  \DeclareMathOperator\I{\mathscr{I}}
+  \)
+</div>

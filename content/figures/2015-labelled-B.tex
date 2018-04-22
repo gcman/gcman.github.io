@@ -1,0 +1,8 @@
+\documentclass{article}
+\pagenumbering{gobble}
+\usepackage{chemfig}
+\begin{document}
+	\definesubmol\nobond{-[,0.2,,,draw=none]}
+	\definesubmol\nnobond{-[,-0.2,,,draw=none]}
+	\chemname{\chemfig{[:60,0.8]*6((!\nobond\footnotesize{\textbf{3}})-*6(---*6(-*5(--(!\nobond\footnotesize{\textbf{7}})-(-OH)(!\nnobond\footnotesize{\textbf{6}})-)-(!\nnobond\footnotesize{\textbf{5}})(-[:90])-(!\nobond\footnotesize{\textbf{4}})---)---)---(!\nobond\footnotesize{\textbf{1}})-(!\nnobond\footnotesize{\textbf{2}})(-[:-115]OH)(-[:175]Ph)-)}}{\textbf{B}}
+\end{document}
