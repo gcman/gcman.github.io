@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 import markdown
-import figureAltCaption
 
 AUTHOR = 'Gautam Manohar'
 SITENAME = 'Gautam Manohar'
@@ -39,7 +38,7 @@ DEFAULT_DATE_FORMAT = ('%-d %B %Y')
 
 DEFAULT_CATEGORY = 'misc'
 
-THEME = "../pelican-themes/gcman"
+THEME = "gcman"
 STATIC_PATHS = ['extra/CNAME', 'extra/404.html', 'extra/favicon.ico', 'extra/README.txt','extra/thanks.html','extra/google9cbd00c2e42ee352.html','extra/index.html']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
 'extra/404.html': {'path': '404.html'},
