@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Gautam Manohar's Personal Website</title>
+  <meta charset="utf-8" />
+  <meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
+  <meta name="author" content="Gautam Manohar" />
+  <meta name="copyright" content="Gautam Manohar" />
+  <meta name="robots" content="noindex,follow" />
+  <meta name="description" content="Voraciously curious. Ceaselessly skeptical. Unabashedly nerdy. Student, math lover, writer, lifelong learner. Dabbles in computer science and chemistry." />
+  <link rel="stylesheet" href="./theme/css/normalize/normalize.min.css" type="text/css" />
+  <link rel="shortcut icon" type="image/png" href="./theme/images/icons/favicon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+
+  <!--[if IE]>
+          <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <!--[if lte IE 7]>
+          <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+          <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+  <!--[if lt IE 7]>
+          <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
+  <link rel="stylesheet" href="./theme/css/article.css" type="text/css" />
+  <link rel="stylesheet" href="./theme/css/index.css" type="text/css" />
+  <style>
+  .title .math {
+    font-size: 50% !important;
+  }
+  </style>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+
+<body>
+<div class="banner">
+  <h1><a style="color: ivory;" href="./">Gautam Manohar</a></h1>
+</div>
+<div class="nav-wrapper">
+  <nav>
+    <ul>
+      <li><a href="https://github.com/gcman">github</a></li>
+      <li><a href="./blog/">blog</a></li>
+      <li><a href="./contact-me/">contact</a></li>
+    </ul>
+  </nav>
+</div>
+<div style="height: 6em; width:100%; background-color: firebrick;">
+</div>
+<div class="content">
+  <h2>Voraciously curious. Ceaselessly skeptical. Unabashedly nerdy.</h2>
+  <p>
+    If any of these terms describe you, then great!
+    You're in the right place.
+    I'm Gautam.
+    Welcome to my personal website.
+    You can find my many curious, skeptical, and nerdy thoughts on my <a href="./blog/">blog</a>.
+  </p>
+  <p>
+    I love mathematics, and I learn computer science and chemistry on the side.
+    I firmly believe in the power of ideas.
+    Interesting ideas come from all walks of life: academic subjects, learning a new language, meeting new people, or idle musings over a good cup of tea.
+    Such ideas give my life colour and promise to occupy me for a lifetime.
+  </p>
+  <h2>A good problem is never solved.</h2>
+  <p>
+    The most fulfilling problems lead not just to answers that satisfy inquiry but to questions that further it.
+    After all, what is an interesting idea without a question to inspire it?
+    Questions are the ultimate companion to a lifelong learner (non-human, of course).
+    They motivate me to rejoice in spite of failure and work hard in spite of success.
+    The path paved by interesting questions never ends&mdash;and that's what's so exciting about it!
+  </p>
+  <h2>Here's some more about me.</h2>
+  <p>
+    I'm a Grade 11 student at the <a href="https://www.utschools.ca/">University of Toronto Schools</a> (UTS).
+    My favourite number is 7, but perhaps it should be $n$: why consider one when you can consider them all?
+    In my free time, I like to practice my handwriting and calligraphy, play table tennis, and watch basketball.
+  </p>
+</div>
+<script>
+// cache the element
+var $navBar = $('nav');
+
+// find original navigation bar position
+var navPos = $navBar.offset().top;
+
+// on scroll
+$(window).scroll(function() {
+
+    // get scroll position from top of the page
+    var scrollPos = $(this).scrollTop();
+
+    // check if scroll position is >= the nav position
+    if (scrollPos >= navPos) {
+        $navBar.addClass('fixed');
+    } else {
+        $navBar.removeClass('fixed');
+    }
+
+});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script>
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script>
+    try {
+        var pageTracker = _gat._getTracker("UA-115904815-1");
+    pageTracker._trackPageview();
+    } catch(err) {}
+</script>
+ <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+    styles: {
+    ".MathJax .mo, .MathJax .mi, .math": {color: "black;"}}
+    },
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processEscapes: true}
+    });
+    MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
+      var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
+      VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+      VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+      VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+      VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+      });
+      MathJax.Hub.Register.StartupHook("SVG Jax Ready",function () {
+      var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;
+      VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+      VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+      VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+      VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+      });
+      MathJax.Hub.Config({
+        "HTML-CSS": {
+          scale: 100,
+          availableFonts: [],
+          preferredFont: null,
+          webFont: "Latin-Modern"
+        }
+      });
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {  autoNumber: "all"  },
+        }
+      });
+  </script>
+</body>
+</html>

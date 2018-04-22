@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>    Comparing Powers of e and pi - Gautam Manohar
+</title>
+    <meta charset="utf-8" />
+        <meta name="keywords" content="calculus, proof, math" />
+        <meta name="category" content="math" />
+        <meta name="description" content=""Which is greater: e^pi or pi^e? I solve this puzzle with differentiation, Taylor series, concavity, and the arithmetic-geometric mean inequality."" />
+        <meta name="author" content="Gautam Manohar" />
+        <meta name="copyright" content="Gautam Manohar" />
+        <meta name="date" content="2018-02-01 00:00:00-05:00">
+<link rel="stylesheet" href="../theme/css/normalize/normalize.min.css" type="text/css" />
+  <link rel="stylesheet" href="../theme/css/article.css" type="text/css" />
+    <meta name="robots" content="index,follow">
+    <link rel="shortcut icon" type="image/png" href="../theme/images/icons/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
+    <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!--[if lte IE 7]>
+            <link rel="stylesheet" type="text/css" media="all" href="../css/ie.css"/>
+            <script src="../js/IE8.js" type="text/javascript"></script><![endif]-->
+
+    <!--[if lt IE 7]>
+            <link rel="stylesheet" type="text/css" media="all" href="../css/ie6.css"/><![endif]-->
+<style>
+  .title .math {
+    font-size: 50% !important;
+  }
+</style>
+<script type="text/x-mathjax-config">
+  MathJax.Ajax.config.path["mhchem"] =
+    "https://cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0";
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
+    jax: ["input/TeX","output/HTML-CSS", "output/PreviewHTML"],
+    "HTML-CSS": {
+      styles: {
+      ".MathJax .mo, .MathJax .mi, .math": {color: "black;"}},
+      scale: 100,
+      afonts: ["TeX"],
+      webFont: "Latin-Modern"
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    TeX: {
+      equationNumbers: {  autoNumber: "all"  },
+      extensions: ["[mhchem]/mhchem.js","AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    });
+    MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
+      var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
+      VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+      VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+      VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+      VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+      });
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js">
+</script>
+<div class="invisible">
+  \(
+  \let\Pr\relax
+  \DeclareMathOperator\LCM{LCM}
+  \DeclareMathOperator\Pr{P}
+  \DeclareMathOperator\arccot{arccot}
+  \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1 )}
+  \renewcommand{\vec}[1]{\mathbf{ #1 }}
+  \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+  \newcommand{\abs}[1]{\lvert #1 \rvert}
+
+  \newcommand{\inn}[1]{\in\left\{ #1 \right\}}
+  \newcommand{\ninn}[1]{\not\in\left\{ #1 \right\}}
+  \newcommand{\orr}{\qquad&amp;\,\text{or}\qquad}
+
+  \renewcommand\d{\mathop{}\!\mathrm{d}}
+  \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
+  \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
+  \DeclareMathOperator\G{\Gamma}
+  \DeclareMathOperator\I{\mathscr{I}}
+  \)
+</div></head>
+<body>
+<section id="content" class="body">
+    <article>
+    <header>
+      <h1 class="title">
+            <a href="../e-pi/" rel="bookmark"
+           title="Permalink to Comparing Powers of e and pi">Comparing Powers of e and pi</a>
+      </h1>
+      <address class="author">Gautam Manohar</address>
+        <div id="textbox">
+          <p style="font-weight: bold;" class="alignleft">
+            <a href="../category/math/">math</a>&nbsp;
+          </p>
+            <p class="date aligncenter">1 February 2018</p>
+          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../tag/calculus/">#calculus</a> <a href="../tag/proof/">#proof</a> </p>
+        </div>
+       <div style="clear: both;"></div>​
+    </header>
+
+      <p>The constants <span class="math inline">\(e\)</span> and <span class="math inline">\(\pi\)</span> are everywhere in mathematics. Determining the greater of the two expressions <span class="math inline">\(e^\pi\)</span> and <span class="math inline">\(\pi^e\)</span> (without using a calculator, of course&hellip;) is a fun puzzle that you can approach in many ways. I&rsquo;d like to discuss my solutions.</p>
+<h1 id="differentiation">Differentiation</h1>
+<p>We shall perform the same operations on the two expressions: <span class="math display">\[\begin{equation}
+    \begin{split}
+        e^\pi &amp;\odot \pi^e \\
+        e^{\frac{\pi}{e}} &amp;\odot \pi^{\frac{e}{e}} \\
+        e^{\frac{1}{e}} &amp;\odot \pi^{\frac{1}{\pi}}.
+    \end{split}
+\end{equation}\]</span> To show that <span class="math inline">\(e^\pi &gt; \pi^e\)</span>, it suffices to show that <span class="math inline">\(e^{\frac{1}{e}} &gt; \pi^{\frac{1}{\pi}}\)</span>. Let <span class="math inline">\(y = x^{\frac{1}{x}}\)</span>. Then we can implicitly differentiate to find the critical points. <span class="math display">\[\begin{equation}
+    \begin{split}
+        \ln{y} &amp;= \ln{x^{\frac{1}{x}}} \\
+        \ln{y} &amp;= \frac{\ln{x}}{x} \\
+        \diff{}{x}\ln{y} &amp;= \diff{}{x}\frac{\ln{x}}{x} \\
+        \frac{1}{y}y' &amp;= \frac{x\left(\frac{1}{x}\right) - \ln{x}\cdot1}{x^2} \\
+        y' &amp;= x^{\frac{1}{x}}\frac{1 - \ln{x}}{x^2}.
+    \end{split}
+\end{equation}\]</span> The expressions <span class="math inline">\(x^{\frac{1}{x}}\)</span> and <span class="math inline">\(x^2\)</span> are always positive, so there is only critical point: when <span class="math inline">\(1 - \ln{x} = 0\)</span>, or when <span class="math inline">\(x = e\)</span>. We must find whether this point is a global minimum or a maximum. When <span class="math inline">\(x = 1 &lt; e\)</span>, we have <span class="math inline">\(1 - \ln{x} = 1\)</span>, so the function is increasing. The value <span class="math inline">\(x = e^2 &gt; e\)</span> gives <span class="math inline">\(1 - \ln{x} = -1\)</span>, which means the function is decreasing. Thus <span class="math inline">\(x^{\frac{1}{x}}\)</span> has a global maximum at <span class="math inline">\(x = e\)</span>. And so <span class="math inline">\(e^{\frac{1}{e}} &gt; \pi^{\frac{1}{\pi}}\)</span>, which shows that <span class="math inline">\(e^\pi &gt; \pi^e\)</span>.</p>
+<h1 id="inequality">Inequality</h1>
+<p>If we use the inequality <span class="math inline">\(1 + x &lt; e^x\)</span> (I will present three proofs of this below), then a very simple solution presents itself. The equality holds for all <span class="math inline">\(x\)</span>, but we only require it to hold for positive <span class="math inline">\(x\)</span>. Make the substitution <span class="math inline">\(x = \frac{\pi}{e} - 1\)</span>, in an effort to cancel out the 1 on the right side of the inequality and introduce <span class="math inline">\(\pi\)</span>. Because <span class="math inline">\(\pi&gt;e\)</span>, <span class="math inline">\(\frac{\pi}{e} - 1 &gt; 0\)</span>, and so <span class="math display">\[\begin{equation}
+    \begin{split}
+        1 + \frac{\pi}{e} - 1 &amp;&lt; e^{\frac{\pi}{e} - 1} \\
+        \pi\cdot\frac{1}{e} &amp;&lt; e^{\frac{\pi}{e}} \cdot \frac{1}{e} \\
+        \pi &amp;&lt; e^{\frac{\pi}{e}}\\
+        \pi^e &amp;&lt; e^\pi.
+    \end{split}
+\end{equation}\]</span> Wonderful, isn&rsquo;t it?</p>
+<h2 id="taylor-series">Taylor Series</h2>
+<p>This is the most standard proof I have; I think it&rsquo;s the least exciting. We only prove the equality for positive <span class="math inline">\(x\)</span>. We know <span class="math display">\[\begin{equation}
+    e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
+\end{equation}\]</span> Thus for <span class="math inline">\(x &gt; 0\)</span>, all the terms on the right side will be positive, and so <span class="math inline">\(e^x &gt; 1 + x\)</span>.</p>
+<h2 id="concavity">Concavity</h2>
+<p>This method requires a little more &ldquo;geometric intuition&rdquo; than the last. At <span class="math inline">\(x = 0\)</span>, we have <span class="math inline">\(e^x = 1\)</span>. At this point <span class="math inline">\((0,1)\)</span>, the tangent line to <span class="math inline">\(e^x\)</span> has slope <span class="math inline">\(1\)</span> and has the equation <span class="math inline">\(y = 1 + x\)</span>. Because <span class="math inline">\((e^x)'' = e^x &gt; 0\)</span>, <span class="math inline">\(e^x\)</span> is always concave up, so it is always above its tangent line. Therefore, <span class="math inline">\(1 + x &lt; e^x\)</span>.</p>
+<h2 id="am-gm">AM-GM</h2>
+<p>This is my favourite proof. It&rsquo;s a little less intuitive than the others, but I think it&rsquo;s beautiful. We use the arithmetic-geometric mean inequality. <span class="math display">\[\begin{equation}
+    \begin{split}
+        \sqrt[n]{1+x} &amp;= \sqrt[n]{\smash[b]{\underbrace{1\cdot1\cdots1}_{\text{$n-1$ times}}\cdot(1+x)}} \\[1em]
+        &amp;\le \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}}{n} \\
+        &amp;= \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}+(1+x)}{n} \\
+        &amp;= \frac{\overbrace{1+\dotsb+1}^{\text{$n$ times}}+x}{n} \\
+        &amp;= 1 + \frac{x}{n}.
+    \end{split}
+\end{equation}\]</span> Strict equality in the AM-GM inequality only holds when all the terms are equal. In this case, <span class="math inline">\(x &gt; 0\)</span>, so <span class="math inline">\(1 + x \neq 1\)</span>, so we have strict inequality. This gives <span class="math inline">\(\sqrt[n]{1+x} &lt; 1 + \frac{x}{n}\)</span>. Raising both sides to the <span class="math inline">\(n\)</span>-th power gives <span class="math display">\[\begin{equation}
+    1 + x &lt; \left(1 + \frac{x}{n}\right)^n.
+\end{equation}\]</span> Taking the limit as <span class="math inline">\(n\)</span> approaches <span class="math inline">\(\infty\)</span> on both sides yields <span class="math display">\[\begin{equation}
+    \begin{split}
+        \lim_{n\to\infty} (1 + x) &amp;&lt; \lim_{n\to\infty} \left(1 + \frac{x}{n}\right)^n \\
+        1 + x &amp;&lt; e^x.
+    \end{split}
+\end{equation}\]</span> Using the limit definition of <span class="math inline">\(e\)</span>, we conclude our proof.</p>
+<p>I get the feeling that there are many other ways to attack this problem. If you can solve it with a method that I have not shown, please let me know!</p>
+
+    <aside id="gcman-toolbar">
+        <a title="Raw source" class="raw" href="../e-pi/src.md" type="text/plain">
+            <i class="fas fa-code" aria-hidden="true"></i>
+        </a>
+<a title="Home" class="home" href="../blog/">
+    <i class="fas fa-home"></i>
+</a>        <a title="PDF" class="pdf" href="../e-pi/post.pdf">
+            <i class="far fa-file-pdf" aria-hidden="true"></i>
+        </a>
+                <a title="Generalizing Heron's Formula" class="next" href="../herons-formula/">
+                    <i class="fas fa-chevron-circle-right"></i>
+            </a>
+    </aside>
+  </article>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $('.title a').html(function(index, value) {
+    return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
+});
+</script>
+    <section>
+    </section>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-115904815-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</body>
+</html>

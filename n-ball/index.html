@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>    On the Ball in n Euclidean Dimensions - Gautam Manohar
+</title>
+    <meta charset="utf-8" />
+        <meta name="keywords" content="calculus, proof, long, math" />
+        <meta name="category" content="math" />
+        <meta name="description" content="We find the volume of spheres in n dimensions, a duplication formula for the gamma function, and bounds for its logarithmic derivative." />
+        <meta name="author" content="Gautam Manohar" />
+        <meta name="copyright" content="Gautam Manohar" />
+        <meta name="date" content="2018-02-06 00:00:00-05:00">
+<link rel="stylesheet" href="../theme/css/normalize/normalize.min.css" type="text/css" />
+  <link rel="stylesheet" href="../theme/css/essay.css" type="text/css" />
+    <meta name="robots" content="index,follow">
+    <link rel="shortcut icon" type="image/png" href="../theme/images/icons/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
+    <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!--[if lte IE 7]>
+            <link rel="stylesheet" type="text/css" media="all" href="../css/ie.css"/>
+            <script src="../js/IE8.js" type="text/javascript"></script><![endif]-->
+
+    <!--[if lt IE 7]>
+            <link rel="stylesheet" type="text/css" media="all" href="../css/ie6.css"/><![endif]-->
+<style>
+  .title .math {
+    font-size: 50% !important;
+  }
+</style>
+<script type="text/x-mathjax-config">
+  MathJax.Ajax.config.path["mhchem"] =
+    "https://cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0";
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
+    jax: ["input/TeX","output/HTML-CSS", "output/PreviewHTML"],
+    "HTML-CSS": {
+      styles: {
+      ".MathJax .mo, .MathJax .mi, .math": {color: "black;"}},
+      scale: 100,
+      afonts: ["TeX"],
+      webFont: "Latin-Modern"
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    TeX: {
+      equationNumbers: {  autoNumber: "all"  },
+      extensions: ["[mhchem]/mhchem.js","AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    });
+    MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
+      var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
+      VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+      VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+      VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+      VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+      });
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js">
+</script>
+<div class="invisible">
+  \(
+  \let\Pr\relax
+  \DeclareMathOperator\LCM{LCM}
+  \DeclareMathOperator\Pr{P}
+  \DeclareMathOperator\arccot{arccot}
+  \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1 )}
+  \renewcommand{\vec}[1]{\mathbf{ #1 }}
+  \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+  \newcommand{\abs}[1]{\lvert #1 \rvert}
+
+  \newcommand{\inn}[1]{\in\left\{ #1 \right\}}
+  \newcommand{\ninn}[1]{\not\in\left\{ #1 \right\}}
+  \newcommand{\orr}{\qquad&amp;\,\text{or}\qquad}
+
+  \renewcommand\d{\mathop{}\!\mathrm{d}}
+  \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
+  \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
+  \DeclareMathOperator\G{\Gamma}
+  \DeclareMathOperator\I{\mathscr{I}}
+  \)
+</div></head>
+<body>
+<section id="content" class="body">
+    <header>
+      <h1 class="title">
+            <a href="../n-ball/" rel="bookmark"
+           title="Permalink to On the Ball in n Euclidean Dimensions">On the Ball in n Euclidean Dimensions</a>
+      </h1>
+      <address class="author">Gautam Manohar</address>
+          <div class="date">6 February 2018</div>
+            <nav id="toc">
+              <div id="toc"><ul><li><a class="toc-href" href="#introduction" title="Introduction">Introduction</a></li><li><a class="toc-href" href="#a-recurrence-relation" title="A Recurrence Relation">A Recurrence Relation</a></li><li><a class="toc-href" href="#solving-the-integral" title="Solving the Integral">Solving the Integral</a><ul><li><a class="toc-href" href="#an-analytical-argument" title="An Analytical Argument">An Analytical Argument</a></li><li><a class="toc-href" href="#a-statistical-argument" title="A Statistical Argument">A Statistical Argument</a></li></ul></li><li><a class="toc-href" href="#a-general-formula_1" title="A General Formula">A General Formula</a></li><li><a class="toc-href" href="#proofs-and-other-results" title="Proofs and Other Results">Proofs and Other Results</a><ul><li><a class="toc-href" href="#a-trigonometric-integral-identity" title="A Trigonometric Integral Identity">A Trigonometric Integral Identity</a></li><li><a class="toc-href" href="#identities-involving-the-gamma-function" title="Identities Involving the Gamma Function">Identities Involving the Gamma Function</a></li><li><a class="toc-href" href="#surface-area-of-arbitrary-dimensional-spheres" title="Surface Area of Arbitrary Dimensional Spheres">Surface Area of Arbitrary Dimensional Spheres</a></li><li><a class="toc-href" href="#implications-of-the-content-of-balls-of-arbitrary-dimension" title="Implications of the Content of Balls of Arbitrary Dimension">Implications of the Content of Balls of Arbitrary Dimension</a></li></ul></li><li><a class="toc-href" href="#conclusion_1" title="Conclusion">Conclusion</a></li></ul></div>
+            </nav>
+    <aside id="gcman-toolbar">
+                <a title="Harmonic Numbers and Binomial Coefficients" class="prev" href="../harm-id/">
+                    <i class="fas fa-chevron-left"></i>
+            </a>
+        <a title="Raw source" class="raw" href="../n-ball/src.md" type="text/plain">
+            <i class="fas fa-code" aria-hidden="true"></i>
+        </a>
+<a title="Home" class="home" href="../blog/">
+    <i class="fas fa-home"></i>
+</a>        <a title="PDF" class="pdf" href="../n-ball/post.pdf">
+            <i class="far fa-file-pdf" aria-hidden="true"></i>
+        </a>
+                <a title="Inspheres and Circumspheres of Simplices" class="next" href="../simplex-sphere/">
+                    <i class="fas fa-chevron-right"></i>
+            </a>
+    </aside>
+    </header>
+
+      <main><article>
+      <p>One of my favourite formulas in mathematics is the one for the area of a circle, <span class="math inline">\(\pi r^2\)</span>. Its simplicity intrigued my young mind; the circle is, in a sense, the simplest, the <em>roundest</em> shape, and this formula seems to encapsulate the circle&rsquo;s aura of &ldquo;completion.&rdquo; As I grew older, I learned more such formulas for the volumes and surface areas of familiar geometric objects. In particular, I learned of the formula for the volume of a sphere <span class="math inline">\(\frac{4}{3}\pi r^3\)</span>. Amused as I was by these clever formulas, my curiosity began to take hold of me. Questions filled my mind: isn&rsquo;t it interesting, that as the dimension of the round shape went from 2 to 3, so did the exponent on the radius? Where did the <span class="math inline">\(\frac{4}{3}\)</span> come from? Why do the formulas stop after circle and sphere? What comes next? Does anything come next? These questions lay dormant in my mind for a while, until my friend <a href="https://www.arifaulakh.com">Arif Aulakh</a> challenged me to find an expression for the volume of a sphere in an arbitrary number of dimensions. My curiosity rekindled, I set out in search of the higher-dimensional sphere to answer the question: what comes next?</p>
+<h1 id="introduction">Introduction</h1>
+<p>Before we embark on our journey, we need to lay out some basic definitions. A sphere is the set of all points a given distance (let&rsquo;s call it <span class="math inline">\(R\)</span>) from a given center point. A ball is the space whose boundary is a sphere, or the set of all points whose distance from a given center point is less than or equal to <span class="math inline">\(R\)</span>. For example, a sphere in <span class="math inline">\(2\)</span> dimensions is called a circle, and the corresponding ball is called a disk. Upon hearing the word &ldquo;circle,&rdquo; you might imagine a flat coin-like object. That&rsquo;s not what a mathematician means when they say circle. To a mathematician, a circle is just the boundary of that coin, while a disk is the entirety of the points contained in (and on the boundary of) the coin. Similarly, a sphere is the bounding surface of a ball. So let&rsquo;s call a ball in <span class="math inline">\(n\)</span> Euclidean dimensions with a certain radius the <span class="math inline">\(n\)</span>-ball of radius <span class="math inline">\(R\)</span>. Also, note that a <span class="math inline">\(1\)</span>-ball is just a line segment. In <span class="math inline">\(2\)</span> dimensions, we say closed figures have area, and in <span class="math inline">\(3\)</span> dimensions, we say they have volume. The arbitrary-dimensional analogue of this concept is &ldquo;content.&rdquo; For example, the 2-ball has content <span class="math inline">\(\pi R^2\)</span>, the 3-ball <span class="math inline">\(\frac{4}{3}\pi R^2\)</span>. We shall find a general formula for the content of an <span class="math inline">\(n\)</span>-ball of radius <span class="math inline">\(R\)</span>. Along the way, we will uncover and explore some interesting related results.</p>
+<h1 id="a-recurrence-relation">A Recurrence Relation</h1>
+<p>Intutively, we can construct a <span class="math inline">\(3\)</span>-ball out of a bunch of thin disks (think of slicing a tomato). In the same way, we can construct a disk out of a bunch of thin line segments. And remember, a disk is a <span class="math inline">\(2\)</span>-ball, and a line segment is a <span class="math inline">\(1\)</span>-ball. There seems to be a certain modularity to the <span class="math inline">\(n\)</span>-dimensional ball. Let&rsquo;s formalize this idea on the scale of <span class="math inline">\(2\)</span> dimensions and then generalize to an arbitrary number of dimensions.</p>
+<p>We wish to construct a <span class="math inline">\(2\)</span>-ball from the interval <span class="math inline">\([-R,R]\)</span>, centered on <span class="math inline">\(0\)</span>. Let the distance from <span class="math inline">\(0\)</span> of a point on this interval be <span class="math inline">\(r\)</span>. Then construct a <span class="math inline">\(1\)</span>-ball (line segment) of radius <span class="math inline">\(\sqrt{R^2 - r^2}\)</span> centered on and perpendicular to the interval. Doing this for all points on the interval yields a <span class="math inline">\(2\)</span>-ball, constructed from the sum of infinitely many <span class="math inline">\(1\)</span>-balls. Similarly, we can construct a <span class="math inline">\(3\)</span>-ball from infinitely many <span class="math inline">\(2\)</span>-balls centered on and perpendicular to the interval <span class="math inline">\([-R,R]\)</span>.</p>
+<p>Generalizing to <span class="math inline">\(n\)</span> dimensions yields the recurrence relation <span class="math display">\[\begin{equation}
+    V_{n}(R) = \int_{-R}^{R} V_{n-1}\left(\sqrt{R^2 - r^2}\right) \d r.
+    \label{first-recurrence}
+\end{equation}\]</span> Uniformly scaling any object in <span class="math inline">\(n\)</span> dimensions by <span class="math inline">\(R\)</span> increases the content of that object by a factor of <span class="math inline">\(R^n\)</span>. This result can be shown with linear algebra. We shall prove a weaker version of this statement for the <span class="math inline">\(n\)</span>-ball.</p>
+<blockquote>
+<p><strong>Lemma 1. (Proportionality)</strong> Uniformly scaling a <span class="math inline">\(n\)</span>-dimensional ball by <span class="math inline">\(R\)</span> increases the content of the ball by <span class="math inline">\(R^n\)</span>.</p>
+</blockquote>
+<p>As a base case, proportionality clearly holds for <span class="math inline">\(n = 0\)</span>, where all balls have content <span class="math inline">\(1\)</span>. Here scaling by a factor of <span class="math inline">\(R\)</span> scales content by a factor of <span class="math inline">\(R^0 = 1\)</span>. Then assume inductively that proportionality holds for an <span class="math inline">\((n-1)\)</span>-ball. Then we can factor <span class="math inline">\(R^{n-1}\)</span> from the integrand in : <span class="math display">\[\begin{equation}
+    V_{n}(R) = R^{n-1}\int_{-R}^{R} V_{n-1}\left(\sqrt{1 - \left(\frac{r}{R}\right)^2}\right) \d r.
+\end{equation}\]</span> Substituting <span class="math inline">\(x = \frac{r}{R}, \d x = \frac{\d x}{R}\)</span> yields <span class="math display">\[\begin{equation}
+    V_n(R) = R^n\int_{-1}^1 V_{n-1}\left(\sqrt{1-x^2}\right) \d x = R^nV_n(1),
+    \label{induction-2}
+\end{equation}\]</span> which proves that proportionality holds in <span class="math inline">\(n\)</span> dimensions and, by induction, in all non-negative integer dimensions. <span class="math inline">\(\qed\)</span></p>
+<p>Then proportionality transforms  into <span class="math display">\[\begin{equation}
+    \begin{split}
+        V_{n}(R) &amp;= R^nV_{n-1}(1)\int_{-1}^{1} \left(\sqrt{1-x^2}\right)^{n-1} \d x \\
+        &amp;= V_{n-1}(R)R \int_{-1}^{1} \left(1-x^2\right)^\frac{n-1}{2} \d x.
+    \end{split}
+\end{equation}\]</span> Because the integrand is an even function in <span class="math inline">\(x\)</span>, <span class="math display">\[\begin{equation}
+    V_{n}(R) = 2V_{n-1}(R)R \int_{0}^{1} \left(1-x^2\right)^\frac{n-1}{2} \d x.
+\end{equation}\]</span> The expression of interest to us is the integral. For notational simplicity, we define <span class="math display">\[\begin{equation}
+    I_{k} = 2\int_{0}^{1} \left(1-x^2\right)^\frac{k}{2} \d x.
+    \label{I-initial}
+\end{equation}\]</span> Then <span class="math display">\[\begin{equation}
+    V_{n}(R) = I_{n-1}V_{n-1}(R)R.
+    \label{volume-recurrence}
+\end{equation}\]</span> Let us now solve for <span class="math inline">\(I_{n-1}\)</span>.</p>
+<h1 id="solving-the-integral">Solving the Integral</h1>
+<p>We shall prove the result <span class="math display">\[\begin{equation}
+    I_{n-1} = \frac{\sqrt{\pi}\Gamma\left(\frac{n+1}{2}\right)}{\Gamma(\frac{n}{2}+1)}
+    \label{I-final}
+\end{equation}\]</span> in two ways: analytically and with a probabalistic argument.</p>
+<h2 id="an-analytical-argument">An Analytical Argument</h2>
+<p>We substitute <span class="math inline">\(x = \cos\theta, \d x = -\sin\theta\d\theta\)</span> into . <span class="math display">\[\begin{equation}
+    \begin{split}
+        I_{n-1} &amp;= -2\int_{\frac{\pi}{2}}^0 \left(1-\cos^2\theta\right)^\frac{n-1}{2} \sin\theta \d\theta \\
+        &amp;= 2\int_0^{\frac{\pi}{2}} \left(\sqrt{\sin^2\theta}\right)^{n-1} \sin\theta \d\theta \\
+        &amp;= 2\int_0^{\frac{\pi}{2}} \abs{\sin\theta}^{n-1} \sin\theta \d\theta.
+    \end{split}
+\end{equation}\]</span> Because <span class="math inline">\(\sin\theta\)</span> is non-negative over <span class="math inline">\([0,\frac{\pi}{2}]\)</span>, we have <span class="math display">\[\begin{equation}
+    I_{n-1} = 2\int_0^{\frac{\pi}{2}} \sin^n\theta \d\theta.
+\end{equation}\]</span> We define the function <span class="math display">\[\begin{equation}
+    \I(n,m) = 2\int_0^{\frac{\pi}{2}} \sin^n\theta \cos^m\theta \d\theta.
+    \label{I-definition}
+\end{equation}\]</span> Then <span class="math inline">\(I_{n-1} = \I(n,0)\)</span>. We substitute <span class="math inline">\(t = \tan^2\theta, \d t = 2\tan\theta\sec^2\theta \d\theta = 2\sin\theta\sec^3\theta\d\theta\)</span> into . This gives <span class="math inline">\(\frac{1}{1+t} = \cos^2\theta\)</span> and <span class="math inline">\(1 - \frac{1}{1+t} = \frac{t}{1+t} = \sin^2\theta\)</span>. <span class="math display">\[\begin{equation}
+    \begin{split}
+        \I(n,m) &amp;= 2\int_0^{\frac{\pi}{2}} (\sin^2\theta)^\frac{n}{2} (\cos^2\theta)^\frac{m}{2} \d\theta \\
+        &amp;= \int_0^{\frac{\pi}{2}} (\sin^2\theta)^{\frac{n-1}{2}} (\cos^2\theta)^{\frac{m+3}{2}} 2\sin\theta\sec^3\theta \d\theta \\
+        &amp;= \int_0^{\infty} \left(\frac{t}{1+t}\right)^{\frac{n-1}{2}} \left(\frac{1}{1+t}\right)^{\frac{m+3}{2}} \d t \\
+        &amp;= \int_0^{\infty} \frac{t^{\frac{n-1}{2}}}{(1+t)^{\frac{n+m}{2}+1}} \d t.
+    \end{split}
+\end{equation}\]</span> For simplicity, let <span class="math inline">\(n = 2\alpha - 1, m = 2\beta - 1\)</span>. Then <span class="math display">\[\begin{equation}
+    \I(n,m) = \int_0^{\infty} \frac{t^{\frac{n-1}{2}}}{(1+t)^{\frac{n+m}{2}+1}} \d t = \int_0^{\infty} \frac{t^{\alpha-1}}{(1+t)^{\alpha + \beta}} \d t.
+    \label{alpha-beta}
+\end{equation}\]</span></p>
+<p>Let us now state two lemmas which we shall prove later.</p>
+<blockquote>
+<p><strong>Lemma 2.</strong> Given real numbers <span class="math inline">\(\alpha, \beta\)</span>, we have <span class="math display">\[\begin{equation}
+\int_0^{\infty} \frac{t^{\alpha-1}}{(1+t)^{\alpha + \beta}} \d t = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)}.
+\label{claim}
+\end{equation}\]</span></p>
+</blockquote>
+<blockquote>
+<p><strong>Lemma 3.</strong> <span class="math display">\[\begin{equation}
+\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}
+\end{equation}\]</span></p>
+</blockquote>
+<p>Applying Lemma 2 to  gives <span class="math display">\[\begin{equation}
+    \I(n,m) = \frac{\Gamma\left(\frac{n+1}{2}\right)\Gamma\left(\frac{m+1}{2}\right)}{\Gamma\left(\frac{n+m}{2} + 1\right)}.
+    \label{I-gamma}
+\end{equation}\]</span> Recall that <span class="math inline">\(I_{n-1} = \I(n,0)\)</span>. Then applying Lemma 3 gives <span class="math display">\[\begin{equation}
+    \begin{split}
+        I_{n-1} &amp;= \frac{\Gamma\left(\frac{n+1}{2}\right)\Gamma\left(\frac{1}{2}\right)}{\Gamma(\frac{n}{2}+1)} \\
+        &amp;= \frac{\sqrt{\pi}\Gamma\left(\frac{n+1}{2}\right)}{\Gamma(\frac{n}{2}+1)},
+    \end{split}
+\end{equation}\]</span> which establishes . <span class="math inline">\(\qed\)</span></p>
+<h2 id="a-statistical-argument">A Statistical Argument</h2>
+<p>Let ``choosing a number&rsquo;&rsquo; be done with a uniform probability. Let <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> be positive integers. The probability of choosing first choosing a real <span class="math inline">\(p\)</span> in the interval <span class="math inline">\([0,1]\)</span>, then choosing <span class="math inline">\(\alpha\)</span> real numbers in <span class="math inline">\([0,p]\)</span>, and then choosing <span class="math inline">\(\beta\)</span> real numbers in <span class="math inline">\([p,1]\)</span> is <span class="math inline">\(\int_0^1 p^\alpha(1-p)^\beta \d p\)</span>. Then the probability of choosing <span class="math inline">\(\alpha + \beta + 1\)</span> real numbers in <span class="math inline">\([0,1]\)</span> such that the first number is <span class="math inline">\(p\)</span>, some <span class="math inline">\(\alpha\)</span> of the remaining numbers are in <span class="math inline">\([0,p]\)</span>, and some <span class="math inline">\(\beta\)</span> of them are in <span class="math inline">\([p,1]\)</span> is <span class="math inline">\(\binom{\alpha + \beta}{\alpha}\int_0^1 p^\alpha(1-p)^\beta\)</span>. But this is the same as the probability that, after <span class="math inline">\(p\)</span> and <span class="math inline">\(\alpha + \beta\)</span> real numbers in <span class="math inline">\([0,1]\)</span> are placed in increasing order, <span class="math inline">\(p\)</span> happens to be in the <span class="math inline">\((\alpha + 1)\)</span>-th position, or <span class="math inline">\(\frac{1}{\alpha + \beta + 1}\)</span>. This yields <span class="math display">\[\begin{equation}
+    \begin{split}
+        \binom{\alpha + \beta}{\alpha} \int_0^1 p^\alpha(1-p)^\beta \d p &amp;= \frac{1}{\alpha + \beta + 1} \\
+        \frac{(\alpha + \beta)!}{\alpha!\beta!}\int_0^1 p^\alpha(1-p)^\beta \d p &amp;= \frac{1}{\alpha + \beta + 1} \\
+        \int_0^1 p^\alpha(1-p)^\beta \d p &amp;= \frac{\alpha!\beta!}{(\alpha + \beta + 1)!}.
+    \end{split}
+\end{equation}\]</span> Generalizing with the gamma function <span class="math inline">\(\Gamma(n+1) = n!\)</span>, we have <span class="math display">\[\begin{equation}
+    \int_0^1 p^\alpha(1-p)^\beta \d p = \frac{\Gamma(\alpha + 1)\Gamma(\beta + 1)}{\Gamma(\alpha + \beta + 2)}.
+\end{equation}\]</span> Substituting <span class="math inline">\(p = x^2, \d p = 2x\d x\)</span> yields <span class="math display">\[\begin{equation}
+    2\int_0^1 x^{2\alpha+1}(1-x^2)^\beta \d x = \frac{\Gamma(\alpha + 1)\Gamma(\beta + 1)}{\Gamma(\alpha + \beta + 2)}
+\end{equation}\]</span> Setting <span class="math inline">\(\alpha = -\frac{1}{2}, \beta = \frac{n-1}{2}\)</span> yields the desired : <span class="math display">\[\begin{equation}
+    \begin{split}
+        2\int_0^1 (1-x^2)^\frac{n-1}{2} \d x &amp;= \frac{\Gamma\left(\frac{1}{2}\right)\Gamma(\frac{n+1}{2})}{\Gamma(\frac{n}{2}+1)} \\
+        I_{n-1} &amp;= \frac{\sqrt{\pi}\Gamma(\frac{n+1}{2})}{\Gamma(\frac{n}{2}+1)}.
+    \end{split}
+\end{equation}\]</span> <span class="math inline">\(\qed\)</span></p>
+<h1 id="a-general-formula_1">A General Formula</h1>
+<p>Now let&rsquo;s put it all together.</p>
+<blockquote>
+<p><strong>Theorem 1.</strong> The content of an <span class="math inline">\(n\)</span>-ball of radius <span class="math inline">\(R\)</span>, denoted <span class="math inline">\(V_n(R)\)</span>, is given by <span class="math display">\[\begin{equation}
+V_n(R) = \frac{R^n\pi^\frac{n}{2}}{\Gamma\left(\frac{n}{2}+1\right)}.
+\label{general-volume}
+\end{equation}\]</span></p>
+</blockquote>
+<p>Expanding  using , we have <span class="math display">\[\begin{equation}
+    \begin{split}
+        V_n(R) &amp;= I_{n-1}V_{n-1}(R)R \\
+        &amp;= R\frac{\sqrt{\pi}\Gamma\left(\frac{n+1}{2}\right)}{\Gamma\left(\frac{n}{2}+1\right)}V_{n-1}(R) \\
+        &amp;= \left(R\frac{\sqrt{\pi}\Gamma\left(\frac{n+1}{2}\right)}{\Gamma\left(\frac{n}{2}+1\right)}\right)\left(R\frac{\sqrt{\pi}\Gamma\left(\frac{n}{2}\right)}{\Gamma\left(\frac{n-1}{2}+1\right)}\right)\cdots\left(R\frac{\sqrt{\pi}\Gamma\left(\frac{n+2-m}{2}\right)}{\Gamma\left(\frac{n-m}{2}+1\right)}\right)V_{n-m}(R) \\
+        &amp;= R^m\pi^\frac{m}{2}\left(\frac{\Gamma\left(\frac{n-1}{2}+1\right)}{\Gamma\left(\frac{n}{2}+1\right)}\right)\left(\frac{\Gamma\left(\frac{n-2}{2} + 1\right)}{\Gamma\left(\frac{n-1}{2}+1\right)}\right)\cdots\left(\frac{\Gamma\left(\frac{n-m}{2} + 1\right)}{\Gamma\left(\frac{n-m+1}{2}+1\right)}\right)V_{n-m}(R).
+    \end{split}
+\end{equation}\]</span> The <span class="math inline">\(m\)</span>-th numerator is the same as the <span class="math inline">\((m+1)\)</span>-st denominator, so <span class="math display">\[\begin{equation}
+    V_n(R) = V_{n-m}(R)R^m\pi^{\frac{m}{2}}\frac{\Gamma\left(\frac{n-m}{2} + 1\right)}{\Gamma\left(\frac{n}{2}+1\right)}.
+\end{equation}\]</span> Because a <span class="math inline">\(0\)</span>-dimensional ball of any radius consists of only one point, <span class="math inline">\(V_0(R) = 1\)</span>. Setting <span class="math inline">\(m = n\)</span>, we obtain our general expression for the content of an <span class="math inline">\(n\)</span>-dimensional ball and establish Theorem 1.</p>
+<h1 id="proofs-and-other-results">Proofs and Other Results</h1>
+<h2 id="a-trigonometric-integral-identity">A Trigonometric Integral Identity</h2>
+<p>From , it follows that <span class="math inline">\(\I(n,m) = \I(m,n)\)</span>. So <span class="math inline">\(\frac{1}{2}\I(n,0) = \frac{1}{2}\I(0,n)\)</span>. Then  implies the interesting identity <span class="math display">\[\begin{equation}
+    \int_0^{\frac{\pi}{2}} \sin^n\theta \d\theta = \int_0^{\frac{\pi}{2}} \cos^n\theta \d\theta.
+\end{equation}\]</span></p>
+<h2 id="identities-involving-the-gamma-function">Identities Involving the Gamma Function</h2>
+<h3 id="gamma-fraction-identity-proof-of-lemma-2">Gamma Fraction Identity: Proof of Lemma 2</h3>
+<p>Lemma 2, which states that <span class="math display">\[\begin{equation}
+    \int_0^{\infty} \frac{t^{\alpha-1}}{(1+t)^{\alpha + \beta}} \d t = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)},
+\end{equation}\]</span> was key in our analytical argument. We shall prove it here.</p>
+<p>The gamma function is defined as <span class="math display">\[\begin{equation}
+    \Gamma(z) = \int_0^\infty e^{-t}t^{z-1} \d t.
+    \label{gamma}
+\end{equation}\]</span> In  we make the substitution <span class="math inline">\(t = pq\)</span>, <span class="math inline">\(\d t = q\d p\)</span>. <span class="math display">\[\begin{equation}
+    \begin{split}
+        \Gamma(\alpha) &amp;= \int_0^\infty e^{-pq}(pq)^{\alpha-1} q\d p \\
+        &amp;= \int_0^\infty q^\alpha e^{-pq}p^{\alpha-1} \d p.
+    \end{split}
+    \label{gamma-reworked}
+\end{equation}\]</span> We multiply both sides of  by <span class="math inline">\(\Gamma(\beta) = \int_0^\infty e^{-q}q^{\beta-1} \d q\)</span>. <span class="math display">\[\begin{equation}
+    \begin{split}
+        \Gamma(\alpha)\Gamma(\beta) &amp;= \left(\int_0^\infty q^\alpha e^{-pq}p^{\alpha-1} \d p\right)\left(\int_0^\infty e^{-q}q^{\beta-1} \d q\right) \\
+        &amp;= \int_0^\infty \int_0^\infty e^{-q-pq}q^{\alpha+\beta-1}p^{\alpha-1} \d p \d q \\
+        &amp;= \int_0^\infty p^{\alpha-1} \d p \int_0^\infty e^{-q(1+p)}q^{\alpha+\beta-1} \d q.
+    \end{split}
+    \label{gamma-product}
+\end{equation}\]</span> In the inner integral we substitute <span class="math inline">\(q = \frac{s}{1+p}, \d q = \frac{\d s}{1 + p}\)</span>. Then <span class="math display">\[\begin{equation}
+    \begin{split}
+        \int_0^\infty e^{-q(1+p)}q^{\alpha+\beta-1} \d q &amp;= \int_0^\infty e^{-s}\left(\frac{s}{1+p}\right)^{\alpha+\beta-1} \frac{\d s}{1+p} \\
+        &amp;= \frac{1}{(1+p)^{\alpha+\beta}}\int_0^\infty e^{-s}s^{\alpha+\beta-1} \d s \\
+        &amp;= \frac{\Gamma(\alpha+\beta)}{(1+p)^{\alpha+\beta}}.
+    \end{split}
+    \label{g-prod-reworked}
+\end{equation}\]</span> Substituting  into , we have <span class="math display">\[\begin{equation}
+    \begin{split}
+        \Gamma(\alpha)\Gamma(\beta) &amp;= \int_0^\infty p^{\alpha-1} \frac{\Gamma(\alpha+\beta)}{(1+p)^{\alpha+\beta}} \d p \\
+        \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)} &amp;= \int_0^\infty \frac{p^{\alpha-1}}{(1+p)^{\alpha+\beta}} \d p,
+    \end{split}
+\end{equation}\]</span> which establishes the desired result. <span class="math inline">\(\qed\)</span></p>
+<h3 id="gamma-of-one-half-proof-of-lemma-3">Gamma of One-Half: Proof of Lemma 3</h3>
+<p>We shall prove Lemma 3, that <span class="math inline">\(\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}\)</span>. In , set <span class="math inline">\(\alpha = \beta = \frac{1}{2}\)</span>. Then <span class="math display">\[\begin{equation}
+    \begin{split}
+        \frac{\Gamma\left(\frac{1}{2}\right)\Gamma\left(\frac{1}{2}\right)}{\Gamma(1)} &amp;= \int_0^\infty \frac{t^{-\frac{1}{2}}}{1+t} \d t \\
+        \Gamma^2\left(\frac{1}{2}\right) &amp;= \int_0^\infty \frac{1}{\sqrt{t}(1+t)} \d t.
+    \end{split}
+\end{equation}\]</span> We substitute <span class="math inline">\(t = x^2, \d t = 2x\d x = 2\sqrt{t}\d x\)</span>: <span class="math display">\[\begin{equation}
+    \begin{split}
+        \Gamma^2\left(\frac{1}{2}\right) &amp;= 2\int_0^\infty \frac{1}{1 + x^2} \d x \\
+        &amp;= 2\left(\arctan x \big|_0^\infty \right) \\
+        &amp;= 2\cdot\frac{\pi}{2} \\
+        &amp;= \pi,
+    \end{split}
+\end{equation}\]</span> so <span class="math display">\[\begin{equation}
+    \Gamma\left(\frac{1}{2}\right) = \pm\sqrt{\pi}.
+\end{equation}\]</span> But in the integral representation of <span class="math inline">\(\Gamma(z)\)</span>, the integrand <span class="math inline">\(e^{t}t^{z-1}\)</span> is positive if <span class="math inline">\(z &gt; 0\)</span>. This yields the desired result, <span class="math display">\[\begin{equation}
+    \Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}
+\end{equation}\]</span> A consequence of this result is the value of the famous Gaussian integral <span class="math display">\[\begin{equation}
+    \int_{-\infty}^\infty e^{-x^2} \d x,
+\end{equation}\]</span> whose integrand has no elementary antiderivative. Substituting <span class="math inline">\(t = x^2, \d t = 2t^{\frac{1}{2}}\d x\)</span> into the integral representation of <span class="math inline">\(\Gamma\left(\frac{1}{2}\right)\)</span>, we have <span class="math display">\[\begin{equation}
+    \begin{split}
+        \sqrt{\pi} &amp;= \Gamma\left(\frac{1}{2}\right) \\
+        &amp;= \int_0^\infty e^{-t}t^{-\frac{1}{2}} \d t \\
+        &amp;= 2\int_0^\infty e^{-x^2} \d x.
+    \end{split}
+\end{equation}\]</span> Because the integrand <span class="math inline">\(e^{-x^2}\)</span> is an even function, it follows that <span class="math display">\[\begin{equation}
+    \int_{-\infty}^\infty e^{-x^2} \d x = \sqrt{\pi}.
+\end{equation}\]</span></p>
+<h3 id="gamma-function-doubling-formula">Gamma Function Doubling Formula</h3>
+<p>We have the following result.</p>
+<blockquote>
+<p><strong>Theorem 2. (Gamma Function Doubling Formula)</strong> <span class="math display">\[\begin{equation}
+\Gamma(2z) = \frac{2^{2z-1}\Gamma(z)\Gamma\left(z + \frac{1}{2}\right)}{\sqrt{\pi}}
+\label{gamma-duplication}
+\end{equation}\]</span></p>
+</blockquote>
+<p>To prove this result, we shall use integration by parts and . Let <span class="math display">\[\begin{equation}
+    A_k = \int_{0}^{1} \left(1-x^2\right)^k \d x.
+    \label{A-definition}
+\end{equation}\]</span> Then, integrating by parts, we have <span class="math display">\[\begin{equation}
+    \begin{split}
+        A_k &amp;= x(1-x^2)^k \big|_0^1 - \int_0^1 -2xk(1-x^2)^{k-1}x \d x \\
+        &amp;= 2k\int_0^1 x^2(1-x^2)^{k-1} \d x \\
+        &amp;= 2k\int_0^1 (1-(1-x^2))(1-x^2)^{k-1} \d x \\
+        &amp;= 2k\int_0^1 (1-x^2)^{k-1} - (1-x^2)^k \d x \\
+        &amp;= 2kA_{k-1} - 2kA_k \\
+        &amp;= \frac{2k}{2k+1}A_{k-1}.
+    \end{split}
+\end{equation}\]</span> Expanding the recurrence relation yields <span class="math display">\[\begin{equation}
+    A_k = \frac{(2k)(2k-2)\cdots4\cdot2}{(2k+1)(2k-1)\cdots3\cdot1}.
+\end{equation}\]</span> Let us first deal with the numerator. We know that <span class="math display">\[\begin{equation}
+    k! = k(k-1)\cdots2\cdot1.
+\end{equation}\]</span> Multiplying each of the <span class="math inline">\(k\)</span> terms on the right-hand side by <span class="math inline">\(2\)</span> yields the numerator. So the numerator is equal to <span class="math inline">\(2^kk!\)</span>. Then we deal with the denominator. We know that <span class="math display">\[\begin{equation}
+    (2k+1)! = (2k+1)(2k)\cdots2\cdot1.
+\end{equation}\]</span> Dividing both sides of this equation by <span class="math inline">\(2^kk!\)</span> yields the denominator. So the denominator is equal to <span class="math inline">\(\frac{(2k+1)!}{2^kk!}\)</span>. Then <span class="math display">\[\begin{equation}
+    \begin{split}
+        A_k &amp;= \frac{2^kk!}{\frac{(2k+1)}{2^kk!}} \\
+        &amp;= \frac{(2^kk!)^2}{(2k+1)!}.
+    \end{split}
+\end{equation}\]</span> Generalising using the gamma function <span class="math inline">\(\Gamma(n+1) = n!\)</span> yields <span class="math display">\[\begin{equation}
+    A_k = \frac{2^{2k}\Gamma^2(k+1)}{\Gamma(2k+2)}.
+    \label{A-gamma}
+\end{equation}\]</span> From  and , <span class="math inline">\(I_{n-1} = 2A_{\frac{n-1}{2}}\)</span>, so by , <span class="math display">\[\begin{equation}
+    I_{n-1} = \frac{2^n\Gamma^2\left(\frac{n+1}{2}\right)}{\Gamma(n+1)}.
+    \label{I-by-parts}
+\end{equation}\]</span> Equating  with  and making the substitution <span class="math inline">\(z = \frac{n+1}{2}\)</span> establishes Theorem 2. <span class="math display">\[\begin{equation}
+    \begin{split}
+        \frac{2^{2z-1}\Gamma^2(z)}{\Gamma(2z)} &amp;= \frac{\sqrt{\pi}\Gamma(z)}{\Gamma(z + \frac{1}{2})} \\
+        \Gamma(2z) &amp;= \frac{2^{2z-1}\Gamma(z)\Gamma\left(z + \frac{1}{2}\right)}{\sqrt{\pi}}.
+    \end{split}
+\end{equation}\]</span> <span class="math inline">\(\qed\)</span></p>
+<p>This result is very powerful. It implies that, combined with the recurrence relation <span class="math inline">\(\Gamma(n+1) = n\Gamma(n)\)</span>, we can compute <span class="math inline">\(\Gamma(\frac{n}{2})\)</span> for any positive integer <span class="math inline">\(n\)</span>. Then we can also compute all expressions of the form <span class="math inline">\(\Gamma(\frac{n}{4})\)</span>, because the right-hand side of  will be in terms of expressions of the form <span class="math inline">\(\Gamma(\frac{n}{2})\)</span>. Thus for any positive real number <span class="math inline">\(r\)</span> whose binary expansion is finite&mdash;that is, for any positive rational <span class="math inline">\(r\)</span>&mdash;we can thus compute <span class="math inline">\(\Gamma(r)\)</span>. And because every irrational number can be written as the limit of the partial sums of a sequence of rational numbers, we can compute <span class="math inline">\(\Gamma(r)\)</span> for any positive real <span class="math inline">\(r\)</span>.</p>
+<h3 id="approximating-the-logarithmic-derivative-of-the-gamma-function">Approximating the Logarithmic Derivative of the Gamma Function</h3>
+<p>Consider the logarithmic derivative of the gamma function, which we shall call <span class="math inline">\(\mathscr{G}(x)\)</span>: <span class="math display">\[\begin{equation}
+    \mathscr{G}(x) = \frac{\d}{\d x}\ln\Gamma(x) = \frac{\Gamma'(x)}{\Gamma(x)}.
+    \label{log-deriv-gamma}
+\end{equation}\]</span> For the sake of this section, let <span class="math inline">\(\mathscr{G} = \frac{\Gamma'(x)}{\Gamma(x)}\)</span>. Then we shall prove</p>
+<blockquote>
+<p><strong>Theorem 3.</strong> The following upper and lower bounds hold for the logarithmic derivative of the gamma function: <span class="math display">\[\begin{equation}
+\ln x - \frac{1}{x} &lt; \mathscr{G}(x) &lt; \ln x.
+\label{gamma-log-deriv-bounds}
+\end{equation}\]</span></p>
+</blockquote>
+<p>To do this, we first show the following lemma, which may seem intuitive.</p>
+<blockquote>
+<p><strong>Lemma 4.</strong> Let <span class="math inline">\(f(x)\)</span> be a differentiable function defined on <span class="math inline">\([a,b]\)</span>. Then if <span class="math inline">\(f'(x) &gt; 0\)</span> for all <span class="math inline">\(x \in [a,b]\)</span>, then <span class="math inline">\(f(x)\)</span> is strictly increasing.</p>
+</blockquote>
+<p>By the Fundamental Theorem of Calculus, <span class="math display">\[\begin{equation}
+    \int_a^b f'(x) \d x = f(b) - f(a).
+\end{equation}\]</span> If <span class="math inline">\(f'(x) &gt; 0\)</span> for all <span class="math inline">\(x\)</span>, then because the integral of a positive integrand is also positive, <span class="math inline">\(f(b) &gt; f(a)\)</span> for all <span class="math inline">\(x\)</span>. That is, <span class="math inline">\(f(x)\)</span> is strictly increasing. <span class="math inline">\(\qed\)</span></p>
+<p>We also use the following lemma for continuous functions, which is a special case of the Cauchy-Schwarz inequality.</p>
+<blockquote>
+<p><strong>Lemma 5.</strong> Let <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> be continuous functions defined over <span class="math inline">\([a,b]\)</span>. Then we have <span class="math display">\[\begin{equation}
+\left(\int_a^b fg \d t\right)^2 \le \left(\int_a^b f^2 \d t\right)\left(\int_a^b g^2 \d t\right).
+\end{equation}\]</span> In particular, equality holds if and only if <span class="math inline">\(f\)</span> is proportional to <span class="math inline">\(g\)</span>; that is, there exists some <span class="math inline">\(z\)</span> such that for all <span class="math inline">\(x \in [a,b]\)</span>, we have <span class="math inline">\(zf(x) = g(x)\)</span>.</p>
+</blockquote>
+<p>Let&rsquo;s take some contant <span class="math inline">\(z\)</span>. Then <span class="math inline">\(0 \le (fz - g)^2\)</span>. And because the integral of a non-negative function is also non-negative, for all real <span class="math inline">\(z\)</span>, we have <span class="math display">\[\begin{equation}
+    0 \le \int_a^b (fz - g)^2 \d t = \left(\int_a^b f^2 \d t \right)z^2 - \left(\int_a^b 2fg \d t\right)z + \left(\int_a^b g^2 \d t\right).
+\end{equation}\]</span> Because this quadratic is non-negative, its discriminant must be non-positive, such that <span class="math display">\[\begin{equation}
+    4\left(\int_a^b fg \d t\right)^2 \le 4\left(\int_a^b f^2 \d t\right)\left(\int_a^b g^2 \d t\right).
+    \label{discriminant}
+\end{equation}\]</span> Equality only holds in  if <span class="math inline">\(\int_a^b (fz - g)^2 \d t = 0\)</span>. Consider a function <span class="math inline">\(h'\)</span> continuous over <span class="math inline">\([a,b]\)</span> such that <span class="math inline">\(\int_a^b h'(x) \d x = 0\)</span>. By the Fundamental Theorem of Calculus, this integral equals <span class="math inline">\(h(b) - h(a)\)</span>, so <span class="math inline">\(h(a) = h(b)\)</span>; that is, <span class="math inline">\(h\)</span> is a constant function, so the integrand <span class="math inline">\(h'\)</span> is the zero function. Thus equality only holds in  if <span class="math inline">\(fz = g\)</span>. <span class="math inline">\(\qed\)</span></p>
+<blockquote>
+<p><strong>Lemma 6.</strong> For non-negative real <span class="math inline">\(x\)</span>, <span class="math inline">\(\mathscr{G}(x)\)</span> is a strictly increasing function.</p>
+</blockquote>
+<p>We will prove Lemma 6 by showing that <span class="math inline">\(\mathscr{G}'(x)\)</span> is positive everywhere. We have <span class="math display">\[\begin{equation}
+    \begin{split}
+        \Gamma'(x) &amp;= \frac{\d}{\d x}\int_0^\infty e^{-t}t^{x-1} \d t \\
+        &amp;= \int_0^\infty \frac{\partial}{\partial x}\, e^{-t}t^{x-1} \d t \\
+        &amp;= \int_0^\infty e^{-t}t^{x-1}\ln t \d t,
+    \end{split}
+\end{equation}\]</span> and, similarly, <span class="math display">\[\begin{equation}
+    \Gamma''(x) = \int_0^\infty e^{-t}t^{x-1} \ln^2 t \d t.
+\end{equation}\]</span> Furthermore, <span class="math display">\[\begin{equation}
+    \mathscr{G}'(x) = \frac{\Gamma(x)\Gamma''(x)-(\Gamma'(x))^2}{\Gamma^2(x)}.
+    \label{gamma-second-deriv}
+\end{equation}\]</span> Substituting <span class="math inline">\(\alpha = \sqrt{e^{-t}t^{x-1}}\)</span> and <span class="math inline">\(\beta = \ln t\sqrt{e^{-t}t^{x-1}}\)</span> into  yields <span class="math display">\[\begin{equation}
+    \mathscr{G}'(x) = \frac{\left(\int_0^\infty \alpha^2 \d t\right) \left(\int_0^\infty \beta^2 \d t\right) - \left(\int_0^\infty \alpha\beta \d t\right)^2}{\Gamma^2(x)}.
+    \label{integral-gamma-2-deriv}
+\end{equation}\]</span> We note that functions <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are continuous and not proportional (because <span class="math inline">\(\ln t\)</span> is not constant with respect to <span class="math inline">\(t\)</span>) to one another over <span class="math inline">\([0,\infty)\)</span>. Then Lemma 5 shows, with strict inequality, that <span class="math display">\[\begin{equation}
+    \left(\int_0^\infty \alpha\beta \d t\right)^2 &lt; \left(\int_0^\infty \alpha^2 \d t\right) \left(\int_0^\infty \beta^2 \d t\right).
+    \label{fg-inequality}
+\end{equation}\]</span> The denominator of  is always positive, so  shows that  is positive for all non-negative real <span class="math inline">\(x\)</span>. Finally, Lemma 4 establishes that <span class="math inline">\(\mathscr{G}(x)\)</span> is a strictly increasing function. <span class="math inline">\(\qed\)</span></p>
+<blockquote>
+<p><strong>Lemma 7.</strong> We have <span class="math inline">\(\mathscr{G}(x + 1) = \mathscr{G}(x) + \frac{1}{x}\)</span>.</p>
+</blockquote>
+<p>We have <span class="math inline">\(\Gamma(x+1) = x\Gamma(x)\)</span>, so <span class="math inline">\(\ln(\Gamma(x+1)) = \ln\Gamma(x) + \ln x\)</span>. Differentiating establishes the result. <span class="math inline">\(\qed\)</span></p>
+<blockquote>
+<p><strong>Lemma 8.</strong> We have the following inequality: <span class="math inline">\(\mathscr{G}(x) &lt; \ln x &lt; \mathscr{G}(x + 1)\)</span>.</p>
+</blockquote>
+<p>By the Mean Value Theorem, there exists some <span class="math inline">\(z\)</span> in <span class="math inline">\((x, x+1)\)</span> such that <span class="math display">\[\begin{equation}
+    \begin{split}
+        \mathscr{G}(z) &amp;= \frac{\ln\Gamma(x+1) - \ln\Gamma(x)}{x+1-x} \\
+        &amp;= \ln(x\Gamma(x)) - \ln\Gamma(x) \\
+        &amp;= \ln x.
+    \end{split}
+\end{equation}\]</span> In particular, note that <span class="math inline">\(x &lt; z &lt; x + 1\)</span>. By Lemma 6, <span class="math inline">\(\mathscr{G}(x)\)</span> is strictly increasing. So <span class="math inline">\(\mathscr{G}(x) &lt; \mathscr{G}(z) = \ln x &lt; \mathscr{G}(x+1)\)</span>, and we establish Lemma 8. <span class="math inline">\(\qed\)</span></p>
+<p>Finally, we can establish Theorem 3 by applying Lemma 7 and Lemma 8: <span class="math display">\[\begin{equation}
+    \begin{split}
+        \mathscr{G}(x) &lt; \ln x &lt; \mathscr{G}(x + 1) &amp;= \mathscr{G}(x) + \frac{1}{x} \\
+        \ln x &lt; \mathscr{G}(x + 1) &amp;&lt; \ln x + \frac{1}{x} \\
+        \ln x - \frac{1}{x} &lt; \mathscr{G}(x) &amp;&lt; \ln x.
+    \end{split}
+\end{equation}\]</span> <span class="math inline">\(\qed\)</span></p>
+<h2 id="surface-area-of-arbitrary-dimensional-spheres">Surface Area of Arbitrary Dimensional Spheres</h2>
+<p>We can build a the <span class="math inline">\(2\)</span>-ball, or disk, from the union of concentric <span class="math inline">\(2\)</span>-sphere (circle) shells all evenly spaced by a distance <span class="math inline">\(\d r\)</span>. This is like the layers of an onion. This generalizes to <span class="math inline">\(n\)</span> dimensions, where an <span class="math inline">\(n\)</span>-ball is the union of concentric <span class="math inline">\(n\)</span>-sphere shells. As <span class="math inline">\(\d r\)</span> tends to <span class="math inline">\(0\)</span>, we find that the content of a <span class="math inline">\(n\)</span>-ball is the sum of the surface areas of the infinitely many <span class="math inline">\(n\)</span>-spheres with radii ranging from <span class="math inline">\(0\)</span> to <span class="math inline">\(R\)</span>. That is, <span class="math display">\[\begin{equation}
+    V_n(R) = \int_0^R S_n(r) \d r,
+\end{equation}\]</span> which gives <span class="math display">\[\begin{equation}
+    S_n(R) = \frac{\d V_n(R)}{\d R}.
+\end{equation}\]</span> Substituting  yields <span class="math display">\[\begin{equation}
+    \begin{split}
+        S_n(R) &amp;= \frac{nR^{n-1}\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2}+1\right)} \\
+        &amp;= \frac{nR^{n-1}\pi^{\frac{n}{2}}}{\frac{n}{2}\Gamma\left(\frac{n}{2}\right)} \\
+        &amp;= \frac{2R^{n-1}\pi^\frac{n}{2}}{\Gamma\left(\frac{n}{2}\right)}.
+    \end{split}
+\end{equation}\]</span></p>
+<h2 id="implications-of-the-content-of-balls-of-arbitrary-dimension">Implications of the Content of Balls of Arbitrary Dimension</h2>
+<h3 id="small-dimensions">Small Dimensions</h3>
+<figure>
+<img alt="The dimensionless content of the unit ball in n dimensions. Note the global maximum, after which the content quickly decreases." src="https://gautammanohar.com/figures/n-ball-graph.png" style="width:75.0%"/><figcaption>The dimensionless content of the unit ball in <span class="math inline">\(n\)</span> dimensions. Note the global maximum, after which the content quickly decreases.</figcaption>
+</figure>
+<p>We shall ignore the &ldquo;unit&rdquo; of content and instead compare contents as dimenionless quantities. The integer dimension that maximizes the content of the unit ball is evidently <span class="math inline">\(n = 5\)</span>. The figure reveals that this maximum is actually at <span class="math inline">\(n \approx 5.26\)</span>. In fact, the global maximum of the function <span class="math inline">\(n\mapsto \frac{R^n\pi^\frac{n}{2}}{\Gamma\left(\frac{n}{2}+1\right)}, n \ge 0\)</span> depends on <span class="math inline">\(R\)</span> and is given by</p>
+<span class="math display">\[\begin{equation}
+    \begin{split}
+        \frac{\d}{\d n}\left(\frac{R^n\pi^\frac{n}{2}}{\Gamma\left(\frac{n}{2}+1\right)}\right) &amp;= 0\\
+        \frac{\Gamma\left(\frac{n}{2}+1\right)(R\sqrt{\pi})^n\ln(R\sqrt{\pi}) - \frac{1}{2}(R\sqrt{\pi})^n\Gamma'\left(\frac{n}{2}+1\right)}{\Gamma^2\left(\frac{n}{2}+1\right)} &amp;= 0 \\
+        \Gamma\left(\frac{n}{2}+1\right)\ln(R\sqrt{\pi}) - \frac{1}{2}\Gamma'\left(\frac{n}{2}+1\right) &amp;= 0 \\
+        \ln(\pi R^2) &amp;= \frac{\Gamma'\left(\frac{n}{2}+1\right)}{\Gamma\left(\frac{n}{2}+1\right)}.
+    \end{split}
+\end{equation}\]</span>
+<p>This equation cannot be solved for <span class="math inline">\(n\)</span> analytically, so we approximate. From Theorem 3, we have <span class="math display">\[\begin{equation}
+    \ln n &lt; \frac{\Gamma'(n+1)}{\Gamma(n+1)} &lt; \ln n + \frac{1}{n},
+\end{equation}\]</span> which means that the maximal content of a ball of radius <span class="math inline">\(R\)</span> is attained in <span class="math display">\[\begin{equation}
+    \begin{split}
+        \ln\left(\frac{n}{2}\right) &amp;\sim \ln(\pi R^2) \\
+        n &amp;\sim 2\pi R^2. 
+    \end{split}
+\end{equation}\]</span></p>
+<h3 id="large-dimensions">Large Dimensions</h3>
+<p>For a given radius <span class="math inline">\(R\)</span>, the content of an <span class="math inline">\(n\)</span>-ball goes to 0 as <span class="math inline">\(n\)</span> goes to infinity. That is, <span class="math display">\[\begin{equation}
+    \lim_{n\to\infty} \frac{R^n\pi^\frac{n}{2}}{\Gamma\left(\frac{n}{2}+1\right)} = 0.
+\end{equation}\]</span> In fact, this result holds for any expression of the form <span class="math inline">\(\frac{a^n}{\Gamma(kn + 1)} = \frac{a^n}{(kn)!}\)</span> for positive real <span class="math inline">\(a\)</span> and <span class="math inline">\(k\)</span>. Define the function <span class="math inline">\(f(n) = \frac{a^n}{(kn)!}\)</span>. Consider the limiting ratio <span class="math inline">\(\frac{f(n+1)}{f(n)}\)</span>: <span class="math display">\[\begin{equation}
+    \begin{split}
+        \lim_{n\to\infty} \frac{\frac{a^{n+1}}{(k(n+1))!}}{\frac{a^n}{(kn)!}} &amp;= \lim_{n\to\infty} \frac{a^{n+1}(kn)!}{a^n(kn+k)!} \\
+        &amp;= \lim_{n\to\infty} \frac{a}{(kn + 1)(kn + 2)\cdots(kn + k)} \\
+        &amp;= 0.
+    \end{split}
+\end{equation}\]</span> Then by the ratio test, the series <span class="math inline">\(\sum_{n=0}^\infty \frac{a^n}{(kn)!}\)</span> converges because its limiting ratio is 0. Because the terms of a convergent series must tend to 0, <span class="math inline">\(\frac{a^n}{(kn)!}\)</span> tends to 0. Thus we have proven that for a given <span class="math inline">\(R\)</span>, <span class="math inline">\(V_n(R)\)</span> tends to <span class="math inline">\(0\)</span> as <span class="math inline">\(n\)</span> increases).</p>
+<h1 id="conclusion_1">Conclusion</h1>
+<p>Our most important result was a general expression for the content of an <span class="math inline">\(n\)</span>-ball of radius <span class="math inline">\(R\)</span>: <span class="math display">\[\begin{equation}
+    V_n(R) = \frac{R^n\pi^\frac{n}{2}}{\Gamma(\frac{n}{2}+1)}.
+\end{equation}\]</span> We also derived two useful identities related to the gamma function: <span class="math display">\[\begin{equation}
+    \Gamma(2z) = \frac{2^{2z-1}\Gamma(z)\Gamma\left(z + \frac{1}{2}\right)}{\sqrt{\pi}}
+\end{equation}\]</span> and <span class="math display">\[\begin{equation}
+    \ln x - \frac{1}{x} &lt; \frac{\Gamma'(x)}{\Gamma(x)} &lt; \ln x.
+\end{equation}\]</span> Our next steps would be to examine the properties of other geometric figures in <span class="math inline">\(n\)</span> Euclidean dimensions, such as hypercubes and simplices. We could also analyze balls in non-Euclidean spaces, such as hyperbolic space.</p>
+
+      <footer>
+        <a class="page-top"
+           title="Page Top"
+           href="javascript:window.scrollTo(0, 0);">
+          <i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
+        </a>
+      </footer>
+  </article>
+    </main>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $('.title a').html(function(index, value) {
+    return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
+});
+</script>
+    <section>
+    </section>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-115904815-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</body>
+</html>

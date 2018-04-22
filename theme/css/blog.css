@@ -1,0 +1,120 @@
+body {
+  background-attachment: fixed;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+
+h1.title {
+  margin-bottom: 0.25em;
+}
+
+nav {
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  padding: 0 0.25em;
+}
+
+nav li strong {
+  font-style: italic;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: 1em;
+}
+
+section h2 {
+  border-image: linear-gradient(to right, ivory, firebrick) 4;
+  border-style: solid;
+  border-width: 0 0 2px 0;
+  text-align: right;
+  font-size: 1.25em;
+  font-variant: small-caps;
+}
+
+strong {
+  opacity: .5;
+}
+
+strong a {
+  color: black;
+}
+
+section h2 strong {
+  padding: 0;
+  font-size: .75em;
+  font-weight: bold;
+}
+
+section blockquote {
+  margin: 0;
+  text-align: right;
+  font-size: .9em;
+  font-style: italic;
+}
+
+section table {
+  padding-top: 5px;
+  margin: 0;
+  width: 100%;
+  margin-top: 10px;
+  border: none;
+}
+section tr, section td {
+  margin: 0;
+  padding: 2px 0;
+  border: none !important;
+}
+section td#date {
+  white-space: nowrap;
+  text-align: right;
+  font-size: .8em;
+  font-style: normal;
+}
+
+section strong {
+  font-size: .8em;
+  font-weight: normal;
+  padding: 8px;
+}
+
+div#content hr {
+  width: 61.8%;
+  height: 1px;
+  border: 0;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(178, 34, 34, 0.5), rgba(0, 0, 0, 0));
+}
+
+div#content figure img {
+  box-shadow: 2px 2px 8px;
+}
+
+div#content figure figcaption {
+  padding-top: 1em;
+  opacity: .5;
+}
+
+aside#gcman-links {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 2.5%;
+  text-align: center;
+  font-size: 24px;
+}
+
+aside#gcman-links #gcman {
+  position: relative;
+  top: .1em;
+}
+
+aside#gcman-toolbar {
+  visibility: hidden;
+}

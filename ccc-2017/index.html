@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>    Unofficial CCC 2017 Solutions - Gautam Manohar
+</title>
+    <meta charset="utf-8" />
+        <meta name="keywords" content="contest, chemistry" />
+        <meta name="category" content="chemistry" />
+        <meta name="description" content="Unofficial full solutions and explanations to Part C of the 2017 Canadian Chemistry Contest/Olympiad." />
+        <meta name="author" content="Gautam Manohar" />
+        <meta name="copyright" content="Gautam Manohar" />
+        <meta name="date" content="2018-03-30 00:00:00-04:00">
+<link rel="stylesheet" href="../theme/css/normalize/normalize.min.css" type="text/css" />
+  <link rel="stylesheet" href="../theme/css/article.css" type="text/css" />
+    <meta name="robots" content="index,follow">
+    <link rel="shortcut icon" type="image/png" href="../theme/images/icons/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
+    <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!--[if lte IE 7]>
+            <link rel="stylesheet" type="text/css" media="all" href="../css/ie.css"/>
+            <script src="../js/IE8.js" type="text/javascript"></script><![endif]-->
+
+    <!--[if lt IE 7]>
+            <link rel="stylesheet" type="text/css" media="all" href="../css/ie6.css"/><![endif]-->
+<style>
+  .title .math {
+    font-size: 50% !important;
+  }
+</style>
+<script type="text/x-mathjax-config">
+  MathJax.Ajax.config.path["mhchem"] =
+    "https://cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0";
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
+    jax: ["input/TeX","output/HTML-CSS", "output/PreviewHTML"],
+    "HTML-CSS": {
+      styles: {
+      ".MathJax .mo, .MathJax .mi, .math": {color: "black;"}},
+      scale: 100,
+      afonts: ["TeX"],
+      webFont: "Latin-Modern"
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    TeX: {
+      equationNumbers: {  autoNumber: "all"  },
+      extensions: ["[mhchem]/mhchem.js","AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    });
+    MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
+      var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
+      VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+      VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+      VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+      VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+      });
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js">
+</script>
+<div class="invisible">
+  \(
+  \let\Pr\relax
+  \DeclareMathOperator\LCM{LCM}
+  \DeclareMathOperator\Pr{P}
+  \DeclareMathOperator\arccot{arccot}
+  \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1 )}
+  \renewcommand{\vec}[1]{\mathbf{ #1 }}
+  \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+  \newcommand{\abs}[1]{\lvert #1 \rvert}
+
+  \newcommand{\inn}[1]{\in\left\{ #1 \right\}}
+  \newcommand{\ninn}[1]{\not\in\left\{ #1 \right\}}
+  \newcommand{\orr}{\qquad&amp;\,\text{or}\qquad}
+
+  \renewcommand\d{\mathop{}\!\mathrm{d}}
+  \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
+  \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
+  \DeclareMathOperator\G{\Gamma}
+  \DeclareMathOperator\I{\mathscr{I}}
+  \)
+</div></head>
+<body>
+<section id="content" class="body">
+    <article>
+    <header>
+      <h1 class="title">
+            <a href="../ccc-2017/" rel="bookmark"
+           title="Permalink to Unofficial CCC 2017 Solutions">Unofficial CCC 2017 Solutions</a>
+      </h1>
+      <address class="author">Gautam Manohar</address>
+        <div id="textbox">
+          <p style="font-weight: bold;" class="alignleft">
+            <a href="../category/chemistry/">chemistry</a>&nbsp;
+          </p>
+            <p class="date aligncenter">30 March 2018</p>
+          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../tag/contest/">#contest</a> </p>
+        </div>
+       <div style="clear: both;"></div>​
+    </header>
+
+      <p>This is part of a <a href="https://gautammanohar.com/ccc-solutions/">project</a> to provide unofficial solutions for part C of the <a href="http://www.cheminst.ca/outreach/canadian-chemistry-contest">Canadian Chemistry Contest</a>. You can find the 2017 contest <a href="https://gautammanohar.com/ccc/2017-problems.pdf">here</a>.</p>
+<h1 id="general-chemistry">General Chemistry</h1>
+<h2 id="part-a">Part A</h2>
+<p>Following the standard procedure to draw Lewis structures, we first note that sulfur, being more electronegative than oxygen, will be the central atom. Next, we count valence electrons: sulfur and oxygen are in the same group and both have six valence electrons. Sulfur dioxide is neutral, so we know there are 18 electrons to distribute. Now we can place lone pairs: each oxygen is bonded to the sulfur, which uses four electrons (two in each bond). We initially place the 14 remaining electrons as seven lone pairs&mdash;three on each oxygen, which is the maximum possible, and the last on sulfur.</p>
+<figure>
+<img alt="The incomplete Lewis structure of sulfur dioxide." src="https://gautammanohar.com/figures/so2-incomplete.png" style="width:20.0%"/><figcaption>The incomplete Lewis structure of sulfur dioxide.</figcaption>
+</figure>
+<p>In this part, we do not want sulfur to have an expanded octet. Right now, the sulfur atom only has six electrons around it. To satisfy its octet, we take a lone pair on one of the oxygen atoms and make it a sulfur-oxygen bond. But both oxygen atoms work equally well, which gives us the two resonance forms we were looking for. We conclude by adding formal charges and drawing a double-headed resonance arrow.</p>
+<figure>
+<img alt="The resonance structures of sulfur dioxide that do not use sulfur&rsquo;s expanded octet. These are commonly accepted as the resonance forms with the greatest contribution." src="https://gautammanohar.com/figures/so2-resonance.png" style="width:60.0%"/><figcaption>The resonance structures of sulfur dioxide that do not use sulfur&rsquo;s expanded octet. These are commonly accepted as the resonance forms with the greatest contribution.</figcaption>
+</figure>
+<h2 id="part-b">Part B</h2>
+<p>We simply take one of the lone pairs on the oxygen with a negative formal charge in one of the resonance structures from the first part and make it a sulfur-oxygen bond. Note that this is only possible if sulfur uses its expanded octet and becomes pentavalent (four bonds and one lone pair).</p>
+<figure>
+<img alt="A resonance form of sulfur dioxide with no formal charges." src="https://gautammanohar.com/figures/so2-expanded-octet.png" style="width:20.0%"/><figcaption>A resonance form of sulfur dioxide with no formal charges.</figcaption>
+</figure>
+<h2 id="part-c">Part C</h2>
+<p>Sulfur forms sigma-bonds with oxygen, which require <span class="math inline">\(\mathrm{sp}^2\)</span> or <span class="math inline">\(\mathrm{sp}\)</span> hybridization. There are no triple bonds, so the sulfur atom must be <span class="math inline">\(\mathrm{sp}^2\)</span> hybridized.</p>
+<h2 id="part-d">Part D</h2>
+<p>Sulfur has two sigma bonds and pi bonds to the more electronegative oxygen, so it is electron deficient and can act as a Lewis acid. Since we are not given much information about the products of the reaction, we can safely assume an adduct is formed. Then we have <span class="math display">\[\begin{equation}
+    \ce{SO2 + A -&gt; A*SO2}
+\end{equation}\]</span> For example, the Lewis base could be water, whose oxygen lone pair attacks the central sulfur atom to form sulfurous acid, <span class="math inline">\(\ce{H2SO3}\)</span>.</p>
+<h2 id="part-e">Part E</h2>
+<p>Sulfur has a lone pair that can donate electrons, acting as a Lewis base. By similar reasoning to the previous part, we have <span class="math display">\[\begin{equation}
+    \ce{SO2 + B -&gt; SO2*B}
+\end{equation}\]</span> For example, the Lewis acid could be borane, <span class="math inline">\(\ce{BH3}\)</span>, which is even more electron deficient than sulfur dioxide and could capture it.</p>
+<h1 id="physical-chemistry_1">Physical Chemistry</h1>
+<p>For this problem, we shall use the values for Planck&rsquo;s constant <span class="math inline">\(h = 6.62608 \times 10^{-34}\,\mathrm{J}\,\mathrm{s}\)</span> and the mass of the electron <span class="math inline">\(m = 9.10939 \times 10^{-31}\,\mathrm{kg}\)</span>.</p>
+<h2 id="part-a-1">Part A</h2>
+<p>We are given <span class="math inline">\(n = 2\)</span> and <span class="math inline">\(L = 1 \times 10^{-9} \,\mathrm{m}\)</span>, from which we can simply apply the given equation: <span class="math display">\[\begin{equation}
+    \begin{split}
+        E &amp;= n^2\frac{h^2}{8mL^2} \\
+        &amp;= 2^2\frac{(6.62608 \times 10^{-34})^2}{8(9.10939 \times 10^{-31})(1 \times 10^{-9})^2} \\
+        &amp;= 2.40987 \times 10^{-19} \,\mathrm{J} \\
+        &amp;\approx 2.41 \times 10^{-19} \,\mathrm{J}.
+    \end{split}
+\end{equation}\]</span> We report our final answer to three significant figures.</p>
+<h2 id="part-b-1">Part B</h2>
+<p>By definition, the phenyl groups are not part of the linear conjugated system. All the pi bonds are separated by exactly one sigma bond, so they are all conjugated. There are four pi bonds, each of which is composed of two electrons, so there are eight pi electrons in the conjugated system.</p>
+<h2 id="part-c-1">Part C</h2>
+<p>The four pi bonds in this molecule are composed of two p orbitals each. These eight atomic orbitals combine to form eight molecular orbitals of increasing energy. Four of them are bonding orbitals, and four antibonding. In the ground state, no electrons occupy the higher energy antibonding orbitals, so the pi electrons occupy four orbitals</p>
+<h2 id="part-d-1">Part D</h2>
+<p>If there are <span class="math inline">\(N\)</span> pi electrons, then there are <span class="math inline">\(\frac{N}{2}\)</span> occupied orbitals of increasing energy. Then an electron in the highest of these has energy <span class="math display">\[\begin{equation}
+    \begin{split}
+        E &amp;= n^2\frac{h^2}{8mL^2} \\
+        &amp;= \left(\frac{N}{2}\right)^2\frac{h^2}{8mL^2} \\
+        &amp;= \frac{N^2h^2}{32mL^2}.
+    \end{split}
+    \label{homo}
+\end{equation}\]</span></p>
+<h2 id="part-e-1">Part E</h2>
+<p>The lowest unoccupied molecular orbital is one energy level higher than the highest occupied molecular orbital, by definition. Then, applying our reasoning from the previous part, an electron in the LUMO has energy <span class="math display">\[\begin{equation}
+    \begin{split}
+        E &amp;= n^2\frac{h^2}{8mL^2} \\
+        &amp;= \left(\frac{N}{2} + 1\right)^2\frac{h^2}{8mL^2} \\
+        &amp;= \left(\frac{N+2}{2}\right)^2\frac{h^2}{8mL^2} \\
+        &amp;= \frac{(N+2)^2h^2}{32mL^2}.
+    \end{split}
+    \label{lumo}
+\end{equation}\]</span> To find the energy difference between the LUMO and HOMO, we subtract  from : <span class="math display">\[\begin{equation}
+    \begin{split}
+        \Delta E &amp;= \frac{(N+2)^2h^2}{32mL^2} - \frac{N^2h^2}{32mL^2} \\
+        &amp;= (N^2 + 4N + 4 - N^2)\frac{h^2}{32mL^2} \\
+        &amp;= \frac{(4N + 4)h^2}{32mL^2} \\
+        &amp;= \frac{(N+1)h^2}{8mL^2}.
+    \end{split}
+    \label{homo-lumo-diff}
+\end{equation}\]</span></p>
+<h2 id="part-f">Part F</h2>
+<p>Every pi bond separated from another pi bond by exactly one sigma bond and every sigma bond in between two pi bonds in retinal is part of the linear conjugated system. Then we have five carbon-carbon pi bonds and five carbon-carbon sigma bonds, as well as one carbon-oxygen pi bond in the system. We can assume that the given length for carbon-carbon bonds is an average across single and double bonds. We then estimate <span class="math inline">\(L\)</span> using the given values: <span class="math display">\[\begin{equation}
+    \begin{split}
+        L &amp;= 10\cdot0.140\,\mathrm{nm} + 0.123\,\mathrm{nm} \\
+        &amp;= 1.400 + 0.123 \\
+        &amp;= 1.523\,\mathrm{nm}.
+    \end{split}
+    \label{retinal}
+\end{equation}\]</span></p>
+<h2 id="part-g">Part G</h2>
+<p>From our observations in the previous part, <span class="math inline">\(N = 12\)</span>, because there are six pi bonds, each with two electrons, in the system. If retinal reaches an excited state, then an electron is promoted from the HOMO to the LUMO. Then we can use our estimated value for <span class="math inline">\(L\)</span> from  and apply equation : <span class="math display">\[\begin{equation}
+    \begin{split}
+        \Delta E &amp;= \frac{(N+1)h^2}{8mL^2} \\
+        &amp;= \frac{13(6.62608 \times 10^{-34})^2}{8(9.10939 \times 10^{-31})(1.523 \times 10^{-9})^2} \\
+        &amp;= 5.142525 \times 10^{-28} \,\mathrm{J}.
+    \end{split}
+    \label{ret-e}
+\end{equation}\]</span></p>
+<p>From the universal wave equation, we know <span class="math inline">\(E = h\nu\)</span>, and we know <span class="math inline">\(\nu = \frac{c}{\lambda}\)</span>, so we have <span class="math inline">\(E = \frac{hc}{\lambda}\)</span>. Applying , we have <span class="math display">\[\begin{equation}
+    \begin{split}
+        E &amp;= \frac{hc}{\lambda} \\
+        \lambda &amp;= \frac{hc}{E} \\
+        &amp;= \frac{(6.62608 \times 10^{-34})(2.997925 \times 10^8)}{5.142525 \times 10^{-28}} \\
+        &amp;= 3.8597 \times 10^{-7}
+    \end{split}
+\end{equation}\]</span> Reporting our answer to four significant figures (the limiting value is <span class="math inline">\(L\)</span>), we find that the wavelength of the light absorbed by retinal to reach an excited state is <span class="math inline">\(356.0 \,\mathrm{nm}\)</span>.</p>
+<h1 id="inorganic-chemistry_1">Inorganic Chemistry</h1>
+<h2 id="part-a-2">Part A</h2>
+<p>Applying the Aufbau principle, we know the <span class="math inline">\(3\mathrm{d}\)</span> orbital is higher in energy than the <span class="math inline">\(4\mathrm{s}\)</span> orbital. From this the electron configuration follows easily: just follow the periodic table. <span class="math display">\[\begin{equation}
+    1\mathrm{s}^2 2\mathrm{s}^2 2\mathrm{p}^6 3\mathrm{s}^2 3\mathrm{p}^6 4\mathrm{s}^2 3\mathrm{d}^2
+\end{equation}\]</span></p>
+<h2 id="part-b-2">Part B</h2>
+<p>We note that <span class="math inline">\(\ce{FeTiO3}\)</span> must have the same coefficient of <span class="math inline">\(\ce{TiCl4}\)</span> and <span class="math inline">\(\ce{FeCl3}\)</span>, which are the only titanium and iron containing compounds on the product side. If we call this value <span class="math inline">\(x\)</span>, then we see that <span class="math inline">\(\ce{C}\)</span> and <span class="math inline">\(\ce{CO}\)</span> have coefficient <span class="math inline">\(3x\)</span>. The final reagant, <span class="math inline">\(\ce{Cl2}\)</span>, has coefficient <span class="math inline">\(\frac{7x}{2}\)</span>. We clear fractions by multiplying by 2 and set <span class="math inline">\(x = 1\)</span> to get the balanced equation: <span class="math display">\[\begin{equation}
+    \ce{2FeTiO3(s) + 7Cl2(g) + 6C(s,\mathrm{graphite}) -&gt; 2TiCl4(l) + 2FeCl3(s) + 6CO(g)}
+\end{equation}\]</span></p>
+<h2 id="part-c-2">Part C</h2>
+<p>Titanium tetrachloride violently hydrolyzes to form titanium dioxide and hydrochloric acid as follows: <span class="math display">\[\begin{equation}
+    \ce{TiCl4(l) + 2H2O(g) -&gt; TiO2(s) + 4HCl(aq)}
+\end{equation}\]</span></p>
+<h2 id="part-d-2">Part D</h2>
+<p>Examination of the diagram shows that each oxygen atom has three titanium atoms around it with <span class="math inline">\(120^\circ\)</span> bond angle. Furthermore, each titanium atom has six oxygen atoms around it with <span class="math inline">\(90^\circ\)</span> angle. This means that oxygen has local trigonal planar geometry, and titanium local octahedral geometry.</p>
+<h2 id="part-e-2">Part E</h2>
+<p>We know density is mass over volume, so we will find the unit mass and unit volume.</p>
+<p>In the unit cell, there are one corner titanium atoms, which each contribute one-eighth of an atom, and one full titanium atom. Furthermore, there are four oxygen atoms and two face oxygen atoms, which each contribute one-half of an atom. This gives two titanium and five oxygen atoms in the unit cell. These elements have molar masses <span class="math inline">\(m_{\ce{Ti}} = 47.87 \,\mathrm{g}\,\mathrm{mol}^{-1}\)</span> and <span class="math inline">\(m_{\ce{O}} = 16.00 \,\mathrm{g}\,\mathrm{mol}^{-1}\)</span>. This means the unit mass is <span class="math display">\[\begin{equation}
+    \frac{2\cdot47.87 + 5 \cdot 16.00}{6.022\times10^{23}} = 2.918 \times 10^{-22} \,\mathrm{g}.
+    \label{mass}
+\end{equation}\]</span></p>
+<p>The unit volume is <span class="math display">\[\begin{equation}
+    abc = 0.4584^2(0.2953) = 0.06205 \,\mathrm{nm}^3 = 6.205 \times 10^{-23} \,\mathrm{cm}^3.
+    \label{volume}
+\end{equation}\]</span></p>
+<p>From  and , we get the density: <span class="math display">\[\begin{equation}
+    \rho_{\ce{TiCl}} = \frac{2.918 \times 10^{-22}}{6.205 \times 10^{-23}} = 4.703 \,\mathrm{g}\,\mathrm{cm}^{-3}.
+\end{equation}\]</span></p>
+<h2 id="part-f-1">Part F</h2>
+<p>We are given <span class="math inline">\(\Delta H_\text{vap} = 37500 \,\mathrm{J}\,\mathrm{mol}^{-1}\)</span>. Under the conditions of SATP, <span class="math inline">\(T_1 = 298\,\mathrm{K}\)</span>. We set <span class="math inline">\(P_1 = 1.70 = 101.70 \,\mathrm{kPa}\)</span>. By definition, <span class="math inline">\(P_2\)</span>, or the vapour pressure at boiling point is one atmosphere, or <span class="math inline">\(101.325 \,\mathrm{kPa}\)</span>. We use the gas constant <span class="math inline">\(R = 8.31451 \,\mathrm{J}\,\mathrm{K}^{-1}\,\mathrm{mol}^{-1}\)</span>. We then solve for the boiling point, <span class="math inline">\(T_2\)</span>, reported to three significant figures: <span class="math display">\[\begin{equation}
+    \begin{split}
+        \ln\frac{P_1}{P_2} &amp;= \frac{\Delta H_\text{vap}}{R}\left(\frac{1}{T_2} - \frac{1}{T_1}\right) \\
+        \frac{1}{T_2} &amp;= \frac{R}{\Delta H_\text{vap}}\ln\frac{P_1}{P_2} + \frac{1}{T_1} \\
+        T_2 &amp;= \left(\frac{R}{\Delta H_\text{vap}}\ln\frac{P_1}{P_2} + \frac{1}{T_1}\right)^{-1} \\
+        &amp;= \left(\frac{8.31451}{37500}\ln\frac{1.70}{101.325} + \frac{1}{298}\right) \\
+        &amp;= 408 \,\mathrm{K}.
+    \end{split}
+\end{equation}\]</span></p>
+<h2 id="part-g-1">Part G</h2>
+<p>Titanium tetrachloride gas could be bubbled into a vat of liquid magnesium metal, upon which it would be reduced. Solid titanium would be produced and, being denser than magnesium, sink to the bottom where it could be collected. Titanium would be the only solid, and titanium tetrachloride would be the only gas; magnesium metal and magnesium chloride would be liquids. The chemical equation is as follows: <span class="math display">\[\begin{equation}
+    \ce{TiCl4(g) + 2Mg(l) -&gt; 2MgCl2 + Ti(s)}
+\end{equation}\]</span></p>
+<h1 id="organic-chemistry_1">Organic Chemistry</h1>
+<h2 id="parts-a-and-b">Parts A and B</h2>
+<p>These two parts deal with the same synthesis. The first step adds three carbon atoms, four hydrogen atoms, and one oxygen atom. The presence of the aryl ketone in the finished product indicates that this addition step is likely a Friedel-Crafts acylation, with propanoyl chloride and a strong Lewis acid calalyst, such as aluminum chloride.</p>
+<figure>
+<img alt="Reagants Q, propanoyl chloride, and R, \ce{AlCl3} react with benzene in a Friedel-Crafts acylation to form intermediate S." src="https://gautammanohar.com/figures/2017-synth-1.png" style="width:60.0%"/><figcaption>Reagants Q, propanoyl chloride, and R, <span class="math inline">\(\ce{AlCl3}\)</span> react with benzene in a Friedel-Crafts acylation to form intermediate S.</figcaption>
+</figure>
+<p>In the next step, a hydrogen atom is substituted for a chlorine atom is added meta to the acyl group, which is electron withdrawing and directs meta. This indicates an electrophilic aromatic halogenation with chlorine gas and strong Lewis acid catalyst, again aluminum chloride.</p>
+<figure>
+<img alt="Catalyzed by aluminum chloride, chlorine gas substitutes to form the given intermediate V." src="https://gautammanohar.com/figures/2017-synth-2.png" style="width:20.0%"/><figcaption>Catalyzed by aluminum chloride, chlorine gas substitutes to form the given intermediate V.</figcaption>
+</figure>
+<p>Next, the compound is subjected acidic conditions, under which the ketone oxygen is protonated and forms its enol tautomer. After bromine adds to the alkene on the alpha carbon and the ketone is reformed after deprotonation, we obtain an alpha brominated product.</p>
+<figure>
+<img alt="Bromination yields intermediate W." src="https://gautammanohar.com/figures/intermediate-W.png" style="width:25.0%"/><figcaption>Bromination yields intermediate W.</figcaption>
+</figure>
+<p>We then add a nitrogen compound, which, judging from the structure of the desired product, is likely tert-butylamine. The nucleophilic nitrogen drives an <span class="math inline">\(\text{S}_\text{N}2\)</span> reaction with bromine as the leaving group. Now we have a bromine salt; bupropion is a chlorine salt. To replace bromine, we add a stoichiometric amount of hydrochloric acid.</p>
+<figure>
+<img alt="Addition of tert-butylamine, reagant X, forms intermediate Y, which gives bupropion after treatment with reagant Z, hydrochloric acid." src="https://gautammanohar.com/figures/2017-synth-3.png" style="width:60.0%"/><figcaption>Addition of tert-butylamine, reagant X, forms intermediate Y, which gives bupropion after treatment with reagant Z, hydrochloric acid.</figcaption>
+</figure>
+<h2 id="part-c-3">Part C</h2>
+<p>Bupropion has only one stereocenter (at the carbon to which the nitrogen is bonded). And so it has two stereoisomers.</p>
+<h2 id="part-d-3">Part D</h2>
+<p>Chlorine salts are generally soluble in water, so buproprion likely dissolves.</p>
+<h2 id="part-e-3">Part E</h2>
+<p>In this part, we predict the products formed after intermediate V reacts with the following reagants. We have</p>
+<ol>
+<li>Reduction of the ketone to a secondary alcohol by sodium borohydride</li>
+<li>Gringard addition on the electrophilic carbonyl carbon</li>
+<li>Reduction of the aryl ketone to an alkane</li>
+<li>Formation of an imine from a ketone and primary amine</li>
+<li>Formation of an enamine from a ketone and secondary amine</li>
+</ol>
+<figure>
+<img alt="The structures of the products from the five sets of reagants." src="https://gautammanohar.com/figures/2017-synth-4.png" style="width:70.0%"/><figcaption>The structures of the products from the five sets of reagants.</figcaption>
+</figure>
+<h1 id="analytical-chemistry_1">Analytical Chemistry</h1>
+<h2 id="part-a-3">Part A</h2>
+<p>We break this reaction into a reduction half-reaction <span class="math display">\[\begin{equation}
+    \ce{Cu^{2+}(aq) + I-(aq) + e- -&gt; CuI(s)}
+\end{equation}\]</span> and an oxidation half-reaction <span class="math display">\[\begin{equation}
+    \ce{2I-(aq) -&gt; I2(aq) + 2e-}
+\end{equation}\]</span> Adding the two reactions together (after multiplying the reduction reaction by 2), we have the balanced form <span class="math display">\[\begin{equation}
+    \ce{2Cu^{2+}(aq) + 4I-(aq) -&gt; 2CuI(s) + I2(aq)}
+\end{equation}\]</span></p>
+<h2 id="part-b-3">Part B</h2>
+<p>Just like in the first part, we have a reduction half-reaction <span class="math display">\[\begin{equation}
+    \ce{I2(aq) + e- -&gt; I-(aq)}
+\end{equation}\]</span> and an oxidation half-reaction <span class="math display">\[\begin{equation}
+    \ce{2S2O3^{2-}(aq) -&gt; S4O6^{2-}(aq) + 2e-}
+\end{equation}\]</span> Again, we balance: <span class="math display">\[\begin{equation}
+    \ce{2I2(aq) + 2S2O3^{2-}(aq) -&gt; 2I-(aq) + S4O6^{2-}(aq)}
+\end{equation}\]</span></p>
+<h2 id="part-c-4">Part C</h2>
+<p>In the first reaction, copper (II) and iodine are in a <span class="math inline">\(2:1\)</span> ratio. In the second reaction, iodine and thiosulfate are in a <span class="math inline">\(1:1\)</span> ratio. This means that <span class="math display">\[\begin{equation}
+    n_\text{Cu} = 2n_\text{T}.
+\end{equation}\]</span></p>
+<h2 id="part-d-4">Part D</h2>
+<p>We find the moles of thiosulfate used: <span class="math display">\[\begin{equation}
+    n_\text{T} = 0.1002 \cdot 0.03207 = 3.21341 \times 10^{-3}.
+\end{equation}\]</span> From the previous part, we know the moles of copper (II) are half the moles of thiosulfate, so <span class="math display">\[\begin{equation}
+    n_\text{Cu} = \frac{n_\text{T}}{2} = \frac{3.21341 \times 10^{-3}}{2} = 1.60671 \times 10^{-3}.
+\end{equation}\]</span> We then divide by the volume of copper (II) solution <span class="math display">\[\begin{equation}
+    C_\text{Cu} = \frac{n_\text{Cu}}{V_\text{Cu}} = \frac{1.60671 \times 10^{-3}}{0.050000} = 0.032134
+\end{equation}\]</span> Reporting our answer to four significant figures, we find that the initial concentration of copper (II) ions was <span class="math inline">\(0.03213 \,\mathrm{mol}\,\mathrm{L}^{-1}\)</span>.</p>
+<h2 id="part-e-4">Part E</h2>
+<p>An excess of iodide ensures that all of the copper (II) ions react to form copper iodide, but in particular iodine, which we titrate with thiosulfate to find the initial concentration of copper (II). If too little iodide is used, then the final result will underestimate the initial concentration.</p>
+<h2 id="part-f-2">Part F</h2>
+<p>A suitable indicator for this titration is starch solution. It adsorbs the triiodide ion, which is formed from iodine and iodide ions. The starch-triiodide complex produces a deep blue-black colour, which becomes colourless when only iodide and no iodine, and thus no triiodide, is present in solution&mdash;this is the endpoint. However, this complex is not very soluble in water, so it should be added once most of the iodine has reacted with thiosulfate. You can tell when this has happened, as the brownish iodine colour will become pale.</p>
+<h2 id="part-g-2">Part G</h2>
+<p>One possible issue is that the starch hydrolyzes under attack by acidic conditions, rendering it incapable of adsorbing triiodide and acting as an indicator. Another possible issue is that the starch cannot adsorb enough triiodide, which can occur at high temperatures. To remedy this, titrations involving iodine should be performed in cold, neutral conditions.</p>
+
+    <aside id="gcman-toolbar">
+                <a title="Almost There I" class="prev" href="../almost-patterns-sinc/">
+                    <i class="fas fa-chevron-circle-left"></i>
+            </a>
+        <a title="Raw source" class="raw" href="../ccc-2017/src.md" type="text/plain">
+            <i class="fas fa-code" aria-hidden="true"></i>
+        </a>
+<a title="Home" class="home" href="../blog/">
+    <i class="fas fa-home"></i>
+</a>        <a title="PDF" class="pdf" href="../ccc-2017/post.pdf">
+            <i class="far fa-file-pdf" aria-hidden="true"></i>
+        </a>
+                <a title="Unofficial CCC 2016 Solutions" class="next" href="../ccc-2016/">
+                    <i class="fas fa-chevron-circle-right"></i>
+            </a>
+    </aside>
+  </article>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $('.title a').html(function(index, value) {
+    return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
+});
+</script>
+    <section>
+    </section>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-115904815-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</body>
+</html>

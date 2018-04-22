@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>    Unofficial CCC 2016 Solutions - Gautam Manohar
+</title>
+    <meta charset="utf-8" />
+        <meta name="keywords" content="contest, chemistry" />
+        <meta name="category" content="chemistry" />
+        <meta name="description" content="Unofficial full solutions and explanations to Part C of the 2016 Canadian Chemistry Contest/Olympiad." />
+        <meta name="author" content="Gautam Manohar" />
+        <meta name="copyright" content="Gautam Manohar" />
+        <meta name="date" content="2018-04-01 00:00:00-04:00">
+<link rel="stylesheet" href="../theme/css/normalize/normalize.min.css" type="text/css" />
+  <link rel="stylesheet" href="../theme/css/article.css" type="text/css" />
+    <meta name="robots" content="index,follow">
+    <link rel="shortcut icon" type="image/png" href="../theme/images/icons/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
+    <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!--[if lte IE 7]>
+            <link rel="stylesheet" type="text/css" media="all" href="../css/ie.css"/>
+            <script src="../js/IE8.js" type="text/javascript"></script><![endif]-->
+
+    <!--[if lt IE 7]>
+            <link rel="stylesheet" type="text/css" media="all" href="../css/ie6.css"/><![endif]-->
+<style>
+  .title .math {
+    font-size: 50% !important;
+  }
+</style>
+<script type="text/x-mathjax-config">
+  MathJax.Ajax.config.path["mhchem"] =
+    "https://cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0";
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
+    jax: ["input/TeX","output/HTML-CSS", "output/PreviewHTML"],
+    "HTML-CSS": {
+      styles: {
+      ".MathJax .mo, .MathJax .mi, .math": {color: "black;"}},
+      scale: 100,
+      afonts: ["TeX"],
+      webFont: "Latin-Modern"
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    TeX: {
+      equationNumbers: {  autoNumber: "all"  },
+      extensions: ["[mhchem]/mhchem.js","AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    });
+    MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
+      var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
+      VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+      VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+      VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+      VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+      });
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js">
+</script>
+<div class="invisible">
+  \(
+  \let\Pr\relax
+  \DeclareMathOperator\LCM{LCM}
+  \DeclareMathOperator\Pr{P}
+  \DeclareMathOperator\arccot{arccot}
+  \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1 )}
+  \renewcommand{\vec}[1]{\mathbf{ #1 }}
+  \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+  \newcommand{\abs}[1]{\lvert #1 \rvert}
+
+  \newcommand{\inn}[1]{\in\left\{ #1 \right\}}
+  \newcommand{\ninn}[1]{\not\in\left\{ #1 \right\}}
+  \newcommand{\orr}{\qquad&amp;\,\text{or}\qquad}
+
+  \renewcommand\d{\mathop{}\!\mathrm{d}}
+  \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
+  \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
+  \DeclareMathOperator\G{\Gamma}
+  \DeclareMathOperator\I{\mathscr{I}}
+  \)
+</div></head>
+<body>
+<section id="content" class="body">
+    <article>
+    <header>
+      <h1 class="title">
+            <a href="../ccc-2016/" rel="bookmark"
+           title="Permalink to Unofficial CCC 2016 Solutions">Unofficial CCC 2016 Solutions</a>
+      </h1>
+      <address class="author">Gautam Manohar</address>
+        <div id="textbox">
+          <p style="font-weight: bold;" class="alignleft">
+            <a href="../category/chemistry/">chemistry</a>&nbsp;
+          </p>
+            <p class="date aligncenter">1 April 2018</p>
+          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../tag/contest/">#contest</a> </p>
+        </div>
+       <div style="clear: both;"></div>​
+    </header>
+
+      <p>This is part of a <a href="https://gautammanohar.com/ccc-solutions/">project</a> to provide unofficial solutions for part C of the <a href="http://www.cheminst.ca/outreach/canadian-chemistry-contest">Canadian Chemistry Contest</a>. You can find the 2016 contest <a href="https://gautammanohar.com/ccc/2016-problems.pdf">here</a>.</p>
+<h1 id="general-chemistry">General Chemistry</h1>
+<h2 id="part-a">Part A</h2>
+<p>We are given <span class="math inline">\(P_{\ce{O2}\text{in}} = 159 \,\mathrm{mmHg}\)</span> and <span class="math inline">\(P_{\ce{O2}\text{ex}} = 116\,\mathrm{mmHg}\)</span>. Thus the change in partial pressure <span class="math inline">\(\Delta P_{\ce{O2}} = 43 \,\mathrm{mmHg}\)</span>. Converting to kilopascals, we have <span class="math inline">\(760 \,\mathrm{mmHg} = 101.325 \,\mathrm{kPa}\)</span>, so the change in partial pressure is <span class="math inline">\(\frac{43}{760}\cdot101325 = 5.733 \,\mathrm{kPa}\)</span> There are ten inhalations per minute, each of volume 2 litres, so the inhalation rate is 20 litres per minute. We use the ideal gas law to find the number of moles of oxygen transferred per minute: <span class="math display">\[\begin{equation}
+    \begin{split}
+        PV &amp;= nRT \\
+        n &amp;= \frac{PV}{RT} \\
+        &amp;= \frac{5.733\cdot20}{8.31451\cdot298} \\
+        &amp;= 0.04627 \,\mathrm{mol}.
+    \end{split}
+\end{equation}\]</span> We multiply by the molar mass of oxygen, <span class="math inline">\(16 \,\mathrm{g}\,\mathrm{mol}^{-1}\)</span> to find mass: <span class="math display">\[\begin{equation}
+    0.04627 \cdot 16 = 0.74 \,\mathrm{g}.
+\end{equation}\]</span></p>
+<h2 id="part-b">Part B</h2>
+<p>We use the ideal gas law to find the number of moles of oxygen transported in one litre of fully oxygenated blood: <span class="math display">\[\begin{equation}
+    \begin{split}
+        n &amp;= \frac{PV}{RT} \\
+        &amp;= \frac{101.325 \cdot 0.18}{8.31451\cdot310} \\
+        &amp;= 7.076 \times 10^{-3}.
+    \end{split}
+\end{equation}\]</span> We then account for the fact that each hemoglobin molecule can carry four oxygen molecules and multiply by Avogadro&rsquo;s constant to convert moles to number of molecules. <span class="math display">\[\begin{equation}
+    \frac{7.076 \times 10^{-3}}{4} \cdot 6.022 \times 10^{23} = 1.065 \times 10^{21}
+\end{equation}\]</span> To two significant figures, the oxygen in one litre of blood requires <span class="math inline">\(1.1 \times 10^{21}\)</span> molecules of hemoglobin to be transported.</p>
+<h2 id="part-c">Part C</h2>
+<p>We are given <span class="math inline">\(T = 37^\circ \,\mathrm{C} = 310 \,\mathrm{K}\)</span>. We use the relationship <span class="math inline">\(\Delta G^\circ = -RT\ln K\)</span>. For the first process, we have <span class="math display">\[\begin{equation}
+    \Delta G^\circ = -8.31451\cdot310\cdot\ln(9.2\times10^{18}) = -110 \,\mathrm{kJ}\,\mathrm{mol}^{-1}.
+\end{equation}\]</span> Similarly for the second process, we have <span class="math display">\[\begin{equation}
+    \Delta G^\circ = -8.31451\cdot310\cdot\ln(2.3\times10^{23}) = -140 \,\mathrm{kJ}\,\mathrm{mol}^{-1}.
+\end{equation}\]</span> Both of these processes have negative Gibbs free energies and very large equilibrium constants in the forward direction; they would have very small equilibrium constants in the reverse direction. Both processes favour the forward reaction.</p>
+<h2 id="part-d">Part D</h2>
+<p>The equilibrium in the carbon monoxide process lies closer to the products, because its corresponding equilibrium constant is larger. This supports the notion that carbon monoxide is toxic, because it will preferentially attach to hemoglobin over oxygen, cutting off the supply of oxygen to your body.</p>
+<h2 id="general-chemistry-1">General Chemistry</h2>
+<h2 id="part-a-1">Part A</h2>
+<p>We assign sodium an oxidation state of <span class="math inline">\(1+\)</span> and oxygen <span class="math inline">\(2-\)</span>. Because the molecule is neutral, we conclude that chlorine has an oxidation state of <span class="math inline">\(1+\)</span> in sodium hypochlorite.</p>
+<h2 id="part-b-1">Part B</h2>
+<p>We balance as follows: <span class="math display">\[\begin{equation}
+    \ce{H3CNO2 + 3NaOCl -&gt; Cl3CNO2 + 3NaOH}
+\end{equation}\]</span></p>
+<h2 id="part-c-1">Part C</h2>
+<p>Chlorine is reduced from oxidation state <span class="math inline">\(1+\)</span> to <span class="math inline">\(1-\)</span>, and carbon is oxidized from <span class="math inline">\(2-\)</span> to <span class="math inline">\(4+\)</span>. And so this is a redox reaction.</p>
+<h2 id="part-d-1">Part D</h2>
+<p>We have the reaction <span class="math display">\[\begin{equation}
+    \ce{2Cl3CNO2 -&gt; 2COCl2 + 2NO + Cl2}
+\end{equation}\]</span></p>
+<h2 id="part-e">Part E</h2>
+<p>We have <span class="math inline">\(\Delta H^\circ_f = 2(-218.8) + 2(90.3) - 2(-78.6) = -99.8 \,\mathrm{kJ}\,\mathrm{mol}^{-1}_\mathrm{rxn}\)</span>.</p>
+<h2 id="parts-f-and-g">Parts F and G</h2>
+<p>First, we have <span class="math inline">\(\ce{CCl3}\)</span>. Carbon is the more electropositive atom, so it is central. We have seven valence electrons per chlorine atom and four for the carbon, which makes 25 total. Making three carbon-chlorine single bonds gives us 19 valence electrons remaining. Placing 6 around each chlorine to complete the octet gives one remaining electron, which we place on the carbon atom. It has trigonal planar geometry.</p>
+<figure>
+<img alt="The Lewis structure of \ce{CCl3}." src="https://gautammanohar.com/figures/ccl3.png" style="width:10.0%"/><figcaption>The Lewis structure of <span class="math inline">\(\ce{CCl3}\)</span>.</figcaption>
+</figure>
+<p>With <span class="math inline">\(\ce{NO2}\)</span>, we have six valence electrons per oxygen atom and five for the nitrogen, whih makes 17 total. Nitrogen is the central atom. After making two nitrogen-oxygen bonds, we have 13 valence electrons left. We place six around each oxygen atom, and place the last around the nitrogen. However, the nitrogen atom has only two bonds to it, so we make an oxygen lone pair into a nitrogen-oxygen double bond, which gives two resonance forms. It has bent geometry.</p>
+<figure>
+<img alt="The Lewis structure of \ce{NO2}." src="https://gautammanohar.com/figures/no2-resonance.png" style="width:60.0%"/><figcaption>The Lewis structure of <span class="math inline">\(\ce{NO2}\)</span>.</figcaption>
+</figure>
+<h2 id="part-h">Part H</h2>
+<p>We begin by using the information about compound C. We can assume that B does not contain fluorine. Then compound C has two atoms of fluorine, which have molar mass 38. This gives compound C a molar mass of 102.06. The fact that compound C has two-fold rotational symmetry indicates that it has formula <span class="math inline">\(\ce{AB2F2}\)</span>, where A is the central atom. This means <span class="math inline">\(\ce{AB2}\)</span> constitutes 64 grams of molar mass. This corresponds to sulfur as <span class="math inline">\(\ce{A}\)</span> and oxygen as <span class="math inline">\(\ce{B}\)</span>. And so compound C is <span class="math inline">\(\ce{SO2F2}\)</span>. This means compound B is <span class="math inline">\(\ce{SO2}\)</span> and the element A is sulfur, <span class="math inline">\(\ce{S}\)</span>.</p>
+<h2 id="part-i">Part I</h2>
+<p>We know <span class="math inline">\(\ce{SO2F2}\)</span> has tetrahedral geometry. Then it must have sulfur-oxygen double bonds and look as follows:</p>
+<figure>
+<img alt="The tetrahedral structure of sulfuryl fluoride, \ce{SO2F2}." src="https://gautammanohar.com/figures/sulfuryl-fluoride.png" style="width:10.0%"/><figcaption>The tetrahedral structure of sulfuryl fluoride, <span class="math inline">\(\ce{SO2F2}\)</span>.</figcaption>
+</figure>
+<h1 id="organic-chemistry_1">Organic Chemistry</h1>
+<h2 id="part-a-2">Part A</h2>
+<p>The upper-right most carbon is part of an acetal, and the leftmost carbon is part of a hemi-ketal.</p>
+<h2 id="part-b-2">Part B</h2>
+<p>We first note that in the lowest energy resonance structure, the ester has a carbonyl oxygen that is not part of the main chain. We could also push the pi bond up, which makes the carbon have a formal positive charge and the carbonyl oxygen have a formal negative charge. Then we could form a carbon-oxygen double bond in the main chain, shifting the positive formal charge to oxygen. The resonance structures thus appear as follows:</p>
+<figure>
+<img alt="Resonance structures of methyl acetate." src="https://gautammanohar.com/figures/methyl-acetate.png" style="width:90.0%"/><figcaption>Resonance structures of methyl acetate.</figcaption>
+</figure>
+<h2 id="part-c-2">Part C</h2>
+<p>If a compound is optically active, then it has chirality centre(s), no internal plane of symmetry, and it must not be superimposable on its mirror image. We shall focus on the last criterion.</p>
+<figure>
+<img alt="Fischer projections of similar molecules with and without optical activity." src="https://gautammanohar.com/figures/optical-fischer.png" style="width:40.0%"/><figcaption>Fischer projections of similar molecules with and without optical activity.</figcaption>
+</figure>
+<p>Note that the second compound&rsquo;s mirror image, if rotated by 180 degrees, is superimposable on the original, whereas the same is not true for the first. Note also that both molecules have chirality centers and no planes of symmetry.</p>
+<h2 id="part-d-2">Part D</h2>
+<p>Compound D is clearly the least acidic; it will actually act as a base, donating its lone pair. Then we consider the stability of the conjugate bases; the stronger/less stable the conjugate base, the weaker the acid. Compound B has a localized negative charge on oxygen when deprotonated, whereas the conjugate bases of compounds A and C are stabilized by resonance. Then we decide between A and C. Both are carboxylic acids with the same structure, except C has a bromine in the alpha position. Bromine is an electronegative atom which by the inductive effect draws some electron density away from the oxygen atoms, further delocalizing the negative charge. And so our ranking of acids, from least to most acidic, is D, B, A, C.</p>
+<h2 id="part-e-1">Part E</h2>
+<p>The degree of unsaturation of the first compound is three, as a totally saturated hydrocarbon with 14 carbons would have 30 hydrogens, while this compound only has 24 (six less). The second compound has a degree of unsaturation of just one, by similar reasoning. It must not contain any double bonds, as all would have been reduced by the catalyzed hydrogenation. Thus its unsaturation must come from a ring. Then the other two degrees of unsaturation in the original compound must have come from two double bonds. Thus the original compound had one ring and two double bonds.</p>
+<h2 id="part-f">Part F</h2>
+<p>We will consider the hydrolysis piecewise: first of the ester, then of the amide. We form the carboxylic acid and alcohol</p>
+<figure>
+<img alt="Ester hydrolysis." src="https://gautammanohar.com/figures/ester-hydrolysis-1.png" style="width:50.0%"/><figcaption>Ester hydrolysis.</figcaption>
+</figure>
+<p>We unwrap to make it easier. Then the nitrogen gains two protons and an alcohol is formed on the other side.</p>
+<figure>
+<img alt="Amide hydrolysis." src="https://gautammanohar.com/figures/ester-hydrolysis-2.png" style="width:80.0%"/><figcaption>Amide hydrolysis.</figcaption>
+</figure>
+<p>Above are the final products.</p>
+<h1 id="analytical-chemistry_1">Analytical Chemistry</h1>
+<h2 id="part-a-3">Part A</h2>
+<p>The limiting reagant is <span class="math inline">\(\ce{As2O3}\)</span>. We are given its molar mass and the mass dissolved in one litre of solution, so we can find its concentration to four significant figures: <span class="math display">\[\begin{equation}
+    \frac{1.230}{197.841} = 6.217 \times 10^{-3} \,\mathrm{mol}\,\mathrm{L}^{-1}.
+\end{equation}\]</span></p>
+<h2 id="part-b-3">Part B</h2>
+<p>Silver readily forms precipitates; silver ions would react with the hydrogen arsenite to form a precipitate, which would of course render the titration impossible. Silver chloride is also insoluble in water, and so chloride ions are added to remove all the silver.</p>
+<h2 id="part-c-3">Part C</h2>
+<p>The procedure works because manganese in the steel is oxidized in the third step to permanganate, which is then analyzed in a redox titration againt sodium hydrogen arsenite. However, chromium will also be oxidized. If there is a high chromium content, then some manganese could still be left in metallic form, because chromium was oxidized instead of it. This would result in an underestimation of the magnesium content.</p>
+<h2 id="part-d-3">Part D</h2>
+<p>We split into a reduction half-reaction <span class="math display">\[\begin{equation}
+    \ce{HAsO3^{2-} -&gt; HAsO4^{2-}}
+\end{equation}\]</span> which we balance as follows: <span class="math display">\[\begin{equation}
+    \ce{HAsO3^{2-} + H2O -&gt; HAsO4^{2-} + 2H+ + 2e-}
+\end{equation}\]</span> We also have an oxidation half-reaction <span class="math display">\[\begin{equation}
+    \ce{MnO4- -&gt; Mn^{2+}}
+\end{equation}\]</span> which we balance as follows <span class="math display">\[\begin{equation}
+    \ce{MnO4- + 8H+ + 5e- -&gt; Mn^{2+} + 4H2O}
+\end{equation}\]</span> We multiply the reduction reaction by 5 and the oxidation reaction by 2, then add: <span class="math display">\[\begin{equation}
+    \ce{2MnO4- + 5HAsO3^{2-} + 6H+ -&gt; 5HAsO4^{2-} + 2Mn^{2+} + 3H2O}
+    \label{redox}
+\end{equation}\]</span></p>
+<h2 id="part-e-2">Part E</h2>
+<p>From the first part, we know the concentration of hydrogen arsenite, <span class="math inline">\(6.217 \times 10^{-3} \,\mathrm{mol}\,\mathrm{L}^{-1}\)</span>. We can find the moles used given the volume: <span class="math display">\[\begin{equation}
+    6.217 \times 10^{-3} \cdot 2.532 \times 10^{-2} = 1.574 \times 10^{-4} \,\mathrm{mol}.
+\end{equation}\]</span> From , we know that for every five moles of hydrogen arsenite used, there were two moles of permanganate, so we can find the number of moles of permanganate. <span class="math display">\[\begin{equation}
+    1.574 \times 10^{-4} \cdot \frac{2}{5} = 6.297 \times 10^{-5} \,\mathrm{mol}.
+\end{equation}\]</span> Manganese is oxidized to permanganate in a one-to-one ratio, so we can now use the molar mass of manganese, <span class="math inline">\(54.94 \,\mathrm{g}\,\mathrm{mol}^{-1}\)</span>, to find the original mass of manganese. <span class="math display">\[\begin{equation}
+    6.297 \times 10^{-5} \cdot 54.94 = 3.459 \times 10^{-3}.
+\end{equation}\]</span> And so in the steel sample there was <span class="math inline">\(3.459 \times 10^{-3}\,\mathrm{g}\)</span> of manganese.</p>
+<h1 id="general-chemistry-2_1">General Chemistry</h1>
+<h2 id="part-a-4">Part A</h2>
+<p>The second dissociation constant is negligible to the final pH of the solution, so we can just use the first. Suppose the initial concentration of <span class="math inline">\(\ce{H+}\)</span> is <span class="math inline">\(y\)</span>. Setting up an ICE table, we have <span class="math display">\[\begin{equation}
+    K_{a1} = 1.0 \times 10^{-7} = \frac{[\ce{HS-}][\ce{H+}]}{\ce{H2S}} = \frac{x(y+x)}{0.100 - x},
+\end{equation}\]</span> where <span class="math inline">\(x = \ce{[HS-]}\)</span>. We know the solution pH is 2, so <span class="math inline">\(y + x = 10^{-2}\)</span>. Making this substitution, we solve for <span class="math inline">\(x\)</span>: <span class="math display">\[\begin{equation}
+    \begin{split}
+        K &amp;= \frac{10^{-2} x}{0.1 - x} \\
+        0.1K &amp;= (K + 10^{-2})x \\
+        x &amp;= \frac{0.1K}{K + 0.01} \\
+        x &amp;= 9.9999 \times 10^{-7}.
+    \end{split}
+\end{equation}\]</span> We then perform another ICE calculation, this time letting <span class="math inline">\(x = [S^{2-}]\)</span>. We have <span class="math display">\[\begin{equation}
+    \begin{split}
+        K_{a2} &amp;= \frac{x10^{-2}}{9.9999 \times 10^{-7} - x} \\
+        100K(9.9999 \times 10^{-7} - x) &amp;= x \\
+        999.99K &amp;= x + 100Kx \\
+        x &amp;= \frac{999.99K}{100K + 1} \\
+        x &amp;= 1.3 \times 10^{-10}.
+    \end{split}
+\end{equation}\]</span> And so we conclude that the concentration of sulfide ion is <span class="math inline">\(1.3 \times 10^{-10} \,\mathrm{mol}\,\mathrm{L}^{-1}\)</span>.</p>
+<h2 id="part-b-4">Part B</h2>
+<p>We can assume we have a solution of volume one litre to simplify the notation. We know that a compound with solubility product <span class="math inline">\(K\)</span> has a molar solubility of <span class="math inline">\(\sqrt{K}\)</span>. We start with the most soluble compound, as that is what will preferentially stay in solution. At most <span class="math inline">\(\sqrt{2.5 \times 10^{-10}} = 1.6 \times 10^{-5} \,\mathrm{mol}\)</span> of <span class="math inline">\(\ce{MnS}\)</span> will dissolve. We know from the previous part that, under the given conditions, <span class="math inline">\(1.3 \times 10^{-10} \,\mathrm{mol}\)</span> sulfide is in solution. Thus no  precipitate is formed. However, silver sulfide and cobalt sulfide, by the same analysis, will precipitate.</p>
+<h2 id="part-c-4">Part C</h2>
+<p>We first find <span class="math inline">\(\ce{[Pb^{2+}]} = \sqrt{K_sp} = \sqrt{1.6\times10^{-8}} = 1.26 \times 10^{-4}\)</span>. Then let <span class="math inline">\(x\)</span> be the moles of lead (II) sulfide precipitate formed. Let <span class="math inline">\(A = \sqrt{1.6\times10^{-8}}, B = 1.00 \times 10^{-17}, C = 2.5 \times 10^{-27}\)</span> We have <span class="math display">\[\begin{equation}
+    \begin{split}
+        (1.26 \times 10^{-4} - x)(1.00 \times 10^{-17} - x) &amp;= 2.5 \times 10^{-27} \\
+        (A - x)(B - x) &amp;= C \\
+        x^2 - (A+B)x + AB - C \\
+        x &amp;= \frac{A+B-\sqrt{(A+B)^2 - 4(AB-C)}}{2} \\
+        &amp;= 1 \times 10^{-17}.
+    \end{split}
+\end{equation}\]</span> So in fact, essentially all of the lead will precipitate out; the difference is not detectable with our number of significant digits. The molar mass of lead (II) sulfide is <span class="math inline">\(239.3 \,\mathrm{g}\,\mathrm{mol}^{-1}\)</span>. And so <span class="math inline">\(1 \times 10^{-17} * 239.3 = 2.39 \times 10^{-15}\,\mathrm{g}\)</span> of precipitate forms.</p>
+
+    <aside id="gcman-toolbar">
+                <a title="Unofficial CCC 2017 Solutions" class="prev" href="../ccc-2017/">
+                    <i class="fas fa-chevron-circle-left"></i>
+            </a>
+        <a title="Raw source" class="raw" href="../ccc-2016/src.md" type="text/plain">
+            <i class="fas fa-code" aria-hidden="true"></i>
+        </a>
+<a title="Home" class="home" href="../blog/">
+    <i class="fas fa-home"></i>
+</a>        <a title="PDF" class="pdf" href="../ccc-2016/post.pdf">
+            <i class="far fa-file-pdf" aria-hidden="true"></i>
+        </a>
+    </aside>
+  </article>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $('.title a').html(function(index, value) {
+    return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
+});
+</script>
+    <section>
+    </section>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-115904815-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>    Generalizing Heron's Formula - Gautam Manohar
+</title>
+    <meta charset="utf-8" />
+        <meta name="keywords" content="geometry, proof, math" />
+        <meta name="category" content="math" />
+        <meta name="description" content="Deriving the area of a quadrilateral given its side lengths and that a quadrilateral is largest when it is cyclic." />
+        <meta name="author" content="Gautam Manohar" />
+        <meta name="copyright" content="Gautam Manohar" />
+        <meta name="date" content="2018-02-03 00:00:00-05:00">
+<link rel="stylesheet" href="../theme/css/normalize/normalize.min.css" type="text/css" />
+  <link rel="stylesheet" href="../theme/css/article.css" type="text/css" />
+    <meta name="robots" content="index,follow">
+    <link rel="shortcut icon" type="image/png" href="../theme/images/icons/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
+    <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!--[if lte IE 7]>
+            <link rel="stylesheet" type="text/css" media="all" href="../css/ie.css"/>
+            <script src="../js/IE8.js" type="text/javascript"></script><![endif]-->
+
+    <!--[if lt IE 7]>
+            <link rel="stylesheet" type="text/css" media="all" href="../css/ie6.css"/><![endif]-->
+<style>
+  .title .math {
+    font-size: 50% !important;
+  }
+</style>
+<script type="text/x-mathjax-config">
+  MathJax.Ajax.config.path["mhchem"] =
+    "https://cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0";
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
+    jax: ["input/TeX","output/HTML-CSS", "output/PreviewHTML"],
+    "HTML-CSS": {
+      styles: {
+      ".MathJax .mo, .MathJax .mi, .math": {color: "black;"}},
+      scale: 100,
+      afonts: ["TeX"],
+      webFont: "Latin-Modern"
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    TeX: {
+      equationNumbers: {  autoNumber: "all"  },
+      extensions: ["[mhchem]/mhchem.js","AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    });
+    MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
+      var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
+      VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+      VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+      VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+      VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+      });
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js">
+</script>
+<div class="invisible">
+  \(
+  \let\Pr\relax
+  \DeclareMathOperator\LCM{LCM}
+  \DeclareMathOperator\Pr{P}
+  \DeclareMathOperator\arccot{arccot}
+  \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1 )}
+  \renewcommand{\vec}[1]{\mathbf{ #1 }}
+  \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+  \newcommand{\abs}[1]{\lvert #1 \rvert}
+
+  \newcommand{\inn}[1]{\in\left\{ #1 \right\}}
+  \newcommand{\ninn}[1]{\not\in\left\{ #1 \right\}}
+  \newcommand{\orr}{\qquad&amp;\,\text{or}\qquad}
+
+  \renewcommand\d{\mathop{}\!\mathrm{d}}
+  \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
+  \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
+  \DeclareMathOperator\G{\Gamma}
+  \DeclareMathOperator\I{\mathscr{I}}
+  \)
+</div></head>
+<body>
+<section id="content" class="body">
+    <article>
+    <header>
+      <h1 class="title">
+            <a href="../herons-formula/" rel="bookmark"
+           title="Permalink to Generalizing Heron's Formula">Generalizing Heron's Formula</a>
+      </h1>
+          <h1 class="subtitle">
+            <a href="../herons-formula/" rel="bookmark"
+           title="Permalink to Generalizing Heron's Formula">Deriving Brahmagupta's Formula for Quadrilaterals</a>
+          </h1>
+      <address class="author">Gautam Manohar</address>
+        <div id="textbox">
+          <p style="font-weight: bold;" class="alignleft">
+            <a href="../category/math/">math</a>&nbsp;
+          </p>
+            <p class="date aligncenter">3 February 2018</p>
+          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../tag/geometry/">#geometry</a> <a href="../tag/proof/">#proof</a> </p>
+        </div>
+       <div style="clear: both;"></div>​
+    </header>
+
+      <p>A well-known fact in Euclidean geometry is the following expression for the area of a triangle given its side lengths: <span class="math display">\[\begin{equation}
+    A = \sqrt{s(s-a)(s-b)(s-c)},
+\end{equation}\]</span> where <span class="math inline">\(s\)</span> is the semiperimeter of the triangle, <span class="math inline">\(\frac{a+b+c}{2}\)</span>. Our goal is to generalize this formula to quadrilaterals. Just like in proofs of Heron&rsquo;s formula that use trigonometry, we will use the formula for the area of a triangle <span class="math display">\[\begin{equation}
+    A = \frac{1}{2}ab\sin C
+\end{equation}\]</span> and the cosine law. Our strategy will be to square these expressions and use the Pythagorean trigonometric identity. Consider a quadrilateral <span class="math inline">\(ABCD\)</span> with side lengths <span class="math inline">\(a,b,c,d\)</span>.</p>
+<figure>
+<img alt="Constructing our quadrilateral." src="https://gautammanohar.com/figures/herons-quadrilateral.png" style="width:50.0%"/><figcaption>Constructing our quadrilateral.</figcaption>
+</figure>
+<p>Then its area is the sum of the areas of the triangles <span class="math inline">\(ABD\)</span> and <span class="math inline">\(BCD\)</span>. Let <span class="math inline">\(A\)</span> denote the area of quadrilateral <span class="math inline">\(ABCD\)</span>. Then <span class="math display">\[\begin{equation}
+    \begin{split}
+        A &amp;= \text{Area}_{\triangle ABD} + \text{Area}_{\triangle BCD} \\
+        A &amp;= \frac{1}{2}ad\sin\alpha + \frac{1}{2}bc\sin\beta \\
+        2A &amp;= ad\sin\alpha + bc\sin\beta \\
+        4A^2 &amp;= a^2d^2\sin^2\alpha + b^2c^2\sin^2\beta.
+    \end{split}
+    \label{sin}
+\end{equation}\]</span> Using the cosine law on triangles <span class="math inline">\(ABD\)</span> and <span class="math inline">\(BCD\)</span>, we obtain two expressions for the square of the length of line segment <span class="math inline">\(BD\)</span>: <span class="math display">\[\begin{equation}
+    BD^2 = a^2 + d^2 - 2ad\cos\alpha
+    \label{abd-cos}
+\end{equation}\]</span> and <span class="math display">\[\begin{equation}
+    BD^2 = b^2 + c^2 - 2bc\cos\beta.
+    \label{bcd-cos}
+\end{equation}\]</span> We equate the right sides of  and  to obtain <span class="math display">\[\begin{equation}
+    \begin{split}
+        a^2 + d^2  - 2ad\cos\alpha &amp;= b^2 + c^2 - 2bc\cos\beta \\
+        a^2 + d^2 - b^2 - c^2 &amp;= 2ad\cos\alpha - 2bc\cos\beta \\
+        \frac{a^2 + d^2 - b^2 - c^2}{2} &amp;= ad\cos\alpha - bc\cos\beta \\
+        \frac{(a^2 + d^2 - b^2 - c^2)^2}{4} &amp;= a^2d^2\cos^2\alpha + b^2c^2\cos^2\beta - 2abcd\cos\alpha\cos\beta.
+    \end{split}
+    \label{cos}
+\end{equation}\]</span> We add  and : <span class="math display">\[\begin{equation}
+    \begin{split}
+        4A^2 + \frac{(a^2 + d^2 - b^2 - c^2)^2}{4} &amp;= a^2d^2\sin^2\alpha + b^2c^2\sin^2\beta + a^2d^2\cos^2\alpha + b^2c^2\cos^2\beta - 2abcd\cos\alpha\cos\beta \\
+        &amp;= a^2d^2 + b^2c^2 - 2abcd\cos\alpha\cos\beta \\
+        &amp;= (ad + bc)^2 - 2abcd - 2abcd\cos\alpha\cos\beta \\
+        &amp;= (ad + bc)^2 - 2abcd(1 + \cos\alpha\cos\beta) \\
+        &amp;= (ad + bc)^2 - 4abcd\left(\frac{1 + \cos\alpha\cos\beta}{2}\right).
+    \end{split}
+\end{equation}\]</span> Using the cosine double angle formula, we have <span class="math display">\[\begin{equation}
+    \begin{split}
+        \cos2\theta &amp;= \cos^2\theta - \sin^2\theta \\
+        \cos2\theta &amp;= 2\cos^2\theta - 1 \\
+        1 + \cos2\theta &amp;= 2\cos^2\theta \\
+        \frac{1 + \cos2\theta}{2} &amp;= \cos^2\theta \\
+        \frac{1 + \cos\theta}{2} &amp;= \cos^2\frac{\theta}{2}.
+    \end{split}
+\end{equation}\]</span> We can substitute this into our equation for <span class="math inline">\(4A^2\)</span> to continue: <span class="math display">\[\begin{equation}
+    \begin{split}
+        4A^2 &amp;= (ad + bc)^2 - 4abcd\cos^2\frac{\alpha + \beta}{2} - \frac{(a^2 + d^2 - b^2 - c^2)^2}{4} \\
+        16A^2 &amp;= 4(ad + bc)^2 - (a^2 + d^2 - b^2 - c^2)^2 - 16abcd\cos^2\frac{\alpha + \beta}{2} \\
+        16A^2 &amp;= (2ad+2bc + a^2 + d^2 - b^2 - c^2)(2ad+2bc - a^2 - d^2 + b^2 + c^2) - 16abcd\cos^2\frac{\alpha + \beta}{2} \\
+        16A^2 &amp;= ((a+d)^2 - (b-c)^2)((b+c)^2 - (a-d)^2) - 16abcd\cos^2\frac{\alpha + \beta}{2} \\
+        16A^2 &amp;= (-a+b+c+d)(a-b+c+d)(a+b-c+d)(a+b+c-d) - 16abcd\cos^2\frac{\alpha + \beta}{2} \\
+        16A^2 &amp;= 16\left(\frac{-a+b+c+d}{2}\right)\left(\frac{a-b+c+d}{2}\right)\left(\frac{a+b-c+d}{2}\right)\left(\frac{a+b+c-d}{2}\right) - 16abcd\cos^2\frac{\alpha + \beta}{2}.
+    \end{split}
+\end{equation}\]</span> We introduce <span class="math inline">\(s = \frac{a+b+c+d}{2}\)</span>, the semiperimeter of the quadrilateral. <span class="math display">\[\begin{equation}
+    \begin{split}
+        16A^2 &amp;= 16(s-a)(s-b)(s-c)(s-d) - 16abcd\cos^2\frac{\alpha + \beta}{2} \\
+        A &amp;= \sqrt{(s-a)(s-b)(s-c)(s-d) - abcd\cos^2\frac{\alpha + \beta}{2}}.
+    \end{split}
+\end{equation}\]</span> And we have a formula for the area of an arbitrary quadrilateral given its side lengths (this formula is called Bramhagupta&rsquo;s formula).</p>
+<p>It looks an awful lot like Heron&rsquo;s formula; it just has a pesky <span class="math inline">\(-abcd\cos^2\frac{\alpha + \beta}{2}\)</span> term. Let&rsquo;s try getting rid of that term, which would maximize the area of the quadrilateral. We want <span class="math inline">\(\cos^2\frac{\alpha + \beta}{2}\)</span> to be <span class="math inline">\(0\)</span>, so we set <span class="math inline">\(\alpha + \beta = \pi\)</span>. This is true if the quadrilateral is cyclic. And so we have discovered that, given four side lengths, we can form the quadrilateral with the maximum area if we arrange the lengths such that opposite angles are supplementary (if we make a cyclic quadrilateral).</p>
+
+    <aside id="gcman-toolbar">
+                <a title="Comparing Powers of e and pi" class="prev" href="../e-pi/">
+                    <i class="fas fa-chevron-circle-left"></i>
+            </a>
+        <a title="Raw source" class="raw" href="../herons-formula/src.md" type="text/plain">
+            <i class="fas fa-code" aria-hidden="true"></i>
+        </a>
+<a title="Home" class="home" href="../blog/">
+    <i class="fas fa-home"></i>
+</a>        <a title="PDF" class="pdf" href="../herons-formula/post.pdf">
+            <i class="far fa-file-pdf" aria-hidden="true"></i>
+        </a>
+                <a title="Harmonic Numbers and Binomial Coefficients" class="next" href="../harm-id/">
+                    <i class="fas fa-chevron-circle-right"></i>
+            </a>
+    </aside>
+  </article>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $('.title a').html(function(index, value) {
+    return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
+});
+</script>
+    <section>
+    </section>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-115904815-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</body>
+</html>
