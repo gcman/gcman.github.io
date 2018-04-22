@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block robots %}
+{% if article.robots %}{{ article.robots }}{% else %}index,follow{% endif %}
+{% endblock %}
+{% block head_description %}
+{% if article.summary %}
+{{ article.summary|striptags }}
+{% endif %}
+{% endblock head_description %}
+{% block title %}
+  {% if article.shorttitle %}
+    {{ article.shorttitle|striptags }} - {{ SITENAME }}
+  {% else %}
+    {{ article.title|striptags }} - {{ SITENAME }}
+  {% endif %}
+{% endblock %}
+{% block meta_tags_in_head %}
+{% if article.tags and article.category %}
+        <meta name="keywords" content="{{ [article.tags|join(', '), article.category]|join(', ') }}" />
+{% endif %}
+{% if article.category %}
+        <meta name="category" content="{{ article.category|striptags }}" />
+{% endif %}
+{% if article.description %}
+        <meta name="description" content="{{ article.description|striptags  }}" />
+{% elif article.summary %}
+        <meta name="description" content="{{ article.summary|striptags  }}" />
+{% endif %}
+{% if article.author %}
+        <meta name="author" content="{{ article.author }}" />
+        <meta name="copyright" content="{{ article.author }}" />
+{% endif %}
+{% if article.date %}
+        <meta name="date" content="{{ article.date }}">
+{% endif %}
+<link rel="stylesheet" href="{{ SITEURL }}/theme/css/normalize/normalize.min.css" type="text/css" />
+{% if "long" in article.tags %}
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/essay.css" type="text/css" />
+{% else %}
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
+{% endif %}
+{% endblock meta_tags_in_head %}
+
+{% block content %}
+<section id="content" class="body">
+  {% if "long" not in article.tags %}
+    <article>
+  {% endif %}
+    <header>
+      <h1 class="title">
+          {% if article.shorttitle %}
+            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+           title="Permalink to {{ article.shorttitle|striptags }}">{{article.shorttitle}}</a>
+          {% else %}
+            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+           title="Permalink to {{ article.title|striptags }}">{{article.title}}</a>
+          {% endif %}
+      </h1>
+      {% if article.subtitle %}
+        {% if "long" in article.tags %}
+          <div class="subtitle">
+            {% if article.shorttitle %}
+            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+           title="Permalink to {{ article.shorttitle|striptags }}">{{article.subtitle}}</a>
+          {% else %}
+            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+           title="Permalink to {{ article.title|striptags }}">{{article.subtitle}}</a>
+          {% endif %}
+          </div>
+        {% else %}
+          <h1 class="subtitle">
+           {% if article.shorttitle %}
+            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+           title="Permalink to {{ article.shorttitle|striptags }}">{{article.subtitle}}</a>
+          {% else %}
+            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+           title="Permalink to {{ article.title|striptags }}">{{article.subtitle}}</a>
+          {% endif %}
+          </h1>
+        {% endif %}
+      {% endif %}
+      {% if article.author %}
+      <address class="author">{{article.author}}</address>
+      {% endif %}
+      {% if "long" in article.tags %}
+        {% if article.date %}
+          <div class="date">{{article.locale_date}}</div>
+          {% if article.toc %}
+            <nav id="toc">
+              {{article.toc}}
+            </nav>
+          {% endif %}
+          {% include 'toolbar.html' %}
+        {% endif %}
+      {% else %}
+        <div id="textbox">
+          <p style="font-weight: bold;" class="alignleft">
+            <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>&nbsp;
+          </p>
+          {% if article.date %}
+            <p class="date aligncenter">{{article.locale_date}}</p>
+          {% endif %}
+          <p style="font-weight: bold; font-variant: normal;" class="alignright">{% include 'article_infos.html' %}</p>
+        </div>
+       <div style="clear: both;"></div>​
+      {% endif %}
+    </header>
+
+    {% if "long" in article.tags %}
+      <main><article>
+    {% endif %}
+      {{ article.content }}
+    {% if "long" not in article.tags %}
+      {% include 'toolbar.html' %}
+    {% endif %}
+    {% if "long" in article.tags %}
+      <footer>
+        <a class="page-top"
+           title="Page Top"
+           href="javascript:window.scrollTo(0, 0);">
+          <i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
+        </a>
+      </footer>
+    {% endif %}
+  </article>
+  {% if "long" in article.tags %}
+    </main>
+  {% endif %}
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $('.title a').html(function(index, value) {
+    return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
+});
+</script>
+{% endblock %}

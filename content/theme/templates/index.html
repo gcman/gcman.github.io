@@ -1,0 +1,56 @@
+<head>
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/normalize/normalize.min.css" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/blog.css" type="text/css" />
+    <title>Gautam Manohar's Blog</title>
+    <meta name="description" content="Gautam Manohar's personal blog, with posts on mathematics, computer science, chemistry, and whatever else interests him." />
+</head>
+{% extends "base.html" %}
+{% block robots %}noindex,follow{% endblock %}
+{% block content_title %}{% endblock %}
+{% block content %}
+<article>
+    <header style="margin-top: 100px">
+      <h1 class="title">
+        <a href="{{ SITEURL }}/blog/">Gautam Manohar</a>
+      </h1>
+      <nav>
+        <ul>
+            <li>
+              <strong><a href="https://github.com/gcman">GitHub</a></strong>
+            </li>
+            <li>
+              <strong><a href="{{ SITEURL }}">Home Page</a></strong>
+            </li>
+            <li>
+              <strong><a href="{{ SITEURL }}/contact-me/">Contact</a></strong>
+            </li>
+        </ul>
+      </nav>
+    </header>
+    <div id="content">
+        <section id="math" class="level2">
+        <h2>Math <strong>/ Notes &amp; Essays</strong></h2>
+        {% if articles %}
+          <table>
+            {% for article in articles_page.object_list %}
+              {% if article.category == 'Math' %}
+                <tr>
+                  <td>
+                    <a href="{{ SITEURL }}/{{ article.url }}">
+                        {{article.title}}{% if article.subtitle %}: {{ article.subtitle }}{% endif %}
+                    </a>
+                    {% if article.tags %}<strong>{% include 'taglist.html' %}</strong>{% endif %}
+                  </td>
+                  <td id="date">
+                    {{ article.locale_date }}
+                  </td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </table>
+        {% endif %}
+        </section>
+    </div>
+</article>
+{% endblock content %}
