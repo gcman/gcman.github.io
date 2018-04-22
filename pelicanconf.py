@@ -38,11 +38,7 @@ DEFAULT_DATE_FORMAT = ('%-d %B %Y')
 
 DEFAULT_CATEGORY = 'misc'
 
-<<<<<<< HEAD
-THEME = "gcman"
-=======
 THEME = "content/theme"
->>>>>>> 99d16111cabf9a769cccd0c466ddf7ad8b5702d2
 STATIC_PATHS = ['extra/CNAME', 'extra/404.html', 'extra/favicon.ico', 'extra/README.txt','extra/thanks.html','extra/google9cbd00c2e42ee352.html','extra/index.html']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
 'extra/404.html': {'path': '404.html'},
