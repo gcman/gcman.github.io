@@ -1,11 +1,11 @@
----
+‐‐‐
 title: Unofficial CCC 2016 Solutions
 date: 1 April 2018
 category: chemistry
 tags: contest
 slug: ccc-2016
 summary: Unofficial full solutions and explanations to Part C of the 2016 Canadian Chemistry Contest/Olympiad.
----
+‐‐‐
 
 This is part of a [project](https://gautammanohar.com/ccc-solutions/) to provide unofficial solutions for part C of the [Canadian Chemistry Contest](http://www.cheminst.ca/outreach/canadian-chemistry-contest).
 You can find the 2016 contest [here](https://gautammanohar.com/ccc/2016-problems.pdf).
@@ -306,7 +306,7 @@ However, silver sulfide and cobalt sulfide, by the same analysis, will precipita
 
 ## Part C
 
-We first find $\ce{[Pb^{2+}]} = \sqrt{K_sp} = \sqrt{1.6\times10^{-8}} = 1.26 \times 10^{-4}$.
+We first find $\ce{[Pb^{2+}]} = \sqrt{K_{sp}} = \sqrt{1.6\times10^{-8}} = 1.26 \times 10^{-4}$.
 Then let $x$ be the moles of lead (II) sulfide precipitate formed.
 Let $A = \sqrt{1.6\times10^{-8}}, B = 1.00 \times 10^{-17}, C = 2.5 \times 10^{-27}$
 We have
