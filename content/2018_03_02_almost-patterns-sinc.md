@@ -26,7 +26,7 @@ That's because we're investigating some interesting properties the $\mathrm{sinc
 \end{equation}
 It looks like this:
 
-![The graph of $\mathrm{sinc}\,x$. Note that at $x = 0$, this function is defined to be equal to 1.](https://gautammanohar.com/figures/sinc.png){ width=50% }
+![The graph of $\mathrm{sinc}\,x$. Note that at $x = 0$, this function is defined to be equal to 1.](../figures/sinc.png){ width=50% }
 
 This function famously has no elementary antiderivative, yet its definite integral over the real line evaluates to
 \begin{equation}

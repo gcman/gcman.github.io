@@ -179,22 +179,37 @@ def make_source():
 					s = "---\n"
 					f.write(s)
 					for i,line in enumerate(lines):
+						test_path = None
 						if i == empty:
 							f.write(s + "\n")
 						else:
+							if i not in [0,len(lines)-1] and all([lines[x] == "\n" for x in [i-1,i+1]]) and line[0] == "!":
+								fig = re.search("(?<=[(])(.*)(?=[)])",line).group(0)
+								fig_name = re.search("(?<=figures/)(.*)",fig).group(0)
+								if "http" not in fig:
+									priority = ["pdf","png",ext(fig_name)]
+									for p in priority:
+										if not test_path:
+											if p == "pdf":
+												test_path = path.join(path.join(rootdir,"figures"), bare(fig_name) + "." + p)
+											else:
+												test_path = path.join(path.dirname(rootdir),"/output/figures/" + bare(fig_name) + "." + p)
+									if path.isfile(test_path):
+										line = line.replace(fig,test_path)
 							f.write(line)
 				if file in diff or path.join(ROOT, "/content/extra/header.tex") in diff or not path.isfile(PDF):
 					print("Building PDF from {}".format(file))
 					shell("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex --listings "
 						+ MD + " -o " + PDF)
-					with open(MD, "w", encoding="utf-8") as f:
-						s = u"\u2010\u2010\u2010\n"
-						f.write(s)
-						for i, line in enumerate(lines):
-							if i == empty:
-								f.write(s + "\n")
-							else:
-								f.write(line)
+					os.remove(MD)
+				with open(MD, "w", encoding="utf-8") as f:
+					s = u"\u2010\u2010\u2010\n"
+					f.write(s)
+					for i, line in enumerate(lines):
+						if i == empty:
+							f.write(s + "\n")
+						else:
+							f.write(line)
 	os.chdir(ROOT)
 
 def del_tex2pdf():

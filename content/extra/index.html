@@ -38,7 +38,7 @@
   <h1><a style="color: ivory;" href="./">Gautam Manohar</a></h1>
 </div>
 <div class="nav-wrapper">
-  <nav>
+  <nav id="blog-top">
     <ul>
       <li><a href="https://github.com/gcman">github</a></li>
       <li><a href="./blog/">blog</a></li>
@@ -79,26 +79,23 @@
   </p>
 </div>
 <script>
-// cache the element
-var $navBar = $('nav');
+// When the user scrolls the page, execute myFunction 
+window.onscroll = function() {myFunction()};
 
-// find original navigation bar position
-var navPos = $navBar.offset().top;
+// Get the header
+var header = document.getElementById("blog-top");
 
-// on scroll
-$(window).scroll(function() {
+// Get the offset position of the navbar
+var sticky = header.offsetTop;
 
-    // get scroll position from top of the page
-    var scrollPos = $(this).scrollTop();
-
-    // check if scroll position is >= the nav position
-    if (scrollPos >= navPos) {
-        $navBar.addClass('fixed');
-    } else {
-        $navBar.removeClass('fixed');
-    }
-
-});
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    header.classList.add("fixed");
+  } else {
+    header.classList.remove("fixed");
+  }
+}
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

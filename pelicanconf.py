@@ -9,8 +9,6 @@ SITEURL = 'https://gautammanohar.com'
 
 CSS_FILE = 'article.css'
 
-GOOGLE_ANALYTICS = 'UA-115904815-1'
-
 PATH = 'content'
 
 TIMEZONE = 'America/Toronto'
@@ -55,14 +53,18 @@ PLUGINS = ["pelican-toc","neighbors","pandoc_reader"]
 
 PANDOC_ARGS = [
   '--mathjax',
+  '--no-highlight',
+  '--filter=pandoc-eqref.py',
+  '--resource-path=../output/figures'
 ]
 
 PANDOC_EXTENSIONS = [
+  "+smart"
   "+yaml_metadata_block",
   "+smart",
   '-citations',
   "+markdown_in_html_blocks",
-  "+backtick_code_blocks"
+  "+backtick_code_blocks",
 ]
 
 TOC = {
