@@ -3,12 +3,12 @@ title: Unofficial CCC 2016 Solutions
 date: 1 April 2018
 category: chemistry
 tags: contest
-slug: ccc-2016
+slug: ccc/2016
 summary: Unofficial full solutions and explanations to Part C of the 2016 Canadian Chemistry Contest/Olympiad.
 ‐‐‐
 
-This is part of a [project](https://gautammanohar.com/ccc-solutions/) to provide unofficial solutions for part C of the [Canadian Chemistry Contest](http://www.cheminst.ca/outreach/canadian-chemistry-contest).
-You can find the 2016 contest [here](https://gautammanohar.com/ccc/2016-problems.pdf).
+This is part of a [project](https://gautammanohar.com/ccc/) to provide unofficial solutions for part C of the [Canadian Chemistry Contest](http://www.cheminst.ca/outreach/canadian-chemistry-contest).
+You can find the 2016 contest [here](https://gautammanohar.com/ccc/2016/problems.pdf).
 
 # General Chemistry
 
@@ -108,7 +108,7 @@ Making three carbon-chlorine single bonds gives us 19 valence electrons remainin
 Placing 6 around each chlorine to complete the octet gives one remaining electron, which we place on the carbon atom.
 It has trigonal planar geometry.
 
-![The Lewis structure of $\ce{CCl3}$.](../figures/ccl3.png){ width=10% }
+![The Lewis structure of $\ce{CCl3}$.](../../figures/ccl3.png){ width=10% }
 
 With $\ce{NO2}$, we have six valence electrons per oxygen atom and five for the nitrogen, whih makes 17 total.
 Nitrogen is the central atom.
@@ -117,7 +117,7 @@ We place six around each oxygen atom, and place the last around the nitrogen.
 However, the nitrogen atom has only two bonds to it, so we make an oxygen lone pair into a nitrogen-oxygen double bond, which gives two resonance forms.
 It has bent geometry.
 
-![The Lewis structure of $\ce{NO2}$.](../figures/no2-resonance.png){ width=60% }
+![The Lewis structure of $\ce{NO2}$.](../../figures/no2-resonance.png){ width=60% }
 
 ## Part H
 
@@ -136,7 +136,7 @@ This means compound B is $\ce{SO2}$ and the element A is sulfur, $\ce{S}$.
 We know $\ce{SO2F2}$ has tetrahedral geometry.
 Then it must have sulfur-oxygen double bonds and look as follows:
 
-![The tetrahedral structure of sulfuryl fluoride, $\ce{SO2F2}$.](../figures/sulfuryl-fluoride.png){ width=10% }
+![The tetrahedral structure of sulfuryl fluoride, $\ce{SO2F2}$.](../../figures/sulfuryl-fluoride.png){ width=10% }
 
 # Organic Chemistry
 
@@ -151,14 +151,14 @@ We could also push the pi bond up, which makes the carbon have a formal positive
 Then we could form a carbon-oxygen double bond in the main chain, shifting the positive formal charge to oxygen.
 The resonance structures thus appear as follows:
 
-![Resonance structures of methyl acetate.](../figures/methyl-acetate.png){ width=90% }
+![Resonance structures of methyl acetate.](../../figures/methyl-acetate.png){ width=90% }
 
 ## Part C
 
 If a compound is optically active, then it has chirality centre(s), no internal plane of symmetry, and it must not be superimposable on its mirror image.
 We shall focus on the last criterion.
 
-![Fischer projections of similar molecules with and without optical activity.](../figures/optical-fischer.png){ width=40% }
+![Fischer projections of similar molecules with and without optical activity.](../../figures/optical-fischer.png){ width=40% }
 
 Note that the second compound's mirror image, if rotated by 180 degrees, is superimposable on the original, whereas the same is not true for the first.
 Note also that both molecules have chirality centers and no planes of symmetry.
@@ -187,12 +187,12 @@ Thus the original compound had one ring and two double bonds.
 We will consider the hydrolysis piecewise: first of the ester, then of the amide.
 We form the carboxylic acid and alcohol
 
-![Ester hydrolysis.](../figures/ester-hydrolysis-1.png){ width=50% }
+![Ester hydrolysis.](../../figures/ester-hydrolysis-1.png){ width=50% }
 
 We unwrap to make it easier.
 Then the nitrogen gains two protons and an alcohol is formed on the other side.
 
-![Amide hydrolysis.](../figures/ester-hydrolysis-2.png){ width=80% }
+![Amide hydrolysis.](../../figures/ester-hydrolysis-2.png){ width=80% }
 
 Above are the final products.
 

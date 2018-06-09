@@ -3,12 +3,12 @@ title: Unofficial CCC 2017 Solutions
 date: 30 March 2018
 category: chemistry
 tags: contest
-slug: ccc-2017
+slug: ccc/2017
 summary: Unofficial full solutions and explanations to Part C of the 2017 Canadian Chemistry Contest/Olympiad.
 ‐‐‐
 
-This is part of a [project](https://gautammanohar.com/ccc-solutions/) to provide unofficial solutions for part C of the [Canadian Chemistry Contest](http://www.cheminst.ca/outreach/canadian-chemistry-contest).
-You can find the 2017 contest [here](https://gautammanohar.com/ccc/2017-problems.pdf).
+This is part of a [project](https://gautammanohar.com/ccc/) to provide unofficial solutions for part C of the [Canadian Chemistry Contest](http://www.cheminst.ca/outreach/canadian-chemistry-contest).
+You can find the 2017 contest [here](https://gautammanohar.com/ccc/2017/problems.pdf).
 
 # General Chemistry
 
@@ -20,7 +20,7 @@ Sulfur dioxide is neutral, so we know there are 18 electrons to distribute.
 Now we can place lone pairs: each oxygen is bonded to the sulfur, which uses four electrons (two in each bond).
 We initially place the 14 remaining electrons as seven lone pairs---three on each oxygen, which is the maximum possible, and the last on sulfur.
 
-![The incomplete Lewis structure of sulfur dioxide.](../figures/so2-incomplete.png){ width=20% }
+![The incomplete Lewis structure of sulfur dioxide.](../../figures/so2-incomplete.png){ width=20% }
 
 In this part, we do not want sulfur to have an expanded octet.
 Right now, the sulfur atom only has six electrons around it.
@@ -29,14 +29,14 @@ But both oxygen atoms work equally well, which gives us the two resonance forms 
 We conclude by adding formal charges and drawing a double-headed resonance arrow.
 
 ![The resonance structures of sulfur dioxide that do not use sulfur's expanded octet.
-These are commonly accepted as the resonance forms with the greatest contribution.](../figures/so2-resonance.png){ width=60% }
+These are commonly accepted as the resonance forms with the greatest contribution.](../../figures/so2-resonance.png){ width=60% }
 
 ## Part B
 
 We simply take one of the lone pairs on the oxygen with a negative formal charge in one of the resonance structures from the first part and make it a sulfur-oxygen bond.
 Note that this is only possible if sulfur uses its expanded octet and becomes pentavalent (four bonds and one lone pair).
 
-![A resonance form of sulfur dioxide with no formal charges.](../figures/so2-expanded-octet.png){ width=20% }
+![A resonance form of sulfur dioxide with no formal charges.](../../figures/so2-expanded-octet.png){ width=20% }
 
 ## Part C
 
@@ -264,24 +264,24 @@ These two parts deal with the same synthesis.
 The first step adds three carbon atoms, four hydrogen atoms, and one oxygen atom.
 The presence of the aryl ketone in the finished product indicates that this addition step is likely a Friedel-Crafts acylation, with propanoyl chloride and a strong Lewis acid calalyst, such as aluminum chloride.
 
-![Reagants Q, propanoyl chloride, and R, $\ce{AlCl3}$ react with benzene in a Friedel-Crafts acylation to form intermediate S.](../figures/2017-synth-1.png){ width=60% }
+![Reagants Q, propanoyl chloride, and R, $\ce{AlCl3}$ react with benzene in a Friedel-Crafts acylation to form intermediate S.](../../figures/2017-synth-1.png){ width=60% }
 
 In the next step, a hydrogen atom is substituted for a chlorine atom is added meta to the acyl group, which is electron withdrawing and directs meta.
 This indicates an electrophilic aromatic halogenation with chlorine gas and strong Lewis acid catalyst, again aluminum chloride.
 
-![Catalyzed by aluminum chloride, chlorine gas substitutes to form the given intermediate V.](../figures/2017-synth-2.png){ width=20% }
+![Catalyzed by aluminum chloride, chlorine gas substitutes to form the given intermediate V.](../../figures/2017-synth-2.png){ width=20% }
 
 Next, the compound is subjected acidic conditions, under which the ketone oxygen is protonated and forms its enol tautomer.
 After bromine adds to the alkene on the alpha carbon and the ketone is reformed after deprotonation, we obtain an alpha brominated product.
 
-![Bromination yields intermediate W.](../figures/intermediate-W.png){ width=25% }
+![Bromination yields intermediate W.](../../figures/intermediate-W.png){ width=25% }
 
 We then add a nitrogen compound, which, judging from the structure of the desired product, is likely tert-butylamine.
 The nucleophilic nitrogen drives an $\text{S}_\text{N}2$ reaction with bromine as the leaving group.
 Now we have a bromine salt; bupropion is a chlorine salt.
 To replace bromine, we add a stoichiometric amount of hydrochloric acid.
 
-![Addition of tert-butylamine, reagant X, forms intermediate Y, which gives bupropion after treatment with reagant Z, hydrochloric acid.](../figures/2017-synth-3.png){ width=60% }
+![Addition of tert-butylamine, reagant X, forms intermediate Y, which gives bupropion after treatment with reagant Z, hydrochloric acid.](../../figures/2017-synth-3.png){ width=60% }
 
 ## Part C
 
@@ -303,7 +303,7 @@ We have
 #. Formation of an imine from a ketone and primary amine
 #. Formation of an enamine from a ketone and secondary amine
 
-![The structures of the products from the five sets of reagants.](../figures/2017-synth-4.png){ width=70% }
+![The structures of the products from the five sets of reagants.](../../figures/2017-synth-4.png){ width=70% }
 
 # Analytical Chemistry
 
