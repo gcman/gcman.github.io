@@ -1,0 +1,15 @@
+#!/usr/bin/env python2
+
+from pandocfilters import toJSONFilter, Math, Str, Space
+
+# wrap \ref and \eqref in Math()
+def eqref(key, value, fmt, meta):
+    if fmt not in ['html','html5']:
+        return None
+
+    if key == 'RawInline' and value[0] == 'tex':
+        if value[1].startswith(r'\ref') or value[1].startswith(r'\eqref'):
+            return Math(dict(t='InlineMath'), value[1])
+
+if __name__ == '__main__':
+    toJSONFilter(eqref)

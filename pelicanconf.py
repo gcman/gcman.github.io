@@ -54,8 +54,7 @@ PLUGINS = ["pelican-toc","neighbors","pandoc_reader"]
 PANDOC_ARGS = [
   '--mathjax',
   '--no-highlight',
-  '--filter=pandoc-eqref.py',
-  '--resource-path=../output/figures'
+  '--filter=./filters/pandoc-eqref.py',
 ]
 
 PANDOC_EXTENSIONS = [
