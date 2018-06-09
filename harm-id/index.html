@@ -115,7 +115,7 @@
 <p>First, we notice that <span class="math display">\[\begin{equation}
     \int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Biggr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.
     \label{integral-rep}
-\end{equation}\]</span> Then, substituting  into  gives <span class="math display">\[\begin{equation}
+\end{equation}\]</span> Then, substituting <span class="math inline">\(\eqref{integral-rep}\)</span> into <span class="math inline">\(\eqref{identity}\)</span> gives <span class="math display">\[\begin{equation}
     \sum\limits_{k=1}^n \frac{1}{k} = \sum\limits_{k=1}^n \int_0^1 x^{k-1} \d x.
 \end{equation}\]</span> Because this is a finite sum of converging integrals, we can switch the sum and the integral to get <span class="math display">\[\begin{equation}
     \int_0^1 \sum\limits_{k=1}^n x^{k-1} \d x.
@@ -132,7 +132,7 @@
         &amp;= -\sum\limits_{k=1}^n \binom{n}{k}(-1)^k\int_0^1 u^{k-1} \d x \\
         &amp;= -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
     \end{split}
-\end{equation}\]</span> This concludes our proof of .</p>
+\end{equation}\]</span> This concludes our proof of <span class="math inline">\(\eqref{identity}\)</span>.</p>
 <h1 id="induction">Induction</h1>
 <p>We first show that <span class="math display">\[\begin{equation}
     \frac{1}{k+1}\binom{n}{k} = \frac{1}{n+1}\binom{n+1}{k+1}.
@@ -141,10 +141,10 @@
     \frac{1}{k+1}\binom{n}{k} = \frac{1}{k+1}\frac{n!}{k!(n-k)!} = \frac{n!}{(k+1)!(n-k)!},
 \end{equation}\]</span> while the right-hand side equals <span class="math display">\[\begin{equation}
     \frac{1}{n+1}\binom{n+1}{k+1} = \frac{1}{n+1}\frac{(n+1)!}{(k+1)!(n-k)!} = \frac{n!}{(k+1)!(n-k)!}.
-\end{equation}\]</span> So  holds. Next we show that <span class="math display">\[\begin{equation}
+\end{equation}\]</span> So <span class="math inline">\(\eqref{lemma-1}\)</span> holds. Next we show that <span class="math display">\[\begin{equation}
     \sum\limits_{k=0}^n \frac{1}{k+1} \binom{n}{k} (-1)^k = \frac{1}{n+1}.
     \label{lemma-2}
-\end{equation}\]</span> We use : <span class="math display">\[\begin{equation}
+\end{equation}\]</span> We use <span class="math inline">\(\eqref{lemma-1}\)</span>: <span class="math display">\[\begin{equation}
     \begin{split}
         \sum\limits_{k=0}^n \frac{1}{k+1}  \binom{n}{k} (-1)^k &amp;= \sum\limits_{k=0}^n \frac{1}{n+1}\binom{n+1}{k+1} (-1)^k \\
         &amp;= -\frac{1}{n+1}\sum\limits_{k=1}^{n+1} \binom{n+1}{k} (-1)(-1)^{k} \\
@@ -152,7 +152,7 @@
         &amp;= -\frac{1}{n+1}\left(0 - 1 \right) \\
         &amp;= \frac{1}{n+1}.
     \end{split}
-\end{equation}\]</span> We can now use induction to prove our main claim. Let&rsquo;s first show the base case for <span class="math inline">\(n = 1\)</span>. The left side of  is clearly <span class="math inline">\(1\)</span>, while the right side is <span class="math inline">\(-(-1) = 1\)</span>. So the base case holds. Assume inductively that <span class="math display">\[\begin{equation}
+\end{equation}\]</span> We can now use induction to prove our main claim. Let&rsquo;s first show the base case for <span class="math inline">\(n = 1\)</span>. The left side of <span class="math inline">\(\eqref{identity}\)</span> is clearly <span class="math inline">\(1\)</span>, while the right side is <span class="math inline">\(-(-1) = 1\)</span>. So the base case holds. Assume inductively that <span class="math display">\[\begin{equation}
     \sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
 \end{equation}\]</span> Then we wish to show that <span class="math display">\[\begin{equation}
     \sum\limits_{k=1}^{n+1} \frac{1}{k} = -\sum\limits_{k=1}^{n+1} \frac{1}{k}\binom{n+1}{k}(-1)^k.
@@ -169,7 +169,7 @@
         &amp;\qquad = \frac{1}{n+1}(-1)^{n} - \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \sum\limits_{k=0}^{n-1} \binom{n}{k}\frac{1}{k+1}(-1)^k \\
         &amp;\qquad = \frac{1}{n+1}(-1)^{n} - \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \sum\limits_{k=0}^{n} \binom{n}{k}\frac{1}{k+1}(-1)^k - \binom{n}{n}\frac{1}{n+1}(-1)^n.
     \end{split}
-\end{equation}\]</span> Applying  yields <span class="math display">\[\begin{equation}
+\end{equation}\]</span> Applying <span class="math inline">\(\eqref{lemma-2}\)</span> yields <span class="math display">\[\begin{equation}
     - \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \frac{1}{n+1}.
 \end{equation}\]</span> By the inductive hypothesis, we have <span class="math display">\[\begin{equation}
     \begin{split}
@@ -204,15 +204,6 @@
 </script>
     <section>
     </section>
-    <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-115904815-1");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
 </html>

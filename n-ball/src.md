@@ -1,4 +1,4 @@
----
+‐‐‐
 title: On the Ball in $n$ Euclidean Dimensions
 shorttitle: On the Ball in n Euclidean Dimensions
 date: 6 February 2018
@@ -6,7 +6,7 @@ category: math
 tags: calculus, proof, long
 slug: n-ball
 summary: We find the volume of spheres in n dimensions, a duplication formula for the gamma function, and bounds for its logarithmic derivative.
----
+‐‐‐
 
 One of my favourite formulas in mathematics is the one for the area of a circle, $\pi r^2$.
 Its simplicity intrigued my young mind; the circle is, in a sense, the simplest, the *roundest* shape, and this formula seems to encapsulate the circle's aura of "completion."
@@ -574,7 +574,7 @@ Substituting \eqref{general-volume} yields
 
 ### Small Dimensions
 
-![The dimensionless content of the unit ball in $n$ dimensions. Note the global maximum, after which the content quickly decreases.](https://gautammanohar.com/figures/n-ball-graph.png){ width=75% }
+![The dimensionless content of the unit ball in $n$ dimensions. Note the global maximum, after which the content quickly decreases.](../figures/n-ball-graph.png){ width=75% }
 
 We shall ignore the "unit" of content and instead compare contents as dimenionless quantities.
 The integer dimension that maximizes the content of the unit ball is evidently $n = 5$.

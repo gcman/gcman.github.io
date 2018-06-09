@@ -115,7 +115,7 @@
     A = \frac{1}{2}ab\sin C
 \end{equation}\]</span> and the cosine law. Our strategy will be to square these expressions and use the Pythagorean trigonometric identity. Consider a quadrilateral <span class="math inline">\(ABCD\)</span> with side lengths <span class="math inline">\(a,b,c,d\)</span>.</p>
 <figure>
-<img alt="Constructing our quadrilateral." src="https://gautammanohar.com/figures/herons-quadrilateral.png" style="width:50.0%"/><figcaption>Constructing our quadrilateral.</figcaption>
+<img alt="Constructing our quadrilateral." src="../figures/herons-quadrilateral.png" style="width:50.0%"/><figcaption>Constructing our quadrilateral.</figcaption>
 </figure>
 <p>Then its area is the sum of the areas of the triangles <span class="math inline">\(ABD\)</span> and <span class="math inline">\(BCD\)</span>. Let <span class="math inline">\(A\)</span> denote the area of quadrilateral <span class="math inline">\(ABCD\)</span>. Then <span class="math display">\[\begin{equation}
     \begin{split}
@@ -131,7 +131,7 @@
 \end{equation}\]</span> and <span class="math display">\[\begin{equation}
     BD^2 = b^2 + c^2 - 2bc\cos\beta.
     \label{bcd-cos}
-\end{equation}\]</span> We equate the right sides of  and  to obtain <span class="math display">\[\begin{equation}
+\end{equation}\]</span> We equate the right sides of <span class="math inline">\(\eqref{abd-cos}\)</span> and <span class="math inline">\(\eqref{bcd-cos}\)</span> to obtain <span class="math display">\[\begin{equation}
     \begin{split}
         a^2 + d^2  - 2ad\cos\alpha &amp;= b^2 + c^2 - 2bc\cos\beta \\
         a^2 + d^2 - b^2 - c^2 &amp;= 2ad\cos\alpha - 2bc\cos\beta \\
@@ -139,7 +139,7 @@
         \frac{(a^2 + d^2 - b^2 - c^2)^2}{4} &amp;= a^2d^2\cos^2\alpha + b^2c^2\cos^2\beta - 2abcd\cos\alpha\cos\beta.
     \end{split}
     \label{cos}
-\end{equation}\]</span> We add  and : <span class="math display">\[\begin{equation}
+\end{equation}\]</span> We add <span class="math inline">\(\eqref{sin}\)</span> and <span class="math inline">\(\eqref{cos}\)</span>: <span class="math display">\[\begin{equation}
     \begin{split}
         4A^2 + \frac{(a^2 + d^2 - b^2 - c^2)^2}{4} &amp;= a^2d^2\sin^2\alpha + b^2c^2\sin^2\beta + a^2d^2\cos^2\alpha + b^2c^2\cos^2\beta - 2abcd\cos\alpha\cos\beta \\
         &amp;= a^2d^2 + b^2c^2 - 2abcd\cos\alpha\cos\beta \\
@@ -198,15 +198,6 @@
 </script>
     <section>
     </section>
-    <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-115904815-1");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
 </html>

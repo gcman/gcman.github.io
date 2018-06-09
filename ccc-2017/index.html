@@ -110,16 +110,16 @@
 <h2 id="part-a">Part A</h2>
 <p>Following the standard procedure to draw Lewis structures, we first note that sulfur, being more electronegative than oxygen, will be the central atom. Next, we count valence electrons: sulfur and oxygen are in the same group and both have six valence electrons. Sulfur dioxide is neutral, so we know there are 18 electrons to distribute. Now we can place lone pairs: each oxygen is bonded to the sulfur, which uses four electrons (two in each bond). We initially place the 14 remaining electrons as seven lone pairs&mdash;three on each oxygen, which is the maximum possible, and the last on sulfur.</p>
 <figure>
-<img alt="The incomplete Lewis structure of sulfur dioxide." src="https://gautammanohar.com/figures/so2-incomplete.png" style="width:20.0%"/><figcaption>The incomplete Lewis structure of sulfur dioxide.</figcaption>
+<img alt="The incomplete Lewis structure of sulfur dioxide." src="../figures/so2-incomplete.png" style="width:20.0%"/><figcaption>The incomplete Lewis structure of sulfur dioxide.</figcaption>
 </figure>
 <p>In this part, we do not want sulfur to have an expanded octet. Right now, the sulfur atom only has six electrons around it. To satisfy its octet, we take a lone pair on one of the oxygen atoms and make it a sulfur-oxygen bond. But both oxygen atoms work equally well, which gives us the two resonance forms we were looking for. We conclude by adding formal charges and drawing a double-headed resonance arrow.</p>
 <figure>
-<img alt="The resonance structures of sulfur dioxide that do not use sulfur&rsquo;s expanded octet. These are commonly accepted as the resonance forms with the greatest contribution." src="https://gautammanohar.com/figures/so2-resonance.png" style="width:60.0%"/><figcaption>The resonance structures of sulfur dioxide that do not use sulfur&rsquo;s expanded octet. These are commonly accepted as the resonance forms with the greatest contribution.</figcaption>
+<img alt="The resonance structures of sulfur dioxide that do not use sulfur&rsquo;s expanded octet. These are commonly accepted as the resonance forms with the greatest contribution." src="../figures/so2-resonance.png" style="width:60.0%"/><figcaption>The resonance structures of sulfur dioxide that do not use sulfur&rsquo;s expanded octet. These are commonly accepted as the resonance forms with the greatest contribution.</figcaption>
 </figure>
 <h2 id="part-b">Part B</h2>
 <p>We simply take one of the lone pairs on the oxygen with a negative formal charge in one of the resonance structures from the first part and make it a sulfur-oxygen bond. Note that this is only possible if sulfur uses its expanded octet and becomes pentavalent (four bonds and one lone pair).</p>
 <figure>
-<img alt="A resonance form of sulfur dioxide with no formal charges." src="https://gautammanohar.com/figures/so2-expanded-octet.png" style="width:20.0%"/><figcaption>A resonance form of sulfur dioxide with no formal charges.</figcaption>
+<img alt="A resonance form of sulfur dioxide with no formal charges." src="../figures/so2-expanded-octet.png" style="width:20.0%"/><figcaption>A resonance form of sulfur dioxide with no formal charges.</figcaption>
 </figure>
 <h2 id="part-c">Part C</h2>
 <p>Sulfur forms sigma-bonds with oxygen, which require <span class="math inline">\(\mathrm{sp}^2\)</span> or <span class="math inline">\(\mathrm{sp}\)</span> hybridization. There are no triple bonds, so the sulfur atom must be <span class="math inline">\(\mathrm{sp}^2\)</span> hybridized.</p>
@@ -164,7 +164,7 @@
         &amp;= \frac{(N+2)^2h^2}{32mL^2}.
     \end{split}
     \label{lumo}
-\end{equation}\]</span> To find the energy difference between the LUMO and HOMO, we subtract  from : <span class="math display">\[\begin{equation}
+\end{equation}\]</span> To find the energy difference between the LUMO and HOMO, we subtract <span class="math inline">\(\eqref{homo}\)</span> from <span class="math inline">\(\eqref{lumo}\)</span>: <span class="math display">\[\begin{equation}
     \begin{split}
         \Delta E &amp;= \frac{(N+2)^2h^2}{32mL^2} - \frac{N^2h^2}{32mL^2} \\
         &amp;= (N^2 + 4N + 4 - N^2)\frac{h^2}{32mL^2} \\
@@ -183,7 +183,7 @@
     \label{retinal}
 \end{equation}\]</span></p>
 <h2 id="part-g">Part G</h2>
-<p>From our observations in the previous part, <span class="math inline">\(N = 12\)</span>, because there are six pi bonds, each with two electrons, in the system. If retinal reaches an excited state, then an electron is promoted from the HOMO to the LUMO. Then we can use our estimated value for <span class="math inline">\(L\)</span> from  and apply equation : <span class="math display">\[\begin{equation}
+<p>From our observations in the previous part, <span class="math inline">\(N = 12\)</span>, because there are six pi bonds, each with two electrons, in the system. If retinal reaches an excited state, then an electron is promoted from the HOMO to the LUMO. Then we can use our estimated value for <span class="math inline">\(L\)</span> from <span class="math inline">\(\eqref{retinal}\)</span> and apply equation <span class="math inline">\(\eqref{homo-lumo-diff}\)</span>: <span class="math display">\[\begin{equation}
     \begin{split}
         \Delta E &amp;= \frac{(N+1)h^2}{8mL^2} \\
         &amp;= \frac{13(6.62608 \times 10^{-34})^2}{8(9.10939 \times 10^{-31})(1.523 \times 10^{-9})^2} \\
@@ -191,7 +191,7 @@
     \end{split}
     \label{ret-e}
 \end{equation}\]</span></p>
-<p>From the universal wave equation, we know <span class="math inline">\(E = h\nu\)</span>, and we know <span class="math inline">\(\nu = \frac{c}{\lambda}\)</span>, so we have <span class="math inline">\(E = \frac{hc}{\lambda}\)</span>. Applying , we have <span class="math display">\[\begin{equation}
+<p>From the universal wave equation, we know <span class="math inline">\(E = h\nu\)</span>, and we know <span class="math inline">\(\nu = \frac{c}{\lambda}\)</span>, so we have <span class="math inline">\(E = \frac{hc}{\lambda}\)</span>. Applying <span class="math inline">\(\eqref{ret-e}\)</span>, we have <span class="math display">\[\begin{equation}
     \begin{split}
         E &amp;= \frac{hc}{\lambda} \\
         \lambda &amp;= \frac{hc}{E} \\
@@ -224,7 +224,7 @@
     abc = 0.4584^2(0.2953) = 0.06205 \,\mathrm{nm}^3 = 6.205 \times 10^{-23} \,\mathrm{cm}^3.
     \label{volume}
 \end{equation}\]</span></p>
-<p>From  and , we get the density: <span class="math display">\[\begin{equation}
+<p>From <span class="math inline">\(\eqref{mass}\)</span> and <span class="math inline">\(\eqref{volume}\)</span>, we get the density: <span class="math display">\[\begin{equation}
     \rho_{\ce{TiCl}} = \frac{2.918 \times 10^{-22}}{6.205 \times 10^{-23}} = 4.703 \,\mathrm{g}\,\mathrm{cm}^{-3}.
 \end{equation}\]</span></p>
 <h2 id="part-f-1">Part F</h2>
@@ -245,19 +245,19 @@
 <h2 id="parts-a-and-b">Parts A and B</h2>
 <p>These two parts deal with the same synthesis. The first step adds three carbon atoms, four hydrogen atoms, and one oxygen atom. The presence of the aryl ketone in the finished product indicates that this addition step is likely a Friedel-Crafts acylation, with propanoyl chloride and a strong Lewis acid calalyst, such as aluminum chloride.</p>
 <figure>
-<img alt="Reagants Q, propanoyl chloride, and R, \ce{AlCl3} react with benzene in a Friedel-Crafts acylation to form intermediate S." src="https://gautammanohar.com/figures/2017-synth-1.png" style="width:60.0%"/><figcaption>Reagants Q, propanoyl chloride, and R, <span class="math inline">\(\ce{AlCl3}\)</span> react with benzene in a Friedel-Crafts acylation to form intermediate S.</figcaption>
+<img alt="Reagants Q, propanoyl chloride, and R, \ce{AlCl3} react with benzene in a Friedel-Crafts acylation to form intermediate S." src="../figures/2017-synth-1.png" style="width:60.0%"/><figcaption>Reagants Q, propanoyl chloride, and R, <span class="math inline">\(\ce{AlCl3}\)</span> react with benzene in a Friedel-Crafts acylation to form intermediate S.</figcaption>
 </figure>
 <p>In the next step, a hydrogen atom is substituted for a chlorine atom is added meta to the acyl group, which is electron withdrawing and directs meta. This indicates an electrophilic aromatic halogenation with chlorine gas and strong Lewis acid catalyst, again aluminum chloride.</p>
 <figure>
-<img alt="Catalyzed by aluminum chloride, chlorine gas substitutes to form the given intermediate V." src="https://gautammanohar.com/figures/2017-synth-2.png" style="width:20.0%"/><figcaption>Catalyzed by aluminum chloride, chlorine gas substitutes to form the given intermediate V.</figcaption>
+<img alt="Catalyzed by aluminum chloride, chlorine gas substitutes to form the given intermediate V." src="../figures/2017-synth-2.png" style="width:20.0%"/><figcaption>Catalyzed by aluminum chloride, chlorine gas substitutes to form the given intermediate V.</figcaption>
 </figure>
 <p>Next, the compound is subjected acidic conditions, under which the ketone oxygen is protonated and forms its enol tautomer. After bromine adds to the alkene on the alpha carbon and the ketone is reformed after deprotonation, we obtain an alpha brominated product.</p>
 <figure>
-<img alt="Bromination yields intermediate W." src="https://gautammanohar.com/figures/intermediate-W.png" style="width:25.0%"/><figcaption>Bromination yields intermediate W.</figcaption>
+<img alt="Bromination yields intermediate W." src="../figures/intermediate-W.png" style="width:25.0%"/><figcaption>Bromination yields intermediate W.</figcaption>
 </figure>
 <p>We then add a nitrogen compound, which, judging from the structure of the desired product, is likely tert-butylamine. The nucleophilic nitrogen drives an <span class="math inline">\(\text{S}_\text{N}2\)</span> reaction with bromine as the leaving group. Now we have a bromine salt; bupropion is a chlorine salt. To replace bromine, we add a stoichiometric amount of hydrochloric acid.</p>
 <figure>
-<img alt="Addition of tert-butylamine, reagant X, forms intermediate Y, which gives bupropion after treatment with reagant Z, hydrochloric acid." src="https://gautammanohar.com/figures/2017-synth-3.png" style="width:60.0%"/><figcaption>Addition of tert-butylamine, reagant X, forms intermediate Y, which gives bupropion after treatment with reagant Z, hydrochloric acid.</figcaption>
+<img alt="Addition of tert-butylamine, reagant X, forms intermediate Y, which gives bupropion after treatment with reagant Z, hydrochloric acid." src="../figures/2017-synth-3.png" style="width:60.0%"/><figcaption>Addition of tert-butylamine, reagant X, forms intermediate Y, which gives bupropion after treatment with reagant Z, hydrochloric acid.</figcaption>
 </figure>
 <h2 id="part-c-3">Part C</h2>
 <p>Bupropion has only one stereocenter (at the carbon to which the nitrogen is bonded). And so it has two stereoisomers.</p>
@@ -273,7 +273,7 @@
 <li>Formation of an enamine from a ketone and secondary amine</li>
 </ol>
 <figure>
-<img alt="The structures of the products from the five sets of reagants." src="https://gautammanohar.com/figures/2017-synth-4.png" style="width:70.0%"/><figcaption>The structures of the products from the five sets of reagants.</figcaption>
+<img alt="The structures of the products from the five sets of reagants." src="../figures/2017-synth-4.png" style="width:70.0%"/><figcaption>The structures of the products from the five sets of reagants.</figcaption>
 </figure>
 <h1 id="analytical-chemistry_1">Analytical Chemistry</h1>
 <h2 id="part-a-3">Part A</h2>
@@ -337,15 +337,6 @@
 </script>
     <section>
     </section>
-    <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-115904815-1");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
 </html>

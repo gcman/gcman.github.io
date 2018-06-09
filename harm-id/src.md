@@ -1,11 +1,11 @@
----
+‐‐‐
 title: Harmonic Numbers and Binomial Coefficients
 date: 4 February 2018
 category: math
 tags: calculus, proof
 slug: harm-id
 summary: Exploring a relationship between a sum of binomial coefficients and harmonic numbers using calculus and induction.
----
+‐‐‐
 
 The $n$-th harmonic number is defined as the sum of reciprocals of the first $n$ natural numbers:
 \begin{equation}

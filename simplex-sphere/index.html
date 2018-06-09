@@ -116,7 +116,7 @@
 <p>Let us deal with <span class="math inline">\(F_1\)</span>. A vector perpendicular to the plane containing two vectors is given by their cross product. We can let these two vectors be two of the edges of <span class="math inline">\(F_1\)</span>. An edge on a face is the displacement between two vertices of a face. Then the cross product <span class="math display">\[\begin{equation}
     (\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)
     \label{unscaled-normal}
-\end{equation}\]</span> is perpendicular to <span class="math inline">\(F_1\)</span>. But  need not point outward. To remove this ambiguity, we scale  by a negative value if it is pointing inward and by a positive value if it is pointing outward. Consider the dot product of  and the displacement vector <span class="math inline">\(\vec{V}_4 - \vec{V}_1\)</span>, which points from the first vertex away from the outward-facing normal and to the fourth vertex. Thus the angle between the outward-facing normal and this displacement vector is between <span class="math inline">\(\frac{\pi}{2}\)</span> and <span class="math inline">\(\pi\)</span>, so the cosine of the angle is negative, so the dot product of these two vectors is negative. Then scaling  by the negative of the dot product yields an outward-facing normal.<br/>
+\end{equation}\]</span> is perpendicular to <span class="math inline">\(F_1\)</span>. But <span class="math inline">\(\eqref{unscaled-normal}\)</span> need not point outward. To remove this ambiguity, we scale <span class="math inline">\(\eqref{unscaled-normal}\)</span> by a negative value if it is pointing inward and by a positive value if it is pointing outward. Consider the dot product of <span class="math inline">\(\eqref{unscaled-normal}\)</span> and the displacement vector <span class="math inline">\(\vec{V}_4 - \vec{V}_1\)</span>, which points from the first vertex away from the outward-facing normal and to the fourth vertex. Thus the angle between the outward-facing normal and this displacement vector is between <span class="math inline">\(\frac{\pi}{2}\)</span> and <span class="math inline">\(\pi\)</span>, so the cosine of the angle is negative, so the dot product of these two vectors is negative. Then scaling <span class="math inline">\(\eqref{unscaled-normal}\)</span> by the negative of the dot product yields an outward-facing normal.<br/>
 We then need to normalize this vector to obtain the desired unit outward-facing normal vector <span class="math inline">\(\vec{n}_1\)</span>: <span class="math display">\[\begin{equation}
     \vec{n}_1 = -\frac{(\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)(\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)\cdot(\vec{V}_4 - \vec{V}_1)}{\norm{(\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)(\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)\cdot(\vec{V}_4 - \vec{V}_1)}}.
     \label{normalized}
@@ -177,7 +177,7 @@ We then need to normalize this vector to obtain the desired unit outward-facing 
 <p>Now we deal with the circumsphere. Let the circumsphere have center <span class="math inline">\((A,B,C)\)</span> and radius <span class="math inline">\(R\)</span>. It then has the equation <span class="math display">\[\begin{equation}
     (x - A)^2 + (y - B)^2 + (z - C)^2 = R^2
     \label{sphere-eq}
-\end{equation}\]</span> All four of a tetrahedron&rsquo;s vertices lie on its circumsphere, and so their coordinates satisfy . We have four vertices with which we can make a system of four equations: <span class="math display">\[\begin{equation}
+\end{equation}\]</span> All four of a tetrahedron&rsquo;s vertices lie on its circumsphere, and so their coordinates satisfy <span class="math inline">\(\eqref{sphere-eq}\)</span>. We have four vertices with which we can make a system of four equations: <span class="math display">\[\begin{equation}
     \begin{split}
         (x_1 - A)^2 + (y_1 - B)^2 + (z_1 - C)^2 &amp;= R^2 \\
         (x_2 - A)^2 + (y_2 - B)^2 + (z_2 - C)^2 &amp;= R^2 \\ 
@@ -217,7 +217,7 @@ We then need to normalize this vector to obtain the desired unit outward-facing 
     \label{circumsphere-sols}
 \end{equation}\]</span> Then <span class="math display">\[\begin{equation}
     \vec{v} = \vec{M}^{-1}\vec{u}.
-\end{equation}\]</span> Having solved for <span class="math inline">\(A,B,C\)</span>, we can solve for <span class="math inline">\(R\)</span> from one of the equations in . Let&rsquo;s use the first one. <span class="math display">\[\begin{equation}
+\end{equation}\]</span> Having solved for <span class="math inline">\(A,B,C\)</span>, we can solve for <span class="math inline">\(R\)</span> from one of the equations in <span class="math inline">\(\eqref{R-system}\)</span>. Let&rsquo;s use the first one. <span class="math display">\[\begin{equation}
     \begin{split}
         R^2 &amp;= (x_1 - A)^2 + (y_1 - B)^2 + (z_1 - C)^2 \\
         R &amp;= \sqrt{(x_1 - A)^2 + (y_1 - B)^2 + (z_1 - C)^2}.
@@ -242,7 +242,7 @@ We then need to normalize this vector to obtain the desired unit outward-facing 
 \end{equation}\]</span> But we can get even simpler. Determinants can get hard to compute as they get large. And because we are only interested in the cross product for its <em>direction</em> (and not its magnitude; we normalize everything later anyway), we can use a simpler method. Any element of the kernel of the <span class="math inline">\(n-1\)</span> by <span class="math inline">\(n\)</span> matrix given by taking the <span class="math inline">\(n-1\)</span> vectors to be rows is in the orthogonal direction to all the given vectors.</p>
 <p>An <span class="math inline">\(n\)</span> simplex is given by <span class="math inline">\(n+1\)</span> points, given by the vectors <span class="math inline">\(\vec{V}_i\)</span>, where <span class="math inline">\(i\)</span> is an integer from <span class="math inline">\(1\)</span> to <span class="math inline">\(n+1\)</span>. Each of these vectors has <span class="math inline">\(n\)</span> components, <span class="math inline">\(\vec{V}_i^j\)</span>, where <span class="math inline">\(j\)</span> is an integer from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span>. Each of the <span class="math inline">\(n+1\)</span> faces is a collection of <span class="math inline">\(n\)</span> of the <span class="math inline">\(n+1\)</span> points. Again, let&rsquo;s first deal with the insphere:</p>
 <h2 id="insphere-1">Insphere</h2>
-<p>Let the vector representing the insphere&rsquo;s coordinates have <span class="math inline">\(n\)</span> components <span class="math inline">\(c_i\)</span>. Imitating , we have <span class="math display">\[\begin{equation} \label{general-insphere}
+<p>Let the vector representing the insphere&rsquo;s coordinates have <span class="math inline">\(n\)</span> components <span class="math inline">\(c_i\)</span>. Imitating <span class="math inline">\(\eqref{normalized}\)</span>, we have <span class="math display">\[\begin{equation} \label{general-insphere}
     \vec{n}_1 = -\frac{\vec{C}(\vec{C}\cdot(\vec{V}_{n+1} - \vec{V}_1))}{\norm{\vec{C}(\vec{C}\cdot(\vec{V}_{n+1} - \vec{V}_1))}},
 \end{equation}\]</span> where <span class="math display">\[\begin{equation}
     \vec{C} = \mathscr{C}((\vec{V}_2 - \vec{V}_1)\times(\vec{V}_3 - \vec{V}_1)\times \cdots \times (\vec{V}_{n} - \vec{V}_1)).
@@ -297,46 +297,46 @@ We then need to normalize this vector to obtain the desired unit outward-facing 
 \end{equation}\]</span></p>
 <h2 id="implementing-our-higher-dimensional-processes">Implementing Our Higher Dimensional Processes</h2>
 <p>We&rsquo;ll use <code>Python</code> and its <code>numpy</code> package. Let&rsquo;s first set up a function to compute our generalized cross product using the kernel method. Here&rsquo;s a standard implementation of finding the kernel, or nullspace, of a matrix, sourced from <a href="http://scipy-cookbook.readthedocs.io/items/RankNullspace.html">here</a>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" data-line-number="1" id="cb1-1"><span class="kw">def</span> nullspace(A, atol<span class="op">=</span><span class="fl">1e-13</span>, rtol<span class="op">=</span><span class="dv">0</span>):</a>
-<a class="sourceLine" data-line-number="2" id="cb1-2">    A <span class="op">=</span> np.atleast_2d(A)</a>
-<a class="sourceLine" data-line-number="3" id="cb1-3">    u, s, vh <span class="op">=</span> np.linalg.svd(A)</a>
-<a class="sourceLine" data-line-number="4" id="cb1-4">    tol <span class="op">=</span> <span class="bu">max</span>(atol, rtol <span class="op">*</span> s[<span class="dv">0</span>])</a>
-<a class="sourceLine" data-line-number="5" id="cb1-5">    nnz <span class="op">=</span> (s <span class="op">&gt;=</span> tol).<span class="bu">sum</span>()</a>
-<a class="sourceLine" data-line-number="6" id="cb1-6">    ns <span class="op">=</span> vh[nnz:].conj().T</a>
-<a class="sourceLine" data-line-number="7" id="cb1-7">    <span class="cf">return</span> np.array([k[<span class="dv">0</span>] <span class="cf">for</span> k <span class="kw">in</span> ns])</a></code></pre></div>
+<pre class="python"><code>def nullspace(A, atol=1e-13, rtol=0):
+    A = np.atleast_2d(A)
+    u, s, vh = np.linalg.svd(A)
+    tol = max(atol, rtol * s[0])
+    nnz = (s &gt;= tol).sum()
+    ns = vh[nnz:].conj().T
+    return np.array([k[0] for k in ns])</code></pre>
 <p>We return the element of the nullspace that is a vector of norm 1 and use it to calculate the generalized cross product.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" data-line-number="1" id="cb2-1"><span class="kw">def</span> gen_cross(v):</a>
-<a class="sourceLine" data-line-number="2" id="cb2-2">    n <span class="op">=</span> <span class="bu">len</span>(v)</a>
-<a class="sourceLine" data-line-number="3" id="cb2-3">    m <span class="op">=</span> np.array([[v[i][j] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n<span class="op">+</span><span class="dv">1</span>)] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)])</a>
-<a class="sourceLine" data-line-number="4" id="cb2-4">    <span class="cf">return</span> nullspace(m)</a></code></pre></div>
+<pre class="python"><code>def gen_cross(v):
+    n = len(v)
+    m = np.array([[v[i][j] for j in range(n+1)] for i in range(n)])
+    return nullspace(m)</code></pre>
 <p>The argument <code>v</code> will always be a list of lists; each element represents a vector. Now we can calculate the incenter and inradius:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" data-line-number="1" id="cb3-1"><span class="kw">def</span> insphere(v):</a>
-<a class="sourceLine" data-line-number="2" id="cb3-2">    n <span class="op">=</span> <span class="bu">len</span>(v) <span class="op">-</span> <span class="dv">1</span></a>
-<a class="sourceLine" data-line-number="3" id="cb3-3">    faces <span class="op">=</span> []</a>
-<a class="sourceLine" data-line-number="4" id="cb3-4">    normals <span class="op">=</span> []</a></code></pre></div>
+<pre class="python"><code>def insphere(v):
+    n = len(v) - 1
+    faces = []
+    normals = []</code></pre>
 <p>Note that <code>n</code> is the &ldquo;dimension&rdquo; of the tetrahedron.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" data-line-number="1" id="cb4-1"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n<span class="op">+</span><span class="dv">1</span>):</a>
-<a class="sourceLine" data-line-number="2" id="cb4-2">        faces.append(v <span class="op">+</span> [v[n<span class="op">-</span>i]])</a>
-<a class="sourceLine" data-line-number="3" id="cb4-3">        <span class="kw">del</span> faces[i][n<span class="op">-</span>i]</a>
-<a class="sourceLine" data-line-number="4" id="cb4-4">    <span class="cf">if</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</a>
-<a class="sourceLine" data-line-number="5" id="cb4-5">        faces <span class="op">=</span> <span class="bu">list</span>(<span class="bu">reversed</span>(faces))</a>
-<a class="sourceLine" data-line-number="6" id="cb4-6">    faces <span class="op">=</span> np.array(faces)</a></code></pre></div>
-<p>Each face of an <span class="math inline">\(n\)</span>-simplex consists of some <span class="math inline">\(n\)</span> of the given <span class="math inline">\(n+1\)</span> vertices. Each element of <code>faces</code> has <span class="math inline">\(n+1\)</span> elements: the <span class="math inline">\(n\)</span> vertices of the face, and the other vertex that is not part of the face. The statement involving the modulo ensures that the orientation is correct in even dimensions. Then we can finish it off by performing the calculations in  and setting up the matrices as in  and .</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" data-line-number="1" id="cb5-1">    <span class="cf">for</span> f <span class="kw">in</span> faces:</a>
-<a class="sourceLine" data-line-number="2" id="cb5-2">        c <span class="op">=</span> gen_cross([f[i] <span class="op">-</span> f[<span class="dv">0</span>] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,n)])</a>
-<a class="sourceLine" data-line-number="3" id="cb5-3">        unnormed <span class="op">=</span> c <span class="op">*</span> np.vdot(c, f[n] <span class="op">-</span> f[<span class="dv">0</span>])</a>
-<a class="sourceLine" data-line-number="4" id="cb5-4">        normals.append((<span class="op">-</span><span class="dv">1</span>)<span class="op">**</span>(n<span class="op">%</span><span class="dv">2</span>) <span class="op">*</span> unnormed <span class="op">/</span> np.linalg.norm(unnormed))</a>
-<a class="sourceLine" data-line-number="5" id="cb5-5">    A <span class="op">=</span> np.array([[k[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)] <span class="op">+</span> [<span class="bu">sum</span>([k[i]<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)])] <span class="cf">for</span> k <span class="kw">in</span> normals])</a>
-<a class="sourceLine" data-line-number="6" id="cb5-6">    B <span class="op">=</span> np.array([<span class="bu">sum</span>([v[i][j]<span class="op">*</span>normals[i][j] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n)]) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n<span class="op">+</span><span class="dv">1</span>)])</a>
-<a class="sourceLine" data-line-number="7" id="cb5-7">    <span class="cf">return</span> np.linalg.solve(A,B)</a></code></pre></div>
+<pre class="python"><code>for i in range(n+1):
+        faces.append(v + [v[n-i]])
+        del faces[i][n-i]
+    if n % 2 == 0:
+        faces = list(reversed(faces))
+    faces = np.array(faces)</code></pre>
+<p>Each face of an <span class="math inline">\(n\)</span>-simplex consists of some <span class="math inline">\(n\)</span> of the given <span class="math inline">\(n+1\)</span> vertices. Each element of <code>faces</code> has <span class="math inline">\(n+1\)</span> elements: the <span class="math inline">\(n\)</span> vertices of the face, and the other vertex that is not part of the face. The statement involving the modulo ensures that the orientation is correct in even dimensions. Then we can finish it off by performing the calculations in <span class="math inline">\(\eqref{general-insphere}\)</span> and setting up the matrices as in <span class="math inline">\(\eqref{general-insphere-A}\)</span> and <span class="math inline">\(\eqref{general-insphere-B}\)</span>.</p>
+<pre class="python"><code>    for f in faces:
+        c = gen_cross([f[i] - f[0] for i in range(1,n)])
+        unnormed = c * np.vdot(c, f[n] - f[0])
+        normals.append((-1)**(n%2) * unnormed / np.linalg.norm(unnormed))
+    A = np.array([[k[i] for i in range(n)] + [sum([k[i]**2 for i in range(n)])] for k in normals])
+    B = np.array([sum([v[i][j]*normals[i][j] for j in range(n)]) for i in range(n+1)])
+    return np.linalg.solve(A,B)</code></pre>
 <p>We go along a similar line for the circumsphere: we set up the matrices and solve.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" data-line-number="1" id="cb6-1"><span class="kw">def</span> circumsphere(v):</a>
-<a class="sourceLine" data-line-number="2" id="cb6-2">    n <span class="op">=</span> <span class="bu">len</span>(v) <span class="op">-</span> <span class="dv">1</span></a>
-<a class="sourceLine" data-line-number="3" id="cb6-3">    A <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.array([[v[<span class="dv">0</span>][j] <span class="op">-</span> v[i][j] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n)] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>)])</a>
-<a class="sourceLine" data-line-number="4" id="cb6-4">    B <span class="op">=</span> np.array([<span class="bu">sum</span>([v[<span class="dv">0</span>][j]<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> v[i][j]<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n)]) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>)])</a>
-<a class="sourceLine" data-line-number="5" id="cb6-5">    sols <span class="op">=</span> np.linalg.solve(A,B)</a>
-<a class="sourceLine" data-line-number="6" id="cb6-6">    R <span class="op">=</span> sqrt(<span class="bu">sum</span>([(v[<span class="dv">0</span>][i] <span class="op">-</span> sols[i])<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)]))</a>
-<a class="sourceLine" data-line-number="7" id="cb6-7">    <span class="cf">return</span> np.append(sols, R)</a></code></pre></div>
+<pre class="python"><code>def circumsphere(v):
+    n = len(v) - 1
+    A = 2 * np.array([[v[0][j] - v[i][j] for j in range(n)] for i in range(1,n+1)])
+    B = np.array([sum([v[0][j]**2 - v[i][j]**2 for j in range(n)]) for i in range(1,n+1)])
+    sols = np.linalg.solve(A,B)
+    R = sqrt(sum([(v[0][i] - sols[i])**2 for i in range(n)]))
+    return np.append(sols, R)</code></pre>
 <p>And there you have it! It would be interesting to see how the ratio between circumsphere and insphere (3 in 3 dimensions) changes as the dimension increases. It will probably get much larger (because most of a high-dimensional sphere&rsquo;s volume is near its surface and because the insphere&rsquo;s volume will become very small), but how quickly?</p>
 
     <aside id="gcman-toolbar">
@@ -365,15 +365,6 @@ We then need to normalize this vector to obtain the desired unit outward-facing 
 </script>
     <section>
     </section>
-    <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-115904815-1");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
 </html>
