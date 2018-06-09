@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="https://gautammanohar.com/theme/css/main.css" type="text/css" />
+<link rel="stylesheet" href="heat.css" type="text/css" />
+<body>
+	<table class="legend euler">
+		<tr>
+			<td class="complete">dark green</td>
+			<td class="text">
+				Solution solves problem correctly on Project Euler and scores 100% on Hackerrank.
+			</td>
+		</tr>
+		<tr>
+			<td class="hackerrank-imperfect">light green</td>
+			<td class="text">
+				Solution scores less than 100% on Hackerrank, but still solves the original problem.
+			</td>
+		</tr>
+		<tr>
+			<td class="euler-only">blue</td>
+			<td class="text">
+				Solution is relevant only to Project Euler (problem either not on Hackerrank or too different from the original).
+			</td>
+		</tr>
+		<tr>
+			<td class="tle">yellow</td>
+			<td class="text">
+				Solution gets the correct answer but exceeds either the given time limit of 60 seconds or memory limit of 256 MB.
+			</td>
+		</tr>
+		<tr>
+			<td class="unsolved">grey</td>
+			<td class="text">
+				Problem has not been solved.
+			</td>
+		</tr>
+	</table>
+	{% for tab in heat %}
+		<table class="map euler">
+			{% for row in tab %}
+				<tr>
+					{% for entry in row %}
+						<td class="{{ entry.cls }}">{{ entry.num }}</td>
+					{% endfor %}
+				</tr>
+			{% endfor %}
+		</table>
+	{% endfor %}
+</body>
