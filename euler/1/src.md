@@ -1,5 +1,5 @@
 ‐‐‐
-title: "Problem 1: Multiples of 3 and 5"
+title: Problem 1 - Multiples of 3 and 5
 date: 9 June 2018
 category: euler
 tags: proof
