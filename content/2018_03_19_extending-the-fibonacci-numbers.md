@@ -35,5 +35,6 @@ We first break up the left side.
 Applying the quadratic formula, we find two values that satisfy this relation: $\frac{1+\sqrt{5}}{2}$ and $\frac{1-\sqrt{5}}{2}$.
 The latter is negative, so it can't be the ratio between two positive lengths.
 And so we've found $\varphi$, as well as its cousin, which we'll get back to later.
+For now, let's call it $\phi$.
 
-Note that the powers of $\varphi$ satisfy the Fibonacci relation: each term is the sum of the previous two terms, as demonstrated in \ref{phi-rel}.
+Note that the powers of $\varphi$ (and $\phi$) satisfy the Fibonacci relation: each term is the sum of the previous two terms, as demonstrated in \ref{phi-rel}.
