@@ -2,7 +2,7 @@
 @import url("main.css");
 /* General */
 
-main {
+body {
   counter-reset: h1
 }
 
@@ -168,7 +168,7 @@ header #gcman-toolbar a.next {
 
 /* Main article and sections */
 
-main {
+body {
   position: absolute;
   width: 61.80%;
   left: 38.20%;

@@ -51,6 +51,28 @@
           </table>
         {% endif %}
         </section>
+        <section id="project-euler" class="level2">
+        <h2>Project Euler <strong>/ Full Solutions</strong></h2>
+        {% if articles %}
+          <table>
+            {% for article in articles_page.object_list %}
+              {% if article.category == 'Euler' %}
+                <tr>
+                  <td>
+                    <a href="{{ SITEURL }}/{{ article.url }}">
+                        {{article.title}}{% if article.subtitle %}: {{ article.subtitle }}{% endif %}
+                    </a>
+                    {% if article.tags %}<strong>{% include 'taglist.html' %}</strong>{% endif %}
+                  </td>
+                  <td id="date">
+                    {{ article.locale_date }}
+                  </td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </table>
+        {% endif %}
+        </section>
     </div>
 </article>
 {% endblock content %}

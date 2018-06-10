@@ -39,10 +39,13 @@
 {% else %}
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
 {% endif %}
+{% if article.category == "euler" %}
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/heat.css" type="text/css" />
+{% endif %}
 {% endblock meta_tags_in_head %}
 
 {% block content %}
-<section id="content" class="body">
+
   {% if "long" not in article.tags %}
     <article>
   {% endif %}
@@ -107,9 +110,12 @@
     </header>
 
     {% if "long" in article.tags %}
-      <main><article>
+      <article>
     {% endif %}
       {{ article.content }}
+    {% if article.category == "euler" %}
+      {% include 'heatmap.html' %}
+    {% endif %}
     {% if "long" not in article.tags %}
       {% include 'toolbar.html' %}
     {% endif %}
@@ -123,10 +129,7 @@
       </footer>
     {% endif %}
   </article>
-  {% if "long" in article.tags %}
-    </main>
-  {% endif %}
-</section>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
   $('.title a').html(function(index, value) {
