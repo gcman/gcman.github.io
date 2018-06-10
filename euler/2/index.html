@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>    Project Euler Solutions - Gautam Manohar
+    <title>    Problem 2 - Even Fibonacci Numbers - Gautam Manohar
 </title>
     <meta charset="utf-8" />
         <meta name="keywords" content="proof, euler" />
         <meta name="category" content="euler" />
-        <meta name="description" content="My full solutions to problems on Project Euler and Hackerrank with working Python code." />
+        <meta name="description" content="My solution to problem 1 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
         <meta name="copyright" content="Gautam Manohar" />
-        <meta name="date" content="2018-06-09 00:00:00-04:00">
-<link rel="stylesheet" href="../theme/css/normalize/normalize.min.css" type="text/css" />
-  <link rel="stylesheet" href="../theme/css/article.css" type="text/css" />
-  <link rel="stylesheet" href="../theme/css/heat.css" type="text/css" />
+        <meta name="date" content="2018-06-10 00:00:00-04:00">
+<link rel="stylesheet" href="../../theme/css/normalize/normalize.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../theme/css/article.css" type="text/css" />
+  <link rel="stylesheet" href="../../theme/css/heat.css" type="text/css" />
     <meta name="robots" content="index,follow">
-    <link rel="shortcut icon" type="image/png" href="../theme/images/icons/favicon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../theme/css/monokai-sublime.css">
+    <link rel="shortcut icon" type="image/png" href="../../theme/images/icons/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../theme/css/monokai-sublime.css">
     <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
     <!--[if lte IE 7]>
-            <link rel="stylesheet" type="text/css" media="all" href="../css/ie.css"/>
-            <script src="../js/IE8.js" type="text/javascript"></script><![endif]-->
+            <link rel="stylesheet" type="text/css" media="all" href="../../css/ie.css"/>
+            <script src="../../js/IE8.js" type="text/javascript"></script><![endif]-->
 
     <!--[if lt IE 7]>
-            <link rel="stylesheet" type="text/css" media="all" href="../css/ie6.css"/><![endif]-->
+            <link rel="stylesheet" type="text/css" media="all" href="../../css/ie6.css"/><![endif]-->
 <style>
   .title .math {
     font-size: 50% !important;
@@ -93,28 +93,63 @@
     <article>
     <header>
       <h1 class="title">
-            <a href="../euler/" rel="bookmark"
-           title="Permalink to Project Euler Solutions">Project Euler Solutions</a>
+            <a href="../../euler/2/" rel="bookmark"
+           title="Permalink to Problem 2 - Even Fibonacci Numbers">Problem 2 - Even Fibonacci Numbers</a>
       </h1>
       <address class="author">Gautam Manohar</address>
         <div id="textbox">
           <p style="font-weight: bold;" class="alignleft">
-            <a href="../category/euler/">euler</a>&nbsp;
+            <a href="../../category/euler/">euler</a>&nbsp;
           </p>
-            <p class="date aligncenter">9 June 2018</p>
-          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../tag/proof/">#proof</a> </p>
+            <p class="date aligncenter">10 June 2018</p>
+          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
 
-      <p>Welcome to the homepage of my <a href="https://projecteuler.net/">Project Euler</a> solutions. Once I solve the original problem, I also take on the modified version from <a href="https://www.hackerrank.com/contests/projecteuler/challenges">ProjectEuler+</a> on Hackerrank, where the problems usually have multiple, harder test cases. The time limits are much stricter, and brute force is rarely an option.</p>
-<h1 id="why-do-i-publish-my-solutions">Why do I publish my solutions?</h1>
-<p>To solve a Project Euler problem, you have to be clever with not only a good mathematical understanding but also an efficient use of algorithms. There are plenty of Project Euler <em>answers</em> online. I aim to explain my thought process in coming up with a solution and my use of data strcutures and algorithms; write fully commented Python code; and link to relevant sources where you can learn more, such as <a href="http://mathworld.wolfram.com/">Wolfram MathWorld</a>, <a href="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</a>, and <a href="https://oeis.org/">OEIS</a>.</p>
-<p>And, of course, maintaining this website helps me, too. Explaining your process to other people helps you understand it better.</p>
-<h2 id="but-you-shouldnt-publish-your-solutions">But you shouldn&rsquo;t publish your solutions!</h2>
-<p>After you solve a problem, Project Euler shows the following text:</p>
-<p><em>We hope that you enjoyed solving this problem. Please do not deprive others of going through the same process by publishing your solution outside Project Euler. If you want to share your insights, then please go to [thread] in the discussion forum.</em></p>
-<p>I don&rsquo;t quite agree with this. I learned the vast majority of what I know from other people. We all stand on the shoulders of giants. If someone is on my site looking at my solutions, it means they realized they needed some help with the problem, and so they decided to ask the greatest source of information we have today: the Internet. At the end of the day, it doesn&rsquo;t matter whether the answer is 27189 or 27819; it&rsquo;s the process that counts, and that&rsquo;s what I try to share. That&rsquo;s why you&rsquo;ll find algorithms and code on my website, but never a big flashing box with the answer in it.</p>
+      <h1 id="problem-statement">Problem Statement</h1>
+<p>Each new term in the Fibonacci sequence is generated by adding the previous two terms. By starting with 1 and 2, the first 10 terms will be: <span class="math display">\[\begin{equation}
+    1, 2, 3, 5, 8, 13, 21, 34, 55, 89,\ldots
+\end{equation}\]</span> By considering the terms in the Fibonacci sequence whose values do not exceed <span class="math inline">\(N\)</span>, find the sum of the even-valued terms.</p>
+<h1 id="my-algorithm">My Algorithm</h1>
+<p>For the Project Euler problem, <span class="math inline">\(N = 4\times10^6\)</span>. Let&rsquo;s list the Fibonacci numbers with <span class="math inline">\(F(0) = 0\)</span>: <span class="math display">\[\begin{equation}
+    0,1,1,2,3,5,8,13,21,\ldots
+\end{equation}\]</span> Using the definition of the Fibonacci sequence: <span class="math display">\[\begin{equation}
+    F(n+3) = F(n + 2) + F(n + 1) = F(n + 1) + F(n) + F(n + 1) = 2F(n + 1) + F(n).
+    \label{fib-sum}
+\end{equation}\]</span> This shows that if <span class="math inline">\(F(n)\)</span> is even, then so is <span class="math inline">\(F(n+3)\)</span>. Because <span class="math inline">\(F(0) = 0\)</span> is even, then the even Fibonacci numbers are <span class="math inline">\(F(3k)\)</span> for positive integers <span class="math inline">\(k\)</span>.</p>
+<p>Further applying the Fibonacci recurrence relation gives <span class="math display">\[\begin{equation}
+    \begin{split}
+        F(3k) &amp;= 2F(3k - 2) + F(3k - 3) \\
+        &amp;= 3F(3k - 3) + 2F(3k - 4) \\
+        &amp;= 3F(3k - 3) + 2F(3k - 5) + 2F(3k - 6).
+    \end{split}
+\end{equation}\]</span> From <span class="math inline">\(\eqref{fib-sum}\)</span>, we have <span class="math inline">\(F(3k - 3) = 2F(3k - 5) + F(3k - 6)\)</span>, so <span class="math display">\[\begin{equation}
+    F(3k) = 4F(3k - 3) + F(3k - 6) = 4F(3(k-1)) + F(3(k-2)).
+    \label{next-fib}
+\end{equation}\]</span> To solve the problem, we begin with <span class="math inline">\(0,2\)</span>. Using <span class="math inline">\(\eqref{next-fib}\)</span>, we add to a sum the next even Fibonacci number, keeping track of the last two even Fibonacci numbers. We continue this until the next even Fibonacci number exceeds <span class="math inline">\(N\)</span>. This solution performs one-third as many steps as there are Fibonacci numbers up to <span class="math inline">\(N\)</span>, so it is <span class="math inline">\(O(\log n)\)</span>.</p>
+<h2 id="other-solutions">Other Solutions</h2>
+<p>The optimization of only computing even Fibonacci numbers does not change the time complexity of the solution, but it does lend an improvement by a constant factor of 3. Without this optimization, the solution is still <span class="math inline">\(O(\log n)\)</span>. Because there are only 28 even Fibonacci numbers under <span class="math inline">\(4 \times 10^{16}\)</span>, preprocessing can be used to find the prefix sums of the even Fibonacci numbers. This solution is <span class="math inline">\(O(1)\)</span>.</p>
+<h2 id="mathematical-solution">Mathematical Solution</h2>
+<p>A more mathematically oriented <span class="math inline">\(O(1)\)</span> solution (my personal favourite) is also possible. Unfortunately, the floating point calculations involved become too inaccurate with large values of <span class="math inline">\(N\)</span>, and using a high precision floating point library (such as Python&rsquo;s <code>decimal</code>) is too slow. Regardless, a famous formula for the value of the <span class="math inline">\(n\)</span>-th Fibonacci number is <a href="../../fib-ext/">Binet&rsquo;s formula</a>: <span class="math display">\[\begin{equation}
+    F(n) = \frac{\varphi^n - (-\varphi)^{-n}}{\sqrt{5}}.
+\end{equation}\]</span></p>
+<p>Suppose we know that we need to sum the Fibonacci numbers <span class="math inline">\(F(3k)\)</span> for integers <span class="math inline">\(k\)</span> from 0 to some maximum <span class="math inline">\(M\)</span> to get our desired sum <span class="math inline">\(S\)</span>. Then we have two geometric series: <span class="math display">\[\begin{equation}
+    S = \frac{1}{\sqrt{5}}\left(\sum_{k=0}^M \varphi^{3k} - \sum_{k=0}^M (-\varphi)^{-(3k)}\right).
+    \label{sum}
+\end{equation}\]</span> We can find the first term of each series by setting <span class="math inline">\(k = 0\)</span>; they are both 1. In the first series, the common ratio is <span class="math inline">\(\varphi^3\)</span>, in the second <span class="math inline">\((-\varphi)^{-3}\)</span>. We use the formula for the <a href="https://en.wikipedia.org/wiki/Geometric_series#Formula">sum of a geometric series</a> with first term <span class="math inline">\(a\)</span> and common ratio <span class="math inline">\(r\)</span> with <span class="math inline">\(n\)</span> terms: <span class="math display">\[\begin{equation}
+    a + ar + ar^3 + \cdots + ar^{n-1} = a\left(\frac{r^n - 1}{r-1}\right).
+\end{equation}\]</span> Now we can rewrite <span class="math inline">\(\eqref{sum}\)</span>, noting that each sum contains the first <span class="math inline">\(M+1\)</span> terms of a geometric series: <span class="math display">\[\begin{equation}
+    S = \frac{1}{\sqrt{5}}\left( \frac{\varphi^{3(M+1)} - 1}{\varphi^3 - 1} + \frac{(-\varphi)^{-3(M+1)} - 1}{\varphi^{-3} + 1} \right).
+    \label{sum2}
+\end{equation}\]</span> It&rsquo;s nice to have from a mathematical point of view, but the second term in <span class="math inline">\(\eqref{sum2}\)</span> quickly vanishes. Excluding it gives an absolute error of less than 1, so we can ignore it and floor the expression: <span class="math display">\[\begin{equation}
+    S = \left\lfloor \frac{\varphi^{3(M+1)} - 1}{\sqrt{5}(\varphi^3 - 1)} \right\rfloor.
+\end{equation}\]</span></p>
+<p>Now we need to find what this maximum <span class="math inline">\(M\)</span> actually is. We know that <span class="math inline">\(F(3M)\)</span> is the largest even Fibonacci number less than or equal to <span class="math inline">\(N\)</span>. Using the truncated version of Binet&rsquo;s formula, we know that <span class="math display">\[\begin{equation}
+    F(n) \approx \frac{\varphi^n}{\sqrt{5}},
+\end{equation}\]</span> so <span class="math inline">\(n \approx \log_\varphi(\sqrt{5} F(n))\)</span>. Therefore, <span class="math inline">\(M \approx \left\lfloor\frac{1}{3}\log_\varphi(N\sqrt{5})\right\rfloor\)</span>. And so our desired answer is <span class="math display">\[\begin{equation}
+    S = \left\lfloor \frac{\varphi^{3\left(\left\lfloor\frac{1}{3}\log_\varphi(N\sqrt{5})\right\rfloor+1\right)} - 1}{\sqrt{5}(\varphi^3 - 1)} \right\rfloor.
+\end{equation}\]</span></p>
 
 <h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
@@ -271,20 +306,17 @@
 	</table>
 
 </aside>    <aside id="gcman-toolbar">
-                <a title="Problem 1 - Multiples of 3 and 5" class="prev" href="../euler/1/">
+                <a title="Project Euler Solutions" class="prev" href="../../euler/">
                     <i class="fas fa-chevron-circle-left"></i>
             </a>
-        <a title="Raw source" class="raw" href="../euler/src.md" type="text/plain">
+        <a title="Raw source" class="raw" href="../../euler/2/src.md" type="text/plain">
             <i class="fas fa-code" aria-hidden="true"></i>
         </a>
-<a title="Home" class="home" href="../blog/">
+<a title="Home" class="home" href="../../blog/">
     <i class="fas fa-home"></i>
-</a>        <a title="PDF" class="pdf" href="../euler/post.pdf">
+</a>        <a title="PDF" class="pdf" href="../../euler/2/post.pdf">
             <i class="far fa-file-pdf" aria-hidden="true"></i>
         </a>
-                <a title="Problem 2 - Even Fibonacci Numbers" class="next" href="../euler/2/">
-                    <i class="fas fa-chevron-circle-right"></i>
-            </a>
     </aside>
   </article>
 
@@ -296,7 +328,7 @@
 </script>
     <section>
     </section>
-    <script src="../theme/css/highlight.pack.js"></script>
+    <script src="../../theme/css/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
