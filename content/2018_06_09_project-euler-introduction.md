@@ -3,9 +3,7 @@ date: 9 June 2018
 category: euler
 tags: proof
 slug: euler
-summary: Read my full solutions to problems on Project Euler and Hackerrank with working Python code.
-
-# Introduction
+summary: My full solutions to problems on Project Euler and Hackerrank with working Python code.
 
 Welcome to the homepage of my [Project Euler](https://projecteuler.net/) solutions.
 Once I solve the original problem, I also take on the modified version from [ProjectEuler+](https://www.hackerrank.com/contests/projecteuler/challenges) on Hackerrank, where the problems usually have multiple, harder test cases.

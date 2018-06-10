@@ -84,6 +84,7 @@ header .date {
 
 header nav {
   padding: 2.5% 5%;
+  height: 50%;
 }
 header nav ul {
   margin: 0;
@@ -110,11 +111,14 @@ header nav a {
 header nav a:hover {
   font-weight: bold;
 }
+header nav ul>li>a {
+  font-size: 100%;
+}
 header nav ul>li>ul>li>a { /* level 2 */
-  font-size: .8em;
+  font-size: 80%;
 }
 header nav ul>li>ul>li>ul>li a { /* level 3 and below */
-  font-size: .6em;
+  font-size: 60%;
 }
 
 header div#categories {
