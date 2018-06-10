@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>    Problem 3 - Largest Prime Factor - Gautam Manohar
+    <title>    Problem 9 - Special Pythagorean Triplets - Gautam Manohar
 </title>
     <meta charset="utf-8" />
         <meta name="keywords" content="proof, euler" />
         <meta name="category" content="euler" />
-        <meta name="description" content="My solution to problem 3 of Project Euler." />
+        <meta name="description" content="My solution to problem 9 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
         <meta name="copyright" content="Gautam Manohar" />
         <meta name="date" content="2018-06-10 00:00:00-04:00">
@@ -93,8 +93,8 @@
     <article>
     <header>
       <h1 class="title">
-            <a href="../../euler/3/" rel="bookmark"
-           title="Permalink to Problem 3 - Largest Prime Factor">Problem 3 - Largest Prime Factor</a>
+            <a href="../../euler/9/" rel="bookmark"
+           title="Permalink to Problem 9 - Special Pythagorean Triplets">Problem 9 - Special Pythagorean Triplets</a>
       </h1>
       <address class="author">Gautam Manohar</address>
         <div id="textbox">
@@ -108,13 +108,30 @@
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
-<p>The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor a given number <span class="math inline">\(N\)</span>?</p>
+<p>A Pythagorean triplet is a set of three natural numbers, <span class="math inline">\(a &lt; b &lt; c\)</span>, for which, <span class="math display">\[\begin{equation}
+    a^2 + b^2 = c^2
+\end{equation}\]</span> For example, <span class="math inline">\(3^2 + 4^2 = 9 + 16 = 25 = 52\)</span>.</p>
+<p>Given <span class="math inline">\(N\)</span>, find the maximal product <span class="math inline">\(abc\)</span> such that <span class="math inline">\(a,b,c\)</span> form a Pythagorean triplet for which <span class="math inline">\(a+b+c = N\)</span>. If no such triplet exists, output <span class="math inline">\(-1\)</span>.</p>
 <h1 id="my-algorithm">My Algorithm</h1>
-<p>Suppose we split <span class="math inline">\(n\)</span> into two factors. Then one of them is at least <span class="math inline">\(\sqrt{n}\)</span> and the other is at most <span class="math inline">\(\sqrt{n}\)</span>. To see this, we argue by contradiction; if both were strictly less than <span class="math inline">\(\sqrt{n}\)</span>, then their product would be strictly less than <span class="math inline">\(n\)</span>, and if both were strictly greater, so would their product. Of course, <span class="math inline">\(n\)</span> can&rsquo;t be greater than or less than itself.</p>
-<p>This is a very valuable fact. It means that if <span class="math inline">\(n\)</span> is not divisible by a prime at most <span class="math inline">\(\sqrt{n}\)</span>, then <span class="math inline">\(n\)</span> is itself prime. So if we have a list of the primes under <span class="math inline">\(\sqrt{n}\)</span>, and divide <span class="math inline">\(n\)</span> as much as we can by each of them, then what is left is either 1 or the largest prime factor of <span class="math inline">\(n\)</span>. In the first case, the answer is the largest prime that divided <span class="math inline">\(n\)</span>, which we can keep track of.</p>
-<p>To generate the list of primes, we can use the <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Sieve of Eratosthenes</a>, a classic tool in number theory. We start with a list of the first <span class="math inline">\(m\)</span> numbers. We cross out all the multiples of 2, then go to the next uncrossed number, and cross out all of its multiples. When we cannot cross out any more numbers, we are left with the primes less than or equal to <span class="math inline">\(m\)</span>. The time complexity of this operation is <span class="math inline">\(O(m\log\log m)\)</span>. There are about <span class="math inline">\(\frac{m}{\log m}\)</span> primes under <span class="math inline">\(m\)</span>, according to the <a href="https://en.wikipedia.org/wiki/Prime_number_theorem">Prime Number Theorem</a>. In our case, <span class="math inline">\(m = \sqrt{n}\)</span>. And so the time complexity of our solution is <span class="math inline">\(O(\sqrt{n}\log \log \sqrt{n} + \frac{n}{\log n}) = O(\sqrt{n} \log \log n)\)</span>.</p>
+<p>We know <span class="math display">\[\begin{equation}
+    a + b + c = N
+    \label{1}
+\end{equation}\]</span> and <span class="math display">\[\begin{equation}
+    a^2 + b^2 = c^2.
+    \label{2}
+\end{equation}\]</span> From <span class="math inline">\(\eqref{1}\)</span> we get <span class="math inline">\(c = N - a - b\)</span>, which we substitute into <span class="math inline">\(\eqref{2}\)</span> to get <span class="math display">\[\begin{equation}
+    \begin{split}
+        a^2 + b^2 &amp;= (N - (a + b))^2 \\
+        a^2 + b^2 &amp;= N^2 - 2N(a+b) + (a+b)^2 \\
+        a^2 + b^2 &amp;= a^2 + b^2 + 2ab + N^2 - 2Na - 2Nb \\
+        0 &amp;= b(2a - 2N) + N^2 - 2Na \\
+        b(2a - 2N) &amp;= 2Na - N^2 \\
+        b &amp;= \frac{N^2 - 2Na}{2N - 2a}.
+    \end{split}
+\end{equation}\]</span></p>
+<p>Now we have expressions for <span class="math inline">\(b,c\)</span> in terms of <span class="math inline">\(a\)</span>. Note furthermore that because <span class="math inline">\(a &lt; b &lt; c\)</span> and <span class="math inline">\(a + b + c = N\)</span>, none of the sides can exceed <span class="math inline">\(\frac{N}{3}\)</span>. Now we can iterate over <span class="math inline">\(1 \le a \le \frac{N}{3}\)</span> and store the maximal product <span class="math inline">\(abc\)</span> for which <span class="math inline">\(a^2 + b^2 = c^2\)</span>. This solution is <span class="math inline">\(O(n)\)</span>.</p>
 <h2 id="other-solutions">Other Solutions</h2>
-<p>Because we only need the <em>largest</em> prime factor, an <span class="math inline">\(O(\sqrt{n})\)</span> solution is possible. The largest factor of <span class="math inline">\(n\)</span> must be prime. So we check whether each numbers up to <span class="math inline">\(\sqrt{n}\)</span> divides <span class="math inline">\(n\)</span> and keep track of the largest so far that does, which is our answer. However, the solution above gives more generally applicable techniques and can also be used to find the <span class="math inline">\(k\)</span>-th largest prime factor.</p>
+<p>We can also use preprocessing for an <span class="math inline">\(O(N^2 + T)\)</span> solution, where <span class="math inline">\(T\)</span> is the number of queries. For all <span class="math inline">\(a &lt; b &lt; 3000\)</span>, we check whether <span class="math inline">\(c = \sqrt{a^2 + b^2}\)</span> is an integer. If so, we check whether <span class="math inline">\(abc\)</span> is greater than our existing answer for the perimeter <span class="math inline">\(a + b + c\)</span>, which is by default <span class="math inline">\(-1\)</span>. To answer the queries, we look up the corresponding value in <span class="math inline">\(O(1)\)</span> time.</p>
 
 <h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
@@ -271,18 +288,18 @@
 	</table>
 
 </aside>    <aside id="gcman-toolbar">
-                <a title="Problem 4 - Largest Palindrome Product" class="prev" href="../../euler/4/">
+                <a title="Project Euler Solutions" class="prev" href="../../euler/">
                     <i class="fas fa-chevron-circle-left"></i>
             </a>
-        <a title="Raw source" class="raw" href="../../euler/3/src.md" type="text/plain">
+        <a title="Raw source" class="raw" href="../../euler/9/src.md" type="text/plain">
             <i class="fas fa-code" aria-hidden="true"></i>
         </a>
 <a title="Home" class="home" href="../../blog/">
     <i class="fas fa-home"></i>
-</a>        <a title="PDF" class="pdf" href="../../euler/3/post.pdf">
+</a>        <a title="PDF" class="pdf" href="../../euler/9/post.pdf">
             <i class="far fa-file-pdf" aria-hidden="true"></i>
         </a>
-                <a title="Problem 2 - Even Fibonacci Numbers" class="next" href="../../euler/2/">
+                <a title="Problem 8 - Largest Product in a Series" class="next" href="../../euler/8/">
                     <i class="fas fa-chevron-circle-right"></i>
             </a>
     </aside>

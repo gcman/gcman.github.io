@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>    Problem 3 - Largest Prime Factor - Gautam Manohar
+    <title>    Problem 7 - 10001st Prime - Gautam Manohar
 </title>
     <meta charset="utf-8" />
         <meta name="keywords" content="proof, euler" />
         <meta name="category" content="euler" />
-        <meta name="description" content="My solution to problem 3 of Project Euler." />
+        <meta name="description" content="My solution to problem 7 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
         <meta name="copyright" content="Gautam Manohar" />
         <meta name="date" content="2018-06-10 00:00:00-04:00">
@@ -93,8 +93,8 @@
     <article>
     <header>
       <h1 class="title">
-            <a href="../../euler/3/" rel="bookmark"
-           title="Permalink to Problem 3 - Largest Prime Factor">Problem 3 - Largest Prime Factor</a>
+            <a href="../../euler/7/" rel="bookmark"
+           title="Permalink to Problem 7 - 10001st Prime">Problem 7 - 10001st Prime</a>
       </h1>
       <address class="author">Gautam Manohar</address>
         <div id="textbox">
@@ -108,13 +108,13 @@
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
-<p>The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor a given number <span class="math inline">\(N\)</span>?</p>
+<p>By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.</p>
+<p>What is the <span class="math inline">\(N\)</span>-th prime number?</p>
 <h1 id="my-algorithm">My Algorithm</h1>
-<p>Suppose we split <span class="math inline">\(n\)</span> into two factors. Then one of them is at least <span class="math inline">\(\sqrt{n}\)</span> and the other is at most <span class="math inline">\(\sqrt{n}\)</span>. To see this, we argue by contradiction; if both were strictly less than <span class="math inline">\(\sqrt{n}\)</span>, then their product would be strictly less than <span class="math inline">\(n\)</span>, and if both were strictly greater, so would their product. Of course, <span class="math inline">\(n\)</span> can&rsquo;t be greater than or less than itself.</p>
-<p>This is a very valuable fact. It means that if <span class="math inline">\(n\)</span> is not divisible by a prime at most <span class="math inline">\(\sqrt{n}\)</span>, then <span class="math inline">\(n\)</span> is itself prime. So if we have a list of the primes under <span class="math inline">\(\sqrt{n}\)</span>, and divide <span class="math inline">\(n\)</span> as much as we can by each of them, then what is left is either 1 or the largest prime factor of <span class="math inline">\(n\)</span>. In the first case, the answer is the largest prime that divided <span class="math inline">\(n\)</span>, which we can keep track of.</p>
-<p>To generate the list of primes, we can use the <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Sieve of Eratosthenes</a>, a classic tool in number theory. We start with a list of the first <span class="math inline">\(m\)</span> numbers. We cross out all the multiples of 2, then go to the next uncrossed number, and cross out all of its multiples. When we cannot cross out any more numbers, we are left with the primes less than or equal to <span class="math inline">\(m\)</span>. The time complexity of this operation is <span class="math inline">\(O(m\log\log m)\)</span>. There are about <span class="math inline">\(\frac{m}{\log m}\)</span> primes under <span class="math inline">\(m\)</span>, according to the <a href="https://en.wikipedia.org/wiki/Prime_number_theorem">Prime Number Theorem</a>. In our case, <span class="math inline">\(m = \sqrt{n}\)</span>. And so the time complexity of our solution is <span class="math inline">\(O(\sqrt{n}\log \log \sqrt{n} + \frac{n}{\log n}) = O(\sqrt{n} \log \log n)\)</span>.</p>
-<h2 id="other-solutions">Other Solutions</h2>
-<p>Because we only need the <em>largest</em> prime factor, an <span class="math inline">\(O(\sqrt{n})\)</span> solution is possible. The largest factor of <span class="math inline">\(n\)</span> must be prime. So we check whether each numbers up to <span class="math inline">\(\sqrt{n}\)</span> divides <span class="math inline">\(n\)</span> and keep track of the largest so far that does, which is our answer. However, the solution above gives more generally applicable techniques and can also be used to find the <span class="math inline">\(k\)</span>-th largest prime factor.</p>
+<p>We use the following identity, which is a consequence of the Prime Number Theorem: <span class="math display">\[\begin{equation}
+    n(\log n + \log \log n - 1) &lt; p_n &lt; n(\log n + \log \log n), n &gt; 5.
+\end{equation}\]</span> If <span class="math inline">\(n &lt;= 5\)</span>, we use a look-up table. Using a Sieve of Eratosthenes, we generate a list of the primes up to <span class="math inline">\(n(\log n + \log \log n)\)</span>, which is guaranteed to contain the <span class="math inline">\(n\)</span>-th prime. Our answer is the <span class="math inline">\(n\)</span>-th element of this array. We do this with time complexity <span class="math inline">\(O(n \log n \log \log (n \log n))\)</span>, using <span class="math inline">\(p_n \approx n \log n\)</span>.</p>
+<p>To optimize the constant factor, we compute the first <span class="math inline">\(N_{\text{max}} = 10^4\)</span> primes and store them in memory, rather than computing the list for each query, which takes too long.</p>
 
 <h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
@@ -271,18 +271,18 @@
 	</table>
 
 </aside>    <aside id="gcman-toolbar">
-                <a title="Problem 4 - Largest Palindrome Product" class="prev" href="../../euler/4/">
+                <a title="Problem 8 - Largest Product in a Series" class="prev" href="../../euler/8/">
                     <i class="fas fa-chevron-circle-left"></i>
             </a>
-        <a title="Raw source" class="raw" href="../../euler/3/src.md" type="text/plain">
+        <a title="Raw source" class="raw" href="../../euler/7/src.md" type="text/plain">
             <i class="fas fa-code" aria-hidden="true"></i>
         </a>
 <a title="Home" class="home" href="../../blog/">
     <i class="fas fa-home"></i>
-</a>        <a title="PDF" class="pdf" href="../../euler/3/post.pdf">
+</a>        <a title="PDF" class="pdf" href="../../euler/7/post.pdf">
             <i class="far fa-file-pdf" aria-hidden="true"></i>
         </a>
-                <a title="Problem 2 - Even Fibonacci Numbers" class="next" href="../../euler/2/">
+                <a title="Problem 6 - Sum Square Difference" class="next" href="../../euler/6/">
                     <i class="fas fa-chevron-circle-right"></i>
             </a>
     </aside>
