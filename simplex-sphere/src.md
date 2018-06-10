@@ -145,7 +145,6 @@ Then
 \end{equation}
 And so the inradius $r$ is the fourth element of $\vec{v}$, or $\vec{v}_4$.
 
-
 ## Circumsphere
 
 Now we deal with the circumsphere.
@@ -207,7 +206,7 @@ And let the solution vector be
 \end{equation}
 Then
 \begin{equation}
-	\vec{v} = \vec{M}^{-1}\vec{u}.
+	\vec{v} = \vec{M}^{-1}\vec{u}. 
 \end{equation}
 Having solved for $A,B,C$, we can solve for $R$ from one of the equations in \eqref{R-system}.
 Let's use the first one.
@@ -337,12 +336,12 @@ Here's a standard implementation of finding the kernel, or nullspace, of a matri
 
 ```python
 def nullspace(A, atol=1e-13, rtol=0):
-	A = np.atleast_2d(A)
-	u, s, vh = np.linalg.svd(A)
-	tol = max(atol, rtol * s[0])
-	nnz = (s >= tol).sum()
-	ns = vh[nnz:].conj().T
-	return np.array([k[0] for k in ns])
+    A = np.atleast_2d(A)
+    u, s, vh = np.linalg.svd(A)
+    tol = max(atol, rtol * s[0])
+    nnz = (s >= tol).sum()
+    ns = vh[nnz:].conj().T
+    return np.array([k[0] for k in ns])
 ```
 
 We return the element of the nullspace that is a vector of norm 1 and use it to calculate the generalized cross product.

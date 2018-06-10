@@ -6,7 +6,7 @@ table.euler {
 
 table.map {
 	table-layout: fixed;
-	width: 720px;
+	width: 100%
 }
 
 table.legend {
@@ -18,7 +18,7 @@ table.euler td {
 	background-clip: padding-box;
 		-moz-background-clip: padding;
 		-webkit-background-clip: padding;
-    border-radius: 5px;
+    border-radius: 0.25vw;
     text-align: center;
     vertical-align: middle;
 }
@@ -36,6 +36,7 @@ table.legend td.text {
 
 table.map td {
 	line-height: 1.25em;
+	font-size: 1vw;
 }
 
 table.map td a {
@@ -52,30 +53,30 @@ td.text {
 
 td.complete {
 	background-color: green;
-	border: 1px solid darkgreen;
+	border: 0.075vw solid darkgreen;
 	color: #DDFFDD;
 }
 
 td.hackerrank-imperfect {
 	background-color: #DDFFDD;
-	border: 1px solid green;
+	border: 0.075vw solid green;
 	color: green;
 }
 
 td.euler-only {
 	background-color: #9999FF;
-	border: 1px solid #333;
+	border: 0.075vw solid #333;
 	color: #333;
 }
 
 td.tle {
 	background-color: khaki;
-	border: 1px solid #6d660a;
+	border: 0.075vw solid #6d660a;
 	color: #6d660a;
 }
 
 td.unsolved {
 	background-color: #ededed;
-	border: 1px solid dimgray;
+	border: 0.075vw solid dimgray;
 	color: gray;
 }
