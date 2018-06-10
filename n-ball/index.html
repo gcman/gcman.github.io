@@ -74,6 +74,7 @@
   \renewcommand{\vec}[1]{\mathbf{ #1 }}
   \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
   \newcommand{\abs}[1]{\lvert #1 \rvert}
+  \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 
   \newcommand{\inn}[1]{\in\left\{ #1 \right\}}
   \newcommand{\ninn}[1]{\not\in\left\{ #1 \right\}}
@@ -87,7 +88,7 @@
   \)
 </div></head>
 <body>
-<section id="content" class="body">
+
     <header>
       <h1 class="title">
             <a href="../n-ball/" rel="bookmark"
@@ -116,7 +117,7 @@
     </aside>
     </header>
 
-      <main><article>
+      <article>
       <p>One of my favourite formulas in mathematics is the one for the area of a circle, <span class="math inline">\(\pi r^2\)</span>. Its simplicity intrigued my young mind; the circle is, in a sense, the simplest, the <em>roundest</em> shape, and this formula seems to encapsulate the circle&rsquo;s aura of &ldquo;completion.&rdquo; As I grew older, I learned more such formulas for the volumes and surface areas of familiar geometric objects. In particular, I learned of the formula for the volume of a sphere <span class="math inline">\(\frac{4}{3}\pi r^3\)</span>. Amused as I was by these clever formulas, my curiosity began to take hold of me. Questions filled my mind: isn&rsquo;t it interesting, that as the dimension of the round shape went from 2 to 3, so did the exponent on the radius? Where did the <span class="math inline">\(\frac{4}{3}\)</span> come from? Why do the formulas stop after circle and sphere? What comes next? Does anything come next? These questions lay dormant in my mind for a while, until my friend <a href="https://www.arifaulakh.com">Arif Aulakh</a> challenged me to find an expression for the volume of a sphere in an arbitrary number of dimensions. My curiosity rekindled, I set out in search of the higher-dimensional sphere to answer the question: what comes next?</p>
 <h1 id="introduction">Introduction</h1>
 <p>Before we embark on our journey, we need to lay out some basic definitions. A sphere is the set of all points a given distance (let&rsquo;s call it <span class="math inline">\(R\)</span>) from a given center point. A ball is the space whose boundary is a sphere, or the set of all points whose distance from a given center point is less than or equal to <span class="math inline">\(R\)</span>. For example, a sphere in <span class="math inline">\(2\)</span> dimensions is called a circle, and the corresponding ball is called a disk. Upon hearing the word &ldquo;circle,&rdquo; you might imagine a flat coin-like object. That&rsquo;s not what a mathematician means when they say circle. To a mathematician, a circle is just the boundary of that coin, while a disk is the entirety of the points contained in (and on the boundary of) the coin. Similarly, a sphere is the bounding surface of a ball. So let&rsquo;s call a ball in <span class="math inline">\(n\)</span> Euclidean dimensions with a certain radius the <span class="math inline">\(n\)</span>-ball of radius <span class="math inline">\(R\)</span>. Also, note that a <span class="math inline">\(1\)</span>-ball is just a line segment. In <span class="math inline">\(2\)</span> dimensions, we say closed figures have area, and in <span class="math inline">\(3\)</span> dimensions, we say they have volume. The arbitrary-dimensional analogue of this concept is &ldquo;content.&rdquo; For example, the 2-ball has content <span class="math inline">\(\pi R^2\)</span>, the 3-ball <span class="math inline">\(\frac{4}{3}\pi R^2\)</span>. We shall find a general formula for the content of an <span class="math inline">\(n\)</span>-ball of radius <span class="math inline">\(R\)</span>. Along the way, we will uncover and explore some interesting related results.</p>
@@ -477,8 +478,7 @@ V_n(R) = \frac{R^n\pi^\frac{n}{2}}{\Gamma\left(\frac{n}{2}+1\right)}.
         </a>
       </footer>
   </article>
-    </main>
-</section>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
   $('.title a').html(function(index, value) {
