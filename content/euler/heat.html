@@ -36,7 +36,7 @@
 	<table class="map euler">
 		{% for row in tab %}
 			<tr>
-				{% for entry in row %}<td class="{{ entry.cls }}">{% if entry.link %}<a href="{{ entry.num }}/" title="{{ entry.link }}">{{ entry.num }}{% else %}{{ entry.num }}{% endif %}{% if entry.link %}</a>{% endif %}</td>
+				{% for entry in row %}<td class="{{ entry.cls }}">{% if entry.link %}<a href="{{ SITEURL }}/euler/{{ entry.num }}/" title="{{ entry.link }}">{{ entry.num }}{% else %}{{ entry.num }}{% endif %}{% if entry.link %}</a>{% endif %}</td>
 				{% endfor %}
 			</tr>{% endfor %}
 	</table>

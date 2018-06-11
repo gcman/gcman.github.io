@@ -167,36 +167,37 @@ def make_source():
 				PDF_DIR = path.join(OUTPUT_DIR,"../pdf")
 				MD = path.join(OUTPUT_DIR, "src.md")
 				PDF = path.join(OUTPUT_DIR,"post.pdf")
-				with open(file, "r") as f:
-					lines = [line for line in f]
-					empty = 0
-					for i,line in enumerate(lines):
-						if line == "\n":
-							empty = i
-							break
-				print("Copying {}".format(file))
-				with open(MD, "w", encoding="utf-8") as f:
-					s = "---\n"
-					f.write(s)
-					for i,line in enumerate(lines):
-						test_path = None
-						if i == empty:
-							f.write(s + "\n")
-						else:
-							if i not in [0,len(lines)-1] and all([lines[x] == "\n" for x in [i-1,i+1]]) and line[0] == "!":
-								fig = re.search("(?<=[(])(.*)(?=[)])",line).group(0)
-								fig_name = re.search("(?<=figures/)(.*)",fig).group(0)
-								if "http" not in fig:
-									priority = ["pdf","png",ext(fig_name)]
-									for p in priority:
-										if not test_path:
-											if p == "pdf":
-												test_path = path.join(path.join(rootdir,"figures"), bare(fig_name) + "." + p)
-											else:
-												test_path = path.join(path.dirname(rootdir),"/output/figures/" + bare(fig_name) + "." + p)
-									if path.isfile(test_path):
-										line = line.replace(fig,test_path)
-							f.write(line)
+				if file in diff or not path.isfile(MD):
+					with open(file, "r") as f:
+						lines = [line for line in f]
+						empty = 0
+						for i,line in enumerate(lines):
+							if line == "\n":
+								empty = i
+								break
+					print("Copying {}".format(file))
+					with open(MD, "w", encoding="utf-8") as f:
+						s = "---\n"
+						f.write(s)
+						for i,line in enumerate(lines):
+							test_path = None
+							if i == empty:
+								f.write(s + "\n")
+							else:
+								if i not in [0,len(lines)-1] and all([lines[x] == "\n" for x in [i-1,i+1]]) and line[0] == "!":
+									fig = re.search("(?<=[(])(.*)(?=[)])",line).group(0)
+									fig_name = re.search("(?<=figures/)(.*)",fig).group(0)
+									if "http" not in fig:
+										priority = ["pdf","png",ext(fig_name)]
+										for p in priority:
+											if not test_path:
+												if p == "pdf":
+													test_path = path.join(path.join(rootdir,"figures"), bare(fig_name) + "." + p)
+												else:
+													test_path = path.join(path.dirname(rootdir),"/output/figures/" + bare(fig_name) + "." + p)
+										if path.isfile(test_path):
+											line = line.replace(fig,test_path)
+								f.write(line)
 				if file in diff or path.join(ROOT, "/content/extra/header.tex") in diff or not path.isfile(PDF):
 					print("Building PDF from {}".format(file))
 					shell("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex --listings "
@@ -232,7 +233,6 @@ def preview():
 				shell('rd /s /q "output/drafts"')
 	except Exception:
 		pass
-	clean()
 	build()
 	make_figs()
 	make_source()
