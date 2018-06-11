@@ -17,4 +17,4 @@ We read in the numbers, add them, convert the result to a string, and output the
 
 ## Other Solutions
 
-In languages without big integer support, then we would have to write an algorithm to add big integers, using string arrays and the carrying method often taught in elementary schools.
+In languages without big integer support, we would need an algorithm to add big integers, using string arrays and the carrying method often taught in elementary schools.

@@ -19,7 +19,7 @@ We use the following identity, which is a consequence of the Prime Number Theore
 \begin{equation}
 	n(\log n + \log \log n - 1) < p_n < n(\log n + \log \log n), n > 5.
 \end{equation}
-If $n <= 5$, we use a look-up table.
+If $n \le 5$, we use a look-up table.
 Using a Sieve of Eratosthenes, we generate a list of the primes up to $n(\log n + \log \log n)$, which is guaranteed to contain the $n$-th prime.
 Our answer is the $n$-th element of this array.
 We do this with time complexity $O(n \log n \log \log (n \log n))$, using $p_n \approx n \log n$.
