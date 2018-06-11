@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>    Problem 6 - Sum Square Difference - Gautam Manohar
+    <title>    Problem 14 - Longest Collatz Sequence - Gautam Manohar
 </title>
     <meta charset="utf-8" />
         <meta name="keywords" content="proof, euler" />
         <meta name="category" content="euler" />
-        <meta name="description" content="My solution to problem 6 of Project Euler." />
+        <meta name="description" content="My solution to problem 14 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
         <meta name="copyright" content="Gautam Manohar" />
         <meta name="date" content="2018-06-10 00:00:00-04:00">
@@ -93,8 +93,8 @@
     <article>
     <header>
       <h1 class="title">
-            <a href="../../euler/6/" rel="bookmark"
-           title="Permalink to Problem 6 - Sum Square Difference">Problem 6 - Sum Square Difference</a>
+            <a href="../../euler/14/" rel="bookmark"
+           title="Permalink to Problem 14 - Longest Collatz Sequence">Problem 14 - Longest Collatz Sequence</a>
       </h1>
       <address class="author">Gautam Manohar</address>
         <div id="textbox">
@@ -108,29 +108,20 @@
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
-<p>The sum of the squares of the first ten natural numbers is <span class="math display">\[\begin{equation}
-    1^2 + 2^2 + \cdots + 10^2 = 385.
-\end{equation}\]</span> The square of the sum of the first ten natural numbers is <span class="math display">\[\begin{equation}
-    (1 + 2 + \cdots + 10)^2 = 55^2 = 3025
-\end{equation}\]</span> Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is <span class="math inline">\(3025 - 385 = 2640\)</span>. Find the absolute difference between the sum of the squares of the first <span class="math inline">\(N\)</span> natural numbers and the square of the sum.</p>
+<p>The following iterative sequence is defined for the set of positive integers: <span class="math display">\[\begin{equation*}
+    \begin{cases}
+        n \to \frac{n}{2} \quad n \,\text{even}, \\
+        n \to 3n + 1 \quad n\,\text{odd}
+    \end{cases}
+\end{equation*}\]</span> Using the rule above and starting with 13 generates the following sequence: <span class="math display">\[\begin{equation}
+    13 \to 40 \to 20 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1
+\end{equation}\]</span> This sequence contains 10 terms. It is conjectured that every starting number produces a sequence that ends in 1.</p>
+<p>Which starting number at most <span class="math inline">\(N\)</span> produces the longest chain? If there are many possible such numbers, print the maximum one.</p>
 <h1 id="my-algorithm">My Algorithm</h1>
-<p>We make use of the following two formulas, which can be proven using induction. <span class="math display">\[\begin{equation}
-    \sum_{i=1}^n i = \frac{n(n+1)}{2}
-    \label{1}
-\end{equation}\]</span> and <span class="math display">\[\begin{equation}
-    \sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}.
-    \label{2}
-\end{equation}\]</span></p>
-<p>Applying these two formulas, the desired value is <span class="math display">\[\begin{equation}
-    \begin{split}
-        \Big| \frac{n^2(n+1)^2}{4} - \frac{n(n+1)(2n+1)}{6} \Big| &amp;= \Big|\frac{n^4+2n^3+n^2}{4} - \frac{2n^3 + 3n^2 + n}{6} \Big| \\
-        &amp;= \Big| \frac{3n^4+6n^3+3n^2}{12} - \frac{4n^3 + 6n^2 + 2n}{12} \Big| \\
-        &amp;= \Big| \frac{3n^4+2n^3-3n^2-2n}{12} \Big| \\
-    \end{split}
-    \label{final-sum}
-\end{equation}\]</span> This value is non-negative for all positive integers, so the absolute value bars are not necessary. Our algorithm is just a computation, so it has time complexity <span class="math inline">\(O(1)\)</span>.</p>
+<p>This problem is perfect for caching (or memoization) and recursion. We define a recursive function that returns the length of a Collatz chain with a given starting number. The function also store the chain length for each starting number (and, because the function is recursive, each number in the chain) in a list so that we do not have to compute it again. Because of memory constraints, we do not store chain lengths for numbers greater than the maximum given <span class="math inline">\(N\)</span>. Instead, we compute these values on the fly.</p>
+<p>We can then iterate over all possible starting numbers and keep a list of starting numbers which produce a right-maximal chain length (that is, they produce a chain length greater than or equal to all lenghts produced by smaller starting numbers). Finally, we perform a binary search for the greatest element in this list less than each query. This solution has time complexity <span class="math inline">\(O(M + T\log M)\)</span>, where <span class="math inline">\(M\)</span> is the maximum possible starting value and <span class="math inline">\(T\)</span> is the number of queries.</p>
 <h2 id="other-solutions">Other Solutions</h2>
-<p>We did not need to simplify the expression as in <span class="math inline">\(\eqref{final-sum}\)</span>; we could have simply subtracted <span class="math inline">\(\eqref{2}\)</span> from the square of <span class="math inline">\(\eqref{1}\)</span>. An <span class="math inline">\(O(n)\)</span> solution is also possible: simply add the first <span class="math inline">\(N\)</span> numbers, square them, and subtract the sum of the squares of the first <span class="math inline">\(N\)</span> numbers.</p>
+<p>Solutions which do not use memoization are too slow.</p>
 
 <h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
@@ -287,18 +278,18 @@
 	</table>
 
 </aside>    <aside id="gcman-toolbar">
-                <a title="Problem 7 - 10001st Prime" class="prev" href="../../euler/7/">
+                <a title="Problem 2 - Even Fibonacci Numbers" class="prev" href="../../euler/2/">
                     <i class="fas fa-chevron-circle-left"></i>
             </a>
-        <a title="Raw source" class="raw" href="../../euler/6/src.md" type="text/plain">
+        <a title="Raw source" class="raw" href="../../euler/14/src.md" type="text/plain">
             <i class="fas fa-code" aria-hidden="true"></i>
         </a>
 <a title="Home" class="home" href="../../blog/">
     <i class="fas fa-home"></i>
-</a>        <a title="PDF" class="pdf" href="../../euler/6/post.pdf">
+</a>        <a title="PDF" class="pdf" href="../../euler/14/post.pdf">
             <i class="far fa-file-pdf" aria-hidden="true"></i>
         </a>
-                <a title="Problem 5 - Smallest Multiple" class="next" href="../../euler/5/">
+                <a title="Problem 13 - Large Sum" class="next" href="../../euler/13/">
                     <i class="fas fa-chevron-circle-right"></i>
             </a>
     </aside>

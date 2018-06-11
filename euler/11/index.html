@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>    Problem 6 - Sum Square Difference - Gautam Manohar
+    <title>    Problem 11 - Largest Product in a Grid - Gautam Manohar
 </title>
     <meta charset="utf-8" />
         <meta name="keywords" content="proof, euler" />
         <meta name="category" content="euler" />
-        <meta name="description" content="My solution to problem 6 of Project Euler." />
+        <meta name="description" content="My solution to problem 11 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
         <meta name="copyright" content="Gautam Manohar" />
         <meta name="date" content="2018-06-10 00:00:00-04:00">
@@ -93,8 +93,8 @@
     <article>
     <header>
       <h1 class="title">
-            <a href="../../euler/6/" rel="bookmark"
-           title="Permalink to Problem 6 - Sum Square Difference">Problem 6 - Sum Square Difference</a>
+            <a href="../../euler/11/" rel="bookmark"
+           title="Permalink to Problem 11 - Largest Product in a Grid">Problem 11 - Largest Product in a Grid</a>
       </h1>
       <address class="author">Gautam Manohar</address>
         <div id="textbox">
@@ -108,29 +108,33 @@
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
-<p>The sum of the squares of the first ten natural numbers is <span class="math display">\[\begin{equation}
-    1^2 + 2^2 + \cdots + 10^2 = 385.
-\end{equation}\]</span> The square of the sum of the first ten natural numbers is <span class="math display">\[\begin{equation}
-    (1 + 2 + \cdots + 10)^2 = 55^2 = 3025
-\end{equation}\]</span> Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is <span class="math inline">\(3025 - 385 = 2640\)</span>. Find the absolute difference between the sum of the squares of the first <span class="math inline">\(N\)</span> natural numbers and the square of the sum.</p>
+<p>In the 20-by-20 grid below, four numbers have been marked in bold. <span class="math display">\[\begin{equation*}
+    \setcounter{MaxMatrixCols}{20}
+    \begin{matrix}
+        08 &amp; 02 &amp; 22 &amp; 97 &amp; 38 &amp; 15 &amp; 00 &amp; 40 &amp; 00 &amp; 75 &amp; 04 &amp; 05 &amp; 07 &amp; 78 &amp; 52 &amp; 12 &amp; 50 &amp; 77 &amp; 91 &amp; 08 \\
+        49 &amp; 49 &amp; 99 &amp; 40 &amp; 17 &amp; 81 &amp; 18 &amp; 57 &amp; 60 &amp; 87 &amp; 17 &amp; 40 &amp; 98 &amp; 43 &amp; 69 &amp; 48 &amp; 04 &amp; 56 &amp; 62 &amp; 00 \\
+        81 &amp; 49 &amp; 31 &amp; 73 &amp; 55 &amp; 79 &amp; 14 &amp; 29 &amp; 93 &amp; 71 &amp; 40 &amp; 67 &amp; 53 &amp; 88 &amp; 30 &amp; 03 &amp; 49 &amp; 13 &amp; 36 &amp; 65 \\
+        52 &amp; 70 &amp; 95 &amp; 23 &amp; 04 &amp; 60 &amp; 11 &amp; 42 &amp; 69 &amp; 24 &amp; 68 &amp; 56 &amp; 01 &amp; 32 &amp; 56 &amp; 71 &amp; 37 &amp; 02 &amp; 36 &amp; 91 \\
+        22 &amp; 31 &amp; 16 &amp; 71 &amp; 51 &amp; 67 &amp; 63 &amp; 89 &amp; 41 &amp; 92 &amp; 36 &amp; 54 &amp; 22 &amp; 40 &amp; 40 &amp; 28 &amp; 66 &amp; 33 &amp; 13 &amp; 80 \\
+        24 &amp; 47 &amp; 32 &amp; 60 &amp; 99 &amp; 03 &amp; 45 &amp; 02 &amp; 44 &amp; 75 &amp; 33 &amp; 53 &amp; 78 &amp; 36 &amp; 84 &amp; 20 &amp; 35 &amp; 17 &amp; 12 &amp; 50 \\
+        32 &amp; 98 &amp; 81 &amp; 28 &amp; 64 &amp; 23 &amp; 67 &amp; 10 &amp; \mathbf{26} &amp; 38 &amp; 40 &amp; 67 &amp; 59 &amp; 54 &amp; 70 &amp; 66 &amp; 18 &amp; 38 &amp; 64 &amp; 70 \\
+        67 &amp; 26 &amp; 20 &amp; 68 &amp; 02 &amp; 62 &amp; 12 &amp; 20 &amp; 95 &amp; \mathbf{63} &amp; 94 &amp; 39 &amp; 63 &amp; 08 &amp; 40 &amp; 91 &amp; 66 &amp; 49 &amp; 94 &amp; 21 \\
+        24 &amp; 55 &amp; 58 &amp; 05 &amp; 66 &amp; 73 &amp; 99 &amp; 26 &amp; 97 &amp; 17 &amp; \mathbf{78} &amp; 78 &amp; 96 &amp; 83 &amp; 14 &amp; 88 &amp; 34 &amp; 89 &amp; 63 &amp; 72 \\
+        21 &amp; 36 &amp; 23 &amp; 09 &amp; 75 &amp; 00 &amp; 76 &amp; 44 &amp; 20 &amp; 45 &amp; 35 &amp; \mathbf{14} &amp; 00 &amp; 61 &amp; 33 &amp; 97 &amp; 34 &amp; 31 &amp; 33 &amp; 95 \\
+        78 &amp; 17 &amp; 53 &amp; 28 &amp; 22 &amp; 75 &amp; 31 &amp; 67 &amp; 15 &amp; 94 &amp; 03 &amp; 80 &amp; 04 &amp; 62 &amp; 16 &amp; 14 &amp; 09 &amp; 53 &amp; 56 &amp; 92 \\
+        16 &amp; 39 &amp; 05 &amp; 42 &amp; 96 &amp; 35 &amp; 31 &amp; 47 &amp; 55 &amp; 58 &amp; 88 &amp; 24 &amp; 00 &amp; 17 &amp; 54 &amp; 24 &amp; 36 &amp; 29 &amp; 85 &amp; 57 \\
+        86 &amp; 56 &amp; 00 &amp; 48 &amp; 35 &amp; 71 &amp; 89 &amp; 07 &amp; 05 &amp; 44 &amp; 44 &amp; 37 &amp; 44 &amp; 60 &amp; 21 &amp; 58 &amp; 51 &amp; 54 &amp; 17 &amp; 58 \\
+        19 &amp; 80 &amp; 81 &amp; 68 &amp; 05 &amp; 94 &amp; 47 &amp; 69 &amp; 28 &amp; 73 &amp; 92 &amp; 13 &amp; 86 &amp; 52 &amp; 17 &amp; 77 &amp; 04 &amp; 89 &amp; 55 &amp; 40 \\
+        04 &amp; 52 &amp; 08 &amp; 83 &amp; 97 &amp; 35 &amp; 99 &amp; 16 &amp; 07 &amp; 97 &amp; 57 &amp; 32 &amp; 16 &amp; 26 &amp; 26 &amp; 79 &amp; 33 &amp; 27 &amp; 98 &amp; 66 \\
+        88 &amp; 36 &amp; 68 &amp; 87 &amp; 57 &amp; 62 &amp; 20 &amp; 72 &amp; 03 &amp; 46 &amp; 33 &amp; 67 &amp; 46 &amp; 55 &amp; 12 &amp; 32 &amp; 63 &amp; 93 &amp; 53 &amp; 69 \\
+        04 &amp; 42 &amp; 16 &amp; 73 &amp; 38 &amp; 25 &amp; 39 &amp; 11 &amp; 24 &amp; 94 &amp; 72 &amp; 18 &amp; 08 &amp; 46 &amp; 29 &amp; 32 &amp; 40 &amp; 62 &amp; 76 &amp; 36 \\
+        20 &amp; 69 &amp; 36 &amp; 41 &amp; 72 &amp; 30 &amp; 23 &amp; 88 &amp; 34 &amp; 62 &amp; 99 &amp; 69 &amp; 82 &amp; 67 &amp; 59 &amp; 85 &amp; 74 &amp; 04 &amp; 36 &amp; 16 \\
+        20 &amp; 73 &amp; 35 &amp; 29 &amp; 78 &amp; 31 &amp; 90 &amp; 01 &amp; 74 &amp; 31 &amp; 49 &amp; 71 &amp; 48 &amp; 86 &amp; 81 &amp; 16 &amp; 23 &amp; 57 &amp; 05 &amp; 54 \\
+        01 &amp; 70 &amp; 54 &amp; 71 &amp; 83 &amp; 51 &amp; 54 &amp; 69 &amp; 16 &amp; 92 &amp; 33 &amp; 48 &amp; 61 &amp; 43 &amp; 52 &amp; 01 &amp; 89 &amp; 19 &amp; 67 &amp; 48 \\
+    \end{matrix}
+\end{equation*}\]</span> The product of these numbers is <span class="math inline">\(26 \cdot 63 \cdot 78 \cdot 14 = 1788696\)</span>. What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20&times;20 grid?</p>
 <h1 id="my-algorithm">My Algorithm</h1>
-<p>We make use of the following two formulas, which can be proven using induction. <span class="math display">\[\begin{equation}
-    \sum_{i=1}^n i = \frac{n(n+1)}{2}
-    \label{1}
-\end{equation}\]</span> and <span class="math display">\[\begin{equation}
-    \sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}.
-    \label{2}
-\end{equation}\]</span></p>
-<p>Applying these two formulas, the desired value is <span class="math display">\[\begin{equation}
-    \begin{split}
-        \Big| \frac{n^2(n+1)^2}{4} - \frac{n(n+1)(2n+1)}{6} \Big| &amp;= \Big|\frac{n^4+2n^3+n^2}{4} - \frac{2n^3 + 3n^2 + n}{6} \Big| \\
-        &amp;= \Big| \frac{3n^4+6n^3+3n^2}{12} - \frac{4n^3 + 6n^2 + 2n}{12} \Big| \\
-        &amp;= \Big| \frac{3n^4+2n^3-3n^2-2n}{12} \Big| \\
-    \end{split}
-    \label{final-sum}
-\end{equation}\]</span> This value is non-negative for all positive integers, so the absolute value bars are not necessary. Our algorithm is just a computation, so it has time complexity <span class="math inline">\(O(1)\)</span>.</p>
-<h2 id="other-solutions">Other Solutions</h2>
-<p>We did not need to simplify the expression as in <span class="math inline">\(\eqref{final-sum}\)</span>; we could have simply subtracted <span class="math inline">\(\eqref{2}\)</span> from the square of <span class="math inline">\(\eqref{1}\)</span>. An <span class="math inline">\(O(n)\)</span> solution is also possible: simply add the first <span class="math inline">\(N\)</span> numbers, square them, and subtract the sum of the squares of the first <span class="math inline">\(N\)</span> numbers.</p>
+<p>The important thing in this problem is to be careful of boundary conditions. We start at the top left corner. If there are at least three cells to the right, we check the horizontal product. If there are at least three cells down, we check the vertical product. If there are at least three cells to the left and three cells down, we check the left diagonal product. If there are at least three cells to the right and three cells down, we check the right diagonal product. Checking up, left, left-up, or right-up would be redundant. We take the maximum of these four values and the existing maximum product and set that to be our new maximum product. We continue like this over all cells in the grid. Our final answer is found in <span class="math inline">\(O(n^2)\)</span> time&mdash;not surprising for a square grid.</p>
 
 <h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
@@ -287,18 +291,18 @@
 	</table>
 
 </aside>    <aside id="gcman-toolbar">
-                <a title="Problem 7 - 10001st Prime" class="prev" href="../../euler/7/">
+                <a title="Problem 12 - Highly Divisible Triangular Number" class="prev" href="../../euler/12/">
                     <i class="fas fa-chevron-circle-left"></i>
             </a>
-        <a title="Raw source" class="raw" href="../../euler/6/src.md" type="text/plain">
+        <a title="Raw source" class="raw" href="../../euler/11/src.md" type="text/plain">
             <i class="fas fa-code" aria-hidden="true"></i>
         </a>
 <a title="Home" class="home" href="../../blog/">
     <i class="fas fa-home"></i>
-</a>        <a title="PDF" class="pdf" href="../../euler/6/post.pdf">
+</a>        <a title="PDF" class="pdf" href="../../euler/11/post.pdf">
             <i class="far fa-file-pdf" aria-hidden="true"></i>
         </a>
-                <a title="Problem 5 - Smallest Multiple" class="next" href="../../euler/5/">
+                <a title="Problem 10 - Summation of Primes" class="next" href="../../euler/10/">
                     <i class="fas fa-chevron-circle-right"></i>
             </a>
     </aside>
