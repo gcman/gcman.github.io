@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>    Problem 10 - Summation of Primes - Gautam Manohar
+    <title>    Problem 16 - Power Digit Sum - Gautam Manohar
 </title>
     <meta charset="utf-8" />
         <meta name="keywords" content="proof, euler" />
         <meta name="category" content="euler" />
-        <meta name="description" content="My solution to problem 10 of Project Euler." />
+        <meta name="description" content="My solution to problem 16 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
         <meta name="copyright" content="Gautam Manohar" />
-        <meta name="date" content="2018-06-10 00:00:00-04:00">
+        <meta name="date" content="2018-06-11 00:00:00-04:00">
 <link rel="stylesheet" href="../../theme/css/normalize/normalize.min.css" type="text/css" />
   <link rel="stylesheet" href="../../theme/css/article.css" type="text/css" />
   <link rel="stylesheet" href="../../theme/css/heat.css" type="text/css" />
@@ -93,24 +93,24 @@
     <article>
     <header>
       <h1 class="title">
-            <a href="../../euler/10/" rel="bookmark"
-           title="Permalink to Problem 10 - Summation of Primes">Problem 10 - Summation of Primes</a>
+            <a href="../../euler/16/" rel="bookmark"
+           title="Permalink to Problem 16 - Power Digit Sum">Problem 16 - Power Digit Sum</a>
       </h1>
       <address class="author">Gautam Manohar</address>
         <div id="textbox">
           <p style="font-weight: bold;" class="alignleft">
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
-            <p class="date aligncenter">10 June 2018</p>
+            <p class="date aligncenter">11 June 2018</p>
           <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
-<p>The sum of all primes below 10 is <span class="math inline">\(2+3+5+7 = 17\)</span>. Find the sum of all primes at most <span class="math inline">\(N\)</span>.</p>
+<p>What is the sum of the digits of <span class="math inline">\(2^N\)</span>?</p>
 <h1 id="my-algorithm">My Algorithm</h1>
-<p>We use a Sieve of Eratosthenes to compute the primes up to the maximum possible value of <span class="math inline">\(N\)</span>. We then construct a prefix sum array in <span class="math inline">\(O(\frac{N}{\log N})\)</span> time. Using a binary search, we find the index of largest prime less than <span class="math inline">\(N\)</span> in <span class="math inline">\(O(\log N - \log \log N)\)</span> time. In <span class="math inline">\(O(1)\)</span> time, we look up the corresponding partial sum of prime numbers. Our solution has time complexity <span class="math inline">\(O(n\log\log n + \frac{n}{\log n} + T\log n)\)</span>, where <span class="math inline">\(T\)</span> is the number of queries.</p>
+<p>Python has built-in infinite precision integer arithmetic, so this problem is easily done. We find <span class="math inline">\(2^N\)</span> using built-in modular exponentiation in <span class="math inline">\(O(\log N)\)</span> time. The length of this number is <span class="math inline">\(\lceil N\log_10 2 \rceil \in O(N)\)</span>. And so our solution has complexity <span class="math inline">\(O(N \log N)\)</span>.</p>
 
 <h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
@@ -267,18 +267,18 @@
 	</table>
 
 </aside>    <aside id="gcman-toolbar">
-                <a title="Problem 11 - Largest Product in a Grid" class="prev" href="../../euler/11/">
+                <a title="Problem 10 - Summation of Primes" class="prev" href="../../euler/10/">
                     <i class="fas fa-chevron-circle-left"></i>
             </a>
-        <a title="Raw source" class="raw" href="../../euler/10/src.md" type="text/plain">
+        <a title="Raw source" class="raw" href="../../euler/16/src.md" type="text/plain">
             <i class="fas fa-code" aria-hidden="true"></i>
         </a>
 <a title="Home" class="home" href="../../blog/">
     <i class="fas fa-home"></i>
-</a>        <a title="PDF" class="pdf" href="../../euler/10/post.pdf">
+</a>        <a title="PDF" class="pdf" href="../../euler/16/post.pdf">
             <i class="far fa-file-pdf" aria-hidden="true"></i>
         </a>
-                <a title="Problem 16 - Power Digit Sum" class="next" href="../../euler/16/">
+                <a title="Problem 15 - Lattice Paths" class="next" href="../../euler/15/">
                     <i class="fas fa-chevron-circle-right"></i>
             </a>
     </aside>
