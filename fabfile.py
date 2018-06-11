@@ -203,14 +203,15 @@ def make_source():
 					shell("pandoc extra/default.yaml -H extra/header.tex --template extra/template.tex --listings "
 						+ MD + " -o " + PDF)
 					os.remove(MD)
-				with open(MD, "w", encoding="utf-8") as f:
-					s = u"\u2010\u2010\u2010\n"
-					f.write(s)
-					for i, line in enumerate(lines):
-						if i == empty:
-							f.write(s + "\n")
-						else:
-							f.write(line)
+				if file in diff or not path.isfile(MD):
+					with open(MD, "w", encoding="utf-8") as f:
+						s = u"\u2010\u2010\u2010\n"
+						f.write(s)
+						for i, line in enumerate(lines):
+							if i == empty:
+								f.write(s + "\n")
+							else:
+								f.write(line)
 	os.chdir(ROOT)
 
 def del_tex2pdf():
