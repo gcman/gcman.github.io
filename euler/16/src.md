@@ -15,5 +15,5 @@ What is the sum of the digits of $2^N$?
 
 Python has built-in infinite precision integer arithmetic, so this problem is easily done.
 We find $2^N$ using built-in modular exponentiation in $O(\log N)$ time.
-The length of this number is $\lceil N\log_10 2 \rceil \in O(N)$.
+The length of this number is $\lceil N\log_{10} 2 \rceil \in O(N)$.
 And so our solution has complexity $O(N \log N)$.

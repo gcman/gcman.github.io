@@ -43,9 +43,6 @@
     <loc>https://gautammanohar.com/euler/14/</loc>
   </url>
   <url>
-    <loc>https://gautammanohar.com/euler/2/</loc>
-  </url>
-  <url>
     <loc>https://gautammanohar.com/euler/3/</loc>
   </url>
   <url>
@@ -53,6 +50,9 @@
   </url>
   <url>
     <loc>https://gautammanohar.com/euler/5/</loc>
+  </url>
+  <url>
+    <loc>https://gautammanohar.com/euler/2/</loc>
   </url>
   <url>
     <loc>https://gautammanohar.com/euler/6/</loc>
@@ -103,10 +103,10 @@
     <loc>https://gautammanohar.com/herons-formula/src.md</loc>
   </url>
   <url>
-    <loc>https://gautammanohar.com/herons-formula/post.pdf</loc>
+    <loc>https://gautammanohar.com/e-pi/src.md</loc>
   </url>
   <url>
-    <loc>https://gautammanohar.com/e-pi/src.md</loc>
+    <loc>https://gautammanohar.com/herons-formula/post.pdf</loc>
   </url>
   <url>
     <loc>https://gautammanohar.com/e-pi/post.pdf</loc>
@@ -139,9 +139,6 @@
     <loc>https://gautammanohar.com/euler/12/src.md</loc>
   </url>
   <url>
-    <loc>https://gautammanohar.com/euler/12/post.pdf</loc>
-  </url>
-  <url>
     <loc>https://gautammanohar.com/euler/13/src.md</loc>
   </url>
   <url>
@@ -152,12 +149,6 @@
   </url>
   <url>
     <loc>https://gautammanohar.com/euler/14/post.pdf</loc>
-  </url>
-  <url>
-    <loc>https://gautammanohar.com/euler/2/src.md</loc>
-  </url>
-  <url>
-    <loc>https://gautammanohar.com/euler/2/post.pdf</loc>
   </url>
   <url>
     <loc>https://gautammanohar.com/euler/3/src.md</loc>
@@ -176,6 +167,12 @@
   </url>
   <url>
     <loc>https://gautammanohar.com/euler/5/post.pdf</loc>
+  </url>
+  <url>
+    <loc>https://gautammanohar.com/euler/2/src.md</loc>
+  </url>
+  <url>
+    <loc>https://gautammanohar.com/euler/2/post.pdf</loc>
   </url>
   <url>
     <loc>https://gautammanohar.com/euler/6/src.md</loc>
@@ -197,6 +194,9 @@
   </url>
   <url>
     <loc>https://gautammanohar.com/euler/9/src.md</loc>
+  </url>
+  <url>
+    <loc>https://gautammanohar.com/euler/12/post.pdf</loc>
   </url>
   <url>
     <loc>https://gautammanohar.com/euler/9/post.pdf</loc>
