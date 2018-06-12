@@ -16,7 +16,7 @@ Given a number, write it in English words.
 The Hackerank bounds for this problem are $N \le 10^{12}$.
 First, we create a dictionary of all the ``special'' number names that cannot be procedurally generated:
 \begin{equation*}
-	0,\ldots,9, 1\cdot10,\ldots,9\cdot10, 10^2,10^3,10^6,10^9,10^{12}
+	0,1,\ldots,9, \quad 10,20,\ldots,90, \quad 10^2,10^3,10^6,10^9,10^{12}
 \end{equation*}
 
 Now to process the number $N$.

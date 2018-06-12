@@ -11,7 +11,7 @@ summary: My solution to problem 11 of Project Euler.
 
 In the 20-by-20 grid below, four numbers have been marked in bold.
 
-![A nice friendly matrix.](../../figures/euler-11-matrix.png){ width=100% }
+![A nice friendly matrix.](../../figures/euler-11-matrix.png){ width=95% }
 
 The product of these numbers is $26 \cdot 63 \cdot 78 \cdot 14 = 1788696$.
 What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20Ã—20 grid?

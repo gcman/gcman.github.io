@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>    Problem 9 - Special Pythagorean Triplets - Gautam Manohar
+    <title>    Problem 18 - Maximum Path Sum I - Gautam Manohar
 </title>
     <meta charset="utf-8" />
         <meta name="keywords" content="proof, euler" />
         <meta name="category" content="euler" />
-        <meta name="description" content="My solution to problem 9 of Project Euler." />
+        <meta name="description" content="My solution to problem 18 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
         <meta name="copyright" content="Gautam Manohar" />
-        <meta name="date" content="2018-06-10 00:00:00-04:00">
+        <meta name="date" content="2018-06-11 00:00:00-04:00">
 <link rel="stylesheet" href="../../theme/css/normalize/normalize.min.css" type="text/css" />
   <link rel="stylesheet" href="../../theme/css/article.css" type="text/css" />
   <link rel="stylesheet" href="../../theme/css/heat.css" type="text/css" />
@@ -93,45 +93,32 @@
     <article>
     <header>
       <h1 class="title">
-            <a href="../../euler/9/" rel="bookmark"
-           title="Permalink to Problem 9 - Special Pythagorean Triplets">Problem 9 - Special Pythagorean Triplets</a>
+            <a href="../../euler/18/" rel="bookmark"
+           title="Permalink to Problem 18 - Maximum Path Sum I">Problem 18 - Maximum Path Sum I</a>
       </h1>
       <address class="author">Gautam Manohar</address>
         <div id="textbox">
           <p style="font-weight: bold;" class="alignleft">
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
-            <p class="date aligncenter">10 June 2018</p>
+            <p class="date aligncenter">11 June 2018</p>
           <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
-<p>A Pythagorean triplet is a set of three natural numbers, <span class="math inline">\(a &lt; b &lt; c\)</span>, for which, <span class="math display">\[\begin{equation}
-    a^2 + b^2 = c^2
-\end{equation}\]</span> For example, <span class="math inline">\(3^2 + 4^2 = 9 + 16 = 25 = 52\)</span>.</p>
-<p>Given <span class="math inline">\(N\)</span>, find the maximal product <span class="math inline">\(abc\)</span> such that <span class="math inline">\(a,b,c\)</span> form a Pythagorean triplet for which <span class="math inline">\(a+b+c = N\)</span>. If no such triplet exists, output <span class="math inline">\(-1\)</span>.</p>
+<p>By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximal total from top to bottom is 23.</p>
+<figure>
+<img alt="Note that 3+7+4+9 = 23." src="../../figures/euler-18-triangle.png" style="width:10.0%"/><figcaption>Note that <span class="math inline">\(3+7+4+9 = 23\)</span>.</figcaption>
+</figure>
+<p>Find the maximum path length for a given such triangle.</p>
 <h1 id="my-algorithm">My Algorithm</h1>
-<p>We know <span class="math display">\[\begin{equation}
-    a + b + c = N
-    \label{1}
-\end{equation}\]</span> and <span class="math display">\[\begin{equation}
-    a^2 + b^2 = c^2.
-    \label{2}
-\end{equation}\]</span> From <span class="math inline">\(\eqref{1}\)</span> we get <span class="math inline">\(c = N - a - b\)</span>, which we substitute into <span class="math inline">\(\eqref{2}\)</span> to get <span class="math display">\[\begin{equation}
-    \begin{split}
-        a^2 + b^2 &amp;= (N - (a + b))^2 \\
-        a^2 + b^2 &amp;= N^2 - 2N(a+b) + (a+b)^2 \\
-        a^2 + b^2 &amp;= a^2 + b^2 + 2ab + N^2 - 2Na - 2Nb \\
-        0 &amp;= b(2a - 2N) + N^2 - 2Na \\
-        b(2a - 2N) &amp;= 2Na - N^2 \\
-        b &amp;= \frac{N^2 - 2Na}{2N - 2a}.
-    \end{split}
-\end{equation}\]</span></p>
-<p>Now we have expressions for <span class="math inline">\(b,c\)</span> in terms of <span class="math inline">\(a\)</span>. Note furthermore that because <span class="math inline">\(a &lt; b &lt; c\)</span> and <span class="math inline">\(a + b + c = N\)</span>, none of the sides can exceed <span class="math inline">\(\frac{N}{3}\)</span>. Now we can iterate over <span class="math inline">\(1 \le a \le \frac{N}{3}\)</span> and store the maximal product <span class="math inline">\(abc\)</span> for which <span class="math inline">\(a^2 + b^2 = c^2\)</span>. This solution is <span class="math inline">\(O(n)\)</span>.</p>
-<h2 id="other-solutions">Other Solutions</h2>
-<p>We can also use preprocessing for an <span class="math inline">\(O(N^2 + T)\)</span> solution, where <span class="math inline">\(T\)</span> is the number of queries. For all <span class="math inline">\(a &lt; b &lt; 3000\)</span>, we check whether <span class="math inline">\(c = \sqrt{a^2 + b^2}\)</span> is an integer. If so, we check whether <span class="math inline">\(abc\)</span> is greater than our existing answer for the perimeter <span class="math inline">\(a + b + c\)</span>, which is by default <span class="math inline">\(-1\)</span>. To answer the queries, we look up the corresponding value in <span class="math inline">\(O(1)\)</span> time.</p>
+<p>We use a data structure that mimics the structure of a given triangle.</p>
+<p>For each row, we update a <code>parent</code> array to store the maximal path sums that end in each entry of the row above. We process each row of the tree into an array called <code>current</code>. For each element <code>x</code> in the row, we add to current the sum of <code>x</code> and the maximum of the sums corresponding to the two (or one) entries adjacent to <code>x</code> in the previous row. These sums are found in <code>parent</code>.</p>
+<p>When we finish processing a row, we set <code>parent</code> equal to <code>current</code> and continue until all the rows have been processed. The final answer is the maximal element in <code>parent</code>. This solution has time complexity <span class="math inline">\(O(n^2)\)</span>, because we perform an operation for each element of the triangle.</p>
+<h1 id="other-solutions">Other Solutions</h1>
+<p>A brute force solution is possible for small triangles. The number of paths is the sum of the number of paths that end in each entry of the bottom row. This is the sum of the entries in the <span class="math inline">\(n\)</span>-th row of Pascal&rsquo;s triangle, or <span class="math inline">\(2^n\)</span>. And so a brute force solution would have time complexity <span class="math inline">\(O(2^n)\)</span>.</p>
 
 <h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
@@ -288,18 +275,18 @@
 	</table>
 
 </aside>    <aside id="gcman-toolbar">
-                <a title="Project Euler Solutions" class="prev" href="../../euler/">
+                <a title="Problem 10 - Summation of Primes" class="prev" href="../../euler/10/">
                     <i class="fas fa-chevron-circle-left"></i>
             </a>
-        <a title="Raw source" class="raw" href="../../euler/9/src.md" type="text/plain">
+        <a title="Raw source" class="raw" href="../../euler/18/src.md" type="text/plain">
             <i class="fas fa-code" aria-hidden="true"></i>
         </a>
 <a title="Home" class="home" href="../../blog/">
     <i class="fas fa-home"></i>
-</a>        <a title="PDF" class="pdf" href="../../euler/9/post.pdf">
+</a>        <a title="PDF" class="pdf" href="../../euler/18/post.pdf">
             <i class="far fa-file-pdf" aria-hidden="true"></i>
         </a>
-                <a title="Problem 8 - Largest Product in a Series" class="next" href="../../euler/8/">
+                <a title="Problem 17 - Number Letter Counts" class="next" href="../../euler/17/">
                     <i class="fas fa-chevron-circle-right"></i>
             </a>
     </aside>

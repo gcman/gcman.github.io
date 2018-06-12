@@ -111,7 +111,7 @@
 <p>Given a number, write it in English words.</p>
 <h1 id="my-algorithm">My Algorithm</h1>
 <p>The Hackerank bounds for this problem are <span class="math inline">\(N \le 10^{12}\)</span>. First, we create a dictionary of all the ``special&rsquo;&rsquo; number names that cannot be procedurally generated: <span class="math display">\[\begin{equation*}
-    0,\ldots,9, 1\cdot10,\ldots,9\cdot10, 10^2,10^3,10^6,10^9,10^{12}
+    0,1,\ldots,9, \quad 10,20,\ldots,90, \quad 10^2,10^3,10^6,10^9,10^{12}
 \end{equation*}\]</span></p>
 <p>Now to process the number <span class="math inline">\(N\)</span>. We begin by breaking the number into five blocks of three digits each, starting from the ones digit. These will have, in increasing order, no suffix, the suffix <code>thousand,''</code>million,&rsquo;&rsquo; <code>billion,'' and</code>trillion.&rsquo;&rsquo; We then find the name of the number corresponding to each of these blocks and add the corresponding suffix.</p>
 <p>We maintain an array of strings which we shall join together to make the name. We will use two tricks. First, that the integer division of <span class="math inline">\(N\)</span> by <span class="math inline">\(10^k\)</span> removes the last k digits of <span class="math inline">\(N\)</span>; and second, that <span class="math inline">\(N\)</span> modulo <span class="math inline">\(10^k\)</span> returns the last <span class="math inline">\(k\)</span> digits of <span class="math inline">\(N\)</span>.</p>
@@ -172,9 +172,9 @@
 				<td class="complete"><a href="/euler/14/" title="Longest Collatz sequence (Difficulty: 5%)">14</a></td>
 				<td class="complete"><a href="/euler/15/" title="Lattice paths (Difficulty: 5%)">15</a></td>
 				<td class="complete"><a href="/euler/16/" title="Power digit sum (Difficulty: 5%)">16</a></td>
-				<td class="unsolved">17</td>
-				<td class="unsolved">18</td>
-				<td class="unsolved">19</td>
+				<td class="complete"><a href="/euler/17/" title="Number letter counts (Difficulty: 5%)">17</a></td>
+				<td class="complete"><a href="/euler/18/" title="Maximum path sum I (Difficulty: 5%)">18</a></td>
+				<td class="hackerrank-imperfect"><a href="/euler/19/" title="Counting Sundays (Difficulty: 5%)">19</a></td>
 				<td class="unsolved">20</td>
 				
 			</tr>
@@ -273,7 +273,7 @@
 	</table>
 
 </aside>    <aside id="gcman-toolbar">
-                <a title="Problem 10 - Summation of Primes" class="prev" href="../../euler/10/">
+                <a title="Problem 18 - Maximum Path Sum I" class="prev" href="../../euler/18/">
                     <i class="fas fa-chevron-circle-left"></i>
             </a>
         <a title="Raw source" class="raw" href="../../euler/17/src.md" type="text/plain">
