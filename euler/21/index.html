@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>    Problem 17 - Number Letter Counts - Gautam Manohar
+    <title>    Problem 21 - Amicable Numbers - Gautam Manohar
 </title>
     <meta charset="utf-8" />
         <meta name="keywords" content="proof, euler" />
         <meta name="category" content="euler" />
-        <meta name="description" content="My solution to problem 17 of Project Euler." />
+        <meta name="description" content="My solution to problem 21 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
         <meta name="copyright" content="Gautam Manohar" />
-        <meta name="date" content="2018-06-11 00:00:00-04:00">
+        <meta name="date" content="2018-06-12 00:00:00-04:00">
 <link rel="stylesheet" href="../../theme/css/normalize/normalize.min.css" type="text/css" />
   <link rel="stylesheet" href="../../theme/css/article.css" type="text/css" />
   <link rel="stylesheet" href="../../theme/css/heat.css" type="text/css" />
@@ -93,30 +93,28 @@
     <article>
     <header>
       <h1 class="title">
-            <a href="../../euler/17/" rel="bookmark"
-           title="Permalink to Problem 17 - Number Letter Counts">Problem 17 - Number Letter Counts</a>
+            <a href="../../euler/21/" rel="bookmark"
+           title="Permalink to Problem 21 - Amicable Numbers">Problem 21 - Amicable Numbers</a>
       </h1>
       <address class="author">Gautam Manohar</address>
         <div id="textbox">
           <p style="font-weight: bold;" class="alignleft">
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
-            <p class="date aligncenter">11 June 2018</p>
+            <p class="date aligncenter">12 June 2018</p>
           <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
-<p>Given a number, write it in English words.</p>
+<p>Let <span class="math inline">\(d(n)\)</span> be defined as the sum of proper divisors of <span class="math inline">\(n\)</span> (numbers less than <span class="math inline">\(n\)</span> that divide evenly into <span class="math inline">\(n\)</span>). If <span class="math inline">\(d(a) = b\)</span> and <span class="math inline">\(d(b) = a\)</span>, where <span class="math inline">\(a \neq b\)</span>, then <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are an amicable pair and each of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are amicable numbers.</p>
+<p>For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore <span class="math inline">\(d(220) = 284\)</span>. The proper divisors of 284 are 1, 2, 4, 71 and 142; so <span class="math inline">\(d(284) = 220\)</span>.</p>
+<p>Evaluate the sum of the proper divisors under <span class="math inline">\(N\)</span>.</p>
 <h1 id="my-algorithm">My Algorithm</h1>
-<p>The Hackerank bounds for this problem are <span class="math inline">\(N \le 10^{12}\)</span>. First, we create a dictionary of all the ``special&rsquo;&rsquo; number names that cannot be procedurally generated: <span class="math display">\[\begin{equation*}
-    0,1,\ldots,9, \quad 10,20,\ldots,90, \quad 10^2,10^3,10^6,10^9,10^{12}
-\end{equation*}\]</span></p>
-<p>Now to process the number <span class="math inline">\(N\)</span>. We begin by breaking the number into five blocks of three digits each, starting from the ones digit. These will have, in increasing order, no suffix, the suffix <code>thousand,''</code>million,&rsquo;&rsquo; <code>billion,'' and</code>trillion.&rsquo;&rsquo; We then find the name of the number corresponding to each of these blocks and add the corresponding suffix.</p>
-<p>We maintain an array of strings which we shall join together to make the name. We will use two tricks. First, that the integer division of <span class="math inline">\(N\)</span> by <span class="math inline">\(10^k\)</span> removes the last k digits of <span class="math inline">\(N\)</span>; and second, that <span class="math inline">\(N\)</span> modulo <span class="math inline">\(10^k\)</span> returns the last <span class="math inline">\(k\)</span> digits of <span class="math inline">\(N\)</span>.</p>
-<p>Now we define a function that returns the name of a number with at most three digits. If <span class="math inline">\(N\)</span> is zero, we return an empty string. If <span class="math inline">\(N\)</span> is in our look-up table, we are done. If not, we get the first digit, or hundreds digit. If it is non-zero, we add its name and ``hundred&rsquo;&rsquo; to the array. Then we get the last two digits. If the corresponding number is in the look-up table, we add it to the array. If not, we find the tens digit and if it is non-zero, we add the name of the corresponding multiple of ten (from our look-up table) to our array. Finally, we add the name of the ones digit if it is non-zero.</p>
-<p>Then, we join together the three-digit name with suffix for each block of three digits in the number. This solution has time complexity <span class="math inline">\(O(\log n)\)</span>. Because we process the number in blocks of three, the constant factor is small.</p>
+<p>The first thing we need is a way to calculate <span class="math inline">\(d(n)\)</span>. A brute force method that tests all numbers from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span> and checks whether they divide <span class="math inline">\(n\)</span> is too slow. But if a number <span class="math inline">\(d\)</span> divides <span class="math inline">\(n\)</span>, then <span class="math inline">\(\frac{n}{d}\)</span> also divides <span class="math inline">\(n\)</span>. In particular, one of <span class="math inline">\(n\)</span> and <span class="math inline">\(\frac{n}{d}\)</span> is less or equal than <span class="math inline">\(\sqrt{n}\)</span>, and the other is greater than or equal to <span class="math inline">\(\sqrt{n}\)</span>. To see this, consider what would happen if both were smaller than <span class="math inline">\(\sqrt{n}\)</span>. Their product would be less than <span class="math inline">\(n\)</span>; a similar contradiction arises if both were greater than <span class="math inline">\(\sqrt{n}\)</span>.</p>
+<p>And so we only need to check each number less than <span class="math inline">\(\sqrt{n}\)</span>. If it divides <span class="math inline">\(n\)</span>, we add it to the sum that we will return. We therefore find <span class="math inline">\(d(n)\)</span> in <span class="math inline">\(O(\sqrt{n})\)</span> time.</p>
+<p>Then we can use preprocessing to answer each query in <span class="math inline">\(O(1)\)</span> time. For each <span class="math inline">\(1 \le x \le N_{\text{max}}\)</span>, if <span class="math inline">\(x = d(d(x))\)</span> and <span class="math inline">\(x \neq d(x)\)</span>, then we add <span class="math inline">\(x\)</span> to a list of amicable numbers. To answer each query, we simply add the amicable numbers less than the given <span class="math inline">\(N\)</span>. Our solution has time complexity <span class="math inline">\(O(N\sqrt{N} + T)\)</span>, where <span class="math inline">\(N\)</span> is the maximum possible input value and <span class="math inline">\(T\)</span> is the number of queries.</p>
 
 <h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
@@ -273,20 +271,17 @@
 	</table>
 
 </aside>    <aside id="gcman-toolbar">
-                <a title="Problem 18 - Maximum Path Sum I" class="prev" href="../../euler/18/">
+                <a title="Problem 15 - Lattice Paths" class="prev" href="../../euler/15/">
                     <i class="fas fa-chevron-circle-left"></i>
             </a>
-        <a title="Raw source" class="raw" href="../../euler/17/src.md" type="text/plain">
+        <a title="Raw source" class="raw" href="../../euler/21/src.md" type="text/plain">
             <i class="fas fa-code" aria-hidden="true"></i>
         </a>
 <a title="Home" class="home" href="../../blog/">
     <i class="fas fa-home"></i>
-</a>        <a title="PDF" class="pdf" href="../../euler/17/post.pdf">
+</a>        <a title="PDF" class="pdf" href="../../euler/21/post.pdf">
             <i class="far fa-file-pdf" aria-hidden="true"></i>
         </a>
-                <a title="Problem 16 - Power Digit Sum" class="next" href="../../euler/16/">
-                    <i class="fas fa-chevron-circle-right"></i>
-            </a>
     </aside>
   </article>
 
