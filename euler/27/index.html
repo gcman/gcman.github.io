@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>    Problem 25 - 1000-digit Fibonacci Number - Gautam Manohar
+    <title>    Problem 27 - Quadratic Primes - Gautam Manohar
 </title>
     <meta charset="utf-8" />
         <meta name="keywords" content="proof, euler" />
         <meta name="category" content="euler" />
-        <meta name="description" content="My solution to problem 25 of Project Euler." />
+        <meta name="description" content="My solution to problem 27 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
         <meta name="copyright" content="Gautam Manohar" />
-        <meta name="date" content="2018-06-12 00:00:00-04:00">
+        <meta name="date" content="2018-06-13 00:00:00-04:00">
 <link rel="stylesheet" href="../../theme/css/normalize/normalize.min.css" type="text/css" />
   <link rel="stylesheet" href="../../theme/css/article.css" type="text/css" />
   <link rel="stylesheet" href="../../theme/css/heat.css" type="text/css" />
@@ -93,47 +93,31 @@
     <article>
     <header>
       <h1 class="title">
-            <a href="../../euler/25/" rel="bookmark"
-           title="Permalink to Problem 25 - 1000-digit Fibonacci Number">Problem 25 - 1000-digit Fibonacci Number</a>
+            <a href="../../euler/27/" rel="bookmark"
+           title="Permalink to Problem 27 - Quadratic Primes">Problem 27 - Quadratic Primes</a>
       </h1>
       <address class="author">Gautam Manohar</address>
         <div id="textbox">
           <p style="font-weight: bold;" class="alignleft">
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
-            <p class="date aligncenter">12 June 2018</p>
+            <p class="date aligncenter">13 June 2018</p>
           <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
-<p>What is the first term in the Fibonacci sequence to contain <span class="math inline">\(N\)</span> digits?</p>
+<p>Euler published the remarkable quadratic equation <span class="math display">\[\begin{equation}
+    n^2 + 41n + 41.
+\end{equation}\]</span> It turns out that the formula will produce 40 primes for the consecutive integer values <span class="math inline">\(0 \le n \le 39\)</span>. However, when <span class="math inline">\(n = 40\)</span>, we have <span class="math inline">\(40^2 + 40 + 41 = 41(40+1) + 41\)</span>, which is divisiblye by 41, and certainly when <span class="math inline">\(n = 41\)</span>, the expression <span class="math inline">\(41^2 + 41 + 41\)</span> is clearly divisible by 41.</p>
+<p>The incredible formula <span class="math inline">\(n^2 - 79n + 1601\)</span> produces 80 primes for the consecutive values <span class="math inline">\(0 \le n \le 79\)</span>.</p>
+<p>Considering quadratics of the form <span class="math display">\[\begin{equation}
+    n^2 + an + b, \quad |a|,|b| \le N,
+\end{equation}\]</span> find the coefficients <span class="math inline">\(a,b\)</span> for the quadratic expression that produces the maximum number of primes with consecutive values of <span class="math inline">\(n\)</span>, starting with <span class="math inline">\(n = 0\)</span>.</p>
 <h1 id="my-algorithm">My Algorithm</h1>
-<p>We will use Binet&rsquo;s formula for the <span class="math inline">\(n\)</span>-th fibonacci number <span class="math display">\[\begin{equation}
-    F_n = \frac{\varphi^n - (-\varphi)^{-n}}{\sqrt{5}}.
-\end{equation}\]</span> The <span class="math inline">\((-\varphi)^{-n}\)</span> quickly becomes negligible. So we can make the approximation <span class="math display">\[\begin{equation}
-    F_n \approx \frac{\varphi^n}{\sqrt{5}}.
-    \label{approx}
-\end{equation}\]</span></p>
-<p>A number <span class="math inline">\(n\)</span> has <span class="math inline">\(\lfloor \log_{10} n \rfloor + 1\)</span> digits. So we must solve the following equation such that <span class="math inline">\(n\)</span> is minimized: <span class="math display">\[\begin{equation}
-    \lfloor \log_{10} F_n \rfloor + 1 = N.
-    \label{fib-eq}
-\end{equation}\]</span> Recall that <span class="math inline">\(\lfloor x \rfloor\)</span> is defined as the greatest integer less or equal to than <span class="math inline">\(x\)</span>. That is, <span class="math display">\[\begin{equation}
-    x \le \lfloor x \rfloor &lt; x + 1.
-    \label{floor}
-\end{equation}\]</span> Applying <span class="math inline">\(\eqref{approx}\)</span> and <span class="math inline">\(\eqref{floor}\)</span> to <span class="math inline">\(\eqref{fib-eq}\)</span> gives <span class="math display">\[\begin{equation}
-    \begin{split}
-        N &amp;\le 1 + \log_{10} F_n &lt; N + 1 \\
-        N - 1 &amp; \le \log_{10} \frac{\varphi^n}{\sqrt{5}} \\
-        N - 1 + \frac{\log_{10}5}{2} &amp;\le n \log_{10} \varphi \\
-        \frac{N - 1 + \frac{\log_{10}5}{2}}{\log_{10}\varphi} &amp;\le n.
-    \end{split}
-    \label{final}
-\end{equation}\]</span></p>
-<p>We see that <span class="math inline">\(n\)</span> is minimized when it is the smallest integer greater than the left side of <span class="math inline">\(\eqref{final}\)</span>. This is precisely the definition of the ceiling function. And so we have our desired answer: <span class="math display">\[\begin{equation}
-    n = \left\lceil \frac{N - 1 + \frac{\log_{10}5}{2}}{\log_{10}\varphi} \right\rceil.
-\end{equation}\]</span> Because our solution is just a computation, it has time complexity <span class="math inline">\(O(1)\)</span>. In our code, we just need to handle the corner case where <span class="math inline">\(N = 1\)</span>; here our approximation <span class="math inline">\(\eqref{approx}\)</span> introduces enough error to return an incorrect answer.</p>
+<p>A brute force solution that tries all <span class="math inline">\(-N \le a,b \le N\)</span> is too slow. We make two observations that exclude many cases. First, the expression <span class="math inline">\(n^2 + an + b\)</span> is equal to <span class="math inline">\(b\)</span> when <span class="math inline">\(n = 0\)</span>. Thus <span class="math inline">\(b\)</span> must be prime. Second, when <span class="math inline">\(n = 1\)</span>, we have <span class="math inline">\(1 + a + b\)</span>. Above 2, <span class="math inline">\(b\)</span> is odd. So <span class="math inline">\(a\)</span> must also be odd; otherwise, the expression is an even number greater than 2, which is not prime.</p>
+<p>We need two things to proceed: a list of primes under <span class="math inline">\(N\)</span> and a way to check if a given <span class="math inline">\(n\)</span> is prime. For the first, we use a Sieve of Eratosthenes, and for the second, we use trial division up to <span class="math inline">\(\sqrt{n}\)</span>. We iterate through odd <span class="math inline">\(-N \le a \le N\)</span>, which takes <span class="math inline">\(N\)</span> steps, and prime <span class="math inline">\(-N \le b N\)</span>, which takes about <span class="math inline">\(\frac{N}{\log N}\)</span>. Then, we compute the expression <span class="math inline">\(n^2 + an + b\)</span> until it is not prime; we do this up to <span class="math inline">\(N\)</span> times, with time complexity <span class="math inline">\(\sqrt{N}\)</span> each time. Including the sieve, our solution has time complexity <span class="math inline">\(O\left(N\cdot\frac{N}{\log N}\cdot N\sqrt{N} + \sqrt{N}\log\log N\right) \in O\left(\frac{N^3\sqrt{N}}{\log N}\right)\)</span>.</p>
 
 <h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
@@ -290,20 +274,17 @@
 	</table>
 
 </aside>    <aside id="gcman-toolbar">
-                <a title="Problem 15 - Lattice Paths" class="prev" href="../../euler/15/">
+                <a title="Problem 28 - Number Spiral Diagonals" class="prev" href="../../euler/28/">
                     <i class="fas fa-chevron-circle-left"></i>
             </a>
-        <a title="Raw source" class="raw" href="../../euler/25/src.md" type="text/plain">
+        <a title="Raw source" class="raw" href="../../euler/27/src.md" type="text/plain">
             <i class="fas fa-code" aria-hidden="true"></i>
         </a>
 <a title="Home" class="home" href="../../blog/">
     <i class="fas fa-home"></i>
-</a>        <a title="PDF" class="pdf" href="../../euler/25/post.pdf">
+</a>        <a title="PDF" class="pdf" href="../../euler/27/post.pdf">
             <i class="far fa-file-pdf" aria-hidden="true"></i>
         </a>
-                <a title="Problem 23 - Non-abundant Sums" class="next" href="../../euler/23/">
-                    <i class="fas fa-chevron-circle-right"></i>
-            </a>
     </aside>
   </article>
 

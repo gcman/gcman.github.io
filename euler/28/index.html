@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>    Problem 18 - Maximum Path Sum I - Gautam Manohar
+    <title>    Problem 28 - Number Spiral Diagonals - Gautam Manohar
 </title>
     <meta charset="utf-8" />
         <meta name="keywords" content="proof, euler" />
         <meta name="category" content="euler" />
-        <meta name="description" content="My solution to problem 18 of Project Euler." />
+        <meta name="description" content="My solution to problem 28 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
         <meta name="copyright" content="Gautam Manohar" />
-        <meta name="date" content="2018-06-11 00:00:00-04:00">
+        <meta name="date" content="2018-06-13 00:00:00-04:00">
 <link rel="stylesheet" href="../../theme/css/normalize/normalize.min.css" type="text/css" />
   <link rel="stylesheet" href="../../theme/css/article.css" type="text/css" />
   <link rel="stylesheet" href="../../theme/css/heat.css" type="text/css" />
@@ -93,33 +93,42 @@
     <article>
     <header>
       <h1 class="title">
-            <a href="../../drafts/euler/18.html" rel="bookmark"
-           title="Permalink to Problem 18 - Maximum Path Sum I">Problem 18 - Maximum Path Sum I</a>
+            <a href="../../euler/28/" rel="bookmark"
+           title="Permalink to Problem 28 - Number Spiral Diagonals">Problem 28 - Number Spiral Diagonals</a>
       </h1>
       <address class="author">Gautam Manohar</address>
         <div id="textbox">
           <p style="font-weight: bold;" class="alignleft">
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
-            <p class="date aligncenter">11 June 2018</p>
+            <p class="date aligncenter">13 June 2018</p>
           <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
-<p>By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximal total from top to bottom is 23.</p>
-<figure>
-<img alt="Note that 3+7+4+9 = 23." src="../../figures/euler-18-triangle.png" style="width:10.0%"/><figcaption>Note that <span class="math inline">\(3+7+4+9 = 23\)</span>.</figcaption>
-</figure>
+<p>Starting with the number 1 and moving to the right in a clockwise direction, a 5-by-5 spiral is formed:</p>
+<p>It can be verified that the sum of the numbers on the diagonals is 101. What is the sum of the numbers on the diagonals in an <span class="math inline">\(N \times N\)</span> spiral (<span class="math inline">\(N\)</span> odd)?</p>
 <h1 id="my-algorithm">My Algorithm</h1>
-<p>The Hackerank bounds for this problem are <span class="math inline">\(N \le 10^{12}\)</span>. First, we create a dictionary of all the ``special&rsquo;&rsquo; number names that cannot be procedurally generated: <span class="math display">\[\begin{equation*}
-    0,\ldots,9, 1\cdot10,\ldots,9\cdot10, 10^2,10^3,10^6,10^9,10^{12}
-\end{equation*}\]</span></p>
-<p>Now to process the number <span class="math inline">\(N\)</span>. We begin by breaking the number into five blocks of three digits each, starting from the ones digit. These will have, in increasing order, no suffix, the suffix <code>thousand,''</code>million,&rsquo;&rsquo; <code>billion,'' and</code>trillion.&rsquo;&rsquo; We then find the name of the number corresponding to each of these blocks and add the corresponding suffix.</p>
-<p>We maintain an array of strings which we shall join together to make the name. We will use two tricks. First, that the integer division of <span class="math inline">\(N\)</span> by <span class="math inline">\(10^k\)</span> removes the last k digits of <span class="math inline">\(N\)</span>; and second, that <span class="math inline">\(N\)</span> modulo <span class="math inline">\(10^k\)</span> returns the last <span class="math inline">\(k\)</span> digits of <span class="math inline">\(N\)</span>.</p>
-<p>Now we define a function that returns the name of a number with at most three digits. If <span class="math inline">\(N\)</span> is zero, we return an empty string. If <span class="math inline">\(N\)</span> is in our look-up table, we are done. If not, we get the first digit, or hundreds digit. If it is non-zero, we add its name and ``hundred&rsquo;&rsquo; to the array. Then we get the last two digits. If the corresponding number is in the look-up table, we add it to the array. If not, we find the tens digit and if it is non-zero, we add the name of the corresponding multiple of ten (from our look-up table) to our array. Finally, we add the name of the ones digit if it is non-zero.</p>
-<p>Then, we join together the three-digit name with suffix for each block of three digits in the number. This solution has time complexity <span class="math inline">\(O(\log n)\)</span>. Because we process the number in blocks of three, the constant factor is small.</p>
+<p>We can think of the spiral as being made up of a central 1 surrounded by <span class="math inline">\(n\)</span> rings of side length <span class="math inline">\(2n+1\)</span>, where <span class="math inline">\(n = \frac{N - 1}{2}\)</span>. Let us derive a formula for the sum of the numbers in the corners of each ring&mdash;these make up the diagonals of the spiral. The number in the top-right corner of the <span class="math inline">\(n\)</span>-th ring is <span class="math inline">\((2n+1)^2\)</span>, the area of the ring. Going counter-clockwise, the number decreases by one less than the side length, or <span class="math inline">\(2n+1-1=2n\)</span>, each time. And so the <span class="math inline">\(n\)</span>-th ring has corner sum <span class="math display">\[\begin{equation}
+    4(2n+1)^2 - 6(2n) = 16n^2 + 4n + 4.
+\end{equation}\]</span></p>
+<p>To find the sum of the corners of all rings, we can use the formula for the sum of the first <span class="math inline">\(n\)</span> natural numbers <span class="math display">\[\begin{equation}
+    \sum_{i=0}^n i = \frac{n(n+1)}{2}
+\end{equation}\]</span> and their squares: <span class="math display">\[\begin{equation}
+    \sum_{i=0}^n i^2 = \frac{n(n+1)(2n+1)}{6}.
+\end{equation}\]</span> To get the sum of the diagonals, we just add 1 to the sum of the corners, to account for the central 1.</p>
+<p>And so our desired answer <span class="math inline">\(S\)</span> is <span class="math display">\[\begin{equation}
+    \begin{split}
+        S &amp;= 1 + \sum_{i=0}^{\frac{N-1}{2}} (16n^2 + 4n + 4) \\
+        &amp;= 1 + 16\cdot\frac{\frac{N-1}{2}\left(\frac{N-1}{2} + 1\right)\left(2\cdot\frac{N-1}{2} + 1\right)}{6} + 4\cdot\frac{\frac{N-1}{2}\left(\frac{N-1}{2}+1\right)}{2} + 4\frac{N-1}{2} \\
+        &amp;= 1 + 4\cdot\frac{(N-1)(N - 1 + 2)(N - 1 + 1)}{6} + \frac{(N-1)(N-1+2)}{2} + 2(N-1) \\
+        &amp;= 1 + \frac{2N(N-1)(N+1)}{3} + \frac{(N-1)(N+1)}{2} + 2(N-1) \\
+        &amp;= \frac{4N(N-1)(N+1) + 3(N-1)(N+1) + 12(N-1) + 6}{6} \\
+        &amp;= \frac{4N^3 + 3N^2 + 8N - 9}{6}.
+    \end{split}
+\end{equation}\]</span> We report our answer modulo <span class="math inline">\(10^9 + 7\)</span>. Because there is a division by 6 in our answer, we must use the multiplicative modular inverse of 6 modulo <span class="math inline">\(10^9 + 7\)</span>, which we find in <span class="math inline">\(O(\log P)\)</span> time. And so our solution has time complexity <span class="math inline">\(O(1)\)</span>.</p>
 
 <h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
@@ -175,21 +184,21 @@
 				<td class="complete"><a href="/euler/14/" title="Longest Collatz sequence (Difficulty: 5%)">14</a></td>
 				<td class="complete"><a href="/euler/15/" title="Lattice paths (Difficulty: 5%)">15</a></td>
 				<td class="complete"><a href="/euler/16/" title="Power digit sum (Difficulty: 5%)">16</a></td>
-				<td class="unsolved">17</td>
-				<td class="unsolved">18</td>
-				<td class="unsolved">19</td>
+				<td class="complete"><a href="/euler/17/" title="Number letter counts (Difficulty: 5%)">17</a></td>
+				<td class="complete"><a href="/euler/18/" title="Maximum path sum I (Difficulty: 5%)">18</a></td>
+				<td class="hackerrank-imperfect"><a href="/euler/19/" title="Counting Sundays (Difficulty: 5%)">19</a></td>
 				<td class="unsolved">20</td>
 				
 			</tr>
 			<tr>
-				<td class="unsolved">21</td>
+				<td class="complete"><a href="/euler/21/" title="Amicable numbers (Difficulty: 5%)">21</a></td>
 				<td class="unsolved">22</td>
-				<td class="unsolved">23</td>
+				<td class="complete"><a href="/euler/23/" title="Non-abundant sums (Difficulty: 5%)">23</a></td>
 				<td class="unsolved">24</td>
-				<td class="unsolved">25</td>
+				<td class="complete"><a href="/euler/25/" title="1000-digit Fibonacci number (Difficulty: 5%)">25</a></td>
 				<td class="unsolved">26</td>
-				<td class="unsolved">27</td>
-				<td class="unsolved">28</td>
+				<td class="complete"><a href="/euler/27/" title="Quadratic primes (Difficulty: 5%)">27</a></td>
+				<td class="complete"><a href="/euler/28/" title="Number spiral diagonals (Difficulty: 5%)">28</a></td>
 				<td class="unsolved">29</td>
 				<td class="unsolved">30</td>
 				<td class="unsolved">31</td>
@@ -275,7 +284,23 @@
 			</tr>
 	</table>
 
-</aside>  </article>
+</aside>    <aside id="gcman-toolbar">
+                <a title="Problem 21 - Amicable Numbers" class="prev" href="../../euler/21/">
+                    <i class="fas fa-chevron-circle-left"></i>
+            </a>
+        <a title="Raw source" class="raw" href="../../euler/28/src.md" type="text/plain">
+            <i class="fas fa-code" aria-hidden="true"></i>
+        </a>
+<a title="Home" class="home" href="../../blog/">
+    <i class="fas fa-home"></i>
+</a>        <a title="PDF" class="pdf" href="../../euler/28/post.pdf">
+            <i class="far fa-file-pdf" aria-hidden="true"></i>
+        </a>
+                <a title="Problem 27 - Quadratic Primes" class="next" href="../../euler/27/">
+                    <i class="fas fa-chevron-circle-right"></i>
+            </a>
+    </aside>
+  </article>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
