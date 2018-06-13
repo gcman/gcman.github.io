@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>    Problem 14 - Longest Collatz Sequence - Gautam Manohar
+    <title>    Problem 25 - 1000-digit Fibonacci Number - Gautam Manohar
 </title>
     <meta charset="utf-8" />
         <meta name="keywords" content="proof, euler" />
         <meta name="category" content="euler" />
-        <meta name="description" content="My solution to problem 14 of Project Euler." />
+        <meta name="description" content="My solution to problem 25 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
         <meta name="copyright" content="Gautam Manohar" />
-        <meta name="date" content="2018-06-10 00:00:00-04:00">
+        <meta name="date" content="2018-06-12 00:00:00-04:00">
 <link rel="stylesheet" href="../../theme/css/normalize/normalize.min.css" type="text/css" />
   <link rel="stylesheet" href="../../theme/css/article.css" type="text/css" />
   <link rel="stylesheet" href="../../theme/css/heat.css" type="text/css" />
@@ -93,35 +93,47 @@
     <article>
     <header>
       <h1 class="title">
-            <a href="../../euler/14/" rel="bookmark"
-           title="Permalink to Problem 14 - Longest Collatz Sequence">Problem 14 - Longest Collatz Sequence</a>
+            <a href="../../euler/25/" rel="bookmark"
+           title="Permalink to Problem 25 - 1000-digit Fibonacci Number">Problem 25 - 1000-digit Fibonacci Number</a>
       </h1>
       <address class="author">Gautam Manohar</address>
         <div id="textbox">
           <p style="font-weight: bold;" class="alignleft">
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
-            <p class="date aligncenter">10 June 2018</p>
+            <p class="date aligncenter">12 June 2018</p>
           <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
-<p>The following iterative sequence is defined for the set of positive integers: <span class="math display">\[\begin{equation*}
-    \begin{cases}
-        n \to \frac{n}{2} \quad n \,\text{even}, \\
-        n \to 3n + 1 \quad n\,\text{odd}
-    \end{cases}
-\end{equation*}\]</span> Using the rule above and starting with 13 generates the following sequence: <span class="math display">\[\begin{equation}
-    13 \to 40 \to 20 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1
-\end{equation}\]</span> This sequence contains 10 terms. It is conjectured that every starting number produces a sequence that ends in 1.</p>
-<p>Which starting number at most <span class="math inline">\(N\)</span> produces the longest chain? If there are many possible such numbers, print the maximum one.</p>
+<p>What is the first term in the Fibonacci sequence to contain <span class="math inline">\(N\)</span> digits?</p>
 <h1 id="my-algorithm">My Algorithm</h1>
-<p>This problem is perfect for caching (or memoization) and recursion. We define a recursive function that returns the length of a Collatz chain with a given starting number. The function also store the chain length for each starting number (and, because the function is recursive, each number in the chain) in a list so that we do not have to compute it again. Because of memory constraints, we do not store chain lengths for numbers greater than the maximum given <span class="math inline">\(N\)</span>. Instead, we compute these values on the fly.</p>
-<p>We can then iterate over all possible starting numbers and keep a list of starting numbers which produce a right-maximal chain length (that is, they produce a chain length greater than or equal to all lenghts produced by smaller starting numbers). Finally, we perform a binary search for the greatest element in this list less than each query. This solution has time complexity <span class="math inline">\(O(M + T\log M)\)</span>, where <span class="math inline">\(M\)</span> is the maximum possible starting value and <span class="math inline">\(T\)</span> is the number of queries.</p>
-<h2 id="other-solutions">Other Solutions</h2>
-<p>Solutions which do not use memoization are too slow.</p>
+<p>We will use Binet&rsquo;s formula for the <span class="math inline">\(n\)</span>-th fibonacci number <span class="math display">\[\begin{equation}
+    F_n = \frac{\varphi^n - (-\varphi)^{-n}}{\sqrt{5}}.
+\end{equation}\]</span> The <span class="math inline">\((-\varphi)^{-n}\)</span> quickly becomes negligible. So we can make the approximation <span class="math display">\[\begin{equation}
+    F_n \approx \frac{\varphi^n}{\sqrt{5}}.
+    \label{approx}
+\end{equation}\]</span></p>
+<p>A number <span class="math inline">\(n\)</span> has <span class="math inline">\(\lfloor \log_{10} n \rfloor + 1\)</span> digits. So we must solve the following equation such that <span class="math inline">\(n\)</span> is minimized: <span class="math display">\[\begin{equation}
+    \lfloor \log_{10} F_n \rfloor + 1 = N.
+    \label{fib-eq}
+\end{equation}\]</span> Recall that <span class="math inline">\(\lfloor x \rfloor\)</span> is defined as the greatest integer less or equal to than <span class="math inline">\(x\)</span>. That is, <span class="math display">\[\begin{equation}
+    x \le \lfloor x \rfloor &lt; x + 1.
+    \label{floor}
+\end{equation}\]</span> Applying <span class="math inline">\(\eqref{approx}\)</span> and <span class="math inline">\(\eqref{floor}\)</span> to <span class="math inline">\(\eqref{fib-eq}\)</span> gives <span class="math display">\[\begin{equation}
+    \begin{split}
+        N &amp;\le 1 + \log_{10} F_n &lt; N + 1 \\
+        N - 1 &amp; \le \log_{10} \frac{\varphi^n}{\sqrt{5}} \\
+        N - 1 + \frac{\log_{10}5}{2} &amp;\le n \log_{10} \varphi \\
+        \frac{N - 1 + \frac{\log_{10}5}{2}}{\log_{10}\varphi} &amp;\le n.
+    \end{split}
+    \label{final}
+\end{equation}\]</span></p>
+<p>We see that <span class="math inline">\(n\)</span> is minimized when it is the smallest integer greater than the left side of <span class="math inline">\(\eqref{final}\)</span>. This is precisely the definition of the ceiling function. And so we have our desired answer: <span class="math display">\[\begin{equation}
+    n = \left\lceil \frac{N - 1 + \frac{\log_{10}5}{2}}{\log_{10}\varphi} \right\rceil.
+\end{equation}\]</span> Because our solution is just a computation, it has time complexity <span class="math inline">\(O(1)\)</span>. In our code, we just need to handle the corner case where <span class="math inline">\(N = 1\)</span>; here our approximation <span class="math inline">\(\eqref{approx}\)</span> introduces enough error to return an incorrect answer.</p>
 
 <h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
@@ -278,18 +290,18 @@
 	</table>
 
 </aside>    <aside id="gcman-toolbar">
-                <a title="Problem 2 - Even Fibonacci Numbers" class="prev" href="../../euler/2/">
+                <a title="Problem 15 - Lattice Paths" class="prev" href="../../euler/15/">
                     <i class="fas fa-chevron-circle-left"></i>
             </a>
-        <a title="Raw source" class="raw" href="../../euler/14/src.md" type="text/plain">
+        <a title="Raw source" class="raw" href="../../euler/25/src.md" type="text/plain">
             <i class="fas fa-code" aria-hidden="true"></i>
         </a>
 <a title="Home" class="home" href="../../blog/">
     <i class="fas fa-home"></i>
-</a>        <a title="PDF" class="pdf" href="../../euler/14/post.pdf">
+</a>        <a title="PDF" class="pdf" href="../../euler/25/post.pdf">
             <i class="far fa-file-pdf" aria-hidden="true"></i>
         </a>
-                <a title="Problem 13 - Large Sum" class="next" href="../../euler/13/">
+                <a title="Problem 23 - Non-abundant Sums" class="next" href="../../euler/23/">
                     <i class="fas fa-chevron-circle-right"></i>
             </a>
     </aside>
