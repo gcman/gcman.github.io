@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>    Problem 8 - Largest Product in a Series - Gautam Manohar
+    <title>    Problem 23 - Non-abundant Sums - Gautam Manohar
 </title>
     <meta charset="utf-8" />
         <meta name="keywords" content="proof, euler" />
         <meta name="category" content="euler" />
-        <meta name="description" content="My solution to problem 8 of Project Euler." />
+        <meta name="description" content="My solution to problem 23 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
         <meta name="copyright" content="Gautam Manohar" />
-        <meta name="date" content="2018-06-10 00:00:00-04:00">
+        <meta name="date" content="2018-06-12 00:00:00-04:00">
 <link rel="stylesheet" href="../../theme/css/normalize/normalize.min.css" type="text/css" />
   <link rel="stylesheet" href="../../theme/css/article.css" type="text/css" />
   <link rel="stylesheet" href="../../theme/css/heat.css" type="text/css" />
@@ -93,24 +93,28 @@
     <article>
     <header>
       <h1 class="title">
-            <a href="../../euler/8/" rel="bookmark"
-           title="Permalink to Problem 8 - Largest Product in a Series">Problem 8 - Largest Product in a Series</a>
+            <a href="../../euler/23/" rel="bookmark"
+           title="Permalink to Problem 23 - Non-abundant Sums">Problem 23 - Non-abundant Sums</a>
       </h1>
       <address class="author">Gautam Manohar</address>
         <div id="textbox">
           <p style="font-weight: bold;" class="alignleft">
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
-            <p class="date aligncenter">10 June 2018</p>
+            <p class="date aligncenter">12 June 2018</p>
           <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
-<p>Find the greatest product of <span class="math inline">\(K\)</span> consecutive digits in the given <span class="math inline">\(N\)</span> digit number.</p>
+<p>A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.</p>
+<p>A number <span class="math inline">\(n\)</span> is called deficient if the sum of its proper divisors is less than <span class="math inline">\(n\)</span> and it is called abundant if this sum exceeds <span class="math inline">\(n\)</span>.</p>
+<p>As 12 is the smallest abundant number, <span class="math inline">\(1 + 2 + 3 + 4 + 6 = 16\)</span>, the smallest number that can be written as the sum of two abundant numbers is 24. By mathematical analysis, it can be shown that all integers greater than 28123 can be written as the sum of two abundant numbers. However, this upper limit cannot be reduced any further by analysis even though it is known that the greatest number that cannot be expressed as the sum of two abundant numbers is less than this limit.</p>
+<p>Given <span class="math inline">\(N\)</span>, print <code>YES</code> if it can be written as the sum of two abundant numbers. Otherwise, print <code>NO</code>.</p>
 <h1 id="my-algorithm">My Algorithm</h1>
-<p>We use a brute force solution. There are <span class="math inline">\(N-K+1\)</span> possible <span class="math inline">\(K\)</span>-length substrings of a string of length <span class="math inline">\(N\)</span>. We convert the given number to a string, find the substrings, and multiply the digits in them. We then find the maximal product. This is easily done with time complexity <span class="math inline">\(O(K(N-K+1))\)</span>.</p>
+<p>We calculate <span class="math inline">\(d(n)\)</span> with trial division up to <span class="math inline">\(\sqrt{n}\)</span> as in <a href="../21/">Problem 21</a>. We then make a list of abundant numbers by checking each number up to 28123, because any abundant number above this will not help us solve the problem.</p>
+<p>To answer the problem, we need a function to decide whether a number <span class="math inline">\(n\)</span> can be written as the sum of two abundant numbers. If <span class="math inline">\(n &gt; 28123\)</span>, we print <code>YES</code>; we are given this information in the problem, and without it, our solution is too slow to pass. We make a new list whose elements are <span class="math inline">\(n - a\)</span> for an abundant number <span class="math inline">\(a\)</span>. If the intersection of this list and the list of abundant numbers is empty, then we print <code>NO</code>; otherwise, we print <code>YES</code>. This solution has time complexity <span class="math inline">\(O(n\sqrt{n} + TA^2)\)</span>, where <span class="math inline">\(T\)</span> is the number of queries and <span class="math inline">\(A\)</span> is the number of abundant numbers under 28123.</p>
 
 <h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
@@ -267,18 +271,18 @@
 	</table>
 
 </aside>    <aside id="gcman-toolbar">
-                <a title="Problem 9 - Special Pythagorean Triplets" class="prev" href="../../euler/9/">
+                <a title="Problem 15 - Lattice Paths" class="prev" href="../../euler/15/">
                     <i class="fas fa-chevron-circle-left"></i>
             </a>
-        <a title="Raw source" class="raw" href="../../euler/8/src.md" type="text/plain">
+        <a title="Raw source" class="raw" href="../../euler/23/src.md" type="text/plain">
             <i class="fas fa-code" aria-hidden="true"></i>
         </a>
 <a title="Home" class="home" href="../../blog/">
     <i class="fas fa-home"></i>
-</a>        <a title="PDF" class="pdf" href="../../euler/8/post.pdf">
+</a>        <a title="PDF" class="pdf" href="../../euler/23/post.pdf">
             <i class="far fa-file-pdf" aria-hidden="true"></i>
         </a>
-                <a title="Problem 7 - 10001st Prime" class="next" href="../../euler/7/">
+                <a title="Problem 21 - Amicable Numbers" class="next" href="../../euler/21/">
                     <i class="fas fa-chevron-circle-right"></i>
             </a>
     </aside>
