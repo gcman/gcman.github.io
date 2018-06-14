@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>    Problem 27 - Quadratic Primes - Gautam Manohar
+    <title>    Problem 24 - Lexicographic Permutations - Gautam Manohar
 </title>
     <meta charset="utf-8" />
         <meta name="keywords" content="proof, euler" />
         <meta name="category" content="euler" />
-        <meta name="description" content="My solution to problem 27 of Project Euler." />
+        <meta name="description" content="My solution to problem 24 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
         <meta name="copyright" content="Gautam Manohar" />
         <meta name="date" content="2018-06-13 00:00:00-04:00">
@@ -93,8 +93,8 @@
     <article>
     <header>
       <h1 class="title">
-            <a href="../../euler/27/" rel="bookmark"
-           title="Permalink to Problem 27 - Quadratic Primes">Problem 27 - Quadratic Primes</a>
+            <a href="../../euler/24/" rel="bookmark"
+           title="Permalink to Problem 24 - Lexicographic Permutations">Problem 24 - Lexicographic Permutations</a>
       </h1>
       <address class="author">Gautam Manohar</address>
         <div id="textbox">
@@ -108,16 +108,15 @@
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
-<p>Euler published the remarkable quadratic equation <span class="math display">\[\begin{equation}
-    n^2 + 41n + 41.
-\end{equation}\]</span> It turns out that the formula will produce 40 primes for the consecutive integer values <span class="math inline">\(0 \le n \le 39\)</span>. However, when <span class="math inline">\(n = 40\)</span>, we have <span class="math inline">\(40^2 + 40 + 41 = 41(40+1) + 41\)</span>, which is divisiblye by 41, and certainly when <span class="math inline">\(n = 41\)</span>, the expression <span class="math inline">\(41^2 + 41 + 41\)</span> is clearly divisible by 41.</p>
-<p>The incredible formula <span class="math inline">\(n^2 - 79n + 1601\)</span> produces 80 primes for the consecutive values <span class="math inline">\(0 \le n \le 79\)</span>.</p>
-<p>Considering quadratics of the form <span class="math display">\[\begin{equation}
-    n^2 + an + b, \quad |a|,|b| \le N,
-\end{equation}\]</span> find the coefficients <span class="math inline">\(a,b\)</span> for the quadratic expression that produces the maximum number of primes with consecutive values of <span class="math inline">\(n\)</span>, starting with <span class="math inline">\(n = 0\)</span>.</p>
+<p>A permutation is an ordered arrangement of objects. For example, <span class="math inline">\(\mathrm{dabc}\)</span> is a permutation of the word <span class="math inline">\(\mathrm{abcd}\)</span>. If the permutations are listed alphabetically, we call it lexicographic order. The lexicographic permutations of <span class="math inline">\(\mathrm{abc}\)</span> are: <span class="math display">\[\begin{equation*}
+    \mathrm{abc}, \mathrm{acb}, \mathrm{bac}, \mathrm{bca}, \mathrm{cab}, \mathrm{cba}.
+\end{equation*}\]</span> What is the <span class="math inline">\(N\)</span>-th lexicographic permutation of the word <span class="math inline">\(\mathrm{abcdefghijklm}\)</span>?</p>
 <h1 id="my-algorithm">My Algorithm</h1>
-<p>A brute force solution that tries all <span class="math inline">\(-N \le a,b \le N\)</span> is too slow. We make two observations that exclude many cases. First, the expression <span class="math inline">\(n^2 + an + b\)</span> is equal to <span class="math inline">\(b\)</span> when <span class="math inline">\(n = 0\)</span>. Thus <span class="math inline">\(b\)</span> must be prime. Second, when <span class="math inline">\(n = 1\)</span>, we have <span class="math inline">\(1 + a + b\)</span>. Above 2, <span class="math inline">\(b\)</span> is odd. So <span class="math inline">\(a\)</span> must also be odd; otherwise, the expression is an even number greater than 2, which is not prime.</p>
-<p>We need two things to proceed: a list of primes under <span class="math inline">\(N\)</span> and a way to check if a given <span class="math inline">\(n\)</span> is prime. For the first, we use a Sieve of Eratosthenes, and for the second, we use trial division up to <span class="math inline">\(\sqrt{n}\)</span>. We iterate through odd <span class="math inline">\(-N \le a \le N\)</span>, which takes <span class="math inline">\(N\)</span> steps, and prime <span class="math inline">\(-N \le b N\)</span>, which takes about <span class="math inline">\(\frac{N}{\log N}\)</span>. Then, we compute the expression <span class="math inline">\(n^2 + an + b\)</span> until it is not prime; we do this up to <span class="math inline">\(N\)</span> times, with time complexity <span class="math inline">\(\sqrt{N}\)</span> each time. Including the sieve, our solution has time complexity <span class="math inline">\(O\left(N\cdot\frac{N}{\log N}\cdot N\sqrt{N} + \sqrt{N}\log\log N\right) \in O\left(\frac{N^3\sqrt{N}}{\log N}\right)\)</span>.</p>
+<p>Suppose our word has <span class="math inline">\(n\)</span> letters. Then the first <span class="math inline">\((n-1)!\)</span> lexicographic permutations begin with <span class="math inline">\(a\)</span>, the next <span class="math inline">\((n-1)!\)</span> with <span class="math inline">\(b\)</span>, and so on. Consider the first <span class="math inline">\((n-1)!\)</span> lexicographic permutations. They consist of <span class="math inline">\(a\)</span> followed by a lexicographic permutation of the word without <span class="math inline">\(a\)</span>. Of these, the first <span class="math inline">\((n-2)!\)</span> begin with <span class="math inline">\(b\)</span>.</p>
+<p>We can write <span class="math inline">\(N\)</span> as a unique sum <span class="math display">\[\begin{equation}
+    N = \sum_{i=0}^{n-1} c_i \cdot i!,
+\end{equation}\]</span> where <span class="math inline">\(0 \le c_i \le i + 1\)</span>. This is a kind of ``base-factorial&rsquo;&rsquo; expansion of <span class="math inline">\(N\)</span>. Once we do this, we use the procedure above. Starting from <span class="math inline">\(n-1\)</span> and going down to <span class="math inline">\(0\)</span>, the <span class="math inline">\(N\)</span>-th lexicographic permutation has the <span class="math inline">\(c_{n-1}\)</span>-th letter in the first position, the <span class="math inline">\(c_{n-2}\)</span>-th letter of those remaining in the second position, and so on.</p>
+<p>And so our algorithm is as follows. Write <span class="math inline">\(N\)</span> as a sum of factorials. Maintain a list of the letters in the word, in alphabetical order. For <span class="math inline">\(n-1 \ge i \ge 0\)</span>, delete the <span class="math inline">\(c_i\)</span>-th element from the list and add it to the string representing the lexicographic permutation. This solution has time complexity <span class="math inline">\(O(L)\)</span>, where <span class="math inline">\(L\)</span> is the length of the given word.</p>
 
 <h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
@@ -274,18 +273,18 @@
 	</table>
 
 </aside>    <aside id="gcman-toolbar">
-                <a title="Problem 28 - Number Spiral Diagonals" class="prev" href="../../euler/28/">
+                <a title="Problem 27 - Quadratic Primes" class="prev" href="../../euler/27/">
                     <i class="fas fa-chevron-circle-left"></i>
             </a>
-        <a title="Raw source" class="raw" href="../../euler/27/src.md" type="text/plain">
+        <a title="Raw source" class="raw" href="../../euler/24/src.md" type="text/plain">
             <i class="fas fa-code" aria-hidden="true"></i>
         </a>
 <a title="Home" class="home" href="../../blog/">
     <i class="fas fa-home"></i>
-</a>        <a title="PDF" class="pdf" href="../../euler/27/post.pdf">
+</a>        <a title="PDF" class="pdf" href="../../euler/24/post.pdf">
             <i class="far fa-file-pdf" aria-hidden="true"></i>
         </a>
-                <a title="Problem 24 - Lexicographic Permutations" class="next" href="../../euler/24/">
+                <a title="Problem 20 - Factorial Digit Sum" class="next" href="../../euler/20/">
                     <i class="fas fa-chevron-circle-right"></i>
             </a>
     </aside>
