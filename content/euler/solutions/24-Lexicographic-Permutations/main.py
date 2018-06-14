@@ -10,10 +10,8 @@ def lex_perm(n,s):
 	s = sorted(list(s))
 	out = ""
 	for i in indices:
-		out += s[i]
-		del s[i]
+		out += s.pop(i)
 	return out
-
 
 S = "abcdefghijklm"
 T = int(input())
