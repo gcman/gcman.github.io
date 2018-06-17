@@ -21,25 +21,25 @@
   background-color: gainsboro;
 }
 
-.highlight {
+pre[class*="language-"] {
   padding: 10px 15px;
   margin: 10px 5px;
   border-radius: 8px;
   overflow-x: auto;
 }
 
-.highlight::-webkit-scrollbar {
+pre[class*="language-"]::-webkit-scrollbar {
   height: 32px;
   border-radius: 8px;
   background-color: #272822;
 }
 
-.highlight::-webkit-scrollbar-track {
+pre[class*="language-"]::-webkit-scrollbar-track {
   background-color: #272822;
   border-radius: 8px;
 }
 
-.highlight::-webkit-scrollbar-thumb {
+pre[class*="language-"]::-webkit-scrollbar-thumb {
   margin-top: 100px;
   min-height: 64px;
   border-radius: 32px;
@@ -49,6 +49,6 @@
   background-color: firebrick;
 }
 
-.highlight::-webkit-scrollbar-thumb:window-inactive {
+pre[class*="language-"]::-webkit-scrollbar-thumb:window-inactive {
   background-color: gainsboro;
 }

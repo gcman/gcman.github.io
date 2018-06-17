@@ -53,8 +53,9 @@ PLUGINS = ["pelican-toc","neighbors","pandoc_reader"]
 
 PANDOC_ARGS = [
   '--mathjax',
-  '--no-highlight',
+  '--highlight-style=pygments',
   '--filter=./filters/pandoc-eqref.py',
+  '--filter=./filters/code-highlight.py'
 ]
 
 PANDOC_EXTENSIONS = [

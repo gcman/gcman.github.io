@@ -1,8 +1,8 @@
 /* Imports */
 @import url("reset.css");
 @import url("scrollbar.css");
-@import url("highlight.css");
 @import url("normalize/normalize.min.css");
+@import url("prism.css");
 /* Body */
 body {
   background-color: ivory;
@@ -25,10 +25,8 @@ a .MathJax .mo, a .MathJax .mi, a .math {
   color: firebrick;
 }
 
-code, kbd {
-  font-family:
-  'Inconsolata', Consolas, 'Ubuntu Mono',
-  'Latin Modern Mono', 'Anonymous Pro', 'FreeMono', monospace;
+code a {
+  color: inherit;
 }
 
 kbd {
