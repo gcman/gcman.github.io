@@ -53,7 +53,8 @@ PLUGINS = ["pelican-toc","neighbors","pandoc_reader"]
 
 PANDOC_ARGS = [
   '--mathjax',
-  '--highlight-style=pygments',
+  '--no-highlight',
+  '--filter=./filters/include.py',
   '--filter=./filters/pandoc-eqref.py',
   '--filter=./filters/code-highlight.py'
 ]
@@ -61,10 +62,10 @@ PANDOC_ARGS = [
 PANDOC_EXTENSIONS = [
   "+smart"
   "+yaml_metadata_block",
-  "+smart",
   '-citations',
   "+markdown_in_html_blocks",
   "+backtick_code_blocks",
+  "+fenced_code_attributes"
 ]
 
 TOC = {
