@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://gautammanohar.com/almost-patterns-sinc/</loc>
+    <loc>https://gautammanohar.com/contact-me/</loc>
   </url>
   <url>
-    <loc>https://gautammanohar.com/contact-me/</loc>
+    <loc>https://gautammanohar.com/almost-patterns-sinc/</loc>
   </url>
   <url>
     <loc>https://gautammanohar.com/simplex-sphere/</loc>
@@ -94,9 +94,6 @@
     <loc>https://gautammanohar.com/euler/9/</loc>
   </url>
   <url>
-    <loc>https://gautammanohar.com/euler/</loc>
-  </url>
-  <url>
     <loc>https://gautammanohar.com/euler/1/</loc>
   </url>
   <url>
@@ -124,10 +121,10 @@
     <loc>https://gautammanohar.com/n-ball/post.pdf</loc>
   </url>
   <url>
-    <loc>https://gautammanohar.com/herons-formula/src.md</loc>
+    <loc>https://gautammanohar.com/harm-id/post.pdf</loc>
   </url>
   <url>
-    <loc>https://gautammanohar.com/harm-id/post.pdf</loc>
+    <loc>https://gautammanohar.com/herons-formula/src.md</loc>
   </url>
   <url>
     <loc>https://gautammanohar.com/herons-formula/post.pdf</loc>
@@ -196,10 +193,10 @@
     <loc>https://gautammanohar.com/euler/17/src.md</loc>
   </url>
   <url>
-    <loc>https://gautammanohar.com/euler/18/src.md</loc>
+    <loc>https://gautammanohar.com/euler/17/post.pdf</loc>
   </url>
   <url>
-    <loc>https://gautammanohar.com/euler/17/post.pdf</loc>
+    <loc>https://gautammanohar.com/euler/18/src.md</loc>
   </url>
   <url>
     <loc>https://gautammanohar.com/euler/18/post.pdf</loc>
@@ -220,10 +217,10 @@
     <loc>https://gautammanohar.com/euler/12/src.md</loc>
   </url>
   <url>
-    <loc>https://gautammanohar.com/euler/13/src.md</loc>
+    <loc>https://gautammanohar.com/euler/12/post.pdf</loc>
   </url>
   <url>
-    <loc>https://gautammanohar.com/euler/12/post.pdf</loc>
+    <loc>https://gautammanohar.com/euler/13/src.md</loc>
   </url>
   <url>
     <loc>https://gautammanohar.com/euler/13/post.pdf</loc>
@@ -241,22 +238,22 @@
     <loc>https://gautammanohar.com/euler/2/post.pdf</loc>
   </url>
   <url>
+    <loc>https://gautammanohar.com/euler/3/src.md</loc>
+  </url>
+  <url>
     <loc>https://gautammanohar.com/euler/3/post.pdf</loc>
-  </url>
-  <url>
-    <loc>https://gautammanohar.com/euler/4/post.pdf</loc>
-  </url>
-  <url>
-    <loc>https://gautammanohar.com/euler/5/post.pdf</loc>
-  </url>
-  <url>
-    <loc>https://gautammanohar.com/euler/5/src.md</loc>
   </url>
   <url>
     <loc>https://gautammanohar.com/euler/4/src.md</loc>
   </url>
   <url>
-    <loc>https://gautammanohar.com/euler/3/src.md</loc>
+    <loc>https://gautammanohar.com/euler/4/post.pdf</loc>
+  </url>
+  <url>
+    <loc>https://gautammanohar.com/euler/5/src.md</loc>
+  </url>
+  <url>
+    <loc>https://gautammanohar.com/euler/5/post.pdf</loc>
   </url>
   <url>
     <loc>https://gautammanohar.com/euler/6/src.md</loc>
@@ -283,15 +280,6 @@
     <loc>https://gautammanohar.com/euler/9/post.pdf</loc>
   </url>
   <url>
-    <loc>https://gautammanohar.com/euler/src.md</loc>
-  </url>
-  <url>
-    <loc>https://gautammanohar.com/euler/post.pdf</loc>
-  </url>
-  <url>
-    <loc>https://gautammanohar.com/ccc/2016/</loc>
-  </url>
-  <url>
     <loc>https://gautammanohar.com/euler/1/src.md</loc>
   </url>
   <url>
@@ -299,6 +287,9 @@
   </url>
   <url>
     <loc>https://gautammanohar.com/ccc/2017/src.md</loc>
+  </url>
+  <url>
+    <loc>https://gautammanohar.com/ccc/2016/</loc>
   </url>
   <url>
     <loc>https://gautammanohar.com/ccc/2017/post.pdf</loc>
