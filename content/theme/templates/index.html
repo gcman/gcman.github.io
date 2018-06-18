@@ -53,25 +53,29 @@
         </section>
         <section id="project-euler" class="level2">
         <h2>Project Euler <strong>/ Full Solutions</strong></h2>
-        {% if articles %}
-          <table>
-            {% for article in articles_page.object_list %}
-              {% if article.category == 'Euler' %}
-                <tr>
-                  <td>
-                    <a href="{{ SITEURL }}/{{ article.url }}">
-                        {{article.title}}{% if article.subtitle %}: {{ article.subtitle }}{% endif %}
-                    </a>
-                    {% if article.tags %}<strong>{% include 'taglist.html' %}</strong>{% endif %}
-                  </td>
-                  <td id="date">
-                    {{ article.locale_date }}
-                  </td>
-                </tr>
-              {% endif %}
-            {% endfor %}
-          </table>
-        {% endif %}
+        <a href="{{ SITEURL }}/euler/">Project Euler Solutions</a>
+        <table>
+          {% set max_count = 10 %}
+          {% set extra_count = [0] %}
+          {% for article in articles_page.object_list if article.category == "Euler" %}
+            {% if loop.index <= max_count %}
+              <tr>
+                <td>
+                  <a href="{{ SITEURL }}/{{ article.url }}">
+                    {{article.title}}{% if article.subtitle %}: {{ article.subtitle }}{% endif %}
+                  </a>
+                  {% if article.tags %}<strong>{% include 'taglist.html' %}</strong>{% endif %}
+                </td>
+                <td id="date">
+                  {{ article.locale_date }}
+                </td>
+              </tr>
+            {% else %}
+              {% if extra_count.append(extra_count.pop() + 1) %}{% endif %}
+            {% endif %}
+          {% endfor %}
+        </table>
+        <a href="{{ SITEURL }}/euler">&hellip; and {{ extra_count[0] }} more.</a>
         </section>
     </div>
 </article>

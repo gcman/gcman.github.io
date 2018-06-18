@@ -5,6 +5,7 @@ import json
 
 env = jinja2.Environment(loader=jinja2.FileSystemLoader(searchpath=""))
 HEAT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__) ,"../theme/templates"))
+template = env.get_template(os.path.join(os.path.dirname(__file__),"heat.html"))
 
 with open('euler-problem-data.txt') as dt:
 	EULER = json.load(dt)
