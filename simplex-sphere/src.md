@@ -334,7 +334,7 @@ We'll use `Python` and its `numpy` package.
 Let's first set up a function to compute our generalized cross product using the kernel method.
 Here's a standard implementation of finding the kernel, or nullspace, of a matrix, sourced from [here](http://scipy-cookbook.readthedocs.io/items/RankNullspace.html).
 
-```python
+```{.python .number-lines}
 def nullspace(A, atol=1e-13, rtol=0):
     A = np.atleast_2d(A)
     u, s, vh = np.linalg.svd(A)
@@ -342,6 +342,10 @@ def nullspace(A, atol=1e-13, rtol=0):
     nnz = (s >= tol).sum()
     ns = vh[nnz:].conj().T
     return np.array([k[0] for k in ns])
+```
+
+```{.include .python}
+test.py
 ```
 
 We return the element of the nullspace that is a vector of norm 1 and use it to calculate the generalized cross product.
