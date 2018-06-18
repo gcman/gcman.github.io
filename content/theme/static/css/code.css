@@ -20,7 +20,7 @@ td.code {
 }
 
 .code pre {
-  padding-bottom: 0 !important;
+  padding-bottom: 10px !important;
   padding-top: 10px !important;
 }
 
@@ -30,6 +30,10 @@ td.code {
   border-radius: 0.3em;
   margin: 5px 0;
   overflow-x: auto;
+}
+
+.euler-code pre {
+  line-height: 1.3em !important;
 }
 
 .highlight pre {

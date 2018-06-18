@@ -56,7 +56,7 @@ PANDOC_ARGS = [
   '--no-highlight',
   '--filter=./filters/include.py',
   '--filter=./filters/pandoc-eqref.py',
-  '--filter=./filters/code-highlight.py'
+  '--filter=./filters/code-highlight.py',
 ]
 
 PANDOC_EXTENSIONS = [

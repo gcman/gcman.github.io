@@ -9,6 +9,7 @@ def bs(arr, l, r, x):
 			r = mid - 1
 	return r
 
+# Sieve of Eratosthenes
 def primes(n):
 	primes = []
 	sieve = [True] * (n + 1)
@@ -20,14 +21,16 @@ def primes(n):
 	return primes
 
 PRIMES = primes(int(1e6))
+# Construct the prefix sum array
 P = [0]
 count = 0
 for p in PRIMES:
 	count += p
 	P.append(count)
+del P[0]
 
 T = int(input())
 for _ in range(T):
 	N = int(input())
 	idx = bs(PRIMES,0,len(PRIMES)-1,N)
-	print(P[idx+1])
+	print(P[idx])

@@ -1,0 +1,52 @@
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Substrings of s of length k</span>
+<span class="k">def</span> <span class="nf">substrings</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+	<span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+		<span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">])</span>
+	<span class="k">return</span> <span class="n">out</span>
+
+<span class="c1"># Multiplies the digits in a string int</span>
+<span class="k">def</span> <span class="nf">string_prod</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+	<span class="n">ans</span> <span class="o">=</span> <span class="mi">1</span>
+	<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+		<span class="n">ans</span> <span class="o">*=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">ans</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+	<span class="n">N</span><span class="p">,</span><span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+	<span class="n">S</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+	<span class="c1"># Brute force each substring</span>
+	<span class="n">ans</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">string_prod</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">substrings</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">K</span><span class="p">)])</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 3 comments and 2 empty lines.</p>
+
+<h1 id="Difficulty">Difficulty</h1>
+<p>Project Euler ranks this problem at 5% difficulty (out of 100%).</p>

@@ -114,6 +114,9 @@
     {% endif %}
       {{ article.content }}
     {% if article.category == "euler" %}
+      {% if article.problem %}
+      {% include 'euler' + '/' + article.problem + '.html' %}
+      {% endif %}
       {% include 'heatmap.html' %}
     {% endif %}
     {% if "long" not in article.tags %}

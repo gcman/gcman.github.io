@@ -1,0 +1,60 @@
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
+
+<span class="c1"># Returns the n-th lexicographic permutation of s</span>
+<span class="k">def</span> <span class="nf">lex_perm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">s</span><span class="p">):</span>
+	<span class="c1"># Write s in &#39;factorial base&#39;</span>
+	<span class="n">n</span> <span class="o">%=</span> <span class="n">factorial</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+	<span class="n">indices</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="c1"># Start with big factorials and subtract</span>
+	<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+		<span class="n">elem</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="n">factorial</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+		<span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+		<span class="n">n</span> <span class="o">-=</span> <span class="n">elem</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+	<span class="n">s</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+	<span class="n">out</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">:</span>
+		<span class="c1"># Remove the i-th remaining element</span>
+		<span class="c1"># i is the coeffcient in the</span>
+		<span class="c1"># factorial base expansion of n</span>
+		<span class="n">out</span> <span class="o">+=</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">out</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="s2">&quot;abcdefghijklm&quot;</span>
+<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span><span class="o">-</span><span class="mi">1</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">lex_perm</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">S</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 6 comments and 2 empty lines.</p>
+
+<h1 id="Difficulty">Difficulty</h1>
+<p>Project Euler ranks this problem at 5% difficulty (out of 100%).</p>

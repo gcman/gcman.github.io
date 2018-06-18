@@ -1,5 +1,6 @@
 from math import log
 
+# Sieve of Eratosthenes
 def primes(n):
 	primes = []
 	sieve = [True] * (n + 1)
@@ -10,6 +11,7 @@ def primes(n):
 				sieve[i] = False
 	return primes
 
+# Implement eq. (1)
 def min_mult(n):
 	P = primes(n)
 	ans = 1

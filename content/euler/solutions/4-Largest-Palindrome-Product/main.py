@@ -1,8 +1,10 @@
 def bs(arr, l, r, x):
 	while l <= r:
 		mid = l + (r - l)//2;
+		# Is N in the array?
 		if arr[mid] == x:
-			return arr[mid-1] # The answer must be less than N
+			# The answer must be less than N
+			return arr[mid-1]
 		elif arr[mid] < x:
 			l = mid + 1
 		else:
@@ -12,6 +14,7 @@ def bs(arr, l, r, x):
 pals = set()
 for i in range(100,1000):
 	for j in range(100,1000):
+		# Test if palindrome
 		if str(ij) == str(ij)[::-1]:
 			pals.add(i*j)
 pals = sorted(list(pals))

@@ -1,5 +1,6 @@
 from math import log
 
+# Sieve of Eratosthenes
 def primes(n):
 	primes = []
 	sieve = [True] * (n + 1)
@@ -10,6 +11,7 @@ def primes(n):
 				sieve[i] = False
 	return primes
 
+# Use eq. (1) to generate more than n primes
 def n_primes(n):
 	upper = int(n*log(n) + n*log(log(n)))
 	return primes(upper)

@@ -1,3 +1,6 @@
+from math import sqrt
+
+# Find sum of divisors of n
 def divisor_sum(n):
 	s = 0
 	for i in range(1,int(n**0.5)+1):
@@ -7,6 +10,7 @@ def divisor_sum(n):
 				s += n//i
 	return s - n
 
+# We don't need to go past this
 MAX = 28123
 ABUNDANT = set()
 for i in range(1,MAX+1):
@@ -16,7 +20,9 @@ for i in range(1,MAX+1):
 def abundant_sum(n):
 	if n > 28123:
 		return True
+	# Find all the differences
 	diff = set(n - x for x in ABUNDANT)
+	# Check if any of these differences are abundant
 	if diff & ABUNDANT:
 		return True
 	return False

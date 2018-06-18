@@ -2,7 +2,6 @@ import panflute as pf
 import os
 from pygments import highlight
 from pygments.lexers import PythonLexer
-from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
 
 def action(elem,doc):

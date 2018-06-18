@@ -1,3 +1,4 @@
+# Sieve of Eratosthenes
 def primes(n):
 	primes = []
 	sieve = [True] * (n + 1)
@@ -9,6 +10,7 @@ def primes(n):
 	return primes
 
 P = primes(202)
+# Returns the prime factorization of n
 def prime_factors(n):
 	factors = {}
 	for p in P:
@@ -19,7 +21,9 @@ def prime_factors(n):
 				factors[p] += 1
 	return factors
 
-LATEST = [0,0] # Memoize the latest num_of_factors
+# Memoize the latest num_of_factors
+LATEST = [0,0]
+# Computes the number of factors of n
 def num_of_factors(n):
 	global LATEST
 	if n == LATEST[0]:
@@ -31,6 +35,7 @@ def num_of_factors(n):
 	LATEST = [n,ans]
 	return ans
 
+# Get the no. of factors of T_n
 def triangle_factors(n):
 	k = prime_factors((n//2 + n%2) * 2)[2]
 	return num_of_factors(n) * num_of_factors(n+1) * k // (k+1)
