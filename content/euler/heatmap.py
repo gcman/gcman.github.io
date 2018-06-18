@@ -7,13 +7,13 @@ env = jinja2.Environment(loader=jinja2.FileSystemLoader(searchpath=""))
 HEAT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__) ,"../theme/templates"))
 template = env.get_template(os.path.join(os.path.dirname(__file__),"heat.html"))
 
-with open('euler-problem-data.txt') as dt:
+with open('euler-problem-metadata.json',"r") as dt:
 	EULER = json.load(dt)
 
 heat = []
 
 options = {"dg": "complete","lg":"hackerrank-imperfect","y":"tle","g":"unsolved","b":"euler-only"}
-with open('solved.txt') as f:
+with open('heat-solved.json') as f:
 	solved = {}
 	for line in f:
 		idx,stat = line.strip().split(",")

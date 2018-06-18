@@ -18,5 +18,5 @@ for i in range(1,626):
 	for x in EULER[i]:
 		print(EULER[i][x])
 
-with open("euler-problem-data.txt", 'w', encoding='utf-8') as f:
+with open("euler-problem-metadata.json", 'w', encoding='utf-8') as f:
     json.dump(EULER, f, ensure_ascii=False,indent=4)

@@ -42,7 +42,10 @@ for x in solved:
 	solved[x]["code"] = out
 	solved[x]["empty"] = str(empty)
 	solved[x]["comments"] = str(comments)
-	with open("euler-problem-data.txt","r") as f:
+	with open("euler-problem-metadata.json","r") as f:
 		solved[x]["difficulty"] = json.load(f)[str(x)]["difficulty"]
 	with open(os.path.join(DIR,"euler/"+str(x)+".html"),"w") as f:
 		f.write(template.render(meta=solved[x]))
+
+with open("extra-solution-data.json", 'w', encoding='utf-8') as f:
+	json.dump(solved, f, ensure_ascii=False,indent=4)
