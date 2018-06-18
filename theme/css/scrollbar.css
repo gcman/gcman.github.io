@@ -17,16 +17,44 @@
   background-color: firebrick;
 }
 
+::-webkit-scrollbar-thumb:window-inactive {
+  background-color: gainsboro;
+}
+
 .highlight::-webkit-scrollbar {
   border-radius: 8px;
-  background-color: #272822;
+  background-color: #fdf6e3;
 }
 
 .highlight::-webkit-scrollbar-track {
-  background-color: #272822;
-  border-radius: 0.3em;
+  background-color: #fdf6e3;
+  border-radius: 0.75em;
 }
 
 .highlight::-webkit-scrollbar-thumb {
-  border-color: #272822;
+  border-color: #fdf6e3;
+  background-color: #cb4b16;
+}
+
+.highlight::-webkit-scrollbar-thumb:window-inactive {
+  background-color: gainsboro;
+}
+
+.highlighttable::-webkit-scrollbar {
+  border-radius: 8px;
+  background-color: #fdf6e3;
+}
+
+.highlighttable::-webkit-scrollbar-track {
+  background-color: #fdf6e3;
+  border-radius: 0.75em;
+}
+
+.highlighttable::-webkit-scrollbar-thumb {
+  border-color: #fdf6e3;
+  background-color: #B58900;
+}
+
+.highlighttable::-webkit-scrollbar-thumb:window-inactive {
+  background-color: gainsboro;
 }

@@ -116,7 +116,64 @@
 <h2 id="other-solutions">Other Solutions</h2>
 <p>This problem can also be phrased as finding the lowest common multiple of <span class="math inline">\(1,\ldots,N\)</span>, for which the classic formula is <span class="math inline">\(\mathrm{lcm}(1,\ldots,N) = \frac{N!}{\mathrm{gcd}(1,\ldots,N)}\)</span>. Because the numerator grows very quickly, we can compute the LCM iteratively, making use of the fact that <span class="math inline">\(\mathrm{lcm}(a,b,c) = \mathrm{lcm}(\mathrm{lcm}(a,b),c)\)</span> and storing the latest LCM with each step. This algorithm computes the greatest common denominator of two numbers at most <span class="math inline">\(N\)</span>, which can be done in <span class="math inline">\(O(\log n)\)</span> time, <span class="math inline">\(N\)</span> times. And so this solution has time complexity <span class="math inline">\(O(n\log n)\)</span>. However, it has much better space complexity, at <span class="math inline">\(O(1)\)</span>, than the sieve of Eratosthenes, which needs <span class="math inline">\(O(n)\)</span> space to store an array of size <span class="math inline">\(n\)</span>. So for large <span class="math inline">\(n\)</span>, this alternative solution is preferred.</p>
 
-<h1 id="progress">Progress</h1>
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
+
+<span class="c1"># Sieve of Eratosthenes</span>
+<span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+	<span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="n">sieve</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
+			<span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+				<span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+	<span class="k">return</span> <span class="n">primes</span>
+
+<span class="c1"># Implement eq. (1)</span>
+<span class="k">def</span> <span class="nf">min_mult</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+	<span class="n">P</span> <span class="o">=</span> <span class="n">primes</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+	<span class="n">ans</span> <span class="o">=</span> <span class="mi">1</span>
+	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span><span class="p">:</span>
+		<span class="n">ans</span> <span class="o">*=</span> <span class="n">p</span><span class="o">**</span><span class="nb">int</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">ans</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">min_mult</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 2 comments and 3 empty lines.</p>
+
+<h1 id="Difficulty">Difficulty</h1>
+<p>Project Euler ranks this problem at 5% difficulty (out of 100%).</p><h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
 <table class="legend euler">
 	<tr>
@@ -271,7 +328,7 @@
 	</table>
 
 </aside>    <aside id="gcman-toolbar">
-                <a title="Problem 6 - Sum Square Difference" class="prev" href="../../euler/6/">
+                    <a title="Problem 4 - Largest Palindrome Product" class="prev" href="../../euler/4/">
                     <i class="fas fa-chevron-circle-left"></i>
             </a>
         <a title="Raw source" class="raw" href="../../euler/5/src.md" type="text/plain">
@@ -282,7 +339,7 @@
 </a>        <a title="PDF" class="pdf" href="../../euler/5/post.pdf">
             <i class="far fa-file-pdf" aria-hidden="true"></i>
         </a>
-                <a title="Problem 4 - Largest Palindrome Product" class="next" href="../../euler/4/">
+                    <a title="Problem 6 - Sum Square Difference" class="next" href="../../euler/6/">
                     <i class="fas fa-chevron-circle-right"></i>
             </a>
     </aside>

@@ -297,20 +297,6 @@ We then need to normalize this vector to obtain the desired unit outward-facing 
 \end{equation}\]</span></p>
 <h2 id="implementing-our-higher-dimensional-processes">Implementing Our Higher Dimensional Processes</h2>
 <p>We&rsquo;ll use <code>Python</code> and its <code>numpy</code> package. Let&rsquo;s first set up a function to compute our generalized cross product using the kernel method. Here&rsquo;s a standard implementation of finding the kernel, or nullspace, of a matrix, sourced from <a href="http://scipy-cookbook.readthedocs.io/items/RankNullspace.html">here</a>.</p>
-<table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre>1
-2
-3
-4
-5
-6
-7</pre>
-</div>
-</td>
-<td class="code">
 <div class="highlight">
 <pre><span></span><span class="k">def</span> <span class="nf">nullspace</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-13</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -321,9 +307,6 @@ We then need to normalize this vector to obtain the desired unit outward-facing 
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">])</span>
 </pre>
 </div>
-</td>
-</tr>
-</table>
 <p>We return the element of the nullspace that is a vector of norm 1 and use it to calculate the generalized cross product.</p>
 <div class="highlight">
 <pre><span></span><span class="k">def</span> <span class="nf">gen_cross</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
