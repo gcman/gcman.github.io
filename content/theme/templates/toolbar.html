@@ -1,7 +1,11 @@
 {% if article.status != "draft" %}
     <aside id="gcman-toolbar">
         {% if article.prev_article %}
-            {% if article.prev_article.shorttitle %}
+            {% if article.category == "euler" %}
+                {% if article.problem %}
+                    <a title="{{ article.prev_article_in_category.title }}" class="prev" href="{{ SITEURL }}/{{ article.prev_article_in_category.url }}">
+                {% endif %}
+            {% elif article.prev_article.shorttitle %}
                 <a title="{{ article.prev_article.shorttitle }}" class="prev" href="{{ SITEURL }}/{{ article.prev_article.url }}">
             {% else %}
                 <a title="{{ article.prev_article.title }}" class="prev" href="{{ SITEURL }}/{{ article.prev_article.url }}">
@@ -21,7 +25,11 @@
             <i class="far fa-file-pdf" aria-hidden="true"></i>
         </a>
         {% if article.next_article %}
-            {% if article.next_article.shorttitle %}
+            {% if article.category == "euler" %}
+                {% if article.problem %}
+                    <a title="{{ article.next_article_in_category.title }}" class="next" href="{{ SITEURL }}/{{ article.next_article_in_category.url }}">
+                {% endif %}
+            {% elif article.next_article.shorttitle %}
                 <a title="{{ article.next_article.shorttitle }}" class="next" href="{{ SITEURL }}/{{ article.next_article.url }}">
             {% else %}
                 <a title="{{ article.next_article.title }}" class="next" href="{{ SITEURL }}/{{ article.next_article.url }}">

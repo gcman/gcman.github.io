@@ -115,7 +115,7 @@
       {{ article.content }}
     {% if article.category == "euler" %}
       {% if article.problem %}
-      {% include 'euler' + '/' + article.problem + '.html' %}
+        {% include 'euler' + '/' + article.problem + '.html' %}
       {% endif %}
       {% include 'heatmap.html' %}
     {% endif %}

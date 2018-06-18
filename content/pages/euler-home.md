@@ -1,7 +1,4 @@
 title: Project Euler Solutions
-date: 9 June 2018
-category: euler
-tags: proof
 slug: euler
 summary: My full solutions to problems on Project Euler and Hackerrank with working Python code.
 

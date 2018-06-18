@@ -1,17 +1,26 @@
+code {
+  background-color: #fdf6e3;
+  color: #cb4b16;
+  padding: 1px 2px;
+}
+
 .highlighttable {
   width: 100%;
   padding: 0;
   margin: 10px 0;
-  border-radius: 0.3em;
-  background-color: #272822;
+  border-radius: 0.75em;
+  background-color: #fdf6e3;
+  display: block;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 td.linenos {
-  border-right: 1px solid #75715E;
+  border-right: 1px solid #93a1a1;
   padding-left: 7px;
   padding-right: 4px;
   white-space: nowrap;
-  color: #75715E;
+  color: #93a1a1;
 }
 
 td.code {
@@ -25,10 +34,9 @@ td.code {
 }
 
 .highlight {
-  background-color: #272822;
   padding: 0;
-  border-radius: 0.3em;
-  margin: 5px 0;
+  border-radius: 0.75em;
+  margin: 10px 0;
   overflow-x: auto;
 }
 
