@@ -17,7 +17,7 @@ def n_primes(n):
 	return primes(upper)
 
 T = int(input())
-P = n_primes(10000)
+P = n_primes(10001)
 for _ in range(T):
 	N = int(input())
 	print(P[N-1])

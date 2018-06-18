@@ -20,7 +20,7 @@ def primes(n):
 				sieve[i] = False
 	return primes
 
-PRIMES = primes(int(1e6))
+PRIMES = primes(int(2e6))
 # Construct the prefix sum array
 P = [0]
 count = 0

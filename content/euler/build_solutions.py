@@ -1,6 +1,7 @@
 import os
 import json
 import jinja2
+import codecs
 from pygments import highlight
 from pygments.lexers import PythonLexer
 from pygments.formatters import HtmlFormatter
@@ -8,6 +9,9 @@ from pygments.formatters import HtmlFormatter
 env = jinja2.Environment(loader=jinja2.FileSystemLoader(searchpath=""))
 DIR = os.path.abspath(os.path.join(os.path.dirname(__file__) ,"../theme/templates"))
 template = env.get_template(os.path.join(os.path.dirname(__file__),"euler-extra.html"))
+
+with open("euler-problem-data.json","r",encoding="utf-8") as f:
+	DATA = json.load(f)
 
 solved = {}
 for file in os.listdir(os.path.join(os.path.abspath(__file__),"../../")):
@@ -42,10 +46,15 @@ for x in solved:
 	solved[x]["code"] = out
 	solved[x]["empty"] = str(empty)
 	solved[x]["comments"] = str(comments)
-	with open("euler-problem-metadata.json","r") as f:
-		solved[x]["difficulty"] = json.load(f)[str(x)]["difficulty"]
+	solved[x]["difficulty"] = DATA[str(x)]["difficulty"]
 	with open(os.path.join(DIR,"euler/"+str(x)+".html"),"w") as f:
 		f.write(template.render(meta=solved[x]))
 
-with open("extra-solution-data.json", 'w', encoding='utf-8') as f:
-	json.dump(solved, f, ensure_ascii=False,indent=4)
+for x in solved:
+	if str(x) not in DATA:
+		DATA[str(x)] = {}
+	for key in solved[x]:
+		DATA[str(x)][key] = solved[x][key]
+
+with open("euler-problem-data.json", 'w',encoding="utf-8") as f:
+	json.dump(DATA, f,ensure_ascii=False,indent=4)

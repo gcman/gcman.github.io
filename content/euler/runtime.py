@@ -5,8 +5,8 @@ import sys
 
 ROOT = os.path.abspath(os.path.dirname(__file__))
 
-with open("extra-solution-data.json","r") as f:
-	SOLVED = json.load(f)
+with open("euler-problem-data.json","r",encoding="utf-8") as f:
+	DATA = json.load(f)
 
 with open("euler-input.csv","r") as f:
 	INPUT = {}
@@ -14,7 +14,6 @@ with open("euler-input.csv","r") as f:
 		data = line.strip().split(",")
 		INPUT[str(data[0])] = "\n".join(data[1:])
 
-DATA = {}
 def time(n,runs=100):
 	ans,time = compute_time(n,runs)
 	if str(n) not in DATA:
@@ -25,7 +24,7 @@ def time(n,runs=100):
 def compute_time(n,runs=100):
 	if str(n) not in INPUT:
 		return "Problem {} has no given test data.".format(n)
-	path = os.path.join(os.path.abspath(__file__),"..//solutions//") + SOLVED[str(n)]["path"] + "//main.py"
+	path = os.path.join(os.path.abspath(__file__),"..//solutions//") + DATA[str(n)]["path"] + "//main.py"
 	path = path.replace("\\","//")
 	os.chdir(r"c://cygwin64//bin")
 	cmd = ["bash", "-c", "time python " + path]
@@ -42,10 +41,10 @@ def compute_time(n,runs=100):
 			ms = 1000*float(mins[1].split("s")[0])
 			mins = 60000*float(mins[0])
 			TIME += ms + mins
-	return p.stdout.strip(),int(TIME/runs)
+	return p.stdout.strip(),str(int(TIME/runs))
 
-print(time(1))
+n = int(input())
+print(time(n))
 
-with open(os.path.join(ROOT,"euler-runtime-data.json"),"w",encoding="utf-8") as f:
+with open(os.path.join(ROOT,"euler-problem-data.json"),"w",encoding="utf-8") as f:
 	json.dump(DATA, f, ensure_ascii=False,indent=4)
-print(DATA)

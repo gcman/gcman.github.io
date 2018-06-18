@@ -4,19 +4,19 @@ import re
 import json
 import io
 
-EULER = {}
+with open("euler-problem-metadata.json","r",encoding="utf-8") as f:
+	DATA = json.load(f)
 
 for i in range(1,626):
 	print("Processing problem {}".format(i))
 	url = urlopen("https://projecteuler.net/problem=" + str(i))
 	html = BeautifulSoup(url,"html.parser")
-	EULER[i] = {}
-	EULER[i]["name"] = html.find('h2').text.strip()
+	if i not in DATA:
+		DATA[i] = {}
+	DATA[i]["name"] = html.find('h2').text.strip()
 	d = re.search("(?<=Difficulty rating: )(.*)(?=%)",html.find('h3').text.strip())
 	if d:
-		EULER[i]["difficulty"] = d.group(0).strip()
-	for x in EULER[i]:
-		print(EULER[i][x])
+		DATA[i]["difficulty"] = d.group(0).strip()
 
-with open("euler-problem-metadata.json", 'w', encoding='utf-8') as f:
-    json.dump(EULER, f, ensure_ascii=False,indent=4)
+with open("euler-problem-data.json", 'w', encoding='utf-8') as f:
+	json.dump(DATA, f, ensure_ascii=False,indent=4)
