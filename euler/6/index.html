@@ -4,7 +4,7 @@
     <title>    Problem 6 - Sum Square Difference - Gautam Manohar
 </title>
     <meta charset="utf-8" />
-        <meta name="keywords" content="proof, euler" />
+        <meta name="keywords" content="identity, euler" />
         <meta name="category" content="euler" />
         <meta name="description" content="My solution to problem 6 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
@@ -101,17 +101,17 @@
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
             <p class="date aligncenter">10 June 2018</p>
-          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
+          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/identity/">#identity</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
-<p>The sum of the squares of the first ten natural numbers is <span class="math display">\[\begin{equation}
+<p>The sum of the squares of the first ten natural numbers is <span class="math display">\[\begin{equation*}
     1^2 + 2^2 + \cdots + 10^2 = 385.
-\end{equation}\]</span> The square of the sum of the first ten natural numbers is <span class="math display">\[\begin{equation}
+\end{equation*}\]</span> The square of the sum of the first ten natural numbers is <span class="math display">\[\begin{equation*}
     (1 + 2 + \cdots + 10)^2 = 55^2 = 3025
-\end{equation}\]</span> Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is <span class="math inline">\(3025 - 385 = 2640\)</span>. Find the absolute difference between the sum of the squares of the first <span class="math inline">\(N\)</span> natural numbers and the square of the sum.</p>
+\end{equation*}\]</span> Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is <span class="math inline">\(3025 - 385 = 2640\)</span>. Find the absolute difference between the sum of the squares of the first <span class="math inline">\(N\)</span> natural numbers and the square of the sum.</p>
 <h1 id="my-algorithm">My Algorithm</h1>
 <p>We make use of the following two formulas, which can be proven using induction. <span class="math display">\[\begin{equation}
     \sum_{i=1}^n i = \frac{n(n+1)}{2}
@@ -131,7 +131,24 @@
 <h2 id="other-solutions">Other Solutions</h2>
 <p>We did not need to simplify the expression as in <span class="math inline">\(\eqref{final-sum}\)</span>; we could have simply subtracted <span class="math inline">\(\eqref{2}\)</span> from the square of <span class="math inline">\(\eqref{1}\)</span>. An <span class="math inline">\(O(n)\)</span> solution is also possible: simply add the first <span class="math inline">\(N\)</span> numbers, square them, and subtract the sum of the squares of the first <span class="math inline">\(N\)</span> numbers.</p>
 
-<h1 id="progress">Progress</h1>
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+	<span class="n">ans</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="mi">3</span><span class="o">*</span><span class="n">N</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">N</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">)</span><span class="o">//</span><span class="mi">12</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 0 comments and 0 empty lines.</p>
+
+<h1 id="Difficulty">Difficulty</h1>
+<p>Project Euler ranks this problem at 5% difficulty (out of 100%).</p><h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
 <table class="legend euler">
 	<tr>

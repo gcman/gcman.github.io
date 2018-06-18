@@ -4,6 +4,7 @@ date: 11 June 2018
 category: euler
 tags: proof
 slug: euler/15
+problem: 15
 summary: My solution to problem 15 of Project Euler.
 ‐‐‐
 

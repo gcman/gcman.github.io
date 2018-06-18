@@ -2,8 +2,9 @@
 title: Problem 11 - Largest Product in a Grid
 date: 10 June 2018
 category: euler
-tags: proof
+tags: brute-force
 slug: euler/11
+problem: 11
 summary: My solution to problem 11 of Project Euler.
 ‐‐‐
 

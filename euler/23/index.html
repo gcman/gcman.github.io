@@ -4,7 +4,7 @@
     <title>    Problem 23 - Non-abundant Sums - Gautam Manohar
 </title>
     <meta charset="utf-8" />
-        <meta name="keywords" content="proof, euler" />
+        <meta name="keywords" content="brute-force, euler" />
         <meta name="category" content="euler" />
         <meta name="description" content="My solution to problem 23 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
@@ -101,7 +101,7 @@
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
             <p class="date aligncenter">12 June 2018</p>
-          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
+          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/brute-force/">#brute-force</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
@@ -115,7 +115,86 @@
 <p>We calculate <span class="math inline">\(d(n)\)</span> with trial division up to <span class="math inline">\(\sqrt{n}\)</span> as in <a href="../21/">Problem 21</a>. We then make a list of abundant numbers by checking each number up to 28123, because any abundant number above this will not help us solve the problem.</p>
 <p>To answer the problem, we need a function to decide whether a number <span class="math inline">\(n\)</span> can be written as the sum of two abundant numbers. If <span class="math inline">\(n &gt; 28123\)</span>, we print <code>YES</code>; we are given this information in the problem, and without it, our solution is too slow to pass. We make a new list whose elements are <span class="math inline">\(n - a\)</span> for an abundant number <span class="math inline">\(a\)</span>. If the intersection of this list and the list of abundant numbers is empty, then we print <code>NO</code>; otherwise, we print <code>YES</code>. This solution has time complexity <span class="math inline">\(O(n\sqrt{n} + AT)\)</span>, where <span class="math inline">\(T\)</span> is the number of queries and <span class="math inline">\(A\)</span> is the number of abundant numbers under 28123.</p>
 
-<h1 id="progress">Progress</h1>
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="c1"># Find sum of divisors of n</span>
+<span class="k">def</span> <span class="nf">divisor_sum</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+	<span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="n">s</span> <span class="o">+=</span> <span class="n">i</span>
+			<span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">n</span><span class="o">//</span><span class="n">i</span><span class="p">:</span>
+				<span class="n">s</span> <span class="o">+=</span> <span class="n">n</span><span class="o">//</span><span class="n">i</span>
+	<span class="k">return</span> <span class="n">s</span> <span class="o">-</span> <span class="n">n</span>
+
+<span class="c1"># We don&#39;t need to go past this</span>
+<span class="n">MAX</span> <span class="o">=</span> <span class="mi">28123</span>
+<span class="n">ABUNDANT</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+	<span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">divisor_sum</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+		<span class="n">ABUNDANT</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">abundant_sum</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+	<span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">28123</span><span class="p">:</span>
+		<span class="k">return</span> <span class="bp">True</span>
+	<span class="c1"># Find all the differences</span>
+	<span class="n">diff</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ABUNDANT</span><span class="p">)</span>
+	<span class="c1"># Check if any of these differences are abundant</span>
+	<span class="k">if</span> <span class="n">diff</span> <span class="o">&amp;</span> <span class="n">ABUNDANT</span><span class="p">:</span>
+		<span class="k">return</span> <span class="bp">True</span>
+	<span class="k">return</span> <span class="bp">False</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+	<span class="k">if</span> <span class="n">abundant_sum</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+		<span class="k">print</span><span class="p">(</span><span class="s2">&quot;YES&quot;</span><span class="p">)</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s2">&quot;NO&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 4 comments and 4 empty lines.</p>
+
+<h1 id="Difficulty">Difficulty</h1>
+<p>Project Euler ranks this problem at 5% difficulty (out of 100%).</p><h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
 <table class="legend euler">
 	<tr>

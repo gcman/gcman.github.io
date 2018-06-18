@@ -2,8 +2,9 @@
 title: Problem 10 - Summation of Primes
 date: 10 June 2018
 category: euler
-tags: proof
+tags: primes
 slug: euler/10
+problem: 10
 summary: My solution to problem 10 of Project Euler.
 ‐‐‐
 

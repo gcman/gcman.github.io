@@ -4,7 +4,7 @@
     <title>    Problem 10 - Summation of Primes - Gautam Manohar
 </title>
     <meta charset="utf-8" />
-        <meta name="keywords" content="proof, euler" />
+        <meta name="keywords" content="primes, euler" />
         <meta name="category" content="euler" />
         <meta name="description" content="My solution to problem 10 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
@@ -101,7 +101,7 @@
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
             <p class="date aligncenter">10 June 2018</p>
-          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
+          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/primes/">#primes</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
@@ -111,7 +111,86 @@
 <h1 id="my-algorithm">My Algorithm</h1>
 <p>We use a Sieve of Eratosthenes to compute the primes up to the maximum possible value of <span class="math inline">\(N\)</span>. We then construct a prefix sum array in <span class="math inline">\(O(\frac{N}{\log N})\)</span> time. Using a binary search, we find the index of largest prime less than <span class="math inline">\(N\)</span> in <span class="math inline">\(O(\log N - \log \log N)\)</span> time. In <span class="math inline">\(O(1)\)</span> time, we look up the corresponding partial sum of prime numbers. Our solution has time complexity <span class="math inline">\(O(n\log\log n + \frac{n}{\log n} + T\log n)\)</span>, where <span class="math inline">\(T\)</span> is the number of queries.</p>
 
-<h1 id="progress">Progress</h1>
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bs</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+	<span class="k">while</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">:</span>
+		<span class="n">mid</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">;</span>
+		<span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
+			<span class="k">return</span> <span class="n">mid</span>
+		<span class="k">elif</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">:</span>
+			<span class="n">l</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">r</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+	<span class="k">return</span> <span class="n">r</span>
+
+<span class="c1"># Sieve of Eratosthenes</span>
+<span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+	<span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="n">sieve</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
+			<span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+				<span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+	<span class="k">return</span> <span class="n">primes</span>
+
+<span class="n">PRIMES</span> <span class="o">=</span> <span class="n">primes</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">1e6</span><span class="p">))</span>
+<span class="c1"># Construct the prefix sum array</span>
+<span class="n">P</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">PRIMES</span><span class="p">:</span>
+	<span class="n">count</span> <span class="o">+=</span> <span class="n">p</span>
+	<span class="n">P</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+	<span class="n">idx</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">PRIMES</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">PRIMES</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 2 comments and 3 empty lines.</p>
+
+<h1 id="Difficulty">Difficulty</h1>
+<p>Project Euler ranks this problem at 5% difficulty (out of 100%).</p><h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
 <table class="legend euler">
 	<tr>

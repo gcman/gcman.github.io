@@ -2,8 +2,9 @@
 title: Problem 18 - Maximum Path Sum I
 date: 11 June 2018
 category: euler
-tags: proof
+tags: greedy
 slug: euler/18
+problem: 18
 summary: My solution to problem 18 of Project Euler.
 ‐‐‐
 

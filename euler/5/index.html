@@ -4,7 +4,7 @@
     <title>    Problem 5 - Smallest Multiple - Gautam Manohar
 </title>
     <meta charset="utf-8" />
-        <meta name="keywords" content="proof, euler" />
+        <meta name="keywords" content="primes, euler" />
         <meta name="category" content="euler" />
         <meta name="description" content="My solution to problem 5 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
@@ -101,7 +101,7 @@
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
             <p class="date aligncenter">10 June 2018</p>
-          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
+          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/primes/">#primes</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
@@ -114,7 +114,7 @@
     M = \prod_{p \le N} p^{\lfloor \log_pN \rfloor}.
 \end{equation}\]</span> To compute our answer <span class="math inline">\(M\)</span>, we need a list of the primes less than <span class="math inline">\(N\)</span>, for which we can use the Sieve of Eratosthenes. And so our solution has time complexity <span class="math inline">\(O(n\log\log n)\)</span>.</p>
 <h2 id="other-solutions">Other Solutions</h2>
-<p>This problem can also be phrased as finding the lowest common multiple of <span class="math inline">\(1,\ldots,N\)</span>, for which the classic formula is <span class="math inline">\(\mathrm{lcm}(1,\ldots,N) = \frac{N!}{\mathrm{gcd}(1,\ldots,N)}\)</span>. Because the numerator grows very quickly, we can compute the LCM iteratively, making use of the fact that <span class="math inline">\(\mathrm{lcm}(a,b,c) = \mathrm{lcm}(\mathrm{lcm}(a,b),c)\)</span> and storing the latest LCM with each step. This algorithm computes the greatest common denominator of two numbers at most <span class="math inline">\(N\)</span>, which can be done in <span class="math inline">\(O(\log n)\)</span> time, <span class="math inline">\(N\)</span> times. And so this solution has time complexity <span class="math inline">\(O(n\log n)\)</span>.</p>
+<p>This problem can also be phrased as finding the lowest common multiple of <span class="math inline">\(1,\ldots,N\)</span>, for which the classic formula is <span class="math inline">\(\mathrm{lcm}(1,\ldots,N) = \frac{N!}{\mathrm{gcd}(1,\ldots,N)}\)</span>. Because the numerator grows very quickly, we can compute the LCM iteratively, making use of the fact that <span class="math inline">\(\mathrm{lcm}(a,b,c) = \mathrm{lcm}(\mathrm{lcm}(a,b),c)\)</span> and storing the latest LCM with each step. This algorithm computes the greatest common denominator of two numbers at most <span class="math inline">\(N\)</span>, which can be done in <span class="math inline">\(O(\log n)\)</span> time, <span class="math inline">\(N\)</span> times. And so this solution has time complexity <span class="math inline">\(O(n\log n)\)</span>. However, it has much better space complexity, at <span class="math inline">\(O(1)\)</span>, than the sieve of Eratosthenes, which needs <span class="math inline">\(O(n)\)</span> space to store an array of size <span class="math inline">\(n\)</span>. So for large <span class="math inline">\(n\)</span>, this alternative solution is preferred.</p>
 
 <h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>

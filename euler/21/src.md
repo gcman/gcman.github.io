@@ -2,8 +2,9 @@
 title: Problem 21 - Amicable Numbers
 date: 12 June 2018
 category: euler
-tags: proof
+tags: brute-force
 slug: euler/21
+problem: 21
 summary: My solution to problem 21 of Project Euler.
 ‐‐‐
 

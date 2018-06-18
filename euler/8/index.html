@@ -4,7 +4,7 @@
     <title>    Problem 8 - Largest Product in a Series - Gautam Manohar
 </title>
     <meta charset="utf-8" />
-        <meta name="keywords" content="proof, euler" />
+        <meta name="keywords" content="brute-force, euler" />
         <meta name="category" content="euler" />
         <meta name="description" content="My solution to problem 8 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
@@ -101,7 +101,7 @@
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
             <p class="date aligncenter">10 June 2018</p>
-          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
+          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/brute-force/">#brute-force</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
@@ -111,7 +111,58 @@
 <h1 id="my-algorithm">My Algorithm</h1>
 <p>We use a brute force solution. There are <span class="math inline">\(N-K+1\)</span> possible <span class="math inline">\(K\)</span>-length substrings of a string of length <span class="math inline">\(N\)</span>. We convert the given number to a string, find the substrings, and multiply the digits in them. We then find the maximal product. This is easily done with time complexity <span class="math inline">\(O(K(N-K+1))\)</span>.</p>
 
-<h1 id="progress">Progress</h1>
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Substrings of s of length k</span>
+<span class="k">def</span> <span class="nf">substrings</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+	<span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+		<span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">])</span>
+	<span class="k">return</span> <span class="n">out</span>
+
+<span class="c1"># Multiplies the digits in a string int</span>
+<span class="k">def</span> <span class="nf">string_prod</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+	<span class="n">ans</span> <span class="o">=</span> <span class="mi">1</span>
+	<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+		<span class="n">ans</span> <span class="o">*=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">ans</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+	<span class="n">N</span><span class="p">,</span><span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+	<span class="n">S</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+	<span class="c1"># Brute force each substring</span>
+	<span class="n">ans</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">string_prod</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">substrings</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">K</span><span class="p">)])</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 3 comments and 2 empty lines.</p>
+
+<h1 id="Difficulty">Difficulty</h1>
+<p>Project Euler ranks this problem at 5% difficulty (out of 100%).</p><h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
 <table class="legend euler">
 	<tr>

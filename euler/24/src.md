@@ -4,6 +4,7 @@ date: 13 June 2018
 category: euler
 tags: proof
 slug: euler/24
+problem: 24
 summary: My solution to problem 24 of Project Euler.
 ‐‐‐
 

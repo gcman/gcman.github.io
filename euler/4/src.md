@@ -2,8 +2,9 @@
 title: Problem 4 - Largest Palindrome Product
 date: 10 June 2018
 category: euler
-tags: proof
+tags: brute-force
 slug: euler/4
+problem: 4
 summary: My solution to problem 4 of Project Euler.
 ‐‐‐
 

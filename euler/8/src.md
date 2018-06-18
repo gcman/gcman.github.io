@@ -2,8 +2,9 @@
 title: Problem 8 - Largest Product in a Series
 date: 10 June 2018
 category: euler
-tags: proof
+tags: brute-force
 slug: euler/8
+problem: 8
 summary: My solution to problem 8 of Project Euler.
 ‐‐‐
 

@@ -324,16 +324,6 @@ We then need to normalize this vector to obtain the desired unit outward-facing 
 </td>
 </tr>
 </table>
-<div class="highlight">
-<pre><span></span><span class="k">def</span> <span class="nf">nullspace</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-13</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-    <span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-    <span class="n">tol</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">atol</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">*</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">nnz</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="n">tol</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-    <span class="n">ns</span> <span class="o">=</span> <span class="n">vh</span><span class="p">[</span><span class="n">nnz</span><span class="p">:]</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">])</span>
-</pre>
-</div>
 <p>We return the element of the nullspace that is a vector of norm 1 and use it to calculate the generalized cross product.</p>
 <div class="highlight">
 <pre><span></span><span class="k">def</span> <span class="nf">gen_cross</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>

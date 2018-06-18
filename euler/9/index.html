@@ -107,9 +107,9 @@
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
-<p>A Pythagorean triplet is a set of three natural numbers, <span class="math inline">\(a &lt; b &lt; c\)</span>, for which, <span class="math display">\[\begin{equation}
+<p>A Pythagorean triplet is a set of three natural numbers, <span class="math inline">\(a &lt; b &lt; c\)</span>, for which, <span class="math display">\[\begin{equation*}
     a^2 + b^2 = c^2
-\end{equation}\]</span> For example, <span class="math inline">\(3^2 + 4^2 = 9 + 16 = 25 = 52\)</span>.</p>
+\end{equation*}\]</span> For example, <span class="math inline">\(3^2 + 4^2 = 9 + 16 = 25 = 52\)</span>.</p>
 <p>Given <span class="math inline">\(N\)</span>, find the maximal product <span class="math inline">\(abc\)</span> such that <span class="math inline">\(a,b,c\)</span> form a Pythagorean triplet for which <span class="math inline">\(a+b+c = N\)</span>. If no such triplet exists, output <span class="math inline">\(-1\)</span>.</p>
 <h1 id="my-algorithm">My Algorithm</h1>
 <p>We know <span class="math display">\[\begin{equation}
@@ -132,7 +132,40 @@
 <h2 id="other-solutions">Other Solutions</h2>
 <p>We can also use preprocessing for an <span class="math inline">\(O(N^2 + T)\)</span> solution, where <span class="math inline">\(T\)</span> is the number of queries. For all <span class="math inline">\(a &lt; b &lt; 3000\)</span>, we check whether <span class="math inline">\(c = \sqrt{a^2 + b^2}\)</span> is an integer. If so, we check whether <span class="math inline">\(abc\)</span> is greater than our existing answer for the perimeter <span class="math inline">\(a + b + c\)</span>, which is by default <span class="math inline">\(-1\)</span>. To answer the queries, we look up the corresponding value in <span class="math inline">\(O(1)\)</span> time.</p>
 
-<h1 id="progress">Progress</h1>
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+	<span class="n">ans</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+	<span class="c1"># a can&#39;t be more than a third the perimeter</span>
+	<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">//</span><span class="mi">3</span><span class="p">):</span>
+		<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+		<span class="n">c</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+		<span class="c1"># Check that Pythagorean identity holds</span>
+		<span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span><span class="o">**</span><span class="mi">2</span> <span class="o">==</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">:</span>
+			<span class="c1"># Keep maximal product</span>
+			<span class="n">ans</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="p">))</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 3 comments and 0 empty lines.</p>
+
+<h1 id="Difficulty">Difficulty</h1>
+<p>Project Euler ranks this problem at 5% difficulty (out of 100%).</p><h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
 <table class="legend euler">
 	<tr>

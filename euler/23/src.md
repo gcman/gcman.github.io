@@ -2,8 +2,9 @@
 title: Problem 23 - Non-abundant Sums
 date: 12 June 2018
 category: euler
-tags: proof
+tags: brute-force
 slug: euler/23
+problem: 23
 summary: My solution to problem 23 of Project Euler.
 ‐‐‐
 

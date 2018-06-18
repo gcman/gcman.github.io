@@ -2,8 +2,9 @@
 title: Problem 17 - Number Letter Counts
 date: 11 June 2018
 category: euler
-tags: proof
+tags: fun
 slug: euler/17
+problem: 17
 summary: My solution to problem 17 of Project Euler.
 ‐‐‐
 

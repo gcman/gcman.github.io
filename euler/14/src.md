@@ -2,8 +2,9 @@
 title: Problem 14 - Longest Collatz Sequence
 date: 10 June 2018
 category: euler
-tags: proof
+tags: fun
 slug: euler/14
+problem: 14
 summary: My solution to problem 14 of Project Euler.
 ‐‐‐
 
@@ -17,9 +18,9 @@ The following iterative sequence is defined for the set of positive integers:
 	\end{cases}
 \end{equation*}
 Using the rule above and starting with 13 generates the following sequence:
-\begin{equation}
+\begin{equation*}
 	13 \to 40 \to 20 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1
-\end{equation}
+\end{equation*}
 This sequence contains 10 terms.
 It is conjectured that every starting number produces a sequence that ends in 1.
 

@@ -344,10 +344,6 @@ def nullspace(A, atol=1e-13, rtol=0):
     return np.array([k[0] for k in ns])
 ```
 
-```{.include .python}
-test.py
-```
-
 We return the element of the nullspace that is a vector of norm 1 and use it to calculate the generalized cross product.
 
 ```python

@@ -2,8 +2,9 @@
 title: Problem 16 - Power Digit Sum
 date: 11 June 2018
 category: euler
-tags: proof
+tags: brute-force
 slug: euler/16
+problem: 16
 summary: My solution to problem 16 of Project Euler.
 ‐‐‐
 

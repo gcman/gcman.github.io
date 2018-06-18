@@ -4,7 +4,7 @@
     <title>    Problem 28 - Number Spiral Diagonals - Gautam Manohar
 </title>
     <meta charset="utf-8" />
-        <meta name="keywords" content="proof, euler" />
+        <meta name="keywords" content="primes, euler" />
         <meta name="category" content="euler" />
         <meta name="description" content="My solution to problem 28 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
@@ -101,14 +101,14 @@
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
             <p class="date aligncenter">13 June 2018</p>
-          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
+          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/primes/">#primes</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
 
       <h1 id="problem-statement">Problem Statement</h1>
 <p>Starting with the number 1 and moving to the right in a clockwise direction, a 5-by-5 spiral is formed:</p>
-<p>It can be verified that the sum of the numbers on the diagonals is 101. What is the sum of the numbers on the diagonals in an <span class="math inline">\(N \times N\)</span> spiral (<span class="math inline">\(N\)</span> odd)?</p>
+<p>It can be verified that the sum of the numbers on the diagonals is 101. What is the sum of the numbers on the diagonals in an <span class="math inline">\(N \times N\)</span> spiral (<span class="math inline">\(N\)</span> odd)? Report your answer modulo <span class="math inline">\(10^9 + 7\)</span>.</p>
 <h1 id="my-algorithm">My Algorithm</h1>
 <p>We can think of the spiral as being made up of a central 1 surrounded by <span class="math inline">\(n\)</span> rings of side length <span class="math inline">\(2n+1\)</span>, where <span class="math inline">\(n = \frac{N - 1}{2}\)</span>. Let us derive a formula for the sum of the numbers in the corners of each ring&mdash;these make up the diagonals of the spiral. The number in the top-right corner of the <span class="math inline">\(n\)</span>-th ring is <span class="math inline">\((2n+1)^2\)</span>, the area of the ring. Going counter-clockwise, the number decreases by one less than the side length, or <span class="math inline">\(2n+1-1=2n\)</span>, each time. And so the <span class="math inline">\(n\)</span>-th ring has corner sum <span class="math display">\[\begin{equation}
     4(2n+1)^2 - 6(2n) = 16n^2 + 4n + 4.
@@ -129,7 +129,44 @@
     \end{split}
 \end{equation}\]</span> We report our answer modulo <span class="math inline">\(10^9 + 7\)</span>. Because there is a division by 6 in our answer, we must use the multiplicative modular inverse of 6 modulo <span class="math inline">\(10^9 + 7\)</span>, which we find in <span class="math inline">\(O(\log P)\)</span> time. And so our solution has time complexity <span class="math inline">\(O(1)\)</span>.</p>
 
-<h1 id="progress">Progress</h1>
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="mi">1000000007</span>
+
+<span class="c1"># Modular inverse</span>
+<span class="c1"># Fermat&#39;s Little Theorem</span>
+<span class="k">def</span> <span class="nf">inv</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+	<span class="k">return</span> <span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">m</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+
+<span class="c1"># Implement eq. (4)</span>
+<span class="k">def</span> <span class="nf">diag_sum</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+	<span class="k">return</span> <span class="p">((</span><span class="mi">4</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">P</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">P</span><span class="p">)</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">n</span> <span class="o">-</span> <span class="mi">9</span><span class="p">)</span><span class="o">*</span><span class="n">inv</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="n">P</span><span class="p">))</span> <span class="o">%</span> <span class="n">P</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">diag_sum</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 3 comments and 3 empty lines.</p>
+
+<h1 id="Difficulty">Difficulty</h1>
+<p>Project Euler ranks this problem at 5% difficulty (out of 100%).</p><h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
 <table class="legend euler">
 	<tr>

@@ -134,7 +134,44 @@
     n = \left\lceil \frac{N - 1 + \frac{\log_{10}5}{2}}{\log_{10}\varphi} \right\rceil.
 \end{equation}\]</span> Because our solution is just a computation, it has time complexity <span class="math inline">\(O(1)\)</span>. In our code, we just need to handle the corner case where <span class="math inline">\(N = 1\)</span>; here our approximation <span class="math inline">\(\eqref{approx}\)</span> introduces enough error to return an incorrect answer.</p>
 
-<h1 id="progress">Progress</h1>
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span><span class="p">,</span><span class="n">log</span>
+<span class="n">PHI</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">5</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="c1"># First Fibonacci number with n numbers</span>
+<span class="c1"># Implementing eq. (6)</span>
+<span class="k">def</span> <span class="nf">fib_dig</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+	<span class="c1"># Handle the one place our approximation fails</span>
+	<span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+		<span class="k">return</span> <span class="mi">1</span>
+	<span class="k">return</span> <span class="n">ceil</span><span class="p">((</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">log</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">log</span><span class="p">(</span><span class="n">PHI</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">fib_dig</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 3 comments and 2 empty lines.</p>
+
+<h1 id="Difficulty">Difficulty</h1>
+<p>Project Euler ranks this problem at 5% difficulty (out of 100%).</p><h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
 <table class="legend euler">
 	<tr>

@@ -2,21 +2,22 @@
 title: Problem 6 - Sum Square Difference
 date: 10 June 2018
 category: euler
-tags: proof
+tags: identity
 slug: euler/6
+problem: 6
 summary: My solution to problem 6 of Project Euler.
 ‐‐‐
 
 # Problem Statement
 
 The sum of the squares of the first ten natural numbers is
-\begin{equation}
+\begin{equation*}
 	1^2 + 2^2 + \cdots + 10^2 = 385.
-\end{equation}
+\end{equation*}
 The square of the sum of the first ten natural numbers is
-\begin{equation}
+\begin{equation*}
 	(1 + 2 + \cdots + 10)^2 = 55^2 = 3025
-\end{equation}
+\end{equation*}
 Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is $3025 - 385 = 2640$.
 Find the absolute difference between the sum of the squares of the first $N$ natural numbers and the square of the sum.
 

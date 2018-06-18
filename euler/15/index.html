@@ -118,7 +118,50 @@
 \end{equation}\]</span> This gives us a recurrence relation. Because we are computing the answer modulo <span class="math inline">\(10^9 + 7\)</span>, we must use the modular multiplicative inverse of <span class="math inline">\(b+1\)</span>. Because the modulus is prime, this is guaranteed to exist. We can find this using the <a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm">Extended Euclidean algorithm</a> in <span class="math inline">\(O(\log P)\)</span> time, where <span class="math inline">\(P = 10^9 + 7\)</span>.</p>
 <p>Starting with <span class="math inline">\(\binom{N+M}{0} = 1\)</span>, we iterate over <span class="math inline">\(0 \le k \le \mathrm{min}(N,M) - 1\)</span> use the recurrence relation <span class="math inline">\(\eqref{recurrence}\)</span>, multiplying by <span class="math inline">\(N + M - k\)</span> and the modular inverse of <span class="math inline">\(k + 1\)</span> under <span class="math inline">\(P\)</span>. At each step, we take the expression modulo <span class="math inline">\(P\)</span>. Our solution has time complexity <span class="math inline">\(O(\mathrm{min}(N,M)\log P)\)</span>.</p>
 
-<h1 id="progress">Progress</h1>
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="mi">1000000007</span>
+
+<span class="c1"># Modular inverse</span>
+<span class="c1"># Fermat&#39;s Little Theorem</span>
+<span class="k">def</span> <span class="nf">inv</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+	<span class="k">return</span> <span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">m</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">choose</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+	<span class="n">ans</span> <span class="o">=</span> <span class="mi">1</span>
+	<span class="c1"># Recurrence in eq. (2)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+		<span class="n">ans</span> <span class="o">=</span> <span class="p">(</span><span class="n">ans</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">inv</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">P</span><span class="p">))</span> <span class="o">%</span> <span class="n">P</span>
+	<span class="k">return</span> <span class="n">ans</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+	<span class="n">N</span><span class="p">,</span><span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">choose</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="n">M</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)))</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 3 comments and 3 empty lines.</p>
+
+<h1 id="Difficulty">Difficulty</h1>
+<p>Project Euler ranks this problem at 5% difficulty (out of 100%).</p><h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
 <table class="legend euler">
 	<tr>

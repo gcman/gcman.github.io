@@ -4,7 +4,7 @@
     <title>    Problem 1 - Multiples of 3 and 5 - Gautam Manohar
 </title>
     <meta charset="utf-8" />
-        <meta name="keywords" content="proof, euler" />
+        <meta name="keywords" content="identity, euler" />
         <meta name="category" content="euler" />
         <meta name="description" content="My solution to problem 1 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
@@ -101,7 +101,7 @@
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
             <p class="date aligncenter">9 June 2018</p>
-          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
+          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/identity/">#identity</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
@@ -112,7 +112,7 @@
 <h1 id="my-algorithm">My Algorithm</h1>
 <p>For the Project Euler problem, <span class="math inline">\(n = 1000\)</span>.</p>
 <p>In general, the sum of the natural numbers up to <span class="math inline">\(n\)</span> is the <span class="math inline">\(n\)</span>-th <em>triangular number</em> (see <a href="https://en.wikipedia.org/wiki/Triangular_number">here</a>). Let&rsquo;s call this <span class="math inline">\(T(n)\)</span>. A well known formula for this is <span class="math display">\[\begin{equation}
-    T(n) = \sum_{i=1}^n i = \frac{n(n+1)}{2}
+    T(n) = \sum_{i=1}^n i = \frac{n(n+1)}{2}.
     \label{triangular-num}
 \end{equation}\]</span></p>
 <p>The sum of all multiples of 3 below <span class="math inline">\(n\)</span> looks like this: <span class="math display">\[\begin{equation}
@@ -125,7 +125,40 @@
 <h2 id="other-solutions">Other Solutions</h2>
 <p>A brute-force solution that adds each number <span class="math inline">\(i\)</span> from 1 to <span class="math inline">\(n-1\)</span> to a count if <span class="math inline">\(i\)</span> is divisible by 3 <em>or</em> 5 would have time complexity <span class="math inline">\(O(n)\)</span>. With the large input sizes of the Hackerrank problem (<span class="math inline">\(n \le 10^9\)</span>) this solution is too slow, but it easily passes the original Project Euler problem.</p>
 
-<h1 id="progress">Progress</h1>
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="c1"># Implement eq. (1)</span>
+<span class="k">def</span> <span class="nf">triangular</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+	<span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+
+<span class="c1"># These are the terms in eq. (3)</span>
+<span class="k">def</span> <span class="nf">sum_under</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+	<span class="k">return</span> <span class="n">m</span><span class="o">*</span><span class="n">triangular</span><span class="p">((</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="n">m</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">sum_under</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">sum_under</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">-</span> <span class="n">sum_under</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 2 comments and 3 empty lines.</p>
+
+<h1 id="Difficulty">Difficulty</h1>
+<p>Project Euler ranks this problem at 5% difficulty (out of 100%).</p><h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
 <table class="legend euler">
 	<tr>

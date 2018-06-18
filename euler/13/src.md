@@ -2,8 +2,9 @@
 title: Problem 13 - Large Sum
 date: 10 June 2018
 category: euler
-tags: proof
+tags: brute-force
 slug: euler/13
+problem: 13
 summary: My solution to problem 13 of Project Euler.
 ‐‐‐
 

@@ -2,8 +2,9 @@
 title: Problem 1 - Multiples of 3 and 5
 date: 9 June 2018
 category: euler
-tags: proof
+tags: identity
 slug: euler/1
+problem: 1
 summary: My solution to problem 1 of Project Euler.
 ‐‐‐
 
@@ -22,7 +23,7 @@ In general, the sum of the natural numbers up to $n$ is the $n$-th *triangular n
 Let's call this $T(n)$.
 A well known formula for this is
 \begin{equation}
-	T(n) = \sum_{i=1}^n i = \frac{n(n+1)}{2}
+	T(n) = \sum_{i=1}^n i = \frac{n(n+1)}{2}.
 	\label{triangular-num}
 \end{equation}
 

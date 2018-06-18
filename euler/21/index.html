@@ -4,7 +4,7 @@
     <title>    Problem 21 - Amicable Numbers - Gautam Manohar
 </title>
     <meta charset="utf-8" />
-        <meta name="keywords" content="proof, euler" />
+        <meta name="keywords" content="brute-force, euler" />
         <meta name="category" content="euler" />
         <meta name="description" content="My solution to problem 21 of Project Euler." />
         <meta name="author" content="Gautam Manohar" />
@@ -101,7 +101,7 @@
             <a href="../../category/euler/">euler</a>&nbsp;
           </p>
             <p class="date aligncenter">12 June 2018</p>
-          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/proof/">#proof</a> </p>
+          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/brute-force/">#brute-force</a> </p>
         </div>
        <div style="clear: both;"></div>​
     </header>
@@ -115,7 +115,70 @@
 <p>And so we only need to check each number less than <span class="math inline">\(\sqrt{n}\)</span>. If it divides <span class="math inline">\(n\)</span>, we add it to the sum that we will return. We therefore find <span class="math inline">\(d(n)\)</span> in <span class="math inline">\(O(\sqrt{n})\)</span> time.</p>
 <p>Then we can use preprocessing to answer each query in <span class="math inline">\(O(1)\)</span> time. For each <span class="math inline">\(1 \le x \le N_{\text{max}}\)</span>, if <span class="math inline">\(x = d(d(x))\)</span> and <span class="math inline">\(x \neq d(x)\)</span>, then we add <span class="math inline">\(x\)</span> to a list of amicable numbers. To answer each query, we simply add the amicable numbers less than the given <span class="math inline">\(N\)</span>. Our solution has time complexity <span class="math inline">\(O(N\sqrt{N} + T)\)</span>, where <span class="math inline">\(N\)</span> is the maximum possible input value and <span class="math inline">\(T\)</span> is the number of queries.</p>
 
-<h1 id="progress">Progress</h1>
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="c1"># Compute the sum of divisors</span>
+<span class="k">def</span> <span class="nf">divisor_sum</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+	<span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="n">s</span> <span class="o">+=</span> <span class="n">i</span>
+			<span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">n</span><span class="o">//</span><span class="n">i</span><span class="p">:</span>
+				<span class="n">s</span> <span class="o">+=</span> <span class="n">n</span><span class="o">//</span><span class="n">i</span>
+	<span class="k">return</span> <span class="n">s</span> <span class="o">-</span> <span class="n">n</span>
+
+<span class="n">MAX</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e5</span><span class="p">)</span>
+<span class="c1"># Precompute all amicable numbers</span>
+<span class="n">AMICABLE</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+	<span class="n">friend</span> <span class="o">=</span> <span class="n">divisor_sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+	<span class="c1"># Check if x = d(d(x)) and x != d(x)</span>
+	<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">divisor_sum</span><span class="p">(</span><span class="n">friend</span><span class="p">)</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">friend</span><span class="p">:</span>
+		<span class="c1"># Avoid duplicates</span>
+		<span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">AMICABLE</span><span class="p">:</span>
+			<span class="n">AMICABLE</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+	<span class="n">S</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">AMICABLE</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">])</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 4 comments and 3 empty lines.</p>
+
+<h1 id="Difficulty">Difficulty</h1>
+<p>Project Euler ranks this problem at 5% difficulty (out of 100%).</p><h1 id="progress">Progress</h1>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
 <table class="legend euler">
 	<tr>
