@@ -80,3 +80,19 @@ td.unsolved {
 	border: 0.075vw solid dimgray;
 	color: gray;
 }
+
+span.fast {
+	color: #2db92d;
+}
+
+span.medium {
+	color: green;
+}
+
+span.slow {
+	color: #B58900;
+}
+
+span.tooslow {
+	color: crimson;
+}

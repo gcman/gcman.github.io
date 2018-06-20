@@ -2,7 +2,27 @@
 <div class="euler-code">
 	{{ meta.code }}
 </div>
-<p>This code has {{ meta.comments }} comments and {{ meta.empty }} empty lines.</p>
+<p>My code has {{ meta.comments }} comments and {{ meta.empty }} empty lines.</p>
 
-<h1 id="Difficulty">Difficulty</h1>
-<p>Project Euler ranks this problem at {{ meta.difficulty }}% difficulty (out of 100%).</p>
+<h1 id="Performance">Performance</h1>
+{%- if meta.runtime|int < 100 %}
+	{%- set speedclass = "fast" %}
+	{%- set time = "less than 0.1&#8239;s" %}
+{%- elif meta.runtime|int >= 100 and meta.runtime|int < 1000 %}
+	{%- set speedclass = "fast" %}
+	{%- set time = meta.runtime|int|string + "&#8239;ms" %}
+{%- elif meta.runtime|int >= 1000 and meta.runtime|int < 10000 %}
+	{%- set speedclass = "medium" %}
+{%- elif meta.runtime|int >= 10000 and meta.runtime|int <= 60000 %}
+	{%- set speedclass = "slow" %}
+{%- elif meta.runtime|int > 60000 %}
+	{%- set speedclass = "tooslow" %}
+{%- endif %}
+{%- if meta.runtime|int >= 1000 %}
+	{%- set timetemp = meta.runtime|int / 1000 %}
+	{%- set time = "%.2f"|format(timetemp|float) + "&#8239;s" %}
+{%- endif %}
+<p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="{{ speedclass }}">{{ time }}</span>.</p>
+
+<h2 id="Difficulty">Difficulty</h2>
+<p><a href="https://projecteuler.net/problem={{ meta.num }}">Project Euler</a> ranks this problem at {{ meta.difficulty }}% difficulty (out of 100%).</p>

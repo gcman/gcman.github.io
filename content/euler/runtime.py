@@ -15,6 +15,10 @@ with open("euler-input.csv","r") as f:
 		data = line.strip().split(",")
 		INPUT[str(data[0])] = "\n".join(data[1:])
 
+def save_data():
+	with open(os.path.join(ROOT,"euler-problem-data.json"),"w",encoding="utf-8") as f:
+		json.dump(DATA, f, ensure_ascii=False,indent=4)
+
 def time(n,runs=RUNS):
 	if "path" not in DATA[str(n)] or str(n) not in INPUT:
 		return "Problem {} has no given test data or no path to solution. Skipping.".format(n)
@@ -22,7 +26,7 @@ def time(n,runs=RUNS):
 		ans,time = compute_time(n,runs)
 		if str(n) not in DATA:
 			DATA[str(n)] = {}
-		DATA[str(n)]["time"] = time
+		DATA[str(n)]["runtime"] = time
 		return "The answer to problem {} was found to be {} over {} runs in {} ms per run.".format(n,ans,runs,time)
 
 def compute_time(n,runs):
@@ -46,3 +50,5 @@ def compute_time(n,runs):
 	return p.stdout.strip(),str(int(TIME/runs))
 
 N = int(input())
+print(time(N))
+save_data()

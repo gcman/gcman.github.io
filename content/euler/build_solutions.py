@@ -48,7 +48,7 @@ for x in solved:
 	solved[x]["comments"] = str(comments)
 	solved[x]["difficulty"] = DATA[str(x)]["difficulty"]
 	with open(os.path.join(DIR,"euler/"+str(x)+".html"),"w") as f:
-		f.write(template.render(meta=solved[x]))
+		f.write(template.render(meta=DATA[str(x)]))
 
 for x in solved:
 	if str(x) not in DATA:

@@ -42,7 +42,7 @@
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">):</span>
 	<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">):</span>
 		<span class="c1"># Test if palindrome</span>
-		<span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">ij</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">ij</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+		<span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
 			<span class="n">pals</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">)</span>
 <span class="n">pals</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pals</span><span class="p">))</span>
 
@@ -54,7 +54,10 @@
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 3 comments and 2 empty lines.</p>
+<p>My code has 3 comments and 2 empty lines.</p>
 
-<h1 id="Difficulty">Difficulty</h1>
-<p>Project Euler ranks this problem at 5% difficulty (out of 100%).</p>
+<h1 id="Performance">Performance</h1>
+<p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">733&#8239;ms</span>.</p>
+
+<h2 id="Difficulty">Difficulty</h2>
+<p><a href="https://projecteuler.net/problem=4">Project Euler</a> ranks this problem at 5% difficulty (out of 100%).</p>
