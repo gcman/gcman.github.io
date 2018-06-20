@@ -15,7 +15,7 @@ pals = set()
 for i in range(100,1000):
 	for j in range(100,1000):
 		# Test if palindrome
-		if str(ij) == str(ij)[::-1]:
+		if str(i*j) == str(i*j)[::-1]:
 			pals.add(i*j)
 pals = sorted(list(pals))
 

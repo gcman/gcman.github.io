@@ -1,3 +1,22 @@
+@import url("scrollbar.css");
+
+body {
+  background-color: ivory;
+  color: black;
+  font-size: 15px;
+  font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  cursor: default;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: firebrick;
+}
+
 .content {
   padding-top: 25px;
   padding-bottom: 50px;
@@ -31,9 +50,9 @@
 }
 
 .nav-wrapper nav.fixed {
-    position: fixed;
-    width: 100%;
-    top: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 
 nav {
@@ -48,7 +67,7 @@ nav ul {
 
 nav li {
   display: inline;
-  padding: 0 0.25em;
+  padding: 0 0.4em;
 }
 
 nav li a {
@@ -60,7 +79,7 @@ nav li a {
 
 h2 {
   margin-top: 1.25em;
-  margin-bottom: 0.75em;
+  margin-bottom: 0.5em;
   font-weight: bold;
   font-size: 1.8em;
   color: firebrick;
