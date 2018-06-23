@@ -20,13 +20,17 @@ table.euler td {
 }
 
 table.legend {
-	border-spacing: 4px;
+	border-spacing: 3px;
 }
 
 table.legend td {
 	font-size: 95%
-	min-width: 1.5em;
+}
+
+.euler-circle {
+	width: 1.5em;
 	height: 1.5em;
+	display: inline-block;
 	border-width: 0.08vw;
 	border-radius: 50%;
 }
@@ -55,31 +59,31 @@ td.text {
 	font-weight: normal;
 }
 
-td.complete {
+.complete {
 	background-color: green;
 	border: 0.075vw solid darkgreen;
 	color: #DDFFDD;
 }
 
-td.hackerrank-imperfect {
+.hackerrank-imperfect {
 	background-color: #DDFFDD;
 	border: 0.075vw solid green;
 	color: green;
 }
 
-td.euler-only {
+.euler-only {
 	background-color: #9999FF;
 	border: 0.075vw solid #333;
 	color: #333;
 }
 
-td.tle {
+.tle {
 	background-color: khaki;
 	border: 0.075vw solid #6d660a;
 	color: #6d660a;
 }
 
-td.unsolved {
+.unsolved {
 	background-color: #ededed;
 	border: 0.075vw solid dimgray;
 	color: gray;
