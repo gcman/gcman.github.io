@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+from __future__ import unicode_literals
 from fabric.api import *
 import fabric.contrib.project as project
 import os
@@ -9,8 +11,6 @@ if sys.version_info < (3,0):
 else:
 	import socketserver as SocketServer
 from datetime import datetime
-import livereload
-import webbrowser
 import markdown2
 from itertools import chain
 from glob import iglob
@@ -20,6 +20,7 @@ from pelican.server import ComplexHTTPRequestHandler
 from contextlib import contextmanager
 import re
 import fileinput
+import io
 
 ROOT = os.getcwd()
 
@@ -44,7 +45,6 @@ tags:
 slug: {slug}
 summary:
 status: draft
-
 
 """
 @contextmanager
@@ -79,6 +79,19 @@ def remove_prefix(text, prefix):
 		return text[len(prefix):]
 	return text
 
+def rmdir(dirname):
+	if os.path.isdir(dirname):
+		shutil.rmtree(dirname)
+
+def mkdir(dirname,exist_ok=True):
+	if exist_ok:
+		if os.path.exists(dirname):
+			rmdir(dirname)
+		os.mkdir(dirname)
+	else:
+		if not os.path.exists(dirname):
+			os.mkdir(dirname)
+
 def clean():
 	# Remove generated files
 	if path.isdir(DEPLOY_PATH):
@@ -89,7 +102,7 @@ def clean():
 				p = path.join(subdir,file)
 				if ext(file) != ".pdf":
 					os.remove(p)
-		os.makedirs(DEPLOY_PATH,exist_ok=True)
+		mkdir(DEPLOY_PATH)
 
 def build():
 	# Build local version of site
@@ -121,7 +134,7 @@ def make_figs():
 	CONTENT_DIR = path.abspath(path.join(__file__ ,"../content/figures"))
 	OUTPUT_DIR =  path.abspath(path.join(__file__ ,"../output/figures"))
 	commands = []
-	os.makedirs(path.join(OUTPUT_DIR),exist_ok=True)
+	mkdir(path.join(OUTPUT_DIR))
 	for subdir, dirs, files in os.walk(CONTENT_DIR):
 		for file in files:
 			if ext(file) == ".tex":
@@ -134,7 +147,7 @@ def make_figs():
 					os.chdir(ROOT)
 				if file in diff or not path.isfile(path.join(OUTPUT_DIR,bare(file)+".png")):
 					print("Creating PNG from {}".format(bare(file) + ".pdf"))
-					commands.append("magick -quiet -density 800 -background none -antialias " 
+					commands.append("convert -quiet -density 800 -background none -antialias " 
 						+ path.join(CONTENT_DIR,bare(file)+".pdf") 
 						+ " -channel rgba -alpha on -quality 2500 -trim png32:" + path.join(OUTPUT_DIR,bare(file) + ".png"))
 		break # Prevents digging into subdirectories
@@ -167,16 +180,16 @@ def make_source():
 				PDF_DIR = path.join(OUTPUT_DIR,"../pdf")
 				MD = path.join(OUTPUT_DIR, "src.md")
 				PDF = path.join(OUTPUT_DIR,"post.pdf")
-				if file in diff or not path.isfile(MD):
-					with open(file, "r") as f:
+				with io.open(file, "r",encoding="utf-8") as f:
 						lines = [line for line in f]
 						empty = 0
 						for i,line in enumerate(lines):
 							if line == "\n":
 								empty = i
 								break
+				if file in diff or not path.isfile(MD):
 					print("Copying {}".format(file))
-					with open(MD, "w", encoding="utf-8") as f:
+					with io.open(MD, "w", encoding="utf-8") as f:
 						s = "---\n"
 						f.write(s)
 						for i,line in enumerate(lines):
@@ -204,7 +217,7 @@ def make_source():
 						+ MD + " -o " + PDF)
 					os.remove(MD)
 				if file in diff or not path.isfile(MD):
-					with open(MD, "w", encoding="utf-8") as f:
+					with io.open(MD, "w", encoding="utf-8") as f:
 						s = u"\u2010\u2010\u2010\n"
 						f.write(s)
 						for i, line in enumerate(lines):
@@ -219,31 +232,34 @@ def del_tex2pdf():
 	rootdir = os.getcwd()
 	for d in os.listdir(rootdir):
 		if d.startswith("tex2pdf"):
-			shell('rd /s /q ' + d)
+			shell('-rm -rf ' + d)
 	os.chdir(ROOT)
-
-def sitemap():
-	print("Building sitemap")
-	PATH = path.abspath(path.join(__file__,"../output/sitemap.xml"))
-	shell('sitemap-generator -f ' + PATH + " https://gautammanohar.com")
 
 def preview():
 	try:
 		if path.exists('output/drafts'):
 			if not publish_drafts:
-				shell('rd /s /q "output/drafts"')
+				shell('-rm -rf output/drafts')
 	except Exception:
 		pass
 	build()
 	make_figs()
 	make_source()
 	del_tex2pdf()
-	sitemap()
 
-def publish(message,publish_drafts=False):
-	preview()
+def commit(message):
 	shell('git add -A')
-	shell('git commit --allow-empty -m"' + message + '"')
+	shell('git commit --allow-empty -m"' + message +'"')
+
+def push():
 	shell('git push')
+
+def hard_push():
 	shell('ghp-import output')
 	shell('git push git@github.com:gcman/gcman.github.io.git gh-pages:master --force')
+
+def publish(message):
+	preview()
+	commit(message)
+	push()
+	hard_push()

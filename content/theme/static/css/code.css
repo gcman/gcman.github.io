@@ -47,6 +47,7 @@ td.code {
 .highlight pre {
   line-height: 0.725em;
   padding: 15px 0 5px 15px;
+  tab-size: 4;
 }
 
 .linenodiv pre{
