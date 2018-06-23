@@ -83,14 +83,9 @@ def rmdir(dirname):
 	if os.path.isdir(dirname):
 		shutil.rmtree(dirname)
 
-def mkdir(dirname,exist_ok=True):
-	if exist_ok:
-		if os.path.exists(dirname):
-			rmdir(dirname)
+def mkdir(dirname):
+	if not path.exists(dirname):
 		os.mkdir(dirname)
-	else:
-		if not os.path.exists(dirname):
-			os.mkdir(dirname)
 
 def clean():
 	# Remove generated files
@@ -134,7 +129,7 @@ def make_figs():
 	CONTENT_DIR = path.abspath(path.join(__file__ ,"../content/figures"))
 	OUTPUT_DIR =  path.abspath(path.join(__file__ ,"../output/figures"))
 	commands = []
-	mkdir(path.join(OUTPUT_DIR))
+	mkdir(OUTPUT_DIR)
 	for subdir, dirs, files in os.walk(CONTENT_DIR):
 		for file in files:
 			if ext(file) == ".tex":
@@ -146,6 +141,7 @@ def make_figs():
 					shell("pdfcrop " + bare(file) + ".pdf " + bare(file) + ".pdf")
 					os.chdir(ROOT)
 				if file in diff or not path.isfile(path.join(OUTPUT_DIR,bare(file)+".png")):
+					print(path.join(OUTPUT_DIR,bare(file)+".png"))
 					print("Creating PNG from {}".format(bare(file) + ".pdf"))
 					commands.append("convert -quiet -density 800 -background none -antialias " 
 						+ path.join(CONTENT_DIR,bare(file)+".pdf") 
