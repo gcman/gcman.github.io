@@ -85,6 +85,8 @@ LOAD_CACHE_CONTENT = True
 CACHE_PATH = "cache"
 CONTENT_CACHING_LAYER = "reader"
 
+DIRECT_TEMPLATES = ("index", "tags", "categories", "archives", "sitemap")
+
 ARTICLE_URL = "{slug}/"
 ARTICLE_SAVE_AS = "{slug}/index.html"
 PAGE_URL = "{slug}/"
@@ -94,3 +96,4 @@ CATEGORY_SAVE_AS = "category/{slug}/index.html"
 TAG_URL = "tag/{slug}/"
 TAG_SAVE_AS = "tag/{slug}/index.html"
 INDEX_SAVE_AS = "blog/index.html"
+SITEMAP_SAVE_AS = "sitemap.xml"
