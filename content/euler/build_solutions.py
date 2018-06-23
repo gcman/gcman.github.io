@@ -14,7 +14,7 @@ with open("euler-problem-data.json","r",encoding="utf-8") as f:
 	DATA = json.load(f)
 
 solved = {}
-for file in os.listdir(os.path.join(os.path.abspath(__file__),"../../")):
+for file in os.listdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))):
 	if "euler-" in file:
 		num = None
 		try:
@@ -24,14 +24,14 @@ for file in os.listdir(os.path.join(os.path.abspath(__file__),"../../")):
 		if num:
 			solved[num] = {"num":str(num)}
 
-for file in os.listdir(os.path.join(os.path.abspath(__file__),"../solutions/")):
+for file in os.listdir(os.path.join(os.path.dirname(os.path.abspath(__file__)),"solutions")):
 	num = int(file.split("-")[0])
 	if num in solved:
 		solved[num]["path"] = file
 
 for x in solved:
 	dir = solved[x]["path"]
-	path = os.path.join(os.path.abspath(__file__),"../solutions/" + dir + "/main.py")
+	path = os.path.join(os.path.dirname(os.path.abspath(__file__)),"solutions/" + dir + "/main.py")
 	empty = 0
 	comments = 0
 	code = ""

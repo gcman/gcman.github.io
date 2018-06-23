@@ -23,32 +23,32 @@ def time(n,runs=RUNS):
 	if "path" not in DATA[str(n)] or str(n) not in INPUT:
 		return "Problem {} has no given test data or no path to solution. Skipping.".format(n)
 	else:
-		ans,time = compute_time(n,runs)
+		ans,time,mem = compute_time(n,runs)
 		if str(n) not in DATA:
 			DATA[str(n)] = {}
 		DATA[str(n)]["runtime"] = time
-		return "The answer to problem {} was found to be {} over {} runs in {} ms per run.".format(n,ans,runs,time)
+		DATA[str(n)]["memory"] = mem
+		save_data()
+		return "Problem: {}\nAnswer: {}\nRuns: {}\nTime (ms): {}\nPeak memory usage (KB): {}\n".format(n,ans,runs,time,mem)
 
 def compute_time(n,runs):
-	path = os.path.join(ROOT,"solutions//") + DATA[str(n)]["path"] + "//main.py"
-	path = path.replace("\\","//")
-	os.chdir(r"c://cygwin64//bin")
-	cmd = ["bash", "-c", "time python " + path]
+	path = os.path.join(ROOT,"solutions/") + DATA[str(n)]["path"] + "/main.py"
+	cmd = ["/usr/bin/time","--verbose","python3.6", path]
 	test_case = INPUT[str(n)]
 	TIME = 0
+	MEM = 0
 	for i in range(runs):
 		print("Performing problem {}, run {}.".format(n,i+1),end="\r")
 		sys.stdout.flush()
 		p = run(cmd,input=test_case,stdout=PIPE, stderr=PIPE,encoding="ascii")
 		time = p.stderr.split("\n")
-		for j in [1]:
-			t = time[j].split("\t")[1]
-			mins = t.split("m")
-			ms = 1000*float(mins[1].split("s")[0])
-			mins = 60000*float(mins[0])
-			TIME += ms + mins
-	return p.stdout.strip(),str(int(TIME/runs))
+		t = time[4].split(":")
+		mins = 60000*float(t[-2])
+		ms = 1000*float(t[-1])
+		TIME += mins + ms
+		mem = float(time[9].split(":")[-1])
+		MEM += mem
+	return p.stdout.strip(),str(int(TIME/runs)),str(int(MEM/runs))
 
 N = int(input())
 print(time(N))
-save_data()

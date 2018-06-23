@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 ALPH = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 def score(s):
