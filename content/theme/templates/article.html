@@ -39,7 +39,7 @@
 {% else %}
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
 {% endif %}
-{% if article.category == "euler" %}
+{% if article.category.name == "euler" %}
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/euler.css" type="text/css" />
 {% endif %}
 {% endblock meta_tags_in_head %}
@@ -90,7 +90,7 @@
           <div class="date">{{article.locale_date}}</div>
           {% if article.toc %}
             <nav id="toc">
-              {{article.toc}}
+              {{ article.toc }}
             </nav>
           {% endif %}
           {% include 'toolbar.html' %}
@@ -113,7 +113,7 @@
       <article>
     {% endif %}
       {{ article.content }}
-    {% if article.category == "euler" %}
+    {% if article.category.name == "euler" %}
       {% if article.problem %}
         {% include 'euler' + '/' + article.problem + '.html' %}
       {% endif %}
@@ -134,9 +134,4 @@
   </article>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-  $('.title a').html(function(index, value) {
-    return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
-});
-</script>
 {% endblock %}

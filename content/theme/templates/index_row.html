@@ -1,0 +1,11 @@
+<tr>
+	<td>
+		<a href="{{ SITEURL }}/{{ article.url }}">
+			{{ article.title }}{%- if article.subtitle %}: {{ article.subtitle }}{%- endif %}
+		</a>
+		{%- if article.tags %}<strong>{% include 'taglist.html' %}</strong>{%- endif %}
+	</td>
+	<td id="date">
+		{{ article.locale_date }}
+	</td>
+</tr>

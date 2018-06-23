@@ -13,6 +13,18 @@ template = env.get_template(os.path.join(os.path.dirname(__file__),"euler-extra.
 with open("euler-problem-data.json","r",encoding="utf-8") as f:
 	DATA = json.load(f)
 
+with open("hr-difficulty.csv","r",encoding="utf-8") as f:
+	diff = {"m":"Medium","h":"Hard","a":"Advanced","e":"Expert"}
+	lines = {}
+	for line in f.readlines():
+		dt = line.strip().split(",")
+		lines[int(dt[0])] = dt[1]
+	for i in range(1,max(lines.keys())+1):
+		if i in lines:
+			DATA[str(i)]["hrdifficulty"] = diff[lines[i]]
+		else:
+			DATA[str(i)]["hrdifficulty"] = "Easy"
+
 solved = {}
 for file in os.listdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))):
 	if "euler-" in file:

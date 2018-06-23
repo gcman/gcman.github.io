@@ -23,7 +23,7 @@
 	{%- set time = "%.2f"|format(timetemp|float) + "&#8239;s" %}
 {%- endif %}
 {%- set memtemp = meta.memory|int / 1000 %}
-{%- set mem = "%.1f"|format(memtemp|float) + "&#8239;KB" %}
+{%- set mem = "%.1f"|format(memtemp|float) + "&#8239;MB" %}
 {%- if meta.memory|int < 25000 %}
 	{%- set memclass = "fast" %}
 {%- elif meta.memory|int >= 25000 and meta.memory|int < 125000 %}
@@ -36,4 +36,5 @@
 <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="{{ speedclass }}">{{ time }}</span> with a peak memory usage of <span style="font-weight: bold" class="{{ memclass }}">{{ mem }}</span>.</p>
 
 <h2 id="Difficulty">Difficulty</h2>
-<p><a href="https://projecteuler.net/problem={{ meta.num }}">Project Euler</a> ranks this problem at {{ meta.difficulty }}% difficulty (out of 100%).</p>
+{%- set hrnum = "%03d"|format(meta.num|int) %}
+<p><a href="https://projecteuler.net/problem={{ meta.num }}">Project Euler</a> ranks this problem at {{ meta.difficulty }}% difficulty (out of 100%). <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler{{ hrnum }}">HackerRank</a> classifies this problem as {% filter lower %}{{ meta.hrdifficulty }}{% endfilter %}.</p>

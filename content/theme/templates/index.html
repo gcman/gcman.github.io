@@ -1,82 +1,60 @@
 <head>
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/normalize/normalize.min.css" type="text/css" />
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/blog.css" type="text/css" />
-    <title>Gautam Manohar's Blog</title>
-    <meta name="description" content="Gautam Manohar's personal blog, with posts on mathematics, computer science, chemistry, and whatever else interests him." />
+		<link rel="stylesheet" href="{{ SITEURL }}/theme/css/normalize/normalize.min.css" type="text/css" />
+		<link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
+		<link rel="stylesheet" href="{{ SITEURL }}/theme/css/blog.css" type="text/css" />
+		<title>Gautam Manohar's Blog</title>
+		<meta name="description" content="Gautam Manohar's personal blog, with posts on mathematics, computer science, chemistry, and whatever else interests him." />
 </head>
 {% extends "base.html" %}
 {% block robots %}noindex,follow{% endblock %}
 {% block content_title %}{% endblock %}
 {% block content %}
 <article>
-    <header style="margin-top: 100px">
-      <h1 class="title">
-        <a href="{{ SITEURL }}/blog/">Gautam Manohar</a>
-      </h1>
-      <nav>
-        <ul>
-            <li>
-              <strong><a href="https://github.com/gcman">GitHub</a></strong>
-            </li>
-            <li>
-              <strong><a href="{{ SITEURL }}">Home Page</a></strong>
-            </li>
-            <li>
-              <strong><a href="{{ SITEURL }}/contact-me/">Contact</a></strong>
-            </li>
-        </ul>
-      </nav>
-    </header>
-    <div id="content">
-        <section id="math" class="level2">
-        <h2>Math <strong>/ Notes &amp; Essays</strong></h2>
-        {% if articles %}
-          <table>
-            {% for article in articles_page.object_list %}
-              {% if article.category == 'Math' %}
-                <tr>
-                  <td>
-                    <a href="{{ SITEURL }}/{{ article.url }}">
-                        {{article.title}}{% if article.subtitle %}: {{ article.subtitle }}{% endif %}
-                    </a>
-                    {% if article.tags %}<strong>{% include 'taglist.html' %}</strong>{% endif %}
-                  </td>
-                  <td id="date">
-                    {{ article.locale_date }}
-                  </td>
-                </tr>
-              {% endif %}
-            {% endfor %}
-          </table>
-        {% endif %}
-        </section>
-        <section id="project-euler" class="level2">
-        <h2>Project Euler <strong>/ Full Solutions</strong></h2>
-        <a href="{{ SITEURL }}/euler/">Project Euler Solutions</a>
-        <table>
-          {% set max_count = 10 %}
-          {% set extra_count = [0] %}
-          {% for article in articles_page.object_list if article.category == "Euler" %}
-            {% if loop.index <= max_count %}
-              <tr>
-                <td>
-                  <a href="{{ SITEURL }}/{{ article.url }}">
-                    {{article.title}}{% if article.subtitle %}: {{ article.subtitle }}{% endif %}
-                  </a>
-                  {% if article.tags %}<strong>{% include 'taglist.html' %}</strong>{% endif %}
-                </td>
-                <td id="date">
-                  {{ article.locale_date }}
-                </td>
-              </tr>
-            {% else %}
-              {% if extra_count.append(extra_count.pop() + 1) %}{% endif %}
-            {% endif %}
-          {% endfor %}
-        </table>
-        <a href="{{ SITEURL }}/euler">&hellip; and {{ extra_count[0] }} more.</a>
-        </section>
-    </div>
+		<header style="margin-top: 100px">
+			<h1 class="title">
+				<a href="{{ SITEURL }}/blog/">Gautam Manohar</a>
+			</h1>
+			<nav>
+				<ul>
+						<li>
+							<strong><a href="https://github.com/gcman">GitHub</a></strong>
+						</li>
+						<li>
+							<strong><a href="{{ SITEURL }}">Home Page</a></strong>
+						</li>
+						<li>
+							<strong><a href="{{ SITEURL }}/contact-me/">Contact</a></strong>
+						</li>
+				</ul>
+			</nav>
+		</header>
+		<div id="content">
+				<section id="math" class="level2">
+					<h2>Math <strong>/ Notes &amp; Essays</strong></h2>
+					{% if articles %}
+						<table>
+							{% for article in articles if article.category.name == "math" %}
+								{% include "index_row.html" %}
+							{% endfor %}
+						</table>
+					{% endif %}
+				</section>
+				<section id="project-euler" class="level2">
+					<h2>Project Euler <strong>/ Full Solutions</strong></h2>
+					<a href="{{ SITEURL }}/euler/">Project Euler Solutions</a>
+					<table>
+						{% set max_count = 10 %}
+						{% set extra_count = [0] %}
+						{% for article in articles_page.object_list if article.category.name == "euler" %}
+							{% if loop.index <= max_count %}
+								{% include "index_row.html" %}
+							{% else %}
+								{% if extra_count.append(extra_count.pop() + 1) %}{% endif %}
+							{% endif %}
+						{% endfor %}
+					</table>
+					<a href="{{ SITEURL }}/euler">&hellip; and {{ extra_count[0] }} more.</a>
+				</section>
+		</div>
 </article>
 {% endblock content %}
