@@ -14,6 +14,10 @@
     {{ article.title|striptags }} - {{ SITENAME }}
   {% endif %}
 {% endblock %}
+{% set tagnames = [] %}
+{% for tag in article.tags %}
+  {% if tag.name not in tagnames %}{% do tagnames.append(tag.name) %}{% endif %}
+{% endfor %}
 {% block meta_tags_in_head %}
 {% if article.tags and article.category %}
         <meta name="keywords" content="{{ [article.tags|join(', '), article.category]|join(', ') }}" />
@@ -34,7 +38,7 @@
         <meta name="date" content="{{ article.date }}">
 {% endif %}
 <link rel="stylesheet" href="{{ SITEURL }}/theme/css/normalize.min.css" type="text/css" />
-{% if "long" in article.tags %}
+{% if "long" in tagnames %}
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/essay.css" type="text/css" />
 {% else %}
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
@@ -45,8 +49,7 @@
 {% endblock meta_tags_in_head %}
 
 {% block content %}
-
-  {% if "long" not in article.tags %}
+  {% if "long" not in tagnames %}
     <article>
   {% endif %}
     <header>
@@ -60,7 +63,7 @@
           {% endif %}
       </h1>
       {% if article.subtitle %}
-        {% if "long" in article.tags %}
+        {% if "long" in tagnames %}
           <div class="subtitle">
             {% if article.shorttitle %}
             <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
@@ -85,7 +88,7 @@
       {% if article.author %}
       <address class="author">{{article.author}}</address>
       {% endif %}
-      {% if "long" in article.tags %}
+      {% if "long" in tagnames %}
         {% if article.date %}
           <div class="date">{{article.locale_date}}</div>
           {% if article.toc %}
@@ -98,7 +101,7 @@
       {% else %}
         <div id="textbox">
           <p style="font-weight: bold;" class="alignleft">
-            <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>&nbsp;
+            <a href="{{ SITEURL }}/{{ category.url }}">{{ category.name }}</a>&nbsp;
           </p>
           {% if article.date %}
             <p class="date aligncenter">{{article.locale_date}}</p>
@@ -109,7 +112,7 @@
       {% endif %}
     </header>
 
-    {% if "long" in article.tags %}
+    {% if "long" in tagnames %}
       <article>
     {% endif %}
       {{ article.content }}
@@ -119,10 +122,9 @@
       {% endif %}
       {% include 'heatmap.html' %}
     {% endif %}
-    {% if "long" not in article.tags %}
+    {% if "long" not in tagnames %}
       {% include 'toolbar.html' %}
-    {% endif %}
-    {% if "long" in article.tags %}
+    {% else %}
       <footer>
         <a class="page-top"
            title="Page Top"

@@ -78,6 +78,8 @@ TOC = {
 	"TOC_INCLUDE_TITLE": "false",    # If "true" include title in toc
 }
 
+JINJA_ENVIRONMENT = {"extensions":["jinja2.ext.do"]}
+
 RELATIVE_URLS = True
 
 CACHE_CONTENT = True
