@@ -2,10 +2,10 @@
 input, textarea, button {
   border-style: solid;
   -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
+  -moz-border-radius: 20px;t
   border-radius: 20px;
   border-color: firebrick;
-  font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif;
+  font-family: Palatino,"Palatino Linotype","Palatino LT STD","Book Antiqua",Georgia,serif;
   padding: 10px;
   border-width: 2px;
   margin-bottom: 10px;

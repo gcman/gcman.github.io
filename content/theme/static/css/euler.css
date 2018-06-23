@@ -1,16 +1,12 @@
 table.euler {
 	margin: 1em 0;
 	border-collapse: separate;
-	border-spacing: 2px;
+	border-spacing: 0.125vw;
 }
 
 table.map {
 	table-layout: fixed;
 	width: 100%
-}
-
-table.legend {
-	font-size: 95%;
 }
 
 table.euler td {
@@ -23,9 +19,16 @@ table.euler td {
     vertical-align: middle;
 }
 
+table.legend {
+	border-spacing: 4px;
+}
+
 table.legend td {
-	min-width: 6em;
+	font-size: 95%
+	min-width: 1.5em;
 	height: 1.5em;
+	border-width: 0.08vw;
+	border-radius: 50%;
 }
 
 table.legend td.text {
@@ -35,8 +38,9 @@ table.legend td.text {
 }
 
 table.map td {
-	line-height: 1.25em;
-	font-size: 1vw;
+	font-family: monospace;
+	line-height: 1.25vw;
+	font-size: 0.9vw;
 }
 
 table.map td a {
