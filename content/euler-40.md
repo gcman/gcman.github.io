@@ -42,6 +42,6 @@ The leftover after this division (that is, `pos % block`) is the index (starting
 Because we know the number that $d_i$ is part of, we have solved the problem.
 Using our general procedure, we find $d_{i_{j}}$ and calculate their product.
 
-The most intensive part of our solution is finding the block that $d_i$ is part of.
+The most intensive part of our solution is finding the block that $d_i$ is part of; finding the value of $d_i$ after this is just an $O(1)$ string operation.
 The lengths of the blocks form an arithmetogeometric sequence, so there are $O(\log n)$ blocks (not a tight upper bound).
 And so our solution has time complexity $O(D\log i_{j_{\text{max}}})$, where $D$ is the number of digits to find.

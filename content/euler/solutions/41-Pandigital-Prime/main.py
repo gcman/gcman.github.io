@@ -1,11 +1,7 @@
-def perms(s):        
-	if len(s) == 1:
-		return [s]
-	out = []
-	for i,v in enumerate(s):
-		out += [v+p for p in perms(s[:i]+s[i+1:])]
-	return out
+from itertools import permutations
+from math import sqrt
 
+# Sieve of Eratosthenes
 def primes(n):
 	primes = []
 	sieve = [True] * (n + 1)
@@ -16,13 +12,15 @@ def primes(n):
 				sieve[i] = False
 	return primes
 
-def pandigital():
-	root = "123456789"
-	out = []
-	for i in [4,7]:
-		out += perms(root[:i])
-	return [int(x) for x in out]
+# Return all n-digit pandigital numbers
+def pandigital(n):
+	pan = "123456789"
+	# Permute first n characters of pan
+	out = permutations(pan[:n])
+	# Join each tuple into a str, then an int
+	return [int("".join(x)) for x in out]
 
+# Binary search
 def bs(arr, l, r, x):
 	while l <= r:
 		mid = l + (r - l)//2;
@@ -36,11 +34,15 @@ def bs(arr, l, r, x):
 		return r
 	return arr[r]
 
-P = primes(int(31426))
-PAN = pandigital()
+# We need primes up to int(sqrt(10**7 - 1)) = 3162
+P = primes(3162)
+# All other pandigitals are divisible by 3
+PAN = pandigital(4) + pandigital(7)
 PAN_PRIME = []
 for pan in PAN:
-	if pan in P or not any([pan%p == 0 for p in P if p <= int(pan**0.5)]):
+	# Test if pan is in our list of primes
+	# Or it is not divisible by any prime <= sqrt(pan)
+	if pan in P or all([pan%p != 0 for p in P if p <= int(sqrt(pan))]):
 		PAN_PRIME.append(pan)
 
 T = int(input())
