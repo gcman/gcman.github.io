@@ -1,10 +1,10 @@
-title: Problem 30 - Digit Fifth Powers
-date: 23 June 2018
+title: Problem 31 - Coin Sums
+date: 24 June 2018
 category: euler
-tags: combinatorics
-slug: euler/30
-problem: 30
-summary: My solution to problem 28 of Project Euler.
+tags: dp
+slug: euler/31
+problem: 31
+summary: My solution to problem 31 of Project Euler.
 
 # Problem Statement
 

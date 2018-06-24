@@ -10,7 +10,7 @@ for x in range(10):
 ans = 0
 # No answer has more than 6 digits
 for k in range(2,7):
-	# Generate combinations with replacement of (0^N,...9^N)
+	# Choose k elements from {0^N,...9^N} with replacement
 	for candidate in combinations_with_replacement(DIGITS,k):
 		# Get multiset of N-th roots of elements of combination
 		digits_used = Counter(map(lambda x: DIGITS[x],candidate))
