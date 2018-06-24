@@ -18,6 +18,7 @@ from shutil import copyfile
 from git import Repo
 from pelican.server import ComplexHTTPRequestHandler
 from contextlib import contextmanager
+from subprocess import call,Popen,PIPE
 import re
 import fileinput
 import io
@@ -230,6 +231,14 @@ def del_tex2pdf():
 		if d.startswith("tex2pdf"):
 			shell('-rm -rf ' + d)
 	os.chdir(ROOT)
+
+def euler(sol=None):
+	CONTENT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),"content/euler")
+	call(["python3", os.path.join(CONTENT_DIR,"heatmap.py")])
+	call(["python3", os.path.join(CONTENT_DIR,"get-solution-paths.py")])
+	if sol:
+		call(["python3.6", os.path.join(CONTENT_DIR,"runtime.py"), str(sol)])
+	call(["python3", os.path.join(CONTENT_DIR,"build-solutions.py")])
 
 def preview():
 	try:

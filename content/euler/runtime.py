@@ -6,10 +6,10 @@ import sys
 RUNS = 10
 ROOT = os.path.abspath(os.path.dirname(__file__))
 
-with open("euler-problem-data.json","r",encoding="utf-8") as f:
+with open(os.path.join(ROOT,"euler-problem-data.json"),"r",encoding="utf-8") as f:
 	DATA = json.load(f)
 
-with open("euler-input.csv","r") as f:
+with open(os.path.join(ROOT,"euler-input.csv"),"r") as f:
 	INPUT = {}
 	for line in f.readlines():
 		data = line.strip().split(",")
@@ -50,5 +50,4 @@ def compute_time(n,runs):
 		MEM += mem
 	return p.stdout.strip(),str(int(TIME/runs)),str(int(MEM/runs))
 
-N = int(input())
-print(time(N))
+print(time(sys.argv[1]))

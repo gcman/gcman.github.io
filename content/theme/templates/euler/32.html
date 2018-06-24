@@ -1,8 +1,48 @@
 <h1 id="my-code">My Code</h1>
 <div class="euler-code">
-	
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">permutations</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="c1"># Get all pandigital numbers</span>
+<span class="n">PANDIGITAL</span> <span class="o">=</span> <span class="n">permutations</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">))))</span>
+<span class="c1"># Use set to avoid duplicates</span>
+<span class="n">PROD</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">perm</span> <span class="ow">in</span> <span class="n">PANDIGITAL</span><span class="p">:</span>
+	<span class="c1"># Split into 3 parts</span>
+	<span class="c1"># Make sure end of second part is after beginning</span>
+	<span class="c1"># j &gt; i</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+			<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">perm</span><span class="p">)</span>
+			<span class="c1"># Check if three parts in order are valid</span>
+			<span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">])</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">:]):</span>
+				<span class="n">PROD</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">:]))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">PROD</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
 </div>
-<p>This code has  comments and  empty lines.</p>
+<p>This code has 6 comments and 2 empty lines.</p>
+<h1 id="Performance">Performance</h1>
+<p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="medium">8.49&#8239;s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.8&#8239;MB</span>.</p>
 
 <h2 id="Difficulty">Difficulty</h2>
 <p><a href="https://projecteuler.net/problem=32">Project Euler</a> ranks this problem at 5% difficulty (out of 100%). <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler032">HackerRank</a> classifies this problem as easy.</p>
