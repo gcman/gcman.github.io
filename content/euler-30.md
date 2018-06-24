@@ -23,7 +23,7 @@ Find the sum of all numbers that can be written as the sum of $N$-th powers of t
 
 # My Algorithm
 
-The sum of the $N$-th powers of a number with $d$ digits is at most $d\cdot9^N$.
+The sum of the $N$-th powers of the digits of a number with $d$ digits is at most $d\cdot9^N$.
 And so a hard upper bound on a number equal to the sum of the $N$-th powers of its digits is $N\cdot9^N$.
 This number has $\lfloor \log_{10} N + N\log_{10} 9 \rfloor + 1$ digits.
 Because the argument of the floor is never a power of 10, this is equal to $\lceil \log_{10} N + N \log_{10} 9 \rceil$.
@@ -60,7 +60,7 @@ The upper limit of our sum is $O(\log_{10} N + N\log_{10} 9) \in O(N + \log_{10}
 And so our solution is $O(\frac{N^N}{N!})$.
 This is not a tight upper bound; it grows much faster than the exact number of operations given in \eqref{operations}.
 
-# Other Solutions
+## Other Solutions
 
 The brute force approach described above is sufficient to solve the original Project Euler problem.
 It has complexity $O(N10^{N})$.
