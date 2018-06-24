@@ -1,7 +1,7 @@
 title: Problem 35 - Circular Primes
 date: 24 June 2018
 category: euler
-tags: brute-force
+tags: primes,brute-force
 slug: euler/35
 problem: 35
 summary: My solution to problem 35 of Project Euler.
