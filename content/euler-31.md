@@ -8,59 +8,24 @@ summary: My solution to problem 31 of Project Euler.
 
 # Problem Statement
 
-Surprisingly, there are only three numbers that can be written as the sum of fourth powers of their digits:
+In England, the currency is made up of pounds (£) and pence (p), and there are eight coins in general circulation: 1p,2p,5p,10p,20p,50p,£1 (100p), and £2 (200p).
+It is possible to make £2 in the following way:
 \begin{equation*}
-	\begin{split}
-		1634 &= 1^4 + 6^4 + 3^4 + 4^4 \\
-		8208 &= 8^4 + 2^4 + 0^4 + 8^4 \\
-		9474 &= 9^4 + 4^4 + 7^4 + 4^4
-	\end{split}
+	1\cdot\mathrm{£}1 + 1\cdot50\mathrm{p} + 2 \cdot 20\mathrm{p} + 1 \cdot 5\mathrm{p} + 1 \cdot 2\mathrm{p} + 3\cdot1\mathrm{p}
 \end{equation*}
-Note that because $1 = 1^4$ is not a sum, it is not included.
-The sum of these numbers is $11634 + 8208 + 9474 = 9316$.
 
-Find the sum of all numbers that can be written as the sum of $N$-th powers of their digits.
+In how many ways can $N$ pence be made from any denomination of coins? Output your answer modulo $10^9 + 7$.
 
 # My Algorithm
 
-The sum of the $N$-th powers of a number with $d$ digits is at most $d\cdot9^N$.
-And so a hard upper bound on a number equal to the sum of the $N$-th powers of its digits is $N\cdot9^N$.
-This number has $\lfloor \log_{10} N + N\log_{10} 9 \rfloor + 1$ digits.
-Because the argument of the floor is never a power of 10, this is equal to $\lceil \log_{10} N + N \log_{10} 9 \rceil$.
-So we could check all numbers $11 \le n < 10^{\lceil \log_{10} N + N \log_{10} 9 \rceil}$.
-However, this is much too slow to pass $N = 6$.
+This problem is a classic application of dynamic programming, the technique of breaking up a problem into smaller, reusable chunks.
+To make $N$ pence, we can first make $N - c$ pence, then add one $c$ pence coin, where $c$ is the value of some denomination.
+Then the number of ways we can make $N$ pence is the sum of $N - c$ over all valid $c$.
 
-We know that any number that fits the criteria is the sum of some combination (with replacement) of integers in $0^N,1^N,\ldots,9^N$.
-And so we can check each combination with replacement of $2 \le k \le \lceil \log_{10} N + N \log_{10} 9 \rceil$ elements (this represents the number of digits) from this set of 10 $N$-th powers.
-We can find these combinations using `combinations_with_replacement` from the `itertools` package.
-We skip the case where $k = 1$ because, as stated in the problem, the sum of the digits in a one-digit number is a degenerate sum.
+Using this principle, our solution is simple.
+We maintain a list `coins` such that `coins[n]` is the number of ways we can make $n$ pence, where $0 \le n \le N$.
+Then, for each valid denomination of coins $c$, we loop over $c \le n \le N$ and increment `coins[n]` by `coins[n-c]`.
+At each step, we perform addition modulo $10^9 + 7$.
 
-To avoid counting duplicate combinations with extra `0`s, we use multisets, implemented with `Counter` from `collections`.
-A multiset is like a set, but elements can appear more than once.
-Two multisets are equal if and only if they contain the same elements the same number of times.
-
-We get the multiset of the $N$-th roots of each combination.
-Then, we sum the elements of the combination and find the multiset of digits of the sum.
-If these two multisets are equal, we have found a valid solution.
-
-There are $\binom{n+k-1}{k}$ ways to choose $k$ elements with replacement from a pool of $n$ elements.
-In our case, $n = 10$.
-We therefore perform
-\begin{equation}
-	\sum\limits_{k=2}^{\lceil \log_{10} N9^N \rceil} \mkern-5mu \binom{9+k}{k}
-	\label{operations}
-\end{equation}
-operations.
-For $N = 6$, this turns out to be 19437---much less than the $10^7$ required by brute force.
-
-Just for fun, let's do some upper bound analysis on this expression.
-Using Stirling's approximation for $n!$, we find that $\binom{n}{k} \le \frac{n^k}{k!}$.
-In our case, we have $\frac{(9+k)^k}{k!} \approx \frac{k^k}{k!}$.
-The upper limit of our sum is $O(\log_{10} N + N\log_{10} 9) \in O(N + \log_{10} N) \in O(N)$.
-And so our solution is $O(\frac{N^N}{N!})$.
-This is not a tight upper bound; it grows much faster than the exact number of operations given in \eqref{operations}.
-
-# Other Solutions
-
-The brute force approach described above is sufficient to solve the original Project Euler problem.
-It has complexity $O(N10^{N})$.
+Because we maintain the list for all $0 \le n \le N_{\text{max}}$, we can answer each query in $O(1)$ time.
+And so our solution has time complexity $O(CN_{\text{max}} + T)$, where $C$ is the number of coins and $T$ is the number of queries.

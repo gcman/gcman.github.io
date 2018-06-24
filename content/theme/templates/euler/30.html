@@ -34,7 +34,7 @@
 <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="c1"># No answer has more than 6 digits</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
-	<span class="c1"># Generate combinations with replacement of (0^N,...9^N)</span>
+	<span class="c1"># Choose k elements from {0^N,...9^N} with replacement</span>
 	<span class="k">for</span> <span class="n">candidate</span> <span class="ow">in</span> <span class="n">combinations_with_replacement</span><span class="p">(</span><span class="n">DIGITS</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
 		<span class="c1"># Get multiset of N-th roots of elements of combination</span>
 		<span class="n">digits_used</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">DIGITS</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">candidate</span><span class="p">))</span>
