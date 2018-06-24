@@ -5,11 +5,10 @@ tags: fun,implementation
 slug: euler/40
 problem: 40
 summary: My solution to problem 40 of Project Euler.
-status: draft
 
 # Problem Statement
 
-An irrational decimal fraction is created by concatenating the positive integers:
+An irrational decimal is created by concatenating the positive integers:
 \begin{equation*}
 	0.12345678910\mathbf{1}112131415161718192021\ldots
 \end{equation*}
