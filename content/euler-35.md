@@ -1,33 +1,32 @@
-title: Problem 34 - Digit Factorials
+title: Problem 35 - Circular Primes
 date: 24 June 2018
 category: euler
 tags: brute-force
-slug: euler/34
-problem: 34
-summary: My solution to problem 34 of Project Euler.
+slug: euler/35
+problem: 35
+summary: My solution to problem 35 of Project Euler.
 
 # Problem Statement
 
-145 is a curious number, as $1! + 4! + 5! = 145$.
-Find the sum of all numbers that are the sum of the factorials of their digits.
-Note that $1! = 1$ and $2! = 2$ are not sums, as they contain only one digit.
+The number 197 is called a circular prime because all rotations of the digits (197,719,917) are prime.
+There are thirteen such prime under 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
+
+What is the sum of all circular primes less than $N$?
 
 # My Algorithm
 
-We use a combinatorial approach similar to [Problem 30](../30/).
-The sum of the factorials of the digits of a number with $d$ digits is $d\cdot9!$.
-So the upper bound on the number we need to check is $7\cdot9!$, because $8\cdot9!$ only has 7 digits.
-This means we can test valid candidate sets of size $2 \le k \le 7$ chosen with replacement from $0!,\ldots,9!$.
+A permutation of a number $n$ cannot be greater than the smallest power of 10 not more than $n$.
+This is because it maintains the same number of digits, and such a power of 10 contains one more digit than $n$.
+This means that a permutation of $n$ is not more than $10^{\lceil \log_{10} n \rceil}$.
+And so we can precompute a list of the primes under $10^{\lceil \log_{10} N_{\text{max}} \rceil}$, which in our case is $10^6$.
 
-Like in Problem 30, we use multisets to check whether a combination is valid.
-And so we perform\begin{equation}
-	\sum\limits_{k=2}^{7} \mkern-5mu \binom{9+k}{k} = 19347
-	\label{operations}
-\end{equation}
-operations, as in Problem 30.
+Then, we need a way to get all the rotations of a number.
+To do this, we can turn the number into a string and repeatedly remove the last character and add it back to the front, saving the new rotation each time.
 
-## HackerRank
+From here, the problem just consists of spotting some optimizations.
+We need not check any primes with digits 0, 2, 4, 5, 6, or 8.
+This is because the last digit of one of their rotations will be either even or 5, which means they are divisible by 2 or 5 and so they are not prime.
+However, we must include the single-digit primes 2 and 5, which are circular.
+After computing the rotations of a prime below $N$ that passes the above tests, we check if all of them are prime; if so, we count the ones that are below $N$.
 
-The HackerRank problem is, for once, much easier than the original Project Euler problem.
-It asks us to find the sum of all $n < N$ such that $n$ divides its factorial digit sum.
-Because $N \le 10^5$, we can run a brute force search, checking whether each $n < N$ is a valid solution.
+Our solution has time complexity $O(N_{\text{max}}\log\log N_{\text{max}})$.

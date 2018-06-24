@@ -24,8 +24,8 @@ P = primes(int(1e6))
 CIRCULAR = set()
 # Make sure we don't exceed upper bound
 for x in [p for p in P if p < N]:
-	# Exclude degenerate circular primes (2,3,5,7)
 	# Exclude primes with even digits or 5; they can't be circular
+	# Except when x = 2 or x = 5; include those, because they are circular
 	if len(str(x)) == 1 or not set([d for d in "024568"]) & set([d for d in str(x)]):
 		# Avoid duplicates
 		if x not in CIRCULAR:
