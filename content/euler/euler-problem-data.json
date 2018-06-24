@@ -2889,7 +2889,9 @@
         "hrdifficulty": "Easy",
         "num": "42",
         "comments": "5",
-        "empty": "4"
+        "empty": "4",
+        "runtime": "30",
+        "memory": "8792",
     },
     "96": {
         "name": "Su Doku",
