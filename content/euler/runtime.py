@@ -29,7 +29,7 @@ def time(n,runs=RUNS):
 		DATA[str(n)]["runtime"] = time
 		DATA[str(n)]["memory"] = mem
 		save_data()
-		return "Problem: {}\nAnswer: {}\nRuns: {}\nTime (ms): {}\nPeak memory usage (KB): {}\n".format(n,ans,runs,time,mem)
+		return "\nProblem: {}\nAnswer: {}\nRuns: {}\nTime (ms): {}\nPeak memory usage (KB): {}".format(n,ans,runs,time,mem)
 
 def compute_time(n,runs):
 	path = os.path.join(ROOT,"solutions/") + DATA[str(n)]["path"] + "/main.py"

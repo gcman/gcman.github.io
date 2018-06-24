@@ -7,6 +7,10 @@ env = jinja2.Environment(loader=jinja2.FileSystemLoader(searchpath=""))
 HEAT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__) ,"../theme/templates"))
 template = env.get_template(os.path.join(os.path.dirname(__file__),"heat.html"))
 
+def save_data():
+	with open(os.path.join("euler-problem-data.json"),"w",encoding="utf-8") as f:
+		json.dump(DATA, f, ensure_ascii=False,indent=4)
+
 with open('euler-problem-data.json',"r",encoding="utf-8") as dt:
 	DATA = json.load(dt)
 
@@ -31,8 +35,10 @@ for i in range(1):
 			heatk = {"num": str(num), "cls": options[status]}
 			if status != "g":
 				heatk["link"] = DATA[str(num)]["name"] + " (Difficulty: {}%)".format(DATA[str(num)]["difficulty"])
+			DATA[str(num)]["num"] = str(num)
 			heatj.append(heatk)
 		heati.append(heatj)
 	heat.append(heati)
 with open(os.path.join(HEAT_DIR,"heatmap.html"),"w") as f:
 	f.write(template.render(heat=heat))
+save_data()

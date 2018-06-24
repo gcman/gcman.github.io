@@ -1,11 +1,14 @@
 import sys
+# We use this to speed up reading stdin
+# Because we have a lot of names to read
 input = sys.stdin.readline
 
+# Reference alphabet
 ALPH = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 def score(s):
 	# index starts at 0
-	# So score is the sum of (idx + 1)
+	# So score is the sum of (index + 1) for each letter
 	return sum([ALPH.index(x) for x in s]) + len(s)
 
 N = int(input())

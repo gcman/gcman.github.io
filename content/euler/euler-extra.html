@@ -4,6 +4,7 @@
 </div>
 <p>This code has {{ meta.comments }} comments and {{ meta.empty }} empty lines.</p>
 
+{%- if meta.runtime and meta.memory %}
 <h1 id="Performance">Performance</h1>
 {%- if meta.runtime|int < 100 %}
 	{%- set speedclass = "fast" %}
@@ -34,6 +35,7 @@
 	{%- set memclass = "tooslow" %}
 {%- endif %}
 <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="{{ speedclass }}">{{ time }}</span> with a peak memory usage of <span style="font-weight: bold" class="{{ memclass }}">{{ mem }}</span>.</p>
+{%- endif %}
 
 <h2 id="Difficulty">Difficulty</h2>
 {%- set hrnum = "%03d"|format(meta.num|int) %}
