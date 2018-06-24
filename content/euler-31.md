@@ -8,7 +8,7 @@ summary: My solution to problem 31 of Project Euler.
 
 # Problem Statement
 
-In England, the currency is made up of pounds (£) and pence (p), and there are eight coins in general circulation: 1p,2p,5p,10p,20p,50p,£1 (100p), and £2 (200p).
+In England, the currency is made up of pounds (£) and pence (p), and there are eight coins in general circulation: 1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p).
 It is possible to make £2 in the following way:
 \begin{equation*}
 	1\cdot\mathrm{£}1 + 1\cdot50\mathrm{p} + 2 \cdot 20\mathrm{p} + 1 \cdot 5\mathrm{p} + 1 \cdot 2\mathrm{p} + 3\cdot1\mathrm{p}

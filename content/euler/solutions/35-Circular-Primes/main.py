@@ -26,7 +26,7 @@ CIRCULAR = set()
 for x in [p for p in P if p < N]:
 	# Exclude primes with even digits or 5; they can't be circular
 	# Except when x = 2 or x = 5; include those, because they are circular
-	if len(str(x)) == 1 or not set([d for d in "024568"]) & set([d for d in str(x)]):
+	if len(str(x)) == 1 or not any([d in str(x) for d in "024568"]):
 		# Avoid duplicates
 		if x not in CIRCULAR:
 			ROT = rotations(x)

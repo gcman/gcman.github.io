@@ -66,7 +66,7 @@
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">]:</span>
 	<span class="c1"># Exclude primes with even digits or 5; they can&#39;t be circular</span>
 	<span class="c1"># Except when x = 2 or x = 5; include those, because they are circular</span>
-	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">([</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="s2">&quot;024568&quot;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">([</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)]):</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">([</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="s2">&quot;024568&quot;</span><span class="p">]):</span>
 		<span class="c1"># Avoid duplicates</span>
 		<span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">CIRCULAR</span><span class="p">:</span>
 			<span class="n">ROT</span> <span class="o">=</span> <span class="n">rotations</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -82,7 +82,7 @@
 </div>
 <p>This code has 9 comments and 2 empty lines.</p>
 <h1 id="Performance">Performance</h1>
-<p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="medium">4.82&#8239;s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">19.5&#8239;MB</span>.</p>
+<p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="medium">4.75&#8239;s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">19.5&#8239;MB</span>.</p>
 
 <h2 id="Difficulty">Difficulty</h2>
 <p><a href="https://projecteuler.net/problem=35">Project Euler</a> ranks this problem at 5% difficulty (out of 100%). <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler035">HackerRank</a> classifies this problem as easy.</p>
