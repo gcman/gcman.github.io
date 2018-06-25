@@ -53,7 +53,6 @@ PLUGINS = ["pelican-toc","neighbors","pandoc_reader"]
 PANDOC_ARGS = [
   "--mathjax",
   "--no-highlight",
-  "--filter=./filters/include.py",
   "--filter=./filters/pandoc-eqref.py",
   "--filter=./filters/code-highlight.py",
 ]
