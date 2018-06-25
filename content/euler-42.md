@@ -4,8 +4,7 @@ category: euler
 tags: proof
 slug: euler/42
 problem: 42
-summary: My solution to problem 41 of Project Euler.
-status: draft
+summary: My solution to problem 42 of Project Euler.
 
 # Problem Statement
 

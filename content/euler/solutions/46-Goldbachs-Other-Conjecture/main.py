@@ -1,3 +1,4 @@
+# Sieve of Eratosthenes
 def primes(n):
 	primes = []
 	sieve = [True] * (n + 1)
@@ -8,9 +9,12 @@ def primes(n):
 				sieve[i] = False
 	return primes
 
+# MAX input is 5*10^5
 P = primes(int(5e5))
 def ways(n):
+	# Implement eq. (1)
 	cand = lambda p: ((n-p)/2)**0.5
+	# Get no. of primes less than n which produce a valid candidate
 	return len(set(p for p in P if p < n and cand(p) == int(cand(p))))
 
 T = int(input())
