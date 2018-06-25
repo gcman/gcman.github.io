@@ -12,7 +12,7 @@ In this post, we will investigate the infinite series
 	\sum_{p} \frac{1}{p},
 \end{equation}
 taken over all primes $p$.
-In particular, we will show that this sum diverges.
+In particular, we will show that this series diverges.
 
 # Calculus and PNT
 
@@ -54,7 +54,7 @@ Substituting $u = \log x, \d u = \frac{1}{x} \d x$ gives
 \begin{equation}
 	\int_{\log 6}^\infty \frac{\d u}{u},
 \end{equation}
-which we evaluate as $\left[ \log u \right]_{\log_6}^\infty = \infty$.
+which we evaluate as $\left[ \log u \right]_{\log 6}^\infty = \infty$.
 But wait!
 This means that the sum of the reciprocals of the primes is greater than infinity, which of course means that it cannot converge to any finite value.
 
@@ -119,7 +119,7 @@ So
 		&= H.
 	\end{split}	
 \end{equation}
-We ended up with $H > H$, which is certainly not true for any finite value.
+We end up with $H > H$, which is certainly not true for any finite value.
 And so the harmonic series diverges.
 
 ## Finishing Touches
