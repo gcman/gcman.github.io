@@ -54,7 +54,7 @@ Substituting $u = \log x, \d u = \frac{1}{x} \d x$ gives
 \begin{equation}
 	\int_{\log 6}^\infty \frac{\d u}{u},
 \end{equation}
-which we evaluate as $\[ \log u \]_{\log_6}^\infty = \infty$.
+which we evaluate as $\left[ \log u \right]_{\log_6}^\infty = \infty$.
 But wait!
 This means that the sum of the reciprocals of the primes is greater than infinity, which of course means that it cannot converge to any finite value.
 
