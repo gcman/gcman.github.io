@@ -17,7 +17,7 @@ Let's say that $p = \mathrm{P}(\mathrm{gcd}(m,n)=1)$.
 
 Consider $p_k = \mathrm{P}(\mathrm{gcd}(a,b)=k)$ for some positive integer $k$.
 For this to be true, $k$ must divide both $a$ and $b$, and $\frac{a}{k}$ and $\frac{b}{k}$ must be coprime.
-And so $p_k = \mathrm{P}(k|a\,\text{and}\,kb)\mathrm{P}\left(\mathrm{gcd}\left(frac{a}{k},\frac{b}{k}\right)\right)$.
+And so $p_k = \mathrm{P}(k|a\,\text{and}\,k|b)\cdot\mathrm{P}\left(\mathrm{gcd}\left(\frac{a}{k},\frac{b}{k}\right)\right)$.
 One in every $k$ integers is divisible by $k$.
 So the first probability, namely that two random integers are both divisible by $k$, is $\frac{1}{k^2}$.
 The second probability is just $p$---because $a$ and $b$ were random, so are $\frac{a}{k}$ and $\frac{b}{k}$.

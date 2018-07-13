@@ -14,7 +14,7 @@ In this post, we will investigate the infinite series
 taken over all primes $p$.
 In particular, we will show that this series diverges.
 
-# Calculus and PNT
+# Calculus and the Prime Number Theorem
 
 First, we'll show that this problem falls to the incredible might of the following inequalty bounding the $n$-th prime:
 \begin{equation}
