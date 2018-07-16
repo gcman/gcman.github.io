@@ -1,0 +1,40 @@
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Check sorted strings</span>
+<span class="k">def</span> <span class="nf">is_perm</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+	<span class="k">return</span> <span class="nb">all</span><span class="p">([</span><span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">])</span>
+
+<span class="n">N</span><span class="p">,</span><span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="c1"># We are given N &gt;= 125874</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">125874</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+	<span class="c1"># First check that all digits are unique</span>
+	<span class="c1"># Then check that Ki is not too long</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">K</span><span class="p">))</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)):</span>
+		<span class="c1"># Generate multiples</span>
+		<span class="n">S</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">K</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+		<span class="c1"># Check that all multiples are permutations</span>
+		<span class="k">if</span> <span class="n">is_perm</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
+			<span class="k">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 6 comments and 1 empty lines.</p>
+<h1 id="Performance">Performance</h1>
+<p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">less than 0.1&#8239;s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.7&#8239;MB</span>.</p>
+
+<h2 id="Difficulty">Difficulty</h2>
+<p><a href="https://projecteuler.net/problem=52">Project Euler</a> ranks this problem at 5% difficulty (out of 100%). <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler052">HackerRank</a> classifies this problem as easy.</p>
