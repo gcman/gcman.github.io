@@ -11,7 +11,11 @@ summary: My solution to problem 47 of Project Euler.
 The first two consecutive numbers to have distinct prime factors are $14 = 2\cdot7$ and $15 = 3\cdot5$.
 The first three consecutive such numbers are
 \begin{equation*}
-	644 = 2^2 \cdot 7 \cdot 23, 645 = 3 \cdot 5 \cdot 43, 646 = 2 \cdot 17 \cdot 19
+	\begin{split}
+		644 &= 2^2 \cdot 7 \cdot 23,\\
+		645 &= 3 \cdot 5 \cdot 43,\\
+		646 &= 2 \cdot 17 \cdot 19
+	\end{split}
 \end{equation*}
 
 Given $N$, find all the sets of $K$ consecutive integers that each have exactly $K$ distinct prime factors.

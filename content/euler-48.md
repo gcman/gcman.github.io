@@ -17,6 +17,6 @@ Find the last ten digits of
 # My Algorithm
 
 This problem is a simple bignum computation.
-Because we only need the last ten digits, it suffices to carry out all calculations modulo $10^10$.
+Because we only need the last ten digits, it suffices to carry out all calculations modulo $10^{10}$.
 In particular, we use modular exponentiation.
 This solution has time complexity $O(N\log N)$.
