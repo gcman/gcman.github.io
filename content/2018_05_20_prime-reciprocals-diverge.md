@@ -16,11 +16,11 @@ In particular, we will show that this series diverges.
 
 # Calculus and the Prime Number Theorem
 
-First, we'll show that this problem falls to the incredible might of the following inequalty bounding the $n$-th prime:
+First, we'll show that this problem falls to the incredible might of the following inequalty, which bounds the value of the $n$-th prime:
 \begin{equation}
 	n\log n - n \log\log n \le p_n \le n\log n + n\log\log n \quad (n > 5)
 \end{equation}
-This identity comes in quite handy when solving computer science problems about primes, and you need to generate at least $n$ primes or something of the sort.
+This identity comes in quite handy when, say, you're solving some [Project Euler problems](../euler/) about primes, and you need to generate at least $n$ primes.
 It's derived from the Prime Number Theorem.
 
 Using the upper bound, we know that $\frac{1}{p} \ge \frac{1}{n\log n + n \log\log n}$ for $n > 5$.
@@ -36,12 +36,10 @@ This means that
 \end{equation}
 
 Here's where the calculus comes in.
-Remember the integral test?
-It says that if a function $f$ is non-negative, continuous, and monotonically decreasing on a certain interval $[a,b+1]$, then
+The integral test says that if a function $f$ is non-negative, continuous, and monotonically decreasing on a certain interval $[a,b+1]$, then the sum of $f(n)$ over integers $a \le n \le b$ is greater than the integral of $f$ over that interval:
 \begin{equation}
 	\int_a^{b+1} f(x) \d x < \sum\limits_{\substack{n \in \mathbb{Z}\\a\le n \le b}}f(n)
 \end{equation}
- the sum of $f(n)$ over integers $a \le n \le b$ is greater than the integral of $f$ over that interval.
 We know $x$ is increasing and continuous, as is $\log x$.
 And so $x \log x$ is increasing and continuous, which means that $\frac{1}{x \log x}$ is decreasing.
 On $[6,\infty)$, it's also non-negative.
@@ -64,12 +62,12 @@ In my opinion, this combinatorially inspired method is way cooler.
 
 ## Squares and Squarefree Products
 
-First, every integer can be written uniquely as the product of a square and an integer which is the product of distinct primes (that is, it is squarefree).
+First, every integer can be written uniquely as the product of a square and a squarefree integer (that is, a number which is not divisible by any square greater than  1---such numbers are the products of distinct primes).
 To see this, consider the prime factorization of a number
 \begin{equation}
 	n = \prod_{p_i|n} p_i^{e_i},
 \end{equation}
-where $e_i$ is the maximum positive integer such that $p_i^{e_i}$ divides $n$.
+where $e_i$ is the greatest positive integer such that $p_i^{e_i}$ divides $n$.
 Then for each odd $e_i$, factor out $p_i$.
 Then each exponent in the product is even, which means it is a square, and the term outside the product consists of primes with exponent 1.
 
@@ -90,7 +88,7 @@ It is clear that
 contains the reciprocal of each square exactly once.
 Its value is the subject of the Basel problem, which Euler famously solved: $\frac{\pi^2}{6}$.
 All we really need is that the series converges to some finite value $C$.
-And so the product of \eqref{squarefree} and \eqref{square} is 
+The product of \eqref{squarefree} and \eqref{square} is 
 \begin{equation}
 	\left(\sum\limits_{n=1}^\infty \frac{1}{n^2}\right)\prod_p \left(1 + \frac{1}{p}\right) = \sum\limits_{n=1}^\infty \frac{1}{n},
 	\label{harm-prod}
@@ -129,7 +127,7 @@ Third, we'll use the identity
 	1 + x \le e^x.
 	\label{e-ident}
 \end{equation}
-For three different proofs of this fact, see my article on [comparing $e^\pi$ and $\pi^e$](../e-pi/).
+For three different proofs of this fact, see my post on [comparing $e^\pi$ and $\pi^e$](../e-pi/).
 Applying \eqref{e-ident} to \eqref{harm-prod} gives
 \begin{equation}
 	\sum\limits_{n=1}^\infty \le \left(\sum\limits_{n=1}^\infty \frac{1}{n^2}\right)\prod_p \left(1 + \frac{1}{p}\right) \le C\prod_p e^{-p}.
@@ -145,7 +143,7 @@ Becuase $C$ is finite, $\log C$ is also finite, and so we can see that the desir
 
 # Bounding the Beast
 
-By slightly modifying the above arguments---whenever you sum over all $p$ or all natural numbers, change the infinite sum to a partial sum over $p \le k$, for example---we obtain the following bound:
+By slightly modifying the above arguments---for example, change infinite sums over all primes or natural numbers to partial sums over all terms less than $k$---we obtain the following bound:
 \begin{equation}
 	\log\sum\limits_{n=1}^k \frac{1}{n} - \log \frac{\pi^2}{6} \le \sum\limits_{p \le k} \frac{1}{p}.
 \end{equation}

@@ -1,10 +1,11 @@
-title: Problem 46 - Goldbach's Other Conjecture
-date: 24 June 2018
+title: Problem 48 - Self Powers
+date: 16 July 2018
 category: euler
 tags: proof
-slug: euler/46
-problem: 46
-summary: My solution to problem 46 of Project Euler.
+slug: euler/48
+problem: 48
+summary: My solution to problem 48 of Project Euler.
+status: draft
 
 # Problem Statement
 
@@ -21,8 +22,8 @@ And so
 	\begin{split}
 		n - p &= 2k^2 \\
 		k &= \sqrt{\frac{n-p}{2}}.
+		\label{cand}
 	\end{split}
-	\label{cand}
 \end{equation}
 The numbers $n,p$ give a valid match if and only if \eqref{cand} is a positive integer.
 
@@ -32,7 +33,7 @@ This solution has time complexity $O(N\log\log N + \frac{TN}{\log N})$, where $T
 
 ## Project Euler
 
-To solve the Project Euler problem, we write a `while` loop using the function `ways`.
+To solve the Project Euler problem, we write a while loop using the function `ways`.
 We increment our index $i$, which is initialized at 3, until $i$ is composite.
-Then, if `ways(i) == 0`, we break the loop; we have found the smallest number that cannot be represented as conjectured.
-Otherwise, we increment $i$ by 2, to the next odd number.
+Then, if `ways(i) == 0`, we break the loop; we have found the smallest number that cannot be represented as Goldbach conjectured.
+Otherwise, we increment $i$ by 2.
