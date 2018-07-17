@@ -1,0 +1,44 @@
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Implement eq. (7)</span>
+<span class="k">def</span> <span class="nf">coeff</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+	<span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+		<span class="k">return</span> <span class="mi">2</span>
+	<span class="k">elif</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+		<span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">3</span>
+	<span class="k">return</span> <span class="mi">1</span>
+
+<span class="c1"># Cache P(n-1) and P(n-2) </span>
+<span class="n">CONV</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">coeff</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+	<span class="n">next_term</span> <span class="o">=</span> <span class="n">coeff</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">CONV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">CONV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+	<span class="n">CONV</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_term</span><span class="p">)</span>
+	<span class="k">del</span> <span class="n">CONV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># Take digital sum</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">CONV</span><span class="p">[</span><span class="mi">1</span><span class="p">])]))</span>
+</pre></div>
+</td></tr></table>
+</div>
+<p>This code has 3 comments and 1 empty lines.</p>
+<h1 id="Performance">Performance</h1>
+<p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">less than 0.1&#8239;s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.7&#8239;MB</span>.</p>
+
+<h2 id="Difficulty">Difficulty</h2>
+<p><a href="https://projecteuler.net/problem=65">Project Euler</a> ranks this problem at 15% difficulty (out of 100%). <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler065">HackerRank</a> classifies this problem as easy.</p>
