@@ -5,7 +5,8 @@ def try_composite(a,d,n,s):
 		if pow(a,2**i*d,n) == n-1:
 			return False
 	return True
- 
+
+# Miller-Rabin primality test
 def is_prime(n,precision_for_huge_n=16):
 	if n in known_primes or n in (0,1):
 		return True
@@ -33,11 +34,15 @@ def is_prime(n,precision_for_huge_n=16):
 known_primes = [2,3]
 known_primes += [x for x in range(5,1000,2) if is_prime(x)]
 
+# Side length of square
 n = 1
+# No. of primes found
 p = 0
 N = int(input())
 while True:
+	# Go to next odd number
 	n += 2
+	# Add all the primes of the form n^2 - i(n-1), i in {1,2,3}
 	p += sum([is_prime(x) for x in [n**2 - i*(n-1) for i in range(1,4)]])
 	if 100*p/(2*n - 1) < N:
 		break

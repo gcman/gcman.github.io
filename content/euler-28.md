@@ -10,6 +10,8 @@ summary: My solution to problem 28 of Project Euler.
 
 Starting with the number 1 and moving to the right in a clockwise direction, a 5-by-5 spiral is formed:
 
+![A 5-by-5 number spiral.](../../figures/euler-28-spiral.png){ width=30% }
+
 It can be verified that the sum of the numbers on the diagonals is 101.
 What is the sum of the numbers on the diagonals in an $N \times N$ spiral ($N$ odd)?
 Report your answer modulo $10^9 + 7$.

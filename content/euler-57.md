@@ -1,7 +1,7 @@
 title: Problem 57 - Square Root Convergents
 date: 16 July 2018
 category: euler
-tags: proof,brute-force
+tags: proof
 slug: euler/57
 problem: 57
 summary: My solution to problem 57 of Project Euler.

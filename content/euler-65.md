@@ -2,7 +2,7 @@ title: Problem 65 - Convergents of $e$
 shorttitle: Problem 65 - Convergents of e
 date: 16 July 2018
 category: euler
-tags: proof,brute-force
+tags: proof
 slug: euler/65
 problem: 65
 summary: My solution to problem 65 of Project Euler.
