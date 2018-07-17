@@ -41,6 +41,7 @@ def compute_time(n,runs):
 		print("Performing problem {}, run {}.".format(n,i+1),end="\r")
 		sys.stdout.flush()
 		p = run(cmd,input=test_case,stdout=PIPE, stderr=PIPE,encoding="ascii")
+		print(p.stderr)
 		time = p.stderr.split("\n")
 		t = time[4].split(":")
 		mins = 60000*float(t[-2])
