@@ -1,37 +1,39 @@
+from math import sqrt
+from itertools import combinations
+
+def is_perm(n,m):
+	return sorted(str(n)) == sorted(str(m))
+
+def primes(n):
+	primes = [1]
+	sieve = [True] * (n+1)
+	for p in range(2, n+1):
+		if sieve[p]:
+			primes.append(p)
+			for i in range(p*p, n+1, p):
+				sieve[i] = False
+	return primes
+
 N = int(input())
-memo = [0] * (N + 1)
-def min_pf(n):
-	sieve = [0] * (n + 1)
-	for p in range(2, n + 1):
-		if sieve[p] == 0:
-			memo[p] = p - 1
-			for i in range(p, n + 1, p):
-				sieve[i] = p
-	return sieve
+upper = int(sqrt(N) * 1.3)
+lower = int(sqrt(N) * 0.7)
+if N < 500**2:
+	lower = 0
+P = [p for p in primes(upper) if lower <= p]
+P.append(1)
+MIN = (N+1,N+1)
 
-F = min_pf(N)
-def phi(n):
-	if memo[n] == 0:
-		f = F[n]
-		exp = 0
-		ndiv = n
-		while ndiv % f == 0:
-			exp += 1
-			ndiv //= f
-		if ndiv == 1:
-			memo[n] = f**(exp-1) * (f-1)
-		else:
-			memo[n] = memo[n//f**exp] * memo[f**exp]
-	return memo[n]
-
-def min_ratio(n):
-	min_quot = (n,1)
-	def is_perm(a,b):
-		return sorted(str(a)) == sorted(str(b))
-	for i in range(2,n):
-		if is_perm(i,phi(i)):
-			if i * min_quot[1] < min_quot[0] * phi(i):
-				min_quot = (i,phi(i))
-	return min_quot[0]
-
-print(min_ratio(N))
+for comb in combinations(P,3):
+	phi = 1
+	n = 1
+	for p in comb:
+		if p != 1:
+			phi *= (p-1)
+		n *= p
+	if n <= N:
+		if is_perm(phi,n):
+			print(n)
+			phi = n/phi
+			if phi < MIN[0]:
+				MIN = (phi,n)
+print(MIN[1])

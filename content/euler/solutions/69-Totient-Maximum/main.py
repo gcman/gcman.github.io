@@ -1,3 +1,4 @@
+# Sieve of Eratosthenes
 def primes(n):
 	primes = []
 	sieve = [True] * (n + 1)
@@ -8,10 +9,12 @@ def primes(n):
 				sieve[i] = False
 	return primes
 
-P = primes(53)
+# Get primes up to 41
+P = primes(41)
 def max_ratio(n):
 	out = 1
 	i = 0
+	# Multiply primes until upper bound
 	while out*P[i] < n:
 		out *= P[i]
 		i += 1
