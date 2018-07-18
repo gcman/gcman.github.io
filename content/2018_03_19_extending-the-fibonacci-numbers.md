@@ -17,12 +17,12 @@ This sequence is deeply connected with the golden ratio
 For example, the ratio of the $n$-th Fibonacci number with the one before it tends to $\varphi$ as $n$ gets very large.
 
 # Fibonacci and Phi
-Let's take a closer look at the origins of the golden ratio; it describes two lengths $a$ and $b$ whose ratio is the same as the ratio between their sum and the larger of them.
+Let's take a closer look at the origins of the golden ratio; it describes two lengths $a$ and $b$ whose ratio is the same as the ratio between their sum and the larger of the two.
 That is,
 \begin{equation}
 	\frac{a+b}{a} = \frac{a}{b}.
 \end{equation}
-Let's let this expression equal $x$ and solve.
+Let's set this expression equal to $x$ and solve.
 We first break up the left side.
 \begin{equation}
 	\begin{split}

@@ -14,8 +14,8 @@ Not all numbers produce palindromes so quickly.
 For example,
 \begin{equation*}
 	\begin{split}
-		349 + 943 &= 1292 \\
-		1292 + 2921 &= 4213 \\
+		349 + 943 &= 1292, \\
+		1292 + 2921 &= 4213, \\
 		4213 + 3124 &= 7337.
 	\end{split}
 \end{equation*}

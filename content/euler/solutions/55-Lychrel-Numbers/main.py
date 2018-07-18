@@ -34,5 +34,6 @@ freq[0] = 0
 # Get (pal, count) pairs
 # Sort pairs by count in decreasing order
 # Get first pair
-pals = sorted([(x,freq[x]) for x in freq], key=lambda t: t[1], reverse=True)[0]
+pals = [(x,freq[x]) for x in freq]
+pals = sorted(pals, key=lambda t: t[1], reverse=True)[0]
 print("{} {}".format(pals[0],pals[1]))
