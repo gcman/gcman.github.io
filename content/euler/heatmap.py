@@ -1,5 +1,4 @@
 import jinja2
-import random
 import os
 import json
 

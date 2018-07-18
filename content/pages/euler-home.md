@@ -1,4 +1,4 @@
-title: Project Euler Solutions
+title: Project Euler Home
 slug: euler
 summary: My full solutions to problems on Project Euler and Hackerrank with working Python code.
 

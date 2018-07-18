@@ -234,6 +234,7 @@ def del_tex2pdf():
 
 def euler(sol=None):
 	CONTENT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),"content/euler")
+	call(["python3", os.path.join(CONTENT_DIR,"progress-table.py")])
 	call(["python3", os.path.join(CONTENT_DIR,"heatmap.py")])
 	call(["python3", os.path.join(CONTENT_DIR,"get-solution-paths.py")])
 	if sol:

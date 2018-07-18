@@ -4,6 +4,11 @@
 		<link rel="stylesheet" href="{{ SITEURL }}/theme/css/blog.css" type="text/css" />
 		<title>Gautam Manohar's Blog</title>
 		<meta name="description" content="Gautam Manohar's personal blog, with posts on mathematics, computer science, chemistry, and whatever else interests him." />
+		<style text="css">
+			#euler-li {
+				padding: 0 10px;
+			}
+		</style>
 </head>
 {% extends "base.html" %}
 {% block robots %}noindex,follow{% endblock %}
@@ -41,7 +46,16 @@
 				</section>
 				<section id="project-euler" class="level2">
 					<h2>Project Euler <strong>/ Full Solutions</strong></h2>
-					<a href="{{ SITEURL }}/euler/">Project Euler Solutions</a>
+					<nav>
+						<ul>
+							<li id="euler-li">
+								<a href="{{ SITEURL }}/euler/">Project Euler Home</a>
+							</li>
+							<li id="euler-li">
+								<a href="{{ SITEURL }}/euler/">Progress &amp; Performance</a>
+							</li>
+						</ul>
+					</nav>
 					<table>
 						{% set max_count = 10 %}
 						{% set extra_count = [0] %}
@@ -53,7 +67,7 @@
 							{% endif %}
 						{% endfor %}
 					</table>
-					<a href="{{ SITEURL }}/euler">&hellip; and {{ extra_count[0] }} more.</a>
+					<a href="{{ SITEURL }}/euler/progress/">&hellip; and {{ extra_count[0] }} more.</a>
 				</section>
 		</div>
 </article>

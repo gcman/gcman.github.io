@@ -86,3 +86,22 @@ img {
   margin-right: auto;
   min-width: 200px;
 }
+
+/* Sortable Tables */
+
+th[role=columnheader]:not(.no-sort) {
+  cursor: pointer;
+}
+th[role=columnheader]:not(.no-sort):after {
+  content: '';
+  visibility: hidden;
+  opacity: 0;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+th[role=columnheader]:not(.no-sort):hover:after {
+  visibility: visible;
+  opacity: 1;
+}

@@ -1,0 +1,24 @@
+<table style="margin: 0px auto;" class="fancy-table" id="euler-progress-table">
+	<thead>
+		<tr>
+			<th data-sort-method='number' role="columnheader">&num;</th>
+			<th role="columnheader">Name</th>
+			<th data-sort-method='number' title="Project Euler difficulty (out of 100)" role="columnheader">PE</th>
+			<th role="columnheader" title="Hackerrank difficulty">HR</th>
+			<th data-sort-method='number' role="columnheader">Runtime (ms)</th>
+			<th data-sort-method='number' role="columnheader">Memory (KB)</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for problem in data %}
+			<tr>
+				<td>{{ problem.num }}</td>
+				<td><a href="../{{ problem.num }}/">{{ problem.name }}</a></td>
+				<td>{{ problem.difficulty }}</td>
+				<td>{{ problem.hrdifficulty }}</td>
+				<td>{{ problem.runtime }}</td>
+				<td>{{ problem.memory }}</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>

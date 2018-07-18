@@ -34,7 +34,15 @@
             title="Permalink to {{ page.title|striptags }}">{{ page.title }}</a></h1>
         </header>
         {{ page.content }}
-        {% if page.title == "Project Euler Solutions" %}
+        {% if page.title == "Project Euler Progress & Performance" %}
+            {% include 'progress-table.html' %}
+            <script src='{{ SITEURL }}/theme/js/tablesort.js'></script>
+            <script src='{{ SITEURL }}/theme/js/tablesort.number.js'></script>
+            <script>
+              new Tablesort(document.getElementById('euler-progress-table'));
+            </script>
+        {% endif %}
+        {% if "Euler" in page.title %}
             {% include 'heatmap.html' %}
         {% endif %}
         <aside id="gcman-toolbar">
