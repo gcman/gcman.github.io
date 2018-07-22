@@ -37,7 +37,8 @@
 35
 36
 37
-38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Test if n is palindromic</span>
+38
+39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Test if n is palindromic</span>
 <span class="k">def</span> <span class="nf">is_pal</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 	<span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
@@ -73,7 +74,8 @@
 <span class="c1"># Get (pal, count) pairs</span>
 <span class="c1"># Sort pairs by count in decreasing order</span>
 <span class="c1"># Get first pair</span>
-<span class="n">pals</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([(</span><span class="n">x</span><span class="p">,</span><span class="n">freq</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">freq</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">pals</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span><span class="n">freq</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">freq</span><span class="p">]</span>
+<span class="n">pals</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">pals</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">pals</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 </pre></div>
 </td></tr></table>
