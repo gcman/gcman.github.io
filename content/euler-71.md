@@ -6,7 +6,6 @@ slug: euler/71
 problem: 71
 summary: My solution to problem 71 of Project Euler.
 
-
 # Problem Statement
 
 The fraction \frac{a}{b} is called a reduced proper fraction if $a$ and $b$ are positive integers with $a < b$ and $\mathrm{gcd}(a,b) = 1$.
