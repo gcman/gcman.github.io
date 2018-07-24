@@ -8,7 +8,7 @@ summary: My solution to problem 71 of Project Euler.
 
 # Problem Statement
 
-The fraction \frac{a}{b} is called a reduced proper fraction if $a$ and $b$ are positive integers with $a < b$ and $\mathrm{gcd}(a,b) = 1$.
+The fraction $\frac{a}{b}$ is called a reduced proper fraction if $a$ and $b$ are positive integers with $a < b$ and $\mathrm{gcd}(a,b) = 1$.
 If we list the reduced proper fractions for $b \le 8$ in increasing order, we get
 \begin{equation*}
 	\frac18, \frac17, \frac16, \frac15, \frac14, \frac27, \frac13, \frac38, \frac25, \frac37, \frac12, \frac47, \frac35, \frac58, \frac23, \frac57, \frac34, \frac45, \frac56, \frac67, \frac78 

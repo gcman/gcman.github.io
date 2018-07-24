@@ -21,10 +21,14 @@ We use Euler's product formula for the totient function,
 	\varphi(n) = n\prod\limits_{p|n}\left(1 - \frac{1}{p}\right),
 \end{equation}
 taken over the distinct primes dividing $n$.
+This formula gives
+\begin{equation}
+	\frac{n}{\varphi(n)} = \frac{1}{\prod\limits_{p|n}\left(1 - \frac{1}{p}\right)}.
+\end{equation}
 
-And so maximizing $\frac{n}{\varphi(n)}$ is the same as minimizing the product.
+Therefore, to maximize $\frac{n}{\varphi(n)}$, we must minimize the product.
 This is done when $n$ is a product of many distinct primes.
-We want as many of these primes as possible to be small.
+We want as many of these primes as possible to be small, so that their reciprocals are big.
 And so $n$ should be the product of the first $k$ primes, for some $k$.
 That is, $n$ is the $k$-th [primorial number](https://en.wikipedia.org/wiki/Primorial).
 The first primorial number greater than $10^18$ is the product of the primes up to 41.
