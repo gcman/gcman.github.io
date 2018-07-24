@@ -10,12 +10,14 @@ summary: My solution to problem 76 of Project Euler.
 
 It is possible to write 5 as the sum of at least two positive integers in exactly 6 different ways:
 \begin{equation*}
-	&4+1 \\
-	&3+2 \\
-	&3+1+1 \\
-	&2+2+1 \\
-	&2+1+1+1 \\
-	&1+1+1+1+1
+	\begin{split}
+		5 &= 4+1 \\
+		&= 3+2 \\
+		&= 3+1+1 \\
+		&= 2+2+1 \\
+		&= 2+1+1+1 \\
+		&= 1+1+1+1+1
+	\end{split}
 \end{equation*}
 How many ways can $N$ be written as the sum of at least two positive integers?
 Report your answer modulo $10^9 + 7$.
