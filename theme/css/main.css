@@ -41,6 +41,12 @@ ol {
     left: -9999px;
 }
 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 /* Pseudo element: selection */
 
 ::selection {
@@ -85,6 +91,10 @@ img {
   margin-left: auto;
   margin-right: auto;
   min-width: 200px;
+}
+
+.line-block {
+  margin-bottom: 1ex;
 }
 
 /* Sortable Tables */
