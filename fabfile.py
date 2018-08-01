@@ -262,8 +262,7 @@ def push():
 
 def hard_push():
 	push()
-	shell('ghp-import output')
-	shell('git push git@github.com:gcman/gcman.github.io.git master --force')
+	shell('ghp-import output --force --push --branch=master')
 
 def publish(message):
 	preview()
