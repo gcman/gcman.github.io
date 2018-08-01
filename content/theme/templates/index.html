@@ -44,6 +44,17 @@
 						</table>
 					{% endif %}
 				</section>
+				<section id="latin" class="level2">
+					<h2>Latin <strong>/ Linguistics &amp; Poetry</strong></h2>
+					{% if articles %}
+						<table>
+							{% for article in articles if article.category.name == "latin" %}
+								{% include "index_row.html" %}
+							{% endfor %}
+						</table>
+					{% endif %}
+				</section>
+
 				<section id="project-euler" class="level2">
 					<h2>Project Euler <strong>/ Full Solutions</strong></h2>
 					<nav>

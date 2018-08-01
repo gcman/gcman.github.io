@@ -63,7 +63,8 @@ PANDOC_EXTENSIONS = [
   "-citations",
   "+markdown_in_html_blocks",
   "+backtick_code_blocks",
-  "+fenced_code_attributes"
+  "+fenced_code_attributes",
+  "+line_blocks"
 ]
 
 TOC = {
