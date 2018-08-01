@@ -1,0 +1,10 @@
+__pycache__/
+cache/
+cache/ArticlesGenerator
+cache/ArticlesGenerator-Readers
+cache/PagesGenerator
+cache/PagesGenerator-Readers
+output/
+*.pyc
+
+Thumbs.db
