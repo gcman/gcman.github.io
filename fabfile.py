@@ -268,5 +268,4 @@ def hard_push():
 def publish(message):
 	preview()
 	commit(message)
-	push()
 	hard_push()
