@@ -1,5 +1,5 @@
 title: Aeneid 6.298&ndash;316
-date: 31 July 2018
+date: 30 July 2018
 category: latin
 tags: poetry,translation
 slug: aeneid-charon
