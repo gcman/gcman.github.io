@@ -3,8 +3,21 @@
   <article class="section article">
     {{ partial "blog-header.html" . -}}
     <div id="content">
-      {{ $currentTag := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
-      {{ $currentTag }}
+      <section>
+        {{ $currentTag := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
+        {{ range $sec := .Site.Sections }}
+          {{ $currentSec := index (split (index (last 1 (split (delimit (split $sec "/") "," "") ",")) 0 ) "_" ) 0 }}
+          {{ $pages := where (where .Site.RegularPages ".Params.tags" "in" $currentTag) "Section" $currentSec }}
+          <h2>{{ title .Section }} <strong>/ {{ index .Site.Data.flavour .Section }}</strong></h2>
+            <table>
+              {{ range where .Site.RegularPages "Section" $currentSec }}
+                {{ if in .Params.tags $currentTag }}
+                  {{ partial "index_row.html" . }}
+                {{ end }}
+              {{ end }}
+            </table>
+        {{ end }}
+      </section>
     </div>
   </article>
 {{ end }}

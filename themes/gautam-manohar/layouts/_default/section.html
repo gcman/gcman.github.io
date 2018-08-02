@@ -6,7 +6,7 @@
       <section>
         <h2>{{ title .Section }} <strong>/ {{ index .Site.Data.flavour .Section }}</strong></h2>
           <table>
-            {{ range .Paginator.Pages }}
+            {{ range .Pages }}
               {{ partial "index_row.html" . }}
             {{ end }}
           </table>

@@ -1,7 +1,7 @@
 <tr>
   <td>
     <a href="{{ .Permalink }}">
-      {{ .Title }}{{ if isset .Params "subtitle" }}: {{ .Params.subtitle }}{{ end }}
+      {{ .Title }}{{ with .Params.subtitle }}: {{ . }}{{ end }}
       <strong>{{- partial "taglist.html" . -}}</strong>
     </a>
   </td>
