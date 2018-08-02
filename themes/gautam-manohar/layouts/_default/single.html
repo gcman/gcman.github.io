@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article class="article">
+  <header>
+    <h1 class="title">
+      <a href="{{ .Permalink }}" rel="bookmark" title ="Permalink to {{ .Params.shortttitle | default .Params.title }}">{{ .Params.shortttitle | default .Params.title }}</a>
+    </h1>
+    {{ if isset .Params "subtitle" }}
+      <h1 class="subtitle">
+        <a href="{{ .Permalink }}" rel="bookmark" title ="Permalink to {{ .Params.shortttitle | default .Params.title }}">{{ .Params.subtitle | default .Params.title }}</a>
+      </h1>
+    {{ end }}
+    <address class="author">{{ .Site.Params.author }}</address>
+    <div id="textbox">
+      <p style="font-weight: bold;" class="alignleft">
+        <a href="{{ .Site.BaseURL }}/{{ .Section }}/">{{ .Section }}</a>&nbsp;
+      </p>
+      <p class="date aligncenter">{{ dateFormat "2 Jan 2006" .Date }}</p>
+      <p style="font-weight: bold; font-variant: normal;" class="alignright">{{- partial "taglist.html" . -}}</p>
+    </div>
+    <div style="clear: both;"></div>​
+  </header>
+  {{ .Content }}
+</article>
+{{ end }}

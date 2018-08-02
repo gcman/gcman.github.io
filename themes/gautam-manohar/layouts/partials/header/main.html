@@ -2,10 +2,8 @@
 <html>
   <head>
     {{- partial "header/meta.html"  . -}}
-      <title>{{ block "title" . }}
-        {{ .Site.Title }}
-      {{ end }}</title>
-      {{- partial "header/favicons.html" . }}
-        <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/all.css" type="text/css" />
+    <title>{{ block "title" . -}}{{ .Title | default .Site.Title }}{{- end -}}</title>
+    {{- partial "header/favicons.html" . }}
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/all.css" type="text/css" />
   </head>
   <body>

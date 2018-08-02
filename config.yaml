@@ -1,5 +1,7 @@
 baseURL: "https://gautammanohar.com"
 languageCode: "en-us"
-title: "Gautam Manohar's Personal Website"
+title: "Gautam Manohar"
 theme: "gautam-manohar"
 MetaDataFormat: "yaml"
+params:
+  author: "Gautam Manohar"
