@@ -1,0 +1,35 @@
+/* Contact Form */
+input, textarea, button {
+  border-style: solid;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;t
+  border-radius: 20px;
+  border-color: firebrick;
+  font-family: Palatino,"Palatino Linotype","Palatino LT STD","Book Antiqua",Georgia,serif;
+  padding: 10px;
+  border-width: 2px;
+  margin-bottom: 10px;
+}
+
+input {
+  margin-top: 25px;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  height: 200px;
+}
+
+button {
+  background-color: firebrick;
+  color: ivory;
+  font-weight: bold;
+  padding: 10px 25px;
+  border-style: none;
+}
+
+button:hover {
+  background-color: #711515;
+  cursor: pointer;
+}

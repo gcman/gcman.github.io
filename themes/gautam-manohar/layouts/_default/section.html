@@ -1,0 +1,43 @@
+{{ define "title" }}{{ .Title }} &ndash; {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+  <article class="section article">
+    <header style="margin-top: 100px">
+      <h1 class="title">
+        <a href="/blog/">Gautam Manohar</a>
+      </h1>
+      <nav>
+        <ul>
+            <li>
+              <strong><a href="https://github.com/gcman">GitHub</a></strong>
+            </li>
+            <li>
+              <strong><a href="{{ .Site.BaseURL }}">Home Page</a></strong>
+            </li>
+            <li>
+              <strong><a href="{{ .Site.BaseURL }}/contact-me/">Contact</a></strong>
+            </li>
+        </ul>
+      </nav>
+    </header>
+    <div id="content">
+      <section>
+        <h2>{{ .Section }} <strong>/ {{ .Params.flavour }}</strong></h2>
+          <table>
+            {{ range .Paginator.Pages }}
+              <tr>
+                <td>
+                  <a href="{{ .Permalink }}">
+                    {{ .Title }}{{ if isset .Params "subtitle" }}: {{ .Params.subtitle }}{{ end }}
+                    <strong>{{ range .Params.tags }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>{{ end }}</strong>
+                  </a>
+                </td>
+                <td id="date">
+                  {{ dateFormat "2 Jan 2006" .Date }}
+                </td>
+              </tr>
+            {{ end }}
+          </table>
+        </section>
+      </div>
+  </article>
+{{ end }}

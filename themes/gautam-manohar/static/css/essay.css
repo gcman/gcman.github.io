@@ -1,0 +1,318 @@
+/* Imports */
+@import url("main.css");
+/* General */
+
+body {
+  counter-reset: h1
+}
+
+article h1 {
+    counter-reset: h2
+}
+
+article h2 {
+    counter-reset: h3
+}
+
+article h3 {
+    counter-reset: h4
+}
+
+article h1:before {
+    counter-increment: h1;
+    content: counter(h1) " "
+}
+
+article h2:before {
+    counter-increment: h2;
+    content: counter(h1) "." counter(h2) " "
+}
+
+article h3:before {
+    counter-increment: h3;
+    content: counter(h1) "." counter(h2) "." counter(h3) " "
+}
+
+article h4:before {
+    counter-increment: h4;
+    content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) " "
+}
+
+/* Header */
+
+header {
+  position: fixed;
+  width: 38.20%;
+  height: 80%;
+  left: 0;
+  top: 10%;
+  text-align: right;
+}
+
+header h1.title {
+  padding: 3% 6%;
+  border-style: solid;
+  border-width: 0 0 32px 0;
+  font-variant: small-caps;
+  color: firebrick;
+}
+
+header div.subtitle {
+  position: relative;
+  top: -45px;
+  padding-right: 5%;
+  font-style: oblique;
+  color: ivory;
+}
+
+header .banner {
+  padding-right: 5%;
+  padding-bottom: 2.5%;
+}
+
+header address.author {
+  padding-right: 5%;
+  padding-bottom: 2.5%;
+  font-style: normal;
+  font-variant: small-caps;
+}
+
+header .date {
+  padding: 2.5% 5%;
+  font-size: .8em;
+}
+
+header nav {
+  padding: 2.5% 5%;
+  height: 50%;
+}
+header nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  counter-reset: item;
+}
+header nav li {
+  padding-top: .5em;
+  display: block;
+}
+header li:before {
+  content: counters(item, ".") " ";
+  counter-increment: item;
+  color: firebrick;
+  font-variant: small-caps;
+}
+header li:before:hover {
+  font-weight: bold;
+}
+header nav a {
+  padding: .5em 0;
+}
+header nav a:hover {
+  font-weight: bold;
+}
+header nav ul>li>a {
+  font-size: 100%;
+}
+header nav ul>li>ul>li>a { /* level 2 */
+  font-size: 80%;
+}
+header nav ul>li>ul>li>ul>li a { /* level 3 and below */
+  font-size: 60%;
+}
+
+header div#categories {
+  position: relative;
+  padding: 2.5% 5%;
+  width: 80%;
+  left: 10%;
+  font-size: .7em;
+  opacity: .8;
+}
+
+header div.category {
+  display: inline;
+  padding-left: 1.25em;
+  text-transform: capitalize;
+}
+
+header div.category::before {
+  content: "# ";
+}
+
+header #gcman-toolbar a {
+  position: fixed;
+  width: 2%;
+  bottom: 0;
+  padding: 1%;
+  text-align: center;
+  border-style: solid;
+  border-width: 0 0 4px 0;
+  border-color: ivory;
+  transition: .25s;
+}
+header #gcman-toolbar a:hover {
+  border-color: firebrick;
+}
+header #gcman-toolbar a.prev {
+  left: 16%;
+}
+header #gcman-toolbar a.home {
+  left: 20%;
+}
+header #gcman-toolbar a.raw {
+  left: 24%;
+}
+header #gcman-toolbar a.pdf {
+  left: 28%;
+}
+header #gcman-toolbar a.next {
+  left: 32%;
+}
+
+/* Main article and sections */
+
+body {
+  position: absolute;
+  width: 61.80%;
+  left: 38.20%;
+  top: 10%;
+}
+
+article {
+  position: relative;
+  margin: 1.25% 5% 5% 0;
+  line-height: 1.5em;
+  border-style: solid;
+  border-width: 0 0 0 2px;
+  border-color: firebrick;
+}
+
+article h1 {
+  font-size: 1.5em;
+  font-variant: small-caps;
+  margin: 1em 0 0.5em;
+}
+article h2 {
+  font-size: 1.25em;
+  font-variant: small-caps;
+  margin: 0.75em 0 0.5em;
+}
+article h3 {
+  font-size: 1em;
+  margin: 0.5em 0 0.5em;
+}
+article h4,
+article h5,
+article h6 {
+  font-size: 1em;
+  font-weight: normal;
+  margin: 0.5em 0 0.5em;
+}
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+  width: 56.80%;
+  padding: .5em 2.5% .25em;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: firebrick;
+  color: ivory;
+}
+
+/* Content LEFT */
+
+article p {
+  padding-left: 5%;
+  padding-bottom: 1%
+}
+article p:first-of-type {
+  padding-top: 1.25%;
+}
+article p:last-of-type {
+  padding-bottom: 1.25%;
+}
+article:first-of-type > p:first-of-type::first-letter {
+  float: left;
+  padding-right: .05em;
+  font-size: 3.5em;
+  line-height: 1em;
+}
+
+article div {
+  padding-left: 5%;
+}
+
+article div.math {
+  padding-left: 0;
+}
+
+/* MAYBE REMOVE */
+
+article :not(pre) > code {
+  background-color: ivory;
+  color: black;
+}
+
+article pre {
+  padding: 2.5% 5%;
+  line-height: 1.25em;
+  border-radius: 0 8px 8px 0;
+}
+article pre, article code {
+  background-color: black;
+}
+article pre ::selection {
+  background-color: gainsboro;
+  color: black;
+}
+
+article div.sourceCode {
+  padding: 0;
+}
+article div.sourceCode table {
+  background-color: black;
+}
+
+/* MAYBE REMOVE */
+
+article blockquote {
+  margin: 1.25em 0;
+  padding: .2em 5%;
+  border-radius: 0 8px 8px 0;
+  background-color: firebrick;
+  color: ivory;
+}
+
+article blockquote .MathJax .mo,
+article blockquote .MathJax .mi,
+article blockquote .math {
+  color: ivory;
+}
+
+/* Content RANDOM */
+
+article hr {
+  border: 1px solid firebrick;
+}
+
+footer {
+  height: 24px;
+  padding-top: 24px;
+}
+
+footer a {
+  position: absolute;
+  opacity: .5;
+  transition: .25s;
+}
+
+footer a.page-top {
+  width: 2%;
+  left: 49%;
+  text-align: center;
+  opacity: 1;
+}
