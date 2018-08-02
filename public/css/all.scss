@@ -1,0 +1,118 @@
+@import "reset";
+@import "normalize.min";
+@import "code";
+@import "euler";
+@import "form";
+@import "scrollbar";
+@import "pygments";
+
+@import "article";
+@import "blog";
+@import "long";
+
+body {
+  background-color: ivory;
+  color: black;
+  font-size: 16px;
+  font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  cursor: default;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: firebrick;
+  .Mathjax {
+  	.mo {color: firebrick;}
+  	.mi {color: firebrick;}
+  }
+  .math {color: firebrick;}
+}
+
+p { 
+  margin-bottom: 1ex; 
+}
+
+ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+.invisible {
+    position: absolute;
+    left: -9999px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Pseudo element: selection */
+
+::selection {
+  background-color: firebrick;
+  color: ivory;
+}
+::-moz-selection {
+  background-color: firebrick;
+  color: ivory;
+}
+
+::selection:window-inactive {
+  background-color: gainsboro;
+}
+
+/* Content  */
+
+body {
+  counter-reset: figures;
+}
+
+figure {
+  margin: 1em 0;
+  text-align: center;
+  counter-increment: figures;
+	figcaption {
+  		font-size: .8em;
+  	}
+	figcaption:before {
+  		font-weight: bold;
+  		content: 'Figure ' counter(figures) '. ';
+  	}
+}
+
+img {
+  border-radius: 8px;
+  margin: 0.5em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.line-block {
+  margin-bottom: 1ex;
+}
+
+/* Sortable Tables */
+
+th[role=columnheader]:not(.no-sort) {
+  cursor: pointer;
+}
+th[role=columnheader]:not(.no-sort):after {
+  content: '';
+  visibility: hidden;
+  opacity: 0;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+th[role=columnheader]:not(.no-sort):hover:after {
+  visibility: visible;
+  opacity: 1;
+}

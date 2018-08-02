@@ -1,1 +1,1 @@
-{{ range .Params.tags }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>{{ end }}
+{{ range .Params.tags }}<a title="Posts tagged {{.}}" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>{{ end }}

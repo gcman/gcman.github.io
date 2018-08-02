@@ -1,0 +1,11 @@
+<tr>
+  <td>
+    <a href="{{ .Permalink }}">
+      {{ .Title }}{{ if isset .Params "subtitle" }}: {{ .Params.subtitle }}{{ end }}
+      <strong>{{- partial "taglist.html" . -}}</strong>
+    </a>
+  </td>
+  <td id="date">
+    {{ dateFormat "2 Jan 2006" .Date }}
+  </td>
+</tr>
