@@ -1,2 +1,53 @@
 {{ $meta := .Site.Data.euler.problemData }}
-Hi
+{{ $num := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
+{{ $code := safeHTML (index (index $meta $num) "code") }}
+{{ $empty := int (index (index $meta $num) "empty") }}
+{{ $comments := int (index (index $meta $num) "comments") }}
+{{ $diff := int (index (index $meta $num) "difficulty") }}
+{{ $hrdiff := index (index $meta $num) "hrdifficulty" }}
+{{ $s := newScratch }}
+
+<h1 id="my-code">My Code</h1>
+<div class="euler-code">
+  {{ $code }}
+</div>
+<p>This code has {{ $comments }} comments and {{ $empty }} empty lines.</p>
+
+{{ if and (index (index $meta $num) "runtime") (index (index $meta $num) "memory") }}
+  {{ $time := int (index (index $meta $num) "runtime") }}
+  {{ $mem := int (index (index $meta $num) "memory") }}
+  <h1 id="Performance">Performance</h1>
+  {{ if lt $time 100 }}
+    {{ $s.Set "speedclass" "fast" }}
+    {{ $s.Set "time" "less than 0.1&#8239;s" }}
+  {{ else if and (ge $time 100) (lt $time 1000) }}
+    {{ $s.Set "speedclass" "fast" }}
+    {{ $s.Set "time" (printf "%s&#8239;ms" $time) }}
+  {{ else if and (ge $time 1000) (lt $time 10000) }}
+    {{ $s.Set "speedclass" "medium" }}
+  {{ else if and (ge $time 10000) (le $time 60000) }}
+    {{ $s.Set "speedclass" "slow" }}
+  {{ else if gt $time 60000 }}
+    {{ $s.Set "speedclass" "tooslow" }}
+  {{ end }}
+  {{ if ge $time 1000 }}
+    {{ $s.Set "timetemp" (div $time 1000.0) }}
+    {{ $s.Set "time" (printf "%s&#8239;s" (printf "%.2f" ($s.Get "timetemp"))) }}
+  {{ end }}
+  {{ $s.Set "memtemp" (div $mem 1000.0) }}
+  {{ $s.Set "mem" (printf "%s&#8239;KB" (printf "%.1f" ($s.Get "memtemp"))) }}
+  {{ if lt $mem 25000 }}
+    {{ $s.Set "memclass" "fast" }}
+  {{ else if and (ge $mem 25000) (lt $mem 125000) }}
+    {{ $s.Set "memclass" "medium" }}
+  {{ else if and (ge $mem 125000) (lt $mem 256000) }}
+    {{ $s.Set "memclass" "slow" }}
+  {{ else if ge $mem 256000 }}
+    {{ $s.Set "memclass" "tooslow" }}
+  {{ end }}
+  <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="{{ $s.Get "speedclass" }}">{{ htmlUnescape ($s.Get "time") }}</span> with a peak memory usage of <span style="font-weight: bold" class="{{ $s.Get "memclass" }}">{{ htmlUnescape ($s.Get "mem") }}</span>.</p>
+{{ end }}
+
+<h2 id="Difficulty">Difficulty</h2>
+{{ $s.Set "hrnum" (printf "%03d" $num) }}
+<p><a href="https://projecteuler.net/problem={{ $num }}">Project Euler</a> ranks this problem at {{ $diff }}% difficulty (out of 100%). <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler{{ $s.Get "hrnum" }}">HackerRank</a> classifies this problem as {{ lower $hrdiff }}.</p>
