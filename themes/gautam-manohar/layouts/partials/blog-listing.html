@@ -1,0 +1,10 @@
+{{ range $name,$taxonomy := .Site.Taxonomies.categories }}
+  <h2>{{ title $name }} <strong>/ {{ index $.Site.Data.flavour $name }}</strong></h2>
+  <table>
+  {{ range $.Site.RegularPages}}
+    {{ if in .Params.categories $name }}
+        {{ partial "index_row.html" . }}
+    {{ end }}
+  {{ end }}
+  </table>
+{{ end }}

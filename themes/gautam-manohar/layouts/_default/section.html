@@ -8,13 +8,12 @@
     <div id="content">
       <section>
         {{ $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
-        <h2>{{ title $currentSec }} <strong>/ {{ index .Site.Data.flavour $currentSec }}</strong></h2>
-          <table>
-            {{ range .Pages }}
-              {{- partial "index_row.html" . -}}
-            {{ end }}
-          </table>
-        </section>
+        {{ if eq $currentSec "blog" }}
+          {{- partial "blog-listing.html" . -}}
+        {{ else }}
+          {{- partial "category-listing.html" . -}}
+        {{ end }}  
+      </section>
       </div>
   </article>
 {{ end }}
