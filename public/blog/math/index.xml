@@ -2,35 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gautam Manohar</title>
-    <link>https://gautammanohar.com/</link>
+    <link>https://gautammanohar.com/blog/math/</link>
     <description>Recent content on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Feb 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://gautammanohar.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://gautammanohar.com/blog/math/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>First Post</title>
-      <link>https://gautammanohar.com/blog/first-post/</link>
-      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gautammanohar.com/blog/first-post/</guid>
-      <description>This post is a test.</description>
-    </item>
-    
-    <item>
-      <title>Problem 1 - Multiples of 3 and 5</title>
-      <link>https://gautammanohar.com/blog/euler/1/</link>
-      <pubDate>Sat, 09 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gautammanohar.com/blog/euler/1/</guid>
-      <description>Problem Statement If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
-Find the sum of all the multiples of 3 or 5 below \(n\).
-My Algorithm For the Project Euler problem, \(n = 1000\).
-In general, the sum of the natural numbers up to \(n\) is the \(n\)-th triangular number.</description>
-    </item>
     
     <item>
       <title>Harmonic Numbers and Binomial Coefficients</title>

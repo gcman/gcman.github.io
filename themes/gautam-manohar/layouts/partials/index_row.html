@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <a href="{{ .Permalink }}">
+    <a title="{{ .Params.shorttitle | default .Params.title }}" href="{{ .Permalink }}">
       {{ .Title }}{{- with .Params.subtitle -}}: {{ . }}{{- end -}}
       <strong id="tags">{{- partial "taglist.html" . -}}</strong>
     </a>

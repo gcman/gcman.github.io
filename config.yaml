@@ -5,3 +5,4 @@ theme: "gautam-manohar"
 MetaDataFormat: "yaml"
 params:
   author: "Gautam Manohar"
+  eulerMax: 100

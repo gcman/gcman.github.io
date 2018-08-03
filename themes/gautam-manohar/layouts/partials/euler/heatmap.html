@@ -1,0 +1,60 @@
+<h1 id="progress">Progress</h1>
+<p><emph>Click on a problem's number to see my solution for it.</emph></p>
+<table class="legend euler">
+  <tr>
+    <td><div class="euler-circle complete"></td></div>
+    <td class="text">
+      Solution solves problem correctly on Project Euler and scores 100% on Hackerrank.
+    </td>
+  </tr>
+  <tr>
+    <td><div class="euler-circle hackerrank-imperfect"></td></div>
+    <td class="text">
+      Solution scores less than 100% on Hackerrank, but still solves the original problem.
+    </td>
+  </tr>
+  <tr>
+    <td><div class="euler-circle euler-only"></td></div>
+    <td class="text">
+      Solution relevant only to Project Euler (problem not on Hackerrank or changed too much).
+    </td>
+  </tr>
+  <tr>
+    <td><div class="euler-circle tle"></td></div>
+    <td class="text">
+      Solution exceeds either the given time limit of 60 seconds or memory limit of 256 MB.
+    </td>
+  </tr>
+  <tr>
+    <td><div class="euler-circle unsolved"></td></div>
+    <td class="text">
+      Problem has not been solved.
+    </td>
+  </tr>
+</table>
+{{ $max := $.Site.Params.eulerMax }}
+{{ $scratch := newScratch }}
+{{ $scratch.Set "num" 0 }}
+{{ if modBool $max 100 }}
+  {{ $scratch.Set "lastMax" 100 }}
+{{ else }}
+  {{ $scratch.Set "lastMax" mod $max 100 }}
+{{ end }}
+{{ range $idx, $block := (seq (math.Ceil (div $max 100.0))) }}
+  <table class="map euler">
+    {{ range $idx2, $row := (seq 5) }}
+      {{ if le ($scratch.Get "num") $max }}
+        <tr>
+          {{ range $idx3, $cell := (seq 20) }}
+            {{ $scratch.Set "num" (add 1 (add (add (mul $idx 100) (mul $idx2 20)) $idx3)) }}
+            {{ if le ($scratch.Get "num") $max }}
+              <td class="{{ index $.Site.Data.euler.colourCodes (index $.Site.Data.euler.solved (string ($scratch.Get "num")) | default "gr") }}">
+                {{ $scratch.Get "num" }}
+              </td>
+            {{ end }}
+          {{ end }}
+        </tr>
+      {{ end }}
+    {{ end }}
+  </table>
+{{ end }}

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8" />
+<meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
+<meta name="robots" content="index,follow">
+
+<meta name="author" content="Gautam Manohar" />
+<meta name="copyright" content="Gautam Manohar" />
+<meta name="date" content="2018-06-09" />
+<meta name="description" content="My solution to problem 1 of Project Euler.">
+<meta name="keywords" content="identity, { .Section }}" /><style>
+.title .math {
+  font-size: 50% !important;
+}
+</style>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  "HTML-CSS": {
+  styles: {
+  ".MathJax .mo, .MathJax .mi, .math": {color: "black;"}}
+  },
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processEscapes: true}
+  });
+  MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
+    var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
+    VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+    VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+    VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+    VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+    });
+    MathJax.Hub.Register.StartupHook("SVG Jax Ready",function () {
+    var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;
+    VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+    VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+    VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+    VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+    });
+    MathJax.Hub.Config({
+      "HTML-CSS": {
+        scale: 100,
+        availableFonts: [],
+        preferredFont: null,
+        webFont: "Latin-Modern"
+      }
+    });
+    MathJax.Hub.Config({
+      TeX: {
+        equationNumbers: {  autoNumber: "all"  },
+      }
+    });
+</script>
+<div class="invisible">
+  \(
+  \let\Pr\relax
+  \DeclareMathOperator\LCM{LCM}
+  \DeclareMathOperator\Pr{P}
+  \DeclareMathOperator\arccot{arccot}
+  \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1 )}
+  \renewcommand{\vec}[1]{\mathbf{ #1 }}
+  \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+  \newcommand{\abs}[1]{\lvert #1 \rvert}
+  \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+
+  \newcommand{\inn}[1]{\in\left\{ #1 \right\}}
+  \newcommand{\ninn}[1]{\not\in\left\{ #1 \right\}}
+  \newcommand{\orr}{\qquad&amp;\,\text{or}\qquad}
+
+  \renewcommand\d{\mathop{}\!\mathrm{d}}
+  \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
+  \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
+  \DeclareMathOperator\G{\Gamma}
+  \DeclareMathOperator\I{\mathscr{I}}
+  \)
+</div><title>Problem 1 - Multiples of 3 and 5 &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color"             content="#ffffff" />
+<link rel="apple-touch-icon"      sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32"   href="/img/favicons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="16x16"   href="/img/favicons/favicon-16x16.png" />
+<link rel="manifest"                              href="/img/favicons/manifest.json" />
+<link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
+<link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
+    <link rel="stylesheet" href="https://gautammanohar.com/css/all.css" type="text/css" />
+  </head>
+  <body>
+<article class="article"><header>
+  <h1 class="title">
+    <a href="https://gautammanohar.com/blog/euler/1/" rel="bookmark" title ="Link to Problem 1 - Multiples of 3 and 5">Problem 1 - Multiples of 3 and 5</a>
+  </h1>
+  
+  <address class="author">Gautam Manohar</address>
+  <div id="textbox">
+    <p style="font-weight: bold;" class="alignleft">
+      <a href="https://gautammanohar.com/blog/" title="Posts in section blog">blog</a>&nbsp;
+    </p>
+    <p class="date aligncenter">9 Jun 2018</p>
+    <strong style="font-variant: normal;" class="alignright"><a title="Posts tagged identity" href="/tags/identity">#identity </a></strong>
+  </div>
+  <div style="clear: both;"></div>​
+</header><h1 id="problem-statement">Problem Statement</h1>
+<p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
+<p>Find the sum of all the multiples of 3 or 5 below <span class="math inline">\(n\)</span>.</p>
+<h1 id="my-algorithm">My Algorithm</h1>
+<p>For the Project Euler problem, <span class="math inline">\(n = 1000\)</span>.</p>
+<p>In general, the sum of the natural numbers up to <span class="math inline">\(n\)</span> is the <span class="math inline">\(n\)</span>-th <a href="https://en.wikipedia.org/wiki/Triangular_number">triangular number</a>. Let’s call this <span class="math inline">\(T(n)\)</span>. A well known formula for this is <span class="math display">\[\begin{equation}
+    T(n) = \sum_{i=1}^n i = \frac{n(n+1)}{2}.
+    \label{triangular-num}
+\end{equation}\]</span></p>
+<p>The sum of all multiples of 3 below <span class="math inline">\(n\)</span> looks like this: <span class="math display">\[\begin{equation}
+    1\cdot3 + 2\cdot 3 + 3 \cdot 3 + \ldots + \floor{\frac{n-1}{3}} \cdot 3.
+    \label{3-list}
+\end{equation}\]</span> We can factor 3 out and write  as <span class="math inline">\(3T\floor{\frac{n-1}{3}}\)</span>, which we know how to find with . We can do the same thing with 5.</p>
+<p>But now we’ve overcounted! Each multiple of 15 under <span class="math inline">\(n\)</span> has been counted twice: once as a multiple of 3, then again as a multiple of 5. We can fix this by subtracting the sum of all multiples of 15 under <span class="math inline">\(n\)</span>. And so our desired answer is <span class="math display">\[\begin{equation}
+    3T\floor{\frac{n-1}{3}} + 5T\floor{\frac{n-1}{5}} - 15T\floor{\frac{n-1}{15}}.
+\end{equation}\]</span> The complexity of this solution is <span class="math inline">\(O(1)\)</span>, because our answer is just a computation.</p>
+<h2 id="other-solutions">Other Solutions</h2>
+<p>A brute-force solution that adds each number <span class="math inline">\(i\)</span> from 1 to <span class="math inline">\(n-1\)</span> to a count if <span class="math inline">\(i\)</span> is divisible by 3 <em>or</em> 5 would have time complexity <span class="math inline">\(O(n)\)</span>. With the large input sizes of the Hackerrank problem (<span class="math inline">\(n \le 10^9\)</span>) this solution is too slow, but it easily passes the original Project Euler problem.</p>
+<h1 id="progress">Progress</h1>
+<p><emph>Click on a problem's number to see my solution for it.</emph></p>
+<table class="legend euler">
+  <tr>
+    <td><div class="euler-circle complete"></td></div>
+    <td class="text">
+      Solution solves problem correctly on Project Euler and scores 100% on Hackerrank.
+    </td>
+  </tr>
+  <tr>
+    <td><div class="euler-circle hackerrank-imperfect"></td></div>
+    <td class="text">
+      Solution scores less than 100% on Hackerrank, but still solves the original problem.
+    </td>
+  </tr>
+  <tr>
+    <td><div class="euler-circle euler-only"></td></div>
+    <td class="text">
+      Solution relevant only to Project Euler (problem not on Hackerrank or changed too much).
+    </td>
+  </tr>
+  <tr>
+    <td><div class="euler-circle tle"></td></div>
+    <td class="text">
+      Solution exceeds either the given time limit of 60 seconds or memory limit of 256 MB.
+    </td>
+  </tr>
+  <tr>
+    <td><div class="euler-circle unsolved"></td></div>
+    <td class="text">
+      Problem has not been solved.
+    </td>
+  </tr>
+</table>
+
+
+
+  
+
+
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+<aside id="gcman-toolbar">
+    
+    <a title="Raw source" class="raw" href="https://gautammanohar.com//src.md" type="text/plain">
+        <i class="fas fa-code" aria-hidden="true"></i>
+    </a>
+    <a title="Home" class="home" href="https://gautammanohar.com/blog/">
+        <i class="fas fa-home"></i>
+    </a>
+    <a title="PDF" class="pdf" href="https://gautammanohar.com//post.pdf">
+        <i class="far fa-file-pdf" aria-hidden="true"></i>
+    </a>
+    
+</aside></article>
+  <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  </body>
+</html>
