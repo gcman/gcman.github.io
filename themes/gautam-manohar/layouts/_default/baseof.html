@@ -2,10 +2,11 @@
 <html>
   <head>
     {{- partial "header/meta.html"  . -}}
-    {{- partial "header/mathjax.html" . -}}
     <title>{{ block "title" . -}}{{ .Title | default .Site.Title }} &ndash; {{ .Site.Title }}{{- end -}}</title>
     {{- partial "header/favicons.html" . }}
     <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/all.css" type="text/css" />
+    {{- partial "header/mathjax.html" . -}}
+    {{- partial "header/google-analytics.html" . -}}
   </head>
   <body>
     {{- block "main" . }}{{- end }}

@@ -1,3 +1,8 @@
-  <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-  </body>
+	<script>
+			$('.title a').html(function(index, value) {
+				return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
+		});
+	</script>
+	<script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	</body>
 </html>
