@@ -8,7 +8,18 @@
 <meta name="copyright" content="Gautam Manohar" />
 <meta name="date" content="2018-02-04" />
 <meta name="description" content="">
-<meta name="keywords" content="{ .Section }}" /><style>
+<meta name="keywords" content="{ .Section }}" /><title>Proof &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color"             content="#ffffff" />
+<link rel="apple-touch-icon"      sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32"   href="/img/favicons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="16x16"   href="/img/favicons/favicon-16x16.png" />
+<link rel="manifest"                              href="/img/favicons/manifest.json" />
+<link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
+<link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
+    <link rel="stylesheet" href="https://gautammanohar.com/css/all.css" type="text/css" /><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -20,7 +31,7 @@
   styles: {
   ".MathJax .mo, .MathJax .mi, .math": {color: "black;"}}
   },
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processEscapes: true}
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],displayMath: [['$$','$$'], ['\[','\]']],processEnvironments: true,processEscapes: true}
   });
   MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
     var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
@@ -72,19 +83,16 @@
   \DeclareMathOperator\G{\Gamma}
   \DeclareMathOperator\I{\mathscr{I}}
   \)
-</div><title>Proof &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
-<meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
-<meta name="msapplication-TileColor" content="#da532c" />
-<meta name="theme-color"             content="#ffffff" />
-<link rel="apple-touch-icon"      sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="32x32"   href="/img/favicons/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/android-chrome-192x192.png" />
-<link rel="icon" type="image/png" sizes="16x16"   href="/img/favicons/favicon-16x16.png" />
-<link rel="manifest"                              href="/img/favicons/manifest.json" />
-<link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
-<link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
-    <link rel="stylesheet" href="https://gautammanohar.com/css/all.css" type="text/css" />
-  </head>
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+</head>
   <body>
   <article class="section article">
     <header style="margin-top: 100px">
@@ -112,8 +120,6 @@
         <table>
           
             
-          
-            
               
             
           
@@ -125,8 +131,6 @@
         
         <h2>Math <strong>/ Notes &amp; Essays</strong></h2>
         <table>
-          
-            
           
             
           
@@ -165,6 +169,11 @@
       </section>
     </div>
   </article>
-  <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-  </body>
+	<script>
+			$('.title a').html(function(index, value) {
+				return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
+		});
+	</script>
+	<script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	</body>
 </html>

@@ -6,19 +6,10 @@
     <description>Recent content on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 09 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://gautammanohar.com/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>First Post</title>
-      <link>https://gautammanohar.com/blog/first-post/</link>
-      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://gautammanohar.com/blog/first-post/</guid>
-      <description>This post is a test.</description>
-    </item>
     
     <item>
       <title>Problem 1 - Multiples of 3 and 5</title>
@@ -27,9 +18,9 @@
       
       <guid>https://gautammanohar.com/blog/euler/1/</guid>
       <description>Problem Statement If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
-Find the sum of all the multiples of 3 or 5 below \(n\).
-My Algorithm For the Project Euler problem, \(n = 1000\).
-In general, the sum of the natural numbers up to \(n\) is the \(n\)-th triangular number.</description>
+Find the sum of all the multiples of 3 or 5 below $n$.
+My Algorithm For the Project Euler problem, $n = 1000$.
+In general, the sum of the natural numbers up to $n$ is the $n$-th triangular number.</description>
     </item>
     
     <item>
@@ -38,7 +29,11 @@ In general, the sum of the natural numbers up to \(n\) is the \(n\)-th triangula
       <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gautammanohar.com/blog/math/harmonic-binomial/</guid>
-      <description>The \(n\)-th harmonic number is defined as the sum of reciprocals of the first \(n\) natural numbers: \[\begin{equation} \sum\limits_{k=1}^n \frac{1}{k}. \end{equation}\] We wish to prove the following identity involving harmonic numbers and binomial coefficients: \[\begin{equation} \sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k. \label{identity} \end{equation}\] I have two solutions: one with calculus, and one by induction.
+      <description>The \(n\)-th harmonic number is defined as the sum of reciprocals of the first \(n\) natural numbers:
+\[\begin{equation} \sum\limits_{k=1}^n \frac{1}{k}. \end{equation}\]
+We wish to prove the following identity involving harmonic numbers and binomial coefficients:
+\[\begin{equation} \sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k. \label{identity} \end{equation}\]
+I have two solutions: one with calculus, and one by induction.
 Calculus First, we notice that \[\begin{equation} \int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Biggr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.</description>
     </item>
     

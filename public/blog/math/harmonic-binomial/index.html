@@ -8,7 +8,18 @@
 <meta name="copyright" content="Gautam Manohar" />
 <meta name="date" content="2018-02-04" />
 <meta name="description" content="Exploring a relationship between a sum of binomial coefficients and harmonic numbers using calculus and induction.">
-<meta name="keywords" content="calculus,proof, { .Section }}" /><style>
+<meta name="keywords" content="calculus,proof, { .Section }}" /><title>Harmonic Numbers and Binomial Coefficients &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color"             content="#ffffff" />
+<link rel="apple-touch-icon"      sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32"   href="/img/favicons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="16x16"   href="/img/favicons/favicon-16x16.png" />
+<link rel="manifest"                              href="/img/favicons/manifest.json" />
+<link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
+<link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
+    <link rel="stylesheet" href="https://gautammanohar.com/css/all.css" type="text/css" /><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -20,7 +31,7 @@
   styles: {
   ".MathJax .mo, .MathJax .mi, .math": {color: "black;"}}
   },
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processEscapes: true}
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],displayMath: [['$$','$$'], ['\[','\]']],processEnvironments: true,processEscapes: true}
   });
   MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
     var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
@@ -72,19 +83,16 @@
   \DeclareMathOperator\G{\Gamma}
   \DeclareMathOperator\I{\mathscr{I}}
   \)
-</div><title>Harmonic Numbers and Binomial Coefficients &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
-<meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
-<meta name="msapplication-TileColor" content="#da532c" />
-<meta name="theme-color"             content="#ffffff" />
-<link rel="apple-touch-icon"      sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="32x32"   href="/img/favicons/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/android-chrome-192x192.png" />
-<link rel="icon" type="image/png" sizes="16x16"   href="/img/favicons/favicon-16x16.png" />
-<link rel="manifest"                              href="/img/favicons/manifest.json" />
-<link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
-<link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
-    <link rel="stylesheet" href="https://gautammanohar.com/css/all.css" type="text/css" />
-  </head>
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+</head>
   <body>
 <article class="article"><header>
   <h1 class="title">
@@ -94,18 +102,22 @@
   <address class="author">Gautam Manohar</address>
   <div id="textbox">
     <p style="font-weight: bold;" class="alignleft">
-      <a href="https://gautammanohar.com/blog/" title="Posts in section blog">blog</a>&nbsp;
+      <a href="https://gautammanohar.com/blog/math/" title="Posts in section math">math</a>&nbsp;
     </p>
     <p class="date aligncenter">4 Feb 2018</p>
     <strong style="font-variant: normal;" class="alignright"><a title="Posts tagged calculus" href="/tags/calculus">#calculus </a><a title="Posts tagged proof" href="/tags/proof">#proof </a></strong>
   </div>
   <div style="clear: both;"></div>​
-</header><p>The <span class="math inline">\(n\)</span>-th harmonic number is defined as the sum of reciprocals of the first <span class="math inline">\(n\)</span> natural numbers: <span class="math display">\[\begin{equation}
+</header><p>The <span class="math inline">\(n\)</span>-th harmonic number is defined as the sum of reciprocals of the first <span class="math inline">\(n\)</span> natural numbers:</p>
+<p><span class="math display">\[\begin{equation}
     \sum\limits_{k=1}^n \frac{1}{k}.
-\end{equation}\]</span> We wish to prove the following identity involving harmonic numbers and binomial coefficients: <span class="math display">\[\begin{equation}
+\end{equation}\]</span></p>
+<p>We wish to prove the following identity involving harmonic numbers and binomial coefficients:</p>
+<p><span class="math display">\[\begin{equation}
     \sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
     \label{identity}
-\end{equation}\]</span> I have two solutions: one with calculus, and one by induction.</p>
+\end{equation}\]</span></p>
+<p>I have two solutions: one with calculus, and one by induction.</p>
 <h1 id="calculus">Calculus</h1>
 <p>First, we notice that <span class="math display">\[\begin{equation}
     \int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Biggr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.
@@ -189,6 +201,11 @@
     </a>
     
 </aside></article>
-  <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-  </body>
+	<script>
+			$('.title a').html(function(index, value) {
+				return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
+		});
+	</script>
+	<script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	</body>
 </html>

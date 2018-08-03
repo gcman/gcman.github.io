@@ -18,9 +18,9 @@
       
       <guid>https://gautammanohar.com/blog/euler/1/</guid>
       <description>Problem Statement If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
-Find the sum of all the multiples of 3 or 5 below \(n\).
-My Algorithm For the Project Euler problem, \(n = 1000\).
-In general, the sum of the natural numbers up to \(n\) is the \(n\)-th triangular number.</description>
+Find the sum of all the multiples of 3 or 5 below $n$.
+My Algorithm For the Project Euler problem, $n = 1000$.
+In general, the sum of the natural numbers up to $n$ is the $n$-th triangular number.</description>
     </item>
     
   </channel>
