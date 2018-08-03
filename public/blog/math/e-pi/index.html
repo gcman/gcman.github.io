@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8" />
+<meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
+<meta name="robots" content="index,follow">
+
+<meta name="author" content="Gautam Manohar" />
+<meta name="copyright" content="Gautam Manohar" />
+<meta name="date" content="2018-02-01" />
+<meta name="description" content="Which is greater: e^pi or pi^e? I solve this puzzle with differentiation, Taylor series, concavity, and the arithmetic-geometric mean inequality.">
+<meta name="keywords" content="calculus,proof, { .Section }}" /><style>
+.title .math {
+  font-size: 50% !important;
+}
+</style>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  "HTML-CSS": {
+  styles: {
+  ".MathJax .mo, .MathJax .mi, .math": {color: "black;"}}
+  },
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processEscapes: true}
+  });
+  MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
+    var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
+    VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+    VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+    VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+    VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+    });
+    MathJax.Hub.Register.StartupHook("SVG Jax Ready",function () {
+    var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;
+    VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+    VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+    VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+    VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+    });
+    MathJax.Hub.Config({
+      "HTML-CSS": {
+        scale: 100,
+        availableFonts: [],
+        preferredFont: null,
+        webFont: "Latin-Modern"
+      }
+    });
+    MathJax.Hub.Config({
+      TeX: {
+        equationNumbers: {  autoNumber: "all"  },
+      }
+    });
+</script>
+<div class="invisible">
+  \(
+  \let\Pr\relax
+  \DeclareMathOperator\LCM{LCM}
+  \DeclareMathOperator\Pr{P}
+  \DeclareMathOperator\arccot{arccot}
+  \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1 )}
+  \renewcommand{\vec}[1]{\mathbf{ #1 }}
+  \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+  \newcommand{\abs}[1]{\lvert #1 \rvert}
+  \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+
+  \newcommand{\inn}[1]{\in\left\{ #1 \right\}}
+  \newcommand{\ninn}[1]{\not\in\left\{ #1 \right\}}
+  \newcommand{\orr}{\qquad&amp;\,\text{or}\qquad}
+
+  \renewcommand\d{\mathop{}\!\mathrm{d}}
+  \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
+  \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
+  \DeclareMathOperator\G{\Gamma}
+  \DeclareMathOperator\I{\mathscr{I}}
+  \)
+</div><title>Comparing $e^\pi$ and $\pi^e$ &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color"             content="#ffffff" />
+<link rel="apple-touch-icon"      sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32"   href="/img/favicons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="16x16"   href="/img/favicons/favicon-16x16.png" />
+<link rel="manifest"                              href="/img/favicons/manifest.json" />
+<link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
+<link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
+    <link rel="stylesheet" href="https://gautammanohar.com/css/all.css" type="text/css" />
+  </head>
+  <body>
+<article class="article">
+  <header>
+    <h1 class="title">
+      <a href="https://gautammanohar.com/blog/math/e-pi/" rel="bookmark" title ="Link to Comparing $e^\pi$ and $\pi^e$">Comparing $e^\pi$ and $\pi^e$</a>
+    </h1>
+    
+    <address class="author">Gautam Manohar</address>
+    <div id="textbox">
+      <p style="font-weight: bold;" class="alignleft">
+        <a href="https://gautammanohar.com/blog/" title="Posts in section blog">blog</a>&nbsp;
+      </p>
+      <p class="date aligncenter">1 Feb 2018</p>
+      <strong style="font-variant: normal;" class="alignright"><a title="Posts tagged calculus" href="/tags/calculus">#calculus</a><a title="Posts tagged proof" href="/tags/proof">#proof</a></strong>
+    </div>
+    <div style="clear: both;"></div>​
+  </header>
+  <p>The constants <span class="math inline">\(e\)</span> and <span class="math inline">\(\pi\)</span> are everywhere in mathematics. Determining the greater of the two expressions <span class="math inline">\(e^\pi\)</span> and <span class="math inline">\(\pi^e\)</span> (without using a calculator, of course…) is a fun puzzle that you can approach in many ways. I’d like to discuss my solutions.</p>
+<h1 id="differentiation">Differentiation</h1>
+<p>We shall perform the same operations on the two expressions: <span class="math display">\[\begin{equation}
+    \begin{split}
+        e^\pi &amp;\odot \pi^e \\
+        e^{\frac{\pi}{e}} &amp;\odot \pi^{\frac{e}{e}} \\
+        e^{\frac{1}{e}} &amp;\odot \pi^{\frac{1}{\pi}}.
+    \end{split}
+\end{equation}\]</span> To show that <span class="math inline">\(e^\pi &gt; \pi^e\)</span>, it suffices to show that <span class="math inline">\(e^{\frac{1}{e}} &gt; \pi^{\frac{1}{\pi}}\)</span>. Let <span class="math inline">\(y = x^{\frac{1}{x}}\)</span>. Then we can implicitly differentiate to find the critical points. <span class="math display">\[\begin{equation}
+    \begin{split}
+        \ln{y} &amp;= \ln{x^{\frac{1}{x}}} \\
+        \ln{y} &amp;= \frac{\ln{x}}{x} \\
+        \diff{}{x}\ln{y} &amp;= \diff{}{x}\frac{\ln{x}}{x} \\
+        \frac{1}{y}y&#39; &amp;= \frac{x\left(\frac{1}{x}\right) - \ln{x}\cdot1}{x^2} \\
+        y&#39; &amp;= x^{\frac{1}{x}}\frac{1 - \ln{x}}{x^2}.
+    \end{split}
+\end{equation}\]</span> The expressions <span class="math inline">\(x^{\frac{1}{x}}\)</span> and <span class="math inline">\(x^2\)</span> are always positive, so there is only critical point: when <span class="math inline">\(1 - \ln{x} = 0\)</span>, or when <span class="math inline">\(x = e\)</span>. We must find whether this point is a global minimum or a maximum. When <span class="math inline">\(x = 1 &lt; e\)</span>, we have <span class="math inline">\(1 - \ln{x} = 1\)</span>, so the function is increasing. The value <span class="math inline">\(x = e^2 &gt; e\)</span> gives <span class="math inline">\(1 - \ln{x} = -1\)</span>, which means the function is decreasing. Thus <span class="math inline">\(x^{\frac{1}{x}}\)</span> has a global maximum at <span class="math inline">\(x = e\)</span>. And so <span class="math inline">\(e^{\frac{1}{e}} &gt; \pi^{\frac{1}{\pi}}\)</span>, which shows that <span class="math inline">\(e^\pi &gt; \pi^e\)</span>.</p>
+<h1 id="inequality">Inequality</h1>
+<p>If we use the inequality <span class="math inline">\(1 + x &lt; e^x\)</span> (I will present three proofs of this below), then a very simple solution presents itself. The equality holds for all <span class="math inline">\(x\)</span>, but we only require it to hold for positive <span class="math inline">\(x\)</span>. Make the substitution <span class="math inline">\(x = \frac{\pi}{e} - 1\)</span>, in an effort to cancel out the 1 on the right side of the inequality and introduce <span class="math inline">\(\pi\)</span>. Because <span class="math inline">\(\pi&gt;e\)</span>, <span class="math inline">\(\frac{\pi}{e} - 1 &gt; 0\)</span>, and so <span class="math display">\[\begin{equation}
+    \begin{split}
+        1 + \frac{\pi}{e} - 1 &amp;&lt; e^{\frac{\pi}{e} - 1} \\
+        \pi\cdot\frac{1}{e} &amp;&lt; e^{\frac{\pi}{e}} \cdot \frac{1}{e} \\
+        \pi &amp;&lt; e^{\frac{\pi}{e}}\\
+        \pi^e &amp;&lt; e^\pi.
+    \end{split}
+\end{equation}\]</span> Wonderful, isn’t it?</p>
+<h2 id="taylor-series">Taylor Series</h2>
+<p>This is the most standard proof I have; I think it’s the least exciting. We only prove the equality for positive <span class="math inline">\(x\)</span>. We know <span class="math display">\[\begin{equation}
+    e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
+\end{equation}\]</span> Thus for <span class="math inline">\(x &gt; 0\)</span>, all the terms on the right side will be positive, and so <span class="math inline">\(e^x &gt; 1 + x\)</span>.</p>
+<h2 id="concavity">Concavity</h2>
+<p>This method requires a little more “geometric intuition” than the last. At <span class="math inline">\(x = 0\)</span>, we have <span class="math inline">\(e^x = 1\)</span>. At this point <span class="math inline">\((0,1)\)</span>, the tangent line to <span class="math inline">\(e^x\)</span> has slope <span class="math inline">\(1\)</span> and has the equation <span class="math inline">\(y = 1 + x\)</span>. Because <span class="math inline">\((e^x)&#39;&#39; = e^x &gt; 0\)</span>, <span class="math inline">\(e^x\)</span> is always concave up, so it is always above its tangent line. Therefore, <span class="math inline">\(1 + x &lt; e^x\)</span>.</p>
+<h2 id="am-gm">AM-GM</h2>
+<p>This is my favourite proof. It’s a little less intuitive than the others, but I think it’s beautiful. We use the arithmetic-geometric mean inequality. <span class="math display">\[\begin{equation}
+    \begin{split}
+        \sqrt[n]{1+x} &amp;= \sqrt[n]{\smash[b]{\underbrace{1\cdot1\cdots1}_{\text{$n-1$ times}}\cdot(1+x)}} \\[1em]
+        &amp;\le \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}}{n} \\
+        &amp;= \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}+(1+x)}{n} \\
+        &amp;= \frac{\overbrace{1+\dotsb+1}^{\text{$n$ times}}+x}{n} \\
+        &amp;= 1 + \frac{x}{n}.
+    \end{split}
+\end{equation}\]</span> Strict equality in the AM-GM inequality only holds when all the terms are equal. In this case, <span class="math inline">\(x &gt; 0\)</span>, so <span class="math inline">\(1 + x \neq 1\)</span>, so we have strict inequality. This gives <span class="math inline">\(\sqrt[n]{1+x} &lt; 1 + \frac{x}{n}\)</span>. Raising both sides to the <span class="math inline">\(n\)</span>-th power gives <span class="math display">\[\begin{equation}
+    1 + x &lt; \left(1 + \frac{x}{n}\right)^n.
+\end{equation}\]</span> Taking the limit as <span class="math inline">\(n\)</span> approaches <span class="math inline">\(\infty\)</span> on both sides yields <span class="math display">\[\begin{equation}
+    \begin{split}
+        \lim_{n\to\infty} (1 + x) &amp;&lt; \lim_{n\to\infty} \left(1 + \frac{x}{n}\right)^n \\
+        1 + x &amp;&lt; e^x.
+    \end{split}
+\end{equation}\]</span> Using the limit definition of <span class="math inline">\(e\)</span>, we conclude our proof.</p>
+<p>I get the feeling that there are many other ways to attack this problem. If you can solve it with a method that I have not shown, please let me know!</p>
+<aside id="gcman-toolbar">
+    
+    <a title="Raw source" class="raw" href="https://gautammanohar.com//src.md" type="text/plain">
+        <i class="fas fa-code" aria-hidden="true"></i>
+    </a>
+    <a title="Home" class="home" href="https://gautammanohar.com/blog/">
+        <i class="fas fa-home"></i>
+    </a>
+    <a title="PDF" class="pdf" href="https://gautammanohar.com//post.pdf">
+        <i class="far fa-file-pdf" aria-hidden="true"></i>
+    </a>
+    
+    <a title="Harmonic Numbers and Binomial Coefficients" class="prev" href="/blog/math/harmonic-binomial/">
+        <i class="fas fa-chevron-circle-right"></i>
+    </a>
+    
+</aside></article>
+  <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  </body>
+</html>

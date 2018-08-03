@@ -7,13 +7,16 @@
     {{ partial "blog-header.html" . -}}
     <div id="content">
       <section>
-        {{ $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
-        <h2>{{ title $currentSec }} <strong>/ {{ index .Site.Data.flavour $currentSec }}</strong></h2>
+        {{ range $name,$taxonomy := .Site.Taxonomies.categories }}
+          <h2>{{ title $name }} <strong>/ {{ index $.Site.Data.flavour $name }}</strong></h2>
           <table>
-            {{ range .Pages }}
-              {{- partial "index_row.html" . -}}
+            {{ range $.Site.RegularPages}}
+              {{ if in .Params.categories $name }}
+                  {{ partial "index_row.html" . }}
+              {{ end }}
             {{ end }}
           </table>
+        {{ end }}
         </section>
       </div>
   </article>

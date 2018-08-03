@@ -881,7 +881,7 @@ green     #859900  operators, other keywords
   text-align: right;
   font-size: .8em;
   font-style: normal; }
-.section section strong a {
+.section section strong#tags {
   font-size: .8em;
   font-weight: normal;
   padding: 8px; }

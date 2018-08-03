@@ -1,8 +1,8 @@
 <tr>
   <td>
     <a href="{{ .Permalink }}">
-      {{ .Title }}{{ with .Params.subtitle }}: {{ . }}{{ end }}
-      <strong>{{- partial "taglist.html" . -}}</strong>
+      {{ .Title }}{{- with .Params.subtitle -}}: {{ . }}{{- end -}}
+      <strong id="tags">{{- partial "taglist.html" . -}}</strong>
     </a>
   </td>
   <td id="date">

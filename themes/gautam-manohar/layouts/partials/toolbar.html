@@ -15,7 +15,7 @@
     </a>
     {{ if .NextInSection }}
     <a title="{{ .NextInSection.Params.shorttitle | default .NextInSection.Params.title }}" class="prev" href="{{ .NextInSection.URL }}">
-        <i class="fas fa-chevron-circle-left"></i>
+        <i class="fas fa-chevron-circle-right"></i>
     </a>
     {{ end }}
 </aside>

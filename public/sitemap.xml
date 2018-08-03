@@ -8,6 +8,16 @@
   </url>
   
   <url>
+    <loc>https://gautammanohar.com/blog/math/harmonic-binomial/</loc>
+    <lastmod>2018-02-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gautammanohar.com/blog/math/e-pi/</loc>
+    <lastmod>2018-02-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gautammanohar.com/</loc>
     <lastmod>2018-08-01T00:00:00+00:00</lastmod>
   </url>
@@ -18,12 +28,25 @@
   </url>
   
   <url>
+    <loc>https://gautammanohar.com/tags/calculus/</loc>
+    <lastmod>2018-02-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://gautammanohar.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://gautammanohar.com/tags/proof/</loc>
+    <lastmod>2018-02-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://gautammanohar.com/tags/</loc>
+    <lastmod>2018-02-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
