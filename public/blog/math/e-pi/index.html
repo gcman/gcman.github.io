@@ -31,7 +31,7 @@
   styles: {
   ".MathJax .mo, .MathJax .mi, .math": {color: "black;"}}
   },
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],displayMath: [['$$','$$'], ['\[','\]']],processEnvironments: true,processEscapes: true}
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processEnvironments: true,processEscapes: true}
   });
   MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
     var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
@@ -108,55 +108,103 @@
     <strong style="font-variant: normal;" class="alignright"><a title="Posts tagged calculus" href="/tags/calculus">#calculus </a><a title="Posts tagged proof" href="/tags/proof">#proof </a></strong>
   </div>
   <div style="clear: both;"></div>​
-</header><p>The constants <span class="math inline">\(e\)</span> and <span class="math inline">\(\pi\)</span> are everywhere in mathematics. Determining the greater of the two expressions <span class="math inline">\(e^\pi\)</span> and <span class="math inline">\(\pi^e\)</span> (without using a calculator, of course…) is a fun puzzle that you can approach in many ways. I’d like to discuss my solutions.</p>
+</header><p>The constants $e$ and $\pi$ are everywhere in mathematics.
+Determining the greater of the two expressions $e^\pi$ and $\pi^e$ (without using a calculator, of course&hellip;) is a fun puzzle that you can approach in many ways.
+I&rsquo;d like to discuss my solutions.</p>
+
 <h1 id="differentiation">Differentiation</h1>
-<p>We shall perform the same operations on the two expressions: <span class="math display">\[\begin{equation}
+
+<p>We shall perform the same operations on the two expressions:
+\begin{equation}
     \begin{split}
-        e^\pi &amp;\odot \pi^e \\
-        e^{\frac{\pi}{e}} &amp;\odot \pi^{\frac{e}{e}} \\
+        e^\pi &amp;\odot \pi^e <br />
+        e^{\frac{\pi}{e}} &amp;\odot \pi^{\frac{e}{e}} <br />
         e^{\frac{1}{e}} &amp;\odot \pi^{\frac{1}{\pi}}.
     \end{split}
-\end{equation}\]</span> To show that <span class="math inline">\(e^\pi &gt; \pi^e\)</span>, it suffices to show that <span class="math inline">\(e^{\frac{1}{e}} &gt; \pi^{\frac{1}{\pi}}\)</span>. Let <span class="math inline">\(y = x^{\frac{1}{x}}\)</span>. Then we can implicitly differentiate to find the critical points. <span class="math display">\[\begin{equation}
+\end{equation}
+To show that $e^\pi &gt; \pi^e$, it suffices to show that $e^{\frac{1}{e}} &gt; \pi^{\frac{1}{\pi}}$.
+Let $y = x^{\frac{1}{x}}$.
+Then we can implicitly differentiate to find the critical points.
+\begin{equation}
     \begin{split}
-        \ln{y} &amp;= \ln{x^{\frac{1}{x}}} \\
-        \ln{y} &amp;= \frac{\ln{x}}{x} \\
-        \diff{}{x}\ln{y} &amp;= \diff{}{x}\frac{\ln{x}}{x} \\
-        \frac{1}{y}y&#39; &amp;= \frac{x\left(\frac{1}{x}\right) - \ln{x}\cdot1}{x^2} \\
-        y&#39; &amp;= x^{\frac{1}{x}}\frac{1 - \ln{x}}{x^2}.
+        \ln{y} &amp;= \ln{x^{\frac{1}{x}}} <br />
+        \ln{y} &amp;= \frac{\ln{x}}{x} <br />
+        \diff{}{x}\ln{y} &amp;= \diff{}{x}\frac{\ln{x}}{x} <br />
+        \frac{1}{y}y&rsquo; &amp;= \frac{x\left(\frac{1}{x}\right) - \ln{x}\cdot1}{x^2} <br />
+        y&rsquo; &amp;= x^{\frac{1}{x}}\frac{1 - \ln{x}}{x^2}.
     \end{split}
-\end{equation}\]</span> The expressions <span class="math inline">\(x^{\frac{1}{x}}\)</span> and <span class="math inline">\(x^2\)</span> are always positive, so there is only critical point: when <span class="math inline">\(1 - \ln{x} = 0\)</span>, or when <span class="math inline">\(x = e\)</span>. We must find whether this point is a global minimum or a maximum. When <span class="math inline">\(x = 1 &lt; e\)</span>, we have <span class="math inline">\(1 - \ln{x} = 1\)</span>, so the function is increasing. The value <span class="math inline">\(x = e^2 &gt; e\)</span> gives <span class="math inline">\(1 - \ln{x} = -1\)</span>, which means the function is decreasing. Thus <span class="math inline">\(x^{\frac{1}{x}}\)</span> has a global maximum at <span class="math inline">\(x = e\)</span>. And so <span class="math inline">\(e^{\frac{1}{e}} &gt; \pi^{\frac{1}{\pi}}\)</span>, which shows that <span class="math inline">\(e^\pi &gt; \pi^e\)</span>.</p>
+\end{equation}
+The expressions $x^{\frac{1}{x}}$ and $x^2$ are always positive, so there is only critical point: when $1 - \ln{x} = 0$, or when $x = e$.
+We must find whether this point is a global minimum or a maximum.
+When $x = 1 &lt; e$, we have $1 - \ln{x} = 1$, so the function is increasing.
+The value $x = e^2 &gt; e$ gives $1 - \ln{x} = -1$, which means the function is decreasing.
+Thus $x^{\frac{1}{x}}$ has a global maximum at $x = e$.
+And so $e^{\frac{1}{e}} &gt; \pi^{\frac{1}{\pi}}$, which shows that $e^\pi &gt; \pi^e$.</p>
+
 <h1 id="inequality">Inequality</h1>
-<p>If we use the inequality <span class="math inline">\(1 + x &lt; e^x\)</span> (I will present three proofs of this below), then a very simple solution presents itself. The equality holds for all <span class="math inline">\(x\)</span>, but we only require it to hold for positive <span class="math inline">\(x\)</span>. Make the substitution <span class="math inline">\(x = \frac{\pi}{e} - 1\)</span>, in an effort to cancel out the 1 on the right side of the inequality and introduce <span class="math inline">\(\pi\)</span>. Because <span class="math inline">\(\pi&gt;e\)</span>, <span class="math inline">\(\frac{\pi}{e} - 1 &gt; 0\)</span>, and so <span class="math display">\[\begin{equation}
+
+<p>If we use the inequality $1 + x &lt; e^x$ (I will present three proofs of this below), then a very simple solution presents itself.
+The equality holds for all $x$, but we only require it to hold for positive $x$.
+Make the substitution $x = \frac{\pi}{e} - 1$, in an effort to cancel out the 1 on the right side of the inequality and introduce $\pi$.
+Because $\pi&gt;e$, $\frac{\pi}{e} - 1 &gt; 0$, and so
+\begin{equation}
     \begin{split}
-        1 + \frac{\pi}{e} - 1 &amp;&lt; e^{\frac{\pi}{e} - 1} \\
-        \pi\cdot\frac{1}{e} &amp;&lt; e^{\frac{\pi}{e}} \cdot \frac{1}{e} \\
-        \pi &amp;&lt; e^{\frac{\pi}{e}}\\
+        1 + \frac{\pi}{e} - 1 &amp;&lt; e^{\frac{\pi}{e} - 1} <br />
+        \pi\cdot\frac{1}{e} &amp;&lt; e^{\frac{\pi}{e}} \cdot \frac{1}{e} <br />
+        \pi &amp;&lt; e^{\frac{\pi}{e}}<br />
         \pi^e &amp;&lt; e^\pi.
     \end{split}
-\end{equation}\]</span> Wonderful, isn’t it?</p>
+\end{equation}
+Wonderful, isn&rsquo;t it?</p>
+
 <h2 id="taylor-series">Taylor Series</h2>
-<p>This is the most standard proof I have; I think it’s the least exciting. We only prove the equality for positive <span class="math inline">\(x\)</span>. We know <span class="math display">\[\begin{equation}
+
+<p>This is the most standard proof I have; I think it&rsquo;s the least exciting.
+We only prove the equality for positive $x$.
+We know
+\begin{equation}
     e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
-\end{equation}\]</span> Thus for <span class="math inline">\(x &gt; 0\)</span>, all the terms on the right side will be positive, and so <span class="math inline">\(e^x &gt; 1 + x\)</span>.</p>
+\end{equation}
+Thus for $x &gt; 0$, all the terms on the right side will be positive, and so $e^x &gt; 1 + x$.</p>
+
 <h2 id="concavity">Concavity</h2>
-<p>This method requires a little more “geometric intuition” than the last. At <span class="math inline">\(x = 0\)</span>, we have <span class="math inline">\(e^x = 1\)</span>. At this point <span class="math inline">\((0,1)\)</span>, the tangent line to <span class="math inline">\(e^x\)</span> has slope <span class="math inline">\(1\)</span> and has the equation <span class="math inline">\(y = 1 + x\)</span>. Because <span class="math inline">\((e^x)&#39;&#39; = e^x &gt; 0\)</span>, <span class="math inline">\(e^x\)</span> is always concave up, so it is always above its tangent line. Therefore, <span class="math inline">\(1 + x &lt; e^x\)</span>.</p>
+
+<p>This method requires a little more &ldquo;geometric intuition&rdquo; than the last.
+At $x = 0$, we have $e^x = 1$.
+At this point $(0,1)$, the tangent line to $e^x$ has slope $1$ and has the equation $y = 1 + x$.
+Because $(e^x)&rdquo; = e^x &gt; 0$, $e^x$ is always concave up, so it is always above its tangent line.
+Therefore, $1 + x &lt; e^x$.</p>
+
 <h2 id="am-gm">AM-GM</h2>
-<p>This is my favourite proof. It’s a little less intuitive than the others, but I think it’s beautiful. We use the arithmetic-geometric mean inequality. <span class="math display">\[\begin{equation}
+
+<p>This is my favourite proof.
+It&rsquo;s a little less intuitive than the others, but I think it&rsquo;s beautiful.
+We use the arithmetic-geometric mean inequality.
+\begin{equation}
     \begin{split}
-        \sqrt[n]{1+x} &amp;= \sqrt[n]{\smash[b]{\underbrace{1\cdot1\cdots1}_{\text{$n-1$ times}}\cdot(1+x)}} \\[1em]
-        &amp;\le \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}}{n} \\
-        &amp;= \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}+(1+x)}{n} \\
-        &amp;= \frac{\overbrace{1+\dotsb+1}^{\text{$n$ times}}+x}{n} \\
+        \sqrt[n]{1+x} &amp;= \sqrt[n]{\smash[b]{\underbrace{1\cdot1\cdots1}<em>{\text{$n-1$ times}}\cdot(1+x)}} \[1em]
+        &amp;\le \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}}{n} <br />
+        &amp;= \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}+(1+x)}{n} <br />
+        &amp;= \frac{\overbrace{1+\dotsb+1}^{\text{$n$ times}}+x}{n} <br />
         &amp;= 1 + \frac{x}{n}.
     \end{split}
-\end{equation}\]</span> Strict equality in the AM-GM inequality only holds when all the terms are equal. In this case, <span class="math inline">\(x &gt; 0\)</span>, so <span class="math inline">\(1 + x \neq 1\)</span>, so we have strict inequality. This gives <span class="math inline">\(\sqrt[n]{1+x} &lt; 1 + \frac{x}{n}\)</span>. Raising both sides to the <span class="math inline">\(n\)</span>-th power gives <span class="math display">\[\begin{equation}
+\end{equation}
+Strict equality in the AM-GM inequality only holds when all the terms are equal.
+In this case, $x &gt; 0$, so $1 + x \neq 1$, so we have strict inequality.
+This gives $\sqrt[n]{1+x} &lt; 1 + \frac{x}{n}$.
+Raising both sides to the $n$-th power gives
+\begin{equation}
     1 + x &lt; \left(1 + \frac{x}{n}\right)^n.
-\end{equation}\]</span> Taking the limit as <span class="math inline">\(n\)</span> approaches <span class="math inline">\(\infty\)</span> on both sides yields <span class="math display">\[\begin{equation}
+\end{equation}
+Taking the limit as $n$ approaches $\infty$ on both sides yields
+\begin{equation}
     \begin{split}
-        \lim_{n\to\infty} (1 + x) &amp;&lt; \lim_{n\to\infty} \left(1 + \frac{x}{n}\right)^n \\
+        \lim</em>{n\to\infty} (1 + x) &amp;&lt; \lim_{n\to\infty} \left(1 + \frac{x}{n}\right)^n <br />
         1 + x &amp;&lt; e^x.
     \end{split}
-\end{equation}\]</span> Using the limit definition of <span class="math inline">\(e\)</span>, we conclude our proof.</p>
+\end{equation}
+Using the limit definition of $e$, we conclude our proof.</p>
+
 <p>I get the feeling that there are many other ways to attack this problem. If you can solve it with a method that I have not shown, please let me know!</p>
 <aside id="gcman-toolbar">
     

@@ -1,3 +1,4 @@
+{{ define "title" }}{{ .Params.shorttitle | default .Params.title }} &ndash; {{ .Site.Params.author }}{{ end }}
 {{ define "main" }}
 <article class="article">
   {{- partial "article-header.html" . -}}
