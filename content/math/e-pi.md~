@@ -98,7 +98,8 @@ We use the arithmetic-geometric mean inequality.
 \begin{equation}
        \begin{split}
 		\sqrt[n]{1+x} &= \sqrt[n]{\smash[b]{\underbrace{1\cdot1\cdots1}\_{\text{$n-1$ times}}\cdot(1+x)}} \\\\\[1em]
-		&\le \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}+(1+x)}{n} \\\\\\
+		&\le \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}}{n} \\\\\\
+		&= \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}+(1+x)}{n} \\\\\\
 		&= \frac{\overbrace{1+\dotsb+1}^{\text{$n$ times}}+x}{n} \\\\\\
 		&= 1 + \frac{x}{n}.
 	\end{split}

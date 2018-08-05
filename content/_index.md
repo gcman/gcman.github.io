@@ -4,9 +4,6 @@ author = ["Gautam Manohar"]
 draft = false
 +++
 
-\*
-
-
 ## Voraciously curious. Ceaselessly skeptical. Unabashedly nerdy. {#voraciously-curious-dot-ceaselessly-skeptical-dot-unabashedly-nerdy-dot}
 
 If any of these terms describe you, then great!
