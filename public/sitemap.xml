@@ -3,23 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://gautammanohar.com/blog/euler/1/</loc>
-    <lastmod>2018-06-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gautammanohar.com/blog/math/harmonic-binomial/</loc>
-    <lastmod>2018-02-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gautammanohar.com/blog/math/e-pi/</loc>
-    <lastmod>2018-02-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gautammanohar.com/</loc>
-    <lastmod>2018-06-09T00:00:00+00:00</lastmod>
+    <loc>https://gautammanohar.com/math/e-pi/</loc>
+    <lastmod>2018-02-01T00:00:00-05:00</lastmod>
   </url>
   
   <url>
@@ -27,18 +12,8 @@
   </url>
   
   <url>
-    <loc>https://gautammanohar.com/blog/euler/</loc>
-    <lastmod>2018-06-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gautammanohar.com/blog/math/</loc>
-    <lastmod>2018-02-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://gautammanohar.com/tags/calculus/</loc>
-    <lastmod>2018-02-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-01T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -48,32 +23,30 @@
   </url>
   
   <url>
-    <loc>https://gautammanohar.com/categories/euler/</loc>
-    <lastmod>2018-06-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://gautammanohar.com/tags/identity/</loc>
-    <lastmod>2018-06-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://gautammanohar.com/</loc>
+    <lastmod>2018-02-01T00:00:00-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://gautammanohar.com/categories/math/</loc>
-    <lastmod>2018-02-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-01T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://gautammanohar.com/math/</loc>
+    <lastmod>2018-02-01T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gautammanohar.com/tags/proof/</loc>
-    <lastmod>2018-02-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-01T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://gautammanohar.com/tags/</loc>
-    <lastmod>2018-02-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-01T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
