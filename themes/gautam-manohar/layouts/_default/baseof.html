@@ -6,6 +6,9 @@
     {{- partial "header/favicons.html" . }}
     <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/all.css" type="text/css" />
     {{- partial "header/mathjax.html" . -}}
+    {{ if in .Params.categories "chemistry" }}
+    {{- partial "header/mathjax-chemistry.html" -}}
+    {{ end }}
     {{- partial "header/google-analytics.html" . -}}
   </head>
   <body>

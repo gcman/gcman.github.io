@@ -3,7 +3,7 @@
   <table>
   {{ range $.Site.RegularPages}}
     {{ if in .Params.categories $name }}
-        {{ partial "index_row.html" . }}
+        {{ partial "index-row.html" . }}
     {{ end }}
   {{ end }}
   </table>

@@ -6,8 +6,6 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
 
 <script type="text/x-mathjax-config">
-  MathJax.Ajax.config.path["mhchem"] =
-    "https://cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0";
   MathJax.Hub.Config({
     extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
     jax: ["input/TeX","output/CommonHTML", "output/PreviewHTML"],
@@ -22,7 +20,7 @@
     },
     TeX: {
       equationNumbers: {  autoNumber: "all"  },
-      extensions: ["[mhchem]/mhchem.js","AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
     },
     });
 </script>

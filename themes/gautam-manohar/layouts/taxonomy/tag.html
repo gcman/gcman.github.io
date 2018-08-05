@@ -11,7 +11,7 @@
           {{ range $.Site.RegularPages}}
             {{ if in .Params.categories $name }}
               {{ if in .Params.tags $currentTag }}
-                {{ partial "index_row.html" . }}
+                {{ partial "index-row.html" . }}
               {{ end }}
             {{ end }}
           {{ end }}

@@ -1,1 +1,0 @@
-{{ .Content | replaceRE "^(\\begin{)(.*)$" "<div>$1" | replaceRE "^(\\end{)(.*)$" "$1</div>" | safeHTML}}
