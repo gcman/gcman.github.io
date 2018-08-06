@@ -1,6 +1,6 @@
 {{ define "title" }}{{ .Params.shorttitle | default .Params.title }} &ndash; {{ .Site.Params.author }}{{ end }}
 {{ define "main" }}
-<article class="article">
+<article class="article {{ if in .Params.categories "euler" }}euler{{- end }}">
   {{- partial "article-header.html" . -}}
   {{ .Content }}
   {{- partial "euler/extra.html" . -}}
