@@ -1,0 +1,37 @@
+{{ .Content }}
+<table style="width:85%" class="fancy-table" id="euler-progress-table">
+  <thead>
+	<tr>
+	  <th data-sort-method='number' title="Problem number" role="columnheader">&num;</th>
+	  <th role="columnheader" title="Problem name">Problem Name</th>
+	  <th data-sort-method='number' title="Project Euler difficulty (out of 100)" role="columnheader">PE</th>
+	  <th role="columnheader" title="Hackerrank difficulty">HR</th>
+	  <th data-sort-method='number' role="columnheader" title="Runtime of original Project Euler solution">Time (ms)</th>
+	  <th data-sort-method='number' role="columnheader" title="Peak memory usage">Memory (KB)</th>
+	</tr>
+  </thead>
+  <tbody>
+    {{- $meta := .Site.Data.euler.problemData }}
+    {{- $s := newScratch }}
+    {{ range .Site.Taxonomies.categories.euler }}
+    {{- $s.Set "num" (index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0) }}
+    {{- $s.Set "problem" (index $meta ($s.Get "num")) }}
+    {{- with $s.Get "problem" }}
+    {{- $s.Set "name" (index ($s.Get "problem") "name") }}
+    {{- $s.Set "diff" (index ($s.Get "problem") "difficulty") }}
+    {{- $s.Set "hrdiff" (index ($s.Get "problem") "hrdifficulty") }}
+    {{- $s.Set "time" (index ($s.Get "problem") "runtime") }}
+    {{- $s.Set "mem" (index ($s.Get "problem") "memory") }}
+    <tr>             
+      <td>{{ $s.Get "num" }}</td>
+      <td><a title="{{- $s.Get "name" }} (Difficulty: {{ $s.Get "diff" }}%)"  href="{{- $s.Get "name"}}">{{ $s.Get "name" }}</a></td>
+      <td>{{ $s.Get "diff" }}</td>
+      <td>{{ $s.Get "hrdiff" }}</td>
+      <td>{{ $s.Get "time" }}</td>
+      <td>{{ $s.Get "mem" }}</td>
+    </tr>
+    {{ end }}
+    {{ end }}
+  </tbody>
+</table>
+{{- partial "euler/heatmap.html" . -}}

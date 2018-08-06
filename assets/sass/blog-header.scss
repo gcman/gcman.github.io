@@ -1,0 +1,35 @@
+h1#blog-header {
+    margin-bottom: 0.25em;    
+}
+
+.euler nav#blog-header {
+    margin-bottom: 1.5em;   
+}
+
+nav#blog-header {
+    text-align: center;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        display: inline;
+        padding: 0 0.25em;
+        strong {
+            font-style: italic;
+            font-weight: normal;
+            font-variant: normal;
+            font-size: 1em;
+        }
+    }
+
+    strong {
+        opacity: .5;
+        a {
+            color: black;
+        }
+    }
+}

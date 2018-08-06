@@ -1,31 +1,5 @@
 .section {
 
-  h1.title {
-    margin-bottom: 0.25em;
-  }
-
-  nav {
-    text-align: center;
-  }
-
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  nav li {
-    display: inline;
-    padding: 0 0.25em;
-  }
-
-  nav li strong {
-    font-style: italic;
-    font-weight: normal;
-    font-variant: normal;
-    font-size: 1em;
-  }
-
   section h2 {
     border-image: linear-gradient(to right, ivory, firebrick) 4;
     border-style: solid;
@@ -47,13 +21,6 @@
     padding: 0;
     font-size: .75em;
     font-weight: bold;
-  }
-
-  section blockquote {
-    margin: 0;
-    text-align: right;
-    font-size: .9em;
-    font-style: italic;
   }
 
   section table {

@@ -2,7 +2,7 @@
 {{ define "main" }}
 <article class="article">
   {{- partial "article-header.html" . -}}
-  {{ .RawContent | replaceRE "eqref{(.*)(})" "\\$0" | markdownify | safeHTML }}
+  {{ .Content }}
   {{- partial "euler/extra.html" . -}}
   {{- partial "toolbar.html" . -}}
   {{- partial "footer/larger-title-numbers.html" -}}

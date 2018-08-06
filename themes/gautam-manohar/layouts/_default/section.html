@@ -1,20 +1,20 @@
 {{ define "title" }}
-  {{ $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
+  {{- $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
   {{ title $currentSec }} &ndash; {{ .Site.Title }}
 {{ end }}
 {{ define "main" }}
-  <article class="section article">
+{{- $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
+  <article class="{{if ne $currentSec "euler" }}section{{end}} article {{if eq $currentSec "euler"}}euler{{end}}">
     {{ partial "blog-header.html" . -}}
     <div id="content">
       <section>
-        {{ $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
         {{ if eq $currentSec "blog" }}
           {{- partial "blog-listing.html" . -}}
         {{ else if eq $currentSec "euler" }}
-          {{- partial "euler/home-progress.html" -}}
+          {{- partial "euler/progress.html" . -}}
         {{ else }}
           {{- partial "category-listing.html" . -}}
-        {{ end }}  
+        {{ end }}
       </section>
       </div>
   </article>

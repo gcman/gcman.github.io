@@ -6,16 +6,16 @@
       <section>
         {{ $currentTag := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
         {{ range $name,$taxonomy := .Site.Taxonomies.categories }}
-        <h2>{{ title $name }} <strong>/ {{ index $.Site.Data.flavour $name }}</strong></h2>
+        {{ $s := newScratch }}
+        {{ $s.Set "pages" (where (intersect (index $.Site.Taxonomies.tags $currentTag) $taxonomy) "Kind" "page") }}
+        {{ with $s.Get "pages"  }}
+        <h2>{{ index (index $.Site.Data.flavour $name) "name" }} <strong>/ {{ index (index $.Site.Data.flavour $name) "flavour" }} </strong></h2>
         <table>
-          {{ range $.Site.RegularPages}}
-            {{ if in .Params.categories $name }}
-              {{ if in .Params.tags $currentTag }}
-                {{ partial "index-row.html" . }}
-              {{ end }}
-            {{ end }}
+          {{ range . }}
+            {{ partial "index-row.html" . }}
           {{ end }}
         </table>
+        {{ end }}
         {{ end }}
       </section>
     </div>

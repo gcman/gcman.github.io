@@ -1,10 +1,10 @@
-{{ range $name,$taxonomy := .Site.Taxonomies.categories }}
-  <h2>{{ title $name }} <strong>/ {{ index $.Site.Data.flavour $name }}</strong></h2>
-  <table>
-  {{ range $.Site.RegularPages}}
-    {{ if in .Params.categories $name }}
-        {{ partial "index-row.html" . }}
+{{- $s := newScratch }}
+{{ range $data := sort .Site.Data.flavour "pos" }}
+{{- $s.Set "pages" (where (index $.Site.Taxonomies.categories .key) "Kind" "page") }}
+<h2>{{ .name }} <strong>/ {{ .flavour }} </strong></h2>
+<table>
+    {{ range $s.Get "pages" }}
+      {{ partial "index-row.html" . }}
     {{ end }}
-  {{ end }}
   </table>
 {{ end }}

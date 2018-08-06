@@ -40,7 +40,7 @@
 {{ else }}
   {{ $scratch.Set "lastMax" mod $max 100 }}
 {{ end }}
-{{ range $idx, $block := (seq (math.Ceil (div $max 100.0))) }}
+{{ range $idx, $block := (seq (math.Ceil (div 100 100.0))) }}
   <table class="map euler">
     {{ range $idx2, $row := (seq 5) }}
       {{ if le ($scratch.Get "num") $max }}
