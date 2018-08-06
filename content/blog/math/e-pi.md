@@ -53,7 +53,7 @@ And so \\(e^{\frac{1}{e}} > \pi^{\frac{1}{\pi}}\\), which shows that \\(e^\pi > 
 If we use the inequality \\(1 + x < e^x\\) (I will present three proofs of this below), then a very simple solution presents itself.
 The equality holds for all \\(x\\), but we only require it to hold for positive \\(x\\).
 Make the substitution \\(x = \frac{\pi}{e} - 1\\), in an effort to cancel out the 1 on the right side of the inequality and introduce \\(\pi\\).
-Because \\(\pi>e\\), \\(\frac{\pi}{e} - 1 > 0\\), and so
+Because \\(\pi > e\\), \\(\frac{\pi}{e} - 1 > 0\\), and so
 
 \begin{equation}
     \begin{split}
@@ -110,7 +110,7 @@ This gives \\(\sqrt[n]{1+x} < 1 + \frac{x}{n}\\).
 Raising both sides to the $n$-th power gives
 
 \begin{equation}
- 1 + x < \left(1 + \frac{x}{n}\right)^n.
+    1 + x < \left(1 + \frac{x}{n}\right)^n.
 \end{equation}
 
 Taking the limit as \\(n\\) approaches \\(\infty\\) on both sides yields
