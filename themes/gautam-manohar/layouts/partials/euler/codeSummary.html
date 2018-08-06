@@ -11,7 +11,7 @@
 <div class="euler-code">
   {{- $code }}
 </div>
-<p>This code has {{- $comments }} comments and {{- $empty }} empty lines.</p>
+<p>This code has {{ $comments }} comments and {{ $empty }} empty lines.</p>
 
 {{- if and (index (index $meta $num) "runtime") (index (index $meta $num) "memory") }}
   {{- $time := int (index (index $meta $num) "runtime") }}
