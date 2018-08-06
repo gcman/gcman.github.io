@@ -20,8 +20,12 @@
 
   <!--[if lt IE 7]>
           <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
-  <link rel="stylesheet" href="css/index.css" type="text/css" />
-  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-MML-AM_CHTML"></script>
+
+  {{ $normalize := resources.Get "sass/normalize.min.scss" }}
+  {{ $index := resources.Get "sass/index.scss" }}
+  {{ $style := slice $normalize $index | resources.Concat "sass/index-style.scss" | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}">
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 
 <body>
@@ -101,11 +105,6 @@ function myFunction() {
           availableFonts: [],
           preferredFont: null,
           webFont: "Latin-Modern"
-        }
-      });
-      MathJax.Hub.Config({
-        TeX: {
-          equationNumbers: {  autoNumber: "all"  },
         }
       });
   </script>

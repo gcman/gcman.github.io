@@ -4,7 +4,8 @@
     {{- partial "header/meta.html"  . -}}
     <title>{{ block "title" . -}}{{ .Title | default .Site.Title }} &ndash; {{ .Site.Title }}{{- end -}}</title>
     {{- partial "header/favicons.html" . }}
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/all.css" type="text/css" />
+    {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
     {{- partial "header/mathjax.html" . -}}
     {{ if in .Params.categories "chemistry" }}
     {{- partial "header/mathjax-chemistry.html" -}}
