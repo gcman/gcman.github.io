@@ -50,4 +50,4 @@
 
 <h2 id="Difficulty">Difficulty</h2>
 {{- $s.Set "hrnum" (printf "%03d" $num) }}
-<p><a href="https://projecteuler.net/problem={{- $num }}">Project Euler</a> ranks this problem at {{- $diff }}% difficulty (out of 100%). <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler{{- $s.Get "hrnum" }}">HackerRank</a> classifies this problem as {{- lower $hrdiff }}.</p>
+<p><a href="https://projecteuler.net/problem={{- $num }}">Project Euler</a> ranks this problem at {{ $diff }}% difficulty (out of 100%). <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler{{- $s.Get "hrnum" }}">HackerRank</a> classifies this problem as {{ lower $hrdiff }}.</p>
