@@ -7,7 +7,7 @@
 {{- $hrdiff := index (index $meta $num) "hrdifficulty" }}
 {{- $s := newScratch }}
 
-<h1 id="my-code">My Code</h1>
+<h2 id="my-code">My Code</h2>
 <div class="euler-code">
   {{- $code }}
 </div>
@@ -16,7 +16,7 @@
 {{- if and (index (index $meta $num) "runtime") (index (index $meta $num) "memory") }}
   {{- $time := int (index (index $meta $num) "runtime") }}
   {{- $mem := int (index (index $meta $num) "memory") }}
-  <h1 id="Performance">Performance</h1>
+  <h2 id="Performance">Performance</h2>
   {{- if lt $time 100 }}
     {{- $s.Set "speedclass" "fast" }}
     {{- $s.Set "time" "less than 0.1&#8239;s" }}
@@ -48,6 +48,6 @@
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="{{- $s.Get "speedclass" }}">{{- htmlUnescape ($s.Get "time") }}</span> with a peak memory usage of <span style="font-weight: bold" class="{{- $s.Get "memclass" }}">{{- htmlUnescape ($s.Get "mem") }}</span>.</p>
 {{- end }}
 
-<h2 id="Difficulty">Difficulty</h2>
+<h3 id="Difficulty">Difficulty</h3>
 {{- $s.Set "hrnum" (printf "%03d" $num) }}
 <p><a href="https://projecteuler.net/problem={{- $num }}">Project Euler</a> ranks this problem at {{ $diff }}% difficulty (out of 100%). <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler{{- $s.Get "hrnum" }}">HackerRank</a> classifies this problem as {{ lower $hrdiff }}.</p>
