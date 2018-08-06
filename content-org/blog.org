@@ -40,7 +40,7 @@ Speaking of time, when I have some lying around, I like to practice my handwriti
 :END:
 ** Math                                                              :@math: 
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: math
+:EXPORT_HUGO_SECTION: blog/math
 :END:
 *** Math Index
 :PROPERTIES:
@@ -143,7 +143,7 @@ I get the feeling that there are many other ways to attack this problem.
 If you can solve it with a method that I have not shown, please let me know!
 ** Euler                                                            :@euler:
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: euler
+:EXPORT_HUGO_SECTION: blog/euler
 :END:
 *** Euler Index
 :PROPERTIES:
