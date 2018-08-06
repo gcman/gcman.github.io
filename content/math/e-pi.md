@@ -16,14 +16,14 @@ I'd like to discuss my solutions.
 
 ## Differentiation {#differentiation}
 
-We shall perform the same operations on the two expressions:
+We shall perform the same operations on the two expressions.
 
 \begin{equation}
-	\begin{split}
-		e^\pi &\odot \pi^e \\\\\\
-		e^{\frac{\pi}{e}} &\odot \pi^{\frac{e}{e}} \\\\\\
-		e^{\frac{1}{e}} &\odot \pi^{\frac{1}{\pi}}.
-	\end{split}
+    \begin{split}
+        e^{\pi} &\odot \pi^e \\\\\\
+        e^{\frac{\pi}{e}} &\odot \pi^{\frac{e}{e}} \\\\\\
+        e^{\frac{1}{e}} &\odot \pi^{\frac{1}{\pi}}
+    \end{split}
 \end{equation}
 
 To show that \\(e^\pi > \pi^e\\), it suffices to show that \\(e^{\frac{1}{e}} > \pi^{\frac{1}{\pi}}\\).
@@ -56,12 +56,12 @@ Make the substitution \\(x = \frac{\pi}{e} - 1\\), in an effort to cancel out th
 Because \\(\pi>e\\), \\(\frac{\pi}{e} - 1 > 0\\), and so
 
 \begin{equation}
-	\begin{split}
-		1 + \frac{\pi}{e} - 1 &< e^{\frac{\pi}{e} - 1} \\\\\\
-		\pi\cdot\frac{1}{e} &< e^{\frac{\pi}{e}} \cdot \frac{1}{e} \\\\\\
+    \begin{split}
+        1 + \frac{\pi}{e} - 1 &< e^{\frac{\pi}{e} - 1} \\\\\\
+	    \pi\cdot\frac{1}{e} &< e^{\frac{\pi}{e}} \cdot \frac{1}{e} \\\\\\
 		\pi &< e^{\frac{\pi}{e}}\\\\\\
 		\pi^e &< e^\pi.
-	\end{split}
+    \end{split}
 \end{equation}
 
 Wonderful, isn't it?
@@ -74,7 +74,7 @@ We only prove the equality for positive \\(x\\).
 We know
 
 \begin{equation}
-	e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
+e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
 \end{equation}
 
 Thus for \\(x > 0\\), all the terms on the right side will be positive, and so \\(e^x > 1 + x\\).
@@ -96,12 +96,12 @@ It's a little less intuitive than the others, but I think it's beautiful.
 We use the arithmetic-geometric mean inequality.
 
 \begin{equation}
-       \begin{split}
-		\sqrt[n]{1+x} &= \sqrt[n]{\smash[b]{\underbrace{1\cdot1\cdots1}\_{\text{$n-1$ times}}\cdot(1+x)}} \\\\\[1em]
-		&\le \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}+(1+x)}{n} \\\\\\
-		&= \frac{\overbrace{1+\dotsb+1}^{\text{$n$ times}}+x}{n} \\\\\\
-		&= 1 + \frac{x}{n}.
-	\end{split}
+    \begin{split}
+	     \sqrt[n]{1+x} &= \sqrt[n]{\smash[b]{\underbrace{1\cdot1\cdots1}\_{\text{$n-1$ times}}\cdot(1+x)}} \\\\\[1em]
+	     &\le \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}+(1+x)}{n} \\\\\\
+	     &= \frac{\overbrace{1+\dotsb+1}^{\text{$n$ times}}+x}{n} \\\\\\
+	    &= 1 + \frac{x}{n}.
+    \end{split}
 \end{equation}
 
 Strict equality in the AM-GM inequality only holds when all the terms are equal.
@@ -110,18 +110,19 @@ This gives \\(\sqrt[n]{1+x} < 1 + \frac{x}{n}\\).
 Raising both sides to the $n$-th power gives
 
 \begin{equation}
-	1 + x < \left(1 + \frac{x}{n}\right)^n.
+ 1 + x < \left(1 + \frac{x}{n}\right)^n.
 \end{equation}
 
 Taking the limit as \\(n\\) approaches \\(\infty\\) on both sides yields
 
 \begin{equation}
-	\begin{split}
-		\lim\_{n\to\infty} (1 + x) &< \lim\_{n\to\infty} \left(1 + \frac{x}{n}\right)^n \\\\\\
-		1 + x &< e^x.
-	\end{split}
+    \begin{split}
+        \lim\_{n\to\infty} (1 + x) &< \lim\_{n\to\infty} \left(1 + \frac{x}{n}\right)^n \\\\\\
+        1 + x &< e^x.
+    \end{split}
 \end{equation}
 
 Using the limit definition of \\(e\\), we conclude our proof.
 
-I get the feeling that there are many other ways to attack this problem. If you can solve it with a method that I have not shown, please let me know!
+I get the feeling that there are many other ways to attack this problem.
+If you can solve it with a method that I have not shown, please let me know!
