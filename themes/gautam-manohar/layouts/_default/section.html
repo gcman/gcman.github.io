@@ -10,6 +10,8 @@
         {{ $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
         {{ if eq $currentSec "blog" }}
           {{- partial "blog-listing.html" . -}}
+        {{ else if eq $currentSec "euler" }}
+          {{- partial "euler/home-progress.html" -}}
         {{ else }}
           {{- partial "category-listing.html" . -}}
         {{ end }}  
