@@ -154,7 +154,7 @@ Here is a complete summary of my progress in solving problems on Project Euler a
 :PROPERTIES:
 :EXPORT_FILE_NAME: 1
 :EXPORT_DATE: 2018-06-09
-:EXPORT_DESCRIPTION: My fully commented Python solution to Problem 1 of Project Euler and ProjectEuler+ on HackerRank.
+:EXPORT_DESCRIPTION: My fully commented solution to Problem 1 on Project Euler and ProjectEuler+ on HackerRank.
 :END:
 **** Problem Statement
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
