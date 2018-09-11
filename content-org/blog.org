@@ -1,7 +1,6 @@
 #+HUGO_BASE_DIR: ../
 #+author: Gautam Manohar
 #+STARTUP: indent
-
 * Home
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: .
@@ -29,7 +28,6 @@ I'm a Grade 11 student at the [[https://utschools.ca][University of Toronto Scho
 My favourite number is 7, but perhaps it should be $n$: why consider one when you can consider them all?
 My favourite anime series in Steins;Gate, and my favourite infinite series is Fourier; it seems I like time.
 Speaking of time, when I have some lying around, I like to practice my handwriting and calligraphy, play table tennis, and watch basketball.
-
 * Blog
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: blog
@@ -38,7 +36,7 @@ Speaking of time, when I have some lying around, I like to practice my handwriti
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :END:
-** Math                                                              :@math: 
+** Math                                                                                         :@math:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: blog/math
 :END:
@@ -46,7 +44,7 @@ Speaking of time, when I have some lying around, I like to practice my handwriti
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :END:
-*** Comparing $e^\pi$ and $\pi^e$                            :calculus:proof:
+*** Comparing $e^\pi$ and $\pi^e$                                                     :calculus:proof:
 :PROPERTIES:
 :EXPORT_FILE_NAME: e-pi
 :EXPORT_DATE: 2018-02-01
@@ -141,7 +139,7 @@ Using the limit definition of $e$, we conclude our proof.
 
 I get the feeling that there are many other ways to attack this problem.
 If you can solve it with a method that I have not shown, please let me know!
-** Euler                                                            :@euler:
+** Euler                                                                                       :@euler:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: blog/euler
 :END:
@@ -150,7 +148,7 @@ If you can solve it with a method that I have not shown, please let me know!
 :EXPORT_FILE_NAME: _index
 :END:
 Here is a complete summary of my progress in solving problems on Project Euler and their upgraded versions on ProjectEuler+ at HackerRank.
-*** Problem 1 - Multiples of 3 or 5                              :identity:
+*** Problem 1 - Multiples of 3 or 5                                                         :identity:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 1
 :EXPORT_DATE: 2018-06-09
@@ -192,7 +190,7 @@ The complexity of this solution is $O(1)$, because our answer is just a computat
 A brute-force solution that adds each number $i$ from 1 to $n-1$ to a count if $i$ is divisible by 3 /or/ 5 would have time complexity $O(n)$.
 With the large input sizes of the Hackerrank problem ($n \le 10^9$) this solution is too slow, but it easily passes the original Project Euler problem.
 * Footnotes
-* COMMENT Local Variables                                                   :ARCHIVE:
+* COMMENT Local Variables                                                                      :ARCHIVE:
 # Local Variables:
-# eval: (add-hook 'after-save-hook #'org-hugo-export-wim-to-md-after-save :append :local)
+# org-hugo-auto-export-on-save: t
 # End:
