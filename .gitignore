@@ -1,5 +1,7 @@
 public/
 resources/
+content/
+content-org/ltximg/
 *~*
 *#*
 *.pyc
