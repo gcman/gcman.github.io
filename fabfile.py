@@ -110,3 +110,4 @@ def make_figures():
                     print("Creating PNG from {}".format(bare(REL_FILE)+".pdf"))
                     mkdir(os.path.join(IMG_DIR,REL_DIR))
                     call("convert -quiet -density 800 -background none -antialias " + bare(file)+".pdf" + " -channel rgba -alpha on -quality 2500 -trim png32:" + os.path.join(IMG_DIR,bare(REL_FILE)+".png"),shell=True)
+            os.chdir(ROOT)
