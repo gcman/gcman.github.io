@@ -108,7 +108,7 @@ def make_figures():
                     call(["latexmk","-shell-escape","-pdf","-quiet",file])
                     call(["latexmk", "-c",bare(file)+".pdf"])
                     call(["pdfcrop",bare(file)+".pdf",bare(file)+".pdf"])
-                    os.rename(bare(file)+".pdf",os.path.join(OUTPUT_DIR,bare(REL_FILE)+".pdf"))
                     print("Creating PNG from {}".format(bare(REL_FILE)+".pdf"))
                     call("convert -quiet -density 800 -background none -antialias " + bare(file)+".pdf" + " -channel rgba -alpha on -quality 2500 -trim png32:" + os.path.join(IMG_DIR,bare(REL_FILE)+".png"),shell=True)
+                    os.rename(bare(file)+".pdf",os.path.join(OUTPUT_DIR,bare(REL_FILE)+".pdf"))
             os.chdir(ROOT)

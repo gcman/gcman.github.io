@@ -5,3 +5,5 @@ content-org/ltximg/
 *~*
 *#*
 *.pyc
+*.table
+*.gnuplot
