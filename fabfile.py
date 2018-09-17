@@ -1,5 +1,6 @@
 import os
 from fabric import api
+from git import Repo
 from yaml import load,dump
 from subprocess import call
 from pygments import highlight
@@ -10,6 +11,31 @@ ROOT = os.path.abspath(os.path.dirname(__file__))
 EULER_CONTENT_DIR = os.path.join(ROOT,"content/blog/euler/")
 EULER_DATA_DIR = os.path.join(ROOT,"data/euler/")
 
+repo = Repo(ROOT)
+assert not repo.bare
+untracked = [os.path.basename(x) for x in [item.a_path for item in repo.index.diff(None)]]
+staged = [os.path.basename(x) for x in [item.a_path for item in repo.index.diff("HEAD")]]
+diff = untracked + staged
+
+def ext(f):
+    return os.path.splitext(f)[-1].lower()
+
+def bare(f):
+    return "".join(os.path.splitext(f)[:-1])
+
+def remove_prefix(text, prefix):
+	if text.startswith(prefix):
+		return text[len(prefix):]
+	return text
+
+def rmdir(dirname):
+	if os.path.isdir(dirname):
+		shutil.rmtree(dirname)
+
+def mkdir(dirname):
+	if not os.path.exists(dirname):
+		os.mkdir(dirname)
+
 def load_euler_data():
     with open(os.path.join(EULER_DATA_DIR,"problemData.yaml"),"r") as f:
 	return load(f)
@@ -17,7 +43,7 @@ def load_euler_data():
 def save_euler_data(data):
     with open(os.path.join(EULER_DATA_DIR,"problemData.yaml"), 'w') as f:
 	dump(data,f)
-        
+
 def build_solutions():
     DATA = load_euler_data()
     with open(os.path.join(EULER_DATA_DIR,"hrDifficulty.yaml"),"r") as f:
@@ -63,3 +89,24 @@ def euler(sol=None):
     if sol:
 	call(["python3.6", os.path.join(ROOT,"scripts/euler/runtime.py"), str(sol)])
     build_solutions()
+
+def make_figures():
+    CONTENT_DIR = os.path.join(ROOT,"figures/src")
+    OUTPUT_DIR = os.path.join(ROOT,"figures/pdf")
+    IMG_DIR = os.path.join(ROOT,"static/img")
+    mkdir(OUTPUT_DIR)
+    for subdir, dirs, files in os.walk(CONTENT_DIR):
+        for file in files:
+            REL_DIR = remove_prefix(subdir,CONTENT_DIR)[1:]
+            REL_FILE = os.path.join(REL_DIR, file)
+            if ext(file) == ".tex":
+                if (file in diff or not os.path.isfile(os.path.join(os.path.join(OUTPUT_DIR,REL_DIR),bare(file)+".pdf"))) and not os.path.isfile(os.path.join(os.path.join(CONTENT_DIR,REL_DIR),bare(file)+".pdf")):
+                    print("Building {}".format(REL_FILE))
+                    os.chdir(os.path.join(CONTENT_DIR,REL_DIR))
+                    call(["latexmk","-shell-escape","-pdf","-quiet","-output-directory="+os.path.join(OUTPUT_DIR,REL_DIR),file])
+                    os.chdir(os.path.join(OUTPUT_DIR,REL_DIR))
+                    call(["latexmk", "-c",bare(file)+".pdf"])
+                    call(["pdfcrop",bare(file)+".pdf",bare(file)+".pdf"])
+                    print("Creating PNG from {}".format(bare(REL_FILE)+".pdf"))
+                    mkdir(os.path.join(IMG_DIR,REL_DIR))
+                    call("convert -quiet -density 800 -background none -antialias " + bare(file)+".pdf" + " -channel rgba -alpha on -quality 2500 -trim png32:" + os.path.join(IMG_DIR,bare(REL_FILE)+".png"),shell=True)

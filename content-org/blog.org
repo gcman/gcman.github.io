@@ -12,20 +12,20 @@ I'm Gautam.
 Welcome to my personal website.
 You can find my many curious, skeptical, and nerdy thoughts on my [[/blog/][blog]].
 
-I love mathematics, and I learn computer science and chemistry on the side.
+I love mathematics, and I learn about computer science, classics, and chemistry on the side.
 I firmly believe in the power of ideas.
 Interesting ideas come from all walks of life: academic subjects, learning a new language, meeting new people, or idle musings over a good cup of tea.
 Such ideas give my life colour and promise to occupy me for a lifetime.
 ** A good problem is never solved.
 The most fulfilling problems lead not just to answers that satisfy inquiry but to questions that further it.
 After all, what is an interesting idea without a question to inspire it?
-Questions are the ultimate companion to a lifelong learner (non-human, of course).
+Questions are the ultimate companion (non-human, of course) to a lifelong learner.
 They motivate me to rejoice in spite of failure and work hard in spite of success.
 The path paved by interesting questions never ends---and that's what's so exciting about it!
 ** Here's some more about me.
-I'm a Grade 11 student at the [[https://utschools.ca][University of Toronto Schools (UTS)]].
-My favourite number is 7, but perhaps it should be $n$: why consider one when you can consider them all?
-My favourite anime series in Steins;Gate, and my favourite infinite series is Fourier; it seems I like time.
+I'm a Grade 12 student at the [[https://utschools.ca][University of Toronto Schools (UTS)]].
+My favourite number is 7, but perhaps it should be $n$: why pick one when you can consider them all?
+My favourite (and unfortunately finite) anime series is Steins;Gate, and my favourite infinite series is Fourier; it seems I like time (and semicolons).
 Speaking of time, when I have some lying around, I like to practice my handwriting and calligraphy, play table tennis, and watch basketball.
 * Blog
 :PROPERTIES:
@@ -187,7 +187,7 @@ The complexity of this solution is $O(1)$, because our answer is just a computat
 ***** Other Solutions
 A brute-force solution that adds each number $i$ from 1 to $n-1$ to a count if $i$ is divisible by 3 /or/ 5 would have time complexity $O(n)$.
 With the large input sizes of the Hackerrank problem ($n \le 10^9$) this solution is too slow, but it easily passes the original Project Euler problem.
-* Footnotes
+* ​Footnotes
 * COMMENT Local Variables                                           :ARCHIVE:
 # Local Variables:
 # org-hugo-auto-export-on-save: t
