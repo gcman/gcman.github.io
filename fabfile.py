@@ -102,12 +102,13 @@ def make_figures():
             if ext(file) == ".tex":
                 if (file in diff or not os.path.isfile(os.path.join(os.path.join(OUTPUT_DIR,REL_DIR),bare(file)+".pdf"))) and not os.path.isfile(os.path.join(os.path.join(CONTENT_DIR,REL_DIR),bare(file)+".pdf")):
                     print("Building {}".format(REL_FILE))
+                    mkdir(os.path.join(OUTPUT_DIR,REL_DIR))
+                    mkdir(os.path.join(IMG_DIR,REL_DIR))
                     os.chdir(os.path.join(CONTENT_DIR,REL_DIR))
-                    call(["latexmk","-shell-escape","-pdf","-quiet","-output-directory="+os.path.join(OUTPUT_DIR,REL_DIR),file])
-                    os.chdir(os.path.join(OUTPUT_DIR,REL_DIR))
+                    call(["latexmk","-shell-escape","-pdf","-quiet",file])
                     call(["latexmk", "-c",bare(file)+".pdf"])
                     call(["pdfcrop",bare(file)+".pdf",bare(file)+".pdf"])
+                    os.rename(bare(file)+".pdf",os.path.join(OUTPUT_DIR,bare(REL_FILE)+".pdf"))
                     print("Creating PNG from {}".format(bare(REL_FILE)+".pdf"))
-                    mkdir(os.path.join(IMG_DIR,REL_DIR))
                     call("convert -quiet -density 800 -background none -antialias " + bare(file)+".pdf" + " -channel rgba -alpha on -quality 2500 -trim png32:" + os.path.join(IMG_DIR,bare(REL_FILE)+".png"),shell=True)
             os.chdir(ROOT)
