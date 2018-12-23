@@ -3,7 +3,11 @@ languageCode: "en-us"
 title: "Gautam Manohar"
 theme: "gautam-manohar"
 MetaDataFormat: "yaml"
+pygmentsCodeFences: true
+pygmentsUseClasses: true
 params:
   author: "Gautam Manohar"
   googleAnalytics: UA-115904815-1
   eulerMax: 100
+permalinks:
+  math: /:title/

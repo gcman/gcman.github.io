@@ -33,7 +33,7 @@
   </tr>
 </table>
 {{ $s := newScratch }}
-{{ $s.Set "max" (int (index (split (index (split (index (sort (where (index $.Site.Taxonomies.categories "euler") "Kind" "page")) 0).Title " - ") 0) "Problem ") 1)) }}
+{{ $s.Set "max" (int (index (split (index (split (index (sort (where (index $.Site.Taxonomies.categories "euler") "Kind" "page")) 0).Title ": ") 0) "Problem ") 1)) }}
 {{ $s.Set "num" 0 }}
 {{ if modBool ($s.Get "max") 100 }}
   {{ $s.Set "lastMax" 100 }}
@@ -48,7 +48,7 @@
           {{ range $idx3, $cell := (seq 20) }}
             {{ $s.Set "num" (add 1 (add (add (mul $idx 100) (mul $idx2 20)) $idx3)) }}
               {{ if le ($s.Get "num") (mul 20 (math.Ceil (div ($s.Get "max") 20.0))) }}
-                {{ $s.Set "path" (printf "blog/euler/%d" ($s.Get "num")) }}
+                {{ $s.Set "path" (printf "euler/%d" ($s.Get "num")) }}
                   {{ if (fileExists (printf "%s.md" ($s.Get "path"))) }}
                     {{ $s.Set "status" (($.Site.GetPage ($s.Get "path")).Params.status | default "dg" ) }}
                   {{ else }}
@@ -56,7 +56,7 @@
                   {{ end }}
                   {{ if le ($s.Get "num") ($s.Get "max") }}
                     <td class="{{ index $.Site.Data.euler.colourCodes ($s.Get "status") }}">
-                      <a href="{{ $s.Get "path" | absURL }}">{{ $s.Get "num" }}</a>
+                      <a title="{{ with $.Site.GetPage ($s.Get "path") }}{{.Title}}{{ end }}" href="{{ $s.Get "path" | absURL }}">{{ $s.Get "num" }}</a>
                     </td>
                   {{ else }}
                     <td></td>

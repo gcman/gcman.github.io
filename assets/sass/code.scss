@@ -8,7 +8,7 @@ p code {
   font-size: 0.9em;
 }
 
-.highlighttable {
+.highlighttable, .lntable {
   width: 100%;
   padding: 0;
   margin: 10px 0 10px 0;
@@ -19,12 +19,19 @@ p code {
   overflow-x: auto;
 }
 
-td.linenos {
+td.linenos, td.lntd:first-child {
   border-right: 1px solid #93a1a1;
-  padding-left: 7px;
-  padding-right: 4px;
   white-space: nowrap;
   color: #93a1a1;
+  padding-right: 4px;
+}
+
+td.lntd:last-child {
+  padding-left: 12px;
+}
+
+td.linenos {
+  padding-left: 7px;
 }
 
 td.code {
@@ -46,10 +53,21 @@ td.code {
 
 .highlight pre {
   line-height: 1.3em;
-  padding: 15px 0 5px 15px;
   tab-size: 4;
+}
+
+.highlighttable .highlight pre {
+  padding: 15px 0 5px 15px;
 }
 
 .linenodiv pre{
   line-height: 1.3em;
+}
+
+.chroma code > :first-child {
+  margin-left: -2px;
+}
+
+.chroma pre {
+  padding: 15px 0 15px 5px;
 }

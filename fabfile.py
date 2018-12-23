@@ -8,7 +8,7 @@ from pygments.lexers import PythonLexer
 from pygments.formatters import HtmlFormatter
 
 ROOT = os.path.abspath(os.path.dirname(__file__))
-EULER_CONTENT_DIR = os.path.join(ROOT,"content/blog/euler/")
+EULER_CONTENT_DIR = os.path.join(ROOT,"content/euler/")
 EULER_DATA_DIR = os.path.join(ROOT,"data/euler/")
 
 repo = Repo(ROOT)
@@ -49,8 +49,8 @@ def build_solutions():
     with open(os.path.join(EULER_DATA_DIR,"hrDifficulty.yaml"),"r") as f:
 	dt = load(f)
     diff = {"m":"Medium","h":"Hard","a":"Advanced","e":"Expert"}
-    for i in range(1,max(dt.keys())+1):
-	DATA[str(i)]["hrdifficulty"] = diff[dt[i]] if i in dt else "Easy"
+    for i in range(1,max([int(x) for x in dt.keys()])+1):
+	DATA[str(i)]["hrdifficulty"] = diff[dt[str(i)]] if str(i) in dt else "Easy"
     for x in [y for y in DATA if "path" in DATA[y]]:
 	dir = DATA[x]["path"]
         path = os.path.join(ROOT,"scripts/euler/euler-solutions/" + dir + "/main.py")
