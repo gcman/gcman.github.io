@@ -1,10 +1,7 @@
 {{- $s := newScratch }}
-{{ range $data := sort .Site.Data.flavour "pos" }}
-{{- $s.Set "pages" (where (index $.Site.Taxonomies.categories .key) "Kind" "page") }}
-<h2>{{ .name }} <strong>/ {{ .flavour }} </strong></h2>
+{{- $s.Set "pages" (where $.Site.Pages "Kind" "page") }}
 <table>
     {{ range $s.Get "pages" }}
       {{ partial "index-row.html" . }}
     {{ end }}
-  </table>
-{{ end }}
+</table>

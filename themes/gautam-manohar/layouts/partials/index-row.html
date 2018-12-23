@@ -1,11 +1,11 @@
-<tr>
+<tr class="post">
   <td>
-    <a title="{{ .Params.shorttitle | default .Params.title }}" href="{{ .Permalink }}">
-      {{ .Title }}{{- with .Params.subtitle -}}: {{ . }}{{- end -}}
-      <strong id="tags">{{- partial "taglist.html" . -}}</strong>
-    </a>
-  </td>
-  <td id="date">
+   <span id="date">
     {{ dateFormat "2 January 2006" .Date }}
+  </span>
+    <h2><a title="{{ .Params.shorttitle | default .Params.title }}" href="{{ .Permalink }}">
+      {{ .Title }}{{- with .Params.subtitle -}}: {{ . }}{{- end -}}</a></h2>
+    <a><strong id="tags">{{- partial "taglist.html" . -}}</strong></a>
+    <p id="description">{{.Description}}</p>
   </td>
 </tr>

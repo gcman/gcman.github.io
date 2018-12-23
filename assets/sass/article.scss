@@ -1,11 +1,11 @@
 .article {
   position: absolute;
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
   top: 0; left: 0; bottom: 0; right: 0;
   padding: 5% 5% 0 5%;
   line-height: 1.5em;
-  
+
   h1.title {
     font-size: 2.25em;
     text-align: center;
@@ -26,10 +26,6 @@
       margin-top: -0.75em;
     font-size: 1.125em;
     font-style: normal;
-    }
-    address.author {
-      margin-top: 2em;
-      font-style: normal;
     }
     .date {
       font-size: .75em;
@@ -52,7 +48,7 @@
    float: left;
    width: 33.33333%;
    text-align: right;
-  }​
+  }
 
   .tag {
     font-variant: normal;

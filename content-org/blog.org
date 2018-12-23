@@ -6,27 +6,27 @@
 :EXPORT_FILE_NAME: _index
 :END:
 ** Voraciously curious. Ceaselessly skeptical. Unabashedly nerdy.
-If any of these terms describe you, then great!
-You're in the right place.
-I'm Gautam.
-Welcome to my personal website.
-You can find my many curious, skeptical, and nerdy thoughts on my [[/blog/][blog]].
+I'm Gautam. Welcome to my little corner of the web. You can take a look inside
+my curious, skeptical, and nerdy brain on my [[/blog/][blog]].
 
-I love mathematics, and I learn about computer science, classics, and chemistry on the side.
-I firmly believe in the power of ideas.
-Interesting ideas come from all walks of life: academic subjects, learning a new language, meeting new people, or idle musings over a good cup of tea.
-Such ideas give my life colour and promise to occupy me for a lifetime.
+I firmly believe in the power of ideas. Interesting ideas come from
+all walks of life: academic subjects, learning a new language, meeting new
+people, or idle musings over a good cup of tea. Such ideas give my life colour
+and promise to occupy me for a lifetime.
 ** A good problem is never solved.
-The most fulfilling problems lead not just to answers that satisfy inquiry but to questions that further it.
-After all, what is an interesting idea without a question to inspire it?
-Questions are the ultimate companion (non-human, of course) to a lifelong learner.
-They motivate me to rejoice in spite of failure and work hard in spite of success.
-The path paved by interesting questions never ends---and that's what's so exciting about it!
+The most fulfilling problems lead not just to answers that satisfy inquiry but
+to questions that further it. After all, what is an interesting idea without a
+question to inspire it? Questions are the ultimate companion (non-human, of
+course) to a lifelong learner. They motivate me to rejoice in spite of failure
+and work hard in spite of success. The path paved by interesting questions never
+ends---and that's what's so exciting about it!
 ** Here's some more about me.
-I'm a Grade 12 student at the [[https://utschools.ca][University of Toronto Schools (UTS)]].
-My favourite number is 7, but perhaps it should be $n$: why pick one when you can consider them all?
-My favourite (and unfortunately finite) anime series is Steins;Gate, and my favourite infinite series is Fourier; it seems I like time (and semicolons).
-Speaking of time, when I have some lying around, I like to practice my handwriting and calligraphy, play table tennis, and watch basketball.
+I'm a Grade 12 student at the [[https://utschools.ca][University of Toronto Schools (UTS)]]. My favourite
+number is 7, but perhaps it should be $n$: why pick one when you can consider
+them all? My favourite (and unfortunately finite) anime series is Steins;Gate,
+and my favourite infinite series is Fourier; it seems I like time (and
+semicolons). Speaking of time, when I have some lying around, I like to practice
+my handwriting and calligraphy, play table tennis, and watch basketball.
 * Blog
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: blog
@@ -50,9 +50,10 @@ Speaking of time, when I have some lying around, I like to practice my handwriti
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :shorttitle "Comparing Powers of e and pi"
 :EXPORT_DESCRIPTION: "Which is greater: e^pi or pi^e? I solve this puzzle with differentiation, Taylor series, concavity, and the arithmetic-geometric mean inequality."
 :END:
-The constants $e$ and $\pi$ are everywhere in mathematics.
-Determining the greater of the two expressions $e^\pi$ and $\pi^e$ (without using a calculator, of course...) is a fun puzzle that you can approach in many ways.
-I'd like to discuss my solutions.
+The constants $e$ and $\pi$ are everywhere in mathematics. Determining the
+greater of the two expressions $e^\pi$ and $\pi^e$ (without using a calculator,
+of course...) is a fun puzzle that you can approach in many ways. I'd like to
+discuss my solutions.
 **** Differentiation
 We shall perform the same operations on the two expressions.
 \begin{equation}
@@ -62,9 +63,9 @@ We shall perform the same operations on the two expressions.
         e^{\frac{1}{e}} &\odot \pi^{\frac{1}{\pi}}
     \end{split}
 \end{equation}
-To show that $e^\pi > \pi^e$, it suffices to show that $e^{\frac{1}{e}} > \pi^{\frac{1}{\pi}}$.
-Let $y = x^{\frac{1}{x}}$.
-Then we can implicitly differentiate to find the critical points.
+To show that $e^\pi > \pi^e$, it suffices to show that $e^{\frac{1}{e}} >
+\pi^{\frac{1}{\pi}}$. Let $y = x^{\frac{1}{x}}$. Then we can implicitly
+differentiate to find the critical points.
 \begin{equation}
 	\begin{split}
 		\ln{y} &= \ln{x^{\frac{1}{x}}} \\
@@ -74,17 +75,20 @@ Then we can implicitly differentiate to find the critical points.
 		y' &= x^{\frac{1}{x}}\frac{1 - \ln{x}}{x^2}.
 	\end{split}
 \end{equation}
-The expressions $x^{\frac{1}{x}}$ and $x^2$ are always positive, so there is only critical point: when $1 - \ln{x} = 0$, or when $x = e$.
-We must find whether this point is a global minimum or a maximum.
-When $x = 1 < e$, we have $1 - \ln{x} = 1$, so the function is increasing.
-The value $x = e^2 > e$ gives $1 - \ln{x} = -1$, which means the function is decreasing.
-Thus $x^{\frac{1}{x}}$ has a global maximum at $x = e$.
-And so $e^{\frac{1}{e}} > \pi^{\frac{1}{\pi}}$, which shows that $e^\pi > \pi^e$.
+The expressions $x^{\frac{1}{x}}$ and $x^2$ are always positive, so there is
+only critical point: when $1 - \ln{x} = 0$, or when $x = e$. We must find
+whether this point is a global minimum or a maximum. When $x = 1 < e$, we have
+$1 - \ln{x} = 1$, so the function is increasing. The value $x = e^2 > e$ gives
+$1 - \ln{x} = -1$, which means the function is decreasing. Thus
+$x^{\frac{1}{x}}$ has a global maximum at $x = e$. And so $e^{\frac{1}{e}} >
+\pi^{\frac{1}{\pi}}$, which shows that $e^\pi > \pi^e$.
 **** Inequality
-If we use the inequality $1 + x < e^x$ (I will present three proofs of this below), then a very simple solution presents itself.
-The equality holds for all $x$, but we only require it to hold for positive $x$.
-Make the substitution $x = \frac{\pi}{e} - 1$, in an effort to cancel out the 1 on the right side of the inequality and introduce $\pi$.
-Because $\pi > e$, $\frac{\pi}{e} - 1 > 0$, and so
+If we use the inequality $1 + x < e^x$ (I will present three proofs of this
+below), then a very simple solution presents itself. The equality holds for all
+$x$, but we only require it to hold for positive $x$. Make the substitution $x =
+\frac{\pi}{e} - 1$, in an effort to cancel out the 1 on the right side of the
+inequality and introduce $\pi$. Because $\pi > e$, $\frac{\pi}{e} - 1 > 0$, and
+so
 \begin{equation}
     \begin{split}
         1 + \frac{\pi}{e} - 1 &< e^{\frac{\pi}{e} - 1} \\
@@ -95,23 +99,22 @@ Because $\pi > e$, $\frac{\pi}{e} - 1 > 0$, and so
 \end{equation}
 Wonderful, isn't it?
 ***** Taylor Series
-This is the most standard proof I have; I think it's the least exciting.
-We only prove the equality for positive $x$.
-We know
+This is the most standard proof I have; I think it's the least exciting. We only
+prove the equality for positive $x$. We know
 \begin{equation}
 e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
 \end{equation}
-Thus for $x > 0$, all the terms on the right side will be positive, and so $e^x > 1 + x$.
+Thus for $x > 0$, all the terms on the right side will be positive, and so $e^x
+> 1 + x$.
 ***** Concavity
-This method requires a little more "geometric intuition" than the last.
-At $x = 0$, we have $e^x = 1$.
-At this point $(0,1)$, the tangent line to $e^x$ has slope $1$ and has the equation $y = 1 + x$.
-Because $(e^x)'' = e^x > 0$, $e^x$ is always concave up, so it is always above its tangent line.
-Therefore, $1 + x < e^x$.
+This method requires a little more "geometric intuition" than the last. At $x =
+0$, we have $e^x = 1$. At this point $(0,1)$, the tangent line to $e^x$ has
+slope $1$ and has the equation $y = 1 + x$. Because $(e^x)'' = e^x > 0$, $e^x$
+is always concave up, so it is always above its tangent line. Therefore, $1 + x
+< e^x$.
 ***** AM-GM
-This is my favourite proof.
-It's a little less intuitive than the others, but I think it's beautiful.
-We use the arithmetic-geometric mean inequality.
+This is my favourite proof. It's a little less intuitive than the others, but I
+think it's beautiful. We use the arithmetic-geometric mean inequality.
 \begin{equation}
     \begin{split}
 	     \sqrt[n]{1+x} &= \sqrt[n]{\smash[b]{\underbrace{1\cdot1\cdots1}_{\text{$n-1$ times}}\cdot(1+x)}} \\\\[1em]
@@ -121,9 +124,9 @@ We use the arithmetic-geometric mean inequality.
     \end{split}
 \end{equation}
 Strict equality in the AM-GM inequality only holds when all the terms are equal.
-In this case, $x > 0$, so $1 + x \neq 1$, so we have strict inequality.
-This gives $\sqrt[n]{1+x} < 1 + \frac{x}{n}$.
-Raising both sides to the $n$-th power gives
+In this case, $x > 0$, so $1 + x \neq 1$, so we have strict inequality. This
+gives $\sqrt[n]{1+x} < 1 + \frac{x}{n}$. Raising both sides to the $n$-th power
+gives
 \begin{equation}
     1 + x < \left(1 + \frac{x}{n}\right)^n.
 \end{equation}
@@ -136,8 +139,8 @@ Taking the limit as $n$ approaches $\infty$ on both sides yields
 \end{equation}
 Using the limit definition of $e$, we conclude our proof.
 
-I get the feeling that there are many other ways to attack this problem.
-If you can solve it with a method that I have not shown, please let me know!
+I get the feeling that there are many other ways to attack this problem. If you
+can solve it with a method that I have not shown, please let me know!
 ** Euler                                                            :@euler:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: blog/euler
@@ -146,7 +149,8 @@ If you can solve it with a method that I have not shown, please let me know!
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :END:
-Here is a complete summary of my progress in solving problems on Project Euler and their upgraded versions on ProjectEuler+ at HackerRank.
+Here is a complete summary of my progress in solving problems on Project Euler
+and their upgraded versions on ProjectEuler+ at HackerRank.
 *** Problem 1 - Multiples of 3 or 5                              :identity:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 1
@@ -154,16 +158,15 @@ Here is a complete summary of my progress in solving problems on Project Euler a
 :EXPORT_DESCRIPTION: My fully commented solution to Problem 1 on Project Euler and ProjectEuler+ on HackerRank.
 :END:
 **** Problem Statement
-If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
-The sum of these multiples is 23.
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
+3, 5, 6 and 9. The sum of these multiples is 23.
 
 Find the sum of all the multiples of 3 or 5 below $n$.
 **** My Algorithm
 For the Project Euler problem, $n = 1000$.
 
-In general, the sum of the natural numbers up to $n$ is the $n$-th [[https://en.wikipedia.org/wiki/Triangular_number][triangular number]].
-Let's call this $T(n)$.
-A well known formula for this is
+In general, the sum of the natural numbers up to $n$ is the $n$-th [[https://en.wikipedia.org/wiki/Triangular_number][triangular
+number]]. Let's call this $T(n)$. A well known formula for this is
 \begin{equation}
 	T(n) = \sum_{i=1}^n i = \frac{n(n+1)}{2}.
 	\label{triangular-num}
@@ -173,20 +176,24 @@ The sum of all multiples of 3 below $n$ looks like this:
 	1\cdot3 + 2\cdot 3 + 3 \cdot 3 + \ldots + \floor{\frac{n-1}{3}} \cdot 3.
 	\label{3-list}
 \end{equation}
-We can factor 3 out and write \eqref{3-list} as $3T\floor{\frac{n-1}{3}}$, which we know how to find with \eqref{triangular-num}.
-We can do the same thing with 5.
+We can factor 3 out and write \eqref{3-list} as $3T\floor{\frac{n-1}{3}}$, which
+we know how to find with \eqref{triangular-num}. We can do the same thing
+with 5.
 
-But now we've overcounted!
-Each multiple of 15 under $n$ has been counted twice: once as a multiple of 3, then again as a multiple of 5.
-We can fix this by subtracting the sum of all multiples of 15 under $n$.
-And so our desired answer is
+But now we've overcounted! Each multiple of 15 under $n$ has been counted twice:
+once as a multiple of 3, then again as a multiple of 5. We can fix this by
+subtracting the sum of all multiples of 15 under $n$. And so our desired answer
+is
 \begin{equation}
 	3T\floor{\frac{n-1}{3}} + 5T\floor{\frac{n-1}{5}} - 15T\floor{\frac{n-1}{15}}.
 \end{equation}
-The complexity of this solution is $O(1)$, because our answer is just a computation.
+The complexity of this solution is $O(1)$, because our answer is just a
+computation.
 ***** Other Solutions
-A brute-force solution that adds each number $i$ from 1 to $n-1$ to a count if $i$ is divisible by 3 /or/ 5 would have time complexity $O(n)$.
-With the large input sizes of the Hackerrank problem ($n \le 10^9$) this solution is too slow, but it easily passes the original Project Euler problem.
+A brute-force solution that adds each number $i$ from 1 to $n-1$ to a count if
+$i$ is divisible by 3 /or/ 5 would have time complexity $O(n)$. With the large
+input sizes of the Hackerrank problem ($n \le 10^9$) this solution is too slow,
+but it easily passes the original Project Euler problem.
 * ​Footnotes
 * COMMENT Local Variables                                           :ARCHIVE:
 # Local Variables:

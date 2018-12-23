@@ -13,5 +13,14 @@
     {{- partial "header/google-analytics.html" . -}}
   </head>
   <body>
+    <div class="nav-wrapper">
+      <nav id="blog-top" class="fixed">
+        <ul>
+          <li><a href="{{ "./" | absURL }}">about</a></li>
+          <li><a href="{{ "./blog" | absURL }}">blog</a></li>
+          <li><a href="{{ "./contact-me" | absURL }}">contact</a></li>
+        </ul>
+      </nav>
+    </div>
     {{- block "main" . }}{{- end }}
 {{- partial "footer/main.html" . -}}

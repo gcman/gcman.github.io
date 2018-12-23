@@ -7,7 +7,6 @@
       <a href="{{ .Permalink }}" rel="bookmark" title ="Link to {{ .Params.shortttitle | default .Params.title }}">{{ .Params.subtitle | default .Params.title }}</a>
     </h1>
   {{ end }}
-  <address class="author">{{ .Site.Params.author }}</address>
   <div id="textbox">
     <p style="font-weight: bold;" class="alignleft">
       <a href="{{ .Site.BaseURL }}/blog/{{ index .Params.categories 0 }}/" title="Posts in section {{ index .Params.categories 0 }}">{{ index .Params.categories 0 }}</a>&nbsp;
@@ -15,5 +14,5 @@
     <p class="date aligncenter">{{ dateFormat "2 January 2006" .Date }}</p>
     <strong style="font-variant: normal;" class="alignright">{{- partial "taglist.html" . -}}</strong>
   </div>
-  <div style="clear: both;"></div>​
+  <div style="clear: both;"></div>
 </header>

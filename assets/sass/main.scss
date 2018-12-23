@@ -33,8 +33,8 @@ a {
   .math {color: firebrick;}
 }
 
-p { 
-  margin-bottom: 1ex; 
+p {
+  margin-bottom: 1ex;
 }
 
 ol {
@@ -116,4 +116,44 @@ th[role=columnheader]:not(.no-sort):after {
 th[role=columnheader]:not(.no-sort):hover:after {
   visibility: visible;
   opacity: 1;
+}
+
+.nav-wrapper {
+  height: 60px;
+  background-color: firebrick;
+}
+
+.nav-wrapper nav {
+  line-height: 60px;
+  background-color: firebrick;
+  padding: 0;
+}
+
+.nav-wrapper nav.fixed {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  top: 0;
+}
+
+nav {
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  padding: 0 0.4em;
+}
+
+nav li a {
+  opacity: 0.9;
+  font-variant: small-caps;
+  font-size: 1.45em;
+  color: ivory;
 }
