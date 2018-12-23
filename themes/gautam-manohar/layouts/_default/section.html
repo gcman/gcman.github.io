@@ -5,8 +5,7 @@
 {{ define "main" }}
 {{- $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
   <article class="{{if ne $currentSec "euler" }}section{{end}} article {{if eq $currentSec "euler"}}euler{{end}}">
-    {{ partial "blog-header.html" . -}}
-    <div id="content">
+     <div id="content">
       <section>
         {{ if eq $currentSec "blog" }}
           {{- partial "blog-listing.html" . -}}

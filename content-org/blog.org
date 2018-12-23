@@ -48,7 +48,7 @@ my handwriting and calligraphy, play table tennis, and watch basketball.
 :EXPORT_FILE_NAME: e-pi
 :EXPORT_DATE: 2018-02-01
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :shorttitle "Comparing Powers of e and pi"
-:EXPORT_DESCRIPTION: "Which is greater: e^pi or pi^e? I solve this puzzle with differentiation, Taylor series, concavity, and the arithmetic-geometric mean inequality."
+:EXPORT_DESCRIPTION: "Which is greater: e^pi or pi^e? No calculators allowed! I solve this puzzle with differentiation, Taylor series, concavity, and the AM-GM inequality."
 :END:
 The constants $e$ and $\pi$ are everywhere in mathematics. Determining the
 greater of the two expressions $e^\pi$ and $\pi^e$ (without using a calculator,
@@ -67,13 +67,13 @@ To show that $e^\pi > \pi^e$, it suffices to show that $e^{\frac{1}{e}} >
 \pi^{\frac{1}{\pi}}$. Let $y = x^{\frac{1}{x}}$. Then we can implicitly
 differentiate to find the critical points.
 \begin{equation}
-	\begin{split}
-		\ln{y} &= \ln{x^{\frac{1}{x}}} \\
-		\ln{y} &= \frac{\ln{x}}{x} \\
-		\diff{}{x}\ln{y} &= \diff{}{x}\frac{\ln{x}}{x} \\
-		\frac{1}{y}y' &= \frac{x\left(\frac{1}{x}\right) - \ln{x}\cdot1}{x^2} \\
-		y' &= x^{\frac{1}{x}}\frac{1 - \ln{x}}{x^2}.
-	\end{split}
+\begin{split}
+\ln{y} &= \ln{x^{\frac{1}{x}}} \\
+\ln{y} &= \frac{\ln{x}}{x} \\
+\diff{}{x}\ln{y} &= \diff{}{x}\frac{\ln{x}}{x} \\
+\frac{1}{y}y' &= \frac{x\left(\frac{1}{x}\right) - \ln{x}\cdot1}{x^2} \\
+y' &= x^{\frac{1}{x}}\frac{1 - \ln{x}}{x^2}.
+\end{split}
 \end{equation}
 The expressions $x^{\frac{1}{x}}$ and $x^2$ are always positive, so there is
 only critical point: when $1 - \ln{x} = 0$, or when $x = e$. We must find
@@ -92,9 +92,9 @@ so
 \begin{equation}
     \begin{split}
         1 + \frac{\pi}{e} - 1 &< e^{\frac{\pi}{e} - 1} \\
-	    \pi\cdot\frac{1}{e} &< e^{\frac{\pi}{e}} \cdot \frac{1}{e} \\
-		\pi &< e^{\frac{\pi}{e}}\\
-		\pi^e &< e^\pi.
+    \pi\cdot\frac{1}{e} &< e^{\frac{\pi}{e}} \cdot \frac{1}{e} \\
+\pi &< e^{\frac{\pi}{e}}\\
+\pi^e &< e^\pi.
     \end{split}
 \end{equation}
 Wonderful, isn't it?
@@ -117,10 +117,10 @@ This is my favourite proof. It's a little less intuitive than the others, but I
 think it's beautiful. We use the arithmetic-geometric mean inequality.
 \begin{equation}
     \begin{split}
-	     \sqrt[n]{1+x} &= \sqrt[n]{\smash[b]{\underbrace{1\cdot1\cdots1}_{\text{$n-1$ times}}\cdot(1+x)}} \\\\[1em]
-	     &\le \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}+(1+x)}{n} \\
-	     &= \frac{\overbrace{1+\dotsb+1}^{\text{$n$ times}}+x}{n} \\
-	    &= 1 + \frac{x}{n}.
+     \sqrt[n]{1+x} &= \sqrt[n]{\smash[b]{\underbrace{1\cdot1\cdots1}_{\text{$n-1$ times}}\cdot(1+x)}} \\\\[1em]
+     &\le \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}+(1+x)}{n} \\
+     &= \frac{\overbrace{1+\dotsb+1}^{\text{$n$ times}}+x}{n} \\
+    &= 1 + \frac{x}{n}.
     \end{split}
 \end{equation}
 Strict equality in the AM-GM inequality only holds when all the terms are equal.
@@ -149,13 +149,31 @@ can solve it with a method that I have not shown, please let me know!
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :END:
+Welcome to the homepage of my [[https://projecteuler.net/][Project Euler]] solutions. Once I solve the original
+problem, I also take on the modified version from [[https://www.hackerrank.com/contests/projecteuler/challenges][ProjectEuler+]] on Hackerrank,
+where the problems usually have multiple, harder test cases. The time limits are
+much stricter, and brute force is rarely an option.
+**** Why do I publish my solutions?
+After you solve a problem, Project Euler shows the following text:
+
+/We hope that you enjoyed solving this problem. Please do not deprive others of going through the same process by publishing your solution outside Project Euler. If you want to share your insights, then please go to [thread] in the discussion forum./
+
+I don’t quite agree. As anyone else, I learn the vast majority of what I know
+from other people. We all stand on the shoulders of giants. If someone is on my
+site looking at my solutions, it means they decided to find help with the
+greatest source of information we have today: the Internet. At the end of the
+day, it doesn’t matter whether the answer is 27189 or 27819; it’s the process
+that counts, and that’s what I try to share. That’s why I share my algorithms
+and code (and the process of coming up with them), but never a big flashing box
+with the answer on it.
+**** How far have I gotten?
 Here is a complete summary of my progress in solving problems on Project Euler
 and their upgraded versions on ProjectEuler+ at HackerRank.
 *** Problem 1 - Multiples of 3 or 5                              :identity:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 1
 :EXPORT_DATE: 2018-06-09
-:EXPORT_DESCRIPTION: My fully commented solution to Problem 1 on Project Euler and ProjectEuler+ on HackerRank.
+:EXPORT_DESCRIPTION: My Python solution and code for Problem 1 on Project Euler.
 :END:
 **** Problem Statement
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
@@ -163,18 +181,16 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 
 Find the sum of all the multiples of 3 or 5 below $n$.
 **** My Algorithm
-For the Project Euler problem, $n = 1000$.
-
 In general, the sum of the natural numbers up to $n$ is the $n$-th [[https://en.wikipedia.org/wiki/Triangular_number][triangular
 number]]. Let's call this $T(n)$. A well known formula for this is
 \begin{equation}
-	T(n) = \sum_{i=1}^n i = \frac{n(n+1)}{2}.
-	\label{triangular-num}
+T(n) = \sum_{i=1}^n i = \frac{n(n+1)}{2}.
+\label{triangular-num}
 \end{equation}
 The sum of all multiples of 3 below $n$ looks like this:
 \begin{equation}
-	1\cdot3 + 2\cdot 3 + 3 \cdot 3 + \ldots + \floor{\frac{n-1}{3}} \cdot 3.
-	\label{3-list}
+1\cdot3 + 2\cdot 3 + 3 \cdot 3 + \ldots + \floor{\frac{n-1}{3}} \cdot 3.
+\label{3-list}
 \end{equation}
 We can factor 3 out and write \eqref{3-list} as $3T\floor{\frac{n-1}{3}}$, which
 we know how to find with \eqref{triangular-num}. We can do the same thing
@@ -185,15 +201,116 @@ once as a multiple of 3, then again as a multiple of 5. We can fix this by
 subtracting the sum of all multiples of 15 under $n$. And so our desired answer
 is
 \begin{equation}
-	3T\floor{\frac{n-1}{3}} + 5T\floor{\frac{n-1}{5}} - 15T\floor{\frac{n-1}{15}}.
+3T\floor{\frac{n-1}{3}} + 5T\floor{\frac{n-1}{5}} - 15T\floor{\frac{n-1}{15}},
 \end{equation}
-The complexity of this solution is $O(1)$, because our answer is just a
-computation.
+with complexity $O(1)$.
 ***** Other Solutions
 A brute-force solution that adds each number $i$ from 1 to $n-1$ to a count if
 $i$ is divisible by 3 /or/ 5 would have time complexity $O(n)$. With the large
 input sizes of the Hackerrank problem ($n \le 10^9$) this solution is too slow,
-but it easily passes the original Project Euler problem.
+but it easily passes the original Project Euler problem, where $n = 1000$.
+*** Problem 2 - Even Fibonacci Numbers                                 :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 2
+:EXPORT_DATE: 2018-06-10
+:EXPORT_DESCRIPTION: My Python solution and code for Problem 2 on Project Euler.
+:END:
+**** Problem Statement
+Each new term in the Fibonacci sequence is generated by adding the previous two
+terms. By starting with 1 and 2, the first 10 terms will be:
+\begin{equation*}
+	1, 2, 3, 5, 8, 13, 21, 34, 55, 89,\ldots
+\end{equation*}
+By considering the terms in the Fibonacci sequence whose values do not exceed
+$N$, find the sum of the even-valued terms.
+**** My Algorithm
+For the Project Euler problem, $N = 4\times10^6$. Let's list the Fibonacci
+numbers with $F(0) = 0$:
+\begin{equation}
+	0,1,1,2,3,5,8,13,21,\ldots
+\end{equation}
+Using the definition of the Fibonacci sequence:
+\begin{equation}
+	\begin{split}
+		F(n+3) &= F(n + 2) + F(n + 1) \\
+		&= F(n + 1) + F(n) + F(n + 1) \\
+		&= 2F(n + 1) + F(n).
+	\end{split}
+	\label{fib-sum}
+\end{equation}
+This shows that if $F(n)$ is even, then so is $F(n+3)$. Because $F(0) = 0$ is
+even, then the even Fibonacci numbers are $F(3k)$ for positive integers $k$.
+
+Further applying the Fibonacci recurrence relation gives
+\begin{equation}
+	\begin{split}
+		F(3k) &= 2F(3k - 2) + F(3k - 3) \\
+		&= 3F(3k - 3) + 2F(3k - 4) \\
+		&= 3F(3k - 3) + 2F(3k - 5) + 2F(3k - 6).
+	\end{split}
+\end{equation}
+From \eqref{fib-sum}, we have $F(3k - 3) = 2F(3k - 5) + F(3k - 6)$, so
+\begin{equation}
+	F(3k) = 4F(3k - 3) + F(3k - 6) = 4F(3(k-1)) + F(3(k-2)).
+	\label{next-fib}
+\end{equation}
+To solve the problem, we begin with $0,2$. Using \eqref{next-fib}, we add to a
+sum the next even Fibonacci number, keeping track of the last two even Fibonacci
+numbers. We continue this until the next even Fibonacci number exceeds $N$. This
+solution performs one-third as many steps as there are Fibonacci numbers up to
+$N$, so it is $O(\log n)$.
+***** Other Solutions
+Only computing even Fibonacci numbers does not change the
+time complexity of the solution, but it does shave off a constant factor of 3.
+***** Mathematical Solution
+A more mathematically oriented $O(1)$ solution (my personal favourite) is also
+possible. Unfortunately, the floating point calculations involved become too
+inaccurate with large values of $N$, and using a high precision floating point
+library (such as Python's ~decimal~) is too slow. Regardless, a famous formula
+for the value of the $n$-th Fibonacci number is Binet's formula:
+\begin{equation}
+	F(n) = \frac{\varphi^n - (-\varphi)^{-n}}{\sqrt{5}}.
+\end{equation}
+
+Suppose we know that we need to sum the Fibonacci numbers $F(3k)$ for integers
+$k$ from 0 to some maximum $M$ to get our desired sum $S$. Then we have two
+geometric series:
+\begin{equation}
+	S = \frac{1}{\sqrt{5}}\left(\sum_{k=0}^M \varphi^{3k} - \sum_{k=0}^M (-\varphi)^{-(3k)}\right).
+	\label{sum}
+\end{equation}
+We can find the first term of each series by setting $k = 0$; they are both 1.
+In the first series, the common ratio is $\varphi^3$, in the second
+$(-\varphi)^{-3}$. We use the formula for the [[https://en.wikipedia.org/wiki/Geometric_series#Formula][sum of a geometric series]] with
+first term $a$ and common ratio $r$ with $n$ terms:
+\begin{equation}
+	a + ar + ar^3 + \cdots + ar^{n-1} = a\left(\frac{r^n - 1}{r-1}\right).
+\end{equation}
+Now we can rewrite \eqref{sum}, noting that each sum contains the first $M+1$
+terms of a geometric series:
+\begin{equation}
+	S = \frac{1}{\sqrt{5}}\left( \frac{\varphi^{3(M+1)} - 1}{\varphi^3 - 1} + \frac{(-\varphi)^{-3(M+1)} - 1}{\varphi^{-3} + 1} \right).
+	\label{sum2}
+\end{equation}
+It's nice to have from a mathematical point of view, but the second term in
+\eqref{sum2} quickly vanishes. Excluding it gives an absolute error of less than
+1, so we can ignore it and floor the expression:
+\begin{equation}
+	S = \left\lfloor \frac{\varphi^{3(M+1)} - 1}{\sqrt{5}(\varphi^3 - 1)} \right\rfloor.
+\end{equation}
+
+Now we need to find what this maximum $M$ actually is. We know that $F(3M)$ is
+the largest even Fibonacci number less than or equal to $N$. Using the truncated
+version of Binet's formula, we know that
+\begin{equation}
+	F(n) \approx \frac{\varphi^n}{\sqrt{5}},
+\end{equation}
+so $n \approx \log_\varphi(\sqrt{5} F(n))$. Therefore, $M \approx
+\left\lfloor\frac{1}{3}\log_\varphi(N\sqrt{5})\right\rfloor$. And so our desired
+answer is
+\begin{equation}
+	S = \left\lfloor \frac{\varphi^{3\left(\left\lfloor\frac{1}{3}\log_\varphi(N\sqrt{5})\right\rfloor+1\right)} - 1}{\sqrt{5}(\varphi^3 - 1)} \right\rfloor.
+\end{equation}
 * ​Footnotes
 * COMMENT Local Variables                                           :ARCHIVE:
 # Local Variables:

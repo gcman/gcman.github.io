@@ -1,4 +1,8 @@
 {{ .Content }}
+{{ $ts := resources.Get "js/tablesort.js" }}
+{{ $tsn := resources.Get "js/tablesort.number.js" }}
+{{ $js := slice $ts $tsn | resources.Concat "js/fancy-table.js" | resources.Minify }}
+<script src="{{ $js.Permalink }}"></script>
 <table style="width:85%" class="fancy-table" id="euler-progress-table">
   <thead>
 	<tr>
@@ -22,7 +26,7 @@
     {{- $s.Set "hrdiff" (index ($s.Get "problem") "hrdifficulty") }}
     {{- $s.Set "time" (index ($s.Get "problem") "runtime") }}
     {{- $s.Set "mem" (index ($s.Get "problem") "memory") }}
-    <tr>             
+    <tr>
       <td>{{ $s.Get "num" }}</td>
       <td><a title="{{- $s.Get "name" }} (Difficulty: {{ $s.Get "diff" }}%)"  href="{{- $s.Get "name"}}">{{ $s.Get "name" }}</a></td>
       <td>{{ $s.Get "diff" }}</td>

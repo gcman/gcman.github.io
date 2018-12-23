@@ -1,7 +1,6 @@
 {{ define "title" }}{{ $currentTag := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}{{ title $currentTag }} &ndash; {{ .Site.Title }}{{ end }}
 {{ define "main" }}
   <article class="section article">
-    {{ partial "blog-header.html" . -}}
     <div id="content">
       <section>
         {{ $currentTag := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
