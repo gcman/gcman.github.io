@@ -6,18 +6,16 @@
     font-weight: normal;
   }
 
-  strong {
-    opacity: .5;
-  }
-
-  strong a {
-    color: black;
-  }
-
-  section h2 strong {
-    padding: 0;
-    font-size: .75em;
-    font-weight: bold;
+  .taglist {
+      li {
+        padding: 0 2px 0 1px;
+        list-style: none;
+        display: inline;
+        font-family: "Segoe UI";
+        font-variant: small-caps;
+      }
+      li:after {content: " \00b7";}
+      li:last-child:after {content: none;}
   }
 
   section table {
@@ -37,17 +35,12 @@
     text-align: center;
   }
   section #date {
-    text-align: center;
     font-size: .8em;
-    font-style: normal;
-    opacity: .5
+    opacity: .5;
+    font-family: "Segoe UI";
   }
   section #description {
     font-style: italic;
-  }
-  section strong#tags {
-    font-size: .8em;
-    font-weight: normal;
   }
 
   div#content {

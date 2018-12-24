@@ -1,8 +1,14 @@
 #+HUGO_BASE_DIR: ../
 #+author: Gautam Manohar
 * Tasks
+Generally, I have to be better with my commit structure; discretize and know
+what each commit is doing.
+
+General question: do I want my blog to be.. well, a blog, or a repository of
+curated content?
 ** TODO Mobile friendliness
 ** TODO Blog-like aesthetic (recent posts and tags on sidebar, related posts at bottom)
+** TODO Adjust related posts weighting
 ** TODO Comments (Disqus?)
 ** TODO Variables for colours instead of hardcoding
 ** TODO Include pictures of me on homepage, make it like a storyboard
@@ -34,7 +40,7 @@ number is 7, but perhaps it should be $n$: why pick one when you can consider
 them all? My favourite (and unfortunately finite) anime series is Steins;Gate,
 and my favourite infinite series is Fourier; it seems I like time (and
 semicolons). Speaking of time, when I have some lying around, I like to practice
-my handwriting and calligraphy, play table tennis, and watch basketball
+my handwriting and calligraphy, play table tennis, and watch basketball.
 * Indices
 ** Blog
 :PROPERTIES:

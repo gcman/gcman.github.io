@@ -11,14 +11,6 @@
     {{- partial "header/mathjax-chemistry.html" -}}
     {{ end }}
     {{- partial "header/google-analytics.html" . -}}
-    {{- $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
-    {{ if eq $currentSec "blog" }}
-    <style type="text/css">
-      .article {
-          width: 30%
-      }
-    </style>
-    {{ end }}
   </head>
   <body>
     <div class="nav-wrapper">

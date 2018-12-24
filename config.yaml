@@ -5,6 +5,7 @@ theme: "gautam-manohar"
 MetaDataFormat: "yaml"
 pygmentsCodeFences: true
 pygmentsUseClasses: true
+disqusShortName: gautam-2
 params:
   author: "Gautam Manohar"
   googleAnalytics: UA-115904815-1

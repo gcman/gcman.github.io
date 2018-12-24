@@ -1,3 +1,8 @@
+a.tag {
+    color: black;
+    opacity: 0.5;
+    font-size: 0.8em;
+}
 .main {
   display: flex;
   justify-content: center;
@@ -12,12 +17,11 @@
       font-variant: small-caps;
       font-weight: bold;
     }
-    .tag {
-      color: black;
-      opacity: .5;
-      font-size: .8em;
-    }
   }
+}
+.blog {
+    width: 30%;
+    margin: 0 auto;
 }
 .article {
   width: 40%;
@@ -28,12 +32,12 @@
     text-align: center;
   }
 
-  h1 { font-size: 1.75em; margin: 1em 0 .5em 0}
-  h2 { font-size: 1.5em; margin: .83em 0 .3em 0}
-  h3 { font-size: 1.17em; margin: 1em 0 .35em 0}
-  h4 { font-size: .83em; margin: 1.12em 0 .5em 0}
-  h5 { font-size: .75em; margin: 1.5em 0 .5em 0}
-  h6 { font-size: .50em; margin: 1.67em 0 .5em 0}
+  h1 { font-family: "Palatino Linotype"; font-size: 1.75em; margin: 1em 0 .5em 0}
+  h2 { font-family: "Palatino Linotype"; font-size: 1.5em; margin: .83em 0 .3em 0}
+  h3 { font-family: "Palatino Linotype"; font-size: 1.17em; margin: 1em 0 .35em 0}
+  h4 { font-family: "Palatino Linotype"; font-size: .83em; margin: 1.12em 0 .5em 0}
+  h5 { font-family: "Palatino Linotype"; font-size: .75em; margin: 1.5em 0 .5em 0}
+  h6 { font-family: "Palatino Linotype"; font-size: .50em; margin: 1.67em 0 .5em 0}
 
   header {
     text-align: center;

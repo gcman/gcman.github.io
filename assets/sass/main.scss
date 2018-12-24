@@ -14,7 +14,7 @@ body {
   background-color: ivory;
   color: black;
   font-size: 16px;
-  font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', 'URW Palladio L', 'Palladio URW', 'TeX Gyre Pagella', serif;
+  font-family: "Segoe UI", 'Palatino Linotype', 'Book Antiqua', 'URW Palladio L', 'Palladio URW', 'TeX Gyre Pagella', serif;
   cursor: default;
   overflow-x: hidden;
   margin: 0;
@@ -80,10 +80,6 @@ figure {
 	figcaption {
   		font-size: .8em;
   	}
-	figcaption:before {
-  		font-weight: bold;
-  		content: 'Figure ' counter(figures) '. ';
-  	}
 }
 
 img {
@@ -118,6 +114,7 @@ th[role=columnheader]:not(.no-sort):hover:after {
 }
 
 .nav-wrapper {
+  font-family: "Palatino Linotype";
   height: 60px;
   background-color: firebrick;
 }
