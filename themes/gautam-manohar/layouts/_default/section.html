@@ -1,5 +1,5 @@
 {{ define "title" }}
-  {{- $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
+{{- $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
   {{ title $currentSec }} &ndash; {{ .Site.Title }}
 {{ end }}
 {{ define "main" }}

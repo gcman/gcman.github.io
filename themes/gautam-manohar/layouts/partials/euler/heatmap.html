@@ -33,7 +33,7 @@
   </tr>
 </table>
 {{ $s := newScratch }}
-{{ $s.Set "max" (int (index (split (index (split (index (sort (where (index $.Site.Taxonomies.categories "euler") "Kind" "page")) 0).Title ": ") 0) "Problem ") 1)) }}
+{{ $s.Set "max" (int (index (split (index (split (index (sort (where (index $.Site.Taxonomies.categories "euler") "Kind" "page")) 0).Title ": ") 0) "Euler ") 1)) }}
 {{ $s.Set "num" 0 }}
 {{ if modBool ($s.Get "max") 100 }}
   {{ $s.Set "lastMax" 100 }}

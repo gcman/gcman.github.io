@@ -1,0 +1,11 @@
+<div class="side">
+  <div id="textbox">
+    <p class="date">Posted {{ dateFormat "2 January 2006" .Date }}</p>
+    <p class="category">
+      {{ range .Params.categories }}
+      <a href="{{ $.Site.BaseURL }}/{{ . }}/" title="Posts in section {{ . }}">{{ . }}</a>&nbsp;
+      {{ end }}
+    <p>
+    <p>{{- partial "taglist.html" . -}}<p>
+  </div>
+</div>

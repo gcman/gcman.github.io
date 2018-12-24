@@ -1,9 +1,13 @@
 {{ define "title" }}{{ .Params.shorttitle | default .Params.title }} &ndash; {{ .Site.Params.author }}{{ end }}
 {{ define "main" }}
-<article class="article {{ if in .Params.categories "euler" }}euler{{- end }}">
+<div class="main">
+  <article class="article {{ if in .Params.categories "euler" }}euler{{- end }}">
   {{- partial "article-header.html" . -}}
   {{ .Content }}
+  {{- partial "related-posts.html" . -}}
   {{- partial "euler/extra.html" . -}}
   {{- partial "footer/larger-title-numbers.html" -}}
-</article>
+  </article>
+  {{- partial "sidebar.html" . -}}
+</div>
 {{ end }}

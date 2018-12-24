@@ -1,7 +1,8 @@
-code {
+code,kbc {
   background-color: #fdf6e3;
   color: #cb4b16;
   padding: 0 2px;
+  font-family: Inconsolata, monospace;
 }
 
 p code {
@@ -23,15 +24,20 @@ td.linenos, td.lntd:first-child {
   border-right: 1px solid #93a1a1;
   white-space: nowrap;
   color: #93a1a1;
-  padding-right: 4px;
+  text-align: right;
+  padding-left: 7px;
+}
+
+td.linenos {
+  padding-right: 5px;
+}
+
+td.lntd:first-child {
+  padding-right: 5px;
 }
 
 td.lntd:last-child {
   padding-left: 12px;
-}
-
-td.linenos {
-  padding-left: 7px;
 }
 
 td.code {

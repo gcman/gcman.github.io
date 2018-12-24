@@ -1,6 +1,6 @@
 import os,re
 
-INDENT = 3
+INDENT = 2
 
 def word_to_date(date):
     date = date.split(" ")
@@ -23,7 +23,7 @@ def post_heading(metadata):
     if "date" in metadata:
         S.append(":EXPORT_DATE: {}".format(word_to_date(metadata["date"])))
     if "shorttitle" in metadata:
-        S.append(":EXPORT_HUGO_CUSTOM_FRONT_MATTER: :shortitle " + "\"" + metadata["shorttitle"] + "\"")
+        S.append(":EXPORT_HUGO_CUSTOM_FRONT_MATTER: :shorttitle " + "\"" + metadata["shorttitle"] + "\"")
     if "summary" in metadata:
         S.append(":EXPORT_DESCRIPTION: {}".format(metadata["summary"]))
     S.append(":END:")
