@@ -5,7 +5,7 @@
     <title>{{ block "title" . -}}{{ .Title | default .Site.Title }} &ndash; {{ .Site.Title }}{{- end -}}</title>
     {{- partial "header/favicons.html" . }}
     {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    <link type="text/css" rel="stylesheet" href="{{ $style.Permalink }}">
     {{- partial "header/mathjax.html" . -}}
     {{ if in .Params.categories "chemistry" }}
     {{- partial "header/mathjax-chemistry.html" -}}

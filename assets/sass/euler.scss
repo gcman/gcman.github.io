@@ -9,6 +9,8 @@
 	    background: firebrick;
 	    color: ivory;
 	    font-style: italic;
+      font-family: "Palatino Linotype";
+      vertical-align: middle;
     }
 
     .fancy-table td, .fancy-table th {
@@ -45,11 +47,11 @@
     table.euler td {
 	    font-weight: bold;
 	    background-clip: padding-box;
-		-moz-background-clip: padding;
-		-webkit-background-clip: padding;
-        border-radius: 0.25vw;
-        text-align: center;
-        vertical-align: middle;
+		  -moz-background-clip: padding;
+		  -webkit-background-clip: padding;
+      border-radius: 0.25vw;
+      text-align: center;
+      vertical-align: middle;
     }
 
     table.legend {
@@ -136,5 +138,13 @@
 
     span.tooslow {
 	    color: crimson;
+    }
+
+    figure.logos {
+        display: flex;
+        justify-content: center;
+        a {
+            padding: 5px;
+        }
     }
 }

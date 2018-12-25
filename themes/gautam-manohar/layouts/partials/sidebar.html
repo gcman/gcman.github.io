@@ -10,7 +10,7 @@
   </section>
   <section>
   <h2>Recent Posts</h2>
-  <ul>
+  <ul class="recent">
   {{- range first 5 (where .Site.Pages "Kind" "page") -}}
       <li><a href="{{.RelPermalink}}">{{.Title}}</a></li>
   {{- end -}}

@@ -4,8 +4,8 @@
   <article class="article {{ if in .Params.categories "euler" }}euler{{- end }}">
   {{- partial "article-header.html" . -}}
   {{ .Content }}
-  {{- partial "related-posts.html" . -}}
   {{- partial "euler/extra.html" . -}}
+  {{- partial "related-posts.html" . -}}
   {{- partial "footer/larger-title-numbers.html" -}}
   </article>
   {{- partial "sidebar.html" . -}}

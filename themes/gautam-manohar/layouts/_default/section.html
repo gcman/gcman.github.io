@@ -4,7 +4,7 @@
 {{ end }}
 {{ define "main" }}
 {{- $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
-  <article class="{{ if eq $currentSec "blog" }}blog{{ end }} {{if ne $currentSec "euler" }}section{{end}} article {{if eq $currentSec "euler"}}euler{{end}}">
+  <article {{if eq $currentSec "euler"}}style="margin:auto;"{{end}} class="article {{ if eq $currentSec "blog" }}blog{{ end }} {{if ne $currentSec "euler"}}section{{else}} euler{{end}}">
      <div id="content">
       <section>
         {{ if eq $currentSec "blog" }}
