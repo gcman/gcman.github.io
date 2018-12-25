@@ -1,92 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Gautam Manohar's Personal Website</title>
-  <meta charset="utf-8" />
-  <meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
-  <meta name="author" content="Gautam Manohar" />
-  <meta name="copyright" content="Gautam Manohar" />
-  <meta name="robots" content="index,follow" />
-  <meta name="description" content="Voraciously curious. Ceaselessly skeptical. Unabashedly nerdy. Student, math lover, writer, lifelong learner. Dabbles in computer science and chemistry." />
-  {{ partial "header/favicons.html" . }}
-  {{ $normalize := resources.Get "sass/normalize.min.scss" }}
-  {{ $index := resources.Get "sass/index.scss" }}
-  {{ $style := slice $normalize $index | resources.Concat "sass/index-style.scss" | toCSS | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $style.Permalink }}">
-  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
-</head>
-<body>
-<div class="banner">
-  <h1><a style="color: ivory;" href="./">Gautam Manohar</a></h1>
-</div>
-<div class="nav-wrapper">
-  <nav id="blog-top">
-    <ul>
-      <li><a href="https://github.com/gcman">github</a></li>
-      <li><a href="./blog/">blog</a></li>
-      <li><a href="./contact-me/">contact</a></li>
-    </ul>
-  </nav>
-</div>
-<div style="height: 5.5em; width:100%; background-color: firebrick;">
-</div>
-<div class="content">
-  {{ .Content }}
-</div>
-<script>
-window.onscroll = function() {myFunction()};
-var header = document.getElementById("blog-top");
-var sticky = header.offsetTop;
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    header.classList.add("fixed");
-  } else {
-    header.classList.remove("fixed");
-  }
-}
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-<script>
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-  <script>
-    try {
-        var pageTracker = _gat._getTracker("UA-115904815-1");
-    pageTracker._trackPageview();
-    } catch(err) {}
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    "HTML-CSS": {
-    styles: {
-    ".MathJax .mo, .MathJax .mi, .math": {color: "black;"}}
-    },
-    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processEscapes: true}
-    });
-    MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
-      var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
-      VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
-      VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
-      VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
-      VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
-      });
-      MathJax.Hub.Register.StartupHook("SVG Jax Ready",function () {
-      var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;
-      VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
-      VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
-      VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
-      VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
-      });
-      MathJax.Hub.Config({
-        "HTML-CSS": {
-          scale: 100,
-          availableFonts: [],
-          preferredFont: null,
-          webFont: "Latin-Modern"
-        }
-      });
-  </script>
-</body>
+  <head>
+    <title>Gautam Manohar's Personal Website</title>
+    <meta charset="utf-8" />
+    <meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
+    <meta name="author" content="Gautam Manohar" />
+    <meta name="copyright" content="Gautam Manohar" />
+    <meta name="robots" content="index,follow" />
+    <meta name="description" content="Voraciously curious. Ceaselessly skeptical. Unabashedly nerdy. Student, math lover, writer, lifelong learner. Dabbles in computer science and chemistry." />
+    {{- partial "header/favicons.html" . }}
+    {{ $normalize := resources.Get "sass/normalize.min.scss" }}
+    {{ $index := resources.Get "sass/index.scss" }}
+    {{ $style := slice $normalize $index | resources.Concat "sass/index-style.scss" | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    {{- partial "header/google-analytics.html" . }}
+  </head>
+  <body>
+    <div class="banner">
+      <h1><a style="color: ivory;" href="{{ .Site.BaseURL }}">Gautam Manohar</a></h1>
+    </div>
+    <div class="nav-wrapper">
+      <nav id="blog-top">
+        <ul>
+          <li><a href="https://github.com/gcman">github</a></li>
+          <li><a href="{{ .Site.BaseURL }}/blog/">blog</a></li>
+          <li><a href="{{ .Site.BaseURL }}/contact-me/">contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div style="height: 5.5em; width:100%; background-color: firebrick;">
+    </div>
+    <div class="content">
+      {{ .Content }}
+    </div>
+    <script>
+      window.onscroll = function() {myFunction()};
+      var header = document.getElementById("blog-top");
+      var sticky = header.offsetTop;
+      function myFunction() {
+          if (window.pageYOffset >= sticky) {
+              header.classList.add("fixed");
+          } else {
+              header.classList.remove("fixed");
+          }
+      }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {{- partial "header/mathjax.html" -}}
+  </body>
 </html>
