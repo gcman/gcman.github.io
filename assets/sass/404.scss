@@ -1,0 +1,24 @@
+.odd {
+    opacity: .75;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    a {
+        color: black;
+    }
+    a:hover {
+        cursor: default;
+    }
+}
+.error {
+    padding: 0;
+    margin: 0;
+    .flex-item {text-align: center;}
+    h1 {
+        font-family: "Palatino Linotype";
+        font-size: 5em;
+        margin-bottom: 0;
+    }
+}

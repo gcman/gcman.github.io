@@ -8,26 +8,13 @@
   <meta name="copyright" content="Gautam Manohar" />
   <meta name="robots" content="index,follow" />
   <meta name="description" content="Voraciously curious. Ceaselessly skeptical. Unabashedly nerdy. Student, math lover, writer, lifelong learner. Dabbles in computer science and chemistry." />
-  <link rel="stylesheet" href="css/normalize/normalize.min.css" type="text/css" />
   {{ partial "header/favicons.html" . }}
-
-  <!--[if IE]>
-          <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-  <!--[if lte IE 7]>
-          <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
-          <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
-
-  <!--[if lt IE 7]>
-          <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
-
   {{ $normalize := resources.Get "sass/normalize.min.scss" }}
   {{ $index := resources.Get "sass/index.scss" }}
   {{ $style := slice $normalize $index | resources.Concat "sass/index-style.scss" | toCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.Permalink }}">
   <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
 </head>
-
 <body>
 <div class="banner">
   <h1><a style="color: ivory;" href="./">Gautam Manohar</a></h1>
@@ -47,16 +34,9 @@
   {{ .Content }}
 </div>
 <script>
-// When the user scrolls the page, execute myFunction 
 window.onscroll = function() {myFunction()};
-
-// Get the header
 var header = document.getElementById("blog-top");
-
-// Get the offset position of the navbar
 var sticky = header.offsetTop;
-
-// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function myFunction() {
   if (window.pageYOffset >= sticky) {
     header.classList.add("fixed");
