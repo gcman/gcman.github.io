@@ -7,13 +7,30 @@ what each commit is doing.
 General question: do I want my blog to be.. well, a blog, or a repository of
 curated content (like Math intersect programming or project nayuki)?
 ** TODO Mobile friendliness
+** TODO Include pictures of me on homepage, make it like a storyboard
+** TODO Create a blog puzle gauntlet that you can start from the 404 link
+:PROPERTIES:
+:CREATED: [2018-12-25 Tue 13:10]
+:END:
+** TODO Do a review on tags and categories, especially Euler tags
 ** TODO Blog-like aesthetic (recent posts and tags on sidebar, related posts at bottom)
 ** TODO Adjust related posts weighting
 ** TODO Comments (Disqus?)
 ** TODO Variables for colours instead of hardcoding
-** TODO Include pictures of me on homepage, make it like a storyboard
 ** TODO Combine chroma.scss and pygments.scss
-** TODO Do a review on tags and categories
+** TODO Emacs make indent size dependent on major mode
+:PROPERTIES:
+:CREATED: [2018-12-25 Tue 13:38]
+:END:
+** TODO Proofread every Euler blog post before publishing; clean up code
+:PROPERTIES:
+:CREATED: [2018-12-25 Tue 15:20]
+:END:
+** TODO Fix centering on tags and category pages
+:PROPERTIES:
+:CREATED: [2018-12-25 Tue 20:48]
+:END:
+
 * Home
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: .

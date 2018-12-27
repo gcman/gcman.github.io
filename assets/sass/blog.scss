@@ -1,9 +1,8 @@
 .section {
-
-  section h2 {
-    margin: 5px 0 2px 0;
+  h2 {
     font-size: 1.25em;
     font-weight: normal;
+    margin: 2px 0 -2px 0;
   }
 
   .taglist {
@@ -41,20 +40,9 @@
   section #date {
     font-size: .8em;
     opacity: .5;
-    font-family: "Segoe UI";
   }
   section #description {
+    margin-top: 0.75ex;
     font-style: italic;
-  }
-
-  div#content {
-    padding-bottom: 50px;
-  }
-
-  div#content hr {
-    width: 61.8%;
-    height: 1px;
-    border: 0;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(178, 34, 34, 0.5), rgba(0, 0, 0, 0));
   }
 }

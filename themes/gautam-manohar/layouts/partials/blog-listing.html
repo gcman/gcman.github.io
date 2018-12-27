@@ -1,7 +1,6 @@
-{{- $s := newScratch }}
-{{- $s.Set "pages" (where $.Site.Pages "Kind" "page") }}
+{{- $pages := (where $.Site.Pages "Kind" "page") }}
 <table>
-  {{ range $s.Get "pages" }}
+  {{ range $pages}}
   {{ if in .Params.categories "euler"}}
   {{ else }}
       {{ partial "index-row.html" . }}
