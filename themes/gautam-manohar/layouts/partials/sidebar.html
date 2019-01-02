@@ -1,5 +1,5 @@
 <div class="side">
-  <section id="textbox">
+  <section id="info">
     <p class="date">Posted {{ dateFormat "2 January 2006" .Date }}</p>
     <p class="category">
       {{ range .Params.categories }}
@@ -8,9 +8,9 @@
     <p>
     <p>{{- partial "taglist.html" . -}}<p>
   </section>
-  <section>
+  <section id="recent">
   <h2>Recent Posts</h2>
-  <ul class="recent">
+  <ul>
   {{- range first 5 (where .Site.Pages "Kind" "page") -}}
       <li><a href="{{.RelPermalink}}">{{.Title}}</a></li>
   {{- end -}}

@@ -2,6 +2,6 @@
 <h2>{{ title $currentSec }} <strong>/ {{ (index (index .Site.Data.flavour $currentSec) "flavour") }}</strong></h2>
 <table>
   {{ range where (index $.Site.Taxonomies.categories $currentSec) "Kind" "page" }}
-    {{ partial "index-row.html" . }}
+    {{ .Render "index-row" }}
   {{ end }}
 </table>

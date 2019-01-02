@@ -1,20 +1,20 @@
 {{ define "title" }}
 {{- $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
-  {{ title $currentSec }} &ndash; {{ .Site.Title }}
+{{ title $currentSec }} &ndash; {{ .Site.Title }}
 {{ end }}
 {{ define "main" }}
 {{- $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
-  <article {{if eq $currentSec "euler"}}style="margin:auto;"{{end}} class="article {{ if eq $currentSec "blog" }}blog{{ end }} {{if ne $currentSec "euler"}}section{{else}} euler{{end}}">
-     <div id="content">
-      <section>
-        {{ if eq $currentSec "blog" }}
-          {{- partial "blog-listing.html" . -}}
-        {{ else if eq $currentSec "euler" }}
-          {{- partial "euler/progress.html" . -}}
-        {{ else }}
-          {{- partial "category-listing.html" . -}}
-        {{ end }}
-      </section>
-      </div>
-  </article>
+<article {{if eq $currentSec "euler"}}style="margin:auto;"{{end}} class="article {{ if eq $currentSec "blog" }}blog{{ end }} {{if ne $currentSec "euler"}}section{{else}} euler{{end}}">
+  <div id="content">
+    <section>
+      {{ if eq $currentSec "euler" }}
+      {{- partial "euler/progress.html" . -}}
+      {{ else if eq $currentSec "blog" }}
+      {{- partial "blog-listing.html" . -}}
+      {{ else }}
+      {{- partial "category-listing.html" . -}}
+      {{ end }}
+    </section>
+  </div>
+</article>
 {{ end }}

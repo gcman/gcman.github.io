@@ -1,0 +1,18 @@
+<table id="next-prev">
+  <tr>
+    <td class="left arrow">&#8592; older</td>
+    <td class="right arrow">newer &#8594;</td>
+  </tr>
+  <tr>
+    <td class="left">
+      {{ with .PrevInSection }}
+      <a class="previous" href="{{.Permalink}}"> {{.Title}}</a>
+      {{ end }}
+    </td>
+    <td class="right">
+      {{ with .NextInSection }}
+      <a class="next" href="{{.Permalink}}"> {{.Title}}</a>
+      {{ end }}
+    </td>
+  </tr>
+</table>

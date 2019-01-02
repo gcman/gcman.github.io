@@ -1,0 +1,7 @@
+<article>
+   <span id="date">{{ dateFormat "2 January 2006" .Date }}</span>
+    <h2><a title="{{ .Params.shorttitle | default .Params.title }}" href="{{ .Permalink }}">
+      {{ .Title }}{{- with .Params.subtitle -}}: {{ . }}{{- end -}}</a></h2>
+    {{- partial "taglist.html" . -}}
+    <p id="description">{{.Description}}</p>
+</article>

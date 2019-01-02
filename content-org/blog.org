@@ -1,36 +1,4 @@
 #+HUGO_BASE_DIR: ../
-#+author: Gautam Manohar
-* Tasks
-Generally, I have to be better with my commit structure; discretize and know
-what each commit is doing.
-
-General question: do I want my blog to be.. well, a blog, or a repository of
-curated content (like Math intersect programming or project nayuki)?
-** TODO Mobile friendliness
-** TODO Include pictures of me on homepage, make it like a storyboard
-** TODO Create a blog puzle gauntlet that you can start from the 404 link
-:PROPERTIES:
-:CREATED: [2018-12-25 Tue 13:10]
-:END:
-** TODO Do a review on tags and categories, especially Euler tags
-** TODO Blog-like aesthetic (recent posts and tags on sidebar, related posts at bottom)
-** TODO Adjust related posts weighting
-** TODO Comments (Disqus?)
-** TODO Variables for colours instead of hardcoding
-** TODO Combine chroma.scss and pygments.scss
-** TODO Emacs make indent size dependent on major mode
-:PROPERTIES:
-:CREATED: [2018-12-25 Tue 13:38]
-:END:
-** TODO Proofread every Euler blog post before publishing; clean up code
-:PROPERTIES:
-:CREATED: [2018-12-25 Tue 15:20]
-:END:
-** TODO Fix centering on tags and category pages
-:PROPERTIES:
-:CREATED: [2018-12-25 Tue 20:48]
-:END:
-
 * Home
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: .
@@ -49,50 +17,39 @@ The most fulfilling problems lead not just to answers that satisfy inquiry but
 to questions that further it. After all, what is an interesting idea without a
 question to inspire it? Questions are the ultimate companion (non-human, of
 course) to a lifelong learner. They motivate me to rejoice in spite of failure
-and work hard in spite of success. The path paved by interesting questions never
-ends---and that's what's so exciting about it!
+and work hard in light of success. The path paved by interesting questions never
+ends---and that's what makes it so exciting!
 ** Here's some more about me.
 I'm a Grade 12 student at the [[https://utschools.ca][University of Toronto Schools (UTS)]]. My favourite
-number is 7, but perhaps it should be $n$: why pick one when you can consider
+number is 7, but perhaps it should be \(n\): why pick one when you can consider
 them all? My favourite (and unfortunately finite) anime series is Steins;Gate,
-and my favourite infinite series is Fourier; it seems I like time (and
-semicolons). Speaking of time, when I have some lying around, I like to practice
-my handwriting and calligraphy, play table tennis, and watch basketball.
-* Indices
-** Blog
+which is about time travel; my favourite infinite series is Fourier. It seems I
+like time (and semicolons). Speaking of time, when I have some lying around, I
+like to practice my handwriting and calligraphy, play table tennis, and watch
+basketball.
+* Blog
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: blog
 :END:
-*** Blog Index
+** Blog Index
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :END:
-** Math
-:PROPERTIES:
-:EXPORT_HUGO_SECTION: math
-:END:
-*** Math Index
-:PROPERTIES:
-:EXPORT_FILE_NAME: _index
-:END:
-* Math                                                                   :@math:
-:PROPERTIES:
-:EXPORT_HUGO_SECTION: .
-:END:
-** Prime Reciprocals Diverge!                      :primes:combinatorics:proof:
+** Math                                                              :@math:
+*** Prime Reciprocals Diverge!                 :primes:combinatorics:proof:
 :PROPERTIES:
 :EXPORT_FILE_NAME: prime-reciprocals
 :EXPORT_DATE: 2018-05-20
 :EXPORT_DESCRIPTION: We prove that the sum of the reciprocals of the prime numbers diverges.
 :END:
-*** Introduction
+**** Introduction
 In this post, we will investigate the infinite series
 \begin{equation}
 \sum_{p} \frac{1}{p},
 \end{equation}
 taken over all primes $p$. In particular, we will show that this series
 diverges.
-*** Calculus and the Prime Number Theorem
+**** Calculus and the Prime Number Theorem
 First, we'll show that this problem falls to the incredible might of the
 following inequalty, which bounds the value of the $n$-th prime:
 \begin{equation}
@@ -131,9 +88,9 @@ Substituting $u = \log x, \d u = \frac{1}{x} \d x$ gives
 which we evaluate as $\left[ \log u \right]_{\log 6}^\infty = \infty$. But wait!
 This means that the sum of the reciprocals of the primes is greater than
 infinity, which of course means that it cannot converge to any finite value.
-*** Combinatorics
+**** Combinatorics
 In my opinion, this combinatorially inspired method is way cooler.
-**** Squares and Squarefree Products
+***** Squares and Squarefree Products
 First, every integer can be written uniquely as the product of a square and a
 squarefree integer (that is, a number which is not divisible by any square
 greater than 1---such numbers are the products of distinct primes). To see this,
@@ -145,7 +102,7 @@ where $e_i$ is the greatest positive integer such that $p_i^{e_i}$ divides $n$.
 Then for each odd $e_i$, factor out $p_i$. Then each exponent in the product is
 even, which means it is a square, and the term outside the product consists of
 primes with exponent 1.
-**** Unleashing the Combo Punches
+***** Unleashing the Combo Punches
 Second, each term in
 \begin{equation}
 \prod_p \left(1 + \frac{1}{p}\right)
@@ -175,7 +132,7 @@ divergence proof, but because the representation of a number as a product of a
 square and a squarefree number is unique, each reciprocal is represented exactly
 once, so the product is exactly equal to the harmonic series. The important fact
 here is that the harmonic series diverges.
-**** The Divergence of the Harmonic Series
+***** The Divergence of the Harmonic Series
 To see this, we can use the integral test again (with the function
 $\frac{1}{x}$), but we can also do it without calculus. Suppose the harmonic
 series converges to some value $H$. Then
@@ -194,7 +151,7 @@ H &> \frac{1}{2} + \frac{1}{2} + \frac{1}{4} + 1{4} + \frac{1}{6} + \frac{1}{6} 
 \end{equation}
 We end up with $H > H$, which is certainly not true for any finite value. And so
 the harmonic series diverges.
-**** Finishing Touches
+***** Finishing Touches
 Third, we'll use the identity
 \begin{equation}
 1 + x \le e^x.
@@ -215,7 +172,7 @@ Let's use some exponent rules to clean things up.
 Becuase $C$ is finite, $\log C$ is also finite, and so we can see that the
 desired sum is greater than the harmonic series, which establishes its
 divergence.
-*** Bounding the Beast
+**** Bounding the Beast
 By slightly modifying the above arguments---for example, change infinite sums
 over all primes or natural numbers to partial sums over all terms less than
 $k$---we obtain the following bound:
@@ -232,13 +189,13 @@ And so we obtain the very nice lower bound
 \begin{equation}
 \log\log(k+1) - \log\frac{\pi^2}{6} \le \sum\limits_{p \le k} \frac{1}{p}.
 \end{equation}
-*** Conclusion
+**** Conclusion
 So, calculus or combinatorics? I think both methods are cool in their own
 right---one uses continuous methods to analyze prime numbers, which are discrete
 entities, while the other is just mind-numbingly brilliant. Perhaps the calculus
 arguments are cleaner, but the combinatorics ones are much more inspiring and
 hide some deeper insights.
-** Relatively Prime, Relatively Often                                   :proof:
+*** Relatively Prime, Relatively Often                              :proof:
 :PROPERTIES:
 :EXPORT_FILE_NAME: coprime-prob
 :EXPORT_DATE: 2018-04-17
@@ -271,7 +228,7 @@ p &= \left(\sum_{k=1}^\infty \frac{1}{k^2}\right)^{-1}.
 \end{equation}
 That sum is famously equal to $\frac{\pi^2}{6}$, as shown by Euler. And
 so we conclude that $p = \frac{6}{\pi^2}$.
-** Almost There I                                                         :fun:
+*** Almost There I                                                    :fun:
 :PROPERTIES:
 :EXPORT_FILE_NAME: almost-patterns-sinc
 :EXPORT_DATE: 2018-03-02
@@ -340,7 +297,7 @@ can make it so the pattern always holds. For example, the series $1 +
 $a_k$ to be the reciprocal powers of two, the corresponding integral will be
 equal to $\pi$... forever. But not all patterns hold forever---certainly not
 this one!
-** Inspheres and Circumspheres of Simplices                     :algebra:proof:
+*** Inspheres and Circumspheres of Simplices                :algebra:proof:
 :PROPERTIES:
 :EXPORT_FILE_NAME: simplex-sphere
 :EXPORT_DATE: 2018-02-17
@@ -363,7 +320,7 @@ the regular tetrahedron, and then a look into the circumsphere and insphere of
 arbitrary tetrahedra using techniques from linear algebra. Finally, I will
 generalize my work to arbitrary simplices (the higher-dimensional analogue of
 tetrahedra) in arbitrary dimensions.
-*** Regular Tetrahedra
+**** Regular Tetrahedra
 We wish to find the ratio between the circumsphere and insphere of a regular
 tetrahedron. Let $ABCD$ be a regular tetrahedron. Let $O$ be the centroid of
 $ABCD$. Then because $ABCD$ is regular, $O$ is the incenter and circumcenter of
@@ -376,12 +333,12 @@ height $AX$. But because $AO = AX - OX$, and $\frac{1}{4}|AX| = |OX|$, then
 $|AO| = \frac{3}{4}|AX|$. Note that $AO$ is the circumradius and $OX$ is the
 inradius. Thus the ratio of the circumradius to the inradius in a regular
 tetrahedron is $\frac{|AO|}{|OX|} = 3$.
-*** Irregular Tetrahedra
+**** Irregular Tetrahedra
 We use coordinate geometry and linear algebra to find the inradius and
 circumradius (and incenter and circumcenter) of a tetrahedron given the
 coordinates of its vertices. To avoid immense computational tedium, we use
 programming to numerically solve for the desired ratio.
-**** Insphere
+***** Insphere
 Let's first deal with the insphere. Let $(a,b,c)$ be the vector that gives the
 coordinates of the incenter, and let $r$ be the inradius. Let the four vertices
 of the tetrahedron be given by $\vec{V}_i = (x_i,y_i,z_i)$, where $i
@@ -497,7 +454,7 @@ Then
 \end{split}
 \end{equation}
 And so the inradius $r$ is the fourth element of $\vec{v}$, or $\vec{v}_4$.
-**** Circumsphere
+***** Circumsphere
 Now we deal with the circumsphere. Let the circumsphere have center $(A,B,C)$
 and radius $R$. It then has the equation
 \begin{equation}
@@ -572,7 +529,7 @@ tedious calculations with cross products, dot products, and norms and invert our
 matrices using, say, Gaussian elimination, the closed form expressions for the
 inradius $r$ and the circumradius $R$ would be very unwieldy and so not very
 useful.
-*** Generalizing to n-Simplices
+**** Generalizing to n-Simplices
 Our method generalizes readily to higher dimensions. The dot product generalizes
 very simply. The one thing we need is a generalization of the cross product,
 which is only defined in three dimensions... except we don't. Our only use for
@@ -609,7 +566,7 @@ vectors $\vec{V}_i$, where $i$ is an integer from $1$ to $n+1$. Each of these
 vectors has $n$ components, $\vec{V}_i^j$, where $j$ is an integer from $1$ to
 $n$. Each of the $n+1$ faces is a collection of $n$ of the $n+1$ points. Again,
 let's first deal with the insphere:
-**** Insphere
+***** Insphere
 Let the vector representing the insphere's coordinates have $n$ components
 $c_i$. Imitating \eqref{normalized}, we have
 \begin{equation} \label{general-insphere}
@@ -646,7 +603,7 @@ Then
 \begin{equation}
 \vec{A}\vec{s} = \vec{u}.
 \end{equation}
-**** Circumsphere
+***** Circumsphere
 Let the vector representing the insphere's coordinates have $n$ components
 $C_i$. Our procedure for finding the circumsphere generalizes readily as
 follows.
@@ -680,7 +637,7 @@ Then
 \begin{equation}
 \vec{A}\vec{s} = \vec{u}.
 \end{equation}
-**** Implementing Our Higher Dimensional Processes
+***** Implementing Our Higher Dimensional Processes
 We'll use ~Python~ its ~numpy~ package. Let's first set up a function to
 compute our generalized cross product using the kernel method. Here's a standard
 implementation of finding the kernel, or nullspace, of a matrix, sourced from
@@ -748,7 +705,7 @@ circumsphere and insphere (3 in 3 dimensions) changes as the dimension
 increases. It will probably get much larger (because most of a high-dimensional
 sphere's volume is near its surface and because the insphere's volume will
 become very small), but how quickly?
-** On the Ball in $n$ Euclidean Dimensions                :calculus:proof:
+*** On the Ball in $n$ Euclidean Dimensions                :calculus:proof:
 :PROPERTIES:
 :EXPORT_FILE_NAME: n-ball
 :EXPORT_DATE: 2018-02-06
@@ -770,7 +727,7 @@ a while, until my friend [[https://www.arifaulakh.com][Arif Aulakh]] challenged
 me to find an expression for the volume of a sphere in an arbitrary number of
 dimensions. My curiosity rekindled, I set out in search of the
 higher-dimensional sphere to answer the question: what comes next?
-*** Introduction
+**** Introduction
 Before we embark on our journey, we need to lay out some basic definitions. A
 sphere is the set of all points a given distance (let's call it $R$) from a
 given center point. A ball is the space whose boundary is a sphere, or the set
@@ -788,7 +745,7 @@ The arbitrary-dimensional analogue of this concept is "content." For example,
 the 2-ball has content $\pi R^2$, the 3-ball $\frac{4}{3}\pi R^2$. We shall find
 a general formula for the content of an $n$-ball of radius $R$. Along the way,
 we will uncover and explore some interesting related results.
-*** A Recurrence Relation
+**** A Recurrence Relation
 Intutively, we can construct a $3$-ball out of a bunch of thin disks (think of
 slicing a tomato). In the same way, we can construct a disk out of a bunch of
 thin line segments. And remember, a disk is a $2$-ball, and a line segment is a
@@ -851,14 +808,14 @@ V_{n}(R) = I_{n-1}V_{n-1}(R)R.
 \label{volume-recurrence}
 \end{equation}
 Let us now solve for $I_{n-1}$.
-*** Solving the Integral
+**** Solving the Integral
 We shall prove the result
 \begin{equation}
 I_{n-1} = \frac{\sqrt{\pi}\Gamma\left(\frac{n+1}{2}\right)}{\Gamma(\frac{n}{2}+1)}
 \label{I-final}
 \end{equation}
 in two ways: analytically and with a probabalistic argument.
-**** An Analytical Argument
+***** An Analytical Argument
 We substitute $x = \cos\theta, \d x = -\sin\theta\d\theta$ into
 \eqref{I-initial}.
 \begin{equation}
@@ -920,7 +877,7 @@ I_{n-1} &= \frac{\Gamma\left(\frac{n+1}{2}\right)\Gamma\left(\frac{1}{2}\right)}
 \end{split}
 \end{equation}
 which establishes \eqref{I-final}. $\qed$
-**** A Statistical Argument
+***** A Statistical Argument
 Let “choosing a number“ be done with a uniform probability. Let $\alpha$ and
 $\beta$ be positive integers. The probability of choosing first choosing a real
 $p$ in the interval $[0,1]$, then choosing $\alpha$ real numbers in $[0,p]$, and
@@ -956,7 +913,7 @@ I_{n-1} &= \frac{\sqrt{\pi}\Gamma(\frac{n+1}{2})}{\Gamma(\frac{n}{2}+1)}.
 \end{split}
 \end{equation}
 $\qed$
-*** A General Formula
+**** A General Formula
 Now let's put it all together.
 
 *Theorem 1.* The content of an $n$-ball of radius $R$, denoted $V_n(R)$, is given
@@ -982,15 +939,15 @@ V_n(R) = V_{n-m}(R)R^m\pi^{\frac{m}{2}}\frac{\Gamma\left(\frac{n-m}{2} + 1\right
 Because a $0$-dimensional ball of any radius consists of only one point, $V_0(R)
 = 1$. Setting $m = n$, we obtain our general expression for the content of an
 $n$-dimensional ball and establish Theorem 1.
-*** Proofs and Other Results
-**** A Trigonometric Integral Identity
+**** Proofs and Other Results
+***** A Trigonometric Integral Identity
 From \eqref{I-gamma}, it follows that $\mathcal{I}(n,m) = \mathcal{I}(m,n)$. So
 $\frac{1}{2}\mathcal{I}(n,0) = \frac{1}{2}\mathcal{I}(0,n)$. Then \eqref{I-definition} implies the
 interesting identity
 \begin{equation}
 \int_0^{\frac{\pi}{2}} \sin^n\theta \d\theta = \int_0^{\frac{\pi}{2}} \cos^n\theta \d\theta.
 \end{equation}
-**** Gamma Fraction Identity: Proof of Lemma 2
+***** Gamma Fraction Identity: Proof of Lemma 2
 Lemma 2, which states that
 \begin{equation}
 \int_0^{\infty} \frac{t^{\alpha-1}}{(1+t)^{\alpha + \beta}} \d t = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)},
@@ -1037,7 +994,7 @@ Substituting \eqref{g-prod-reworked} into \eqref{gamma-product}, we have
 \end{split}
 \end{equation}
 which establishes the desired result. $\qed$
-**** Gamma of One-Half: Proof of Lemma 3
+***** Gamma of One-Half: Proof of Lemma 3
 We shall prove Lemma 3, that $\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}$. In
 \eqref{claim}, set $\alpha = \beta = \frac{1}{2}$. Then
 \begin{equation}
@@ -1082,7 +1039,7 @@ Because the integrand $e^{-x^2}$ is an even function, it follows that
 \begin{equation}
 \int_{-\infty}^\infty e^{-x^2} \d x = \sqrt{\pi}.
 \end{equation}
-**** Gamma Function Doubling Formula
+***** Gamma Function Doubling Formula
 We have the following result.
 
 *Theorem 2. (Gamma Function Doubling Formula)*
@@ -1158,7 +1115,7 @@ expansion is finite---that is, for any positive rational $r$---we can thus
 compute $\Gamma(r)$. And because every irrational number can be written as the
 limit of the partial sums of a sequence of rational numbers, we can compute
 $\Gamma(r)$ for any positive real $r$.
-**** Approximating the Logarithmic Derivative of the Gamma Function
+***** Approximating the Logarithmic Derivative of the Gamma Function
 Consider the logarithmic derivative of the gamma function, which we shall call
 $\mathcal{G}(x)$:
 \begin{equation}
@@ -1286,7 +1243,7 @@ Finally, we can establish Theorem 3 by applying Lemma 7 and Lemma 8:
 \end{split}
 \end{equation}
 $\qed$
-**** Surface Area of Hyperspheres
+***** Surface Area of Hyperspheres
 We can build a the $2$-ball, or disk, from the union of concentric $2$-sphere
 (circle) shells all evenly spaced by a distance $\d r$. This is like the layers
 of an onion. This generalizes to $n$ dimensions, where an $n$-ball is the union
@@ -1308,8 +1265,8 @@ S_n(R) &= \frac{nR^{n-1}\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2}+1\right)} \\
 &= \frac{2R^{n-1}\pi^\frac{n}{2}}{\Gamma\left(\frac{n}{2}\right)}.
 \end{split}
 \end{equation}
-*** Implications
-**** Small Dimensions
+**** Implications
+***** Small Dimensions
 #+attr_html: :width 75%
 #+caption: Note the global maximum, after which the content quickly decreases.
 [[/img/math/n-ball-graph.png]]
@@ -1340,7 +1297,7 @@ which means that the maximal content of a ball of radius $R$ is attained in
 n &\sim 2\pi R^2.
 \end{split}
 \end{equation}
-**** Large Dimensions
+***** Large Dimensions
 For a given radius $R$, the content of an $n$-ball goes to 0 as $n$ goes to
 infinity. That is,
 \begin{equation}
@@ -1361,7 +1318,7 @@ Then by the ratio test, the series $\sum_{n=0}^\infty \frac{a^n}{(kn)!}$
 converges because its limiting ratio is 0. Because the terms of a convergent
 series must tend to 0, $\frac{a^n}{(kn)!}$ tends to 0. Thus we have proven that
 for a given $R$, $V_n(R)$ tends to $0$ as $n$ increases).
-*** Conclusion
+**** Conclusion
 Our most important result was a general expression for the content of an
 $n$-ball of radius $R$:
 \begin{equation}
@@ -1378,7 +1335,7 @@ and
 Our next steps would be to examine the properties of other geometric figures in
 $n$ Euclidean dimensions, such as hypercubes and simplices. We could also
 analyze balls in non-Euclidean spaces, such as hyperbolic space.
-** Harmonic Numbers and Binomial Coefficients                  :calculus:proof:
+*** Harmonic Numbers and Binomial Coefficients             :calculus:proof:
 :PROPERTIES:
 :EXPORT_FILE_NAME: harm-id
 :EXPORT_DATE: 2018-02-04
@@ -1396,7 +1353,7 @@ coefficients:
 \label{identity}
 \end{equation}
 I have two solutions: one with calculus, and one by induction.
-*** Calculus
+**** Calculus
 First, we notice that
 \begin{equation}
 \int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Biggr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.
@@ -1433,7 +1390,7 @@ $(1-u)^n$ term using the binomial theorem:
 \end{split}
 \end{equation}
 This concludes our proof of \eqref{identity}.
-*** Induction
+**** Induction
 We first show that
 \begin{equation}
 \frac{1}{k+1}\binom{n}{k} = \frac{1}{n+1}\binom{n+1}{k+1}.
@@ -1504,7 +1461,7 @@ By the inductive hypothesis, we have
 \end{split}
 \end{equation}
 which closes the induction.
-** Generalizing Heron's Formula                                :geometry:proof:
+*** Generalizing Heron's Formula                           :geometry:proof:
 :PROPERTIES:
 :EXPORT_FILE_NAME: herons-formula
 :EXPORT_DATE: 2018-02-03
@@ -1607,7 +1564,7 @@ $\alpha + \beta = \pi$. This is true if the quadrilateral is cyclic. And so we
 have discovered that, given four side lengths, we can form the quadrilateral
 with the maximum area if we arrange the lengths such that opposite angles are
 supplementary (if we make a cyclic quadrilateral).
-** Comparing $e^\pi$ and $\pi^e$                               :calculus:proof:
+*** Comparing $e^\pi$ and $\pi^e$                          :calculus:proof:
 :PROPERTIES:
 :EXPORT_FILE_NAME: e-pi
 :EXPORT_DATE: 2018-02-01
@@ -1618,7 +1575,7 @@ The constants $e$ and $\pi$ are everywhere in mathematics. Determining the
 greater of the two expressions $e^\pi$ and $\pi^e$ (without using a calculator,
 of course...) is a fun puzzle that you can approach in many ways. I'd like to
 discuss my solutions.
-*** Differentiation
+**** Differentiation
 We shall perform the same operations on the two expressions.
 \begin{equation}
     \begin{split}
@@ -1646,7 +1603,7 @@ $1 - \ln{x} = 1$, so the function is increasing. The value $x = e^2 > e$ gives
 $1 - \ln{x} = -1$, which means the function is decreasing. Thus
 $x^{\frac{1}{x}}$ has a global maximum at $x = e$. And so $e^{\frac{1}{e}} >
 \pi^{\frac{1}{\pi}}$, which shows that $e^\pi > \pi^e$.
-*** Inequality
+**** Inequality
 If we use the inequality $1 + x < e^x$ (I will present three proofs of this
 below), then a very simple solution presents itself. The equality holds for all
 $x$, but we only require it to hold for positive $x$. Make the substitution $x =
@@ -1662,7 +1619,7 @@ so
     \end{split}
 \end{equation}
 Wonderful, isn't it?
-**** Taylor Series
+***** Taylor Series
 This is the most standard proof I have; I think it's the least exciting. We only
 prove the equality for positive $x$. We know
 \begin{equation}
@@ -1670,13 +1627,13 @@ e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
 \end{equation}
 Thus for $x > 0$, all the terms on the right side will be positive, and so $e^x
 > 1 + x$.
-**** Concavity
+***** Concavity
 This method requires a little more "geometric intuition" than the last. At $x =
 0$, we have $e^x = 1$. At this point $(0,1)$, the tangent line to $e^x$ has
 slope $1$ and has the equation $y = 1 + x$. Because $(e^x)'' = e^x > 0$, $e^x$
 is always concave up, so it is always above its tangent line. Therefore, $1 + x
 < e^x$.
-**** AM-GM
+***** AM-GM
 This is my favourite proof. It's a little less intuitive than the others, but I
 think it's beautiful. We use the arithmetic-geometric mean inequality.
 \begin{equation}
@@ -1705,7 +1662,7 @@ Using the limit definition of $e$, we conclude our proof.
 
 I get the feeling that there are many other ways to attack this problem. If you
 can solve it with a method that I have not shown, please let me know!
-* Euler                                                                 :@euler:
+* Euler                                                              :@euler:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: euler
 :END:
@@ -3717,7 +3674,7 @@ $k_i$ represents the number of times $i$ appears in a particular way of writing
 $n$ as a sum of natural numbers. This means that the coefficient on $x^n$ is the
 number of such ways to write $n$, which is $p(n)$.
 * ​Footnotes
-* COMMENT Local Variables                                           :ARCHIVE:
+* COMMENT Local Variables                                              :ARCHIVE:
 # Local Variables:
 # org-hugo-auto-export-on-save: t
 # End:

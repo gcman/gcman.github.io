@@ -1,47 +1,33 @@
 .section {
+  margin-top: 10px;
   h2 {
     font-size: 1.25em;
     font-weight: normal;
     margin: 2px 0 -2px 0;
   }
-
   .taglist {
-      li {
-        display: inline-block;
-        font-variant: small-caps;
-      }
-      li:before {
-        content: '\00a0\2022\00a0';
-	      color: black;
-        opacity: .4;
-	      font-size: 11px;
-      }
-      li:first-child:before {
-          content: '';
-      }
+    li {
+      display: inline-block;
+      font-variant: small-caps;
+    }
+    li:before {
+      content: '\00a0\2022\00a0';
+	  color: black;
+      opacity: .4;
+	  font-size: 11px;
+    }
+    li:first-child:before {
+      content: '';
+    }
   }
-
-  section table {
-    padding-top: 5px;
-    margin: 0;
-    width: 100%;
-    margin-top: 10px;
-    border: none;
-  }
-
-  section tr, section td {
-    margin: 0;
-    padding: 10px 0;
-    border: none !important;
-  }
-  section .post td {
+  article {
     text-align: center;
   }
-  section #date {
+  #date {
     font-size: .8em;
     opacity: .5;
   }
-  section #description {
+  #description {
     margin-top: 0.75ex;
     font-style: italic;
   }

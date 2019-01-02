@@ -1,9 +1,3 @@
-{{- $pages := (where $.Site.Pages "Kind" "page") }}
-<table>
-  {{ range $pages}}
-  {{ if in .Params.categories "euler"}}
-  {{ else }}
-      {{ partial "index-row.html" . }}
-  {{ end }}
-  {{ end }}
-</table>
+{{ range .Pages}}
+{{ .Render "index-row" }}
+{{ end }}
