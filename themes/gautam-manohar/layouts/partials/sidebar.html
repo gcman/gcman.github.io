@@ -3,7 +3,7 @@
     <p class="date">Posted {{ dateFormat "2 January 2006" .Date }}</p>
     <p class="category">
       {{ range .Params.categories }}
-      <a href="{{ $.Site.BaseURL }}/{{ . }}/" title="Posts in section {{ . }}">{{ . }}</a>&nbsp;
+      <a href="{{ $.Site.BaseURL }}/categories/{{ . }}/" title="Posts under category {{ . }}">{{ . }}</a>&nbsp;
       {{ end }}
     <p>
     <p>{{- partial "taglist.html" . -}}<p>
@@ -12,7 +12,7 @@
   <h2>Recent Posts</h2>
   <ul>
   {{- range first 5 (where .Site.Pages "Kind" "page") -}}
-      <li><a href="{{.RelPermalink}}">{{.Title}}</a></li>
+      <li><a href="{{ .Permalink }}">{{.Title}}</a></li>
   {{- end -}}
   </ul>
   </section>

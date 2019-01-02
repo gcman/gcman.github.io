@@ -1,7 +1,7 @@
 {{ define "title" }}{{ .Title }} &ndash; {{ .Site.Title }}{{ end }}
 {{ define "main" }}
 <article class="section article">
-  <h1>Posts tagged {{ .Title }}</h1>
+  <h1>Posts under category {{ .Title }}</h1>
   <ul>
     {{ range .Pages }}
     <li>
