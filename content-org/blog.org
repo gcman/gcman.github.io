@@ -1696,7 +1696,7 @@ my algorithms and code (and the process of coming up with them), but never a big
 flashing box with the answer on it.
 *** How far have I gotten?
 Here is a complete summary of my progress in solving problems on Project Euler
-and their upgraded versions on ProjectEuler+ at HackerRank
+and their upgraded versions on ProjectEuler+ at HackerRank.
 ** Project Euler 1: Multiples of 3 or 5                                   :@math:identity:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 1
@@ -3595,6 +3595,7 @@ programming techniques. This problem is a variant on the coin sum problem in
 Euler 31. Here the coins take on the values of the primes up to $N$. There are
 about $\frac{N}{\log N}$ primes up to $N$. Our solution has time complexity
 $O(\frac{N^2}{\log N} + T)$.
+* Drafts
 ** Project Euler 78: Coin Partitions                                         :proof:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 78
@@ -3674,6 +3675,7 @@ from each term in the sum. In other words, each term is of the form $x^{k_1 +
 $k_i$ represents the number of times $i$ appears in a particular way of writing
 $n$ as a sum of natural numbers. This means that the coefficient on $x^n$ is the
 number of such ways to write $n$, which is $p(n)$.
+
 * ​Footnotes
 * COMMENT Local Variables                                              :ARCHIVE:
 # Local Variables:

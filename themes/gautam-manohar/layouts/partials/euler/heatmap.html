@@ -33,45 +33,45 @@
   </tr>
 </table>
 {{ $s := newScratch }}
-{{ $s.Set "max" (int (index (split (index (split (index (sort (where (index $.Site.Taxonomies.categories "euler") "Kind" "page")) 0).Title ": ") 0) "Euler ") 1)) }}
-{{ $currMax := 0 }}
+{{ $s.Set "max" 0 }}
+{{ $currMax := 70 }}
 {{ range (where (.Site.RegularPages.ByParam "slug") "Section" .Section) }}
-{{ $currMax = (int (index (last 2 (split .Permalink "/")) 0)) }}
+{{ $currMax = (int .File.BaseFileName) }}
 {{ if ge $currMax ($s.Get "max") }}
 {{ $s.Set "max" $currMax}}
 {{ end }}
 {{ end }}
 {{ $s.Set "num" 0 }}
 {{ if modBool ($s.Get "max") 100 }}
-  {{ $s.Set "lastMax" 100 }}
+{{ $s.Set "lastMax" 100 }}
 {{ else }}
-  {{ $s.Set "lastMax" (mod ($s.Get "max") 100) }}
+{{ $s.Set "lastMax" (mod ($s.Get "max") 100) }}
 {{ end }}
 {{ range $idx, $block := (seq (math.Ceil (div ($s.Get "max") 100.0))) }}
-  <table class="map euler">
-    {{ range $idx2, $row := (seq 5) }}
-      {{ if le ($s.Get "num") ($s.Get "max") }}
-        <tr>
-          {{ range $idx3, $cell := (seq 20) }}
-            {{ $s.Set "num" (add 1 (add (add (mul $idx 100) (mul $idx2 20)) $idx3)) }}
-              {{ if le ($s.Get "num") (mul 20 (math.Ceil (div ($s.Get "max") 20.0))) }}
-                {{ $s.Set "path" (printf "euler/%d" ($s.Get "num")) }}
-                  {{ if (fileExists (printf "%s.md" ($s.Get "path"))) }}
-                    {{ $s.Set "status" (($.Site.GetPage ($s.Get "path")).Params.status | default "dg" ) }}
-                  {{ else }}
-                    {{ $s.Set "status" "gr" }}
-                  {{ end }}
-                  {{ if le ($s.Get "num") ($s.Get "max") }}
-                    <td class="{{ index $.Site.Data.euler.colourCodes ($s.Get "status") }}">
-                      <a title="{{ with $.Site.GetPage ($s.Get "path") }}{{.Title}}{{ end }}" href="{{ $s.Get "path" | absURL }}">{{ $s.Get "num" }}</a>
-                    </td>
-                  {{ else }}
-                    <td></td>
-                  {{ end }}
-            {{ end }}
-          {{ end }}
-        </tr>
-      {{ end }}
+<table class="map euler">
+  {{ range $idx2, $row := (seq 5) }}
+  {{ if le ($s.Get "num") ($s.Get "max") }}
+  <tr>
+    {{ range $idx3, $cell := (seq 20) }}
+    {{ $s.Set "num" (add 1 (add (add (mul $idx 100) (mul $idx2 20)) $idx3)) }}
+    {{ if le ($s.Get "num") (mul 20 (math.Ceil (div ($s.Get "max") 20.0))) }}
+    {{ $s.Set "path" (printf "euler/%d" ($s.Get "num")) }}
+    {{ if (fileExists (printf "%s.md" ($s.Get "path"))) }}
+    {{ $s.Set "status" (($.Site.GetPage ($s.Get "path")).Params.status | default "dg" ) }}
+    {{ else }}
+    {{ $s.Set "status" "gr" }}
     {{ end }}
-  </table>
+    {{ if le ($s.Get "num") ($s.Get "max") }}
+    <td class="{{ index $.Site.Data.euler.colourCodes ($s.Get "status") }}">
+      <a title="{{ with $.Site.GetPage ($s.Get "path") }}{{.Title}}{{ end }}" href="{{ $s.Get "path" | absURL }}">{{ $s.Get "num" }}</a>
+    </td>
+    {{ else }}
+    <td></td>
+    {{ end }}
+    {{ end }}
+    {{ end }}
+  </tr>
+  {{ end }}
+  {{ end }}
+</table>
 {{ end }}
