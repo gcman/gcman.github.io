@@ -144,14 +144,11 @@ def preview():
     euler()
 
 
-def push(message):
-    call("git add -A", shell=True)
-    call('git commit --allow-empty -m"' + message + '"', shell=True)
-    call("git push", shell=True)
+def push():
     call("ghp-import public --force --push --branch=master", shell=True)
 
 
 def publish(message):
     preview()
-    push(message)
+    push()
     call("rm -rf public", shell=True)
