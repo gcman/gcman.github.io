@@ -1,11 +1,15 @@
 <table id="next-prev">
   <tr>
-    {{ with .PrevInSection }}
-    <td class="left arrow">&#8592; older</td>
-    {{end}}
-    {{with.NextInSection}}
-    <td class="right arrow">newer &#8594;</td>
-    {{end}}
+    <td class="left arrow">
+      {{ with .PrevInSection }}
+      &#8592; older
+      {{end}}
+    </td>
+    <td class="right arrow">
+      {{with.NextInSection}}
+      newer &#8594;
+      {{end}}
+    </td>
   </tr>
   <tr>
     <td class="left">
