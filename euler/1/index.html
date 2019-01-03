@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.c2d8d5f799652dc30a8998f7eea1aadd7875a19ee2fc2659abc439098bc22c6c.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.4664d86eae539386c8e67b75a7f2a83ee0e5f3864bbe73cc85c0f9fc46eebe87.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -105,7 +105,7 @@
 
 <h2 id="my-algorithm">My Algorithm</h2>
 
-<p>In general, the sum of the natural numbers up to \(n\) is the $n$-th <a href="https://en.wikipedia.org/wiki/Triangular%5Fnumber">triangular
+<p>The sum of the natural numbers up to \(n\) is the \(n\)-th <a href="https://en.wikipedia.org/wiki/Triangular%5Fnumber">triangular
 number</a>. Let&rsquo;s call this \(T(n)\). A well known formula for this is</p>
 
 <p>\begin{equation}
@@ -120,7 +120,7 @@ T(n) = \sum_{i=1}^n i = \frac{n(n+1)}{2}.
 \label{3-list}
 \end{equation}</p>
 
-<p>We can factor 3 out and write \eqref{3-list} as \(3T\floor{\frac{n-1}{3}}\), which
+<p>We can factor 3 out and write \eqref{3-list} as \(3T\left(\floor{\frac{n-1}{3}}\right)\), which
 we know how to find with \eqref{triangular-num}. We can do the same thing
 with 5.</p>
 
@@ -130,7 +130,7 @@ subtracting the sum of all multiples of 15 under \(n\). And so our desired answe
 is</p>
 
 <p>\begin{equation}
-3T\floor{\frac{n-1}{3}} + 5T\floor{\frac{n-1}{5}} - 15T\floor{\frac{n-1}{15}},
+3T\left(\floor{\frac{n-1}{3}}\right) + 5T\left(\floor{\frac{n-1}{5}}\right) - 15T\left(\floor{\frac{n-1}{15}}\right),
 \end{equation}</p>
 
 <p>with complexity \(O(1)\).</p>

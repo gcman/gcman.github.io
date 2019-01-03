@@ -212,7 +212,7 @@ Other Solutions In languages without big integer support, we would need an algor
       
       <guid>https://gautammanohar.com/euler/4/</guid>
       <description>Problem Statement A palindromic number reads the same both ways. The smallest 6 digit palindrome made from the product of two 3-digit numbers is \(101101 = 143 \cdot 707\). Find the largest palindrome made from the product of two 3-digit numbers which is less than \(N\).
-My Algorithm There are less than \(10^6\) possible products of two 3-digit numbers, so brute force is a possible solution. We compute all products \(ij\) of numbers \(100 \le i,j \le 999\).</description>
+My Algorithm We compute all products \(ij\) of numbers \(100 \le i,j \le 999\) and keep the palindromic ones. Then we sort the palindromic products and perform a binary search for the greatest element of the array strictly less than \(N\).</description>
     </item>
     
     <item>

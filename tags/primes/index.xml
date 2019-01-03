@@ -101,8 +101,8 @@ My Algorithm If we prime factor a number \(n\) as</description>
       <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
       
       <guid>https://gautammanohar.com/euler/3/</guid>
-      <description>Problem Statement The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor a given number \(N\)?
-My Algorithm Suppose we split \(n\) into two factors. Then one of them is at least \(\sqrt{n}\) and the other is at most \(\sqrt{n}\). To see this, we argue by contradiction; if both were strictly less than \(\sqrt{n}\), then their product would be strictly less than \(n\), and if both were strictly greater, so would their product.</description>
+      <description>Problem Statement The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor of a given number \(N\)?
+My Algorithm Splitting \(n\) into two factors gives one at least \(\sqrt{n}\) and one at most \(\sqrt{n}\). To see this, suppose not; if both were strictly less than \(\sqrt{n}\), then their product would be strictly less than \(n\), and if both were strictly greater, so would their product.</description>
     </item>
     
     <item>
