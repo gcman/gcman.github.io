@@ -1,0 +1,4 @@
+{{ if in .Params.categories "euler" }}
+	{{- partial "euler/codeSummary.html" . -}}
+	{{- partial "euler/heatmap.html" . -}}
+{{ end }}

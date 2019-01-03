@@ -1,0 +1,12 @@
+\documentclass{article}
+\pagenumbering{gobble}
+\usepackage{chemfig}
+\begin{document}
+	\schemestart
+	\chemfig{[0,0.8]H_3C-[::30]C(=[2]\lewis{1:3:,O})-[::-60]\lewis{5:7:,O}-[::60]CH_3}
+	\arrow{<->}
+	\chemfig{[0,0.8]H_3C-[::30]\chembelow{C}{\scriptstyle+}(-[2]\lewis{0:2:4:,\chemabove[0pt]{O}{\scriptstyle\hspace{13pt}-}})-[::-60]\lewis{5:7:,O}-[::60]CH_3}
+	\arrow{<->}
+	\chemfig{[0,0.8]H_3C-[::30]C(-[2]\lewis{0:2:4:,\chemabove[0pt]{O}{\scriptstyle\hspace{13pt}-}})=[::-60]\lewis{6:,\chemabove[1.5pt]{O}{\scriptstyle+}}-[::60]CH_3}
+	\schemestop
+\end{document}

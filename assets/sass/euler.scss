@@ -1,0 +1,150 @@
+.euler {
+    .fancy-table {
+	    border-collapse: collapse;
+	    border-spacing: 0;
+        margin: 1em auto;
+    }
+
+    .fancy-table th {
+	    background: firebrick;
+	    color: ivory;
+	    font-style: italic;
+      font-family: "Palatino Linotype";
+      vertical-align: middle;
+    }
+
+    .fancy-table td, .fancy-table th {
+	    padding: 2px 10px !important;
+    }
+
+    .fancy-table thead th:first-child {
+        border-radius: 10px 0 0 0;
+    }
+    .fancy-table thead th:last-child {
+        border-radius: 0 10px 0 0;
+    }
+    .fancy-table tbody tr:last-child td:first-child {
+        border-radius: 0 0 0 10px;
+    }
+    .fancy-table tbody tr:last-child td:last-child {
+        border-radius: 0 0 10px 0;
+    }
+    .fancy-table tbody tr:hover {
+        background-color: #fcf4d9;
+    }
+
+    table.euler {
+	    border-collapse: separate;
+	    border-spacing: 0.125vw;
+    }
+
+    table.map {
+	    margin: 0.5em 0;
+	    table-layout: fixed;
+	    width: 100%
+    }
+
+    table.euler td {
+	    font-weight: bold;
+	    background-clip: padding-box;
+		  -moz-background-clip: padding;
+		  -webkit-background-clip: padding;
+      border-radius: 0.25vw;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    table.legend {
+	    border-spacing: 3px;
+    }
+
+    table.legend td {
+	    font-size: 95%
+    }
+
+    .euler-circle {
+	    width: 1.5em;
+	    height: 1.5em;
+	    display: inline-block;
+	    border-width: 0.08vw;
+	    border-radius: 50%;
+    }
+
+    table.legend td.text {
+	    text-align: left;
+	    padding-left: 0.5em;
+	    font-weight: normal;
+    }
+
+    table.map td {
+	    font-family: monospace;
+	    line-height: 1.25vw;
+	    font-size: 0.9vw;
+    }
+
+    table.map td a {
+	    width: 100%;
+	    display: block;
+	    color: inherit;
+    }
+
+    td.text {
+	    background-color: ivory;
+	    color: black;
+	    font-weight: normal;
+    }
+
+    .complete {
+	    background-color: green;
+	    border: 0.075vw solid darkgreen;
+	    color: #DDFFDD;
+    }
+
+    .hackerrank-imperfect {
+	    background-color: #DDFFDD;
+	    border: 0.075vw solid green;
+	    color: green;
+    }
+
+    .euler-only {
+	    background-color: #9999FF;
+	    border: 0.075vw solid #333;
+	    color: #333;
+    }
+
+    .tle {
+	    background-color: khaki;
+	    border: 0.075vw solid #6d660a;
+	    color: #6d660a;
+    }
+
+    .unsolved {
+	    background-color: #ededed;
+	    border: 0.075vw solid dimgray;
+	    color: gray;
+    }
+
+    span.fast {
+	    color: #2db92d;
+    }
+
+    span.medium {
+	    color: green;
+    }
+
+    span.slow {
+	    color: #B58900;
+    }
+
+    span.tooslow {
+	    color: crimson;
+    }
+
+    figure.logos {
+        display: flex;
+        justify-content: center;
+        a {
+            padding: 5px;
+        }
+    }
+}

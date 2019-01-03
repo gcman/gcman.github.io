@@ -1,0 +1,9 @@
+* Gautam Manohar's Personal Website
+The =master= branch houses the code behind my [[https://gautammanohar.com][personal website]]. The =src= branch
+shows the behind-the-scenes work: the layouts and templates, Python or LaTeX
+used to generate figures, and the raw source for the content.
+
+I write all my site's content in Org Mode and export to Markdown using [[https://ox-hugo.scripter.co/][ox-hugo]].
+I then use the static site generator [[https://gohugo.io/][Hugo]] to get the actual HTML as seen on the
+site. Only the =src= branch contains a valid commit history, as I publish new
+versions of the site with [[https://github.com/davisp/ghp-import][ghp-import]].

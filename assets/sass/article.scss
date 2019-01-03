@@ -1,0 +1,87 @@
+a.tag {
+  color: black;
+  opacity: 0.5;
+  font-size: 0.8em;
+}
+.main {
+  display: flex;
+  justify-content: center;
+  .side {
+    margin-left: 5%;
+    margin-top: 7.5%;
+    width: 15%;
+    h2 {margin-bottom: 0.25em;}
+    section#info {
+      .date {font-size: .75em;}
+      .category {
+        font-variant: small-caps;
+        font-weight: bold;
+      }
+    }
+    section#recent{
+      margin-top: 1.25em;
+      li {
+        line-height: 1.2em;
+        padding: 3px;
+      }
+    }
+  }
+}
+.blog {
+  width: 30% !important;
+  margin: 0 auto;
+}
+.article {
+  width: 40%;
+  line-height: 1.5em;
+
+  h1.title {
+    font-size: 2.25em;
+    text-align: center;
+    a {color: black;}
+  }
+
+  h1 { font-family: "Palatino Linotype"; font-size: 1.75em; margin: 1em 0 .5em 0}
+  h2 { font-family: "Palatino Linotype"; font-size: 1.5em; margin: .83em 0 .3em 0}
+  h3 { font-family: "Palatino Linotype"; font-size: 1.17em; margin: 1em 0 .35em 0}
+  h4 { font-family: "Palatino Linotype"; font-size: .83em; margin: 1.12em 0 .5em 0}
+  h5 { font-family: "Palatino Linotype"; font-size: .75em; margin: 1.5em 0 .5em 0}
+  h6 { font-family: "Palatino Linotype"; font-size: .50em; margin: 1.67em 0 .5em 0}
+
+  header {
+    text-align: center;
+    font-variant: small-caps;
+    .title {line-height: 1.25em;}
+    .subtitle {
+      margin-top: -0.75em;
+      font-size: 1.125em;
+      font-style: normal;
+    }
+  }
+
+  hr {
+    width: 75%;
+    height: 3px;
+    border: 0;
+    margin-top: 3ex;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(178, 34, 34, 0.5), rgba(0, 0, 0, 0));
+  }
+
+  /* Footer */
+
+  #related {
+    display: flex;
+    .post {
+      padding: 5px;
+    }
+  }
+
+  #next-prev {
+    margin-top: 1em;
+    width: 100%;
+    .left {text-align: left;}
+    .right {text-align: right;}
+    .arrow {font-variant: small-caps;}
+  }
+
+}

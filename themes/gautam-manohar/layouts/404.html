@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Error 404 - Gautam Manohar</title>
+    <meta charset="utf-8" />
+    <meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
+    <meta name="author" content="Gautam Manohar" />
+    <meta name="copyright" content="Gautam Manohar" />
+    <meta name="robots" content="noindex,follow">
+    {{ partial "header/favicons.html" . }}
+    {{ $index := resources.Get "sass/index.scss"}}
+    {{ $error := resources.Get "sass/404.scss"}}
+    {{ $style := slice $error $index | resources.Concat "sass/error-style.scss" | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+  </head>
+  <body>
+    <div class="error">
+      <h1 class="flex-item">
+        <span class="odd" id="1"><a href="#">5</a></span>
+        <span><a href="/">2</a></span>
+        <span class="odd" id="2"><a href="#">7</a></span>
+        <span class="odd" id="3"><a href="#">3</a></span>
+        <span class="odd" id="4"><a href="#">17</a></span>
+      </h1>
+      <p class="flex-item">Uh-oh&hellip; It looks like you've wound up somewhere odd. It's a prime
+        location for some sightseeing, but you want out.</p>
+      <p class="flex-item">Click the even number to make your way back home.</p>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+      $('#1').on('click', function() {
+          if ($('#1').css('opacity') == 0.75) {
+              $('#1').css('opacity', 0);
+          }
+      });
+      $('#2').on('click', function() {
+          if ($('#2').css('opacity') == 0.75) {
+              $('#2').css('opacity', 0);
+          }
+      });
+      $('#3').on('click', function() {
+          if ($('#3').css('opacity') == 0.75) {
+              $('#3').css('opacity', 0);
+          }
+      });
+      $('#4').on('click', function() {
+          if ($('#4').css('opacity') == 0.75) {
+              $('#4').css('opacity', 0);
+          }
+      });
+    </script>
+</body>

@@ -1,0 +1,10 @@
+math:
+    name: Math
+    key: math
+    flavour: Proof & Exploration
+    pos: 1
+euler:
+    name: Project Euler
+    key: euler
+    flavour: Full Solutions
+    pos: 100

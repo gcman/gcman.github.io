@@ -1,0 +1,47 @@
+{{ .Content }}
+<table style="width:85%" class="fancy-table" id="euler-progress-table">
+  <thead>
+    <tr>
+      <th data-sort-default data-sort-method="number" role="columnheader">#</th>
+      <th role="columnheader">Problem Name</th>
+      <th data-sort-method="number" title="Project Euler difficulty (out of 100)" role="columnheader">PE</th>
+      <th role="columnheader" title="Hackerrank difficulty">HR</th>
+      <th data-sort-method="number" role="columnheader">Runtime (ms)</th>
+      <th data-sort-method="number" role="columnheader">Memory (KB)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{- $meta := .Site.Data.euler.problemData }}
+    {{- $s := newScratch }}
+    {{ range .Site.Taxonomies.categories.euler }}
+    {{- $s.Set "num" (index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0) }}
+    {{- $s.Set "problem" (index $meta ($s.Get "num")) }}
+    {{- with $s.Get "problem" }}
+    {{- $s.Set "name" (index ($s.Get "problem") "name") }}
+    {{- $s.Set "diff" (index ($s.Get "problem") "difficulty") }}
+    {{- $s.Set "hrdiff" (index ($s.Get "problem") "hrdifficulty") }}
+    {{- $s.Set "time" (index ($s.Get "problem") "runtime") }}
+    {{- $s.Set "mem" (index ($s.Get "problem") "memory") }}
+    {{- $s.Set "path" (printf "euler/%s" ($s.Get "num"))}}
+    {{ with $.Site.GetPage ($s.Get "path") }}
+    {{- $s.Set "name" (index (split .Title ":") 1) }}
+    {{ end }}
+    <tr>
+      <td>{{ $s.Get "num" }}</td>
+      <td><a title="{{- $s.Get "name" }} (Difficulty: {{ $s.Get "diff" }}%)"
+      href="{{ $s.Get "path" | absURL }}">{{ $s.Get "name" }}</a></td>
+      <td>{{ $s.Get "diff" }}</td>
+      <td>{{ $s.Get "hrdiff" }}</td>
+      <td>{{ $s.Get "time" }}</td>
+      <td>{{ $s.Get "mem" }}</td>
+    </tr>
+    {{ end }}
+    {{ end }}
+  </tbody>
+</table>
+{{ $ts := resources.Get "js/tablesort.js" }}
+{{ $tsn := resources.Get "js/tablesort.number.js" }}
+<script src="{{ $ts.Permalink }}"></script>
+<script src="{{ $tsn.Permalink }}"></script>
+<script> new Tablesort(document.getElementById('euler-progress-table'));</script>
+{{- partial "euler/heatmap.html" . -}}

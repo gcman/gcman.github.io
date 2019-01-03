@@ -1,0 +1,21 @@
+<aside id="gcman-toolbar">
+    {{ if .PrevInSection }}
+    <a title="{{ .PrevInSection.Params.shorttitle | default .PrevInSection.Params.title }}" class="prev" href="{{ .PrevInSection.URL }}">
+        <i class="fas fa-chevron-circle-left"></i>
+    </a>
+    {{ end }}
+    <a title="Raw source" class="raw" href="{{ .Site.BaseURL }}/{{ .Params.slug }}/src.md" type="text/plain">
+        <i class="fas fa-code" aria-hidden="true"></i>
+    </a>
+    <a title="Home" class="home" href="{{ .Site.BaseURL }}/blog/">
+        <i class="fas fa-home"></i>
+    </a>
+    <a title="PDF" class="pdf" href="{{ .Site.BaseURL }}/{{ .Params.slug }}/post.pdf">
+        <i class="far fa-file-pdf" aria-hidden="true"></i>
+    </a>
+    {{ if .NextInSection }}
+    <a title="{{ .NextInSection.Params.shorttitle | default .NextInSection.Params.title }}" class="prev" href="{{ .NextInSection.URL }}">
+        <i class="fas fa-chevron-circle-right"></i>
+    </a>
+    {{ end }}
+</aside>

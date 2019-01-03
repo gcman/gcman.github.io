@@ -1,0 +1,155 @@
+@import "reset";
+@import "normalize.min";
+@import "form";
+@import "scrollbar";
+@import "code";
+@import "chroma";
+@import "pygments";
+
+@import "article";
+@import "blog";
+@import "euler";
+
+body {
+  background-color: ivory;
+  color: black;
+  font-size: 16px;
+  font-family: "Segoe UI", 'Palatino Linotype', 'Book Antiqua', 'URW Palladio L', 'Palladio URW', 'TeX Gyre Pagella', serif;
+  cursor: default;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: firebrick;
+  .MathJax {
+  	.mo {color: firebrick;}
+  	.mi {color: firebrick;}
+  }
+  .math {color: firebrick;}
+}
+
+p {
+  margin-bottom: 1ex;
+}
+
+ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+.invisible {
+    position: absolute;
+    left: -9999px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Pseudo element: selection */
+
+::selection {
+  background-color: firebrick;
+  color: ivory;
+}
+::-moz-selection {
+  background-color: firebrick;
+  color: ivory;
+}
+
+::selection:window-inactive {
+  background-color: gainsboro;
+}
+
+/* Content  */
+
+body {
+  counter-reset: figures;
+}
+
+figure {
+  margin: 1em 0;
+  text-align: center;
+  counter-increment: figures;
+	figcaption {
+  		font-size: .8em;
+  	}
+}
+
+img {
+  border-radius: 8px;
+  margin: 0.5em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.line-block {
+  margin-bottom: 1ex;
+}
+
+/* Sortable Tables */
+
+th[role=columnheader]:not(.no-sort) {
+  cursor: pointer;
+}
+th[role=columnheader]:not(.no-sort):after {
+  content: '';
+  visibility: hidden;
+  opacity: 0;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+th[role=columnheader]:not(.no-sort):hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+
+.nav-wrapper {
+  font-family: "Palatino Linotype";
+  height: 60px;
+  background-color: firebrick;
+}
+
+.nav-wrapper nav {
+  line-height: 60px;
+  background-color: firebrick;
+  padding: 0;
+}
+
+.nav-wrapper nav.fixed {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  top: 0;
+}
+
+nav {
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  padding: 0 0.4em;
+}
+
+nav li a {
+  opacity: 0.9;
+  font-variant: small-caps;
+  font-size: 1.45em;
+  color: ivory;
+}

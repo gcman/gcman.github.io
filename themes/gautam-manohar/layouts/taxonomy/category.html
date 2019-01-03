@@ -1,0 +1,14 @@
+{{ define "title" }}{{ .Title }} &ndash; {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<article class="section article">
+  <h1>Posts under category {{ .Title }}</h1>
+  <ul>
+    {{ range .Pages }}
+    <li>
+      <span id="date">{{ .Date.Format "2 January 2006" }}&#160;-</span>
+      <a href="{{ .Permalink }}">{{ .Title }}{{- with .Params.Subtitle -}}: {{ . }}{{- end -}}</a>
+    </li>
+    {{ end }}
+  </ul>
+</article>
+{{ end }}

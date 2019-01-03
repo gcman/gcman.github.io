@@ -1,0 +1,7 @@
+{{ $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
+<h2>{{ title $currentSec }} <strong>/ {{ (index (index .Site.Data.flavour $currentSec) "flavour") }}</strong></h2>
+<table>
+  {{ range where (index $.Site.Taxonomies.categories $currentSec) "Kind" "page" }}
+    {{ .Render "index-row" }}
+  {{ end }}
+</table>

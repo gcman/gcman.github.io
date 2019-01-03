@@ -1,0 +1,19 @@
+<div class="side">
+  <section id="info">
+    <p class="date">Posted {{ dateFormat "2 January 2006" .Date }}</p>
+    <p class="category">
+      {{ range .Params.categories }}
+      <a href="{{ $.Site.BaseURL }}/categories/{{ . }}/" title="Posts under category {{ . }}">{{ . }}</a>&nbsp;
+      {{ end }}
+    <p>
+    <p>{{- partial "taglist.html" . -}}<p>
+  </section>
+  <section id="recent">
+  <h2>Recent Posts</h2>
+  <ul>
+  {{- range first 5 (where .Site.Pages "Kind" "page") -}}
+      <li><a href="{{ .Permalink }}">{{.Title}}</a></li>
+  {{- end -}}
+  </ul>
+  </section>
+</div>

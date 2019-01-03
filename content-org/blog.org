@@ -1,0 +1,3683 @@
+#+HUGO_BASE_DIR: ../
+* Home
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: .
+:EXPORT_FILE_NAME: _index
+:END:
+** Voraciously curious. Ceaselessly skeptical. Unabashedly nerdy.
+I'm Gautam. Welcome to my little corner of the web. You can take a look inside
+my curious, skeptical, and nerdy brain on my [[/blog/][blog]].
+
+I firmly believe in the power of ideas. Interesting ideas come from
+all walks of life: academic subjects, learning a new language, meeting new
+people, or idle musings over a good cup of tea. Such ideas give my life colour
+and promise to occupy me for a lifetime.
+** A good problem is never solved.
+The most fulfilling problems lead not just to answers that satisfy inquiry but
+to questions that further it. After all, what is an interesting idea without a
+question to inspire it? Questions are the ultimate companion (non-human, of
+course) to a lifelong learner. They motivate me to rejoice in spite of failure
+and work hard in light of success. The path paved by interesting questions never
+ends---and that's what makes it so exciting!
+** Here's some more about me.
+I'm a Grade 12 student at the [[https://utschools.ca][University of Toronto Schools (UTS)]]. My favourite
+number is 7, but perhaps it should be \(n\): why pick one when you can consider
+them all? My favourite (and unfortunately finite) anime series is Steins;Gate,
+which is about time travel; my favourite infinite series is Fourier. It seems I
+like time (and semicolons). Speaking of time, when I have some lying around, I
+like to practice my handwriting and calligraphy, play table tennis, and watch
+basketball.
+* Blog
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: blog
+:END:
+** Blog Index
+:PROPERTIES:
+:EXPORT_FILE_NAME: _index
+:END:
+** Math                                                              :@math:
+*** Prime Reciprocals Diverge!                 :primes:combinatorics:proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: prime-reciprocals
+:EXPORT_DATE: 2018-05-20
+:EXPORT_DESCRIPTION: We prove that the sum of the reciprocals of the prime numbers diverges.
+:END:
+**** Introduction
+In this post, we will investigate the infinite series
+\begin{equation}
+\sum_{p} \frac{1}{p},
+\end{equation}
+taken over all primes $p$. In particular, we will show that this series
+diverges.
+**** Calculus and the Prime Number Theorem
+First, we'll show that this problem falls to the incredible might of the
+following inequalty, which bounds the value of the $n$-th prime:
+\begin{equation}
+n\log n - n \log\log n \le p_n \le n\log n + n\log\log n \quad (n > 5)
+\end{equation}
+This identity comes in quite handy when, say, you're solving some [[../euler/][Project Euler
+problems]] about primes, and you need to generate at least $n$ primes. It's
+derived from the Prime Number Theorem. Using the upper bound, we know that
+$\frac{1}{p} \ge \frac{1}{n\log n + n \log\log n}$ for $n > 5$. And so
+\begin{equation}
+\sum_{p} \frac{1}{p} \ge \sum\limits_{n=6}^\infty \frac{1}{n\log n + n \log\log n}.
+\end{equation}
+Because $\log x$ is a monotonically increasing function, $\log\log x \le \log x$
+for all $x$. And so $n\log n + n \log n \ge n\log n + n\log\log n$. This means
+that
+\begin{equation}
+\sum\limits_{n=6}^\infty \frac{1}{n\log n + n \log\log n} \ge \sum\limits_{n=6}^\infty \frac{1}{2n\log n}.
+\end{equation}
+Here's where the calculus comes in. The integral test says that if a function
+$f$ is non-negative, continuous, and monotonically decreasing on a certain
+interval $[a,b+1]$, then the sum of $f(n)$ over integers $a \le n \le b$ is
+greater than the integral of $f$ over that interval:
+\begin{equation}
+\int_a^{b+1} f(x) \d x < \sum\limits_{\substack{n \in \mathbb{Z}\\ a\le n \le b}}f(n)
+\end{equation}
+We know $x$ is increasing and continuous, as is $\log x$. And so $x \log x$ is
+increasing and continuous, which means that $\frac{1}{x \log x}$ is decreasing.
+On $[6,\infty)$, it's also non-negative. This means that
+\begin{equation}
+\sum_{p} \frac{1}{p} \ge \sum\limits_{n=6}^\infty \frac{1}{2n\log n} \ge \frac{1}{2} \int_6^\infty \frac{1}{x\log x} \d x.
+\end{equation}
+Substituting $u = \log x, \d u = \frac{1}{x} \d x$ gives
+\begin{equation}
+\int_{\log 6}^\infty \frac{\d u}{u},
+\end{equation}
+which we evaluate as $\left[ \log u \right]_{\log 6}^\infty = \infty$. But wait!
+This means that the sum of the reciprocals of the primes is greater than
+infinity, which of course means that it cannot converge to any finite value.
+**** Combinatorics
+In my opinion, this combinatorially inspired method is way cooler.
+***** Squares and Squarefree Products
+First, every integer can be written uniquely as the product of a square and a
+squarefree integer (that is, a number which is not divisible by any square
+greater than 1---such numbers are the products of distinct primes). To see this,
+consider the prime factorization of a number
+\begin{equation}
+n = \prod_{p_i|n} p_i^{e_i},
+\end{equation}
+where $e_i$ is the greatest positive integer such that $p_i^{e_i}$ divides $n$.
+Then for each odd $e_i$, factor out $p_i$. Then each exponent in the product is
+even, which means it is a square, and the term outside the product consists of
+primes with exponent 1.
+***** Unleashing the Combo Punches
+Second, each term in
+\begin{equation}
+\prod_p \left(1 + \frac{1}{p}\right)
+\label{squarefree}
+\end{equation}
+is formed by multiplying either $1$ or $\frac{1}{p}$ for each $p$, which means
+each term is the product of distinct primes. Furthermore, because the product is
+over all primes, every possible combination of primes is represented here
+exactly once. It is clear that
+\begin{equation}
+\sum\limits_{n=1}^\infty \frac{1}{n^2}
+\label{square}
+\end{equation}
+contains the reciprocal of each square exactly once. Its value is the subject of
+the Basel problem, which Euler famously solved: $\frac{\pi^2}{6}$. All we really
+need is that the series converges to some finite value $C$. The product of
+\eqref{squarefree} and \eqref{square} is
+\begin{equation}
+\left(\sum\limits_{n=1}^\infty \frac{1}{n^2}\right)\prod_p \left(1 + \frac{1}{p}\right) = \sum\limits_{n=1}^\infty \frac{1}{n},
+\label{harm-prod}
+\end{equation}
+the harmonic series. This is because each term consists of a selection from the
+first sum (of reciprocals of squares) and the second sum (of reciprocals of
+squarefree numbers). Because all squares and squarefree numbers are here, the
+reciprocal of each number is represented. This fact is not integral to the
+divergence proof, but because the representation of a number as a product of a
+square and a squarefree number is unique, each reciprocal is represented exactly
+once, so the product is exactly equal to the harmonic series. The important fact
+here is that the harmonic series diverges.
+***** The Divergence of the Harmonic Series
+To see this, we can use the integral test again (with the function
+$\frac{1}{x}$), but we can also do it without calculus. Suppose the harmonic
+series converges to some value $H$. Then
+\begin{equation}
+H = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \cdots
+\end{equation}
+Because $n + 1 > n$ for all $n$, we have $\frac{1}{n + 1} < \frac{1}{n}$ for all
+$n$. Replacing terms in a sum with smaller terms means the resulting sum is
+smaller. So
+\begin{equation}
+\begin{split}
+H &> \frac{1}{2} + \frac{1}{2} + \frac{1}{4} + 1{4} + \frac{1}{6} + \frac{1}{6} + \cdots \\
+&= 1 + \frac{1}{2} + \frac{1}{3} + \cdots \\
+&= H.
+\end{split}
+\end{equation}
+We end up with $H > H$, which is certainly not true for any finite value. And so
+the harmonic series diverges.
+***** Finishing Touches
+Third, we'll use the identity
+\begin{equation}
+1 + x \le e^x.
+\label{e-ident}
+\end{equation}
+For three different proofs of this fact, see my post on [[../e-pi/][comparing $e^\pi$ and
+$\pi^e$]]. Applying \eqref{e-ident} to \eqref{harm-prod} gives
+\begin{equation}
+\sum\limits_{n=1}^\infty \le \left(\sum\limits_{n=1}^\infty \frac{1}{n^2}\right)\prod_p \left(1 + \frac{1}{p}\right) \le C\prod_p e^{-p}.
+\end{equation}
+Let's use some exponent rules to clean things up.
+\begin{equation}
+\begin{split}
+\sum\limits_{n=1}^\infty &\le Ce^{\sum_p \frac{1}{p}} \\
+\log \sum\limits_{n=1}^\infty &\le \log C + \sum_p \frac{1}{p}.
+\end{split}
+\end{equation}
+Becuase $C$ is finite, $\log C$ is also finite, and so we can see that the
+desired sum is greater than the harmonic series, which establishes its
+divergence.
+**** Bounding the Beast
+By slightly modifying the above arguments---for example, change infinite sums
+over all primes or natural numbers to partial sums over all terms less than
+$k$---we obtain the following bound:
+\begin{equation}
+\log\sum\limits_{n=1}^k \frac{1}{n} - \log \frac{\pi^2}{6} \le \sum\limits_{p \le k} \frac{1}{p}.
+\end{equation}
+We can make this even prettier by... using some calculus. Because $\frac{1}{x}$
+is decreasing and continuous, we can use the integral test to bound the partial
+harmonic series
+\begin{equation}
+\log\sum\limits_{n=1}^k \frac{1}{n} \ge \int_1^{k+1} \frac{1}{x} \d x = \log(k+1) - \log 1 = \log(k+1).
+\end{equation}
+And so we obtain the very nice lower bound
+\begin{equation}
+\log\log(k+1) - \log\frac{\pi^2}{6} \le \sum\limits_{p \le k} \frac{1}{p}.
+\end{equation}
+**** Conclusion
+So, calculus or combinatorics? I think both methods are cool in their own
+right---one uses continuous methods to analyze prime numbers, which are discrete
+entities, while the other is just mind-numbingly brilliant. Perhaps the calculus
+arguments are cleaner, but the combinatorics ones are much more inspiring and
+hide some deeper insights.
+*** Relatively Prime, Relatively Often                              :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: coprime-prob
+:EXPORT_DATE: 2018-04-17
+:EXPORT_DESCRIPTION: We derive the probability that two random integers are coprime.
+:END:
+Say you choose two integers. What's the chance that they're coprime? My
+intuition says that it can't be more than one-half, because half of all numbers
+share a factor of 2. But I'm thoroughly wrong here. The probability is actually
+$\frac{6}{\pi^2}$, which is about $61\%$.
+
+We wish to find the probability that two randomly selected integers $m$ and $n$
+are coprime. If this is true, then $\mathrm{gcd}(m,n) = 1$. Let's say that $p =
+\mathrm{P}(\mathrm{gcd}(m,n)=1)$. Consider $p_k =
+\mathrm{P}(\mathrm{gcd}(a,b)=k)$ for some positive integer $k$. For this to happen, $k$ must divide both $a$ and $b$, and $\frac{a}{k}$ and $\frac{b}{k}$ must
+be coprime.
+
+And so $p_k =
+\mathrm{P}(k|a\,\text{and}\,k|b)\cdot\mathrm{P}\left(\mathrm{gcd}\left(\frac{a}{k},\frac{b}{k}\right)
+= 1\right)$. One in every $k$ integers is divisible by $k$, so the first
+probability is $\frac{1}{k^2}$. The second probability is just $p$---because $a$ and $b$ were
+random, so are $\frac{a}{k}$ and $\frac{b}{k}$. And so $p_k = \frac{p}{k^2}$.
+
+But any two numbers have a greatest common divisor. That means the sum of $p_k$
+over all $k$ covers all the possibilities, so it must be 1. That is,
+\begin{equation}
+\begin{split}
+\sum_{k=1}^\infty \frac{p}{k^2} &= 1 \\
+p &= \left(\sum_{k=1}^\infty \frac{1}{k^2}\right)^{-1}.
+\end{split}
+\end{equation}
+That sum is famously equal to $\frac{\pi^2}{6}$, as shown by Euler. And
+so we conclude that $p = \frac{6}{\pi^2}$.
+*** Almost There I                                                    :fun:
+:PROPERTIES:
+:EXPORT_FILE_NAME: almost-patterns-sinc
+:EXPORT_DATE: 2018-03-02
+:EXPORT_DESCRIPTION: Some patterns in mathematics go on forever. But many "patterns" do anything but, instead ending spectacularly. Explore patterns that are "almost there."
+:END:
+Mathematics students are often told not to carelessly extrapolate small sample
+sizes into general claims. Indeed, this is a general truth of life: isolated
+examples do not constitute general proof. Say you wanted to convince me of a
+fact about numbers. You could show me that your fact was true for all numbers up
+to ten, a hundred, a million, or to whatever ridiculously huge number you could
+think of---but it wouldn't constitute a mathematical proof. This post will
+hopefully be the first in a series called "Almost There." I will share
+interesting patterns that, although they seem to /surely/ continue, break down
+eventually. You may have noticed that I spelled "sink" incorrectly in the title.
+Sharp eye. That's because we're investigating some interesting properties the
+$\mathrm{sinc}$ function:
+\begin{equation}
+\mathrm{sinc}\, x =
+\begin{cases}
+\frac{\sin x}{x} & \text{if}\ x \neq 0 \\
+1 & \text{if}\ x = 0
+\end{cases}
+\end{equation}
+It looks like this:
+#+attr_html: :width 50%
+[[/img/math/sinc.png]]
+
+This function famously has no elementary antiderivative, yet its definite
+integral over the real line evaluates to
+\begin{equation}
+\int_{-\infty}^\infty \mathrm{sinc}\, x \d x = \pi.
+\end{equation}
+Stay tuned for a proof of this fact. A great tool for playing around with
+computations in math (and, thanks to the wonders of technology, a lot more) is
+[[https://www.wolframalpha.com/][Wolfram Alpha]]. We can compute some pretty complicated integrals with it, like
+\begin{equation}
+\int_{-\infty}^\infty \mathrm{sinc}\, x\,\mathrm{sinc}\, \frac{x}{3} \d x = \pi,
+\end{equation}
+and
+\begin{equation}
+\int_{-\infty}^\infty \mathrm{sinc}\, x\,\mathrm{sinc}\, \frac{x}{3}\,\mathrm{sinc}\, \frac{x}{5} \d x = \pi.
+\end{equation}
+Even as we multiply the integrand by another $\mathrm{sinc}$ function, the value
+of the definite integral remains constant at $\pi$. The pattern continues for
+quite a while. In fact,
+\begin{equation}
+\int_{-\infty}^\infty \mathrm{sinc}\, x\, \mathrm{sinc}\, \frac{x}{3}\, \mathrm{sinc}\, \frac{x}{5}\,\cdots\,\mathrm{sinc}\, \frac{x}{13} \d x = \pi.
+\end{equation}
+But with one more term, the pattern fails spectacularly:
+\begin{equation}
+\int_{-\infty}^\infty \mathrm{sinc}\, x\, \mathrm{sinc}\, \frac{x}{3}\, \mathrm{sinc}\, \frac{x}{5}\,\cdots\,\mathrm{sinc}\, \frac{x}{15} \d x = \frac{467807924713440738696537864469}{467807924720320453655260875000}\pi.
+\end{equation}
+This value is $4.62 \times 10^{-11}$ less than $\pi$. What happened? After some
+research, I found that such integrals were documented in [[https://carma.newcastle.edu.au/jon/sinc-sums.pdf][this paper]]. It turns
+out that, in general, for real numbers $a_1,\ldots,a_n$,
+\begin{equation}
+\int_{-\infty}^\infty \prod_{k=1}^n \mathrm{sinc}\, a_kx \d x
+\end{equation}
+evaluates to $\pi$ if $\sum_k a_k \le 2$. In particular, $1 + \frac{1}{3} +
+\cdots + \frac{1}{13} = \frac{88069}{45045} = 2 - \frac{2021}{45045}$, but
+adding $\frac{1}{15}$ pushes it over the edge. So we can construct sequences of
+numbers $a_k$ such that the pattern holds for arbitrarily many terms before
+failing, when the partial sum of the numbers $a_k$ crosses $2$. Similarly, we
+can make it so the pattern always holds. For example, the series $1 +
+\frac{1}{2} + \frac{1}{4} + \cdots$ famously converges to $2$, so if we set
+$a_k$ to be the reciprocal powers of two, the corresponding integral will be
+equal to $\pi$... forever. But not all patterns hold forever---certainly not
+this one!
+*** Inspheres and Circumspheres of Simplices                :algebra:proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: simplex-sphere
+:EXPORT_DATE: 2018-02-17
+:EXPORT_DESCRIPTION: Every triangle has an inscribed and circumscribed circle. We extend this to tetrahedra and their higher dimensional analogues, simplices.
+:END:
+Every triangle can be circumscribed by a circle, because a circle can always be
+drawn through three given points, so long as they are not colinear. In fact,
+every triangle also has a circle that is inscribed in it. These two circles are
+called the triangle's circumcircle and incircle. Finding these circles for a
+triangle is simple if the triangle is equilateral, a bit harder if it is
+right-angled, and a bit harder still if it is not. What is less well-known is
+that every tetrahedron also has a circumsphere and insphere. Given four points,
+such that no three of them are colinear and not all four of them are coplanar,
+there is a unique sphere that goes through all of them. Finding these spheres
+for a regular tetrahedron is rather straightforward. In particular, a regular
+tetrahedron's circumsphere is always three times larger in radius than its
+insphere. But the analagous problem for an arbitrary, not necessarily regular,
+tetrahedron is much hairier. I will present a geometric proof for the case of
+the regular tetrahedron, and then a look into the circumsphere and insphere of
+arbitrary tetrahedra using techniques from linear algebra. Finally, I will
+generalize my work to arbitrary simplices (the higher-dimensional analogue of
+tetrahedra) in arbitrary dimensions.
+**** Regular Tetrahedra
+We wish to find the ratio between the circumsphere and insphere of a regular
+tetrahedron. Let $ABCD$ be a regular tetrahedron. Let $O$ be the centroid of
+$ABCD$. Then because $ABCD$ is regular, $O$ is the incenter and circumcenter of
+$ABCD$. Let $X$ be the centroid of the face opposite $A$. The volume of $OBCD$
+is a quarter that of $ABCD$, because $ABCD$ is the union of
+$OABC,OABD,OACD,OBCD$, and each of those tetrahedra with vertex $O$ is congruent
+to the others. The volume of a tetrahedron is $\frac{1}{3}bh$. Since $ABCD$ and
+$OBCD$ have the same base, triangle $BCD$, the height $OX$ is one quarter the
+height $AX$. But because $AO = AX - OX$, and $\frac{1}{4}|AX| = |OX|$, then
+$|AO| = \frac{3}{4}|AX|$. Note that $AO$ is the circumradius and $OX$ is the
+inradius. Thus the ratio of the circumradius to the inradius in a regular
+tetrahedron is $\frac{|AO|}{|OX|} = 3$.
+**** Irregular Tetrahedra
+We use coordinate geometry and linear algebra to find the inradius and
+circumradius (and incenter and circumcenter) of a tetrahedron given the
+coordinates of its vertices. To avoid immense computational tedium, we use
+programming to numerically solve for the desired ratio.
+***** Insphere
+Let's first deal with the insphere. Let $(a,b,c)$ be the vector that gives the
+coordinates of the incenter, and let $r$ be the inradius. Let the four vertices
+of the tetrahedron be given by $\vec{V}_i = (x_i,y_i,z_i)$, where $i
+\inn{1,2,3,4}$. Let $F_1$ be the face with vertices $\vec{V}_1, \vec{V}_2,
+\vec{V}_3$. Let $F_2$ be formed by $\vec{V}_1,\vec{V}_2,\vec{V}_4$, $F_3$ by
+$\vec{V}_1,\vec{V}_3,\vec{V}_4$, and $F_4$ by $\vec{V}_2,\vec{V}_3,\vec{V}_4$.
+Let $\vec{n}_i$ represent the unit vector pointing out of the tetrahedron and
+perpendicular to the face $F_i$ of the tetrahedron: that is, the unit
+outward-facing normal vector to $F_i$. The defining characteristic of the
+insphere is that each line from the incenter to the point of tangency on a given
+face is perpendicular to that face and of equal length to the other such lines.
+Taking a circular cross-section of the insphere such that the sphere and the
+circle have the same center and point of tangency to the face, we see that the
+tangent line to the circle must be at a right angle to the line joining the
+point of tangency and the center (from a famous theorem about circles). Then we
+have the condition that $(a,b,c) + r\vec{n}_i$ lies on $F_i$. Let us deal with
+$F_1$. A vector perpendicular to the plane containing two vectors is given by
+their cross product. We can let these two vectors be two of the edges of $F_1$.
+An edge on a face is the displacement between two vertices of a face. Then the
+cross product
+\begin{equation}
+(\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)
+\label{unscaled-normal}
+\end{equation}
+is perpendicular to $F_1$. But \eqref{unscaled-normal} need not point outward.
+To remove this ambiguity, we scale \eqref{unscaled-normal} by a negative value
+if it is pointing inward and by a positive value if it is pointing outward.
+Consider the dot product of \eqref{unscaled-normal} and the displacement vector
+$\vec{V}_4 - \vec{V}_1$, which points from the first vertex away from the
+outward-facing normal and to the fourth vertex. Thus the angle between the
+outward-facing normal and this displacement vector is between $\frac{\pi}{2}$
+and $\pi$, so the cosine of the angle is negative, so the dot product of these
+two vectors is negative. Then scaling \eqref{unscaled-normal} by the negative of
+the dot product yields an outward-facing normal. We then need to normalize this
+vector to obtain the desired unit outward-facing normal vector $\vec{n}_1$:
+\begin{equation}
+\vec{n}_1 = -\frac{(\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)(\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)\cdot(\vec{V}_4 - \vec{V}_1)}{\norm{(\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)(\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)\cdot(\vec{V}_4 - \vec{V}_1)}}.
+\label{normalized}
+\end{equation}
+The point-normal form for the equation of a plane perpendicular to a vector
+$\vec{n}$ and which contains a point $P_0$ is, for some point $P$ on the plane,
+\begin{equation}
+(P - P_0) \cdot \vec{n} = 0.
+\end{equation}
+In particular, we want the equation for the plane which contains $F_1$. We use
+$P = (a,b,c) + r\vec{n}_1$ (the point on $F_1$ tangent to the insphere) and $P_0
+= \vec{V}_1$ (it can be any of the vertices of the face in question, in this
+case $F_1$). This gives
+\begin{equation}
+((a,b,c) + r\vec{n}_1 - \vec{V}_1) \cdot \vec{n}_1 = 0.
+\end{equation}
+Distributing the dot product, we have
+\begin{equation}
+(a,b,c)\cdot\vec{n}_1 + r\vec{n}_1\cdot\vec{n}_1 - \vec{V}_1\cdot\vec{n}_1 = 0.
+\end{equation}
+We then break each vector into its three components:
+\begin{equation}
+\begin{split}
+a\vec{n}_{1_x} + b\vec{n}_{1_y} + c\vec{n}_{1_z} + r(\vec{n}_{1_x}^2 + \vec{n}_{1_y}^2 + \vec{n}_{1_z}^2) & \\
+\qquad - x_1\vec{n}_{1_x} - y_1\vec{n}_{1_y} - z_1\vec{n}_{1_z} &= 0 \\
+a\vec{n}_{1_x} + b\vec{n}_{1_y} + c\vec{n}_{1_z} + r(\vec{n}_{1_x}^2 + \vec{n}_{1_y}^2 + \vec{n}_{1_z}^2) &= x_1\vec{n}_{1_x} + y_1\vec{n}_{1_y} + z_1\vec{n}_{1_z}.
+\end{split}
+\end{equation}
+This equation has four unknowns: the coordinates of the incenter $a,b,c$ and the
+inradius $r$. Using the other three faces, we arrive at a system of four
+equations with four unknowns:
+\begin{equation}
+\begin{split}
+a\vec{n}_{1_x} + b\vec{n}_{1_y} + c\vec{n}_{1_y} + r(\vec{n}_{1_x}^2 + \vec{n}_{1_y}^2 + \vec{n}_{1_z}^2) &= x_1\vec{n}_{1_x} + y_1\vec{n}_{1_y} + z_1\vec{n}_{1_z} \\
+a\vec{n}_{2_x} + b\vec{n}_{2_y} + c\vec{n}_{2_z} + r(\vec{n}_{2_x}^2 + \vec{n}_{2_y}^2 + \vec{n}_{2_z}^2) &= x_2\vec{n}_{2_x} + y_2\vec{n}_{2_y} + z_2\vec{n}_{2_z} \\
+a\vec{n}_{3_x} + b\vec{n}_{3_y} + c\vec{n}_{3_z} + r(\vec{n}_{3_x}^2 + \vec{n}_{3_y}^2 + \vec{n}_{3_z}^2) &= x_3\vec{n}_{3_x} + y_3\vec{n}_{3_y} + z_3\vec{n}_{3_z} \\
+a\vec{n}_{4_x} + b\vec{n}_{4_y} + c\vec{n}_{4_z} + r(\vec{n}_{4_x}^2 + \vec{n}_{4_y}^2 + \vec{n}_{4_z}^2) &= x_4\vec{n}_{4_x} + y_4\vec{n}_{4_y} + z_4\vec{n}_{4_z}
+\end{split}
+\end{equation}
+We can solve this system with matrices. Let
+\begin{equation}
+\vec{A} =
+\begin{bmatrix}
+\vec{n}_{1_x} & \vec{n}_{1_y} & \vec{n}_{1_y} & \vec{n}_{1_x}^2 + \vec{n}_{1_y}^2 + \vec{n}_{1_z}^2 \\
+\vec{n}_{2_x} & \vec{n}_{2_y} & \vec{n}_{2_y} & \vec{n}_{2_x}^2 + \vec{n}_{2_y}^2 + \vec{n}_{2_z}^2 \\
+\vec{n}_{3_x} & \vec{n}_{3_y} & \vec{n}_{3_y} & \vec{n}_{3_x}^2 + \vec{n}_{3_y}^2 + \vec{n}_{3_z}^2 \\
+\vec{n}_{4_x} & \vec{n}_{4_y} & \vec{n}_{4_y} & \vec{n}_{4_x}^2 + \vec{n}_{4_y}^2 + \vec{n}_{4_z}^2
+\end{bmatrix}
+\label{insphere-A}
+\end{equation}
+Let
+\begin{equation}
+\vec{u} =
+\begin{bmatrix}
+x_1\vec{n}_{1_x} + y_1\vec{n}_{1_y} + z_1\vec{n}_{1_z} \\
+x_2\vec{n}_{2_x} + y_2\vec{n}_{2_y} + z_2\vec{n}_{2_z} \\
+x_3\vec{n}_{3_x} + y_3\vec{n}_{3_y} + z_3\vec{n}_{3_z} \\
+x_4\vec{n}_{4_x} + y_4\vec{n}_{4_y} + z_4\vec{n}_{4_z}
+\end{bmatrix}
+\label{insphere-B}
+\end{equation}
+And let the solution vector be
+\begin{equation}
+\vec{v} =
+\begin{bmatrix}
+a \\
+b \\
+c \\
+r
+\end{bmatrix}
+\label{insphere-sols}
+\end{equation}
+Then
+\begin{equation}
+\begin{split}
+\vec{A}\vec{v} &= \vec{u} \\
+\vec{v} &= \vec{A}^{-1}\vec{u}.
+\end{split}
+\end{equation}
+And so the inradius $r$ is the fourth element of $\vec{v}$, or $\vec{v}_4$.
+***** Circumsphere
+Now we deal with the circumsphere. Let the circumsphere have center $(A,B,C)$
+and radius $R$. It then has the equation
+\begin{equation}
+(x - A)^2 + (y - B)^2 + (z - C)^2 = R^2
+\label{sphere-eq}
+\end{equation}
+All four of a tetrahedron's vertices lie on its circumsphere, and so their
+coordinates satisfy \eqref{sphere-eq}. We have four vertices with which we can
+make a system of four equations:
+\begin{equation}
+\begin{split}
+(x_1 - A)^2 + (y_1 - B)^2 + (z_1 - C)^2 &= R^2 \\
+(x_2 - A)^2 + (y_2 - B)^2 + (z_2 - C)^2 &= R^2 \\
+(x_3 - A)^2 + (y_3 - B)^2 + (z_3 - C)^2 &= R^2 \\
+(x_4 - A)^2 + (y_4 - B)^2 + (z_4 - C)^2 &= R^2
+\end{split}
+\label{R-system}
+\end{equation}
+Subtracting the first equation from each of the other three, we have another
+system of equations:
+\begin{equation}
+\begin{split}
+2A(x_1-x_2) + 2B(y_1-y_2) + 2C(z_1-z_2) &= x_1^2 + y_1^2 + z_1^2 - x_2^2 - y_2^2 - z_2^2 \\
+2A(x_1-x_3) + 2B(y_1-y_3) + 2C(z_1-z_3) &= x_1^2 + y_1^2 + z_1^2 - x_3^2 - y_3^2 - z_3^2 \\
+2A(x_1-x_4) + 2B(y_1-y_4) + 2C(z_1-z_4) &= x_1^2 + y_1^2 + z_1^2 - x_4^2 - y_4^2 - z_4^2
+\end{split}
+\end{equation}
+We can solve this system of equations using matrices. Let
+\begin{equation}
+\vec{M} =
+2\begin{bmatrix}
+x_1-x_2 & y_1-y_2 & z_1-z_2 \\
+x_1-x_3 & y_1-y_3 & z_1-z_3 \\
+x_1-x_4 & y_1-y_4 & z_1-z_4
+\end{bmatrix}
+\label{circumsphere-A}
+\end{equation}
+Let
+\begin{equation}
+\vec{u} =
+\begin{bmatrix}
+x_1^2 + y_1^2 + z_1^2 - x_2^2 - y_2^2 - z_2^2 \\
+x_1^2 + y_1^2 + z_1^2 - x_3^2 - y_3^2 - z_3^2 \\
+x_1^2 + y_1^2 + z_1^2 - x_4^2 - y_4^2 - z_4^2
+\end{bmatrix}
+\label{circumsphere-B}
+\end{equation}
+And let the solution vector be
+\begin{equation}
+\vec{v} =
+\begin{bmatrix}
+A \\
+B \\
+C
+\end{bmatrix}
+\label{circumsphere-sols}
+\end{equation}
+Then
+\begin{equation}
+\vec{v} = \vec{M}^{-1}\vec{u}.
+\end{equation}
+Having solved for $A,B,C$, we can solve for $R$ from one of the equations in
+\eqref{R-system}. Let's use the first one.
+\begin{equation}
+\begin{split}
+R^2 &= (x_1 - A)^2 + (y_1 - B)^2 + (z_1 - C)^2 \\
+R &= \sqrt{(x_1 - A)^2 + (y_1 - B)^2 + (z_1 - C)^2}.
+\end{split}
+\end{equation}
+Although we could compute the components of $\vec{n}_i$ by doing long and
+tedious calculations with cross products, dot products, and norms and invert our
+matrices using, say, Gaussian elimination, the closed form expressions for the
+inradius $r$ and the circumradius $R$ would be very unwieldy and so not very
+useful.
+**** Generalizing to n-Simplices
+Our method generalizes readily to higher dimensions. The dot product generalizes
+very simply. The one thing we need is a generalization of the cross product,
+which is only defined in three dimensions... except we don't. Our only use for
+the cross product was to find a vector normal to two others. The cross product
+can be represented as the determinant of a matrix
+\begin{equation}
+\begin{vmatrix}
+\vec{v}_1^1 & \vec{v}_1^2 & \vec{v}_1^3 \\
+\vec{v}_2^1 & \vec{v}_2^2 & \vec{v}_2^3 \\
+\vec{b}_1 & \vec{b}_2 & \vec{b}_3
+\end{vmatrix}
+\end{equation}
+Here the subscript is the index of the vector (out of those we are taking the
+cross product of) and the superscript is the index of the component in that
+vector. Each vector $\vec{b}_i$ is the $i$-th basis vector of our
+$n$-dimensional vector space. We can then write our generalized cross product of
+$n-1$ vectors in $n$-dimensions as
+\begin{equation}
+\mathscr{C}(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_{n-1}) =
+\begin{vmatrix}
+\vec{v}_1^1 & \cdots & \vec{v}_1^{n} \\
+\vdots & \ddots & \vdots \\
+\vec{v}_{n-1}^1 & \cdots & \vec{v}_{n-1}^n \\
+\vec{b}_1 & \cdots & \vec{b}_{n}
+\end{vmatrix}
+\end{equation}
+But we can get even simpler. Determinants can get hard to compute as they get
+large. And because we are only interested in the cross product for its
+/direction/ (and not its magnitude; we normalize everything later anyway), we
+can use a simpler method. Any element of the kernel of the $n-1$ by $n$ matrix
+given by taking the $n-1$ vectors to be rows is in the orthogonal direction to
+all the given vectors. An $n$ simplex is given by $n+1$ points, given by the
+vectors $\vec{V}_i$, where $i$ is an integer from $1$ to $n+1$. Each of these
+vectors has $n$ components, $\vec{V}_i^j$, where $j$ is an integer from $1$ to
+$n$. Each of the $n+1$ faces is a collection of $n$ of the $n+1$ points. Again,
+let's first deal with the insphere:
+***** Insphere
+Let the vector representing the insphere's coordinates have $n$ components
+$c_i$. Imitating \eqref{normalized}, we have
+\begin{equation} \label{general-insphere}
+\vec{n}_1 = -\frac{\vec{C}(\vec{C}\cdot(\vec{V}_{n+1} - \vec{V}_1))}{\norm{\vec{C}(\vec{C}\cdot(\vec{V}_{n+1} - \vec{V}_1))}},
+\end{equation}
+where
+\begin{equation}
+\vec{C} = \mathscr{C}((\vec{V}_2 - \vec{V}_1)\times(\vec{V}_3 - \vec{V}_1)\times \cdots \times (\vec{V}_{n} - \vec{V}_1)).
+\end{equation}
+Then we can use matrices again:
+\begin{equation} \label{general-insphere-A}
+\vec{A} =
+\begin{bmatrix}
+\vec{n}_i^j & \sum (\vec{n}_i^j)^2
+\end{bmatrix}
+\end{equation}
+\begin{equation} \label{general-insphere-B}
+\vec{u} =
+\begin{bmatrix}
+\sum \vec{V}_i^j \vec{n}_i^j
+\end{bmatrix}
+\end{equation}
+\begin{equation}
+\vec{s} =
+\begin{bmatrix}
+c_1 \\
+c_2 \\
+\vdots \\
+c_n \\
+r
+\end{bmatrix}
+\end{equation}
+Then
+\begin{equation}
+\vec{A}\vec{s} = \vec{u}.
+\end{equation}
+***** Circumsphere
+Let the vector representing the insphere's coordinates have $n$ components
+$C_i$. Our procedure for finding the circumsphere generalizes readily as
+follows.
+\begin{equation}
+\vec{M} = 2
+\begin{bmatrix}
+\vec{V}_1^1 - \vec{V}_2^1 & \cdots & \vec{V}_1^n - \vec{V}_2^n \\
+\vdots & \ddots & \vdots \\
+\vec{V}_1^1 - \vec{V}_{n+1}^1 & \cdots & \vec{V}_1^n - \vec{V}_{n+1}^n
+\end{bmatrix}
+\end{equation}
+\begin{equation}
+\vec{u} =
+\begin{bmatrix}
+\sum ((v_1^j)^2 - (v_2^j)^2) \\
+\vdots \\
+\sum ((v_1^j)^2 - (v_{n+1}^j)^2) \\
+\end{bmatrix}
+\end{equation}
+\begin{equation}
+\vec{s} =
+\begin{bmatrix}
+C_1 \\
+C_2 \\
+\vdots \\
+C_n \\
+r
+\end{bmatrix}
+\end{equation}
+Then
+\begin{equation}
+\vec{A}\vec{s} = \vec{u}.
+\end{equation}
+***** Implementing Our Higher Dimensional Processes
+We'll use ~Python~ its ~numpy~ package. Let's first set up a function to
+compute our generalized cross product using the kernel method. Here's a standard
+implementation of finding the kernel, or nullspace, of a matrix, sourced from
+[[http://scipy-cookbook.readthedocs.io/items/RankNullspace.html][here]].
+#+BEGIN_SRC python -n
+def nullspace(A, atol=1e-13, rtol=0):
+    A = np.atleast_2d(A)
+    u, s, vh = np.linalg.svd(A)
+    tol = max(atol, rtol * s[0])
+    nnz = (s >= tol).sum()
+    ns = vh[nnz:].conj().T
+    return np.array([k[0] for k in ns])
+#+END_SRC
+We return the element of the nullspace that is a vector of norm 1 and use it to calculate the generalized cross product.
+#+BEGIN_SRC python +n
+def gen_cross(v):
+	n = len(v)
+	m = np.array([[v[i][j] for j in range(n+1)] for i in range(n)])
+	return nullspace(m)
+#+END_SRC
+The argument =v= will always be a list of lists; each element represents a vector.
+Now we can calculate the incenter and inradius:
+#+BEGIN_SRC python +n
+def insphere(v):
+	n = len(v) - 1
+	faces = []
+	normals = []
+#+END_SRC
+Note that =n= is the "dimension" of the tetrahedron.
+#+BEGIN_SRC python +n
+for i in range(n+1):
+		faces.append(v + [v[n-i]])
+		del faces[i][n-i]
+	if n % 2 == 0:
+		faces = list(reversed(faces))
+	faces = np.array(faces)
+#+END_SRC
+Each face of an $n$-simplex consists of some $n$ of the given $n+1$ vertices.
+Each element of =faces= has $n+1$ elements: the $n$ vertices of the face, and the
+other vertex that is not part of the face. The statement involving the modulo
+ensures that the orientation is correct in even dimensions. Then we can finish
+it off by performing the calculations in \eqref{general-insphere} and setting up
+the matrices as in \eqref{general-insphere-A} and \eqref{general-insphere-B}.
+#+BEGIN_SRC python +n
+	for f in faces:
+		c = gen_cross([f[i] - f[0] for i in range(1,n)])
+		unnormed = c * np.vdot(c, f[n] - f[0])
+		normals.append((-1)**(n%2) * unnormed / np.linalg.norm(unnormed))
+	A = np.array([[k[i] for i in range(n)] + [sum([k[i]**2 for i in range(n)])] for k in normals])
+	B = np.array([sum([v[i][j]*normals[i][j] for j in range(n)]) for i in range(n+1)])
+	return np.linalg.solve(A,B)
+#+END_SRC
+We go along a similar line for the circumsphere: we set up the matrices and solve.
+#+BEGIN_SRC python +n
+def circumsphere(v):
+	n = len(v) - 1
+	A = 2 * np.array([[v[0][j] - v[i][j] for j in range(n)] for i in range(1,n+1)])
+	B = np.array([sum([v[0][j]**2 - v[i][j]**2 for j in range(n)]) for i in range(1,n+1)])
+	sols = np.linalg.solve(A,B)
+	R = sqrt(sum([(v[0][i] - sols[i])**2 for i in range(n)]))
+	return np.append(sols, R)
+#+END_SRC
+And there you have it! It would be interesting to see how the ratio between
+circumsphere and insphere (3 in 3 dimensions) changes as the dimension
+increases. It will probably get much larger (because most of a high-dimensional
+sphere's volume is near its surface and because the insphere's volume will
+become very small), but how quickly?
+*** On the Ball in $n$ Euclidean Dimensions                :calculus:proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: n-ball
+:EXPORT_DATE: 2018-02-06
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :shorttitle "On the Ball in n Euclidean Dimensions"
+:EXPORT_DESCRIPTION: We know about circles and spheres, and we know how to find their volumes. But what comes next? We find the volumes of hyperspheres in n dimensions. Along the way, we discover some identities related to the gamma function.
+:END:
+One of my favourite formulas in mathematics is the one for the area of a circle,
+$\pi r^2$. Its simplicity intrigued my young mind; the circle is, in a sense,
+the simplest, the /roundest/ shape, and this formula seems to encapsulate the
+circle's aura of "completion." As I grew older, I learned more such formulas for
+the volumes and surface areas of familiar geometric objects. In particular, I
+learned of the formula for the volume of a sphere $\frac{4}{3}\pi r^3$. Amused
+as I was by these clever formulas, my curiosity began to take hold of me.
+Questions filled my mind: isn't it interesting, that as the dimension of the
+round shape went from 2 to 3, so did the exponent on the radius? Where did the
+$\frac{4}{3}$ come from? Why do the formulas stop after circle and sphere? What
+comes next? Does anything come next? These questions lay dormant in my mind for
+a while, until my friend [[https://www.arifaulakh.com][Arif Aulakh]] challenged
+me to find an expression for the volume of a sphere in an arbitrary number of
+dimensions. My curiosity rekindled, I set out in search of the
+higher-dimensional sphere to answer the question: what comes next?
+**** Introduction
+Before we embark on our journey, we need to lay out some basic definitions. A
+sphere is the set of all points a given distance (let's call it $R$) from a
+given center point. A ball is the space whose boundary is a sphere, or the set
+of all points whose distance from a given center point is less than or equal to
+$R$. For example, a sphere in $2$ dimensions is called a circle, and the
+corresponding ball is called a disk. Upon hearing the word "circle," you might
+imagine a flat coin-like object. That's not what a mathematician means when they
+say circle. To a mathematician, a circle is just the boundary of that coin,
+while a disk is the entirety of the points contained in (and on the boundary of)
+the coin. Similarly, a sphere is the bounding surface of a ball. So let's call a
+ball in $n$ Euclidean dimensions with a certain radius the $n$-ball of radius
+$R$. Also, note that a $1$-ball is just a line segment. In $2$ dimensions, we
+say closed figures have area, and in $3$ dimensions, we say they have volume.
+The arbitrary-dimensional analogue of this concept is "content." For example,
+the 2-ball has content $\pi R^2$, the 3-ball $\frac{4}{3}\pi R^2$. We shall find
+a general formula for the content of an $n$-ball of radius $R$. Along the way,
+we will uncover and explore some interesting related results.
+**** A Recurrence Relation
+Intutively, we can construct a $3$-ball out of a bunch of thin disks (think of
+slicing a tomato). In the same way, we can construct a disk out of a bunch of
+thin line segments. And remember, a disk is a $2$-ball, and a line segment is a
+$1$-ball. There seems to be a certain modularity to the $n$-dimensional ball.
+Let's formalize this idea on the scale of $2$ dimensions and then generalize to
+an arbitrary number of dimensions. We wish to construct a $2$-ball from the
+interval $[-R,R]$, centered on $0$. Let the distance from $0$ of a point on this
+interval be $r$. Then construct a $1$-ball (line segment) of radius $\sqrt{R^2 -
+r^2}$ centered on and perpendicular to the interval. Doing this for all points
+on the interval yields a $2$-ball, constructed from the sum of infinitely many
+$1$-balls. Similarly, we can construct a $3$-ball from infinitely many $2$-balls
+centered on and perpendicular to the interval $[-R,R]$. Generalizing to $n$
+dimensions yields the recurrence relation
+\begin{equation}
+V_{n}(R) = \int_{-R}^{R} V_{n-1}\left(\sqrt{R^2 - r^2}\right) \d r.
+\label{first-recurrence}
+\end{equation}
+Uniformly scaling any object in $n$ dimensions by $R$ increases the content of
+that object by a factor of $R^n$. This result can be shown with linear algebra.
+We shall prove a weaker version of this statement for the $n$-ball.
+
+*Lemma 1. (Proportionality)* Uniformly scaling a $n$-dimensional ball by $R$ increases the
+content of the ball by $R^n$.
+
+As a base case, proportionality clearly holds for
+$n = 0$, where all balls have content $1$. Here scaling by a factor of $R$
+scales content by a factor of $R^0 = 1$. Then assume inductively that
+proportionality holds for an $(n-1)$-ball. Then we can factor $R^{n-1}$ from the
+integrand in \eqref{first-recurrence}:
+\begin{equation}
+V_{n}(R) = R^{n-1}\int_{-R}^{R} V_{n-1}\left(\sqrt{1 - \left(\frac{r}{R}\right)^2}\right) \d r.
+\end{equation}
+Substituting $x = \frac{r}{R}, \d x = \frac{\d x}{R}$ yields
+\begin{equation}
+V_n(R) = R^n\int_{-1}^1 V_{n-1}\left(\sqrt{1-x^2}\right) \d x = R^nV_n(1),
+\label{induction-2}
+\end{equation}
+which proves that proportionality holds in $n$ dimensions and, by induction, in
+all non-negative integer dimensions. $\qed$ Then proportionality transforms
+\eqref{induction-2} into
+\begin{equation}
+\begin{split}
+V_{n}(R) &= R^nV_{n-1}(1)\int_{-1}^{1} \left(\sqrt{1-x^2}\right)^{n-1} \d x \\
+&= V_{n-1}(R)R \int_{-1}^{1} \left(1-x^2\right)^\frac{n-1}{2} \d x.
+\end{split}
+\end{equation}
+Because the integrand is an even function in $x$,
+\begin{equation}
+V_{n}(R) = 2V_{n-1}(R)R \int_{0}^{1} \left(1-x^2\right)^\frac{n-1}{2} \d x.
+\end{equation}
+The expression of interest to us is the integral. For notational simplicity, we
+define
+\begin{equation}
+I_{k} = 2\int_{0}^{1} \left(1-x^2\right)^\frac{k}{2} \d x.
+\label{I-initial}
+\end{equation}
+Then
+\begin{equation}
+V_{n}(R) = I_{n-1}V_{n-1}(R)R.
+\label{volume-recurrence}
+\end{equation}
+Let us now solve for $I_{n-1}$.
+**** Solving the Integral
+We shall prove the result
+\begin{equation}
+I_{n-1} = \frac{\sqrt{\pi}\Gamma\left(\frac{n+1}{2}\right)}{\Gamma(\frac{n}{2}+1)}
+\label{I-final}
+\end{equation}
+in two ways: analytically and with a probabalistic argument.
+***** An Analytical Argument
+We substitute $x = \cos\theta, \d x = -\sin\theta\d\theta$ into
+\eqref{I-initial}.
+\begin{equation}
+\begin{split}
+I_{n-1} &= -2\int_{\frac{\pi}{2}}^0 \left(1-\cos^2\theta\right)^\frac{n-1}{2} \sin\theta \d\theta \\
+&= 2\int_0^{\frac{\pi}{2}} \left(\sqrt{\sin^2\theta}\right)^{n-1} \sin\theta \d\theta \\
+&= 2\int_0^{\frac{\pi}{2}} \abs{\sin\theta}^{n-1} \sin\theta \d\theta.
+\end{split}
+\end{equation}
+Because $\sin\theta$ is non-negative over $[0,\frac{\pi}{2}]$, we have
+\begin{equation}
+I_{n-1} = 2\int_0^{\frac{\pi}{2}} \sin^n\theta \d\theta.
+\end{equation}
+We define the function
+\begin{equation}
+\mathcal{I}(n,m) = 2\int_0^{\frac{\pi}{2}} \sin^n\theta \cos^m\theta \d\theta.
+\label{I-definition}
+\end{equation}
+Then $I_{n-1} = \mathcal{I}(n,0)$. We substitute $t = \tan^2\theta, \d t =
+2\tan\theta\sec^2\theta \d\theta = 2\sin\theta\sec^3\theta\d\theta$ into
+\eqref{I-definition}. This gives $\frac{1}{1+t} = \cos^2\theta$ and $1 -
+\frac{1}{1+t} = \frac{t}{1+t} = \sin^2\theta$.
+\begin{equation}
+\begin{split}
+\mathcal{I}(n,m) &= 2\int_0^{\frac{\pi}{2}} (\sin^2\theta)^\frac{n}{2} (\cos^2\theta)^\frac{m}{2} \d\theta \\
+&= \int_0^{\frac{\pi}{2}} (\sin^2\theta)^{\frac{n-1}{2}} (\cos^2\theta)^{\frac{m+3}{2}} 2\sin\theta\sec^3\theta \d\theta \\
+&= \int_0^{\infty} \left(\frac{t}{1+t}\right)^{\frac{n-1}{2}} \left(\frac{1}{1+t}\right)^{\frac{m+3}{2}} \d t \\
+&= \int_0^{\infty} \frac{t^{\frac{n-1}{2}}}{(1+t)^{\frac{n+m}{2}+1}} \d t.
+\end{split}
+\end{equation}
+For simplicity, let $n = 2\alpha - 1, m = 2\beta - 1$. Then
+\begin{equation}
+\mathcal{I}(n,m) = \int_0^{\infty} \frac{t^{\frac{n-1}{2}}}{(1+t)^{\frac{n+m}{2}+1}} \d t = \int_0^{\infty} \frac{t^{\alpha-1}}{(1+t)^{\alpha + \beta}} \d t.
+\label{alpha-beta}
+\end{equation}
+Let us now state two lemmas which we shall prove later.
+
+*Lemma 2.* Given real numbers $\alpha, \beta$, we have
+\begin{equation}
+\int_0^{\infty} \frac{t^{\alpha-1}}{(1+t)^{\alpha + \beta}} \d t = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)}.
+\label{claim}
+\end{equation}
+
+*Lemma 3.*
+\begin{equation}
+\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}
+\end{equation}
+
+Applying Lemma 2 to \eqref{alpha-beta} gives
+\begin{equation}
+\mathcal{I}(n,m) = \frac{\Gamma\left(\frac{n+1}{2}\right)\Gamma\left(\frac{m+1}{2}\right)}{\Gamma\left(\frac{n+m}{2} + 1\right)}.
+\label{I-gamma}
+\end{equation}
+Recall that $I_{n-1} = \mathcal{I}(n,0)$. Then applying Lemma 3 gives
+\begin{equation}
+\begin{split}
+I_{n-1} &= \frac{\Gamma\left(\frac{n+1}{2}\right)\Gamma\left(\frac{1}{2}\right)}{\Gamma(\frac{n}{2}+1)} \\
+&= \frac{\sqrt{\pi}\Gamma\left(\frac{n+1}{2}\right)}{\Gamma(\frac{n}{2}+1)},
+\end{split}
+\end{equation}
+which establishes \eqref{I-final}. $\qed$
+***** A Statistical Argument
+Let “choosing a number“ be done with a uniform probability. Let $\alpha$ and
+$\beta$ be positive integers. The probability of choosing first choosing a real
+$p$ in the interval $[0,1]$, then choosing $\alpha$ real numbers in $[0,p]$, and
+then choosing $\beta$ real numbers in $[p,1]$ is $\int_0^1 p^\alpha(1-p)^\beta
+\d p$. Then the probability of choosing $\alpha + \beta + 1$ real numbers in
+$[0,1]$ such that the first number is $p$, some $\alpha$ of the remaining
+numbers are in $[0,p]$, and some $\beta$ of them are in $[p,1]$ is
+$\binom{\alpha + \beta}{\alpha}\int_0^1 p^\alpha(1-p)^\beta$. But this is the
+same as the probability that, after $p$ and $\alpha + \beta$ real numbers in
+$[0,1]$ are placed in increasing order, $p$ happens to be in the $(\alpha +
+1)$-th position, or $\frac{1}{\alpha + \beta + 1}$. This yields
+\begin{equation}
+\begin{split}
+\binom{\alpha + \beta}{\alpha} \int_0^1 p^\alpha(1-p)^\beta \d p &= \frac{1}{\alpha + \beta + 1} \\
+\frac{(\alpha + \beta)!}{\alpha!\beta!}\int_0^1 p^\alpha(1-p)^\beta \d p &= \frac{1}{\alpha + \beta + 1} \\
+\int_0^1 p^\alpha(1-p)^\beta \d p &= \frac{\alpha!\beta!}{(\alpha + \beta + 1)!}.
+\end{split}
+\end{equation}
+Generalizing with the gamma function $\Gamma(n+1) = n!$, we have
+\begin{equation}
+\int_0^1 p^\alpha(1-p)^\beta \d p = \frac{\Gamma(\alpha + 1)\Gamma(\beta + 1)}{\Gamma(\alpha + \beta + 2)}.
+\end{equation}
+Substituting $p = x^2, \d p = 2x\d x$ yields
+\begin{equation}
+2\int_0^1 x^{2\alpha+1}(1-x^2)^\beta \d x = \frac{\Gamma(\alpha + 1)\Gamma(\beta + 1)}{\Gamma(\alpha + \beta + 2)}
+\end{equation}
+Setting $\alpha = -\frac{1}{2}, \beta = \frac{n-1}{2}$ yields the desired
+\eqref{I-final}:
+\begin{equation}
+\begin{split}
+2\int_0^1 (1-x^2)^\frac{n-1}{2} \d x &= \frac{\Gamma\left(\frac{1}{2}\right)\Gamma(\frac{n+1}{2})}{\Gamma(\frac{n}{2}+1)} \\
+I_{n-1} &= \frac{\sqrt{\pi}\Gamma(\frac{n+1}{2})}{\Gamma(\frac{n}{2}+1)}.
+\end{split}
+\end{equation}
+$\qed$
+**** A General Formula
+Now let's put it all together.
+
+*Theorem 1.* The content of an $n$-ball of radius $R$, denoted $V_n(R)$, is given
+by
+\begin{equation}
+V_n(R) = \frac{R^n\pi^\frac{n}{2}}{\Gamma\left(\frac{n}{2}+1\right)}.
+\label{general-volume}
+\end{equation}
+
+Expanding \eqref{volume-recurrence} using \eqref{I-final}, we have
+\begin{equation}
+\begin{split}
+V_n(R) &= I_{n-1}V_{n-1}(R)R \\
+&= R\frac{\sqrt{\pi}\Gamma\left(\frac{n+1}{2}\right)}{\Gamma\left(\frac{n}{2}+1\right)}V_{n-1}(R) \\
+&= \left(R\frac{\sqrt{\pi}\Gamma\left(\frac{n+1}{2}\right)}{\Gamma\left(\frac{n}{2}+1\right)}\right)\left(R\frac{\sqrt{\pi}\Gamma\left(\frac{n}{2}\right)}{\Gamma\left(\frac{n-1}{2}+1\right)}\right)\cdots\left(R\frac{\sqrt{\pi}\Gamma\left(\frac{n+2-m}{2}\right)}{\Gamma\left(\frac{n-m}{2}+1\right)}\right)V_{n-m}(R) \\
+&= R^m\pi^\frac{m}{2}\left(\frac{\Gamma\left(\frac{n-1}{2}+1\right)}{\Gamma\left(\frac{n}{2}+1\right)}\right)\left(\frac{\Gamma\left(\frac{n-2}{2} + 1\right)}{\Gamma\left(\frac{n-1}{2}+1\right)}\right)\cdots\left(\frac{\Gamma\left(\frac{n-m}{2} + 1\right)}{\Gamma\left(\frac{n-m+1}{2}+1\right)}\right)V_{n-m}(R).
+\end{split}
+\end{equation}
+The $m$-th numerator is the same as the $(m+1)$-st denominator, so
+\begin{equation}
+V_n(R) = V_{n-m}(R)R^m\pi^{\frac{m}{2}}\frac{\Gamma\left(\frac{n-m}{2} + 1\right)}{\Gamma\left(\frac{n}{2}+1\right)}.
+\end{equation}
+Because a $0$-dimensional ball of any radius consists of only one point, $V_0(R)
+= 1$. Setting $m = n$, we obtain our general expression for the content of an
+$n$-dimensional ball and establish Theorem 1.
+**** Proofs and Other Results
+***** A Trigonometric Integral Identity
+From \eqref{I-gamma}, it follows that $\mathcal{I}(n,m) = \mathcal{I}(m,n)$. So
+$\frac{1}{2}\mathcal{I}(n,0) = \frac{1}{2}\mathcal{I}(0,n)$. Then \eqref{I-definition} implies the
+interesting identity
+\begin{equation}
+\int_0^{\frac{\pi}{2}} \sin^n\theta \d\theta = \int_0^{\frac{\pi}{2}} \cos^n\theta \d\theta.
+\end{equation}
+***** Gamma Fraction Identity: Proof of Lemma 2
+Lemma 2, which states that
+\begin{equation}
+\int_0^{\infty} \frac{t^{\alpha-1}}{(1+t)^{\alpha + \beta}} \d t = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)},
+\end{equation}
+was key in our analytical argument. We shall prove it here. The gamma function
+is defined as
+\begin{equation}
+\Gamma(z) = \int_0^\infty e^{-t}t^{z-1} \d t.
+\label{gamma}
+\end{equation}
+In \eqref{gamma} we make the substitution $t = pq$, $\d t = q\d p$.
+\begin{equation}
+\begin{split}
+\Gamma(\alpha) &= \int_0^\infty e^{-pq}(pq)^{\alpha-1} q\d p \\
+&= \int_0^\infty q^\alpha e^{-pq}p^{\alpha-1} \d p.
+\end{split}
+\label{gamma-reworked}
+\end{equation}
+We multiply both sides of \eqref{gamma-reworked} by $\Gamma(\beta) =
+\int_0^\infty e^{-q}q^{\beta-1} \d q$.
+\begin{equation}
+\begin{split}
+\Gamma(\alpha)\Gamma(\beta) &= \left(\int_0^\infty q^\alpha e^{-pq}p^{\alpha-1} \d p\right)\left(\int_0^\infty e^{-q}q^{\beta-1} \d q\right) \\
+&= \int_0^\infty \int_0^\infty e^{-q-pq}q^{\alpha+\beta-1}p^{\alpha-1} \d p \d q \\
+&= \int_0^\infty p^{\alpha-1} \d p \int_0^\infty e^{-q(1+p)}q^{\alpha+\beta-1} \d q.
+\end{split}
+\label{gamma-product}
+\end{equation}
+In the inner integral we substitute $q = \frac{s}{1+p}, \d q = \frac{\d s}{1 +
+p}$. Then
+\begin{equation}
+\begin{split}
+\int_0^\infty e^{-q(1+p)}q^{\alpha+\beta-1} \d q &= \int_0^\infty e^{-s}\left(\frac{s}{1+p}\right)^{\alpha+\beta-1} \frac{\d s}{1+p} \\
+&= \frac{1}{(1+p)^{\alpha+\beta}}\int_0^\infty e^{-s}s^{\alpha+\beta-1} \d s \\
+&= \frac{\Gamma(\alpha+\beta)}{(1+p)^{\alpha+\beta}}.
+\end{split}
+\label{g-prod-reworked}
+\end{equation}
+Substituting \eqref{g-prod-reworked} into \eqref{gamma-product}, we have
+\begin{equation}
+\begin{split}
+\Gamma(\alpha)\Gamma(\beta) &= \int_0^\infty p^{\alpha-1} \frac{\Gamma(\alpha+\beta)}{(1+p)^{\alpha+\beta}} \d p \\
+\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)} &= \int_0^\infty \frac{p^{\alpha-1}}{(1+p)^{\alpha+\beta}} \d p,
+\end{split}
+\end{equation}
+which establishes the desired result. $\qed$
+***** Gamma of One-Half: Proof of Lemma 3
+We shall prove Lemma 3, that $\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}$. In
+\eqref{claim}, set $\alpha = \beta = \frac{1}{2}$. Then
+\begin{equation}
+\begin{split}
+\frac{\Gamma\left(\frac{1}{2}\right)\Gamma\left(\frac{1}{2}\right)}{\Gamma(1)} &= \int_0^\infty \frac{t^{-\frac{1}{2}}}{1+t} \d t \\
+\Gamma^2\left(\frac{1}{2}\right) &= \int_0^\infty \frac{1}{\sqrt{t}(1+t)} \d t.
+\end{split}
+\end{equation}
+We substitute $t = x^2, \d t = 2x\d x = 2\sqrt{t}\d x$:
+\begin{equation}
+\begin{split}
+\Gamma^2\left(\frac{1}{2}\right) &= 2\int_0^\infty \frac{1}{1 + x^2} \d x \\
+&= 2\left(\arctan x \big|_0^\infty \right) \\
+&= 2\cdot\frac{\pi}{2} \\
+&= \pi,
+\end{split}
+\end{equation}
+so
+\begin{equation}
+\Gamma\left(\frac{1}{2}\right) = \pm\sqrt{\pi}.
+\end{equation}
+But in the integral representation of $\Gamma(z)$, the integrand $e^{t}t^{z-1}$
+is positive if $z > 0$. This yields the desired result,
+\begin{equation}
+\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}
+\end{equation}
+A consequence of this result is the value of the famous Gaussian integral
+\begin{equation}
+\int_{-\infty}^\infty e^{-x^2} \d x,
+\end{equation}
+whose integrand has no elementary antiderivative. Substituting $t = x^2, \d t =
+2t^{\frac{1}{2}}\d x$ into the integral representation of
+$\Gamma\left(\frac{1}{2}\right)$, we have
+\begin{equation}
+\begin{split}
+\sqrt{\pi} &= \Gamma\left(\frac{1}{2}\right) \\
+&= \int_0^\infty e^{-t}t^{-\frac{1}{2}} \d t \\
+&= 2\int_0^\infty e^{-x^2} \d x.
+\end{split}
+\end{equation}
+Because the integrand $e^{-x^2}$ is an even function, it follows that
+\begin{equation}
+\int_{-\infty}^\infty e^{-x^2} \d x = \sqrt{\pi}.
+\end{equation}
+***** Gamma Function Doubling Formula
+We have the following result.
+
+*Theorem 2. (Gamma Function Doubling Formula)*
+\begin{equation}
+\Gamma(2z) = \frac{2^{2z-1}\Gamma(z)\Gamma\left(z + \frac{1}{2}\right)}{\sqrt{\pi}}
+\label{gamma-duplication}
+\end{equation}
+
+To prove this result, we shall use integration by parts and \eqref{I-final}. Let
+\begin{equation}
+A_k = \int_{0}^{1} \left(1-x^2\right)^k \d x.
+\label{A-definition}
+\end{equation}
+Then, integrating by parts, we have
+\begin{equation}
+\begin{split}
+A_k &= x(1-x^2)^k \big|_0^1 - \int_0^1 -2xk(1-x^2)^{k-1}x \d x \\
+&= 2k\int_0^1 x^2(1-x^2)^{k-1} \d x \\
+&= 2k\int_0^1 (1-(1-x^2))(1-x^2)^{k-1} \d x \\
+&= 2k\int_0^1 (1-x^2)^{k-1} - (1-x^2)^k \d x \\
+&= 2kA_{k-1} - 2kA_k \\
+&= \frac{2k}{2k+1}A_{k-1}.
+\end{split}
+\end{equation}
+Expanding the recurrence relation yields
+\begin{equation}
+A_k = \frac{(2k)(2k-2)\cdots4\cdot2}{(2k+1)(2k-1)\cdots3\cdot1}.
+\end{equation}
+Let us first deal with the numerator. We know that
+\begin{equation}
+k! = k(k-1)\cdots2\cdot1.
+\end{equation}
+Multiplying each of the $k$ terms on the right-hand side by $2$ yields the
+numerator. So the numerator is equal to $2^kk!$. Then we deal with the
+denominator. We know that
+\begin{equation}
+(2k+1)! = (2k+1)(2k)\cdots2\cdot1.
+\end{equation}
+Dividing both sides of this equation by $2^kk!$ yields the denominator. So the
+denominator is equal to $\frac{(2k+1)!}{2^kk!}$. Then
+\begin{equation}
+\begin{split}
+A_k &= \frac{2^kk!}{\frac{(2k+1)}{2^kk!}} \\
+&= \frac{(2^kk!)^2}{(2k+1)!}.
+\end{split}
+\end{equation}
+Generalising using the gamma function $\Gamma(n+1) = n!$ yields
+\begin{equation}
+A_k = \frac{2^{2k}\Gamma^2(k+1)}{\Gamma(2k+2)}.
+\label{A-gamma}
+\end{equation}
+From \eqref{I-initial} and \eqref{A-definition}, $I_{n-1} = 2A_{\frac{n-1}{2}}$,
+so by \eqref{A-gamma},
+\begin{equation}
+I_{n-1} = \frac{2^n\Gamma^2\left(\frac{n+1}{2}\right)}{\Gamma(n+1)}.
+\label{I-by-parts}
+\end{equation}
+Equating \eqref{I-by-parts} with \eqref{I-final} and making the substitution $z
+= \frac{n+1}{2}$ establishes Theorem 2.
+\begin{equation}
+\begin{split}
+\frac{2^{2z-1}\Gamma^2(z)}{\Gamma(2z)} &= \frac{\sqrt{\pi}\Gamma(z)}{\Gamma(z + \frac{1}{2})} \\
+\Gamma(2z) &= \frac{2^{2z-1}\Gamma(z)\Gamma\left(z + \frac{1}{2}\right)}{\sqrt{\pi}}.
+\end{split}
+\end{equation}
+$\qed$ This result is very powerful. It implies that, combined with the
+recurrence relation $\Gamma(n+1) = n\Gamma(n)$, we can compute
+$\Gamma(\frac{n}{2})$ for any positive integer $n$. Then we can also compute all
+expressions of the form $\Gamma(\frac{n}{4})$, because the right-hand side of
+\eqref{gamma-duplication} will be in terms of expressions of the form
+$\Gamma(\frac{n}{2})$. Thus for any positive real number $r$ whose binary
+expansion is finite---that is, for any positive rational $r$---we can thus
+compute $\Gamma(r)$. And because every irrational number can be written as the
+limit of the partial sums of a sequence of rational numbers, we can compute
+$\Gamma(r)$ for any positive real $r$.
+***** Approximating the Logarithmic Derivative of the Gamma Function
+Consider the logarithmic derivative of the gamma function, which we shall call
+$\mathcal{G}(x)$:
+\begin{equation}
+\mathcal{G}(x) = \frac{\d}{\d x}\ln\Gamma(x) = \frac{\Gamma'(x)}{\Gamma(x)}.
+\label{log-deriv-gamma}
+\end{equation}
+For the sake of this section, let $\mathcal{G} = \frac{\Gamma'(x)}{\Gamma(x)}$.
+Then we shall prove
+
+*Theorem 3.* The following upper and lower bounds hold for
+the logarithmic derivative of the gamma function:
+\begin{equation}
+\ln x - \frac{1}{x} < \mathcal{G}(x) < \ln x.
+\label{gamma-log-deriv-bounds}
+\end{equation}
+
+To do this, we first show the following lemma, which may seem intuitive.
+
+*Lemma 4.* Let $f(x)$ be a differentiable function defined on $[a,b]$. Then if
+$f'(x) > 0$ for all $x \in [a,b]$, then $f(x)$ is strictly increasing.
+
+By the Fundamental Theorem of Calculus,
+\begin{equation}
+\int_a^b f'(x) \d x = f(b) - f(a).
+\end{equation}
+If $f'(x) > 0$ for all $x$, then because the integral of a positive integrand is
+also positive, $f(b) > f(a)$ for all $x$. That is, $f(x)$ is strictly
+increasing. $\qed$ We also use the following lemma for continuous functions,
+which is a special case of the Cauchy-Schwarz inequality.
+
+*Lemma 5.* Let $f$ and $g$ be continuous functions defined over $[a,b]$. Then we
+have
+\begin{equation}
+\left(\int_a^b fg \d t\right)^2 \le \left(\int_a^b f^2 \d t\right)\left(\int_a^b g^2 \d t\right).
+\end{equation}
+In particular, equality holds if and only if $f$ is proportional to $g$; that
+is, there exists some $z$ such that for all $x \in [a,b]$, we have $zf(x) =
+g(x)$.
+
+Let's take some contant $z$. Then $0 \le (fz - g)^2$. And because the
+integral of a non-negative function is also non-negative, for all real $z$, we
+have
+\begin{equation}
+0 \le \int_a^b (fz - g)^2 \d t = \left(\int_a^b f^2 \d t \right)z^2 - \left(\int_a^b 2fg \d t\right)z + \left(\int_a^b g^2 \d t\right).
+\end{equation}
+Because this quadratic is non-negative, its discriminant must be non-positive,
+such that
+\begin{equation}
+4\left(\int_a^b fg \d t\right)^2 \le 4\left(\int_a^b f^2 \d t\right)\left(\int_a^b g^2 \d t\right).
+\label{discriminant}
+\end{equation}
+Equality only holds in \eqref{discriminant} if $\int_a^b (fz - g)^2 \d t = 0$.
+Consider a function $h'$ continuous over $[a,b]$ such that $\int_a^b h'(x) \d x
+= 0$. By the Fundamental Theorem of Calculus, this integral equals $h(b) -
+h(a)$, so $h(a) = h(b)$; that is, $h$ is a constant function, so the integrand
+$h'$ is the zero function. Thus equality only holds in \eqref{discriminant} if
+$fz = g$. $\qed$
+
+*Lemma 6.* For non-negative real $x$, $\mathcal{G}(x)$ is a strictly increasing
+function.
+
+We will prove Lemma 6 by showing that $\mathcal{G}'(x)$ is positive everywhere.
+We have
+\begin{equation}
+\begin{split}
+\Gamma'(x) &= \frac{\d}{\d x}\int_0^\infty e^{-t}t^{x-1} \d t \\
+&= \int_0^\infty \frac{\partial}{\partial x}\, e^{-t}t^{x-1} \d t \\
+&= \int_0^\infty e^{-t}t^{x-1}\ln t \d t,
+\end{split}
+\end{equation}
+and, similarly,
+\begin{equation}
+\Gamma''(x) = \int_0^\infty e^{-t}t^{x-1} \ln^2 t \d t.
+\end{equation}
+Furthermore,
+\begin{equation}
+\mathcal{G}'(x) = \frac{\Gamma(x)\Gamma''(x)-(\Gamma'(x))^2}{\Gamma^2(x)}.
+\label{gamma-second-deriv}
+\end{equation}
+Substituting $\alpha = \sqrt{e^{-t}t^{x-1}}$ and $\beta = \ln
+t\sqrt{e^{-t}t^{x-1}}$ into \eqref{gamma-second-deriv} yields
+\begin{equation}
+\mathcal{G}'(x) = \frac{\left(\int_0^\infty \alpha^2 \d t\right) \left(\int_0^\infty \beta^2 \d t\right) - \left(\int_0^\infty \alpha\beta \d t\right)^2}{\Gamma^2(x)}.
+\label{integral-gamma-2-deriv}
+\end{equation}
+We note that functions $\alpha$ and $\beta$ are continuous and not proportional
+(because $\ln t$ is not constant with respect to $t$) to one another over
+$[0,\infty)$. Then Lemma 5 shows, with strict inequality, that
+\begin{equation}
+\left(\int_0^\infty \alpha\beta \d t\right)^2 < \left(\int_0^\infty \alpha^2 \d t\right) \left(\int_0^\infty \beta^2 \d t\right).
+\label{fg-inequality}
+\end{equation}
+The denominator of \eqref{integral-gamma-2-deriv} is always positive, so
+\eqref{fg-inequality} shows that \eqref{gamma-second-deriv} is positive for all
+non-negative real $x$. Finally, Lemma 4 establishes that $\mathcal{G}(x)$ is a
+strictly increasing function. $\qed$
+
+*Lemma 7.* We have $\mathcal{G}(x + 1) = \mathcal{G}(x) + \frac{1}{x}$.
+
+We have $\Gamma(x+1) = x\Gamma(x)$, so $\ln(\Gamma(x+1)) = \ln\Gamma(x) + \ln
+x$. Differentiating establishes the result. $\qed$
+
+*Lemma 8.* We have the following inequality: $\mathcal{G}(x) < \ln x <
+\mathcal{G}(x + 1)$.
+
+By the Mean Value
+Theorem, there exists some $z$ in $(x, x+1)$ such that
+\begin{equation}
+\begin{split}
+\mathcal{G}(z) &= \frac{\ln\Gamma(x+1) - \ln\Gamma(x)}{x+1-x} \\
+&= \ln(x\Gamma(x)) - \ln\Gamma(x) \\
+&= \ln x.
+\end{split}
+\end{equation}
+In particular, note that $x < z < x + 1$. By Lemma 6, $\mathcal{G}(x)$ is
+strictly increasing. So $\mathcal{G}(x) < \mathcal{G}(z) = \ln x <
+\mathcal{G}(x+1)$, and we establish Lemma 8. $\qed$
+
+Finally, we can establish Theorem 3 by applying Lemma 7 and Lemma 8:
+\begin{equation}
+\begin{split}
+\mathcal{G}(x) < \ln x < \mathcal{G}(x + 1) &= \mathcal{G}(x) + \frac{1}{x} \\
+\ln x < \mathcal{G}(x + 1) &< \ln x + \frac{1}{x} \\
+\ln x - \frac{1}{x} < \mathcal{G}(x) &< \ln x.
+\end{split}
+\end{equation}
+$\qed$
+***** Surface Area of Hyperspheres
+We can build a the $2$-ball, or disk, from the union of concentric $2$-sphere
+(circle) shells all evenly spaced by a distance $\d r$. This is like the layers
+of an onion. This generalizes to $n$ dimensions, where an $n$-ball is the union
+of concentric $n$-sphere shells. As $\d r$ tends to $0$, we find that the
+content of a $n$-ball is the sum of the surface areas of the infinitely many
+$n$-spheres with radii ranging from $0$ to $R$. That is,
+\begin{equation}
+V_n(R) = \int_0^R S_n(r) \d r,
+\end{equation}
+which gives
+\begin{equation}
+S_n(R) = \frac{\d V_n(R)}{\d R}.
+\end{equation}
+Substituting \eqref{general-volume} yields
+\begin{equation}
+\begin{split}
+S_n(R) &= \frac{nR^{n-1}\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2}+1\right)} \\
+&= \frac{nR^{n-1}\pi^{\frac{n}{2}}}{\frac{n}{2}\Gamma\left(\frac{n}{2}\right)} \\
+&= \frac{2R^{n-1}\pi^\frac{n}{2}}{\Gamma\left(\frac{n}{2}\right)}.
+\end{split}
+\end{equation}
+**** Implications
+***** Small Dimensions
+#+attr_html: :width 75%
+#+caption: Note the global maximum, after which the content quickly decreases.
+[[/img/math/n-ball-graph.png]]
+
+We shall ignore the "unit" of content and instead compare contents as
+dimenionless quantities. The integer dimension that maximizes the content of the
+unit ball is evidently $n = 5$. The figure reveals that this maximum is actually
+at $n \approx 5.26$. In fact, the global maximum of the function $n\mapsto
+\frac{R^n\pi^\frac{n}{2}}{\Gamma\left(\frac{n}{2}+1\right)}, n \ge 0$ depends on
+$R$ and is given by
+\begin{equation}
+\begin{split}
+\frac{\d}{\d n}\left(\frac{R^n\pi^\frac{n}{2}}{\Gamma\left(\frac{n}{2}+1\right)}\right) &= 0\\
+\frac{\Gamma\left(\frac{n}{2}+1\right)(R\sqrt{\pi})^n\ln(R\sqrt{\pi}) - \frac{1}{2}(R\sqrt{\pi})^n\Gamma'\left(\frac{n}{2}+1\right)}{\Gamma^2\left(\frac{n}{2}+1\right)} &= 0 \\
+\Gamma\left(\frac{n}{2}+1\right)\ln(R\sqrt{\pi}) - \frac{1}{2}\Gamma'\left(\frac{n}{2}+1\right) &= 0 \\
+\ln(\pi R^2) &= \frac{\Gamma'\left(\frac{n}{2}+1\right)}{\Gamma\left(\frac{n}{2}+1\right)}.
+\end{split}
+\end{equation}
+This equation cannot be solved for $n$ analytically, so we approximate. From
+Theorem 3, we have
+\begin{equation}
+\ln n < \frac{\Gamma'(n+1)}{\Gamma(n+1)} < \ln n + \frac{1}{n},
+\end{equation}
+which means that the maximal content of a ball of radius $R$ is attained in
+\begin{equation}
+\begin{split}
+\ln\left(\frac{n}{2}\right) &\sim \ln(\pi R^2) \\
+n &\sim 2\pi R^2.
+\end{split}
+\end{equation}
+***** Large Dimensions
+For a given radius $R$, the content of an $n$-ball goes to 0 as $n$ goes to
+infinity. That is,
+\begin{equation}
+\lim_{n\to\infty} \frac{R^n\pi^\frac{n}{2}}{\Gamma\left(\frac{n}{2}+1\right)} = 0.
+\end{equation}
+In fact, this result holds for any expression of the form
+$\frac{a^n}{\Gamma(kn + 1)} = \frac{a^n}{(kn)!}$ for positive real $a$ and $k$.
+Define the function $f(n) = \frac{a^n}{(kn)!}$. Consider the limiting ratio
+$\frac{f(n+1)}{f(n)}$:
+\begin{equation}
+\begin{split}
+\lim_{n\to\infty} \frac{\frac{a^{n+1}}{(k(n+1))!}}{\frac{a^n}{(kn)!}} &= \lim_{n\to\infty} \frac{a^{n+1}(kn)!}{a^n(kn+k)!} \\
+&= \lim_{n\to\infty} \frac{a}{(kn + 1)(kn + 2)\cdots(kn + k)} \\
+&= 0.
+\end{split}
+\end{equation}
+Then by the ratio test, the series $\sum_{n=0}^\infty \frac{a^n}{(kn)!}$
+converges because its limiting ratio is 0. Because the terms of a convergent
+series must tend to 0, $\frac{a^n}{(kn)!}$ tends to 0. Thus we have proven that
+for a given $R$, $V_n(R)$ tends to $0$ as $n$ increases).
+**** Conclusion
+Our most important result was a general expression for the content of an
+$n$-ball of radius $R$:
+\begin{equation}
+V_n(R) = \frac{R^n\pi^\frac{n}{2}}{\Gamma(\frac{n}{2}+1)}.
+\end{equation}
+We also derived two useful identities related to the gamma function:
+\begin{equation}
+\Gamma(2z) = \frac{2^{2z-1}\Gamma(z)\Gamma\left(z + \frac{1}{2}\right)}{\sqrt{\pi}}
+\end{equation}
+and
+\begin{equation}
+\ln x - \frac{1}{x} < \frac{\Gamma'(x)}{\Gamma(x)} < \ln x.
+\end{equation}
+Our next steps would be to examine the properties of other geometric figures in
+$n$ Euclidean dimensions, such as hypercubes and simplices. We could also
+analyze balls in non-Euclidean spaces, such as hyperbolic space.
+*** Harmonic Numbers and Binomial Coefficients             :calculus:proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: harm-id
+:EXPORT_DATE: 2018-02-04
+:EXPORT_DESCRIPTION: Exploring a relationship between a sum of binomial coefficients and harmonic numbers using calculus and induction.
+:END:
+The $n$-th harmonic number is defined as the sum of reciprocals of the first $n$
+natural numbers:
+\begin{equation}
+\sum\limits_{k=1}^n \frac{1}{k}.
+\end{equation}
+We wish to prove the following identity involving harmonic numbers and binomial
+coefficients:
+\begin{equation}
+\sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
+\label{identity}
+\end{equation}
+I have two solutions: one with calculus, and one by induction.
+**** Calculus
+First, we notice that
+\begin{equation}
+\int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Biggr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.
+\label{integral-rep}
+\end{equation}
+Then, substituting \eqref{integral-rep} into \eqref{identity} gives
+\begin{equation}
+\sum\limits_{k=1}^n \frac{1}{k} = \sum\limits_{k=1}^n \int_0^1 x^{k-1} \d x.
+\end{equation}
+Because this is a finite sum of converging integrals, we can switch the sum and
+the integral to get
+\begin{equation}
+\int_0^1 \sum\limits_{k=1}^n x^{k-1} \d x.
+\end{equation}
+This sum is a geometric series! We can use the formula for the $n$-th partial
+sum of a geometric series.
+\begin{equation}
+1 + x + x^2 + \cdots + x^{n-1} = \frac{1 - x^n}{1-x}.
+\end{equation}
+Then we can solve the integral, using the substitution $x = 1-u, \d x = -\d u$.
+\begin{equation}
+\int_0^1 \frac{1 - x^n}{1-x} \d x = -\int_1^0 \frac{1 - (1-u)^n}{u} \d u \\
+\end{equation}
+Now the motivation for substituting $x = 1-u$ becomes clear. We can expand the
+$(1-u)^n$ term using the binomial theorem:
+\begin{equation}
+\begin{split}
+-\int_1^0 \frac{1 - (1-u)^n}{u} \d u &= \int_0^1 \frac{1}{u}\left( 1 - \sum\limits_{k=0}^n \binom{n}{k}(-1)^ku^k \right) \d x \\
+&= -\int_0^1 \frac{1}{u}\left(\sum\limits_{k=0}^n \binom{n}{k}(-1)^ku^k - 1 \right) \d x \\
+&= -\int_0^1 \frac{1}{u}\sum\limits_{k=1}^n \binom{n}{k}(-1)^ku^k \d x \\
+&= -\int_0^1 \sum\limits_{k=1}^n \binom{n}{k}(-1)^ku^{k-1} \d x \\
+&= -\sum\limits_{k=1}^n \binom{n}{k}(-1)^k\int_0^1 u^{k-1} \d x \\
+&= -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
+\end{split}
+\end{equation}
+This concludes our proof of \eqref{identity}.
+**** Induction
+We first show that
+\begin{equation}
+\frac{1}{k+1}\binom{n}{k} = \frac{1}{n+1}\binom{n+1}{k+1}.
+\label{lemma-1}
+\end{equation}
+We can expand the binomial coefficients with their factorial representation.
+Then the left-hand side equals
+\begin{equation}
+\frac{1}{k+1}\binom{n}{k} = \frac{1}{k+1}\frac{n!}{k!(n-k)!} = \frac{n!}{(k+1)!(n-k)!},
+\end{equation}
+while the right-hand side equals
+\begin{equation}
+\frac{1}{n+1}\binom{n+1}{k+1} = \frac{1}{n+1}\frac{(n+1)!}{(k+1)!(n-k)!} = \frac{n!}{(k+1)!(n-k)!}.
+\end{equation}
+So \eqref{lemma-1} holds. Next we show that
+\begin{equation}
+\sum\limits_{k=0}^n \frac{1}{k+1} \binom{n}{k} (-1)^k = \frac{1}{n+1}.
+\label{lemma-2}
+\end{equation}
+We use \eqref{lemma-1}:
+\begin{equation}
+\begin{split}
+\sum\limits_{k=0}^n \frac{1}{k+1}  \binom{n}{k} (-1)^k &= \sum\limits_{k=0}^n \frac{1}{n+1}\binom{n+1}{k+1} (-1)^k \\
+&= -\frac{1}{n+1}\sum\limits_{k=1}^{n+1} \binom{n+1}{k} (-1)(-1)^{k} \\
+&= -\frac{1}{n+1}\left(\sum\limits_{k=0}^{n+1} \binom{n+1}{k} (-1)^k - \binom{n+1}{0}(-1)^0 \right) \\
+&= -\frac{1}{n+1}\left(0 - 1 \right) \\
+&= \frac{1}{n+1}.
+\end{split}
+\end{equation}
+We can now use induction to prove our main claim. Let's first show the base case
+for $n = 1$. The left side of \eqref{identity} is clearly $1$, while the right
+side is $-(-1) = 1$. So the base case holds. Assume inductively that
+\begin{equation}
+\sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
+\end{equation}
+Then we wish to show that
+\begin{equation}
+\sum\limits_{k=1}^{n+1} \frac{1}{k} = -\sum\limits_{k=1}^{n+1} \frac{1}{k}\binom{n+1}{k}(-1)^k.
+\end{equation}
+We have
+\begin{equation}
+\begin{split}
+-\sum\limits_{k=1}^{n+1} \frac{1}{k}\binom{n+1}{k}(-1)^k &= -\sum\limits_{k=1}^{n} \frac{1}{k}\binom{n+1}{k}(-1)^k - \frac{1}{n+1}\binom{n+1}{n+1}(-1)^{n+1} \\
+&= -\sum\limits_{k=1}^{n} \frac{1}{k}\binom{n+1}{k}(-1)^k + \frac{1}{n+1}(-1)^{n}.
+\end{split}
+\end{equation}
+Using a standard identity of binomial coefficients
+\begin{equation}
+\binom{n}{k} + \binom{n}{k+1} = \binom{n+1}{k+1}
+\end{equation}
+(a recurrence relation that is the defining feature of Pascal's triangle) yields
+\begin{equation}
+\begin{split}
+&\frac{1}{n+1}(-1)^{n} - \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k - \sum\limits_{k=1}^{n} \binom{n}{k-1}\frac{1}{k}(-1)^k \\
+&\qquad = \frac{1}{n+1}(-1)^{n} - \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \sum\limits_{k=0}^{n-1} \binom{n}{k}\frac{1}{k+1}(-1)^k \\
+&\qquad = \frac{1}{n+1}(-1)^{n} - \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \sum\limits_{k=0}^{n} \binom{n}{k}\frac{1}{k+1}(-1)^k - \binom{n}{n}\frac{1}{n+1}(-1)^n.
+\end{split}
+\end{equation}
+Applying \eqref{lemma-2} yields
+\begin{equation}
+- \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \frac{1}{n+1}.
+\end{equation}
+By the inductive hypothesis, we have
+\begin{equation}
+\begin{split}
+- \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \frac{1}{n+1} &= \sum\limits_{k=1}^n \frac{1}{k} + \frac{1}{n+1} \\
+&= \sum\limits_{k=1}^{n+1} \frac{1}{k},
+\end{split}
+\end{equation}
+which closes the induction.
+*** Generalizing Heron's Formula                           :geometry:proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: herons-formula
+:EXPORT_DATE: 2018-02-03
+:EXPORT_DESCRIPTION: Heron’s formula tells us how to find the area of a triangle given its side lengths. We find the analogous expression for quadrilaterals, known as Bramhagupta’s Formula. It turns out quadrilaterals have maximal area when they are cyclic.
+:END:
+A well-known fact in Euclidean geometry is the following expression for the area
+of a triangle given its side lengths:
+\begin{equation}
+A = \sqrt{s(s-a)(s-b)(s-c)},
+\end{equation}
+where $s$ is the semiperimeter of the triangle, $\frac{a+b+c}{2}$. Our goal is
+to generalize this formula to quadrilaterals. Just like in proofs of Heron's
+formula that use trigonometry, we will use the formula for the area of a
+triangle
+\begin{equation}
+A = \frac{1}{2}ab\sin C
+\end{equation}
+and the cosine law. Our strategy will be to square these expressions and use the
+Pythagorean trigonometric identity. Consider a quadrilateral $ABCD$ with side
+lengths $a,b,c,d$.
+#+attr_html: :width 50%
+[[/img/math/herons-quadrilateral.png]]
+
+Then its area is the sum of the areas of the triangles $ABD$ and $BCD$. Let $A$
+denote the area of quadrilateral $ABCD$. Then
+\begin{equation}
+\begin{split}
+A &= \text{Area}_{\triangle ABD} + \text{Area}_{\triangle BCD} \\
+A &= \frac{1}{2}ad\sin\alpha + \frac{1}{2}bc\sin\beta \\
+2A &= ad\sin\alpha + bc\sin\beta \\
+4A^2 &= a^2d^2\sin^2\alpha + b^2c^2\sin^2\beta.
+\end{split}
+\label{sin}
+\end{equation}
+Using the cosine law on triangles $ABD$ and $BCD$, we obtain two expressions for
+the square of the length of line segment $BD$:
+\begin{equation}
+BD^2 = a^2 + d^2 - 2ad\cos\alpha
+\label{abd-cos}
+\end{equation}
+and
+\begin{equation}
+BD^2 = b^2 + c^2 - 2bc\cos\beta.
+\label{bcd-cos}
+\end{equation}
+We equate the right sides of \eqref{abd-cos} and \eqref{bcd-cos} to obtain
+\begin{equation}
+\begin{split}
+a^2 + d^2  - 2ad\cos\alpha &= b^2 + c^2 - 2bc\cos\beta \\
+a^2 + d^2 - b^2 - c^2 &= 2ad\cos\alpha - 2bc\cos\beta \\
+\frac{a^2 + d^2 - b^2 - c^2}{2} &= ad\cos\alpha - bc\cos\beta \\
+\frac{(a^2 + d^2 - b^2 - c^2)^2}{4} &= a^2d^2\cos^2\alpha + b^2c^2\cos^2\beta - 2abcd\cos\alpha\cos\beta.
+\end{split}
+\label{cos}
+\end{equation}
+We add \eqref{sin} and \eqref{cos}:
+\begin{equation}
+\begin{split}
+4A^2 + \frac{(a^2 + d^2 - b^2 - c^2)^2}{4} &= a^2d^2\sin^2\alpha + b^2c^2\sin^2\beta + a^2d^2\cos^2\alpha + b^2c^2\cos^2\beta - 2abcd\cos\alpha\cos\beta \\
+&= a^2d^2 + b^2c^2 - 2abcd\cos\alpha\cos\beta \\
+&= (ad + bc)^2 - 2abcd - 2abcd\cos\alpha\cos\beta \\
+&= (ad + bc)^2 - 2abcd(1 + \cos\alpha\cos\beta) \\
+&= (ad + bc)^2 - 4abcd\left(\frac{1 + \cos\alpha\cos\beta}{2}\right).
+\end{split}
+\end{equation}
+Using the cosine double angle formula, we have
+\begin{equation}
+\begin{split}
+\cos2\theta &= \cos^2\theta - \sin^2\theta \\
+\cos2\theta &= 2\cos^2\theta - 1 \\
+1 + \cos2\theta &= 2\cos^2\theta \\
+\frac{1 + \cos2\theta}{2} &= \cos^2\theta \\
+\frac{1 + \cos\theta}{2} &= \cos^2\frac{\theta}{2}.
+\end{split}
+\end{equation}
+We can substitute this into our equation for $4A^2$ to continue:
+\begin{equation}
+\begin{split}
+4A^2 &= (ad + bc)^2 - 4abcd\cos^2\frac{\alpha + \beta}{2} - \frac{(a^2 + d^2 - b^2 - c^2)^2}{4} \\
+16A^2 &= 4(ad + bc)^2 - (a^2 + d^2 - b^2 - c^2)^2 - 16abcd\cos^2\frac{\alpha + \beta}{2} \\
+16A^2 &= (2ad+2bc + a^2 + d^2 - b^2 - c^2)(2ad+2bc - a^2 - d^2 + b^2 + c^2) - 16abcd\cos^2\frac{\alpha + \beta}{2} \\
+16A^2 &= ((a+d)^2 - (b-c)^2)((b+c)^2 - (a-d)^2) - 16abcd\cos^2\frac{\alpha + \beta}{2} \\
+16A^2 &= (-a+b+c+d)(a-b+c+d)(a+b-c+d)(a+b+c-d) - 16abcd\cos^2\frac{\alpha + \beta}{2} \\
+16A^2 &= 16\left(\frac{-a+b+c+d}{2}\right)\left(\frac{a-b+c+d}{2}\right)\left(\frac{a+b-c+d}{2}\right)\left(\frac{a+b+c-d}{2}\right) - 16abcd\cos^2\frac{\alpha + \beta}{2}.
+\end{split}
+\end{equation}
+We introduce $s = \frac{a+b+c+d}{2}$, the semiperimeter of the quadrilateral.
+\begin{equation}
+\begin{split}
+16A^2 &= 16(s-a)(s-b)(s-c)(s-d) - 16abcd\cos^2\frac{\alpha + \beta}{2} \\
+A &= \sqrt{(s-a)(s-b)(s-c)(s-d) - abcd\cos^2\frac{\alpha + \beta}{2}}.
+\end{split}
+\end{equation}
+And we have a formula for the area of an arbitrary quadrilateral given its side
+lengths (this formula is called Bramhagupta's formula). It looks an awful lot
+like Heron's formula; it just has a pesky $-abcd\cos^2\frac{\alpha + \beta}{2}$
+term. Let's try getting rid of that term, which would maximize the area of the
+quadrilateral. We want $\cos^2\frac{\alpha + \beta}{2}$ to be $0$, so we set
+$\alpha + \beta = \pi$. This is true if the quadrilateral is cyclic. And so we
+have discovered that, given four side lengths, we can form the quadrilateral
+with the maximum area if we arrange the lengths such that opposite angles are
+supplementary (if we make a cyclic quadrilateral).
+*** Comparing $e^\pi$ and $\pi^e$                          :calculus:proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: e-pi
+:EXPORT_DATE: 2018-02-01
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :shorttitle "Comparing Powers of e and pi"
+:EXPORT_DESCRIPTION: "Which is greater: e^pi or pi^e? No calculators allowed! I solve this puzzle with differentiation, Taylor series, concavity, and the AM-GM inequality."
+:END:
+The constants $e$ and $\pi$ are everywhere in mathematics. Determining the
+greater of the two expressions $e^\pi$ and $\pi^e$ (without using a calculator,
+of course...) is a fun puzzle that you can approach in many ways. I'd like to
+discuss my solutions.
+**** Differentiation
+We shall perform the same operations on the two expressions.
+\begin{equation}
+    \begin{split}
+        e^{\pi} &\odot \pi^e \\
+        e^{\frac{\pi}{e}} &\odot \pi^{\frac{e}{e}} \\
+        e^{\frac{1}{e}} &\odot \pi^{\frac{1}{\pi}}
+    \end{split}
+\end{equation}
+To show that $e^\pi > \pi^e$, it suffices to show that $e^{\frac{1}{e}} >
+\pi^{\frac{1}{\pi}}$. Let $y = x^{\frac{1}{x}}$. Then we can implicitly
+differentiate to find the critical points.
+\begin{equation}
+\begin{split}
+\ln{y} &= \ln{x^{\frac{1}{x}}} \\
+\ln{y} &= \frac{\ln{x}}{x} \\
+\diff{}{x}\ln{y} &= \diff{}{x}\frac{\ln{x}}{x} \\
+\frac{1}{y}y' &= \frac{x\left(\frac{1}{x}\right) - \ln{x}\cdot1}{x^2} \\
+y' &= x^{\frac{1}{x}}\frac{1 - \ln{x}}{x^2}.
+\end{split}
+\end{equation}
+The expressions $x^{\frac{1}{x}}$ and $x^2$ are always positive, so there is
+only critical point: when $1 - \ln{x} = 0$, or when $x = e$. We must find
+whether this point is a global minimum or a maximum. When $x = 1 < e$, we have
+$1 - \ln{x} = 1$, so the function is increasing. The value $x = e^2 > e$ gives
+$1 - \ln{x} = -1$, which means the function is decreasing. Thus
+$x^{\frac{1}{x}}$ has a global maximum at $x = e$. And so $e^{\frac{1}{e}} >
+\pi^{\frac{1}{\pi}}$, which shows that $e^\pi > \pi^e$.
+**** Inequality
+If we use the inequality $1 + x < e^x$ (I will present three proofs of this
+below), then a very simple solution presents itself. The equality holds for all
+$x$, but we only require it to hold for positive $x$. Make the substitution $x =
+\frac{\pi}{e} - 1$, in an effort to cancel out the 1 on the right side of the
+inequality and introduce $\pi$. Because $\pi > e$, $\frac{\pi}{e} - 1 > 0$, and
+so
+\begin{equation}
+    \begin{split}
+        1 + \frac{\pi}{e} - 1 &< e^{\frac{\pi}{e} - 1} \\
+    \pi\cdot\frac{1}{e} &< e^{\frac{\pi}{e}} \cdot \frac{1}{e} \\
+\pi &< e^{\frac{\pi}{e}}\\
+\pi^e &< e^\pi.
+    \end{split}
+\end{equation}
+Wonderful, isn't it?
+***** Taylor Series
+This is the most standard proof I have; I think it's the least exciting. We only
+prove the equality for positive $x$. We know
+\begin{equation}
+e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
+\end{equation}
+Thus for $x > 0$, all the terms on the right side will be positive, and so $e^x
+> 1 + x$.
+***** Concavity
+This method requires a little more "geometric intuition" than the last. At $x =
+0$, we have $e^x = 1$. At this point $(0,1)$, the tangent line to $e^x$ has
+slope $1$ and has the equation $y = 1 + x$. Because $(e^x)'' = e^x > 0$, $e^x$
+is always concave up, so it is always above its tangent line. Therefore, $1 + x
+< e^x$.
+***** AM-GM
+This is my favourite proof. It's a little less intuitive than the others, but I
+think it's beautiful. We use the arithmetic-geometric mean inequality.
+\begin{equation}
+    \begin{split}
+     \sqrt[n]{1+x} &= \sqrt[n]{\smash[b]{\underbrace{1\cdot1\cdots1}_{\text{$n-1$ times}}\cdot(1+x)}} \\\\[1em]
+     &\le \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}+(1+x)}{n} \\
+     &= \frac{\overbrace{1+\dotsb+1}^{\text{$n$ times}}+x}{n} \\
+    &= 1 + \frac{x}{n}.
+    \end{split}
+\end{equation}
+Strict equality in the AM-GM inequality only holds when all the terms are equal.
+In this case, $x > 0$, so $1 + x \neq 1$, so we have strict inequality. This
+gives $\sqrt[n]{1+x} < 1 + \frac{x}{n}$. Raising both sides to the $n$-th power
+gives
+\begin{equation}
+    1 + x < \left(1 + \frac{x}{n}\right)^n.
+\end{equation}
+Taking the limit as $n$ approaches $\infty$ on both sides yields
+\begin{equation}
+    \begin{split}
+        \lim_{n\to\infty} (1 + x) &< \lim_{n\to\infty} \left(1 + \frac{x}{n}\right)^n \\
+        1 + x &< e^x.
+    \end{split}
+\end{equation}
+Using the limit definition of $e$, we conclude our proof.
+
+I get the feeling that there are many other ways to attack this problem. If you
+can solve it with a method that I have not shown, please let me know!
+* Euler                                                              :@euler:
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: euler
+:END:
+** Euler Home
+:PROPERTIES:
+:EXPORT_FILE_NAME: _index
+:END:
+#+BEGIN_EXPORT md
+<figure class="logos"><a href="https://projecteuler.net/archives" title="Go to Project Euler" rel="nofollow"><img src="https://projecteuler.net/profile/GautamManohar.png" alt="My Project Euler profile"></a><a href="https://www.hackerrank.com/GautamManohar" title="Go to my HackerRank profile" rel="nofollow"><img src="/img/other/hr-logo.png" height="60px" alt="My HackerRank profile"></a>
+</figure>
+#+END_EXPORT
+Welcome to the homepage of my [[https://projecteuler.net/][Project Euler]] solutions. Once I solve the original
+problem, I also take on the modified version from [[https://www.hackerrank.com/contests/projecteuler/challenges][ProjectEuler+]] on HackerRank,
+where the problems usually have multiple, harder test cases. The time limits are
+much stricter, and brute force is rarely an option.
+*** Why do I publish my solutions?
+After you solve a problem, Project Euler shows the following text:
+
+#+BEGIN_EXPORT md
+*We hope that you enjoyed solving this problem. Please do not deprive others of going through the same process by publishing your solution outside Project Euler. If you want to share your insights, then please go to [thread] in the discussion forum.*
+#+END_EXPORT
+
+I don’t quite agree. As anyone else, I learn the vast majority of what I know
+from other people. Someone on my site looking at my solutions decided to look
+for help on the greatest source of information we have: the Internet. So I’m
+glad to do my part in helping someone else learn.
+
+At the end of the day, it doesn’t matter whether the answer is 27189 or 27819;
+the process is what counts, and that’s what I try to share. That’s why I share
+my algorithms and code (and the process of coming up with them), but never a big
+flashing box with the answer on it.
+*** How far have I gotten?
+Here is a complete summary of my progress in solving problems on Project Euler
+and their upgraded versions on ProjectEuler+ at HackerRank.
+** Project Euler 1: Multiples of 3 or 5                                   :@math:identity:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 1
+:EXPORT_DATE: 2018-06-09
+:EXPORT_DESCRIPTION: My Python solution and code for Project Euler 1 on Project Euler.
+:END:
+*** Problem Statement
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
+3, 5, 6 and 9. The sum of these multiples is 23.
+
+Find the sum of all the multiples of 3 or 5 below $n$.
+*** My Algorithm
+In general, the sum of the natural numbers up to $n$ is the $n$-th [[https://en.wikipedia.org/wiki/Triangular_number][triangular
+number]]. Let's call this $T(n)$. A well known formula for this is
+\begin{equation}
+T(n) = \sum_{i=1}^n i = \frac{n(n+1)}{2}.
+\label{triangular-num}
+\end{equation}
+The sum of all multiples of 3 below $n$ looks like this:
+\begin{equation}
+1\cdot3 + 2\cdot 3 + 3 \cdot 3 + \ldots + \floor{\frac{n-1}{3}} \cdot 3.
+\label{3-list}
+\end{equation}
+We can factor 3 out and write \eqref{3-list} as $3T\floor{\frac{n-1}{3}}$, which
+we know how to find with \eqref{triangular-num}. We can do the same thing
+with 5.
+
+But now we've overcounted! Each multiple of 15 under $n$ has been counted twice:
+once as a multiple of 3, then again as a multiple of 5. We can fix this by
+subtracting the sum of all multiples of 15 under $n$. And so our desired answer
+is
+\begin{equation}
+3T\floor{\frac{n-1}{3}} + 5T\floor{\frac{n-1}{5}} - 15T\floor{\frac{n-1}{15}},
+\end{equation}
+with complexity $O(1)$.
+**** Other Solutions
+A brute-force solution that adds each number $i$ from 1 to $n-1$ to a count if
+$i$ is divisible by 3 /or/ 5 would have time complexity $O(n)$. With the large
+input sizes of the Hackerrank problem ($n \le 10^9$) this solution is too slow,
+but it easily passes the original Project Euler problem, where $n = 1000$.
+** Project Euler 2: Even Fibonacci Numbers                                   :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 2
+:EXPORT_DATE: 2018-06-10
+:EXPORT_DESCRIPTION: My Python solution and code for Project Euler 2 on Project Euler.
+:END:
+*** Problem Statement
+Each new term in the Fibonacci sequence is generated by adding the previous two
+terms. By starting with 1 and 2, the first 10 terms will be:
+\begin{equation*}
+	1, 2, 3, 5, 8, 13, 21, 34, 55, 89,\ldots
+\end{equation*}
+By considering the terms in the Fibonacci sequence whose values do not exceed
+$N$, find the sum of the even-valued terms.
+*** My Algorithm
+For the Project Euler problem, $N = 4\times10^6$. Let's list the Fibonacci
+numbers with $F(0) = 0$:
+\begin{equation}
+	0,1,1,2,3,5,8,13,21,\ldots
+\end{equation}
+Using the definition of the Fibonacci sequence:
+\begin{equation}
+	\begin{split}
+		F(n+3) &= F(n + 2) + F(n + 1) \\
+		&= F(n + 1) + F(n) + F(n + 1) \\
+		&= 2F(n + 1) + F(n).
+	\end{split}
+	\label{fib-sum}
+\end{equation}
+This shows that if $F(n)$ is even, then so is $F(n+3)$. Because $F(0) = 0$ is
+even, then the even Fibonacci numbers are $F(3k)$ for positive integers $k$.
+
+Further applying the Fibonacci recurrence relation gives
+\begin{equation}
+	\begin{split}
+		F(3k) &= 2F(3k - 2) + F(3k - 3) \\
+		&= 3F(3k - 3) + 2F(3k - 4) \\
+		&= 3F(3k - 3) + 2F(3k - 5) + 2F(3k - 6).
+	\end{split}
+\end{equation}
+From \eqref{fib-sum}, we have $F(3k - 3) = 2F(3k - 5) + F(3k - 6)$, so
+\begin{equation}
+	F(3k) = 4F(3k - 3) + F(3k - 6) = 4F(3(k-1)) + F(3(k-2)).
+	\label{next-fib}
+\end{equation}
+To solve the problem, we begin with $0,2$. Using \eqref{next-fib}, we add to a
+sum the next even Fibonacci number, keeping track of the last two even Fibonacci
+numbers. We continue this until the next even Fibonacci number exceeds $N$. This
+solution performs one-third as many steps as there are Fibonacci numbers up to
+$N$, so it is $O(\log n)$.
+**** Other Solutions
+Only computing even Fibonacci numbers does not change the
+time complexity of the solution, but it does shave off a constant factor of 3.
+**** Mathematical Solution
+A more mathematically oriented $O(1)$ solution (my personal favourite) is also
+possible. Unfortunately, the floating point calculations involved become too
+inaccurate with large values of $N$, and using a high precision floating point
+library (such as Python's ~decimal~) is too slow. Regardless, a famous formula
+for the value of the $n$-th Fibonacci number is Binet's formula:
+\begin{equation}
+	F(n) = \frac{\varphi^n - (-\varphi)^{-n}}{\sqrt{5}}.
+\end{equation}
+
+Suppose we know that we need to sum the Fibonacci numbers $F(3k)$ for integers
+$k$ from 0 to some maximum $M$ to get our desired sum $S$. Then we have two
+geometric series:
+\begin{equation}
+	S = \frac{1}{\sqrt{5}}\left(\sum_{k=0}^M \varphi^{3k} - \sum_{k=0}^M (-\varphi)^{-(3k)}\right).
+	\label{sum}
+\end{equation}
+We can find the first term of each series by setting $k = 0$; they are both 1.
+In the first series, the common ratio is $\varphi^3$, in the second
+$(-\varphi)^{-3}$. We use the formula for the [[https://en.wikipedia.org/wiki/Geometric_series#Formula][sum of a geometric series]] with
+first term $a$ and common ratio $r$ with $n$ terms:
+\begin{equation}
+	a + ar + ar^3 + \cdots + ar^{n-1} = a\left(\frac{r^n - 1}{r-1}\right).
+\end{equation}
+Now we can rewrite \eqref{sum}, noting that each sum contains the first $M+1$
+terms of a geometric series:
+\begin{equation}
+	S = \frac{1}{\sqrt{5}}\left( \frac{\varphi^{3(M+1)} - 1}{\varphi^3 - 1} + \frac{(-\varphi)^{-3(M+1)} - 1}{\varphi^{-3} + 1} \right).
+	\label{sum2}
+\end{equation}
+It's nice to have from a mathematical point of view, but the second term in
+\eqref{sum2} quickly vanishes. Excluding it gives an absolute error of less than
+1, so we can ignore it and floor the expression:
+\begin{equation}
+	S = \left\lfloor \frac{\varphi^{3(M+1)} - 1}{\sqrt{5}(\varphi^3 - 1)} \right\rfloor.
+\end{equation}
+
+Now we need to find what this maximum $M$ actually is. We know that $F(3M)$ is
+the largest even Fibonacci number less than or equal to $N$. Using the truncated
+version of Binet's formula, we know that
+\begin{equation}
+	F(n) \approx \frac{\varphi^n}{\sqrt{5}},
+\end{equation}
+so $n \approx \log_\varphi(\sqrt{5} F(n))$. Therefore, $M \approx
+\left\lfloor\frac{1}{3}\log_\varphi(N\sqrt{5})\right\rfloor$. And so our desired
+answer is
+\begin{equation}
+	S = \left\lfloor \frac{\varphi^{3\left(\left\lfloor\frac{1}{3}\log_\varphi(N\sqrt{5})\right\rfloor+1\right)} - 1}{\sqrt{5}(\varphi^3 - 1)} \right\rfloor.
+\end{equation}
+** Project Euler 3: Largest Prime Factor                                    :primes:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 3
+:EXPORT_DATE: 2018-06-10
+:EXPORT_DESCRIPTION: My solution to problem 3 of Project Euler.
+:END:
+*** Problem Statement
+The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor
+a given number $N$?
+*** My Algorithm
+Suppose we split $n$ into two factors. Then one of them is at least $\sqrt{n}$
+and the other is at most $\sqrt{n}$. To see this, we argue by contradiction; if
+both were strictly less than $\sqrt{n}$, then their product would be strictly
+less than $n$, and if both were strictly greater, so would their product. Of
+course, $n$ can't be greater than or less than itself. This is a very valuable
+fact. It means that if $n$ is not divisible by a prime at most $\sqrt{n}$, then
+$n$ is itself prime. So if we have a list of the primes under $\sqrt{n}$, and
+divide $n$ as much as we can by each of them, then what is left is either 1 or
+the largest prime factor of $n$. In the first case, the answer is the largest
+prime that divided $n$, which we can keep track of. To generate the list of
+primes, we can use the [[https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes][Sieve of Eratosthenes]], a classic tool in number theory.
+We start with a list of the first $m$ numbers. We cross out all the multiples of
+2, then go to the next uncrossed number, and cross out all of its multiples.
+When we cannot cross out any more numbers, we are left with the primes less than
+or equal to $m$. The time complexity of this operation is $O(m\log\log m)$.
+There are about $\frac{m}{\log m}$ primes under $m$, according to the [[https://en.wikipedia.org/wiki/Prime_number_theorem][Prime
+Number Theorem]]. In our case, $m = \sqrt{n}$. And so the time complexity of our
+solution is $O(\sqrt{n}\log \log \sqrt{n} + \frac{\sqrt{n}}{\log n}) =
+O(\sqrt{n} \log \log n)$.
+**** Other Solutions
+Because we only need the /largest/ prime factor, an $O(\sqrt{n})$ solution is
+possible. The largest factor of $n$ must be prime. So we check whether each
+numbers up to $\sqrt{n}$ divides $n$ and keep track of the largest so far that
+does, which is our answer. However, the solution above gives more generally
+applicable techniques and can also be used to find the $k$-th largest prime
+factor.
+** Project Euler 4: Largest Palindrome Product                         :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 4
+:EXPORT_DATE: 2018-06-10
+:EXPORT_DESCRIPTION: My solution to problem 4 of Project Euler.
+:END:
+*** Problem Statement
+A palindromic number reads the same both ways. The smallest 6 digit palindrome
+made from the product of two 3-digit numbers is $101101 = 143 \cdot 707$. Find
+the largest palindrome made from the product of two 3-digit numbers which is
+less than $N$.
+*** My Algorithm
+There are less than $10^6$ possible products of two 3-digit numbers, so brute
+force is a possible solution. We compute all products $ij$ of numbers $100 \le
+i,j \le 999$. If they are palindromic (the reversed string of $ij$ is identical
+to the string of $ij$), we keep them. Then we sort the palindromic products and
+perform a binary search for the greatest element of the array strictly less than
+$N$. The only tricky thing here is to remember that if $N$ is in the array of
+palindromic products, we must return the element directly before $N$.
+** Project Euler 5: Smallest Multiple                                       :primes:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 5
+:EXPORT_DATE: 2018-06-10
+:EXPORT_DESCRIPTION: My solution to problem 5 of Project Euler.
+:END:
+*** Problem Statement
+2520 is the smallest number that can be divided by each of the numbers from 1 to
+10 without any remainder. What is the smallest positive number that is evenly
+divisible by all of the numbers from 1 to $N$?
+*** My Algorithm
+For a number $a$ to divide another number $b$, each of the prime powers that
+divide $a$ must also divide $b$. That is, the exponent on each of the prime
+powers that divide $a$ is less than or equal to the corresponding exponent on a
+prime power that divides $b$. For each number from 1 to $N$ to divide a number
+$M$, each prime power less than $N$ must also divide $M$. To minimize $M$, we
+have each prime $p \le N$ divide $M$ as many times as it does the largest prime
+power of $p$ at most $N$. That is
+\begin{equation}
+M = \prod_{p \le N} p^{\lfloor \log_pN \rfloor}.
+\end{equation}
+To compute our answer $M$, we need a list of the primes less than $N$, for which
+we can use the Sieve of Eratosthenes. And so our solution has time complexity
+$O(n\log\log n)$.
+**** Other Solutions
+This problem can also be phrased as finding the lowest common multiple of
+$1,\ldots,N$, for which the classic formula is $\mathrm{lcm}(1,\ldots,N) =
+\frac{N!}{\mathrm{gcd}(1,\ldots,N)}$. Because the numerator grows very quickly,
+we can compute the LCM iteratively, making use of the fact that
+$\mathrm{lcm}(a,b,c) = \mathrm{lcm}(\mathrm{lcm}(a,b),c)$ and storing the latest
+LCM with each step. This algorithm computes the greatest common denominator of
+two numbers at most $N$, which can be done in $O(\log n)$ time, $N$ times. And
+so this solution has time complexity $O(n\log n)$. However, it has much better
+space complexity, at $O(1)$, than the sieve of Eratosthenes, which needs $O(n)$
+space to store an array of size $n$. So for large $n$, this alternative solution
+is preferred.
+** Project Euler 6: Sum Square Difference                                 :identity:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 6
+:EXPORT_DATE: 2018-06-10
+:EXPORT_DESCRIPTION: My solution to problem 6 of Project Euler.
+:END:
+*** Problem Statement
+The sum of the squares of the first ten natural numbers is
+\begin{equation*}
+1^2 + 2^2 + \cdots + 10^2 = 385.
+\end{equation*}
+The square of the sum of the first ten natural numbers is
+\begin{equation*}
+(1 + 2 + \cdots + 10)^2 = 55^2 = 3025
+\end{equation*}
+Hence the difference between the sum of the squares of the first ten natural
+numbers and the square of the sum is $3025 - 385 = 2640$. Find the absolute
+difference between the sum of the squares of the first $N$ natural numbers and
+the square of the sum.
+*** My Algorithm
+We make use of the following two formulas, which can be proven using induction.
+\begin{equation}
+\sum_{i=1}^n i = \frac{n(n+1)}{2}
+\label{1}
+\end{equation}
+and
+\begin{equation}
+\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}.
+\label{2}
+\end{equation}
+Applying these two formulas, the desired value is
+\begin{equation}
+\begin{split}
+\Big| \frac{n^2(n+1)^2}{4} - \frac{n(n+1)(2n+1)}{6} \Big| &= \Big|\frac{n^4+2n^3+n^2}{4} - \frac{2n^3 + 3n^2 + n}{6} \Big| \\
+&= \Big| \frac{3n^4+6n^3+3n^2}{12} - \frac{4n^3 + 6n^2 + 2n}{12} \Big| \\
+&= \Big| \frac{3n^4+2n^3-3n^2-2n}{12} \Big| \\
+\end{split}
+\label{final-sum}
+\end{equation}
+This value is non-negative for all positive integers, so the absolute value bars
+are not necessary. Our algorithm is just a computation, so it has time
+complexity $O(1)$.
+**** Other Solutions
+We did not need to simplify the expression as in \eqref{final-sum}; we could
+have simply subtracted \eqref{2} from the square of \eqref{1}. An $O(n)$
+solution is also possible: simply add the first $N$ numbers, square them, and
+subtract the sum of the squares of the first $N$ numbers.
+** Project Euler 7: 10001st Prime                                           :primes:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 7
+:EXPORT_DATE: 2018-06-10
+:EXPORT_DESCRIPTION: My solution to problem 7 of Project Euler.
+:END:
+*** Problem Statement
+By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that
+the 6th prime is 13. What is the $N$-th prime number?
+*** My Algorithm
+We use the following identity, which is a consequence of the Prime Number
+Theorem:
+\begin{equation}
+n(\log n + \log \log n - 1) < p_n < n(\log n + \log \log n), n > 5.
+\end{equation}
+If $n \le 5$, we use a look-up table. Using a Sieve of Eratosthenes, we generate
+a list of the primes up to $n(\log n + \log \log n)$, which is guaranteed to
+contain the $n$-th prime. Our answer is the $n$-th element of this array. We do
+this with time complexity $O(n \log n \log \log (n \log n))$, using $p_n \approx
+n \log n$. Because $O(\log \log (n \log n)) \in O(\log n)$, this can be
+simpified to $O(n \log^2 n)$. To optimize the constant factor, we compute the
+first $N_{\text{max}} = 10^4$ primes and store them in memory, rather than
+computing the list for each query, which takes too long.
+** Project Euler 8: Largest Product in a Series                        :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 8
+:EXPORT_DATE: 2018-06-10
+:EXPORT_DESCRIPTION: My solution to problem 8 of Project Euler.
+:END:
+*** Problem Statement
+Find the greatest product of $K$ consecutive digits in the given $N$ digit
+number.
+*** My Algorithm
+We use a brute force solution. There are $N-K+1$ possible $K$-length substrings
+of a string of length $N$. We convert the given number to a string, find the
+substrings, and multiply the digits in them. We then find the maximal product.
+This is easily done with time complexity $O(K(N-K+1))$.
+** Project Euler 9: Special Pythagorean Triplets                             :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 9
+:EXPORT_DATE: 2018-06-10
+:EXPORT_DESCRIPTION: My solution to problem 9 of Project Euler.
+:END:
+*** Problem Statement
+A Pythagorean triplet is a set of three natural numbers, $a < b < c$, for which,
+\begin{equation*}
+a^2 + b^2 = c^2
+\end{equation*}
+For example, $3^2 + 4^2 = 9 + 16 = 25 = 52$. Given $N$, find the maximal product
+$abc$ such that $a,b,c$ form a Pythagorean triplet for which $a+b+c = N$. If no
+such triplet exists, output $-1$.
+*** My Algorithm
+We know
+\begin{equation}
+a + b + c = N
+\label{1}
+\end{equation}
+and
+\begin{equation}
+a^2 + b^2 = c^2.
+\label{2}
+\end{equation}
+From \eqref{1} we get $c = N - a - b$, which we substitute into \eqref{2} to get
+\begin{equation}
+\begin{split}
+a^2 + b^2 &= (N - (a + b))^2 \\
+a^2 + b^2 &= N^2 - 2N(a+b) + (a+b)^2 \\
+a^2 + b^2 &= a^2 + b^2 + 2ab + N^2 - 2Na - 2Nb \\
+0 &= b(2a - 2N) + N^2 - 2Na \\
+b(2a - 2N) &= 2Na - N^2 \\
+b &= \frac{N^2 - 2Na}{2N - 2a}.
+\end{split}
+\end{equation}
+Now we have expressions for $b,c$ in terms of $a$. Note furthermore that because
+$a < b < c$ and $a + b + c = N$, none of the sides can exceed $\frac{N}{3}$. Now
+we can iterate over $1 \le a \le \frac{N}{3}$ and store the maximal product
+$abc$ for which $a^2 + b^2 = c^2$. This solution is $O(n)$.
+**** Other Solutions
+We can also use preprocessing for an $O(N^2 + T)$ solution, where $T$ is the
+number of queries. For all $a < b < 3000$, we check whether $c = \sqrt{a^2 +
+b^2}$ is an integer. If so, we check whether $abc$ is greater than our existing
+answer for the perimeter $a + b + c$, which is by default $-1$. To answer the
+queries, we look up the corresponding value in $O(1)$ time.
+** Project Euler 10: Summation of Primes                                    :primes:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 10
+:EXPORT_DATE: 2018-06-10
+:EXPORT_DESCRIPTION: My solution to problem 10 of Project Euler.
+:END:
+*** Problem Statement
+The sum of all primes below 10 is $2+3+5+7 = 17$. Find the sum of all primes at
+most $N$.
+*** My Algorithm
+We use a Sieve of Eratosthenes to compute the primes up to the maximum possible
+value of $N$. We then construct a prefix sum array in $O(\frac{N}{\log N})$
+time. Using a binary search, we find the index of largest prime less than $N$ in
+$O(\log N - \log \log N)$ time. In $O(1)$ time, we look up the corresponding
+partial sum of prime numbers. Our solution has time complexity $O(n\log\log n +
+\frac{n}{\log n} + T\log n)$, where $T$ is the number of queries.
+** Project Euler 11: Largest Product in a Grid                         :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 11
+:EXPORT_DATE: 2018-06-10
+:EXPORT_DESCRIPTION: My solution to problem 11 of Project Euler.
+:END:
+*** Problem Statement
+In the 20-by-20 grid below, four numbers have been marked in bold. ![[../../figures/euler-11-matrix.png][A nice
+friendly matrix.]]{ width=95% } The product of these numbers is $26 \cdot 63 \cdot
+78 \cdot 14 = 1788696$. What is the greatest product of four adjacent numbers in
+the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+*** My Algorithm
+The important thing in this problem is to be careful of boundary conditions. We
+start at the top left corner. If there are at least three cells to the right, we
+check the horizontal product. If there are at least three cells down, we check
+the vertical product. If there are at least three cells to the left and three
+cells down, we check the left diagonal product. If there are at least three
+cells to the right and three cells down, we check the right diagonal product.
+Checking up, left, left-up, or right-up would be redundant. We take the maximum
+of these four values and the existing maximum product and set that to be our new
+maximum product. We continue like this over all cells in the grid. Our final
+answer is found in $O(n^2)$ time---not surprising for a square grid.
+** Project Euler 12: Highly Divisible Triangular Number               :primes:proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 12
+:EXPORT_DATE: 2018-06-10
+:EXPORT_DESCRIPTION: My solution to problem 12 of Project Euler.
+:END:
+*** Problem Statement
+The sequence of triangle numbers is generated by adding the natural numbers. So
+the 7th triangle number would be $1 + 2 + 3 + 4 + 5 + 6 + 7 = 28$. The first ten
+terms would be:
+\begin{equation*}
+1, 3, 6, 10, 15, 21, 28, 36, 45, 55,\ldots
+\end{equation*}
+What is the value of the first triangle number to have over $N$ divisors?
+*** My Algorithm
+If we prime factor a number $n$ as
+\begin{equation}
+\prod_{p|n} p_i^{e_i},
+\end{equation}
+where $p_i$ are the prime factors of $n$ and $e_i$ is the largest exponent such
+that $p_i^{e_i}$ divides $n$, then we can write the number of factors of $n$ as
+\begin{equation}
+\prod_{i,p_i|n} (e_i + 1).
+\label{factor-prod}
+\end{equation}
+We will also use the fact that the $n$-th triangular number is
+$\frac{n(n+1)}{2}$. We could find the number of factors of this number in
+$O(\sqrt{\frac{n(n+1)}{2}}\log\log\frac{n(n+1)}{2}) = O(\sqrt{n^2}\log\log n) =
+O(n\log\log n)$ time. But we can also use the fact that $n$ and $n+1$ are
+coprime. Because they share no factors, the number of factors of $n(n+1)$ is the
+product of the number of factors of $n$ and $n+1$, which we can find in
+$O(\sqrt{n}\log\log n)$ time. We also need to account for the factors lost by
+dividing by 2. Suppose that the greatest power of 2 that divides $n(n+1)$ is
+$2^k$. Then $2^k$ divides exactly one of $n$ and $n+1$, so we need not factor
+$n(n+1)$. This factor of $2^k$ contributes a $k+1$ term to the product in
+\eqref{factor-prod}. Dividing by $2$ turns this into a $k - 1 + 1 = k$ term. And
+so the number of factors decreases by $\frac{k}{k+1}$. We then iterate over $n$
+until a number with more than $N$ divisors is found, then return the
+corresponding triangular number. This solution has time complexity
+$O(\frac{M^2\log\log M}{\log M})$, where $M$ is the index of the smallest
+triangular number with over $N$ divisors, We can improve this solution by
+precomputing a sufficiently large list of primes. Then the solution has time
+complexity $O(\sqrt{M} \log \log M + \frac{M\sqrt{M}}{\log M}) =
+O(\frac{M\sqrt{M}}{\log M})$. We can further optimize the constant factor in our
+algorithm by caching the number of prime factors of the last $n+1$ that we
+tested.
+** Project Euler 13: Large Sum                                         :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 13
+:EXPORT_DATE: 2018-06-10
+:EXPORT_DESCRIPTION: My solution to problem 13 of Project Euler.
+:END:
+*** Problem Statement
+Find the first ten digits of the sum of $N$ 50-digit numbers.
+*** My Algorithm
+Thanks to Python's built-in ability to handle infinitely large integers, this
+problem is a piece of cake. We read in the numbers, add them, convert the result
+to a string, and output the first ten characters.
+**** Other Solutions
+In languages without big integer support, we would need an algorithm to add big
+integers, using string arrays and the carrying method often taught in elementary
+schools.
+** Project Euler 14: Longest Collatz Sequence                                  :fun:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 14
+:EXPORT_DATE: 2018-06-10
+:EXPORT_DESCRIPTION: My solution to problem 14 of Project Euler.
+:END:
+*** Problem Statement
+The following iterative sequence is defined for the set of positive integers:
+\begin{equation*}
+\begin{cases}
+n \to \frac{n}{2} \quad n \,\text{even}, \\
+n \to 3n + 1 \quad n\,\text{odd}
+\end{cases}
+\end{equation*}
+Using the rule above and starting with 13 generates the following sequence:
+\begin{equation*}
+13 \to 40 \to 20 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1
+\end{equation*}
+This sequence contains 10 terms. It is conjectured that every starting number
+produces a sequence that ends in 1. Which starting number at most $N$ produces
+the longest chain? If there are many possible such numbers, print the maximum
+one.
+*** My Algorithm
+This problem is perfect for caching (or memoization) and recursion. We define a
+recursive function that returns the length of a Collatz chain with a given
+starting number. The function also store the chain length for each starting
+number (and, because the function is recursive, each number in the chain) in a
+list so that we do not have to compute it again. Because of memory constraints,
+we do not store chain lengths for numbers greater than the maximum given $N$.
+Instead, we compute these values on the fly. We can then iterate over all
+possible starting numbers and keep a list of starting numbers which produce a
+right-maximal chain length (that is, they produce a chain length greater than or
+equal to all lenghts produced by smaller starting numbers). Finally, we perform
+a binary search for the greatest element in this list less than each query. This
+solution has time complexity $O(M + T\log M)$, where $M$ is the maximum possible
+starting value and $T$ is the number of queries.
+**** Other Solutions
+Solutions which do not use memoization are too slow.
+** Project Euler 15: Lattice Paths                                           :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 15
+:EXPORT_DATE: 2018-06-11
+:EXPORT_DESCRIPTION: My solution to problem 15 of Project Euler.
+:END:
+*** Problem Statement
+Suppose we start at the top-left corner of an $N\times M$ grid and that we can
+only travel to the right or down. How many routes are there to the bottom-right
+corner? Output the answer modulo $10^9 + 7$.
+*** My Algorithm
+In total, we must make $N+M$ moves, of which $N$ are to the right. Choosing
+these $N$ moves uniquely identifies each possible route, as this is equivalent
+to choosing the $M$ downwards moves. This is a combinatorial explanation for the
+fact that
+\begin{equation}
+\binom{N+M}{N} = \binom{N+M}{M} = \frac{(N+M)!}{N!M!}
+\end{equation}
+which is our answer. To make the computation easier, we use the smaller of $N$
+and $M$. Suppose we know the value of $\binom{a}{b} = \frac{a!}{b!(a-b)!}$. Then
+we can find the value of
+\begin{equation}
+\binom{a}{b+1} = \frac{a!}{(b+1)!(a-b-1)!} = \binom{a}{b}\frac{a-b}{b+1}
+\label{recurrence}
+\end{equation}
+This gives us a recurrence relation. Because we are computing the answer modulo
+$10^9 + 7$, we must use the modular multiplicative inverse of $b+1$. Because the
+modulus is prime, this is guaranteed to exist. We can find this using the [[https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm) in $O(\log
+ P][Extended Euclidean algorithm]]$ time, where $P = 10^9 + 7$. Starting with
+$\binom{N+M}{0} = 1$, we iterate over $0 \le k \le \mathrm{min}(N,M) - 1$ use
+the recurrence relation \eqref{recurrence}, multiplying by $N + M - k$ and the
+modular inverse of $k + 1$ under $P$. At each step, we take the expression
+modulo $P$. Our solution has time complexity $O(\mathrm{min}(N,M)\log P)$.
+** Project Euler 16: Power Digit Sum                                   :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 16
+:EXPORT_DATE: 2018-06-11
+:EXPORT_DESCRIPTION: My solution to problem 16 of Project Euler.
+:END:
+*** Problem Statement
+What is the sum of the digits of $2^N$?
+*** My Algorithm
+Python has built-in infinite precision integer arithmetic, so this problem is
+easily done. We find $2^N$ using built-in modular exponentiation in $O(\log N)$
+time. The length of this number is $\lceil N\log_{10} 2 \rceil \in O(N)$. And so
+our solution has complexity $O(N \log N)$.
+** Project Euler 17: Number Letter Counts                                      :fun:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 17
+:EXPORT_DATE: 2018-06-11
+:EXPORT_DESCRIPTION: My solution to problem 17 of Project Euler.
+:END:
+*** Problem Statement
+Given a number, write it in English words.
+*** My Algorithm
+The Hackerank bounds for this problem are $N \le 10^{12}$. First, we create a
+dictionary of all the "special" number names that cannot be procedurally
+generated:
+\begin{equation*}
+0,1,\ldots,9, \quad 10,20,\ldots,90, \quad 10^2,10^3,10^6,10^9,10^{12}
+\end{equation*}
+Now to process the number $N$. We begin by breaking the number into five blocks
+of three digits each, starting from the ones digit. These will have, in
+increasing order, no suffix, the suffix ~`thousand," ``million," ``billion,"
+and `~trillion." We then find the name of the number corresponding to each of
+these blocks and add the corresponding suffix. We maintain an array of strings
+which we shall join together to make the name. We will use two tricks. First,
+that the integer division of $N$ by $10^k$ removes the last k digits of $N$; and
+second, that $N$ modulo $10^k$ returns the last $k$ digits of $N$. Now we define
+a function that returns the name of a number with at most three digits. If $N$
+is zero, we return an empty string. If $N$ is in our look-up table, we are done.
+If not, we get the first digit, or hundreds digit. If it is non-zero, we add its
+name and "hundred" to the array. Then we get the last two digits. If the
+corresponding number is in the look-up table, we add it to the array. If not, we
+find the tens digit and if it is non-zero, we add the name of the corresponding
+multiple of ten (from our look-up table) to our array. Finally, we add the name
+of the ones digit if it is non-zero. Then, we join together the three-digit name
+with suffix for each block of three digits in the number. This solution has time
+complexity $O(\log n)$. Because we process the number in blocks of three, the
+constant factor is small.
+** Project Euler 18: Maximum Path Sum I                                     :greedy:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 18
+:EXPORT_DATE: 2018-06-11
+:EXPORT_DESCRIPTION: My solution to problem 18 of Project Euler.
+:END:
+*** Problem Statement
+By starting at the top of the triangle below and moving to adjacent numbers on
+the row below, the maximal total from top to bottom is 23. ![[../../figures/euler-18-triangle.png][Note that $3+7+4+9 =
+23$.]]{ width=10% } Find the maximum path length for a given such triangle.
+*** My Algorithm
+We use a data structure that mimics the structure of a given triangle. For each
+row, we update a ~parent~ array to store the maximal path sums that end in each
+entry of the row above. We process each row of the tree into an array called
+~current~. For each element ~x` in the row, we add to current the sum of `x` and
+the maximum of the sums corresponding to the two (or one) entries adjacent to `x~
+in the previous row. These sums are found in ~parent~. When we finish processing a
+row, we set ~parent` equal to `current~ and continue until all the rows have been
+processed. The final answer is the maximal element in ~parent~. This solution has
+time complexity $O(n^2)$, because we perform an operation for each element of
+the triangle.
+*** Other Solutions
+A brute force solution is possible for small triangles. The number of paths is
+the sum of the number of paths that end in each entry of the bottom row. This is
+the sum of the entries in the $n$-th row of Pascal's triangle, or $2^n$. And so
+a brute force solution would have time complexity $O(2^n)$.
+** Project Euler 20: Factorial Digit Sum                               :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 20
+:EXPORT_DATE: 2018-06-13
+:EXPORT_DESCRIPTION: My solution to problem 20 of Project Euler.
+:END:
+*** Problem Statement
+Find the sum of the digits in $N!$.
+*** My Algorithm
+With Python, an $O(1)$ solution is simple. We compute $n!$, convert it to a
+string, and sum the digits.
+** Project Euler 21: Amicable Numbers                                  :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 21
+:EXPORT_DATE: 2018-06-12
+:EXPORT_DESCRIPTION: My solution to problem 21 of Project Euler.
+:END:
+*** Problem Statement
+Let $d(n)$ be defined as the sum of proper divisors of $n$ (numbers less than
+$n$ that divide evenly into $n$). If $d(a) = b$ and $d(b) = a$, where $a \neq
+b$, then $a$ and $b$ are an amicable pair and each of $a$ and $b$ are amicable
+numbers. For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22,
+44, 55 and 110; therefore $d(220) = 284$. The proper divisors of 284 are 1, 2,
+4, 71 and 142; so $d(284) = 220$. Evaluate the sum of the proper divisors under
+$N$.
+*** My Algorithm
+The first thing we need is a way to calculate $d(n)$. A brute force method that
+tests all numbers from $1$ to $n$ and checks whether they divide $n$ is too
+slow. But if a number $d$ divides $n$, then $\frac{n}{d}$ also divides $n$. In
+particular, one of $n$ and $\frac{n}{d}$ is less or equal than $\sqrt{n}$, and
+the other is greater than or equal to $\sqrt{n}$. To see this, consider what
+would happen if both were smaller than $\sqrt{n}$. Their product would be less
+than $n$; a similar contradiction arises if both were greater than $\sqrt{n}$.
+And so we only need to check each number less than $\sqrt{n}$. If it divides
+$n$, we add it to the sum that we will return. We therefore find $d(n)$ in
+$O(\sqrt{n})$ time. Then we can use preprocessing to answer each query in $O(1)$
+time. For each $1 \le x \le N_{\text{max}}$, if $x = d(d(x))$ and $x \neq d(x)$,
+then we add $x$ to a list of amicable numbers. To answer each query, we simply
+add the amicable numbers less than the given $N$. Our solution has time
+complexity $O(N\sqrt{N} + T)$, where $N$ is the maximum possible input value and
+$T$ is the number of queries.
+** Project Euler 22: Names Scores                                      :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 22
+:EXPORT_DATE: 2018-06-23
+:EXPORT_DESCRIPTION: My solution to problem 22 of Project Euler.
+:END:
+*** Problem Statement
+You are given around five-thousand names. Begin by sorting them by alphabetical
+order. Then working out the alphabetical value of each name, multiply this value
+by the alphabetical position of the name in the list. For example, suppose ~COLIN~
+is the 983rd element of a sorted list of names. It is worth $3 + 15 + 12 + 9 +
+14 = 53$, so this name has a score of $53 \cdot 983 = 49714$. Give the name
+score of the given names.
+*** My Algorithm
+We need two things to solve this problem: a way to get the score of a letter and
+a way to get the alphabetical position of a name in the list. We can make a
+string ~ABCDEFHGHIJKLMNOPQRSTUVWXYZ~ containing all the letters of the alphabet.
+For each letter in a given name, we find the index of that letter in our string
+and add one; this is the score of that letter. We sum the scores and multiply it
+by the alphabetical position of a name, which is ~i + 1`, where `i~ is its index
+in the sorted list. In Python, sorting a list of strings is done in alphabetical
+order. We sort the list of $n$ names in $O(n\log n)$ time, and we find the index
+of a name in the list by linearly searching it in $O(n)$ time. The alphabetical
+score is computed in $O(26) = O(1)$ time. This solution has time complexity
+$O(n\log n + Qn)$.
+*** Other Solutions
+Because we sort the list of names, we could use binary search to find the
+alphabetical position of a given name. This would improve our time complexity to
+$O(n\log n + Q\log n)$. In the HackerRank problem, $Q < n$, but even if $Q$ were
+greater than $n$, then some names would be queried more than once. In this case,
+instead of recalculating the score, we could cache each score as it is
+calculated. And so binary search reduces the complexity of this solution to just
+the sorting time, $O(n \log n)$.
+** Project Euler 23: Non-abundant Sums                                 :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 23
+:EXPORT_DATE: 2018-06-12
+:EXPORT_DESCRIPTION: My solution to problem 23 of Project Euler.
+:END:
+*** Problem Statement
+A perfect number is a number for which the sum of its proper divisors is exactly
+equal to the number. For example, the sum of the proper divisors of 28 would be
+1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number. A number $n$
+is called deficient if the sum of its proper divisors is less than $n$ and it is
+called abundant if this sum exceeds $n$. As 12 is the smallest abundant number,
+$1 + 2 + 3 + 4 + 6 = 16$, the smallest number that can be written as the sum of
+two abundant numbers is 24. By mathematical analysis, it can be shown that all
+integers greater than 28123 can be written as the sum of two abundant numbers.
+However, this upper limit cannot be reduced any further by analysis even though
+it is known that the greatest number that cannot be expressed as the sum of two
+abundant numbers is less than this limit. Given $N$, print ~YES~ if it can be
+written as the sum of two abundant numbers. Otherwise, print ~NO~.
+*** My Algorithm
+We calculate $d(n)$ with trial division up to $\sqrt{n}$ as in [[../21/][Project Euler 21]]. We
+then make a list of abundant numbers by checking each number up to 28123,
+because any abundant number above this will not help us solve the problem. To
+answer the problem, we need a function to decide whether a number $n$ can be
+written as the sum of two abundant numbers. If $n > 28123$, we print ~YES~; we are
+given this information in the problem, and without it, our solution is too slow
+to pass. We make a new list whose elements are $n - a$ for an abundant number
+$a$. If the intersection of this list and the list of abundant numbers is empty,
+then we print ~NO`; otherwise, we print `YES~. This solution has time complexity
+$O(n\sqrt{n} + AT)$, where $T$ is the number of queries and $A$ is the number of
+abundant numbers under 28123.
+** Project Euler 24: Lexicographic Permutations                              :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 24
+:EXPORT_DATE: 2018-06-13
+:EXPORT_DESCRIPTION: My solution to problem 24 of Project Euler.
+:END:
+*** Problem Statement
+A permutation is an ordered arrangement of objects. For example, $\mathrm{dabc}$
+is a permutation of the word $\mathrm{abcd}$. If the permutations are listed
+alphabetically, we call it lexicographic order. The lexicographic permutations
+of $\mathrm{abc}$ are:
+\begin{equation*}
+\mathrm{abc}, \mathrm{acb}, \mathrm{bac}, \mathrm{bca}, \mathrm{cab}, \mathrm{cba}.
+\end{equation*}
+What is the $N$-th lexicographic permutation of the word
+$\mathrm{abcdefghijklm}$?
+*** My Algorithm
+Suppose our word has $n$ letters. Then the first $(n-1)!$ lexicographic
+permutations begin with $a$, the next $(n-1)!$ with $b$, and so on. Consider the
+first $(n-1)!$ lexicographic permutations. They consist of $a$ followed by a
+lexicographic permutation of the word without $a$. Of these, the first $(n-2)!$
+begin with $b$. We can write $N$ as a unique sum
+\begin{equation}
+N = \sum_{i=0}^{n-1} c_i \cdot i!,
+\end{equation}
+where $0 \le c_i \le i + 1$. This is a kind of "base-factorial" expansion of
+$N$. Once we do this, we use the procedure above. Starting from $n-1$ and going
+down to $0$, the $N$-th lexicographic permutation has the $c_{n-1}$-th letter in
+the first position, the $c_{n-2}$-th letter of those remaining in the second
+position, and so on. And so our algorithm is as follows. Write $N$ as a sum of
+factorials. Maintain a list of the letters in the word, in alphabetical order.
+For $n-1 \ge i \ge 0$, delete the $c_i$-th element from the list and add it to
+the string representing the lexicographic permutation. This solution has time
+complexity $O(L)$, where $L$ is the length of the given word.
+** Project Euler 25: N-digit Fibonacci Number                            :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 25
+:EXPORT_DATE: 2018-06-12
+:EXPORT_DESCRIPTION: My solution to problem 25 of Project Euler.
+:END:
+*** Problem Statement
+What is the first term in the Fibonacci sequence to contain $N$ digits?
+*** My Algorithm
+We will use Binet's formula for the $n$-th fibonacci number
+\begin{equation}
+F_n = \frac{\varphi^n - (-\varphi)^{-n}}{\sqrt{5}}.
+\end{equation}
+The $(-\varphi)^{-n}$ quickly becomes negligible. So we can make the
+approximation
+\begin{equation}
+F_n \approx \frac{\varphi^n}{\sqrt{5}}.
+\label{approx}
+\end{equation}
+A number $n$ has $\lfloor \log_{10} n \rfloor + 1$ digits. So we must solve the
+following equation such that $n$ is minimized:
+\begin{equation}
+\lfloor \log_{10} F_n \rfloor + 1 = N.
+\label{fib-eq}
+\end{equation}
+Recall that $\lfloor x \rfloor$ is defined as the greatest integer less or equal
+to than $x$. That is,
+\begin{equation}
+x \le \lfloor x \rfloor < x + 1.
+\label{floor}
+\end{equation}
+Applying \eqref{approx} and \eqref{floor} to \eqref{fib-eq} gives
+\begin{equation}
+\begin{split}
+N &\le 1 + \log_{10} F_n < N + 1 \\
+N - 1 & \le \log_{10} \frac{\varphi^n}{\sqrt{5}} \\
+N - 1 + \frac{\log_{10}5}{2} &\le n \log_{10} \varphi \\
+\frac{N - 1 + \frac{\log_{10}5}{2}}{\log_{10}\varphi} &\le n.
+\end{split}
+\label{final}
+\end{equation}
+We see that $n$ is minimized when it is the smallest integer greater than the
+left side of \eqref{final}. This is precisely the definition of the ceiling
+function. And so we have our desired answer:
+\begin{equation}
+n = \left\lceil \frac{N - 1 + \frac{\log_{10}5}{2}}{\log_{10}\varphi} \right\rceil.
+\end{equation}
+Because our solution is just a computation, it has time complexity $O(1)$. In
+our code, we just need to handle the corner case where $N = 1$; here our
+approximation \eqref{approx} introduces enough error to return an incorrect
+answer.
+** Project Euler 27: Quadratic Primes                                  :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 27
+:EXPORT_DATE: 2018-06-13
+:EXPORT_DESCRIPTION: My solution to problem 27 of Project Euler.
+:END:
+*** Problem Statement
+Euler published the remarkable quadratic equation
+\begin{equation*}
+n^2 + 41n + 41.
+\end{equation*}
+It turns out that the formula will produce 40 primes for the consecutive integer
+values $0 \le n \le 39$. However, when $n = 40$, we have $40^2 + 40 + 41 =
+41(40+1) + 41$, which is divisiblye by 41, and certainly when $n = 41$, the
+expression $41^2 + 41 + 41$ is clearly divisible by 41. The incredible formula
+$n^2 - 79n + 1601$ produces 80 primes for the consecutive values $0 \le n \le
+79$. Considering quadratics of the form
+\begin{equation*}
+n^2 + an + b, \quad |a|,|b| \le N,
+\end{equation*}
+find the coefficients $a,b$ for the quadratic expression that produces the
+maximum number of primes with consecutive values of $n$, starting with $n = 0$.
+*** My Algorithm
+A naive brute force search over all $-N \le a,b \le N$ is too slow. We make two
+observations that exclude many cases. First, the expression $n^2 + an + b$ is
+equal to $b$ when $n = 0$. Thus $b$ must be prime. Second, when $n = 1$, we have
+$1 + a + b$. Above 2, $b$ is odd. So $a$ must also be odd; otherwise, the
+expression is an even number greater than 2, which is not prime. We need two
+things to proceed: a list of primes under $N$ and a way to check if a given $n$
+is prime. For the first, we use a Sieve of Eratosthenes, and for the second, we
+use trial division up to $\sqrt{n}$. We iterate through odd $-N \le a \le N$,
+which takes $N$ steps, and prime $-N \le b N$, which takes about $\frac{N}{\log
+N}$. Then, we compute the expression $n^2 + an + b$ until it is not prime; we do
+this up to $N$ times, with time complexity $\sqrt{N}$ each time. Including the
+sieve, our solution has time complexity $O\left(N\cdot\frac{N}{\log N}\cdot
+N\sqrt{N} + \sqrt{N}\log\log N\right) \in O\left(\frac{N^3\sqrt{N}}{\log
+N}\right)$.
+
+** Project Euler 28: Number Spiral Diagonals                                :primes:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 28
+:EXPORT_DATE: 2018-06-13
+:EXPORT_DESCRIPTION: My solution to problem 28 of Project Euler.
+:END:
+*** Problem Statement
+Starting with the number 1 and moving to the right in a clockwise direction, a
+5-by-5 spiral is formed: ![[../../figures/euler-28-spiral.png][A 5-by-5 number spiral.]]{ width=30% } It can be
+verified that the sum of the numbers on the diagonals is 101. What is the sum of
+the numbers on the diagonals in an $N \times N$ spiral ($N$ odd)? Report your
+answer modulo $10^9 + 7$.
+*** My Algorithm
+We can think of the spiral as being made up of a central 1 surrounded by $n$
+rings of side length $2n+1$, where $n = \frac{N - 1}{2}$. Let us derive a
+formula for the sum of the numbers in the corners of each ring---these make up
+the diagonals of the spiral. The number in the top-right corner of the $n$-th
+ring is $(2n+1)^2$, the area of the ring. Going counter-clockwise, the number
+decreases by one less than the side length, or $2n+1-1=2n$, each time. And so
+the $n$-th ring has corner sum
+\begin{equation}
+4(2n+1)^2 - 6(2n) = 16n^2 + 4n + 4.
+\end{equation}
+To find the sum of the corners of all rings, we can use the formula for the sum
+of the first $n$ natural numbers
+\begin{equation}
+\sum_{i=0}^n i = \frac{n(n+1)}{2}
+\end{equation}
+and their squares:
+\begin{equation}
+\sum_{i=0}^n i^2 = \frac{n(n+1)(2n+1)}{6}.
+\end{equation}
+To get the sum of the diagonals, we just add 1 to the sum of the corners, to
+account for the central 1. And so our desired answer $S$ is
+\begin{equation}
+\begin{split}
+S &= 1 + \sum_{i=0}^{\frac{N-1}{2}} (16n^2 + 4n + 4) \\
+&= 1 + 16\cdot\frac{\frac{N-1}{2}\left(\frac{N-1}{2} + 1\right)\left(2\cdot\frac{N-1}{2} + 1\right)}{6} + 4\cdot\frac{\frac{N-1}{2}\left(\frac{N-1}{2}+1\right)}{2} + 4\frac{N-1}{2} \\
+&= 1 + 4\cdot\frac{(N-1)(N - 1 + 2)(N - 1 + 1)}{6} + \frac{(N-1)(N-1+2)}{2} + 2(N-1) \\
+&= 1 + \frac{2N(N-1)(N+1)}{3} + \frac{(N-1)(N+1)}{2} + 2(N-1) \\
+&= \frac{4N(N-1)(N+1) + 3(N-1)(N+1) + 12(N-1) + 6}{6} \\
+&= \frac{4N^3 + 3N^2 + 8N - 9}{6}.
+\end{split}
+\end{equation}
+We report our answer modulo $10^9 + 7$. Because there is a division by 6 in our
+answer, we must use the multiplicative modular inverse of 6 modulo $10^9 + 7$,
+which we find in $O(\log P)$ time. And so our solution has time complexity
+$O(1)$.
+** Project Euler 30: Digit Fifth Powers                              :combinatorics:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 30
+:EXPORT_DATE: 2018-06-23
+:EXPORT_DESCRIPTION: My solution to problem 28 of Project Euler.
+:END:
+*** Problem Statement
+Surprisingly, there are only three numbers that can be written as the sum of
+fourth powers of their digits:
+\begin{equation*}
+\begin{split}
+1634 &= 1^4 + 6^4 + 3^4 + 4^4 \\
+8208 &= 8^4 + 2^4 + 0^4 + 8^4 \\
+9474 &= 9^4 + 4^4 + 7^4 + 4^4
+\end{split}
+\end{equation*}
+Note that because $1 = 1^4$ is not a sum, it is not included. The sum of these
+numbers is $11634 + 8208 + 9474 = 9316$. Find the sum of all numbers that can be
+written as the sum of $N$-th powers of their digits.
+*** My Algorithm
+The sum of the $N$-th powers of the digits of a number with $d$ digits is at
+most $d\cdot9^N$. And so a hard upper bound on a number equal to the sum of the
+$N$-th powers of its digits is $N\cdot9^N$. This number has $\lfloor \log_{10}
+N + N\log_{10} 9 \rfloor + 1$ digits. Because the argument of the floor is never
+a power of 10, this is equal to $\lceil \log_{10} N + N \log_{10} 9 \rceil$. So
+we could check all numbers $11 \le n < 10^{\lceil \log_{10} N + N \log_{10} 9
+\rceil}$. However, this is much too slow to pass $N = 6$. We know that any
+number that fits the criteria is the sum of some combination (with replacement)
+of integers in $0^N,1^N,\ldots,9^N$. And so we can check each combination with
+replacement of $2 \le k \le \lceil \log_{10} N + N \log_{10} 9 \rceil$ elements
+(this represents the number of digits) from this set of 10 $N$-th powers. We can
+find these combinations using ~combinations_with_replacement` from the `itertools~
+package. We skip the case where $k = 1$ because, as stated in the problem, the
+sum of the digits in a one-digit number is a degenerate sum. To avoid counting
+duplicate combinations with extra ~0`s, we use multisets, implemented with
+`Counter` from `collections~. A multiset is like a set, but elements can appear
+more than once. Two multisets are equal if and only if they contain the same
+elements the same number of times. We get the multiset of the $N$-th roots of
+each combination. Then, we sum the elements of the combination and find the
+multiset of digits of the sum. If these two multisets are equal, we have found a
+valid solution. There are $\binom{n+k-1}{k}$ ways to choose $k$ elements with
+replacement from a pool of $n$ elements. In our case, $n = 10$. We therefore
+perform
+\begin{equation}
+\sum\limits_{k=2}^{\lceil \log_{10} N9^N \rceil} \mkern-5mu \binom{9+k}{k}
+\label{operations}
+\end{equation}
+operations. For $N = 6$, this turns out to be 19437---much less than the $10^7$
+required by brute force. Just for fun, let's do some upper bound analysis on
+this expression. Using Stirling's approximation for $n!$, we find that
+$\binom{n}{k} \le \frac{n^k}{k!}$. In our case, we have $\frac{(9+k)^k}{k!}
+\approx \frac{k^k}{k!}$. The upper limit of our sum is $O(\log_{10} N +
+N\log_{10} 9) \in O(N + \log_{10} N) \in O(N)$. And so our solution is
+$O(\frac{N^N}{N!})$. This is not a tight upper bound; it grows much faster than
+the exact number of operations given in \eqref{operations}.
+**** Other Solutions
+The brute force approach described above is sufficient to solve the original
+Project Euler problem. It has complexity $O(N10^{N})$.
+** Project Euler 31: Coin Sums                                                  :dp:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 31
+:EXPORT_DATE: 2018-06-24
+:EXPORT_DESCRIPTION: My solution to problem 31 of Project Euler.
+:END:
+*** Problem Statement
+In England, the currency is made up of pounds (£) and pence (p), and there are
+eight coins in general circulation: 1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2
+(200p). It is possible to make £2 in the following way:
+\begin{equation*}
+1\cdot\mathrm{£}1 + 1\cdot50\mathrm{p} + 2 \cdot 20\mathrm{p} + 1 \cdot 5\mathrm{p} + 1 \cdot 2\mathrm{p} + 3\cdot1\mathrm{p}
+\end{equation*}
+In how many ways can $N$ pence be made from any denomination of coins? Output
+your answer modulo $10^9 + 7$.
+*** My Algorithm
+This problem is a classic application of dynamic programming, the technique of
+breaking up a problem into smaller, reusable chunks. To make $N$ pence, we can
+first make $N - c$ pence, then add one $c$ pence coin, where $c$ is the value of
+some denomination. Then the number of ways we can make $N$ pence is the sum of
+$N - c$ over all valid $c$. Using this principle, our solution is simple. We
+maintain a list ~coins` such that `coins[n]~ is the number of ways we can make $n$
+pence, where $0 \le n \le N$. Then, for each valid denomination of coins $c$, we
+loop over $c \le n \le N$ and increment ~coins[n]` by `coins[n-c]~. At each step,
+we perform addition modulo $10^9 + 7$. Because we maintain the list for all $0
+\le n \le N_{\text{max}}$, we can answer each query in $O(1)$ time. And so our
+solution has time complexity $O(CN_{\text{max}} + T)$, where $C$ is the number
+of coins and $T$ is the number of queries.
+** Project Euler 32: Pandigital Products                               :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 32
+:EXPORT_DATE: 2018-06-24
+:EXPORT_DESCRIPTION: My solution to problem 32 of Project Euler.
+:END:
+*** Problem Statement
+We shall say that an $N$-digit number is pandigital if it makes use of all the
+digits 1 to $N$ exactly once; for example, the 5-digit number 15234 is 1 through
+5 pandigital. The product 7254 is unusual, as the identity $39 \cdot 186 = 7254$
+containing multiplicand, multiplier, and product is 1 through 9 pandigital. Find
+the sum of all products whose multiplicand/multiplier/product identity can be
+written as a 1 through $N$ pandigital.
+*** My Algorithm
+We use a brute-force check on all ways of splitting up a pandigital number into
+three non-empty parts. We can generate each pandigital number by finding the
+permutations of a string with digits from $1$ to $N$. There are $N!$ of these.
+It is then simple to verify whether the product of the first two parts is equal
+to the third part. Using the combinatorial technique of [[https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics)][stars and bars]], there
+are $\binom{n-1}{k-1}$ ways to distribute $n$ indistinguishable objects among
+$k$ distinguishable groups. Our groups---the three parts---are distinguishable,
+as their order matters. For a given pandigital number, the digits cannot move,
+so they are thought of as indistinguishable. And so there are $\binom{N-1}{2}$
+ways of splitting up each pandigital number. We know
+\begin{equation}
+N! \binom{N-1}{2} = \frac{N!(N-1)!}{2(N-3)!} = \frac{N!(N-1)(N-2)}{2} \le \frac{N^2N!}{2}.
+\end{equation}
+And so our solution has time complexity $O(N^2N!)$.
+
+** Project Euler 34: Digit Factorials                                  :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 34
+:EXPORT_DATE: 2018-06-24
+:EXPORT_DESCRIPTION: My solution to problem 34 of Project Euler.
+:END:
+*** Problem Statement
+145 is a curious number, as $1! + 4! + 5! = 145$. Find the sum of all numbers
+that are the sum of the factorials of their digits. Note that $1! = 1$ and $2! =
+2$ are not sums, as they contain only one digit.
+*** My Algorithm
+We use a combinatorial approach similar to [[../30/][Project Euler 30]]. The sum of the factorials
+of the digits of a number with $d$ digits is $d\cdot9!$. So the upper bound on
+the number we need to check is $7\cdot9!$, because $8\cdot9!$ only has 7 digits.
+This means we can test valid candidate sets of size $2 \le k \le 7$ chosen with
+replacement from $0!,\ldots,9!$. Like in Project Euler 30, we use multisets to check
+whether a combination is valid. And so we perform\begin{equation}
+\sum\limits_{k=2}^{7} \mkern-5mu \binom{9+k}{k} = 19347 \label{operations}
+\end{equation} operations, as in Project Euler 30.
+**** HackerRank
+The HackerRank problem is, for once, much easier than the original Project Euler
+problem. It asks us to find the sum of all $n < N$ such that $n$ divides its
+factorial digit sum. Because $N \le 10^5$, we can run a brute force search,
+checking whether each $n < N$ is a valid solution.
+** Project Euler 35: Circular Primes                            :primes:brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 35
+:EXPORT_DATE: 2018-06-24
+:EXPORT_DESCRIPTION: My solution to problem 35 of Project Euler.
+:END:
+*** Problem Statement
+The number 197 is called a circular prime because all rotations of the digits
+(197,719,917) are prime. There are thirteen such prime under 100: 2, 3, 5, 7,
+11, 13, 17, 31, 37, 71, 73, 79, and 97. What is the sum of all circular primes
+less than $N$?
+*** My Algorithm
+A permutation of a number $n$ cannot be greater than the smallest power of 10
+not more than $n$. This is because it maintains the same number of digits, and
+such a power of 10 contains one more digit than $n$. This means that a
+permutation of $n$ is not more than $10^{\lceil \log_{10} n \rceil}$. And so we
+can precompute a list of the primes under $10^{\lceil \log_{10} N_{\text{max}}
+\rceil}$, which in our case is $10^6$. Then, we need a way to get all the
+rotations of a number. To do this, we can turn the number into a string and
+repeatedly remove the last character and add it back to the front, saving the
+new rotation each time. From here, the problem just consists of spotting some
+optimizations. We need not check any primes with digits 0, 2, 4, 5, 6, or 8.
+This is because the last digit of one of their rotations will be either even or
+5, which means they are divisible by 2 or 5 and so they are not prime. However,
+we must include the single-digit primes 2 and 5, which are circular. After
+computing the rotations of a prime below $N$ that passes the above tests, we
+check if all of them are prime; if so, we count the ones that are below $N$. Our
+solution has time complexity $O(N_{\text{max}}\log\log N_{\text{max}})$.
+** Project Euler 36: Double Base Palindromes                           :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 36
+:EXPORT_DATE: 2018-06-24
+:EXPORT_DESCRIPTION: My solution to problem 36 of Project Euler.
+:END:
+*** Problem Statement
+The decimal number $65 = 1001001001_2$ is palindromic in both decimal and
+binary. Find the sum of all natural numers less than $N$ which are palindromic
+in base 10 and base $K$.
+*** My Algorithm
+We need two things to solve this problem: a way to convert a number from base 10
+to base $K$ and a way to generate palindromes. First, let's think about how
+numbers are written in base 10. The first thing we process is the rightmost
+digit, which represents the number of times the corresponding power of 10 goes
+into the number. And so we must start with the highest power of the base, remove
+as many multiples of it as possible, and continue. This procedure has
+$\lfloor\log_K n\rfloor$ steps, where $n$ is the decimal number to be converted.
+This is because we perform one step for each possible exponent, where the
+maximal exponent on $K$ is $\lfloor \log_K n \rfloor$. To generate palindromes
+of length at most $n$, we start with all numbers of length at most
+$\frac{n}{2}$. To generate palindromes of even length at most $n$, we take one
+of these numbers $p$ and add on the reverse of $p$. For odd-length palindromes,
+we do the same thing, but add one of the digits $0,\ldots,9$ in the middle. And
+so there are $9\cdot10^{k-1}$ palindromes with $2k$ digits and $9\cdot10^{k}$
+palindromes with $2k + 1$ digits. Given $N$, we generate all palindromes with no
+more digits than $N$ and keep the ones less than $N$. We test whether each of
+these are palindromic in base $K$. We calculate less than
+$10^{\frac{\lfloor\log_K n\rfloor}{2}} \le \sqrt{n}$ palindromes and perform
+$\lfloor\log_K n\rfloor \le \log_K n$ operations on each of them. Our solution
+has time complexity $O(\sqrt{n}\log n)$.
+** Project Euler 37: Truncatable Primes                         :primes:brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 37
+:EXPORT_DATE: 2018-06-24
+:EXPORT_DESCRIPTION: My solution to problem 37 of Project Euler.
+:END:
+*** Problem Statement
+The number 3797 has an interesting property. Being prime itself, it is possible
+to continuously remove digits from left to right, and remain prime at each
+stage: 3797, 797, 97, 7. Similarly, we can remove digits from right to left:
+3797, 379, 37, 3. Find the sum of primes that are truncatable from left to right
+and right to left less than $N$.
+*** My Algorithm
+A prime is greater than all of its truncations. This means that we can use a
+modified Sieve of Eratosthenes. Whenever a prime is encountered, we can check if
+all its truncations are also prime; we will already have computed whether each
+truncation is prime. When a number has not been marked in the sieve, we mark all
+of its multiples, like normal. To right-truncate, we can keep performing integer
+division by 10. To left-truncate, we first find the largest power of 10 that
+divides the prime. Then, we take the prime modulo this power of 10, and
+decrement the power of 10 by one, and repeat. We stop either truncation process
+when the value returned is not prime. If at the end of both processes, the
+remaining value is 0, it means both truncations were completed and the prime is
+fully truncatable. In this case, we add the prime to a running count. This
+algorithm has time complexity $O(n\log\log n)$.
+** Project Euler 39: Integer Right Triangles                                 :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 39
+:EXPORT_DATE: 2018-06-24
+:EXPORT_DESCRIPTION: My solution to problem 39 of Project Euler.
+:END:
+*** Problem Statement
+If $p$ is the perimeter of a right triangle with side lengths $\{a,b,c\}$, then
+there are exactly 3 solutions for $p = 120$:
+\begin{equation*}
+\{20,48,52\}, \{24,45,51\}, \{30,40,50\}
+\end{equation*}
+For which value of $p \le N$ is the number of solutions maximized? If there are
+multiple possible answers, print the minimum one.
+*** My Algorithm
+A famous method of [[https://en.wikipedia.org/wiki/Pythagorean_triple#Proof_of_Euclid's_formula][generating Pythagorean triples]] is due to Euclid:
+\begin{equation}
+a = m^2 - n^2 \quad b = 2mn \quad c = m^2 + n^2 \quad m > n
+\label{generating}
+\end{equation}
+It is easy to verify that such choices of $a,b,c$ always form a Pythagorean
+triple. Furthermore, \eqref{generating} generates all primitive Pythagorean
+triples (triples for which $\mathrm{gcd}(a,b,c) = 1$) for coprime $m,n$ of
+opposite parity. Every Pythagorean triple can be written as $\{ak,bk,ck\}$,
+where $k$ is some natural number and $\{a,b,c\}$ is a primitive Pythagorean
+triple. Our strategy is to generate all primitive Pythagorean triples with
+perimeter less than $N$. We can take their multiples to get all Pythagorean
+triples with perimeter less than $N$. When $m$ or $n$ is 0, the triangle
+produced is an isoceles right triangle. Because such a triangle would have a
+hypotenuse that is a multiple of $\sqrt{2}$, we know it will not produce a
+Pythagorean triple. And so $m,n \le 1$. The perimeter of the triangle is
+\begin{equation}
+a + b + c = 2m^2 + mn = 2m(m+n).
+\label{perimeter}
+\end{equation}
+We know $n > 0$, so \eqref{perimeter} is at least $2m^2$. This means that we
+need not search $m$ for which $2m^2 > N_{\text{max}}$. And so we search $1 \le m
+\le \sqrt{\frac{N_{\text{max}}}{2}}$. We also know that $m > n$ (otherwise $a$
+would not be a positive length), so we only search $1 \le n < m$. For each
+$m,n$, we must check three things. First, we check that the perimeter $2m(m+n)$
+is not more than $N$. Then we check that $m$ and $n$ are coprime
+($\mathrm{gcd}(m,n) = 1$). Finally, we must check that $m$ and $n$ have opposite
+parity. This means one of them is odd, the other even. So their sum must be odd.
+We perform $O(\sqrt{N})$ iterations in each loop for $m$ and $n$. And so we
+check each $m,n$ in $O(N)$ time. If we pass all of these tests, then we have a
+primitive Pythagorean triple. We will maintain a list ~pythag` for which
+`pythag[i]~ gives the number of solutions for perimeter $i$. For each primitive
+Pythagorean triple, we increment each ~pythag[k*P]~, where $P$ is the perimeter of
+the triple and $1 \le k \le \lfloor \frac{N_{\text{max}}}{P} \rfloor$. This
+means we count each primitive triple and all the multiples derived from it.
+Because we make a list, we can answer each query quickly. We maintain a second
+list ~freq` of the indices corresponding to the strictly right maximal values of
+`pythag~. That is, for each $i$ in ~freq`, we have `pythag[i]` $>$ `pythag[j]~ for
+each $0 \le j < i$. Because this order is strict, we only store the lowest
+solution in cases where there are multiple. Then, we can binary search ~freq~ for
+the largest element less than each query. This is better than slicing ~pythag`
+and using `max`, which is linear in `len(freq)~; binary search is logarithmic.
+The list ~freq~ has at most $N$ elements---this is where each $n < N$ is strictly
+right maximal. This means we answer each query in $O(\log N)$ time. And so our
+solution has time complexity $O(N_{\text{max}} + T\log N_{\text{max}})$, where
+$T$ is the number of queries.
+** Project Euler 40: Champernowne's Constant                    :fun:implementation:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 40
+:EXPORT_DATE: 2018-06-24
+:EXPORT_DESCRIPTION: My solution to problem 40 of Project Euler.
+:END:
+*** Problem Statement
+An irrational decimal is created by concatenating the positive integers:
+\begin{equation*}
+0.12345678910\mathbf{1}112131415161718192021\ldots
+\end{equation*}
+It can be seen that the 12th digit of the fractional part is ~1~. If $d_n$
+represents the $n$-th digit of the fractional part, then given integers $i_j$,
+find the product of $d_{i_j}$.
+*** My Algorithm
+We can split up the fractional part into "blocks" where each positive integer
+used has the same number of digits. For example, starting at zero, the zeroth
+block is ~123456789`, the first `101112...9899~, and so on. The numbers used to
+make up the $n$-th block (where the first block is $n = 0$) range from $10^n$ to
+$10^{n+1} - 1$, inclusive. There are therefore $10^{n+1} - 10^n = 9\cdot10^n$
+numbers in the $n$-th block. Because each number in the $n$-th block has $n+1$
+digits, the $n$-th block is $9(n+1)10^n$ digits long. We initialize ~block~ at 1.
+This means ~block~ is equal to $n+1$. It represents the number of digits in each
+integer in the block that $d_i$ is part of. We initialize ~fact~ at 9. It
+represents the number of positive integers that make up ~block~. This means
+~fact*block` represents the length of `block~. Then, as long as the result is
+positive and ~fact / block` is less than $9M$, where $M$ is the maximum possible
+value of $i$ in $d_i$ (a hard upper bound on the length of the largest block,
+given the input constraints), we subtract `fact/block~ from the given $d_i$.
+Then, we multiply ~fact` by 10, representing the ten-fold increase in the number
+of elements of the next block, and increment `block~ by 1, representing the fact
+that we are moving to the next block. The resulting value of ~block~ is the block
+in which $d_i$ is located. The resulting value of $d_i$ is ~pos+1`, where `pos`
+is the zero-indexed "position" of $d_i$ in its block; that is, $d_i$ is the
+`pos~-th digit in its block. Because $d_i$ is in the block given by ~block`, the
+first number in its block is `10//(block-1)~. Each number in this block has ~block~
+digits. And so ~pos//block~ gives the number of positive integers that precede the
+integer $d_i$ is part of in its block. This means $d_i$ is part of the positive
+integer ~10//(block-1) + pos//block~ The leftover after this division (that is,
+~pos % block~) is the index (starting at 0) of $d_i$ in the number it is part of.
+Because we know the number that $d_i$ is part of, we have solved the problem.
+Using our general procedure, we find $d_{i_{j}}$ and calculate their product.
+The most intensive part of our solution is finding the block that $d_i$ is part
+of; finding the value of $d_i$ after this is just an $O(1)$ string operation.
+The lengths of the blocks form an arithmetogeometric sequence, so there are
+$O(\log n)$ blocks (not a tight upper bound). And so our solution has time
+complexity $O(D\log i_{j_{\text{max}}})$, where $D$ is the number of digits to
+find.
+** Project Euler 41: Pandigital Prime                                 :primes:proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 41
+:EXPORT_DATE: 2018-06-24
+:EXPORT_DESCRIPTION: My solution to problem 41 of Project Euler.
+:END:
+*** Problem Statement
+We shall say that an $n$-digit number is pandigital if it makes use of all the
+digits 1 to $n$ exactly once. For example, 2143 is a 4-digit pandigital and is
+also prime. What is the largest pandigital prime less than or equal to $N$? If
+there is none, return $-1$.
+*** My Algorithm
+The sum of digits of an $n$-digit number is the sum of the first $n$ positive
+integers, or $\frac{n(n+1)}{2}$. Consider the value of this expression modulo 3.
+The multiplicative modular inverse of 2 modulo 3 is 2, because $2 \cdot 2 = 4
+\equiv 1 \pmod{3}$. And so
+\begin{equation}
+\frac{n(n+1)}{2} \equiv 2n(n+1) \pmod{3}.
+\end{equation}
+If and only if 3 divides one of $n$ and $n+1$, then this expression is congruent
+to 0 modulo 3; thus it is not prime. This means that $n \equiv 1 \pmod{3}$; and
+so if an $n$-digit pandigital prime exists, we must have $n \inn{4,7}$. This
+observation reduces the search space of this problem by a lot. Our strategy is
+to generate pandigital numbers and check if they are prime. The maximum possible
+value of a seven-digit number is $10^8 - 1$; to test the primality of all such
+numbers, we need a list of primes up to $\lfloor\sqrt{10^7- 1}\rfloor = 3162$.
+To generate the pandigital numbers of length 4 and 7, we will take the first 4
+or 7 characters of the string ~123456789` and use `itertools.permutations~. Then,
+we will check whether each pandigital number $p$ is prime; if so, it is either
+part of our list of primes or it is not divisible by any prime less than or
+equal to $\sqrt{p}$. Finally, we can answer each query with a binary search on
+our list of pandigital primes. As shown above, we generate the primes up to 3162
+with a Sieve of Eratosthenes. We then generate the $4! + 7! = 5064$ pandigital
+candidates. Then, for each of them, we test at most about $\frac{3162}{\log
+3162}$ primes. Finally, we perform a binary search on our list of pandigital
+primes with at most $\log 3162$ operations. All in all, the time complexity for
+this solution does not depend on the size of $N$, and so it is $O(1)$; however,
+the constant term is quite large.
+** Project Euler 42: Coded Triangle Numbers                                  :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 42
+:EXPORT_DATE: 2018-06-24
+:EXPORT_DESCRIPTION: My solution to problem 42 of Project Euler.
+:END:
+*** Problem Statement
+The $n$-th term of the sequence of triangle numbers is given by $t_n =
+\frac{n(n+1)}{2}$; so the first ten triangle numbers are
+\begin{equation*}
+1,3,6,10,15,21,28,36,45,55,\ldots
+\end{equation*}
+By converting each letter in a word to a number corresponding to its
+alphabetical position and adding these values we form a word value. For example,
+the word value for SKY is $19 + 11 + 25 = 55 = t_{10}$. You are given a file
+~words.txt~. Of the English words it contains, how many are triangle words?
+*** My Algorithm
+Let us suppose we have some number $t = \frac{n(n+1)}{2}$. Then
+\begin{equation}
+\begin{split}
+2t &= n(n+1) \\
+2t &= n^2 + n \\
+n^2 + n - 2t &= 0 \\
+n &= \frac{-1 \pm \sqrt{8t + 1}}{2}.
+\end{split}
+\end{equation}
+Because we are solving for positive $n$, we have
+\begin{equation}
+n = \frac{-1 + \sqrt{8t + 1}}{2}.
+\label{n}
+\end{equation}
+We know that $t$ is a triangle number if and only if \eqref{n} is an integer. To
+compute the name scores, we use the same method as in [[../22/][Project Euler 22]]. To finish the
+problem, we read in the names, and count them if their score is a triangle
+number. The time complexity of this solution is $O(n)$, where $n$ is the number
+of names.
+**** HackerRank
+The HackerRank version of this problem is simpler. It does not involve words.
+Instead, it asks whether a number $n \le 10^{18}$ is triangular. We have an
+$O(1)$ method of answering this question.
+** Project Euler 44: Pentagonal Numbers                                  :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 44
+:EXPORT_DATE: 2018-07-16
+:EXPORT_DESCRIPTION: My solution to problem 44 of Project Euler.
+:END:
+*** Problem Statement
+Pentagonal numbers are given by the formula
+\begin{equation*}
+P_n = \frac{n(3n-1)}{2}.
+\end{equation*}
+The first ten pentagonal numbers are
+\begin{equation}
+1,5,12,22,35,51,70,92,117,145,\ldots
+\end{equation}
+It can be seen that $P_4 + P_7 = 22 + 70 = 92 = P_8$. Also, $P_7 - P_5 = 70 - 35
+= 35 = P_5$ is also pentagonal. Generalizing for a given $k$, find all $P_n$,
+where $n < N$, such that at least one of $P_n \pm P_{n-k}$ is pentagonal.
+*** My Algorithm
+Using the formula for $P_n$, we find a formula for its inverse:
+\begin{equation}
+\begin{split}
+2P_n &= 3n^2 - n \\
+n &= \frac{1 \pm \sqrt{1 + 4\cdot3\cdot2P_n}}{6}.
+\end{split}
+\end{equation}
+Because $n$ must be positive, we have that $x$ is a pentagonal number if and
+only if
+\begin{equation}
+\frac{1 + \sqrt{24x + 1}}{6}
+\end{equation}
+is an integer. From here we use a brute force approach. For each $K < n < N$,
+test whether one of $P_n \pm P_{n-k}$ is pentagonal. This solution has time
+complexity $O(N - K)$.
+**** Project Euler
+The Project Euler version of this problem is more involved. We must instead find
+the first $P_n$ such that both $P_n - P_{n-k}$ and $P_n + P_{n-k}$ are
+pentagonal. To do this, we check all $k < n$ for each $n$ until we find the
+answer. I used the following code, along with the same ~pent` and `is_pent~
+functions as in the HackerRank solution: ~`~python n = 0 while True: n += 1 a =
+pent(n) for k in range(1,n): b = pent(n-k) if pent(a-b) and pent(a+b):
+print(a-b) break ~`~
+** Project Euler 46: Goldbach's Other Conjecture                             :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 46
+:EXPORT_DATE: 2018-06-24
+:EXPORT_DESCRIPTION: My solution to problem 46 of Project Euler.
+:END:
+*** Problem Statement
+It was proposed by Christian Goldbach that every odd composite number can be
+written as the sum of a prime and twice a square. It turns out that the
+conjecture was false. How many ways can a given $N$ be represented as the sum of
+a prime and twice a square?
+*** My Algorithm
+Suppose an odd composite number $n$ and a prime $p$ provide a match. Then $n =
+p + 2k^2$ for some positive integer $k$. And so
+\begin{equation}
+\begin{split}
+n - p &= 2k^2 \\
+k &= \sqrt{\frac{n-p}{2}}.
+\end{split}
+\label{cand}
+\end{equation}
+The numbers $n,p$ give a valid match if and only if \eqref{cand} is a positive
+integer. We generate a list of primes up to $N_{\text{max}}$. Then, we test
+every prime $p < N$ to see if \eqref{cand} is a positive integer; if so, we have
+found a valid way of representing $N$. This solution has time complexity
+$O(N\log\log N + \frac{TN}{\log N})$, where $T$ is the number of queries.
+**** Project Euler
+To solve the Project Euler problem, we write a ~while` loop using the function
+`ways~. We increment our index $i$, which is initialized at 3, until $i$ is
+composite. Then, if ~ways(i) == 0~, we break the loop; we have found the smallest
+number that cannot be represented as conjectured. Otherwise, we increment $i$ by
+2, to the next odd number.
+** Project Euler 47: Distinct Prime Factors                            :primes:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 47
+:EXPORT_DATE: 2018-07-16
+:EXPORT_DESCRIPTION: My solution to problem 47 of Project Euler.
+:END:
+*** Problem Statement
+The first two consecutive numbers to have distinct prime factors are $14 =
+2\cdot7$ and $15 = 3\cdot5$. The first three consecutive such numbers are
+\begin{equation*}
+\begin{split}
+644 &= 2^2 \cdot 7 \cdot 23,\\
+645 &= 3 \cdot 5 \cdot 43,\\
+646 &= 2 \cdot 17 \cdot 19
+\end{split}
+\end{equation*}
+Given $N$, find all the sets of $K$ consecutive integers that each have exactly
+$K$ distinct prime factors. Print the first number of each set in ascending
+order.
+*** My Algorithm
+The mathematical notation for the number of distinct prime factors of $n$ is
+$\omega(n)$ ($\Omega(n)$ denotes the total number of prime factors, counting
+multiplicity). We use a modified Sieve of Eratosthenes: instead of storing
+whether $n$ is prime, we store $\omega(n)$. Whenever we hit an $n$ with
+$\omega(n) = 0$, we find all the multiples of $n$ less than $N$ and add one to
+the associated value. Then, we search through all sets of $K$ consecutive
+elements in the array and check whether they all have exactly $K$ distinct prime
+factors.
+** Project Euler 48: Self Powers                                       :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 48
+:EXPORT_DATE: 2018-07-16
+:EXPORT_DESCRIPTION: My solution to problem 48 of Project Euler.
+:END:
+*** Problem Statement
+The sum $1^1 + 2^2 + \cdots + 10^{10} = 10405071317$. Find the last ten digits
+of
+\begin{equation}
+\sum\limits_{n=1}^N n^n.
+\end{equation}
+*** My Algorithm
+This problem is a simple bignum computation. Because we only need the last ten
+digits, it suffices to carry out all calculations modulo $10^{10}$. In
+particular, we use modular exponentiation. This solution has time complexity
+$O(N\log N)$.
+** Project Euler 52: Permuted Multiples                                :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 52
+:EXPORT_DATE: 2018-07-16
+:EXPORT_DESCRIPTION: My solution to problem 52 of Project Euler.
+:END:
+*** Problem Statement
+It can be seen that the number $125874$ and its double, $251748$, contain
+exactly the same digits, but in a different order. Given $N$, find all the
+positive integers up $x \le N$ such that $2x,3x,\ldots,Kx$ contain the same
+digits.
+*** My Algorithm
+To check whether two strings are permutations of each other, we can check if
+they are equal after sorting. To check whether an array contains only strings
+that are permutations of each other, we take the first element of the array and
+apply the above procedure to each other string in the array. For each $125874
+\le n \le N$, we create an array of the first $K$ multiples of $n$. We use the
+described procedure to check if they all contain the same digits. To speed this
+up, we only proceed with $n$ if $n$ and $Kn$ contain the same number of digits.
+A further optimization is to check that each digit of $n$ is unique.
+** Project Euler 53: Combinatoric Selections                         :combinatorics:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 53
+:EXPORT_DATE: 2018-07-16
+:EXPORT_DESCRIPTION: My solution to problem 53 of Project Euler.
+:END:
+*** Problem Statement
+How many, not necessarily distinct, values of $\binom{n}{r}$, for $n \le N$, are
+greater than $K$?
+*** My Algorithm
+A brute-force search is too slow. And so we exploit the symmetry of Pascal's
+triangle, which contains the binomial coefficients. Because $\binom{n}{k} =
+\binom{n}{n-k}$, we need only check up to $\frac{n}{2}$. Furthermore, if
+$\binom{n}{k}$ is the first value greater than $K$, then because the entries of
+Pascal's triangle strictly increase until the central term, all the entries
+between $k$ and $n-k$, inclusive, will be greater than $K$. This amounts to
+$n-2k+1$. We also make use of the recurrence relation
+\begin{equation}
+\binom{a}{b+1} = \binom{a}{b}\frac{a-b}{b+1},
+\end{equation}
+as described in my solution to [[../15/][Project Euler 15]]. We iterate through the binomial
+coefficients in row $n$ until we find one greater than $K$, say $\binom{n}{i}$.
+Then the answer is the sum of $n + 1 - 2i$ for each $n \le N$. This solution has
+time complexity $O(N^2)$ (this is really not a tight bound).
+** Project Euler 55: Lychrel Numbers                               :brute_force:fun:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 55
+:EXPORT_DATE: 2018-07-16
+:EXPORT_DESCRIPTION: My solution to problem 55 of Project Euler.
+:END:
+*** Problem Statement
+If we take 47, reverse it, and add, we get $47 + 74 = 121$, which is a
+palindrome. Not all numbers produce palindromes so quickly. For example,
+\begin{equation*}
+\begin{split}
+349 + 943 &= 1292, \\
+1292 + 2921 &= 4213, \\
+4213 + 3124 &= 7337.
+\end{split}
+\end{equation*}
+That is, 349 takes 3 iterations to arrive at a palindrome. Although no one has
+proved it yet, it is thought that some numbers, like 196, never produce a
+palindrome. A number that never forms a palindrome through the reverse and add
+process is called a Lychrel number. Due to the theoretical nature of these
+numbers, and for the purpose of this problem, we shall assume that a number is
+Lychrel until proven otherwise. In addition, you are given that for every number
+below 10000, it will either become a palindrome in less than fifty iterations,
+or, no one, with all the computing power that exists, has managed so far to map
+it to a palindrome. Many numbers converge to the same palindrome; for example,
+\begin{equation*}
+19,28,29,37,38,46,47,56,64,65,73,74,82,83,91,92,110,121
+\end{equation*}
+all converge to 121, a total of 18 numbers. Given $N$, find the palindrome to
+which the most numbers from 1 to $N$, inclusive, converge.
+*** My Algorithm
+To check whether a number is a palindrome, we use string comprehension. We
+maintain a frequency dictionary that maps a palindrome to the count of numbers
+that converge to it. For each $n \le N$, we apply up to 60 iterations of the
+reverse-add process. If at any point we get a palindrome, we break and add it to
+the frequency table. Otherwise, we increment the count corresponding to 0. To
+remove the numbers which did not yield a palindrome in 60 iterations, we set
+~freq[0] = 0~. Finally, we sort the frequency table and get the palindrome with
+the highest associated count. For each $n$, we perform at most 60 iterations,
+and so this solution has time complexity $O(N)$.
+** Project Euler 56: Powerful Digit Sum                                :brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 56
+:EXPORT_DATE: 2018-07-16
+:EXPORT_DESCRIPTION: My solution to problem 56 of Project Euler.
+:END:
+*** Problem Statement
+Considering natural numbers $a,b \le N$, which number of the form $a^b$ has the
+maximum digital sum?
+*** My Algorithm
+For each $a,b \le N$, we simply compute $a^b$ in $\log b$ time and store its
+digital sum if it is maximal so far. This solution has time complexity
+$O(N^2\log N)$.
+** Project Euler 57: Square Root Convergents                                 :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 57
+:EXPORT_DATE: 2018-07-16
+:EXPORT_DESCRIPTION: My solution to problem 57 of Project Euler.
+:END:
+*** Problem Statement
+It is possible to show that $\sqrt{2}$ has the following infinite continued
+fraction expansion:
+\begin{equation*}
+\sqrt{2} = 1 + \frac{1}{2+\frac{1}{2 + \frac{1}{2 + \cdots}}}
+\end{equation*}
+By expanding this for the first four iterations, we get the convergents of
+$\sqrt{2}$
+\begin{equation*}
+\begin{split}
+1 + \frac{1}{2} &= \frac{3}{2} \\
+1 + \frac{1}{2 + \frac{1}{2}} &= \frac{7}{5} \\
+1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}} &= \frac{17}{12} \\
+1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}} &= \frac{41}{29}.
+\end{split}
+\end{equation*}
+The next three convergents are $\frac{99}{70},\frac{239}{169}$, and
+$\frac{577}{408}$. However, the eighth convergent, $\frac{1393}{985}$, is the
+first for which the number of digits in the numerator exceeds the number of
+digits in the denominator. Print the convergent numbers $n \le N$ where this
+happens.
+*** My Algorithm
+A common piece of notation for a continued fraction
+\begin{equation}
+a_0 + \frac{1}{a_1 + \frac{1}{a_2 + \cdots}}
+\end{equation}
+is $[a_0;a_1,a_2,\ldots]$. Because all the coefficients $a_i, i > 1$ in our case
+are 2, the continued fraction expansion for $\sqrt{2}$ is self-similar. In
+particular, if one convergent is $\frac{p}{q}$, we can write the next as
+\begin{equation}
+1 + \frac{1}{1+\frac{p}{q}} = 1 + \frac{q}{p+q} = \frac{p+2q}{p+q}.
+\end{equation}
+Using this recurrence relation, we can easily compute the convergents and count
+which ones have a numerator with more digits than the denominator. This solution
+has time complexity $O(N)$.
+** Project Euler 58: Spiral Primes                              :primes:brute_force:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 58
+:EXPORT_DATE: 2018-07-16
+:EXPORT_DESCRIPTION: My solution to problem 58 of Project Euler.
+:END:
+*** Problem Statement
+Starting with 1 and spiralling clockwise in the following way, a square spiral
+with side length 7 is formed. ![[../../figures/euler-58-spiral.png][A 7-by-7 number spiral.]]{ width=45% } It is
+interesting to note that 8 out of the 13 numbers lying along both diagonals are
+prime; that is, a ratio of $\frac{8}{13} \approx 62\%$. If one complete new
+layer is wrapped around the spiral above, a square spiral with side length 9
+will be formed. If this process is continued, what is the side length of the
+square spiral for which the ratio of primes along both diagonals first falls
+below $N\%$?
+*** My Algorithm
+As shown in my solution to [[../28/), the corners of a number spiral of size $n$ are of the form $n^2 - i(n-1][Project Euler 28]]$, for $i \in \{1,2,3,4\}$. We
+discount the case where $i = 4$, because this is $(n+2)^2$. We use the
+[[https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test][Miller-Rabin primality test]] to search such numbers and count the primes until
+the desired ratio is reached. This solution has time complexity $O(N\log^3N)$,
+where $N$ is the maximum side length we must search.
+** Project Euler 63: Powerful Digit Counts                                   :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 63
+:EXPORT_DATE: 2018-07-16
+:EXPORT_DESCRIPTION: My solution to problem 63 of Project Euler.
+:END:
+*** Problem Statement
+The five-digit number $16807 = 7^5$ is also a fifth power. Given $N$, find the
+$N$-digit positive integers that are also an $N$-th power.
+*** My Algorithm
+An $n$-digit $n$-th power has $n$-th root at most 9, because $10^n$ is an
+$(n+1)$-digit number. If $a^n$ is an $n$-digit number, then unless $a = 9$, we
+also have that $(a+1)^n$ is an $n$-digit number. We must find the lowest $a$
+such that $a^n$ has $n$ digits. We have
+\begin{equation}
+\begin{split}
+10^{n-1} &\le a^n < 10^{n} \\
+10^{1-\frac{1}{n}} &\le a < 10 \\
+a &= \lceil10^{1-\frac{1}{n}}\rceil.
+\end{split}
+\end{equation}
+And so $k^n$ is an $n$-digit number for all $k \in
+[\lceil10^{1-\frac{1}{n}}\rceil,9]$. We enumerate these in $O(1)$ time.
+** Project Euler 65: Convergents of $e$                                      :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 65
+:EXPORT_DATE: 2018-07-16
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :shortitle "Project Euler 65: Convergents of e"
+:EXPORT_DESCRIPTION: My solution to problem 65 of Project Euler.
+:END:
+*** Problem Statement
+The constant $e$ can be written as the infinite continued fraction
+$[2;1,2,1,\,1,4,1,\,1,6,1,\ldots,1,2k,\ldots]$. Find the sum of the digits in
+the $N$-th convergent of the continued fraction expansion for $e$.
+*** A Recurrence Relation
+We will show the following theorem. Let the the $n$-th convergent of a continued
+fraction $[a_0;a_1,a_2,\ldots]$ be $\frac{P_n}{Q_n}$. Then the $(n+1)$-th
+convergent is
+\begin{equation}
+\frac{a_{n+1}P_n + P_{n-1}}{a_{n+1}Q_{n} + Q_{n-1}}.
+\end{equation}
+We use induction. Because the 0-th convergent is $a_0$, we define $P_0 = a_0,
+Q_0 = 1$. Then the first convergent is
+\begin{equation}
+a_0 + \frac{1}{a_1} = \frac{a_0a_1 + 1}{a_1},
+\end{equation}
+so $P_1 = a_0a_1 + 1, Q_1 = a_1$. As a base case, we show that the formula holds
+for $n = 2$:
+\begin{equation}
+\begin{split}
+a_0 + \frac{1}{a_1 + \frac{1}{a_2}} &= a_0 + \frac{a_2}{a_1a_2 + 1} \\
+&= \frac{a_0a_1a_2 + a_0 + a_2}{a_1a_2 + 1} \\
+&= \frac{a_2(a_0a_1 + 1) + a_0}{a_2a_1 + 1} \\
+&= \frac{a_2P_1 + P_0}{a_2Q_1 + Q_0}.
+\end{split}
+\end{equation}
+Now suppose inductively that
+\begin{equation}
+P_{n} = a_{n}P_{n-1} + P_{n-2}, Q_{n} = a_nQ_{n-1} + Q_{n-2}.
+\end{equation}
+The $n$-th convergent is
+\begin{equation}
+\frac{P_n}{Q_n} = a_1+\cfrac{1}{a_2+\cfrac{1}{\begin{array}{ccc}a_{3}+ & & \\& \ddots & \\& & +\cfrac{1}{a_{n-1}+\cfrac{1}{a_{n}}}\end{array}}}
+\label{n-conv}
+\end{equation}
+Turning \eqref{n-conv} into the $(n+1)$-th convergent involves replacing $a_n$
+with $a_n + \frac{1}{a_{n+1}}$. Using the recursive formula, this gives
+\begin{equation}
+\begin{split}
+\frac{P_{n+1}}{Q_{n+1}} &= \frac{\frac{P_{n-1}}{a_{n+1}} + a_nP_{n-1} + P_{n-2}}{\frac{Q_{n-1}}{a_{n+1}} + a_nQ_{n-1} + Q_{n-2}} \\
+&= \frac{\frac{P_{n-1}}{a_{n+1}} + P_n}{\frac{Q_{n-1}}{a_{n+1}} + Q_n} \\
+&= \frac{a_{n+1}P_n + P_{n-1}}{a_{n+1}Q_{n} + Q_{n-1}},
+\end{split}
+\end{equation}
+which proves the theorem.
+*** My Algorithm
+Let the $n$-th coefficient in the continued fraction expansion for $e$ be $a_n$.
+Then $a_0 = 2$. From then on, $a_1 = a_3 = 1$, and $a_2 = 2$. In particular,
+$a_n = 1$ if $n$ is congruent to 0 or 1 mod 3 (unless $n = 0$). And so
+\begin{equation}
+a_n =
+\begin{cases}
+2 &n = 0, \\
+2\left(\lfloor\frac{n}{3}\rfloor + 1\right) &n \equiv 2 \pmod 3, \\
+1 &\text{otherwise}.
+\end{cases}
+\end{equation}
+Using this and our theorem, we iteratively calculate the numerator of the $N$-th
+convergent by
+\begin{equation}
+P_n = a_nP_{n-1} + P_{n-2}.
+\end{equation}
+We cache the previous two convergents at each step. Finally, we take the digit
+sum. Our solution has time complexity $O(N)$.
+** Project Euler 67: Maximum Path Sum II                                    :greedy:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 67
+:EXPORT_DATE: 2018-06-11
+:EXPORT_DESCRIPTION: My solution to problem 67 of Project Euler.
+:END:
+*** Problem Statement
+By starting at the top of the triangle below and moving to adjacent numbers on
+the row below, the maximal total from top to bottom is 23. ![[../../figures/euler-18-triangle.png][Note that $3+7+4+9 =
+23$.]]{ width=10% } Find the maximum path length for a given such triangle with
+100 rows.
+*** My Algorithm
+Please see [[../18/][Project Euler 18]], which has an identical solution.
+** Project Euler 69: Totient Maximum                                         :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 69
+:EXPORT_DATE: 2018-07-16
+:EXPORT_DESCRIPTION: My solution to problem 69 of Project Euler.
+:END:
+*** Problem Statement
+Euler's totient function, $\varphi(n)$, counts the number of positive integers
+less than $n$ that are coprime to $n$. ![[../../figures/euler-69-tot-table.png][Note that 6 produces a maximum for the
+desired ratio in the range of this table.]]{ width=30% } Given $N$, find the
+smallest value $n$ such that $\frac{n}{\varphi(n)}$ achieves a maximum.
+*** My Algorithm
+We use Euler's product formula for the totient function,
+\begin{equation}
+\varphi(n) = n\prod\limits_{p|n}\left(1 - \frac{1}{p}\right),
+\end{equation}
+taken over the distinct primes dividing $n$. This formula gives
+\begin{equation}
+\frac{n}{\varphi(n)} = \frac{1}{\prod\limits_{p|n}\left(1 - \frac{1}{p}\right)}.
+\end{equation}
+Therefore, to maximize $\frac{n}{\varphi(n)}$, we must minimize the product.
+This is done when $n$ is a product of many distinct primes. We want as many of
+these primes as possible to be small, so that their reciprocals are big. And so
+$n$ should be the product of the first $k$ primes, for some $k$. That is, $n$ is
+the $k$-th [[https://en.wikipedia.org/wiki/Primorial][primorial number]]. The first primorial number greater than $10^18$ is
+the product of the primes up to 41. Our solution consists of multiplying primes
+until the given upper bound is reached. Because the $n$-th primorial has size
+about $e^n$, our solution is $O(\log n)$.
+** Project Euler 71: Ordered Fractions                                       :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 71
+:EXPORT_DATE: 2018-07-21
+:EXPORT_DESCRIPTION: My solution to problem 71 of Project Euler.
+:END:
+*** Problem Statement
+The fraction $\frac{a}{b}$ is called a reduced proper fraction if $a$ and $b$
+are positive integers with $a < b$ and $\mathrm{gcd}(a,b) = 1$. If we list the
+reduced proper fractions for $b \le 8$ in increasing order, we get
+\begin{equation*}
+\frac18, \frac17, \frac16, \frac15, \frac14, \frac27, \frac13, \frac38, \frac25, \frac37, \frac12, \frac47, \frac35, \frac58, \frac23, \frac57, \frac34, \frac45, \frac56, \frac67, \frac78
+\end{equation*}
+It can be seen that $\frac25$ is the fraction immediately to the left of
+$\frac37$. By listing the set of reduced proper fractions with denominator at
+most $N$ in increasing order, find the numerator and denominator of the fraction
+immediately to the left of $\frac{a}{b}$.
+*** My Algorithm
+Let the sequence of reduced proper fractions with denominator at most $n$ listed
+in increasing order be the $n$-th [[https://en.wikipedia.org/wiki/Farey_sequence][Farey sequence]], $F_n$. We will show that if
+$\frac{c}{d}$ directly precedes $\frac{a}{b}$ in $F_n$, then $ad - bc = 1$.
+Because $\mathrm{gcd}(a,b) = 1$, the equation
+\begin{equation}
+ay - bx = 1
+\label{dioph}
+\end{equation}
+has infinitely many integer solutions, by Bezout's theorem. In particular, if
+$(x_0,y_0)$ is a solution, so is $(x_0 + ak, y_0 + bk)$. Let us choose $k$ such
+that $n - b < y_0 + br \le n$. And so there exists a solution $(x,y)$ such that
+\begin{equation}
+0 \le n - b < y \le n.
+\label{fundineq}
+\end{equation}
+Suppose $\mathrm{gcd}(x,y) = d$. Because $d|x,d|y$, we have $d|(ay - bx)$, and
+so $d | 1$. This implies that $x$ and $y$ are coprime. Because of this and the
+fact that $y \le n$, we have $\frac{x}{y} \in F_n$. Furthermore,
+\begin{equation}
+\frac{a}{b} > \frac{a}{b} - \frac{1}{by} = \frac{ay - 1}{by} = \frac{bx}{by} = \frac{x}{y}.
+\end{equation}
+And so $\frac{x}{y}$ precedes $\frac{a}{b}$. Suppose $(x,y) \neq (c,d)$. Then
+$\frac{x}{y}$ precedes $\frac{c}{d}$, and
+\begin{equation}
+\frac{c}{d} - \frac{x}{y} = \frac{cy - dx}{dy} \ge \frac{1}{dy}.
+\label{ineq1}
+\end{equation}
+On the other hand,
+\begin{equation}
+\frac{a}{b} - \frac{c}{d} = \frac{ad - bc}{bd} \ge \frac{1}{bd}.
+\label{ineq2}
+\end{equation}
+Applying \eqref{dioph} gives
+\begin{equation}
+\frac{1}{xy} = \frac{ay - bx}{by} = \frac{a}{b} - \frac{x}{y}.
+\label{step1}
+\end{equation}
+Applying the sum of \eqref{ineq1} and \eqref{ineq2} to \eqref{step1} gives
+\begin{equation}
+\begin{split}
+\frac{a}{b} - \frac{x}{y} &\ge \frac{1}{dy} + \frac{1}{bd} \\
+&= \frac{b+y}{bdy}.
+\end{split}
+\end{equation}
+By \eqref{fundineq} and the above, we thus have $\frac{1}{by} > \frac{n}{bdy}$.
+Because $d < n$, we obtain the contradiction $\frac{1}{by} > \frac{1}{by}$. Thus
+$(x,y) = (c,d)$. This proves the result that $ad - bc = 1$. Given $a,b$, we must
+solve for $ad - bc = 1$ such that $d$, the denominator, is maximized. We can do
+this using the extended Euclidean algorithm. Suppose $k$ is the multiplicative
+inverse of $a$ modulo $b$. Then $ak \equiv 1 \pmod b$. This means $ak - bj = 1$,
+for some positive integer $j$. We wish to maximize $k$. Given that $(k,j)$ is a
+solution, so is $(k+nb,j+na)$. Thus we set
+\begin{equation}
+\begin{split}
+k + nb &\le N \\
+n &\le \frac{N-k}{b} \\
+n &= \left\lfloor \frac{N-k}{b} \right\rfloor.
+\end{split}
+\end{equation}
+Solving for $j$, we get $j = \frac{a\left\lfloor \frac{N-k}{b} \right\rfloor +
+ ak - 1}{b}$. solution is
+\begin{equation}
+(c,d) = \left(\left\lfloor \frac{ab\left\lfloor \frac{N-k}{b} \right\rfloor + ak - 1}{b} \right\rfloor, b\left\lfloor \frac{N-k}{b} \right\rfloor + k \right).
+\end{equation}
+The only expensive part of this procedure is calculating the modular inverse,
+and so our solution has $O(\log b)$ time complexity.
+** Project Euler 72: Counting Fractions                                      :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 72
+:EXPORT_DATE: 2018-07-22
+:EXPORT_DESCRIPTION: My solution to problem 72 of Project Euler.
+:END:
+*** Problem Statement
+The fraction $\frac{a}{b}$ is called a reduced proper fraction if $a$ and $b$
+are positive integers with $a < b$ and $\mathrm{gcd}(a,b) = 1$. If we list the
+reduced proper fractions for $b \le 8$ in increasing order, we get
+\begin{equation*}
+\frac18, \frac17, \frac16, \frac15, \frac14, \frac27, \frac13, \frac38, \frac25, \frac37, \frac12, \frac47, \frac35, \frac58, \frac23, \frac57, \frac34, \frac45, \frac56, \frac67, \frac78
+\end{equation*}
+How many elements are contained in the set of reduced proper fractions with
+denominator at most $N$?
+*** My Algorithm
+In order for a fraction to be in reduced form, the numerator and denominator
+must be coprime. And so there are $\varphi(n)$ fractions with denominator $n$.
+This is true for all $n$ except for 1, which does not contribute any fractions,
+because we only consider the elements of $\mathbb{Q} \cap (0,1)$. In total,
+there are
+\begin{equation}
+\sum\limits_{n=1}^N \varphi(n) - 1
+\end{equation}
+fractions. We use Euler's product formula for the totient function:
+\begin{equation}
+\varphi(n) = \prod\limits_{p|n}\left(1 - \frac{1}{p}\right).
+\end{equation}
+We can calculate this by using successive subtractions, starting from $n$. For
+example, the primes that divide 15 are 3 and 5. This gives $15 - \frac{15}{3} =
+10 \to 10 - \frac{10}{5} = 8 = \phi(n)$. We initialize an array ~phi` of $n$
+`0~-entries. This accounts for $\varphi(1)$, which we do not wish to include in
+our final count. Then, we use a method similar to the Sieve of Eratosthenes. If
+~phi[n] = 0~, we have not yet dealt with $n$ and its multiples. Because $n$ is
+prime, we set ~phi[n] = n - 1~. For all other multiples $kn < N$, we account for
+$n$ being a prime factor by setting ~phi[k/n] -= phi[k/n]//n~. Then, we sum the
+entries of ~phi~, and add 1. To give our final answer, we sum ~phi[n]~ for all $n <
+N$. Doing this once for each test case would have time complexity $O(Tn\log\log
+n)$. There are too many test cases for this, so we create a prefix sum array.
+And so our solution has time complexity $O(n\log\log n + T)$, where $T$ is the
+number of test cases.
+** Project Euler 75: Singular Integer Right Triangles                        :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 75
+:EXPORT_DATE: 2018-07-23
+:EXPORT_DESCRIPTION: My solution to problem 75 of Project Euler.
+:END:
+*** Problem Statement
+For how many values $P \le N$ is there exactly one way to form a right triangle
+with integer side lengths and perimeter $P$?
+*** My Algorithm
+See my solution to [[../39/][Project Euler 39]], as the techniques I use there are exactly
+the ones I use for this problem. The only difference is that we count only
+"singular" values of $P$, and we binary search on the index of the greatest
+value up to $N$. Our solution has time complexity $O(N_{\text{max}} + T\log
+N_{\text{max}})$, where $T$ is the number of test cases.
+** Project Euler 76: Counting Summations                                        :dp:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 76
+:EXPORT_DATE: 2018-07-23
+:EXPORT_DESCRIPTION: My solution to problem 76 of Project Euler.
+:END:
+*** Problem Statement
+It is possible to write 5 as the sum of at least two positive integers in
+exactly 6 different ways:
+\begin{equation*}
+\begin{split}
+5 &= 4+1 \\
+&= 3+2 \\
+&= 3+1+1 \\
+&= 2+2+1 \\
+&= 2+1+1+1 \\
+&= 1+1+1+1+1
+\end{split}
+\end{equation*}
+How many ways can $N$ be written as the sum of at least two positive integers?
+Report your answer modulo $10^9 + 7$.
+*** My Algorithm
+Please see my solution to [[../31/][Project Euler 31]], as we use the same dynamic
+programming techniques. This problem is a variant on the coin sum problem in
+Euler 31. This time, the coins have values $1,2,\ldots,N$. At the end, we
+subtract 1 to exclude the vacuous sum which is just $N$ itself, and then we
+report our answer modulo $P$. Our solution has time complexity $O(N^2 + T)$.
+** Project Euler 77: Prime Summations                                            :dp:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 77
+:EXPORT_DATE: 2018-07-23
+:EXPORT_DESCRIPTION: My solution to problem 77 of Project Euler.
+:END:
+*** Problem Statement
+It is possible to write 10 as the sum of primes in exactly 5 different ways:
+\begin{equation*}
+\begin{split}
+10 &= 7+3 \\
+&= 5+5 \\
+&= 5+3+2 \\
+&= 2+2+1 \\
+&= 3+3+2+2 \\
+&= 2+2+2+2+2
+\end{split}
+\end{equation*}
+How many ways can $N$ be written as the sum of primes?
+*** My Algorithm
+Please see my solution to [[../31/][Project Euler 31]], as we use the same dynamic
+programming techniques. This problem is a variant on the coin sum problem in
+Euler 31. Here the coins take on the values of the primes up to $N$. There are
+about $\frac{N}{\log N}$ primes up to $N$. Our solution has time complexity
+$O(\frac{N^2}{\log N} + T)$.
+* Drafts
+** Project Euler 78: Coin Partitions                                         :proof:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 78
+:EXPORT_DATE: 2018-07-31
+:EXPORT_DESCRIPTION: My solution to problem 78 of Project Euler.
+:EXPORT_HUGO_DRAFT: true
+:END:
+*** Problem Statement
+Let $p(n)$ represent the number of ways $n$ can be written as the sum of
+positive integers. For example, $p(5) = 7$. Given $N$, return $p(N)$ modulo
+$10^9 + 7$.
+*** My Algorithm
+We cannot use the $O(n^2)$ technique given in [[../31/][Project Euler 31]]. Instead, we will
+make use of a wonderful piece of mathematics known as [[https://en.wikipedia.org/wiki/Pentagonal_number_theorem][Euler's pentagonal number
+theorem]]. It states that
+\begin{equation}
+\prod_{k=1}^\infty (1-x^k) = \sum_{i \in \mathbb{Z}}(-1)^ix^{g_i},
+\end{equation}
+where $g_i$ is the $i$-th generalized pentagonal number, given by $g_n =
+\frac{n(3n-1)}{2}$ for $n = \pm1,\pm2,\pm3,\ldots$ (note that $n$ is positive
+then negative and so on). In other words,
+\begin{equation}
+(1-x)(1-x^2)(1-x^3) \cdots = 1 - x - x^2 + x^5 + x^7 - x^12 - x^15 + x^22 + \cdots
+\end{equation}
+To prove this, let's first define the series $A_n$ as
+\begin{equation}
+A_n = 1 - x^{2n - 1} - \sum_{i=3}^\infty x^{in - 1} \prod_{j = 0}^{i-3} (1 - x^{n+j}).
+\end{equation}
+Factoring out an $x^{3n-1}$ term from the last summand gives
+\begin{equation}
+A_n = 1 - x^{2n - 1} - x^{3n-1}\sum_{i=0}^\infty x^{in} \prod_{j = 0}^{i} (1 - x^{n+j}).
+\end{equation}
+Let us denote this new series as $B_n$, such that
+\begin{equation}
+A_n = 1 - x^{2n - 1} - x^{3n-1}B_n.
+\end{equation}
+Pulling out the $i=j=0$ term from the series $B_n$ gives
+\begin{equation}
+\begin{split}
+B_n &= \sum_{i=0}^\infty x^{in} \prod_{j = 0}^{i} (1 - x^{n+j}) \\
+&= x^0(1 - x^{n+0}) + \sum_{i=1}^\infty x^{in} (1-x^n)\prod_{j = 0}^{i} (1 - x^{n+j}) \\
+&= 1 - x^n + \sum_{i=1}^\infty x^{in} (1-x^n)\prod_{j = 1}^{i} (1 - x^{n+j}).
+\end{split}
+\end{equation}
+Distributing the $j = 0$ term we pulled out of the product, we have
+\begin{equation}
+\begin{split}
+B_n &= 1 - x^n + \sum_{i=1}^\infty x^{in}\prod_{j = 1}^{i} (1 - x^{n+j}) - \sum_{i=1}^\infty x^nx^{in}\prod_{j = 1}^{i} (1 - x^{n+j}) \\
+B_n &= 1 - x^n + \sum_{i=1}^\infty x^{in}\prod_{j = 1}^{i} (1 - x^{n+j}) - \sum_{i=1}^\infty x^{(i+1)n}\prod_{j = 1}^{i} (1 - x^{n+j}) \\
+\end{split}
+\end{equation}
+
+It implies that
+\begin{equation}
+\begin{split}
+p(n) &= \sum_k (-1)^{k-1}p(n-g_k) \\
+&= p(n-1) + p(n-2) - p(n-5) - p(n-7) + \cdots,
+\end{split}
+\end{equation}
+
+First, let's look at the generating function for $p(n)$. We have
+\begin{equation}
+\prod_{k=1}^\infty \left( \frac{1}{1-x^k} \right) = \sum_{k=0}^\infty p(k)x^k.
+\end{equation}
+To see why this is the case, let's expand each term of the product as a
+geometric series. It will have first term 1 and common ratio $x^k$. We then have
+\begin{equation}
+\begin{split}
+\prod_{k=1}^\infty \left( \frac{1}{1-x^k} \right) &= (1 + x + x^2 + x^3 + \cdots)(1 + x^2 + x^4 + x^6 + \cdots)(1 + x^3 + x^6 + x^9 + \cdots)\cdots \\
+&= \prod_{k=1}^\infty \left( \sum_{j=0}^\infty x^{kj} \right).
+\end{split}
+\label{part-form}
+\end{equation}
+Consider the coefficient on the term $x^n$. To get $x^n$, we take one summand
+from each term in the sum. In other words, each term is of the form $x^{k_1 +
+2k_2 + 3k_3 + \cdots}$. A combinatorial interpretation is that each coefficient
+$k_i$ represents the number of times $i$ appears in a particular way of writing
+$n$ as a sum of natural numbers. This means that the coefficient on $x^n$ is the
+number of such ways to write $n$, which is $p(n)$.
+
+* ​Footnotes
+* COMMENT Local Variables                                              :ARCHIVE:
+# Local Variables:
+# org-hugo-auto-export-on-save: t
+# End:
