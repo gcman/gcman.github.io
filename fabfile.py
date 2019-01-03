@@ -154,3 +154,4 @@ def push(message):
 def publish(message):
     preview()
     push(message)
+    call("rm -rf public", shell=True)
