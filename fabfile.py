@@ -136,7 +136,7 @@ def make_figures():
 def preview():
     try:
         if os.path.exists("public"):
-            call("-rm -rf public", shell=True)
+            call("rm -rf public", shell=True)
     except Exception:
         pass
     call("hugo", shell=True)

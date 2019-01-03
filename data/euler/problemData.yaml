@@ -29,8 +29,8 @@
     \ class=\"o\">-</span> <span class=\"n\">sum_under</span><span class=\"p\">(</span><span\
     \ class=\"n\">N</span><span class=\"p\">,</span><span class=\"mi\">15</span><span\
     \ class=\"p\">))</span>\n</pre></div>\n</td></tr></table>", comments: '2', difficulty: '5',
-  empty: '3', hrdifficulty: Easy, memory: '8716', name: Multiples of 3 and 5, num: '1',
-  path: 1-Multiples-of-3-and-5, runtime: '10'}
+  empty: '3', hrdifficulty: Easy, memory: '944', name: Multiples of 3 and 5, num: '1',
+  path: 1-Multiples-of-3-and-5, runtime: '2'}
 '10': {code: !!python/unicode "<table class=\"highlighttable\"><tr><td class=\"linenos\"\
     ><div class=\"linenodiv\"><pre> 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n\
     13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n\
