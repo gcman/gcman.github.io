@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cache on Gautam Manohar</title>
+    <link>https://gautammanohar.com/tags/cache/</link>
+    <description>Recent content in Cache on Gautam Manohar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Jun 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://gautammanohar.com/tags/cache/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Euler 14: Longest Collatz Sequence</title>
+      <link>https://gautammanohar.com/euler/14/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/14/</guid>
+      <description>Problem Statement The following iterative sequence is defined for the set of positive integers:
+\begin{equation*} \begin{cases} n \to \frac{n}{2} \quad n \,\text{even}, \\
+n \to 3n + 1 \quad n\,\text{odd} \end{cases} \end{equation*}
+Using the rule above and starting with 13 generates the following sequence:
+\begin{equation*} 13 \to 40 \to 20 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1 \end{equation*}
+This sequence contains 10 terms.</description>
+    </item>
+    
+  </channel>
+</rss>

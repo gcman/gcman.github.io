@@ -190,7 +190,9 @@ My Algorithm Python has built-in infinite precision integer arithmetic, so this 
       <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
       
       <guid>https://gautammanohar.com/euler/11/</guid>
-      <description>Problem Statement In the 20-by-20 grid below, four numbers have been marked in bold. { width=95% } The product of these numbers is \(26 \cdot 63 \cdot 78 \cdot 14 = 1788696\). What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+      <description>Problem Statement In the 20-by-20 grid below, four numbers have been marked in bold.
+  Figure 1: A nice friendly matrix.
+  The product of these numbers is \(26 \cdot 63 \cdot 78 \cdot 14 = 1788696\). What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
 My Algorithm The important thing in this problem is to be careful of boundary conditions.</description>
     </item>
     

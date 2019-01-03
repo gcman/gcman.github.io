@@ -6,10 +6,24 @@
     <description>Recent content in Fibonacci on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Jun 2018 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 12 Jun 2018 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="https://gautammanohar.com/tags/fibonacci/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Euler 25: N-digit Fibonacci Number</title>
+      <link>https://gautammanohar.com/euler/25/</link>
+      <pubDate>Tue, 12 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/25/</guid>
+      <description>Problem Statement What is the first term in the Fibonacci sequence to contain \(N\) digits?
+My Algorithm We will use Binet&amp;rsquo;s formula for the $n$-th fibonacci number
+\begin{equation} F_n = \frac{\varphi^n - (-\varphi)^{-n}}{\sqrt{5}}. \end{equation}
+The \((-\varphi)^{-n}\) quickly becomes negligible. So we can make the approximation
+\begin{equation} F_n \approx \frac{\varphi^n}{\sqrt{5}}. \label{approx} \end{equation}
+A number \(n\) has \(\lfloor \log_{10} n \rfloor + 1\) digits. So we must solve the following equation such that \(n\) is minimized:</description>
+    </item>
     
     <item>
       <title>Project Euler 2: Even Fibonacci Numbers</title>

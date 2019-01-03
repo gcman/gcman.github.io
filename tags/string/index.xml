@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>String on Gautam Manohar</title>
+    <link>https://gautammanohar.com/tags/string/</link>
+    <description>Recent content in String on Gautam Manohar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Jun 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://gautammanohar.com/tags/string/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Euler 22: Names Scores</title>
+      <link>https://gautammanohar.com/euler/22/</link>
+      <pubDate>Sat, 23 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/22/</guid>
+      <description>Problem Statement You are given around five-thousand names. Begin by sorting them by alphabetical order. Then working out the alphabetical value of each name, multiply this value by the alphabetical position of the name in the list. For example, suppose COLIN is the 983rd element of a sorted list of names. It is worth \(3 + 15 + 12 + 9 + 14 = 53\), so this name has a score of \(53 \cdot 983 = 49714\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 13: Large Sum</title>
+      <link>https://gautammanohar.com/euler/13/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/13/</guid>
+      <description>Problem Statement Find the first ten digits of the sum of \(N\) 50-digit numbers.
+My Algorithm Thanks to Python&amp;rsquo;s built-in ability to handle infinitely large integers, this problem is a piece of cake. We read in the numbers, add them, convert the result to a string, and output the first ten characters.
+Other Solutions In languages without big integer support, we would need an algorithm to add big integers, using string arrays and the carrying method often taught in elementary schools.</description>
+    </item>
+    
+  </channel>
+</rss>

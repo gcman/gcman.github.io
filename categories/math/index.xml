@@ -6,10 +6,36 @@
     <description>Recent content in Math on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Jun 2018 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 13 Jun 2018 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="https://gautammanohar.com/categories/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Euler 24: Lexicographic Permutations</title>
+      <link>https://gautammanohar.com/euler/24/</link>
+      <pubDate>Wed, 13 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/24/</guid>
+      <description>Problem Statement A permutation is an ordered arrangement of objects. For example, \(\mathrm{dabc}\) is a permutation of the word \(\mathrm{abcd}\). If the permutations are listed alphabetically, we call it lexicographic order. The lexicographic permutations of \(\mathrm{abc}\) are:
+\begin{equation*} \mathrm{abc}, \mathrm{acb}, \mathrm{bac}, \mathrm{bca}, \mathrm{cab}, \mathrm{cba}. \end{equation*}
+What is the $N$-th lexicographic permutation of the word \(\mathrm{abcdefghijklm}\)?
+My Algorithm Suppose our word has \(n\) letters. Then the first \((n-1)!\) lexicographic permutations begin with \(a\), the next \((n-1)!</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 25: N-digit Fibonacci Number</title>
+      <link>https://gautammanohar.com/euler/25/</link>
+      <pubDate>Tue, 12 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/25/</guid>
+      <description>Problem Statement What is the first term in the Fibonacci sequence to contain \(N\) digits?
+My Algorithm We will use Binet&amp;rsquo;s formula for the $n$-th fibonacci number
+\begin{equation} F_n = \frac{\varphi^n - (-\varphi)^{-n}}{\sqrt{5}}. \end{equation}
+The \((-\varphi)^{-n}\) quickly becomes negligible. So we can make the approximation
+\begin{equation} F_n \approx \frac{\varphi^n}{\sqrt{5}}. \label{approx} \end{equation}
+A number \(n\) has \(\lfloor \log_{10} n \rfloor + 1\) digits. So we must solve the following equation such that \(n\) is minimized:</description>
+    </item>
     
     <item>
       <title>Project Euler 2: Even Fibonacci Numbers</title>
@@ -21,6 +47,18 @@
 \begin{equation*} 1, 2, 3, 5, 8, 13, 21, 34, 55, 89,\ldots \end{equation*}
 Find the sum of the even-valued terms in the Fibonacci sequence not exceeding \(N\).
 My Algorithm For the Project Euler problem, \(N = 4\times10^6\). Let&amp;rsquo;s list the Fibonacci numbers with \(F(0) = 0\):</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 9: Special Pythagorean Triplets</title>
+      <link>https://gautammanohar.com/euler/9/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/9/</guid>
+      <description>Problem Statement A Pythagorean triplet is a set of three natural numbers, \(a &amp;lt; b &amp;lt; c\), for which,
+\begin{equation*} a^2 + b^2 = c^2 \end{equation*}
+For example, \(3^2 + 4^2 = 9 + 16 = 25 = 52\). Given \(N\), find the maximal product \(abc\) such that \(a,b,c\) form a Pythagorean triplet for which \(a+b+c = N\). If no such triplet exists, output \(-1\).
+My Algorithm We know</description>
     </item>
     
     <item>

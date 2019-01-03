@@ -37,6 +37,18 @@ My Algorithm We can split up the fractional part into &amp;ldquo;blocks&amp;rdqu
     </item>
     
     <item>
+      <title>Project Euler 24: Lexicographic Permutations</title>
+      <link>https://gautammanohar.com/euler/24/</link>
+      <pubDate>Wed, 13 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/24/</guid>
+      <description>Problem Statement A permutation is an ordered arrangement of objects. For example, \(\mathrm{dabc}\) is a permutation of the word \(\mathrm{abcd}\). If the permutations are listed alphabetically, we call it lexicographic order. The lexicographic permutations of \(\mathrm{abc}\) are:
+\begin{equation*} \mathrm{abc}, \mathrm{acb}, \mathrm{bac}, \mathrm{bca}, \mathrm{cab}, \mathrm{cba}. \end{equation*}
+What is the $N$-th lexicographic permutation of the word \(\mathrm{abcdefghijklm}\)?
+My Algorithm Suppose our word has \(n\) letters. Then the first \((n-1)!\) lexicographic permutations begin with \(a\), the next \((n-1)!</description>
+    </item>
+    
+    <item>
       <title>Project Euler 17: Number Letter Counts</title>
       <link>https://gautammanohar.com/euler/17/</link>
       <pubDate>Mon, 11 Jun 2018 00:00:00 -0400</pubDate>
@@ -45,7 +57,7 @@ My Algorithm We can split up the fractional part into &amp;ldquo;blocks&amp;rdqu
       <description>Problem Statement Given a number, write it in English words.
 My Algorithm The Hackerank bounds for this problem are \(N \le 10^{12}\). First, we create a dictionary of all the &amp;ldquo;special&amp;rdquo; number names that cannot be procedurally generated:
 \begin{equation*} 0,1,\ldots,9, \quad 10,20,\ldots,90, \quad 10^2,10^3,10^6,10^9,10^{12} \end{equation*}
-Now to process the number \(N\). We begin by breaking the number into five blocks of three digits each, starting from the ones digit. These will have, in increasing order, no suffix, the suffix ~`thousand,&amp;rdquo; ``million,&amp;rdquo; ``billion,&amp;rdquo; and `~trillion.</description>
+Now to process the number \(N\). We begin by breaking the number into five blocks of three digits each, starting from the ones digit. These will have, in increasing order, no suffix, the suffix &amp;ldquo;thousand,&amp;rdquo; &amp;ldquo;million,&amp;rdquo; &amp;ldquo;billion,&amp;rdquo; and &amp;ldquo;trillion.</description>
     </item>
     
     <item>
