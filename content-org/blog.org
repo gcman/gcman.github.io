@@ -1666,7 +1666,7 @@ can solve it with a method that I have not shown, please let me know!
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: euler
 :END:
-** Euler Index
+** Euler Home
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :END:
@@ -1696,7 +1696,7 @@ my algorithms and code (and the process of coming up with them), but never a big
 flashing box with the answer on it.
 *** How far have I gotten?
 Here is a complete summary of my progress in solving problems on Project Euler
-and their upgraded versions on ProjectEuler+ at HackerRank.
+and their upgraded versions on ProjectEuler+ at HackerRank
 ** Project Euler 1: Multiples of 3 or 5                                   :@math:identity:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 1
@@ -3600,6 +3600,7 @@ $O(\frac{N^2}{\log N} + T)$.
 :EXPORT_FILE_NAME: 78
 :EXPORT_DATE: 2018-07-31
 :EXPORT_DESCRIPTION: My solution to problem 78 of Project Euler.
+:EXPORT_HUGO_DRAFT: true
 :END:
 *** Problem Statement
 Let $p(n)$ represent the number of ways $n$ can be written as the sum of

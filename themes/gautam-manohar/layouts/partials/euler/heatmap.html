@@ -34,6 +34,13 @@
 </table>
 {{ $s := newScratch }}
 {{ $s.Set "max" (int (index (split (index (split (index (sort (where (index $.Site.Taxonomies.categories "euler") "Kind" "page")) 0).Title ": ") 0) "Euler ") 1)) }}
+{{ $currMax := 0 }}
+{{ range (where (.Site.RegularPages.ByParam "slug") "Section" .Section) }}
+{{ $currMax = (int (index (last 2 (split .Permalink "/")) 0)) }}
+{{ if ge $currMax ($s.Get "max") }}
+{{ $s.Set "max" $currMax}}
+{{ end }}
+{{ end }}
 {{ $s.Set "num" 0 }}
 {{ if modBool ($s.Get "max") 100 }}
   {{ $s.Set "lastMax" 100 }}
