@@ -211,10 +211,10 @@ My Algorithm We know</description>
     
     <item>
       <title>Prime Reciprocals Diverge!</title>
-      <link>https://gautammanohar.com/prime-reciprocals-diverge/</link>
+      <link>https://gautammanohar.com/prime-reciprocals/</link>
       <pubDate>Sun, 20 May 2018 00:00:00 -0400</pubDate>
       
-      <guid>https://gautammanohar.com/prime-reciprocals-diverge/</guid>
+      <guid>https://gautammanohar.com/prime-reciprocals/</guid>
       <description>Introduction In this post, we will investigate the infinite series
 \begin{equation} \sum_{p} \frac{1}{p}, \end{equation}
 taken over all primes \(p\). In particular, we will show that this series diverges.
@@ -224,38 +224,38 @@ Calculus and the Prime Number Theorem First, we&amp;rsquo;ll show that this prob
     
     <item>
       <title>Relatively Prime, Relatively Often</title>
-      <link>https://gautammanohar.com/relatively-prime-relatively-often/</link>
+      <link>https://gautammanohar.com/coprime-prob/</link>
       <pubDate>Tue, 17 Apr 2018 00:00:00 -0400</pubDate>
       
-      <guid>https://gautammanohar.com/relatively-prime-relatively-often/</guid>
+      <guid>https://gautammanohar.com/coprime-prob/</guid>
       <description>Say you choose two integers. What&amp;rsquo;s the chance that they&amp;rsquo;re coprime? My intuition says that it can&amp;rsquo;t be more than one-half, because half of all numbers share a factor of 2. But I&amp;rsquo;m thoroughly wrong here. The probability is actually \(\frac{6}{\pi^2}\), which is about \(61\%\).
 We wish to find the probability that two randomly selected integers \(m\) and \(n\) are coprime. If this is true, then \(\mathrm{gcd}(m,n) = 1\). Let&amp;rsquo;s say that \(p = \mathrm{P}(\mathrm{gcd}(m,n)=1)\).</description>
     </item>
     
     <item>
       <title>Inspheres and Circumspheres of Simplices</title>
-      <link>https://gautammanohar.com/inspheres-and-circumspheres-of-simplices/</link>
+      <link>https://gautammanohar.com/simplex-sphere/</link>
       <pubDate>Sat, 17 Feb 2018 00:00:00 -0500</pubDate>
       
-      <guid>https://gautammanohar.com/inspheres-and-circumspheres-of-simplices/</guid>
+      <guid>https://gautammanohar.com/simplex-sphere/</guid>
       <description>Every triangle can be circumscribed by a circle, because a circle can always be drawn through three given points, so long as they are not colinear. In fact, every triangle also has a circle that is inscribed in it. These two circles are called the triangle&amp;rsquo;s circumcircle and incircle. Finding these circles for a triangle is simple if the triangle is equilateral, a bit harder if it is right-angled, and a bit harder still if it is not.</description>
     </item>
     
     <item>
       <title>On the Ball in $n$ Euclidean Dimensions</title>
-      <link>https://gautammanohar.com/on-the-ball-in-n-euclidean-dimensions/</link>
+      <link>https://gautammanohar.com/n-ball/</link>
       <pubDate>Tue, 06 Feb 2018 00:00:00 -0500</pubDate>
       
-      <guid>https://gautammanohar.com/on-the-ball-in-n-euclidean-dimensions/</guid>
+      <guid>https://gautammanohar.com/n-ball/</guid>
       <description>One of my favourite formulas in mathematics is the one for the area of a circle, \(\pi r^2\). Its simplicity intrigued my young mind; the circle is, in a sense, the simplest, the roundest shape, and this formula seems to encapsulate the circle&amp;rsquo;s aura of &amp;ldquo;completion.&amp;rdquo; As I grew older, I learned more such formulas for the volumes and surface areas of familiar geometric objects. In particular, I learned of the formula for the volume of a sphere \(\frac{4}{3}\pi r^3\).</description>
     </item>
     
     <item>
       <title>Harmonic Numbers and Binomial Coefficients</title>
-      <link>https://gautammanohar.com/harmonic-numbers-and-binomial-coefficients/</link>
+      <link>https://gautammanohar.com/harm-id/</link>
       <pubDate>Sun, 04 Feb 2018 00:00:00 -0500</pubDate>
       
-      <guid>https://gautammanohar.com/harmonic-numbers-and-binomial-coefficients/</guid>
+      <guid>https://gautammanohar.com/harm-id/</guid>
       <description>The $n$-th harmonic number is defined as the sum of reciprocals of the first \(n\) natural numbers:
 \begin{equation} \sum\limits_{k=1}^n \frac{1}{k}. \end{equation}
 We wish to prove the following identity involving harmonic numbers and binomial coefficients:
@@ -267,10 +267,10 @@ Calculus First, we notice that
     
     <item>
       <title>Generalizing Heron&#39;s Formula</title>
-      <link>https://gautammanohar.com/generalizing-herons-formula/</link>
+      <link>https://gautammanohar.com/herons-formula/</link>
       <pubDate>Sat, 03 Feb 2018 00:00:00 -0500</pubDate>
       
-      <guid>https://gautammanohar.com/generalizing-herons-formula/</guid>
+      <guid>https://gautammanohar.com/herons-formula/</guid>
       <description>A well-known fact in Euclidean geometry is the following expression for the area of a triangle given its side lengths:
 \begin{equation} A = \sqrt{s(s-a)(s-b)(s-c)}, \end{equation}
 where \(s\) is the semiperimeter of the triangle, \(\frac{a+b+c}{2}\). Our goal is to generalize this formula to quadrilaterals. Just like in proofs of Heron&amp;rsquo;s formula that use trigonometry, we will use the formula for the area of a triangle
@@ -279,10 +279,10 @@ where \(s\) is the semiperimeter of the triangle, \(\frac{a+b+c}{2}\). Our goal 
     
     <item>
       <title>Comparing $e^\pi$ and $\pi^e$</title>
-      <link>https://gautammanohar.com/comparing-e%5Cpi-and-%5Cpie/</link>
+      <link>https://gautammanohar.com/e-pi/</link>
       <pubDate>Thu, 01 Feb 2018 00:00:00 -0500</pubDate>
       
-      <guid>https://gautammanohar.com/comparing-e%5Cpi-and-%5Cpie/</guid>
+      <guid>https://gautammanohar.com/e-pi/</guid>
       <description>The constants \(e\) and \(\pi\) are everywhere in mathematics. Determining the greater of the two expressions \(e^\pi\) and \(\pi^e\) (without using a calculator, of course&amp;hellip;) is a fun puzzle that you can approach in many ways. I&amp;rsquo;d like to discuss my solutions.
 Differentiation We shall perform the same operations on the two expressions.
 \begin{equation} \begin{split} e^{\pi} &amp;amp;\odot \pi^e \\

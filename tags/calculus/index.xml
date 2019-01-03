@@ -13,19 +13,19 @@
     
     <item>
       <title>On the Ball in $n$ Euclidean Dimensions</title>
-      <link>https://gautammanohar.com/on-the-ball-in-n-euclidean-dimensions/</link>
+      <link>https://gautammanohar.com/n-ball/</link>
       <pubDate>Tue, 06 Feb 2018 00:00:00 -0500</pubDate>
       
-      <guid>https://gautammanohar.com/on-the-ball-in-n-euclidean-dimensions/</guid>
+      <guid>https://gautammanohar.com/n-ball/</guid>
       <description>One of my favourite formulas in mathematics is the one for the area of a circle, \(\pi r^2\). Its simplicity intrigued my young mind; the circle is, in a sense, the simplest, the roundest shape, and this formula seems to encapsulate the circle&amp;rsquo;s aura of &amp;ldquo;completion.&amp;rdquo; As I grew older, I learned more such formulas for the volumes and surface areas of familiar geometric objects. In particular, I learned of the formula for the volume of a sphere \(\frac{4}{3}\pi r^3\).</description>
     </item>
     
     <item>
       <title>Harmonic Numbers and Binomial Coefficients</title>
-      <link>https://gautammanohar.com/harmonic-numbers-and-binomial-coefficients/</link>
+      <link>https://gautammanohar.com/harm-id/</link>
       <pubDate>Sun, 04 Feb 2018 00:00:00 -0500</pubDate>
       
-      <guid>https://gautammanohar.com/harmonic-numbers-and-binomial-coefficients/</guid>
+      <guid>https://gautammanohar.com/harm-id/</guid>
       <description>The $n$-th harmonic number is defined as the sum of reciprocals of the first \(n\) natural numbers:
 \begin{equation} \sum\limits_{k=1}^n \frac{1}{k}. \end{equation}
 We wish to prove the following identity involving harmonic numbers and binomial coefficients:
@@ -37,10 +37,10 @@ Calculus First, we notice that
     
     <item>
       <title>Comparing $e^\pi$ and $\pi^e$</title>
-      <link>https://gautammanohar.com/comparing-e%5Cpi-and-%5Cpie/</link>
+      <link>https://gautammanohar.com/e-pi/</link>
       <pubDate>Thu, 01 Feb 2018 00:00:00 -0500</pubDate>
       
-      <guid>https://gautammanohar.com/comparing-e%5Cpi-and-%5Cpie/</guid>
+      <guid>https://gautammanohar.com/e-pi/</guid>
       <description>The constants \(e\) and \(\pi\) are everywhere in mathematics. Determining the greater of the two expressions \(e^\pi\) and \(\pi^e\) (without using a calculator, of course&amp;hellip;) is a fun puzzle that you can approach in many ways. I&amp;rsquo;d like to discuss my solutions.
 Differentiation We shall perform the same operations on the two expressions.
 \begin{equation} \begin{split} e^{\pi} &amp;amp;\odot \pi^e \\

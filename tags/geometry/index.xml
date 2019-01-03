@@ -13,10 +13,10 @@
     
     <item>
       <title>Generalizing Heron&#39;s Formula</title>
-      <link>https://gautammanohar.com/generalizing-herons-formula/</link>
+      <link>https://gautammanohar.com/herons-formula/</link>
       <pubDate>Sat, 03 Feb 2018 00:00:00 -0500</pubDate>
       
-      <guid>https://gautammanohar.com/generalizing-herons-formula/</guid>
+      <guid>https://gautammanohar.com/herons-formula/</guid>
       <description>A well-known fact in Euclidean geometry is the following expression for the area of a triangle given its side lengths:
 \begin{equation} A = \sqrt{s(s-a)(s-b)(s-c)}, \end{equation}
 where \(s\) is the semiperimeter of the triangle, \(\frac{a+b+c}{2}\). Our goal is to generalize this formula to quadrilaterals. Just like in proofs of Heron&amp;rsquo;s formula that use trigonometry, we will use the formula for the area of a triangle

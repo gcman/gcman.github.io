@@ -36,10 +36,10 @@ Note that because \(1 = 1^4\) is not a sum, it is not included. The sum of these
     
     <item>
       <title>Prime Reciprocals Diverge!</title>
-      <link>https://gautammanohar.com/prime-reciprocals-diverge/</link>
+      <link>https://gautammanohar.com/prime-reciprocals/</link>
       <pubDate>Sun, 20 May 2018 00:00:00 -0400</pubDate>
       
-      <guid>https://gautammanohar.com/prime-reciprocals-diverge/</guid>
+      <guid>https://gautammanohar.com/prime-reciprocals/</guid>
       <description>Introduction In this post, we will investigate the infinite series
 \begin{equation} \sum_{p} \frac{1}{p}, \end{equation}
 taken over all primes \(p\). In particular, we will show that this series diverges.
