@@ -131,3 +131,26 @@ def make_figures():
                     os.rename(bare(file)+".pdf",
                               os.path.join(OUTPUT_DIR, bare(REL_FILE)+".pdf"))
             os.chdir(ROOT)
+
+
+def preview():
+    try:
+        if os.path.exists("public"):
+            call("-rm -rf public", shell=True)
+    except Exception:
+        pass
+    call("hugo", shell=True)
+    make_figures()
+    euler()
+
+
+def push(message):
+    call("git add -A", shell=True)
+    call('git commit --allow-empty -m"' + message + '"', shell=True)
+    call("git push", shell=True)
+    call("ghp-import public --force --push --branch=master", shell=True)
+
+
+def publish(message):
+    preview()
+    push(message)
