@@ -1,38 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>    Problem 5 - Smallest Multiple - Gautam Manohar
-</title>
-    <meta charset="utf-8" />
-        <meta name="keywords" content="primes, euler" />
-        <meta name="category" content="euler" />
-        <meta name="description" content="My solution to problem 5 of Project Euler." />
-        <meta name="author" content="Gautam Manohar" />
-        <meta name="copyright" content="Gautam Manohar" />
-        <meta name="date" content="2018-06-10 00:00:00-04:00">
-<link rel="stylesheet" href="../../theme/css/normalize.min.css" type="text/css" />
-  <link rel="stylesheet" href="../../theme/css/article.css" type="text/css" />
-  <link rel="stylesheet" href="../../theme/css/euler.css" type="text/css" />
-    <meta name="robots" content="index,follow">
-    <link rel="shortcut icon" type="image/png" href="../../theme/images/icons/favicon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
-    <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<html>
+  <head><meta charset="utf-8" />
+<meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
+<meta name="robots" content="index,follow">
 
-    <!--[if lte IE 7]>
-            <link rel="stylesheet" type="text/css" media="all" href="../../css/ie.css"/>
-            <script src="../../js/IE8.js" type="text/javascript"></script><![endif]-->
-
-    <!--[if lt IE 7]>
-            <link rel="stylesheet" type="text/css" media="all" href="../../css/ie6.css"/><![endif]-->
-<style>
-  .title .math {
-    font-size: 50% !important;
-  }
+<meta name="author" content="Gautam Manohar" />
+<meta name="copyright" content="Gautam Manohar" />
+<meta name="date" content="2018-06-10" />
+<meta name="description" content="My solution to problem 5 of Project Euler.">
+<meta name="keywords" content="primes, { .Section }}" /><title>Project Euler 5: Smallest Multiple &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color"             content="#ffffff" />
+<link rel="apple-touch-icon"      sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32"   href="/img/favicons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="16x16"   href="/img/favicons/favicon-16x16.png" />
+<link rel="manifest"                              href="/img/favicons/manifest.json" />
+<link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
+<link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
+    
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.c2d8d5f799652dc30a8998f7eea1aadd7875a19ee2fc2659abc439098bc22c6c.css"><style>
+.title .math {
+  font-size: 50% !important;
+}
 </style>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
+
 <script type="text/x-mathjax-config">
-  MathJax.Ajax.config.path["mhchem"] =
-    "https://cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0";
   MathJax.Hub.Config({
     extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
     jax: ["input/TeX","output/CommonHTML", "output/PreviewHTML"],
@@ -42,18 +37,15 @@
     tex2jax: {
       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-      processEscapes: true
+	processEscapes: true,
+	processEnvironments: true
     },
     TeX: {
       equationNumbers: {  autoNumber: "all"  },
-      extensions: ["[mhchem]/mhchem.js","AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
     },
     });
 </script>
-<script type="text/javascript"
-   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?=config=TeX-AMS_CHTML">
-</script>
-
 <div class="invisible">
   \(
   \let\Pr\relax
@@ -73,41 +65,78 @@
   \renewcommand\d{\mathop{}\!\mathrm{d}}
   \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
   \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
-  \DeclareMathOperator\G{\Gamma}
-  \DeclareMathOperator\I{\mathscr{I}}
   \)
-</div></head>
-<body>
-    <article>
-    <header>
-      <h1 class="title">
-            <a href="../../euler/5/" rel="bookmark"
-           title="Permalink to Problem 5 - Smallest Multiple">Problem 5 - Smallest Multiple</a>
-      </h1>
-      <address class="author">Gautam Manohar</address>
-        <div id="textbox">
-          <p style="font-weight: bold;" class="alignleft">
-            <a href="../../category/euler/">euler</a>&nbsp;
-          </p>
-            <p class="date aligncenter">10 June 2018</p>
-          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../../tag/primes/">#primes</a> </p>
-        </div>
-       <div style="clear: both;"></div>​
-    </header>
+</div>
 
-      <h1 id="problem-statement">Problem Statement</h1>
-<p>2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.</p>
-<p>What is the smallest positive number that is evenly divisible by all of the numbers from 1 to <span class="math inline">\(N\)</span>?</p>
-<h1 id="my-algorithm">My Algorithm</h1>
-<p>For a number <span class="math inline">\(a\)</span> to divide another number <span class="math inline">\(b\)</span>, each of the prime powers that divide <span class="math inline">\(a\)</span> must also divide <span class="math inline">\(b\)</span>. That is, the exponent on each of the prime powers that divide <span class="math inline">\(a\)</span> is less than or equal to the corresponding exponent on a prime power that divides <span class="math inline">\(b\)</span>. For each number from 1 to <span class="math inline">\(N\)</span> to divide a number <span class="math inline">\(M\)</span>, each prime power less than <span class="math inline">\(N\)</span> must also divide <span class="math inline">\(M\)</span>. To minimize <span class="math inline">\(M\)</span>, we have each prime <span class="math inline">\(p \le N\)</span> divide <span class="math inline">\(M\)</span> as many times as it does the largest prime power of <span class="math inline">\(p\)</span> at most <span class="math inline">\(N\)</span>. That is <span class="math display">\[\begin{equation}
-    M = \prod_{p \le N} p^{\lfloor \log_pN \rfloor}.
-\end{equation}\]</span> To compute our answer <span class="math inline">\(M\)</span>, we need a list of the primes less than <span class="math inline">\(N\)</span>, for which we can use the Sieve of Eratosthenes. And so our solution has time complexity <span class="math inline">\(O(n\log\log n)\)</span>.</p>
-<h2 id="other-solutions">Other Solutions</h2>
-<p>This problem can also be phrased as finding the lowest common multiple of <span class="math inline">\(1,\ldots,N\)</span>, for which the classic formula is <span class="math inline">\(\mathrm{lcm}(1,\ldots,N) = \frac{N!}{\mathrm{gcd}(1,\ldots,N)}\)</span>. Because the numerator grows very quickly, we can compute the LCM iteratively, making use of the fact that <span class="math inline">\(\mathrm{lcm}(a,b,c) = \mathrm{lcm}(\mathrm{lcm}(a,b),c)\)</span> and storing the latest LCM with each step. This algorithm computes the greatest common denominator of two numbers at most <span class="math inline">\(N\)</span>, which can be done in <span class="math inline">\(O(\log n)\)</span> time, <span class="math inline">\(N\)</span> times. And so this solution has time complexity <span class="math inline">\(O(n\log n)\)</span>. However, it has much better space complexity, at <span class="math inline">\(O(1)\)</span>, than the sieve of Eratosthenes, which needs <span class="math inline">\(O(n)\)</span> space to store an array of size <span class="math inline">\(n\)</span>. So for large <span class="math inline">\(n\)</span>, this alternative solution is preferred.</p>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115904815-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<h1 id="my-code">My Code</h1>
-<div class="euler-code">
-	<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+  gtag('config', 'UA-115904815-1');
+</script>
+</head>
+  <body>
+    <div class="nav-wrapper">
+      <nav id="blog-top" class="fixed">
+        <ul>
+          <li><a href="https://gautammanohar.com/./">about</a></li>
+          <li><a href="https://gautammanohar.com/blog">blog</a></li>
+          <li><a href="https://gautammanohar.com/euler">project euler</a></li>
+        </ul>
+      </nav>
+    </div>
+<div class="main">
+  <article class="article euler"><header>
+  <h1 class="title">
+    <a href="https://gautammanohar.com/euler/5/" rel="bookmark" title ="Link to Project Euler 5: Smallest Multiple">Project Euler 5: Smallest Multiple</a>
+  </h1>
+  
+</header>
+
+
+<h2 id="problem-statement">Problem Statement</h2>
+
+<p>2520 is the smallest number that can be divided by each of the numbers from 1 to
+10 without any remainder. What is the smallest positive number that is evenly
+divisible by all of the numbers from 1 to \(N\)?</p>
+
+<h2 id="my-algorithm">My Algorithm</h2>
+
+<p>For a number \(a\) to divide another number \(b\), each of the prime powers that
+divide \(a\) must also divide \(b\). That is, the exponent on each of the prime
+powers that divide \(a\) is less than or equal to the corresponding exponent on a
+prime power that divides \(b\). For each number from 1 to \(N\) to divide a number
+\(M\), each prime power less than \(N\) must also divide \(M\). To minimize \(M\), we
+have each prime \(p \le N\) divide \(M\) as many times as it does the largest prime
+power of \(p\) at most \(N\). That is</p>
+
+<p>\begin{equation}
+M = \prod_{p \le N} p^{\lfloor \log_pN \rfloor}.
+\end{equation}</p>
+
+<p>To compute our answer \(M\), we need a list of the primes less than \(N\), for which
+we can use the Sieve of Eratosthenes. And so our solution has time complexity
+\(O(n\log\log n)\).</p>
+
+<h3 id="other-solutions">Other Solutions</h3>
+
+<p>This problem can also be phrased as finding the lowest common multiple of
+\(1,\ldots,N\), for which the classic formula is \(\mathrm{lcm}(1,\ldots,N) =
+\frac{N!}{\mathrm{gcd}(1,\ldots,N)}\). Because the numerator grows very quickly,
+we can compute the LCM iteratively, making use of the fact that
+\(\mathrm{lcm}(a,b,c) = \mathrm{lcm}(\mathrm{lcm}(a,b),c)\) and storing the latest
+LCM with each step. This algorithm computes the greatest common denominator of
+two numbers at most \(N\), which can be done in \(O(\log n)\) time, \(N\) times. And
+so this solution has time complexity \(O(n\log n)\). However, it has much better
+space complexity, at \(O(1)\), than the sieve of Eratosthenes, which needs \(O(n)\)
+space to store an array of size \(n\). So for large \(n\), this alternative solution
+is preferred.</p>
+
+
+<h2 id="my-code">My Code</h2>
+<div class="euler-code"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -160,188 +189,1371 @@
 </td></tr></table>
 </div>
 <p>This code has 2 comments and 3 empty lines.</p>
-<h1 id="Performance">Performance</h1>
-<p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">less than 0.1&#8239;s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.8&#8239;MB</span>.</p>
+  <h2 id="Performance">Performance</h2>
+  <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">less than 0.1 s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.8 KB</span>.</p>
 
-<h2 id="Difficulty">Difficulty</h2>
-<p><a href="https://projecteuler.net/problem=5">Project Euler</a> ranks this problem at 5% difficulty (out of 100%). <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler005">HackerRank</a> classifies this problem as medium.</p><h1 id="progress">Progress</h1>
+<h3 id="Difficulty">Difficulty</h3>
+<p><a href="https://projecteuler.net/problem=5">Project Euler</a> ranks this problem at 5% difficulty (out of 100%). <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler%25!d%28string=005%29">HackerRank</a> classifies this problem as medium.</p>
+<h2 id="progress">Progress</h2>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
 <table class="legend euler">
-	<tr>
-		<td><div class="euler-circle complete"></td></div>
-		<td class="text">
-			Solution solves problem correctly on Project Euler and scores 100% on Hackerrank.
-		</td>
-	</tr>
-	<tr>
-		<td><div class="euler-circle hackerrank-imperfect"></td></div>
-		<td class="text">
-			Solution scores less than 100% on Hackerrank, but still solves the original problem.
-		</td>
-	</tr>
-	<tr>
-		<td><div class="euler-circle euler-only"></td></div>
-		<td class="text">
-			Solution relevant only to Project Euler (problem not on Hackerrank or changed too much).
-		</td>
-	</tr>
-	<tr>
-		<td><div class="euler-circle tle"></td></div>
-		<td class="text">
-			Solution exceeds either the given time limit of 60 seconds or memory limit of 256 MB.
-		</td>
-	</tr>
-	<tr>
-		<td><div class="euler-circle unsolved"></td></div>
-		<td class="text">
-			Problem has not been solved.
-		</td>
-	</tr>
+  <tr>
+    <td><div class="euler-circle complete"></td></div>
+    <td class="text">
+      Solution solves problem on Project Euler and scores 100% on HackerRank.
+    </td>
+  </tr>
+  <tr>
+    <td><div class="euler-circle hackerrank-imperfect"></td></div>
+    <td class="text">
+      Solution scores less than 100% on HackerRank, but still solves the original problem.
+    </td>
+  </tr>
+  <tr>
+    <td><div class="euler-circle euler-only"></td></div>
+    <td class="text">
+      Solution relevant only to Project Euler (problem not on HackerRank or changed too much).
+    </td>
+  </tr>
+  <tr>
+    <td><div class="euler-circle tle"></td></div>
+    <td class="text">
+      Solution exceeds either the given time limit of 60 seconds or memory limit of 256 MB.
+    </td>
+  </tr>
+  <tr>
+    <td><div class="euler-circle unsolved"></td></div>
+    <td class="text">
+      Problem has not been solved.
+    </td>
+  </tr>
 </table>
 
-	<table class="map euler">
-		
-			<tr>
-				<td class="complete"><a href="/euler/1/" title="Multiples of 3 and 5 (Difficulty: 5%)">1</a></td>
-				<td class="complete"><a href="/euler/2/" title="Even Fibonacci Numbers (Difficulty: 5%)">2</a></td>
-				<td class="complete"><a href="/euler/3/" title="Largest Prime Factor (Difficulty: 5%)">3</a></td>
-				<td class="complete"><a href="/euler/4/" title="Largest Palindrome Product (Difficulty: 5%)">4</a></td>
-				<td class="complete"><a href="/euler/5/" title="Smallest Multiple (Difficulty: 5%)">5</a></td>
-				<td class="complete"><a href="/euler/6/" title="Sum Square Difference (Difficulty: 5%)">6</a></td>
-				<td class="complete"><a href="/euler/7/" title="10001st Prime (Difficulty: 5%)">7</a></td>
-				<td class="complete"><a href="/euler/8/" title="Largest Product in a Series (Difficulty: 5%)">8</a></td>
-				<td class="complete"><a href="/euler/9/" title="Special Pythagorean Triplets (Difficulty: 5%)">9</a></td>
-				<td class="complete"><a href="/euler/10/" title="Summation of Primes (Difficulty: 5%)">10</a></td>
-				<td class="complete"><a href="/euler/11/" title="Largest Product in a Grid (Difficulty: 5%)">11</a></td>
-				<td class="complete"><a href="/euler/12/" title="Highly Divisible Triangular Number (Difficulty: 5%)">12</a></td>
-				<td class="complete"><a href="/euler/13/" title="Large Sum (Difficulty: 5%)">13</a></td>
-				<td class="complete"><a href="/euler/14/" title="Longest Collatz Sequence (Difficulty: 5%)">14</a></td>
-				<td class="complete"><a href="/euler/15/" title="Lattice Paths (Difficulty: 5%)">15</a></td>
-				<td class="complete"><a href="/euler/16/" title="Power Digit Sum (Difficulty: 5%)">16</a></td>
-				<td class="complete"><a href="/euler/17/" title="Number Letter Counts (Difficulty: 5%)">17</a></td>
-				<td class="complete"><a href="/euler/18/" title="Maximum Path Sum I (Difficulty: 5%)">18</a></td>
-				<td class="hackerrank-imperfect"><a href="/euler/19/" title="Counting Sundays (Difficulty: 5%)">19</a></td>
-				<td class="complete"><a href="/euler/20/" title="Factorial Digit Sum (Difficulty: 5%)">20</a></td>
-				
-			</tr>
-			<tr>
-				<td class="complete"><a href="/euler/21/" title="Amicable Numbers (Difficulty: 5%)">21</a></td>
-				<td class="complete"><a href="/euler/22/" title="Names Scores (Difficulty: 5%)">22</a></td>
-				<td class="complete"><a href="/euler/23/" title="Non-abundant Sums (Difficulty: 5%)">23</a></td>
-				<td class="complete"><a href="/euler/24/" title="Lexicographic Permutations (Difficulty: 5%)">24</a></td>
-				<td class="complete"><a href="/euler/25/" title="1000-digit Fibonacci Number (Difficulty: 5%)">25</a></td>
-				<td class="unsolved">26</td>
-				<td class="complete"><a href="/euler/27/" title="Quadratic Primes (Difficulty: 5%)">27</a></td>
-				<td class="complete"><a href="/euler/28/" title="Number Spiral Diagonals (Difficulty: 5%)">28</a></td>
-				<td class="unsolved">29</td>
-				<td class="complete"><a href="/euler/30/" title="Digit Fifth Powers (Difficulty: 5%)">30</a></td>
-				<td class="complete"><a href="/euler/31/" title="Coin Sums (Difficulty: 5%)">31</a></td>
-				<td class="complete"><a href="/euler/32/" title="Pandigital Products (Difficulty: 5%)">32</a></td>
-				<td class="unsolved">33</td>
-				<td class="complete"><a href="/euler/34/" title="Digit Factorials (Difficulty: 5%)">34</a></td>
-				<td class="complete"><a href="/euler/35/" title="Circular Primes (Difficulty: 5%)">35</a></td>
-				<td class="complete"><a href="/euler/36/" title="Double Base Palindromes (Difficulty: 5%)">36</a></td>
-				<td class="complete"><a href="/euler/37/" title="Truncatable Primes (Difficulty: 5%)">37</a></td>
-				<td class="unsolved">38</td>
-				<td class="complete"><a href="/euler/39/" title="Integer Right Triangles (Difficulty: 5%)">39</a></td>
-				<td class="complete"><a href="/euler/40/" title="Champernowne's Constant (Difficulty: 5%)">40</a></td>
-				
-			</tr>
-			<tr>
-				<td class="complete"><a href="/euler/41/" title="Pandigital Prime (Difficulty: 5%)">41</a></td>
-				<td class="complete"><a href="/euler/42/" title="Coded Triangle Numbers (Difficulty: 5%)">42</a></td>
-				<td class="unsolved">43</td>
-				<td class="complete"><a href="/euler/44/" title="Pentagon Numbers (Difficulty: 5%)">44</a></td>
-				<td class="unsolved">45</td>
-				<td class="complete"><a href="/euler/46/" title="Goldbach's Other Conjecture (Difficulty: 5%)">46</a></td>
-				<td class="complete"><a href="/euler/47/" title="Distinct Primes Factors (Difficulty: 5%)">47</a></td>
-				<td class="complete"><a href="/euler/48/" title="Self Powers (Difficulty: 5%)">48</a></td>
-				<td class="unsolved">49</td>
-				<td class="unsolved">50</td>
-				<td class="unsolved">51</td>
-				<td class="complete"><a href="/euler/52/" title="Permuted Multiples (Difficulty: 5%)">52</a></td>
-				<td class="complete"><a href="/euler/53/" title="Combinatoric Selections (Difficulty: 5%)">53</a></td>
-				<td class="unsolved">54</td>
-				<td class="complete"><a href="/euler/55/" title="Lychrel Numbers (Difficulty: 5%)">55</a></td>
-				<td class="complete"><a href="/euler/56/" title="Powerful Digit Sum (Difficulty: 5%)">56</a></td>
-				<td class="complete"><a href="/euler/57/" title="Square Root Convergents (Difficulty: 5%)">57</a></td>
-				<td class="complete"><a href="/euler/58/" title="Spiral Primes (Difficulty: 5%)">58</a></td>
-				<td class="unsolved">59</td>
-				<td class="unsolved">60</td>
-				
-			</tr>
-			<tr>
-				<td class="unsolved">61</td>
-				<td class="unsolved">62</td>
-				<td class="complete"><a href="/euler/63/" title="Powerful Digit Counts (Difficulty: 5%)">63</a></td>
-				<td class="unsolved">64</td>
-				<td class="complete"><a href="/euler/65/" title="Convergents of $e$ (Difficulty: 15%)">65</a></td>
-				<td class="unsolved">66</td>
-				<td class="complete"><a href="/euler/67/" title="Maximum Path Sum II (Difficulty: 5%)">67</a></td>
-				<td class="unsolved">68</td>
-				<td class="complete"><a href="/euler/69/" title="Totient Maximum (Difficulty: 10%)">69</a></td>
-				<td class="unsolved">70</td>
-				<td class="complete"><a href="/euler/71/" title="Ordered Fractions (Difficulty: 10%)">71</a></td>
-				<td class="complete"><a href="/euler/72/" title="Counting Fractions (Difficulty: 20%)">72</a></td>
-				<td class="unsolved">73</td>
-				<td class="unsolved">74</td>
-				<td class="complete"><a href="/euler/75/" title="Singular Integer Right Triangles (Difficulty: 25%)">75</a></td>
-				<td class="complete"><a href="/euler/76/" title="Counting Summations (Difficulty: 10%)">76</a></td>
-				<td class="complete"><a href="/euler/77/" title="Counting Summations (Difficulty: 25%)">77</a></td>
-				<td class="complete"><a href="/euler/78/" title="Counting Summations (Difficulty: 30%)">78</a></td>
-				<td class="unsolved">79</td>
-				<td class="unsolved">80</td>
-				
-			</tr>
-			<tr>
-				<td class="complete"><a href="/euler/81/" title="Path sum: two ways (Difficulty: 10%)">81</a></td>
-				<td class="unsolved">82</td>
-				<td class="unsolved">83</td>
-				<td class="unsolved">84</td>
-				<td class="unsolved">85</td>
-				<td class="unsolved">86</td>
-				<td class="unsolved">87</td>
-				<td class="unsolved">88</td>
-				<td class="unsolved">89</td>
-				<td class="unsolved">90</td>
-				<td class="unsolved">91</td>
-				<td class="unsolved">92</td>
-				<td class="unsolved">93</td>
-				<td class="unsolved">94</td>
-				<td class="unsolved">95</td>
-				<td class="unsolved">96</td>
-				<td class="unsolved">97</td>
-				<td class="unsolved">98</td>
-				<td class="unsolved">99</td>
-				<td class="unsolved">100</td>
-				
-			</tr>
-	</table>    <aside id="gcman-toolbar">
-                <a title="Problem 6 - Sum Square Difference" class="prev" href="../../euler/6/">
-                    <i class="fas fa-chevron-circle-left"></i>
-            </a>
-        <a title="Raw source" class="raw" href="../../euler/5/src.md" type="text/plain">
-            <i class="fas fa-code" aria-hidden="true"></i>
-        </a>
-<a title="Home" class="home" href="../../blog/">
-    <i class="fas fa-home"></i>
-</a>        <a title="PDF" class="pdf" href="../../euler/5/post.pdf">
-            <i class="far fa-file-pdf" aria-hidden="true"></i>
-        </a>
-                <a title="Problem 4 - Largest Palindrome Product" class="next" href="../../euler/4/">
-                    <i class="fas fa-chevron-circle-right"></i>
-            </a>
-    </aside>
-  </article>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  <table class="map euler">
+    
+      
+        <tr>
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 1: Multiples of 3 or 5" href="https://gautammanohar.com/euler/1">1</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 2: Even Fibonacci Numbers" href="https://gautammanohar.com/euler/2">2</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 3: Largest Prime Factor" href="https://gautammanohar.com/euler/3">3</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 4: Largest Palindrome Product" href="https://gautammanohar.com/euler/4">4</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 5: Smallest Multiple" href="https://gautammanohar.com/euler/5">5</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 6: Sum Square Difference" href="https://gautammanohar.com/euler/6">6</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 7: 10001st Prime" href="https://gautammanohar.com/euler/7">7</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 8: Largest Product in a Series" href="https://gautammanohar.com/euler/8">8</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 9: Special Pythagorean Triplets" href="https://gautammanohar.com/euler/9">9</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 10: Summation of Primes" href="https://gautammanohar.com/euler/10">10</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 11: Largest Product in a Grid" href="https://gautammanohar.com/euler/11">11</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 12: Highly Divisible Triangular Number" href="https://gautammanohar.com/euler/12">12</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 13: Large Sum" href="https://gautammanohar.com/euler/13">13</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 14: Longest Collatz Sequence" href="https://gautammanohar.com/euler/14">14</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 15: Lattice Paths" href="https://gautammanohar.com/euler/15">15</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 16: Power Digit Sum" href="https://gautammanohar.com/euler/16">16</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 17: Number Letter Counts" href="https://gautammanohar.com/euler/17">17</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 18: Maximum Path Sum I" href="https://gautammanohar.com/euler/18">18</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/19">19</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 20: Factorial Digit Sum" href="https://gautammanohar.com/euler/20">20</a>
+                    </td>
+                  
+            
+          
+        </tr>
+      
+    
+      
+        <tr>
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 21: Amicable Numbers" href="https://gautammanohar.com/euler/21">21</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 22: Names Scores" href="https://gautammanohar.com/euler/22">22</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 23: Non-abundant Sums" href="https://gautammanohar.com/euler/23">23</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 24: Lexicographic Permutations" href="https://gautammanohar.com/euler/24">24</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 25: N-digit Fibonacci Number" href="https://gautammanohar.com/euler/25">25</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/26">26</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 27: Quadratic Primes" href="https://gautammanohar.com/euler/27">27</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 28: Number Spiral Diagonals" href="https://gautammanohar.com/euler/28">28</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/29">29</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 30: Digit Fifth Powers" href="https://gautammanohar.com/euler/30">30</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 31: Coin Sums" href="https://gautammanohar.com/euler/31">31</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 32: Pandigital Products" href="https://gautammanohar.com/euler/32">32</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/33">33</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 34: Digit Factorials" href="https://gautammanohar.com/euler/34">34</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 35: Circular Primes" href="https://gautammanohar.com/euler/35">35</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 36: Double Base Palindromes" href="https://gautammanohar.com/euler/36">36</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 37: Truncatable Primes" href="https://gautammanohar.com/euler/37">37</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/38">38</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 39: Integer Right Triangles" href="https://gautammanohar.com/euler/39">39</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 40: Champernowne&#39;s Constant" href="https://gautammanohar.com/euler/40">40</a>
+                    </td>
+                  
+            
+          
+        </tr>
+      
+    
+      
+        <tr>
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 41: Pandigital Prime" href="https://gautammanohar.com/euler/41">41</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 42: Coded Triangle Numbers" href="https://gautammanohar.com/euler/42">42</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/43">43</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 44: Pentagonal Numbers" href="https://gautammanohar.com/euler/44">44</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/45">45</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 46: Goldbach&#39;s Other Conjecture" href="https://gautammanohar.com/euler/46">46</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 47: Distinct Prime Factors" href="https://gautammanohar.com/euler/47">47</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 48: Self Powers" href="https://gautammanohar.com/euler/48">48</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/49">49</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/50">50</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/51">51</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 52: Permuted Multiples" href="https://gautammanohar.com/euler/52">52</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 53: Combinatoric Selections" href="https://gautammanohar.com/euler/53">53</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/54">54</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 55: Lychrel Numbers" href="https://gautammanohar.com/euler/55">55</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 56: Powerful Digit Sum" href="https://gautammanohar.com/euler/56">56</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 57: Square Root Convergents" href="https://gautammanohar.com/euler/57">57</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 58: Spiral Primes" href="https://gautammanohar.com/euler/58">58</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/59">59</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/60">60</a>
+                    </td>
+                  
+            
+          
+        </tr>
+      
+    
+      
+        <tr>
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/61">61</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/62">62</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 63: Powerful Digit Counts" href="https://gautammanohar.com/euler/63">63</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/64">64</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 65: Convergents of $e$" href="https://gautammanohar.com/euler/65">65</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/66">66</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 67: Maximum Path Sum II" href="https://gautammanohar.com/euler/67">67</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/68">68</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 69: Totient Maximum" href="https://gautammanohar.com/euler/69">69</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/70">70</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 71: Ordered Fractions" href="https://gautammanohar.com/euler/71">71</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 72: Counting Fractions" href="https://gautammanohar.com/euler/72">72</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/73">73</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="unsolved">
+                      <a title="" href="https://gautammanohar.com/euler/74">74</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 75: Singular Integer Right Triangles" href="https://gautammanohar.com/euler/75">75</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 76: Counting Summations" href="https://gautammanohar.com/euler/76">76</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td class="complete">
+                      <a title="Project Euler 77: Prime Summations" href="https://gautammanohar.com/euler/77">77</a>
+                    </td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td></td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td></td>
+                  
+            
+          
+            
+              
+                
+                  
+                    
+                  
+                  
+                    <td></td>
+                  
+            
+          
+        </tr>
+      
+    
+      
+    
+  </table>
+
+<hr>
+
+
+<h3>Related Posts</h3>
+<div id="related">
+	
+	<div class="post"><a href="/euler/3/">Project Euler 3: Largest Prime Factor</a></div>
+	
+	<div class="post"><a href="/euler/10/">Project Euler 10: Summation of Primes</a></div>
+	
+	<div class="post"><a href="/euler/7/">Project Euler 7: 10001st Prime</a></div>
+	
+</div>
+
+<table id="next-prev">
+  <tr>
+    
+    <td class="left arrow">&#8592; older</td>
+    
+    
+    <td class="right arrow">newer &#8594;</td>
+    
+  </tr>
+  <tr>
+    <td class="left">
+      
+      <a class="previous" href="https://gautammanohar.com/euler/6/"> Project Euler 6: Sum Square Difference</a>
+      
+    </td>
+    <td class="right">
+      
+      <a class="next" href="https://gautammanohar.com/euler/4/"> Project Euler 4: Largest Palindrome Product</a>
+      
+    </td>
+  </tr>
+</table>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
   $('.title a').html(function(index, value) {
-    return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
-});
+	return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
+  });
 </script>
-    <section>
-    </section>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-</body>
+</article><div class="side">
+  <section id="info">
+    <p class="date">Posted 10 June 2018</p>
+    <p class="category">
+      
+      <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
+      
+    <p>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged primes" href="/tags/primes">primes</a></li></ul>
+<p>
+  </section>
+  <section id="recent">
+  <h2>Recent Posts</h2>
+  <ul><li><a href="https://gautammanohar.com/euler/75/">Project Euler 75: Singular Integer Right Triangles</a></li><li><a href="https://gautammanohar.com/euler/76/">Project Euler 76: Counting Summations</a></li><li><a href="https://gautammanohar.com/euler/77/">Project Euler 77: Prime Summations</a></li><li><a href="https://gautammanohar.com/euler/72/">Project Euler 72: Counting Fractions</a></li><li><a href="https://gautammanohar.com/euler/71/">Project Euler 71: Ordered Fractions</a></li></ul>
+  </section>
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gautam-2" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	</body>
 </html>

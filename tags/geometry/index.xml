@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Geometry on Gautam Manohar</title>
+    <link>https://gautammanohar.com/tags/geometry/</link>
+    <description>Recent content in Geometry on Gautam Manohar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 03 Feb 2018 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://gautammanohar.com/tags/geometry/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Generalizing Heron&#39;s Formula</title>
+      <link>https://gautammanohar.com/generalizing-herons-formula/</link>
+      <pubDate>Sat, 03 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/generalizing-herons-formula/</guid>
+      <description>A well-known fact in Euclidean geometry is the following expression for the area of a triangle given its side lengths:
+\begin{equation} A = \sqrt{s(s-a)(s-b)(s-c)}, \end{equation}
+where \(s\) is the semiperimeter of the triangle, \(\frac{a+b+c}{2}\). Our goal is to generalize this formula to quadrilaterals. Just like in proofs of Heron&amp;rsquo;s formula that use trigonometry, we will use the formula for the area of a triangle
+\begin{equation} A = \frac{1}{2}ab\sin C \end{equation}</description>
+    </item>
+    
+  </channel>
+</rss>

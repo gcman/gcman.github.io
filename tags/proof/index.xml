@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Proof on Gautam Manohar</title>
+    <link>https://gautammanohar.com/tags/proof/</link>
+    <description>Recent content in Proof on Gautam Manohar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Jul 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://gautammanohar.com/tags/proof/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Euler 75: Singular Integer Right Triangles</title>
+      <link>https://gautammanohar.com/euler/75/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/75/</guid>
+      <description>Problem Statement For how many values \(P \le N\) is there exactly one way to form a right triangle with integer side lengths and perimeter \(P\)?
+My Algorithm See my solution to Project Euler 39, as the techniques I use there are exactly the ones I use for this problem. The only difference is that we count only &amp;ldquo;singular&amp;rdquo; values of \(P\), and we binary search on the index of the greatest value up to \(N\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 72: Counting Fractions</title>
+      <link>https://gautammanohar.com/euler/72/</link>
+      <pubDate>Sun, 22 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/72/</guid>
+      <description>Problem Statement The fraction \(\frac{a}{b}\) is called a reduced proper fraction if \(a\) and \(b\) are positive integers with \(a &amp;lt; b\) and \(\mathrm{gcd}(a,b) = 1\). If we list the reduced proper fractions for \(b \le 8\) in increasing order, we get
+\begin{equation*} \frac18, \frac17, \frac16, \frac15, \frac14, \frac27, \frac13, \frac38, \frac25, \frac37, \frac12, \frac47, \frac35, \frac58, \frac23, \frac57, \frac34, \frac45, \frac56, \frac67, \frac78 \end{equation*}
+How many elements are contained in the set of reduced proper fractions with denominator at most \(N\)?</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 71: Ordered Fractions</title>
+      <link>https://gautammanohar.com/euler/71/</link>
+      <pubDate>Sat, 21 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/71/</guid>
+      <description>Problem Statement The fraction \(\frac{a}{b}\) is called a reduced proper fraction if \(a\) and \(b\) are positive integers with \(a &amp;lt; b\) and \(\mathrm{gcd}(a,b) = 1\). If we list the reduced proper fractions for \(b \le 8\) in increasing order, we get
+\begin{equation*} \frac18, \frac17, \frac16, \frac15, \frac14, \frac27, \frac13, \frac38, \frac25, \frac37, \frac12, \frac47, \frac35, \frac58, \frac23, \frac57, \frac34, \frac45, \frac56, \frac67, \frac78 \end{equation*}
+It can be seen that \(\frac25\) is the fraction immediately to the left of \(\frac37\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 57: Square Root Convergents</title>
+      <link>https://gautammanohar.com/euler/57/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/57/</guid>
+      <description>Problem Statement It is possible to show that \(\sqrt{2}\) has the following infinite continued fraction expansion:
+\begin{equation*} \sqrt{2} = 1 + \frac{1}{2+\frac{1}{2 + \frac{1}{2 + \cdots}}} \end{equation*}
+By expanding this for the first four iterations, we get the convergents of \(\sqrt{2}\)
+\begin{equation*} \begin{split} 1 + \frac{1}{2} &amp;amp;= \frac{3}{2} \\
+1 + \frac{1}{2 + \frac{1}{2}} &amp;amp;= \frac{7}{5} \\
+1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}} &amp;amp;= \frac{17}{12} \\
+1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}} &amp;amp;= \frac{41}{29}.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 63: Powerful Digit Counts</title>
+      <link>https://gautammanohar.com/euler/63/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/63/</guid>
+      <description>Problem Statement The five-digit number \(16807 = 7^5\) is also a fifth power. Given \(N\), find the $N$-digit positive integers that are also an $N$-th power.
+My Algorithm An $n$-digit $n$-th power has $n$-th root at most 9, because \(10^n\) is an $(n+1)$-digit number. If \(a^n\) is an $n$-digit number, then unless \(a = 9\), we also have that \((a+1)^n\) is an $n$-digit number. We must find the lowest \(a\) such that \(a^n\) has \(n\) digits.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 65: Convergents of $e$</title>
+      <link>https://gautammanohar.com/euler/65/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/65/</guid>
+      <description>Problem Statement The constant \(e\) can be written as the infinite continued fraction \([2;1,2,1,\,1,4,1,\,1,6,1,\ldots,1,2k,\ldots]\). Find the sum of the digits in the $N$-th convergent of the continued fraction expansion for \(e\).
+A Recurrence Relation We will show the following theorem. Let the the $n$-th convergent of a continued fraction \([a_0;a_1,a_2,\ldots]\) be \(\frac{P_n}{Q_n}\). Then the $(n+1)$-th convergent is
+\begin{equation} \frac{a_{n+1}P_n + P_{n-1}}{a_{n+1}Q_{n} + Q_{n-1}}. \end{equation}
+We use induction. Because the 0-th convergent is \(a_0\), we define \(P_0 = a_0, Q_0 = 1\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 69: Totient Maximum</title>
+      <link>https://gautammanohar.com/euler/69/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/69/</guid>
+      <description>Problem Statement Euler&amp;rsquo;s totient function, \(\varphi(n)\), counts the number of positive integers less than \(n\) that are coprime to \(n\). { width=30% } Given \(N\), find the smallest value \(n\) such that \(\frac{n}{\varphi(n)}\) achieves a maximum.
+My Algorithm We use Euler&amp;rsquo;s product formula for the totient function,
+\begin{equation} \varphi(n) = n\prod\limits_{p|n}\left(1 - \frac{1}{p}\right), \end{equation}
+taken over the distinct primes dividing \(n\). This formula gives
+\begin{equation} \frac{n}{\varphi(n)} = \frac{1}{\prod\limits_{p|n}\left(1 - \frac{1}{p}\right)}.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 39: Integer Right Triangles</title>
+      <link>https://gautammanohar.com/euler/39/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/39/</guid>
+      <description>Problem Statement If \(p\) is the perimeter of a right triangle with side lengths \({a,b,c}\), then there are exactly 3 solutions for \(p = 120\):
+\begin{equation*} {20,48,52}, {24,45,51}, {30,40,50} \end{equation*}
+For which value of \(p \le N\) is the number of solutions maximized? If there are multiple possible answers, print the minimum one.
+My Algorithm A famous method of generating Pythagorean triples is due to Euclid:
+\begin{equation} a = m^2 - n^2 \quad b = 2mn \quad c = m^2 + n^2 \quad m &amp;gt; n \label{generating} \end{equation}</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 41: Pandigital Prime</title>
+      <link>https://gautammanohar.com/euler/41/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/41/</guid>
+      <description>Problem Statement We shall say that an $n$-digit number is pandigital if it makes use of all the digits 1 to \(n\) exactly once. For example, 2143 is a 4-digit pandigital and is also prime. What is the largest pandigital prime less than or equal to \(N\)? If there is none, return \(-1\).
+My Algorithm The sum of digits of an $n$-digit number is the sum of the first \(n\) positive integers, or \(\frac{n(n+1)}{2}\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 42: Coded Triangle Numbers</title>
+      <link>https://gautammanohar.com/euler/42/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/42/</guid>
+      <description>Problem Statement The $n$-th term of the sequence of triangle numbers is given by \(t_n = \frac{n(n+1)}{2}\); so the first ten triangle numbers are
+\begin{equation*} 1,3,6,10,15,21,28,36,45,55,\ldots \end{equation*}
+By converting each letter in a word to a number corresponding to its alphabetical position and adding these values we form a word value. For example, the word value for SKY is \(19 + 11 + 25 = 55 = t_{10}\). You are given a file words.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 46: Goldbach&#39;s Other Conjecture</title>
+      <link>https://gautammanohar.com/euler/46/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/46/</guid>
+      <description>Problem Statement It was proposed by Christian Goldbach that every odd composite number can be written as the sum of a prime and twice a square. It turns out that the conjecture was false. How many ways can a given \(N\) be represented as the sum of a prime and twice a square?
+My Algorithm Suppose an odd composite number \(n\) and a prime \(p\) provide a match. Then \(n = p + 2k^2\) for some positive integer \(k\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 24: Lexicographic Permutations</title>
+      <link>https://gautammanohar.com/euler/24/</link>
+      <pubDate>Wed, 13 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/24/</guid>
+      <description>Problem Statement A permutation is an ordered arrangement of objects. For example, \(\mathrm{dabc}\) is a permutation of the word \(\mathrm{abcd}\). If the permutations are listed alphabetically, we call it lexicographic order. The lexicographic permutations of \(\mathrm{abc}\) are:
+\begin{equation*} \mathrm{abc}, \mathrm{acb}, \mathrm{bac}, \mathrm{bca}, \mathrm{cab}, \mathrm{cba}. \end{equation*}
+What is the $N$-th lexicographic permutation of the word \(\mathrm{abcdefghijklm}\)?
+My Algorithm Suppose our word has \(n\) letters. Then the first \((n-1)!\) lexicographic permutations begin with \(a\), the next \((n-1)!</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 25: N-digit Fibonacci Number</title>
+      <link>https://gautammanohar.com/euler/25/</link>
+      <pubDate>Tue, 12 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/25/</guid>
+      <description>Problem Statement What is the first term in the Fibonacci sequence to contain \(N\) digits?
+My Algorithm We will use Binet&amp;rsquo;s formula for the $n$-th fibonacci number
+\begin{equation} F_n = \frac{\varphi^n - (-\varphi)^{-n}}{\sqrt{5}}. \end{equation}
+The \((-\varphi)^{-n}\) quickly becomes negligible. So we can make the approximation
+\begin{equation} F_n \approx \frac{\varphi^n}{\sqrt{5}}. \label{approx} \end{equation}
+A number \(n\) has \(\lfloor \log_{10} n \rfloor + 1\) digits. So we must solve the following equation such that \(n\) is minimized:</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 15: Lattice Paths</title>
+      <link>https://gautammanohar.com/euler/15/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/15/</guid>
+      <description>Problem Statement Suppose we start at the top-left corner of an \(N\times M\) grid and that we can only travel to the right or down. How many routes are there to the bottom-right corner? Output the answer modulo \(10^9 + 7\).
+My Algorithm In total, we must make \(N+M\) moves, of which \(N\) are to the right. Choosing these \(N\) moves uniquely identifies each possible route, as this is equivalent to choosing the \(M\) downwards moves.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 12: Highly Divisible Triangular Number</title>
+      <link>https://gautammanohar.com/euler/12/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/12/</guid>
+      <description>Problem Statement The sequence of triangle numbers is generated by adding the natural numbers. So the 7th triangle number would be \(1 + 2 + 3 + 4 + 5 + 6 + 7 = 28\). The first ten terms would be:
+\begin{equation*} 1, 3, 6, 10, 15, 21, 28, 36, 45, 55,\ldots \end{equation*}
+What is the value of the first triangle number to have over \(N\) divisors?
+My Algorithm If we prime factor a number \(n\) as</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 2: Even Fibonacci Numbers</title>
+      <link>https://gautammanohar.com/euler/2/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/2/</guid>
+      <description>Problem Statement Each new term in the Fibonacci sequence is generated by adding the previous two terms. By starting with 1 and 2, the first 10 terms will be:
+\begin{equation*} 1, 2, 3, 5, 8, 13, 21, 34, 55, 89,\ldots \end{equation*}
+By considering the terms in the Fibonacci sequence whose values do not exceed \(N\), find the sum of the even-valued terms.
+My Algorithm For the Project Euler problem, \(N = 4\times10^6\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 9: Special Pythagorean Triplets</title>
+      <link>https://gautammanohar.com/euler/9/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/9/</guid>
+      <description>Problem Statement A Pythagorean triplet is a set of three natural numbers, \(a &amp;lt; b &amp;lt; c\), for which,
+\begin{equation*} a^2 + b^2 = c^2 \end{equation*}
+For example, \(3^2 + 4^2 = 9 + 16 = 25 = 52\). Given \(N\), find the maximal product \(abc\) such that \(a,b,c\) form a Pythagorean triplet for which \(a+b+c = N\). If no such triplet exists, output \(-1\).
+My Algorithm We know</description>
+    </item>
+    
+    <item>
+      <title>Prime Reciprocals Diverge!</title>
+      <link>https://gautammanohar.com/prime-reciprocals-diverge/</link>
+      <pubDate>Sun, 20 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/prime-reciprocals-diverge/</guid>
+      <description>Introduction In this post, we will investigate the infinite series
+\begin{equation} \sum_{p} \frac{1}{p}, \end{equation}
+taken over all primes \(p\). In particular, we will show that this series diverges.
+Calculus and the Prime Number Theorem First, we&amp;rsquo;ll show that this problem falls to the incredible might of the following inequalty, which bounds the value of the $n$-th prime:
+\begin{equation} n\log n - n \log\log n \le p_n \le n\log n + n\log\log n \quad (n &amp;gt; 5) \end{equation}</description>
+    </item>
+    
+    <item>
+      <title>Relatively Prime, Relatively Often</title>
+      <link>https://gautammanohar.com/relatively-prime-relatively-often/</link>
+      <pubDate>Tue, 17 Apr 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/relatively-prime-relatively-often/</guid>
+      <description>Say you choose two integers. What&amp;rsquo;s the chance that they&amp;rsquo;re coprime? My intuition says that it can&amp;rsquo;t be more than one-half, because half of all numbers share a factor of 2. But I&amp;rsquo;m thoroughly wrong here. The probability is actually \(\frac{6}{\pi^2}\), which is about \(61\%\).
+We wish to find the probability that two randomly selected integers \(m\) and \(n\) are coprime. If this is true, then \(\mathrm{gcd}(m,n) = 1\). Let&amp;rsquo;s say that \(p = \mathrm{P}(\mathrm{gcd}(m,n)=1)\).</description>
+    </item>
+    
+    <item>
+      <title>Inspheres and Circumspheres of Simplices</title>
+      <link>https://gautammanohar.com/inspheres-and-circumspheres-of-simplices/</link>
+      <pubDate>Sat, 17 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/inspheres-and-circumspheres-of-simplices/</guid>
+      <description>Every triangle can be circumscribed by a circle, because a circle can always be drawn through three given points, so long as they are not colinear. In fact, every triangle also has a circle that is inscribed in it. These two circles are called the triangle&amp;rsquo;s circumcircle and incircle. Finding these circles for a triangle is simple if the triangle is equilateral, a bit harder if it is right-angled, and a bit harder still if it is not.</description>
+    </item>
+    
+    <item>
+      <title>On the Ball in $n$ Euclidean Dimensions</title>
+      <link>https://gautammanohar.com/on-the-ball-in-n-euclidean-dimensions/</link>
+      <pubDate>Tue, 06 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/on-the-ball-in-n-euclidean-dimensions/</guid>
+      <description>One of my favourite formulas in mathematics is the one for the area of a circle, \(\pi r^2\). Its simplicity intrigued my young mind; the circle is, in a sense, the simplest, the roundest shape, and this formula seems to encapsulate the circle&amp;rsquo;s aura of &amp;ldquo;completion.&amp;rdquo; As I grew older, I learned more such formulas for the volumes and surface areas of familiar geometric objects. In particular, I learned of the formula for the volume of a sphere \(\frac{4}{3}\pi r^3\).</description>
+    </item>
+    
+    <item>
+      <title>Harmonic Numbers and Binomial Coefficients</title>
+      <link>https://gautammanohar.com/harmonic-numbers-and-binomial-coefficients/</link>
+      <pubDate>Sun, 04 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/harmonic-numbers-and-binomial-coefficients/</guid>
+      <description>The $n$-th harmonic number is defined as the sum of reciprocals of the first \(n\) natural numbers:
+\begin{equation} \sum\limits_{k=1}^n \frac{1}{k}. \end{equation}
+We wish to prove the following identity involving harmonic numbers and binomial coefficients:
+\begin{equation} \sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k. \label{identity} \end{equation}
+I have two solutions: one with calculus, and one by induction.
+Calculus First, we notice that
+\begin{equation} \int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Biggr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.</description>
+    </item>
+    
+    <item>
+      <title>Generalizing Heron&#39;s Formula</title>
+      <link>https://gautammanohar.com/generalizing-herons-formula/</link>
+      <pubDate>Sat, 03 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/generalizing-herons-formula/</guid>
+      <description>A well-known fact in Euclidean geometry is the following expression for the area of a triangle given its side lengths:
+\begin{equation} A = \sqrt{s(s-a)(s-b)(s-c)}, \end{equation}
+where \(s\) is the semiperimeter of the triangle, \(\frac{a+b+c}{2}\). Our goal is to generalize this formula to quadrilaterals. Just like in proofs of Heron&amp;rsquo;s formula that use trigonometry, we will use the formula for the area of a triangle
+\begin{equation} A = \frac{1}{2}ab\sin C \end{equation}</description>
+    </item>
+    
+    <item>
+      <title>Comparing $e^\pi$ and $\pi^e$</title>
+      <link>https://gautammanohar.com/comparing-e%5Cpi-and-%5Cpie/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/comparing-e%5Cpi-and-%5Cpie/</guid>
+      <description>The constants \(e\) and \(\pi\) are everywhere in mathematics. Determining the greater of the two expressions \(e^\pi\) and \(\pi^e\) (without using a calculator, of course&amp;hellip;) is a fun puzzle that you can approach in many ways. I&amp;rsquo;d like to discuss my solutions.
+Differentiation We shall perform the same operations on the two expressions.
+\begin{equation} \begin{split} e^{\pi} &amp;amp;\odot \pi^e \\
+e^{\frac{\pi}{e}} &amp;amp;\odot \pi^{\frac{e}{e}} \\
+e^{\frac{1}{e}} &amp;amp;\odot \pi^{\frac{1}{\pi}} \end{split} \end{equation}
+To show that \(e^\pi &amp;gt; \pi^e\), it suffices to show that \(e^{\frac{1}{e}} &amp;gt; \pi^{\frac{1}{\pi}}\).</description>
+    </item>
+    
+  </channel>
+</rss>

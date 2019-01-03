@@ -1,43 +1,35 @@
-<head>
-		<link rel="stylesheet" href="../theme/css/normalize/normalize.min.css" type="text/css" />
-		<link rel="stylesheet" href="../theme/css/article.css" type="text/css" />
-		<link rel="stylesheet" href="../theme/css/blog.css" type="text/css" />
-		<title>Gautam Manohar's Blog</title>
-		<meta name="description" content="Gautam Manohar's personal blog, with posts on mathematics, computer science, chemistry, and whatever else interests him." />
-		<style text="css">
-			#euler-li {
-				padding: 0 10px;
-			}
-		</style>
-</head>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Gautam Manohar</title>
-    <meta charset="utf-8" />
-    <meta name="author" content="Gautam Manohar" />
-    <meta name="copyright" content="Gautam Manohar" />
-    <meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
-    <meta name="robots" content="noindex,follow">
-    <link rel="shortcut icon" type="image/png" href="../theme/images/icons/favicon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-    <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<html>
+  <head><meta charset="utf-8" />
+<meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
+<meta name="robots" content="index,follow">
 
-    <!--[if lte IE 7]>
-            <link rel="stylesheet" type="text/css" media="all" href="../css/ie.css"/>
-            <script src="../js/IE8.js" type="text/javascript"></script><![endif]-->
-
-    <!--[if lt IE 7]>
-            <link rel="stylesheet" type="text/css" media="all" href="../css/ie6.css"/><![endif]-->
-<style>
-  .title .math {
-    font-size: 50% !important;
-  }
+<meta name="author" content="Gautam Manohar" />
+<meta name="copyright" content="Gautam Manohar" />
+<meta name="date" content="2018-05-20" />
+<meta name="description" content="">
+<meta name="keywords" content="{ .Section }}" /><title>
+Blog &ndash; Gautam Manohar
+</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color"             content="#ffffff" />
+<link rel="apple-touch-icon"      sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32"   href="/img/favicons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="16x16"   href="/img/favicons/favicon-16x16.png" />
+<link rel="manifest"                              href="/img/favicons/manifest.json" />
+<link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
+<link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
+    
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.c2d8d5f799652dc30a8998f7eea1aadd7875a19ee2fc2659abc439098bc22c6c.css"><style>
+.title .math {
+  font-size: 50% !important;
+}
 </style>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
+
 <script type="text/x-mathjax-config">
-  MathJax.Ajax.config.path["mhchem"] =
-    "https://cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0";
   MathJax.Hub.Config({
     extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
     jax: ["input/TeX","output/CommonHTML", "output/PreviewHTML"],
@@ -47,18 +39,15 @@
     tex2jax: {
       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-      processEscapes: true
+	processEscapes: true,
+	processEnvironments: true
     },
     TeX: {
       equationNumbers: {  autoNumber: "all"  },
-      extensions: ["[mhchem]/mhchem.js","AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
     },
     });
 </script>
-<script type="text/javascript"
-   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?=config=TeX-AMS_CHTML">
-</script>
-
 <div class="invisible">
   \(
   \let\Pr\relax
@@ -78,202 +67,100 @@
   \renewcommand\d{\mathop{}\!\mathrm{d}}
   \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
   \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
-  \DeclareMathOperator\G{\Gamma}
-  \DeclareMathOperator\I{\mathscr{I}}
   \)
-</div></head>
-<body>
-<article>
-		<header style="margin-top: 100px">
-			<h1 class="title">
-				<a href="../blog/">Gautam Manohar</a>
-			</h1>
-			<nav>
-				<ul>
-						<li>
-							<strong><a href="https://github.com/gcman">GitHub</a></strong>
-						</li>
-						<li>
-							<strong><a href="..">Home Page</a></strong>
-						</li>
-						<li>
-							<strong><a href="../contact-me/">Contact</a></strong>
-						</li>
-				</ul>
-			</nav>
-		</header>
-		<div id="content">
-				<section id="math" class="level2">
-					<h2>Math <strong>/ Notes &amp; Essays</strong></h2>
-						<table>
-<tr>
-	<td>
-		<a href="../prime-reciprocals/">
-			Prime Reciprocals Diverge!		</a><strong><a href="../tag/primes/">#primes</a> <a href="../tag/combinatorics/">#combinatorics</a> <a href="../tag/proof/">#proof</a> </strong>	</td>
-	<td id="date">
-		20 May 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../coprime-prob/">
-			Relatively Prime, Relatively Often		</a><strong><a href="../tag/proof/">#proof</a> </strong>	</td>
-	<td id="date">
-		17 April 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../almost-patterns-sinc/">
-			Almost There I: The Pattern That Sincs Eventually		</a><strong><a href="../tag/fun/">#fun</a> </strong>	</td>
-	<td id="date">
-		2 March 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../simplex-sphere/">
-			Inspheres and Circumspheres of Simplices		</a><strong><a href="../tag/algebra/">#algebra</a> <a href="../tag/proof/">#proof</a> </strong>	</td>
-	<td id="date">
-		17 February 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../n-ball/">
-			On the Ball in $n$ Euclidean Dimensions		</a><strong><a href="../tag/calculus/">#calculus</a> <a href="../tag/proof/">#proof</a> <a href="../tag/long/">#long</a> </strong>	</td>
-	<td id="date">
-		6 February 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../harm-id/">
-			Harmonic Numbers and Binomial Coefficients		</a><strong><a href="../tag/calculus/">#calculus</a> <a href="../tag/proof/">#proof</a> </strong>	</td>
-	<td id="date">
-		4 February 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../herons-formula/">
-			Generalizing Heron's Formula: Deriving Brahmagupta's Formula for Quadrilaterals		</a><strong><a href="../tag/geometry/">#geometry</a> <a href="../tag/proof/">#proof</a> </strong>	</td>
-	<td id="date">
-		3 February 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../e-pi/">
-			Comparing $e^\pi$ and $\pi^e$		</a><strong><a href="../tag/calculus/">#calculus</a> <a href="../tag/proof/">#proof</a> </strong>	</td>
-	<td id="date">
-		1 February 2018
-	</td>
-</tr>						</table>
-				</section>
-				<section id="latin" class="level2">
-					<h2>Latin <strong>/ Linguistics &amp; Poetry</strong></h2>
-						<table>
-<tr>
-	<td>
-		<a href="../cato/">
-			Down With Brassicato!		</a><strong><a href="../tag/poetry/">#poetry</a> </strong>	</td>
-	<td id="date">
-		31 July 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../aeneid-charon/">
-			Aeneid 6.298&ndash;316		</a><strong><a href="../tag/poetry/">#poetry</a> <a href="../tag/translation/">#translation</a> </strong>	</td>
-	<td id="date">
-		30 July 2018
-	</td>
-</tr>						</table>
-				</section>
+</div>
 
-				<section id="project-euler" class="level2">
-					<h2>Project Euler <strong>/ Full Solutions</strong></h2>
-					<nav>
-						<ul>
-							<li id="euler-li">
-								<a href="../euler/">Project Euler Home</a>
-							</li>
-							<li id="euler-li">
-								<a href="../euler/progress/">Progress &amp; Performance</a>
-							</li>
-						</ul>
-					</nav>
-					<table>
-<tr>
-	<td>
-		<a href="../euler/75/">
-			Problem 75 - Singular Integer Right Triangles		</a><strong><a href="../tag/proof/">#proof</a> </strong>	</td>
-	<td id="date">
-		23 July 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../euler/76/">
-			Problem 76 - Counting Summations		</a><strong><a href="../tag/dp/">#dp</a> </strong>	</td>
-	<td id="date">
-		23 July 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../euler/77/">
-			Problem 77 - Counting Summations		</a><strong><a href="../tag/dp/">#dp</a> </strong>	</td>
-	<td id="date">
-		23 July 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../euler/72/">
-			Problem 72 - Counting Fractions		</a><strong><a href="../tag/proof/">#proof</a> </strong>	</td>
-	<td id="date">
-		22 July 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../euler/71/">
-			Problem 71 - Ordered Fractions		</a><strong><a href="../tag/proof/">#proof</a> </strong>	</td>
-	<td id="date">
-		21 July 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../euler/44/">
-			Problem 44 - Pentagon Numbers		</a><strong><a href="../tag/brute-force/">#brute-force</a> </strong>	</td>
-	<td id="date">
-		16 July 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../euler/47/">
-			Problem 47 - Distinct Primes Factors		</a><strong><a href="../tag/primes/">#primes</a> </strong>	</td>
-	<td id="date">
-		16 July 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../euler/48/">
-			Problem 48 - Self Powers		</a><strong><a href="../tag/brute-force/">#brute-force</a> </strong>	</td>
-	<td id="date">
-		16 July 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../euler/52/">
-			Problem 52 - Permuted Multiples		</a><strong><a href="../tag/brute-force/">#brute-force</a> </strong>	</td>
-	<td id="date">
-		16 July 2018
-	</td>
-</tr><tr>
-	<td>
-		<a href="../euler/53/">
-			Problem 53 - Combinatoric Selections		</a><strong><a href="../tag/combinatorics/">#combinatorics</a> </strong>	</td>
-	<td id="date">
-		16 July 2018
-	</td>
-</tr>					</table>
-					<a href="../euler/progress/">&hellip; and 46 more.</a>
-				</section>
-		</div>
-</article>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115904815-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115904815-1');
+</script>
+</head>
+  <body>
+    <div class="nav-wrapper">
+      <nav id="blog-top" class="fixed">
+        <ul>
+          <li><a href="https://gautammanohar.com/./">about</a></li>
+          <li><a href="https://gautammanohar.com/blog">blog</a></li>
+          <li><a href="https://gautammanohar.com/euler">project euler</a></li>
+        </ul>
+      </nav>
+    </div>
+<article  class="article blog section">
+  <div id="content">
     <section>
+      
+<article>
+   <span id="date">20 May 2018</span>
+    <h2><a title="Prime Reciprocals Diverge!" href="https://gautammanohar.com/prime-reciprocals-diverge/">
+      Prime Reciprocals Diverge!</a></h2><ul class="taglist"><li><a class="tag" title="Posts tagged primes" href="/tags/primes">primes</a></li><li><a class="tag" title="Posts tagged combinatorics" href="/tags/combinatorics">combinatorics</a></li><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+<p id="description">We prove that the sum of the reciprocals of the prime numbers diverges.</p>
+</article>
+
+
+<article>
+   <span id="date">17 April 2018</span>
+    <h2><a title="Relatively Prime, Relatively Often" href="https://gautammanohar.com/relatively-prime-relatively-often/">
+      Relatively Prime, Relatively Often</a></h2><ul class="taglist"><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+<p id="description">We derive the probability that two random integers are coprime.</p>
+</article>
+
+
+<article>
+   <span id="date">2 March 2018</span>
+    <h2><a title="Almost There I" href="https://gautammanohar.com/almost-there-i/">
+      Almost There I</a></h2><ul class="taglist"><li><a class="tag" title="Posts tagged fun" href="/tags/fun">fun</a></li></ul>
+<p id="description">Some patterns in mathematics go on forever. But many &#34;patterns&#34; do anything but, instead ending spectacularly. Explore patterns that are &#34;almost there.&#34;</p>
+</article>
+
+
+<article>
+   <span id="date">17 February 2018</span>
+    <h2><a title="Inspheres and Circumspheres of Simplices" href="https://gautammanohar.com/inspheres-and-circumspheres-of-simplices/">
+      Inspheres and Circumspheres of Simplices</a></h2><ul class="taglist"><li><a class="tag" title="Posts tagged algebra" href="/tags/algebra">algebra</a></li><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+<p id="description">Every triangle has an inscribed and circumscribed circle. We extend this to tetrahedra and their higher dimensional analogues, simplices.</p>
+</article>
+
+
+<article>
+   <span id="date">6 February 2018</span>
+    <h2><a title="On the Ball in n Euclidean Dimensions" href="https://gautammanohar.com/on-the-ball-in-n-euclidean-dimensions/">
+      On the Ball in $n$ Euclidean Dimensions</a></h2><ul class="taglist"><li><a class="tag" title="Posts tagged calculus" href="/tags/calculus">calculus</a></li><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+<p id="description">We know about circles and spheres, and we know how to find their volumes. But what comes next? We find the volumes of hyperspheres in n dimensions. Along the way, we discover some identities related to the gamma function.</p>
+</article>
+
+
+<article>
+   <span id="date">4 February 2018</span>
+    <h2><a title="Harmonic Numbers and Binomial Coefficients" href="https://gautammanohar.com/harmonic-numbers-and-binomial-coefficients/">
+      Harmonic Numbers and Binomial Coefficients</a></h2><ul class="taglist"><li><a class="tag" title="Posts tagged calculus" href="/tags/calculus">calculus</a></li><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+<p id="description">Exploring a relationship between a sum of binomial coefficients and harmonic numbers using calculus and induction.</p>
+</article>
+
+
+<article>
+   <span id="date">3 February 2018</span>
+    <h2><a title="Generalizing Heron&#39;s Formula" href="https://gautammanohar.com/generalizing-herons-formula/">
+      Generalizing Heron&#39;s Formula</a></h2><ul class="taglist"><li><a class="tag" title="Posts tagged geometry" href="/tags/geometry">geometry</a></li><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+<p id="description">Heron’s formula tells us how to find the area of a triangle given its side lengths. We find the analogous expression for quadrilaterals, known as Bramhagupta’s Formula. It turns out quadrilaterals have maximal area when they are cyclic.</p>
+</article>
+
+
+<article>
+   <span id="date">1 February 2018</span>
+    <h2><a title="Comparing Powers of e and pi" href="https://gautammanohar.com/comparing-e%5Cpi-and-%5Cpie/">
+      Comparing $e^\pi$ and $\pi^e$</a></h2><ul class="taglist"><li><a class="tag" title="Posts tagged calculus" href="/tags/calculus">calculus</a></li><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+<p id="description">Which is greater: e^pi or pi^e? No calculators allowed! I solve this puzzle with differentiation, Taylor series, concavity, and the AM-GM inequality.</p>
+</article>
+
+
+
     </section>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-</body>
+  </div>
+</article>
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	</body>
 </html>

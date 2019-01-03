@@ -1,37 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>    Harmonic Numbers and Binomial Coefficients - Gautam Manohar
-</title>
-    <meta charset="utf-8" />
-        <meta name="keywords" content="calculus, proof, math" />
-        <meta name="category" content="math" />
-        <meta name="description" content="Exploring a relationship between a sum of binomial coefficients and harmonic numbers using calculus and induction." />
-        <meta name="author" content="Gautam Manohar" />
-        <meta name="copyright" content="Gautam Manohar" />
-        <meta name="date" content="2018-02-04 00:00:00-05:00">
-<link rel="stylesheet" href="../theme/css/normalize.min.css" type="text/css" />
-  <link rel="stylesheet" href="../theme/css/article.css" type="text/css" />
-    <meta name="robots" content="index,follow">
-    <link rel="shortcut icon" type="image/png" href="../theme/images/icons/favicon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-    <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<html>
+  <head><meta charset="utf-8" />
+<meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
+<meta name="robots" content="index,follow">
 
-    <!--[if lte IE 7]>
-            <link rel="stylesheet" type="text/css" media="all" href="../css/ie.css"/>
-            <script src="../js/IE8.js" type="text/javascript"></script><![endif]-->
-
-    <!--[if lt IE 7]>
-            <link rel="stylesheet" type="text/css" media="all" href="../css/ie6.css"/><![endif]-->
-<style>
-  .title .math {
-    font-size: 50% !important;
-  }
+<meta name="author" content="Gautam Manohar" />
+<meta name="copyright" content="Gautam Manohar" />
+<meta name="date" content="2018-02-04" />
+<meta name="description" content="Exploring a relationship between a sum of binomial coefficients and harmonic numbers using calculus and induction.">
+<meta name="keywords" content="calculus,proof, { .Section }}" /><title>Harmonic Numbers and Binomial Coefficients &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color"             content="#ffffff" />
+<link rel="apple-touch-icon"      sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32"   href="/img/favicons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="16x16"   href="/img/favicons/favicon-16x16.png" />
+<link rel="manifest"                              href="/img/favicons/manifest.json" />
+<link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
+<link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
+    
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.905be347ac1909b9c59ea893c1f960b33f65d5d1521fd0cd9368913490c7dee9.css"><style>
+.title .math {
+  font-size: 50% !important;
+}
 </style>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
+
 <script type="text/x-mathjax-config">
-  MathJax.Ajax.config.path["mhchem"] =
-    "https://cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0";
   MathJax.Hub.Config({
     extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
     jax: ["input/TeX","output/CommonHTML", "output/PreviewHTML"],
@@ -41,18 +37,15 @@
     tex2jax: {
       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-      processEscapes: true
+	processEscapes: true,
+	processEnvironments: true
     },
     TeX: {
       equationNumbers: {  autoNumber: "all"  },
-      extensions: ["[mhchem]/mhchem.js","AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
     },
     });
 </script>
-<script type="text/javascript"
-   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?=config=TeX-AMS_CHTML">
-</script>
-
 <div class="invisible">
   \(
   \let\Pr\relax
@@ -72,127 +65,256 @@
   \renewcommand\d{\mathop{}\!\mathrm{d}}
   \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
   \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
-  \DeclareMathOperator\G{\Gamma}
-  \DeclareMathOperator\I{\mathscr{I}}
   \)
-</div></head>
-<body>
-    <article>
-    <header>
-      <h1 class="title">
-            <a href="../harm-id/" rel="bookmark"
-           title="Permalink to Harmonic Numbers and Binomial Coefficients">Harmonic Numbers and Binomial Coefficients</a>
-      </h1>
-      <address class="author">Gautam Manohar</address>
-        <div id="textbox">
-          <p style="font-weight: bold;" class="alignleft">
-            <a href="../category/math/">math</a>&nbsp;
-          </p>
-            <p class="date aligncenter">4 February 2018</p>
-          <p style="font-weight: bold; font-variant: normal;" class="alignright"><a href="../tag/calculus/">#calculus</a> <a href="../tag/proof/">#proof</a> </p>
-        </div>
-       <div style="clear: both;"></div>​
-    </header>
+</div>
 
-      <p>The <span class="math inline">\(n\)</span>-th harmonic number is defined as the sum of reciprocals of the first <span class="math inline">\(n\)</span> natural numbers: <span class="math display">\[\begin{equation}
-    \sum\limits_{k=1}^n \frac{1}{k}.
-\end{equation}\]</span> We wish to prove the following identity involving harmonic numbers and binomial coefficients: <span class="math display">\[\begin{equation}
-    \sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
-    \label{identity}
-\end{equation}\]</span> I have two solutions: one with calculus, and one by induction.</p>
-<h1 id="calculus">Calculus</h1>
-<p>First, we notice that <span class="math display">\[\begin{equation}
-    \int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Biggr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.
-    \label{integral-rep}
-\end{equation}\]</span> Then, substituting <span class="math inline">\(\eqref{integral-rep}\)</span> into <span class="math inline">\(\eqref{identity}\)</span> gives <span class="math display">\[\begin{equation}
-    \sum\limits_{k=1}^n \frac{1}{k} = \sum\limits_{k=1}^n \int_0^1 x^{k-1} \d x.
-\end{equation}\]</span> Because this is a finite sum of converging integrals, we can switch the sum and the integral to get <span class="math display">\[\begin{equation}
-    \int_0^1 \sum\limits_{k=1}^n x^{k-1} \d x.
-\end{equation}\]</span> This sum is a geometric series! We can use the formula for the <span class="math inline">\(n\)</span>-th partial sum of a geometric series. <span class="math display">\[\begin{equation}
-    1 + x + x^2 + \cdots + x^{n-1} = \frac{1 - x^n}{1-x}.
-\end{equation}\]</span> Then we can solve the integral, using the substitution <span class="math inline">\(x = 1-u, \d x = -\d u\)</span>. <span class="math display">\[\begin{equation}
-    \int_0^1 \frac{1 - x^n}{1-x} \d x = -\int_1^0 \frac{1 - (1-u)^n}{u} \d u \\
-\end{equation}\]</span> Now the motivation for substituting <span class="math inline">\(x = 1-u\)</span> becomes clear. We can expand the <span class="math inline">\((1-u)^n\)</span> term using the binomial theorem: <span class="math display">\[\begin{equation}
-    \begin{split}
-        -\int_1^0 \frac{1 - (1-u)^n}{u} \d u &amp;= \int_0^1 \frac{1}{u}\left( 1 - \sum\limits_{k=0}^n \binom{n}{k}(-1)^ku^k \right) \d x \\
-        &amp;= -\int_0^1 \frac{1}{u}\left(\sum\limits_{k=0}^n \binom{n}{k}(-1)^ku^k - 1 \right) \d x \\
-        &amp;= -\int_0^1 \frac{1}{u}\sum\limits_{k=1}^n \binom{n}{k}(-1)^ku^k \d x \\
-        &amp;= -\int_0^1 \sum\limits_{k=1}^n \binom{n}{k}(-1)^ku^{k-1} \d x \\
-        &amp;= -\sum\limits_{k=1}^n \binom{n}{k}(-1)^k\int_0^1 u^{k-1} \d x \\
-        &amp;= -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
-    \end{split}
-\end{equation}\]</span> This concludes our proof of <span class="math inline">\(\eqref{identity}\)</span>.</p>
-<h1 id="induction">Induction</h1>
-<p>We first show that <span class="math display">\[\begin{equation}
-    \frac{1}{k+1}\binom{n}{k} = \frac{1}{n+1}\binom{n+1}{k+1}.
-    \label{lemma-1}
-\end{equation}\]</span> We can expand the binomial coefficients with their factorial representation. Then the left-hand side equals <span class="math display">\[\begin{equation}
-    \frac{1}{k+1}\binom{n}{k} = \frac{1}{k+1}\frac{n!}{k!(n-k)!} = \frac{n!}{(k+1)!(n-k)!},
-\end{equation}\]</span> while the right-hand side equals <span class="math display">\[\begin{equation}
-    \frac{1}{n+1}\binom{n+1}{k+1} = \frac{1}{n+1}\frac{(n+1)!}{(k+1)!(n-k)!} = \frac{n!}{(k+1)!(n-k)!}.
-\end{equation}\]</span> So <span class="math inline">\(\eqref{lemma-1}\)</span> holds. Next we show that <span class="math display">\[\begin{equation}
-    \sum\limits_{k=0}^n \frac{1}{k+1} \binom{n}{k} (-1)^k = \frac{1}{n+1}.
-    \label{lemma-2}
-\end{equation}\]</span> We use <span class="math inline">\(\eqref{lemma-1}\)</span>: <span class="math display">\[\begin{equation}
-    \begin{split}
-        \sum\limits_{k=0}^n \frac{1}{k+1}  \binom{n}{k} (-1)^k &amp;= \sum\limits_{k=0}^n \frac{1}{n+1}\binom{n+1}{k+1} (-1)^k \\
-        &amp;= -\frac{1}{n+1}\sum\limits_{k=1}^{n+1} \binom{n+1}{k} (-1)(-1)^{k} \\
-        &amp;= -\frac{1}{n+1}\left(\sum\limits_{k=0}^{n+1} \binom{n+1}{k} (-1)^k - \binom{n+1}{0}(-1)^0 \right) \\
-        &amp;= -\frac{1}{n+1}\left(0 - 1 \right) \\
-        &amp;= \frac{1}{n+1}.
-    \end{split}
-\end{equation}\]</span> We can now use induction to prove our main claim. Let&rsquo;s first show the base case for <span class="math inline">\(n = 1\)</span>. The left side of <span class="math inline">\(\eqref{identity}\)</span> is clearly <span class="math inline">\(1\)</span>, while the right side is <span class="math inline">\(-(-1) = 1\)</span>. So the base case holds. Assume inductively that <span class="math display">\[\begin{equation}
-    \sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
-\end{equation}\]</span> Then we wish to show that <span class="math display">\[\begin{equation}
-    \sum\limits_{k=1}^{n+1} \frac{1}{k} = -\sum\limits_{k=1}^{n+1} \frac{1}{k}\binom{n+1}{k}(-1)^k.
-\end{equation}\]</span> We have <span class="math display">\[\begin{equation}
-    \begin{split}
-        -\sum\limits_{k=1}^{n+1} \frac{1}{k}\binom{n+1}{k}(-1)^k &amp;= -\sum\limits_{k=1}^{n} \frac{1}{k}\binom{n+1}{k}(-1)^k - \frac{1}{n+1}\binom{n+1}{n+1}(-1)^{n+1} \\
-        &amp;= -\sum\limits_{k=1}^{n} \frac{1}{k}\binom{n+1}{k}(-1)^k + \frac{1}{n+1}(-1)^{n}.
-    \end{split}
-\end{equation}\]</span> Using a standard identity of binomial coefficients <span class="math display">\[\begin{equation}
-    \binom{n}{k} + \binom{n}{k+1} = \binom{n+1}{k+1}
-\end{equation}\]</span> (a recurrence relation that is the defining feature of Pascal&rsquo;s triangle) yields <span class="math display">\[\begin{equation}
-    \begin{split}
-        &amp;\frac{1}{n+1}(-1)^{n} - \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k - \sum\limits_{k=1}^{n} \binom{n}{k-1}\frac{1}{k}(-1)^k \\
-        &amp;\qquad = \frac{1}{n+1}(-1)^{n} - \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \sum\limits_{k=0}^{n-1} \binom{n}{k}\frac{1}{k+1}(-1)^k \\
-        &amp;\qquad = \frac{1}{n+1}(-1)^{n} - \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \sum\limits_{k=0}^{n} \binom{n}{k}\frac{1}{k+1}(-1)^k - \binom{n}{n}\frac{1}{n+1}(-1)^n.
-    \end{split}
-\end{equation}\]</span> Applying <span class="math inline">\(\eqref{lemma-2}\)</span> yields <span class="math display">\[\begin{equation}
-    - \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \frac{1}{n+1}.
-\end{equation}\]</span> By the inductive hypothesis, we have <span class="math display">\[\begin{equation}
-    \begin{split}
-        - \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \frac{1}{n+1} &amp;= \sum\limits_{k=1}^n \frac{1}{k} + \frac{1}{n+1} \\
-        &amp;= \sum\limits_{k=1}^{n+1} \frac{1}{k},
-    \end{split}
-\end{equation}\]</span> which closes the induction.</p>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115904815-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    <aside id="gcman-toolbar">
-                <a title="Generalizing Heron's Formula" class="prev" href="../herons-formula/">
-                    <i class="fas fa-chevron-circle-left"></i>
-            </a>
-        <a title="Raw source" class="raw" href="../harm-id/src.md" type="text/plain">
-            <i class="fas fa-code" aria-hidden="true"></i>
-        </a>
-<a title="Home" class="home" href="../blog/">
-    <i class="fas fa-home"></i>
-</a>        <a title="PDF" class="pdf" href="../harm-id/post.pdf">
-            <i class="far fa-file-pdf" aria-hidden="true"></i>
-        </a>
-                <a title="On the Ball in n Euclidean Dimensions" class="next" href="../n-ball/">
-                    <i class="fas fa-chevron-circle-right"></i>
-            </a>
-    </aside>
-  </article>
+  gtag('config', 'UA-115904815-1');
+</script>
+</head>
+  <body>
+    <div class="nav-wrapper">
+      <nav id="blog-top" class="fixed">
+        <ul>
+          <li><a href="https://gautammanohar.com/./">about</a></li>
+          <li><a href="https://gautammanohar.com/blog">blog</a></li>
+          <li><a href="https://gautammanohar.com/euler">project euler</a></li>
+        </ul>
+      </nav>
+    </div>
+<div class="main">
+  <article class="article "><header>
+  <h1 class="title">
+    <a href="https://gautammanohar.com/harm-id/" rel="bookmark" title ="Link to Harmonic Numbers and Binomial Coefficients">Harmonic Numbers and Binomial Coefficients</a>
+  </h1>
+  
+</header>
+
+
+<p>The $n$-th harmonic number is defined as the sum of reciprocals of the first \(n\)
+natural numbers:</p>
+
+<p>\begin{equation}
+\sum\limits_{k=1}^n \frac{1}{k}.
+\end{equation}</p>
+
+<p>We wish to prove the following identity involving harmonic numbers and binomial
+coefficients:</p>
+
+<p>\begin{equation}
+\sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
+\label{identity}
+\end{equation}</p>
+
+<p>I have two solutions: one with calculus, and one by induction.</p>
+
+<h2 id="calculus">Calculus</h2>
+
+<p>First, we notice that</p>
+
+<p>\begin{equation}
+\int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Biggr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.
+\label{integral-rep}
+\end{equation}</p>
+
+<p>Then, substituting \eqref{integral-rep} into \eqref{identity} gives</p>
+
+<p>\begin{equation}
+\sum\limits_{k=1}^n \frac{1}{k} = \sum\limits_{k=1}^n \int_0^1 x^{k-1} \d x.
+\end{equation}</p>
+
+<p>Because this is a finite sum of converging integrals, we can switch the sum and
+the integral to get</p>
+
+<p>\begin{equation}
+\int_0^1 \sum\limits_{k=1}^n x^{k-1} \d x.
+\end{equation}</p>
+
+<p>This sum is a geometric series! We can use the formula for the $n$-th partial
+sum of a geometric series.</p>
+
+<p>\begin{equation}
+1 + x + x^2 + \cdots + x^{n-1} = \frac{1 - x^n}{1-x}.
+\end{equation}</p>
+
+<p>Then we can solve the integral, using the substitution \(x = 1-u, \d x = -\d u\).</p>
+
+<p>\begin{equation}
+\int_0^1 \frac{1 - x^n}{1-x} \d x = -\int_1^0 \frac{1 - (1-u)^n}{u} \d u \\<br />
+\end{equation}</p>
+
+<p>Now the motivation for substituting \(x = 1-u\) becomes clear. We can expand the
+\((1-u)^n\) term using the binomial theorem:</p>
+
+<p>\begin{equation}
+\begin{split}
+-\int_1^0 \frac{1 - (1-u)^n}{u} \d u &amp;= \int_0^1 \frac{1}{u}\left( 1 - \sum\limits_{k=0}^n \binom{n}{k}(-1)^ku^k \right) \d x \\<br />
+&amp;= -\int_0^1 \frac{1}{u}\left(\sum\limits_{k=0}^n \binom{n}{k}(-1)^ku^k - 1 \right) \d x \\<br />
+&amp;= -\int_0^1 \frac{1}{u}\sum\limits_{k=1}^n \binom{n}{k}(-1)^ku^k \d x \\<br />
+&amp;= -\int_0^1 \sum\limits_{k=1}^n \binom{n}{k}(-1)^ku^{k-1} \d x \\<br />
+&amp;= -\sum\limits_{k=1}^n \binom{n}{k}(-1)^k\int_0^1 u^{k-1} \d x \\<br />
+&amp;= -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
+\end{split}
+\end{equation}</p>
+
+<p>This concludes our proof of \eqref{identity}.</p>
+
+<h2 id="induction">Induction</h2>
+
+<p>We first show that</p>
+
+<p>\begin{equation}
+\frac{1}{k+1}\binom{n}{k} = \frac{1}{n+1}\binom{n+1}{k+1}.
+\label{lemma-1}
+\end{equation}</p>
+
+<p>We can expand the binomial coefficients with their factorial representation.
+Then the left-hand side equals</p>
+
+<p>\begin{equation}
+\frac{1}{k+1}\binom{n}{k} = \frac{1}{k+1}\frac{n!}{k!(n-k)!} = \frac{n!}{(k+1)!(n-k)!},
+\end{equation}</p>
+
+<p>while the right-hand side equals</p>
+
+<p>\begin{equation}
+\frac{1}{n+1}\binom{n+1}{k+1} = \frac{1}{n+1}\frac{(n+1)!}{(k+1)!(n-k)!} = \frac{n!}{(k+1)!(n-k)!}.
+\end{equation}</p>
+
+<p>So \eqref{lemma-1} holds. Next we show that</p>
+
+<p>\begin{equation}
+\sum\limits_{k=0}^n \frac{1}{k+1} \binom{n}{k} (-1)^k = \frac{1}{n+1}.
+\label{lemma-2}
+\end{equation}</p>
+
+<p>We use \eqref{lemma-1}:</p>
+
+<p>\begin{equation}
+\begin{split}
+\sum\limits_{k=0}^n \frac{1}{k+1}  \binom{n}{k} (-1)^k &amp;= \sum\limits_{k=0}^n \frac{1}{n+1}\binom{n+1}{k+1} (-1)^k \\<br />
+&amp;= -\frac{1}{n+1}\sum\limits_{k=1}^{n+1} \binom{n+1}{k} (-1)(-1)^{k} \\<br />
+&amp;= -\frac{1}{n+1}\left(\sum\limits_{k=0}^{n+1} \binom{n+1}{k} (-1)^k - \binom{n+1}{0}(-1)^0 \right) \\<br />
+&amp;= -\frac{1}{n+1}\left(0 - 1 \right) \\<br />
+&amp;= \frac{1}{n+1}.
+\end{split}
+\end{equation}</p>
+
+<p>We can now use induction to prove our main claim. Let&rsquo;s first show the base case
+for \(n = 1\). The left side of \eqref{identity} is clearly \(1\), while the right
+side is \(-(-1) = 1\). So the base case holds. Assume inductively that</p>
+
+<p>\begin{equation}
+\sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
+\end{equation}</p>
+
+<p>Then we wish to show that</p>
+
+<p>\begin{equation}
+\sum\limits_{k=1}^{n+1} \frac{1}{k} = -\sum\limits_{k=1}^{n+1} \frac{1}{k}\binom{n+1}{k}(-1)^k.
+\end{equation}</p>
+
+<p>We have</p>
+
+<p>\begin{equation}
+\begin{split}
+-\sum\limits_{k=1}^{n+1} \frac{1}{k}\binom{n+1}{k}(-1)^k &amp;= -\sum\limits_{k=1}^{n} \frac{1}{k}\binom{n+1}{k}(-1)^k - \frac{1}{n+1}\binom{n+1}{n+1}(-1)^{n+1} \\<br />
+&amp;= -\sum\limits_{k=1}^{n} \frac{1}{k}\binom{n+1}{k}(-1)^k + \frac{1}{n+1}(-1)^{n}.
+\end{split}
+\end{equation}</p>
+
+<p>Using a standard identity of binomial coefficients</p>
+
+<p>\begin{equation}
+\binom{n}{k} + \binom{n}{k+1} = \binom{n+1}{k+1}
+\end{equation}</p>
+
+<p>(a recurrence relation that is the defining feature of Pascal&rsquo;s triangle) yields</p>
+
+<p>\begin{equation}
+\begin{split}
+&amp;\frac{1}{n+1}(-1)^{n} - \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k - \sum\limits_{k=1}^{n} \binom{n}{k-1}\frac{1}{k}(-1)^k \\<br />
+&amp;\qquad = \frac{1}{n+1}(-1)^{n} - \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \sum\limits_{k=0}^{n-1} \binom{n}{k}\frac{1}{k+1}(-1)^k \\<br />
+&amp;\qquad = \frac{1}{n+1}(-1)^{n} - \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \sum\limits_{k=0}^{n} \binom{n}{k}\frac{1}{k+1}(-1)^k - \binom{n}{n}\frac{1}{n+1}(-1)^n.
+\end{split}
+\end{equation}</p>
+
+<p>Applying \eqref{lemma-2} yields</p>
+
+<p>\begin{equation}
+- \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \frac{1}{n+1}.
+\end{equation}</p>
+
+<p>By the inductive hypothesis, we have</p>
+
+<p>\begin{equation}
+\begin{split}
+- \sum\limits_{k=1}^{n} \binom{n}{k}\frac{1}{k}(-1)^k + \frac{1}{n+1} &amp;= \sum\limits_{k=1}^n \frac{1}{k} + \frac{1}{n+1} \\<br />
+&amp;= \sum\limits_{k=1}^{n+1} \frac{1}{k},
+\end{split}
+\end{equation}</p>
+
+<p>which closes the induction.</p>
+<hr>
+
+
+<h3>Related Posts</h3>
+<div class="related">
+	
+	<div class="post"><a href="/e-pi/">Comparing $e^\pi$ and $\pi^e$</a></div>
+	
+	<div class="post"><a href="/herons-formula/">Generalizing Heron&#39;s Formula</a></div>
+	
+</table>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
   $('.title a').html(function(index, value) {
-    return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
-});
+	return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
+  });
 </script>
-    <section>
-    </section>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-</body>
+</article><div class="side">
+  <section id="textbox">
+    <p class="date">Posted 4 February 2018</p>
+    <p class="category">
+      
+      <a href="https://gautammanohar.com/math/" title="Posts in section math">math</a>&nbsp;
+      
+    <p>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged calculus" href="/tags/calculus">calculus</a></li><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+<p>
+  </section>
+  <section>
+  <h2>Recent Posts</h2>
+  <ul class="recent"><li><a href="/euler/78/">Project Euler 78: Coin Partitions</a></li><li><a href="/euler/75/">Project Euler 75: Singular Integer Right Triangles</a></li><li><a href="/euler/76/">Project Euler 76: Counting Summations</a></li><li><a href="/euler/77/">Project Euler 77: Prime Summations</a></li><li><a href="/euler/72/">Project Euler 72: Counting Fractions</a></li></ul>
+  </section>
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gautam-2" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	</body>
 </html>

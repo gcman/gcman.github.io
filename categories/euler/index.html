@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8" />
+<meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
+<meta name="robots" content="index,follow">
+
+<meta name="author" content="Gautam Manohar" />
+<meta name="copyright" content="Gautam Manohar" />
+<meta name="date" content="2018-07-23" />
+<meta name="description" content="">
+<meta name="keywords" content="{ .Section }}" /><title>Euler &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color"             content="#ffffff" />
+<link rel="apple-touch-icon"      sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32"   href="/img/favicons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="16x16"   href="/img/favicons/favicon-16x16.png" />
+<link rel="manifest"                              href="/img/favicons/manifest.json" />
+<link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
+<link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
+    
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.c2d8d5f799652dc30a8998f7eea1aadd7875a19ee2fc2659abc439098bc22c6c.css"><style>
+.title .math {
+  font-size: 50% !important;
+}
+</style>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
+    jax: ["input/TeX","output/CommonHTML", "output/PreviewHTML"],
+    "CommonHTML": {
+      scale: 100,
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+	processEscapes: true,
+	processEnvironments: true
+    },
+    TeX: {
+      equationNumbers: {  autoNumber: "all"  },
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    });
+</script>
+<div class="invisible">
+  \(
+  \let\Pr\relax
+  \DeclareMathOperator\LCM{LCM}
+  \DeclareMathOperator\Pr{P}
+  \DeclareMathOperator\arccot{arccot}
+  \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1 )}
+  \renewcommand{\vec}[1]{\mathbf{ #1 }}
+  \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+  \newcommand{\abs}[1]{\lvert #1 \rvert}
+  \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+
+  \newcommand{\inn}[1]{\in\left\{ #1 \right\}}
+  \newcommand{\ninn}[1]{\not\in\left\{ #1 \right\}}
+  \newcommand{\orr}{\qquad&amp;\,\text{or}\qquad}
+
+  \renewcommand\d{\mathop{}\!\mathrm{d}}
+  \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
+  \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
+  \)
+</div>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115904815-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115904815-1');
+</script>
+</head>
+  <body>
+    <div class="nav-wrapper">
+      <nav id="blog-top" class="fixed">
+        <ul>
+          <li><a href="https://gautammanohar.com/./">about</a></li>
+          <li><a href="https://gautammanohar.com/blog">blog</a></li>
+          <li><a href="https://gautammanohar.com/euler">project euler</a></li>
+        </ul>
+      </nav>
+    </div>
+<article class="section article">
+  <h1>Posts under category Euler</h1>
+  <ul>
+    
+    <li>
+      <span id="date">23 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/75/">Project Euler 75: Singular Integer Right Triangles</a>
+    </li>
+    
+    <li>
+      <span id="date">23 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/76/">Project Euler 76: Counting Summations</a>
+    </li>
+    
+    <li>
+      <span id="date">23 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/77/">Project Euler 77: Prime Summations</a>
+    </li>
+    
+    <li>
+      <span id="date">22 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/72/">Project Euler 72: Counting Fractions</a>
+    </li>
+    
+    <li>
+      <span id="date">21 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/71/">Project Euler 71: Ordered Fractions</a>
+    </li>
+    
+    <li>
+      <span id="date">16 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/44/">Project Euler 44: Pentagonal Numbers</a>
+    </li>
+    
+    <li>
+      <span id="date">16 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/47/">Project Euler 47: Distinct Prime Factors</a>
+    </li>
+    
+    <li>
+      <span id="date">16 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/48/">Project Euler 48: Self Powers</a>
+    </li>
+    
+    <li>
+      <span id="date">16 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/52/">Project Euler 52: Permuted Multiples</a>
+    </li>
+    
+    <li>
+      <span id="date">16 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/53/">Project Euler 53: Combinatoric Selections</a>
+    </li>
+    
+    <li>
+      <span id="date">16 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/55/">Project Euler 55: Lychrel Numbers</a>
+    </li>
+    
+    <li>
+      <span id="date">16 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/56/">Project Euler 56: Powerful Digit Sum</a>
+    </li>
+    
+    <li>
+      <span id="date">16 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/57/">Project Euler 57: Square Root Convergents</a>
+    </li>
+    
+    <li>
+      <span id="date">16 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/58/">Project Euler 58: Spiral Primes</a>
+    </li>
+    
+    <li>
+      <span id="date">16 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/63/">Project Euler 63: Powerful Digit Counts</a>
+    </li>
+    
+    <li>
+      <span id="date">16 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/65/">Project Euler 65: Convergents of $e$</a>
+    </li>
+    
+    <li>
+      <span id="date">16 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/69/">Project Euler 69: Totient Maximum</a>
+    </li>
+    
+    <li>
+      <span id="date">24 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/31/">Project Euler 31: Coin Sums</a>
+    </li>
+    
+    <li>
+      <span id="date">24 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/32/">Project Euler 32: Pandigital Products</a>
+    </li>
+    
+    <li>
+      <span id="date">24 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/34/">Project Euler 34: Digit Factorials</a>
+    </li>
+    
+    <li>
+      <span id="date">24 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/35/">Project Euler 35: Circular Primes</a>
+    </li>
+    
+    <li>
+      <span id="date">24 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/36/">Project Euler 36: Double Base Palindromes</a>
+    </li>
+    
+    <li>
+      <span id="date">24 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/37/">Project Euler 37: Truncatable Primes</a>
+    </li>
+    
+    <li>
+      <span id="date">24 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/39/">Project Euler 39: Integer Right Triangles</a>
+    </li>
+    
+    <li>
+      <span id="date">24 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/40/">Project Euler 40: Champernowne&#39;s Constant</a>
+    </li>
+    
+    <li>
+      <span id="date">24 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/41/">Project Euler 41: Pandigital Prime</a>
+    </li>
+    
+    <li>
+      <span id="date">24 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/42/">Project Euler 42: Coded Triangle Numbers</a>
+    </li>
+    
+    <li>
+      <span id="date">24 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/46/">Project Euler 46: Goldbach&#39;s Other Conjecture</a>
+    </li>
+    
+    <li>
+      <span id="date">23 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/22/">Project Euler 22: Names Scores</a>
+    </li>
+    
+    <li>
+      <span id="date">23 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/30/">Project Euler 30: Digit Fifth Powers</a>
+    </li>
+    
+    <li>
+      <span id="date">13 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/20/">Project Euler 20: Factorial Digit Sum</a>
+    </li>
+    
+    <li>
+      <span id="date">13 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/24/">Project Euler 24: Lexicographic Permutations</a>
+    </li>
+    
+    <li>
+      <span id="date">13 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/27/">Project Euler 27: Quadratic Primes</a>
+    </li>
+    
+    <li>
+      <span id="date">13 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/28/">Project Euler 28: Number Spiral Diagonals</a>
+    </li>
+    
+    <li>
+      <span id="date">12 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/21/">Project Euler 21: Amicable Numbers</a>
+    </li>
+    
+    <li>
+      <span id="date">12 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/23/">Project Euler 23: Non-abundant Sums</a>
+    </li>
+    
+    <li>
+      <span id="date">12 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/25/">Project Euler 25: N-digit Fibonacci Number</a>
+    </li>
+    
+    <li>
+      <span id="date">11 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/15/">Project Euler 15: Lattice Paths</a>
+    </li>
+    
+    <li>
+      <span id="date">11 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/16/">Project Euler 16: Power Digit Sum</a>
+    </li>
+    
+    <li>
+      <span id="date">11 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/17/">Project Euler 17: Number Letter Counts</a>
+    </li>
+    
+    <li>
+      <span id="date">11 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/18/">Project Euler 18: Maximum Path Sum I</a>
+    </li>
+    
+    <li>
+      <span id="date">11 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/67/">Project Euler 67: Maximum Path Sum II</a>
+    </li>
+    
+    <li>
+      <span id="date">10 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/10/">Project Euler 10: Summation of Primes</a>
+    </li>
+    
+    <li>
+      <span id="date">10 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/11/">Project Euler 11: Largest Product in a Grid</a>
+    </li>
+    
+    <li>
+      <span id="date">10 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/12/">Project Euler 12: Highly Divisible Triangular Number</a>
+    </li>
+    
+    <li>
+      <span id="date">10 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/13/">Project Euler 13: Large Sum</a>
+    </li>
+    
+    <li>
+      <span id="date">10 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/14/">Project Euler 14: Longest Collatz Sequence</a>
+    </li>
+    
+    <li>
+      <span id="date">10 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/2/">Project Euler 2: Even Fibonacci Numbers</a>
+    </li>
+    
+    <li>
+      <span id="date">10 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/3/">Project Euler 3: Largest Prime Factor</a>
+    </li>
+    
+    <li>
+      <span id="date">10 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/4/">Project Euler 4: Largest Palindrome Product</a>
+    </li>
+    
+    <li>
+      <span id="date">10 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/5/">Project Euler 5: Smallest Multiple</a>
+    </li>
+    
+    <li>
+      <span id="date">10 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/6/">Project Euler 6: Sum Square Difference</a>
+    </li>
+    
+    <li>
+      <span id="date">10 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/7/">Project Euler 7: 10001st Prime</a>
+    </li>
+    
+    <li>
+      <span id="date">10 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/8/">Project Euler 8: Largest Product in a Series</a>
+    </li>
+    
+    <li>
+      <span id="date">10 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/9/">Project Euler 9: Special Pythagorean Triplets</a>
+    </li>
+    
+    <li>
+      <span id="date">9 June 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/1/">Project Euler 1: Multiples of 3 or 5</a>
+    </li>
+    
+    <li>
+      <span id="date">23 July 2018&#160;-</span>
+      <a href="https://gautammanohar.com/euler/">Euler Home</a>
+    </li>
+    
+  </ul>
+</article>
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	</body>
+</html>

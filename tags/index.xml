@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Gautam Manohar</title>
+    <link>https://gautammanohar.com/tags/</link>
+    <description>Recent content in Tags on Gautam Manohar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 17 Feb 2018 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://gautammanohar.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Algebra</title>
+      <link>https://gautammanohar.com/tags/algebra/</link>
+      <pubDate>Sat, 17 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/tags/algebra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Brute Force</title>
+      <link>https://gautammanohar.com/tags/brute-force/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/tags/brute-force/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Calculus</title>
+      <link>https://gautammanohar.com/tags/calculus/</link>
+      <pubDate>Tue, 06 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/tags/calculus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Combinatorics</title>
+      <link>https://gautammanohar.com/tags/combinatorics/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/tags/combinatorics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dp</title>
+      <link>https://gautammanohar.com/tags/dp/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/tags/dp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fun</title>
+      <link>https://gautammanohar.com/tags/fun/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/tags/fun/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Geometry</title>
+      <link>https://gautammanohar.com/tags/geometry/</link>
+      <pubDate>Sat, 03 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/tags/geometry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Greedy</title>
+      <link>https://gautammanohar.com/tags/greedy/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/tags/greedy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Identity</title>
+      <link>https://gautammanohar.com/tags/identity/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/tags/identity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Implementation</title>
+      <link>https://gautammanohar.com/tags/implementation/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/tags/implementation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Primes</title>
+      <link>https://gautammanohar.com/tags/primes/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/tags/primes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Proof</title>
+      <link>https://gautammanohar.com/tags/proof/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/tags/proof/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

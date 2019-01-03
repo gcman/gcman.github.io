@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Implementation on Gautam Manohar</title>
+    <link>https://gautammanohar.com/tags/implementation/</link>
+    <description>Recent content in Implementation on Gautam Manohar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Jun 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://gautammanohar.com/tags/implementation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Euler 40: Champernowne&#39;s Constant</title>
+      <link>https://gautammanohar.com/euler/40/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/40/</guid>
+      <description>Problem Statement An irrational decimal is created by concatenating the positive integers:
+\begin{equation*} 0.12345678910\mathbf{1}112131415161718192021\ldots \end{equation*}
+It can be seen that the 12th digit of the fractional part is 1. If \(d_n\) represents the $n$-th digit of the fractional part, then given integers \(i_j\), find the product of \(d_{i_j}\).
+My Algorithm We can split up the fractional part into &amp;ldquo;blocks&amp;rdquo; where each positive integer used has the same number of digits.</description>
+    </item>
+    
+  </channel>
+</rss>

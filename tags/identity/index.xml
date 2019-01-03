@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Identity on Gautam Manohar</title>
+    <link>https://gautammanohar.com/tags/identity/</link>
+    <description>Recent content in Identity on Gautam Manohar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Jun 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://gautammanohar.com/tags/identity/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Euler 6: Sum Square Difference</title>
+      <link>https://gautammanohar.com/euler/6/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/6/</guid>
+      <description>Problem Statement The sum of the squares of the first ten natural numbers is
+\begin{equation*} 1^2 + 2^2 + \cdots + 10^2 = 385. \end{equation*}
+The square of the sum of the first ten natural numbers is
+\begin{equation*} (1 + 2 + \cdots + 10)^2 = 55^2 = 3025 \end{equation*}
+Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is \(3025 - 385 = 2640\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 1: Multiples of 3 or 5</title>
+      <link>https://gautammanohar.com/euler/1/</link>
+      <pubDate>Sat, 09 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/1/</guid>
+      <description>Problem Statement If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+Find the sum of all the multiples of 3 or 5 below \(n\).
+My Algorithm In general, the sum of the natural numbers up to \(n\) is the $n$-th triangular number. Let&amp;rsquo;s call this \(T(n)\). A well known formula for this is</description>
+    </item>
+    
+  </channel>
+</rss>

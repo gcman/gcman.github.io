@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8" />
+<meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
+<meta name="robots" content="index,follow">
+
+<meta name="author" content="Gautam Manohar" />
+<meta name="copyright" content="Gautam Manohar" />
+<meta name="date" content="2018-02-17" />
+<meta name="description" content="Every triangle has an inscribed and circumscribed circle. We extend this to tetrahedra and their higher dimensional analogues, simplices.">
+<meta name="keywords" content="algebra,proof, { .Section }}" /><title>Inspheres and Circumspheres of Simplices &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color"             content="#ffffff" />
+<link rel="apple-touch-icon"      sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32"   href="/img/favicons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="16x16"   href="/img/favicons/favicon-16x16.png" />
+<link rel="manifest"                              href="/img/favicons/manifest.json" />
+<link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
+<link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
+    
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.c2d8d5f799652dc30a8998f7eea1aadd7875a19ee2fc2659abc439098bc22c6c.css"><style>
+.title .math {
+  font-size: 50% !important;
+}
+</style>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
+    jax: ["input/TeX","output/CommonHTML", "output/PreviewHTML"],
+    "CommonHTML": {
+      scale: 100,
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+	processEscapes: true,
+	processEnvironments: true
+    },
+    TeX: {
+      equationNumbers: {  autoNumber: "all"  },
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    });
+</script>
+<div class="invisible">
+  \(
+  \let\Pr\relax
+  \DeclareMathOperator\LCM{LCM}
+  \DeclareMathOperator\Pr{P}
+  \DeclareMathOperator\arccot{arccot}
+  \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1 )}
+  \renewcommand{\vec}[1]{\mathbf{ #1 }}
+  \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+  \newcommand{\abs}[1]{\lvert #1 \rvert}
+  \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+
+  \newcommand{\inn}[1]{\in\left\{ #1 \right\}}
+  \newcommand{\ninn}[1]{\not\in\left\{ #1 \right\}}
+  \newcommand{\orr}{\qquad&amp;\,\text{or}\qquad}
+
+  \renewcommand\d{\mathop{}\!\mathrm{d}}
+  \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
+  \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
+  \)
+</div>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115904815-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115904815-1');
+</script>
+</head>
+  <body>
+    <div class="nav-wrapper">
+      <nav id="blog-top" class="fixed">
+        <ul>
+          <li><a href="https://gautammanohar.com/./">about</a></li>
+          <li><a href="https://gautammanohar.com/blog">blog</a></li>
+          <li><a href="https://gautammanohar.com/euler">project euler</a></li>
+        </ul>
+      </nav>
+    </div>
+<div class="main">
+  <article class="article "><header>
+  <h1 class="title">
+    <a href="https://gautammanohar.com/inspheres-and-circumspheres-of-simplices/" rel="bookmark" title ="Link to Inspheres and Circumspheres of Simplices">Inspheres and Circumspheres of Simplices</a>
+  </h1>
+  
+</header>
+
+
+<p>Every triangle can be circumscribed by a circle, because a circle can always be
+drawn through three given points, so long as they are not colinear. In fact,
+every triangle also has a circle that is inscribed in it. These two circles are
+called the triangle&rsquo;s circumcircle and incircle. Finding these circles for a
+triangle is simple if the triangle is equilateral, a bit harder if it is
+right-angled, and a bit harder still if it is not. What is less well-known is
+that every tetrahedron also has a circumsphere and insphere. Given four points,
+such that no three of them are colinear and not all four of them are coplanar,
+there is a unique sphere that goes through all of them. Finding these spheres
+for a regular tetrahedron is rather straightforward. In particular, a regular
+tetrahedron&rsquo;s circumsphere is always three times larger in radius than its
+insphere. But the analagous problem for an arbitrary, not necessarily regular,
+tetrahedron is much hairier. I will present a geometric proof for the case of
+the regular tetrahedron, and then a look into the circumsphere and insphere of
+arbitrary tetrahedra using techniques from linear algebra. Finally, I will
+generalize my work to arbitrary simplices (the higher-dimensional analogue of
+tetrahedra) in arbitrary dimensions.</p>
+
+<h2 id="regular-tetrahedra">Regular Tetrahedra</h2>
+
+<p>We wish to find the ratio between the circumsphere and insphere of a regular
+tetrahedron. Let \(ABCD\) be a regular tetrahedron. Let \(O\) be the centroid of
+\(ABCD\). Then because \(ABCD\) is regular, \(O\) is the incenter and circumcenter of
+\(ABCD\). Let \(X\) be the centroid of the face opposite \(A\). The volume of \(OBCD\)
+is a quarter that of \(ABCD\), because \(ABCD\) is the union of
+\(OABC,OABD,OACD,OBCD\), and each of those tetrahedra with vertex \(O\) is congruent
+to the others. The volume of a tetrahedron is \(\frac{1}{3}bh\). Since \(ABCD\) and
+\(OBCD\) have the same base, triangle \(BCD\), the height \(OX\) is one quarter the
+height \(AX\). But because \(AO = AX - OX\), and \(\frac{1}{4}|AX| = |OX|\), then
+\(|AO| = \frac{3}{4}|AX|\). Note that \(AO\) is the circumradius and \(OX\) is the
+inradius. Thus the ratio of the circumradius to the inradius in a regular
+tetrahedron is \(\frac{|AO|}{|OX|} = 3\).</p>
+
+<h2 id="irregular-tetrahedra">Irregular Tetrahedra</h2>
+
+<p>We use coordinate geometry and linear algebra to find the inradius and
+circumradius (and incenter and circumcenter) of a tetrahedron given the
+coordinates of its vertices. To avoid immense computational tedium, we use
+programming to numerically solve for the desired ratio.</p>
+
+<h3 id="insphere">Insphere</h3>
+
+<p>Let&rsquo;s first deal with the insphere. Let \((a,b,c)\) be the vector that gives the
+coordinates of the incenter, and let \(r\) be the inradius. Let the four vertices
+of the tetrahedron be given by \(\vec{V}_i = (x_i,y_i,z_i)\), where \(i
+\inn{1,2,3,4}\). Let \(F_1\) be the face with vertices \(\vec{V}_1, \vec{V}_2,
+\vec{V}_3\). Let \(F_2\) be formed by \(\vec{V}_1,\vec{V}_2,\vec{V}_4\), \(F_3\) by
+\(\vec{V}_1,\vec{V}_3,\vec{V}_4\), and \(F_4\) by \(\vec{V}_2,\vec{V}_3,\vec{V}_4\).
+Let \(\vec{n}_i\) represent the unit vector pointing out of the tetrahedron and
+perpendicular to the face \(F_i\) of the tetrahedron: that is, the unit
+outward-facing normal vector to \(F_i\). The defining characteristic of the
+insphere is that each line from the incenter to the point of tangency on a given
+face is perpendicular to that face and of equal length to the other such lines.
+Taking a circular cross-section of the insphere such that the sphere and the
+circle have the same center and point of tangency to the face, we see that the
+tangent line to the circle must be at a right angle to the line joining the
+point of tangency and the center (from a famous theorem about circles). Then we
+have the condition that \((a,b,c) + r\vec{n}_i\) lies on \(F_i\). Let us deal with
+\(F_1\). A vector perpendicular to the plane containing two vectors is given by
+their cross product. We can let these two vectors be two of the edges of \(F_1\).
+An edge on a face is the displacement between two vertices of a face. Then the
+cross product</p>
+
+<p>\begin{equation}
+(\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)
+\label{unscaled-normal}
+\end{equation}</p>
+
+<p>is perpendicular to \(F_1\). But \eqref{unscaled-normal} need not point outward.
+To remove this ambiguity, we scale \eqref{unscaled-normal} by a negative value
+if it is pointing inward and by a positive value if it is pointing outward.
+Consider the dot product of \eqref{unscaled-normal} and the displacement vector
+\(\vec{V}_4 - \vec{V}_1\), which points from the first vertex away from the
+outward-facing normal and to the fourth vertex. Thus the angle between the
+outward-facing normal and this displacement vector is between \(\frac{\pi}{2}\)
+and \(\pi\), so the cosine of the angle is negative, so the dot product of these
+two vectors is negative. Then scaling \eqref{unscaled-normal} by the negative of
+the dot product yields an outward-facing normal. We then need to normalize this
+vector to obtain the desired unit outward-facing normal vector \(\vec{n}_1\):</p>
+
+<p>\begin{equation}
+\vec{n}_1 = -\frac{(\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)(\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)\cdot(\vec{V}_4 - \vec{V}_1)}{\norm{(\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)(\vec{V}_2 - \vec{V}_1) \times (\vec{V}_3 - \vec{V}_1)\cdot(\vec{V}_4 - \vec{V}_1)}}.
+\label{normalized}
+\end{equation}</p>
+
+<p>The point-normal form for the equation of a plane perpendicular to a vector
+\(\vec{n}\) and which contains a point \(P_0\) is, for some point \(P\) on the plane,</p>
+
+<p>\begin{equation}
+(P - P_0) \cdot \vec{n} = 0.
+\end{equation}</p>
+
+<p>In particular, we want the equation for the plane which contains \(F_1\). We use
+\(P = (a,b,c) + r\vec{n}_1\) (the point on \(F_1\) tangent to the insphere) and \(P_0
+= \vec{V}_1\) (it can be any of the vertices of the face in question, in this
+case \(F_1\)). This gives</p>
+
+<p>\begin{equation}
+((a,b,c) + r\vec{n}_1 - \vec{V}_1) \cdot \vec{n}_1 = 0.
+\end{equation}</p>
+
+<p>Distributing the dot product, we have</p>
+
+<p>\begin{equation}
+(a,b,c)\cdot\vec{n}_1 + r\vec{n}_1\cdot\vec{n}_1 - \vec{V}_1\cdot\vec{n}_1 = 0.
+\end{equation}</p>
+
+<p>We then break each vector into its three components:</p>
+
+<p>\begin{equation}
+\begin{split}
+a\vec{n}_{1_x} + b\vec{n}_{1_y} + c\vec{n}_{1_z} + r(\vec{n}_{1_x}^2 + \vec{n}_{1_y}^2 + \vec{n}_{1_z}^2) &amp; \\<br />
+\qquad - x_1\vec{n}_{1_x} - y_1\vec{n}_{1_y} - z_1\vec{n}_{1_z} &amp;= 0 \\<br />
+a\vec{n}_{1_x} + b\vec{n}_{1_y} + c\vec{n}_{1_z} + r(\vec{n}_{1_x}^2 + \vec{n}_{1_y}^2 + \vec{n}_{1_z}^2) &amp;= x_1\vec{n}_{1_x} + y_1\vec{n}_{1_y} + z_1\vec{n}_{1_z}.
+\end{split}
+\end{equation}</p>
+
+<p>This equation has four unknowns: the coordinates of the incenter \(a,b,c\) and the
+inradius \(r\). Using the other three faces, we arrive at a system of four
+equations with four unknowns:</p>
+
+<p>\begin{equation}
+\begin{split}
+a\vec{n}_{1_x} + b\vec{n}_{1_y} + c\vec{n}_{1_y} + r(\vec{n}_{1_x}^2 + \vec{n}_{1_y}^2 + \vec{n}_{1_z}^2) &amp;= x_1\vec{n}_{1_x} + y_1\vec{n}_{1_y} + z_1\vec{n}_{1_z} \\<br />
+a\vec{n}_{2_x} + b\vec{n}_{2_y} + c\vec{n}_{2_z} + r(\vec{n}_{2_x}^2 + \vec{n}_{2_y}^2 + \vec{n}_{2_z}^2) &amp;= x_2\vec{n}_{2_x} + y_2\vec{n}_{2_y} + z_2\vec{n}_{2_z} \\<br />
+a\vec{n}_{3_x} + b\vec{n}_{3_y} + c\vec{n}_{3_z} + r(\vec{n}_{3_x}^2 + \vec{n}_{3_y}^2 + \vec{n}_{3_z}^2) &amp;= x_3\vec{n}_{3_x} + y_3\vec{n}_{3_y} + z_3\vec{n}_{3_z} \\<br />
+a\vec{n}_{4_x} + b\vec{n}_{4_y} + c\vec{n}_{4_z} + r(\vec{n}_{4_x}^2 + \vec{n}_{4_y}^2 + \vec{n}_{4_z}^2) &amp;= x_4\vec{n}_{4_x} + y_4\vec{n}_{4_y} + z_4\vec{n}_{4_z}
+\end{split}
+\end{equation}</p>
+
+<p>We can solve this system with matrices. Let</p>
+
+<p>\begin{equation}
+\vec{A} =
+\begin{bmatrix}
+\vec{n}_{1_x} &amp; \vec{n}_{1_y} &amp; \vec{n}_{1_y} &amp; \vec{n}_{1_x}^2 + \vec{n}_{1_y}^2 + \vec{n}_{1_z}^2 \\<br />
+\vec{n}_{2_x} &amp; \vec{n}_{2_y} &amp; \vec{n}_{2_y} &amp; \vec{n}_{2_x}^2 + \vec{n}_{2_y}^2 + \vec{n}_{2_z}^2 \\<br />
+\vec{n}_{3_x} &amp; \vec{n}_{3_y} &amp; \vec{n}_{3_y} &amp; \vec{n}_{3_x}^2 + \vec{n}_{3_y}^2 + \vec{n}_{3_z}^2 \\<br />
+\vec{n}_{4_x} &amp; \vec{n}_{4_y} &amp; \vec{n}_{4_y} &amp; \vec{n}_{4_x}^2 + \vec{n}_{4_y}^2 + \vec{n}_{4_z}^2
+\end{bmatrix}
+\label{insphere-A}
+\end{equation}</p>
+
+<p>Let</p>
+
+<p>\begin{equation}
+\vec{u} =
+\begin{bmatrix}
+x_1\vec{n}_{1_x} + y_1\vec{n}_{1_y} + z_1\vec{n}_{1_z} \\<br />
+x_2\vec{n}_{2_x} + y_2\vec{n}_{2_y} + z_2\vec{n}_{2_z} \\<br />
+x_3\vec{n}_{3_x} + y_3\vec{n}_{3_y} + z_3\vec{n}_{3_z} \\<br />
+x_4\vec{n}_{4_x} + y_4\vec{n}_{4_y} + z_4\vec{n}_{4_z}
+\end{bmatrix}
+\label{insphere-B}
+\end{equation}</p>
+
+<p>And let the solution vector be</p>
+
+<p>\begin{equation}
+\vec{v} =
+\begin{bmatrix}
+a \\<br />
+b \\<br />
+c \\<br />
+r
+\end{bmatrix}
+\label{insphere-sols}
+\end{equation}</p>
+
+<p>Then</p>
+
+<p>\begin{equation}
+\begin{split}
+\vec{A}\vec{v} &amp;= \vec{u} \\<br />
+\vec{v} &amp;= \vec{A}^{-1}\vec{u}.
+\end{split}
+\end{equation}</p>
+
+<p>And so the inradius \(r\) is the fourth element of \(\vec{v}\), or \(\vec{v}_4\).</p>
+
+<h3 id="circumsphere">Circumsphere</h3>
+
+<p>Now we deal with the circumsphere. Let the circumsphere have center \((A,B,C)\)
+and radius \(R\). It then has the equation</p>
+
+<p>\begin{equation}
+(x - A)^2 + (y - B)^2 + (z - C)^2 = R^2
+\label{sphere-eq}
+\end{equation}</p>
+
+<p>All four of a tetrahedron&rsquo;s vertices lie on its circumsphere, and so their
+coordinates satisfy \eqref{sphere-eq}. We have four vertices with which we can
+make a system of four equations:</p>
+
+<p>\begin{equation}
+\begin{split}
+(x_1 - A)^2 + (y_1 - B)^2 + (z_1 - C)^2 &amp;= R^2 \\<br />
+(x_2 - A)^2 + (y_2 - B)^2 + (z_2 - C)^2 &amp;= R^2 \\<br />
+(x_3 - A)^2 + (y_3 - B)^2 + (z_3 - C)^2 &amp;= R^2 \\<br />
+(x_4 - A)^2 + (y_4 - B)^2 + (z_4 - C)^2 &amp;= R^2
+\end{split}
+\label{R-system}
+\end{equation}</p>
+
+<p>Subtracting the first equation from each of the other three, we have another
+system of equations:</p>
+
+<p>\begin{equation}
+\begin{split}
+2A(x_1-x_2) + 2B(y_1-y_2) + 2C(z_1-z_2) &amp;= x_1^2 + y_1^2 + z_1^2 - x_2^2 - y_2^2 - z_2^2 \\<br />
+2A(x_1-x_3) + 2B(y_1-y_3) + 2C(z_1-z_3) &amp;= x_1^2 + y_1^2 + z_1^2 - x_3^2 - y_3^2 - z_3^2 \\<br />
+2A(x_1-x_4) + 2B(y_1-y_4) + 2C(z_1-z_4) &amp;= x_1^2 + y_1^2 + z_1^2 - x_4^2 - y_4^2 - z_4^2
+\end{split}
+\end{equation}</p>
+
+<p>We can solve this system of equations using matrices. Let</p>
+
+<p>\begin{equation}
+\vec{M} =
+2\begin{bmatrix}
+x_1-x_2 &amp; y_1-y_2 &amp; z_1-z_2 \\<br />
+x_1-x_3 &amp; y_1-y_3 &amp; z_1-z_3 \\<br />
+x_1-x_4 &amp; y_1-y_4 &amp; z_1-z_4
+\end{bmatrix}
+\label{circumsphere-A}
+\end{equation}</p>
+
+<p>Let</p>
+
+<p>\begin{equation}
+\vec{u} =
+\begin{bmatrix}
+x_1^2 + y_1^2 + z_1^2 - x_2^2 - y_2^2 - z_2^2 \\<br />
+x_1^2 + y_1^2 + z_1^2 - x_3^2 - y_3^2 - z_3^2 \\<br />
+x_1^2 + y_1^2 + z_1^2 - x_4^2 - y_4^2 - z_4^2
+\end{bmatrix}
+\label{circumsphere-B}
+\end{equation}</p>
+
+<p>And let the solution vector be</p>
+
+<p>\begin{equation}
+\vec{v} =
+\begin{bmatrix}
+A \\<br />
+B \\<br />
+C
+\end{bmatrix}
+\label{circumsphere-sols}
+\end{equation}</p>
+
+<p>Then</p>
+
+<p>\begin{equation}
+\vec{v} = \vec{M}^{-1}\vec{u}.
+\end{equation}</p>
+
+<p>Having solved for \(A,B,C\), we can solve for \(R\) from one of the equations in
+\eqref{R-system}. Let&rsquo;s use the first one.</p>
+
+<p>\begin{equation}
+\begin{split}
+R^2 &amp;= (x_1 - A)^2 + (y_1 - B)^2 + (z_1 - C)^2 \\<br />
+R &amp;= \sqrt{(x_1 - A)^2 + (y_1 - B)^2 + (z_1 - C)^2}.
+\end{split}
+\end{equation}</p>
+
+<p>Although we could compute the components of \(\vec{n}_i\) by doing long and
+tedious calculations with cross products, dot products, and norms and invert our
+matrices using, say, Gaussian elimination, the closed form expressions for the
+inradius \(r\) and the circumradius \(R\) would be very unwieldy and so not very
+useful.</p>
+
+<h2 id="generalizing-to-n-simplices">Generalizing to n-Simplices</h2>
+
+<p>Our method generalizes readily to higher dimensions. The dot product generalizes
+very simply. The one thing we need is a generalization of the cross product,
+which is only defined in three dimensions&hellip; except we don&rsquo;t. Our only use for
+the cross product was to find a vector normal to two others. The cross product
+can be represented as the determinant of a matrix</p>
+
+<p>\begin{equation}
+\begin{vmatrix}
+\vec{v}_1^1 &amp; \vec{v}_1^2 &amp; \vec{v}_1^3 \\<br />
+\vec{v}_2^1 &amp; \vec{v}_2^2 &amp; \vec{v}_2^3 \\<br />
+\vec{b}_1 &amp; \vec{b}_2 &amp; \vec{b}_3
+\end{vmatrix}
+\end{equation}</p>
+
+<p>Here the subscript is the index of the vector (out of those we are taking the
+cross product of) and the superscript is the index of the component in that
+vector. Each vector \(\vec{b}_i\) is the $i$-th basis vector of our
+$n$-dimensional vector space. We can then write our generalized cross product of
+\(n-1\) vectors in $n$-dimensions as</p>
+
+<p>\begin{equation}
+\mathscr{C}(\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_{n-1}) =
+\begin{vmatrix}
+\vec{v}_1^1 &amp; \cdots &amp; \vec{v}_1^{n} \\<br />
+\vdots &amp; \ddots &amp; \vdots \\<br />
+\vec{v}_{n-1}^1 &amp; \cdots &amp; \vec{v}_{n-1}^n \\<br />
+\vec{b}_1 &amp; \cdots &amp; \vec{b}_{n}
+\end{vmatrix}
+\end{equation}</p>
+
+<p>But we can get even simpler. Determinants can get hard to compute as they get
+large. And because we are only interested in the cross product for its
+<em>direction</em> (and not its magnitude; we normalize everything later anyway), we
+can use a simpler method. Any element of the kernel of the \(n-1\) by \(n\) matrix
+given by taking the \(n-1\) vectors to be rows is in the orthogonal direction to
+all the given vectors. An \(n\) simplex is given by \(n+1\) points, given by the
+vectors \(\vec{V}_i\), where \(i\) is an integer from \(1\) to \(n+1\). Each of these
+vectors has \(n\) components, \(\vec{V}_i^j\), where \(j\) is an integer from \(1\) to
+\(n\). Each of the \(n+1\) faces is a collection of \(n\) of the \(n+1\) points. Again,
+let&rsquo;s first deal with the insphere:</p>
+
+<h3 id="insphere-1">Insphere</h3>
+
+<p>Let the vector representing the insphere&rsquo;s coordinates have \(n\) components
+\(c_i\). Imitating \eqref{normalized}, we have</p>
+
+<p>\begin{equation} \label{general-insphere}
+\vec{n}_1 = -\frac{\vec{C}(\vec{C}\cdot(\vec{V}_{n+1} - \vec{V}_1))}{\norm{\vec{C}(\vec{C}\cdot(\vec{V}_{n+1} - \vec{V}_1))}},
+\end{equation}</p>
+
+<p>where</p>
+
+<p>\begin{equation}
+\vec{C} = \mathscr{C}((\vec{V}_2 - \vec{V}_1)\times(\vec{V}_3 - \vec{V}_1)\times \cdots \times (\vec{V}_{n} - \vec{V}_1)).
+\end{equation}</p>
+
+<p>Then we can use matrices again:</p>
+
+<p>\begin{equation} \label{general-insphere-A}
+\vec{A} =
+\begin{bmatrix}
+\vec{n}_i^j &amp; \sum (\vec{n}_i^j)^2
+\end{bmatrix}
+\end{equation}</p>
+
+<p>\begin{equation} \label{general-insphere-B}
+\vec{u} =
+\begin{bmatrix}
+\sum \vec{V}_i^j \vec{n}_i^j
+\end{bmatrix}
+\end{equation}</p>
+
+<p>\begin{equation}
+\vec{s} =
+\begin{bmatrix}
+c_1 \\<br />
+c_2 \\<br />
+\vdots \\<br />
+c_n \\<br />
+r
+\end{bmatrix}
+\end{equation}</p>
+
+<p>Then</p>
+
+<p>\begin{equation}
+\vec{A}\vec{s} = \vec{u}.
+\end{equation}</p>
+
+<h3 id="circumsphere-1">Circumsphere</h3>
+
+<p>Let the vector representing the insphere&rsquo;s coordinates have \(n\) components
+\(C_i\). Our procedure for finding the circumsphere generalizes readily as
+follows.</p>
+
+<p>\begin{equation}
+\vec{M} = 2
+\begin{bmatrix}
+\vec{V}_1^1 - \vec{V}_2^1 &amp; \cdots &amp; \vec{V}_1^n - \vec{V}_2^n \\<br />
+\vdots &amp; \ddots &amp; \vdots \\<br />
+\vec{V}_1^1 - \vec{V}_{n+1}^1 &amp; \cdots &amp; \vec{V}_1^n - \vec{V}_{n+1}^n
+\end{bmatrix}
+\end{equation}</p>
+
+<p>\begin{equation}
+\vec{u} =
+\begin{bmatrix}
+\sum ((v_1^j)^2 - (v_2^j)^2) \\<br />
+\vdots \\<br />
+\sum ((v_1^j)^2 - (v_{n+1}^j)^2) \\<br />
+\end{bmatrix}
+\end{equation}</p>
+
+<p>\begin{equation}
+\vec{s} =
+\begin{bmatrix}
+C_1 \\<br />
+C_2 \\<br />
+\vdots \\<br />
+C_n \\<br />
+r
+\end{bmatrix}
+\end{equation}</p>
+
+<p>Then</p>
+
+<p>\begin{equation}
+\vec{A}\vec{s} = \vec{u}.
+\end{equation}</p>
+
+<h3 id="implementing-our-higher-dimensional-processes">Implementing Our Higher Dimensional Processes</h3>
+
+<p>We&rsquo;ll use <code>Python</code> its <code>numpy</code> package. Let&rsquo;s first set up a function to
+compute our generalized cross product using the kernel method. Here&rsquo;s a standard
+implementation of finding the kernel, or nullspace, of a matrix, sourced from
+<a href="http://scipy-cookbook.readthedocs.io/items/RankNullspace.html">here</a>.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">nullspace</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-13</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">tol</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">atol</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">*</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">nnz</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="n">tol</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span>
+    <span class="n">ns</span> <span class="o">=</span> <span class="n">vh</span><span class="p">[</span><span class="n">nnz</span><span class="p">:]</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">])</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>We return the element of the nullspace that is a vector of norm 1 and use it to calculate the generalized cross product.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">8
+</span><span class="lnt">9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">gen_cross</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">nullspace</span><span class="p">(</span><span class="n">m</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>The argument <code>v</code> will always be a list of lists; each element represents a vector.
+Now we can calculate the incenter and inradius:</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">insphere</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">faces</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">normals</span> <span class="o">=</span> <span class="p">[]</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Note that <code>n</code> is the &ldquo;dimension&rdquo; of the tetrahedron.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">faces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">]])</span>
+        <span class="k">del</span> <span class="n">faces</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">faces</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">faces</span><span class="p">))</span>
+    <span class="n">faces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Each face of an $n$-simplex consists of some \(n\) of the given \(n+1\) vertices.
+Each element of <code>faces</code> has \(n+1\) elements: the \(n\) vertices of the face, and the
+other vertex that is not part of the face. The statement involving the modulo
+ensures that the orientation is correct in even dimensions. Then we can finish
+it off by performing the calculations in \eqref{general-insphere} and setting up
+the matrices as in \eqref{general-insphere-A} and \eqref{general-insphere-B}.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">faces</span><span class="p">:</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">gen_cross</span><span class="p">([</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)])</span>
+    <span class="n">unnormed</span> <span class="o">=</span> <span class="n">c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">vdot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">normals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">unnormed</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">unnormed</span><span class="p">))</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">k</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="nb">sum</span><span class="p">([</span><span class="n">k</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">normals</span><span class="p">])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">sum</span><span class="p">([</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">normals</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+<span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>We go along a similar line for the circumsphere: we set up the matrices and solve.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">circumsphere</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">sum</span><span class="p">([</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+    <span class="n">sols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">([(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">sols</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sols</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>And there you have it! It would be interesting to see how the ratio between
+circumsphere and insphere (3 in 3 dimensions) changes as the dimension
+increases. It will probably get much larger (because most of a high-dimensional
+sphere&rsquo;s volume is near its surface and because the insphere&rsquo;s volume will
+become very small), but how quickly?</p>
+<hr>
+
+
+<h3>Related Posts</h3>
+<div id="related">
+	
+	<div class="post"><a href="/on-the-ball-in-n-euclidean-dimensions/">On the Ball in $n$ Euclidean Dimensions</a></div>
+	
+	<div class="post"><a href="/harmonic-numbers-and-binomial-coefficients/">Harmonic Numbers and Binomial Coefficients</a></div>
+	
+	<div class="post"><a href="/generalizing-herons-formula/">Generalizing Heron&#39;s Formula</a></div>
+	
+</div>
+
+<table id="next-prev">
+  <tr>
+    
+    <td class="left arrow">&#8592; older</td>
+    
+    
+    <td class="right arrow">newer &#8594;</td>
+    
+  </tr>
+  <tr>
+    <td class="left">
+      
+      <a class="previous" href="https://gautammanohar.com/on-the-ball-in-n-euclidean-dimensions/"> On the Ball in $n$ Euclidean Dimensions</a>
+      
+    </td>
+    <td class="right">
+      
+      <a class="next" href="https://gautammanohar.com/almost-there-i/"> Almost There I</a>
+      
+    </td>
+  </tr>
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $('.title a').html(function(index, value) {
+	return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
+  });
+</script>
+</article><div class="side">
+  <section id="info">
+    <p class="date">Posted 17 February 2018</p>
+    <p class="category">
+      
+      <a href="https://gautammanohar.com/categories/math/" title="Posts under category math">math</a>&nbsp;
+      
+    <p>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged algebra" href="/tags/algebra">algebra</a></li><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+<p>
+  </section>
+  <section id="recent">
+  <h2>Recent Posts</h2>
+  <ul><li><a href="https://gautammanohar.com/euler/75/">Project Euler 75: Singular Integer Right Triangles</a></li><li><a href="https://gautammanohar.com/euler/76/">Project Euler 76: Counting Summations</a></li><li><a href="https://gautammanohar.com/euler/77/">Project Euler 77: Prime Summations</a></li><li><a href="https://gautammanohar.com/euler/72/">Project Euler 72: Counting Fractions</a></li><li><a href="https://gautammanohar.com/euler/71/">Project Euler 71: Ordered Fractions</a></li></ul>
+  </section>
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gautam-2" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	</body>
+</html>

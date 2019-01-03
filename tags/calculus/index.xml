@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Calculus on Gautam Manohar</title>
+    <link>https://gautammanohar.com/tags/calculus/</link>
+    <description>Recent content in Calculus on Gautam Manohar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Feb 2018 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://gautammanohar.com/tags/calculus/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>On the Ball in $n$ Euclidean Dimensions</title>
+      <link>https://gautammanohar.com/on-the-ball-in-n-euclidean-dimensions/</link>
+      <pubDate>Tue, 06 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/on-the-ball-in-n-euclidean-dimensions/</guid>
+      <description>One of my favourite formulas in mathematics is the one for the area of a circle, \(\pi r^2\). Its simplicity intrigued my young mind; the circle is, in a sense, the simplest, the roundest shape, and this formula seems to encapsulate the circle&amp;rsquo;s aura of &amp;ldquo;completion.&amp;rdquo; As I grew older, I learned more such formulas for the volumes and surface areas of familiar geometric objects. In particular, I learned of the formula for the volume of a sphere \(\frac{4}{3}\pi r^3\).</description>
+    </item>
+    
+    <item>
+      <title>Harmonic Numbers and Binomial Coefficients</title>
+      <link>https://gautammanohar.com/harmonic-numbers-and-binomial-coefficients/</link>
+      <pubDate>Sun, 04 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/harmonic-numbers-and-binomial-coefficients/</guid>
+      <description>The $n$-th harmonic number is defined as the sum of reciprocals of the first \(n\) natural numbers:
+\begin{equation} \sum\limits_{k=1}^n \frac{1}{k}. \end{equation}
+We wish to prove the following identity involving harmonic numbers and binomial coefficients:
+\begin{equation} \sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k. \label{identity} \end{equation}
+I have two solutions: one with calculus, and one by induction.
+Calculus First, we notice that
+\begin{equation} \int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Biggr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.</description>
+    </item>
+    
+    <item>
+      <title>Comparing $e^\pi$ and $\pi^e$</title>
+      <link>https://gautammanohar.com/comparing-e%5Cpi-and-%5Cpie/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/comparing-e%5Cpi-and-%5Cpie/</guid>
+      <description>The constants \(e\) and \(\pi\) are everywhere in mathematics. Determining the greater of the two expressions \(e^\pi\) and \(\pi^e\) (without using a calculator, of course&amp;hellip;) is a fun puzzle that you can approach in many ways. I&amp;rsquo;d like to discuss my solutions.
+Differentiation We shall perform the same operations on the two expressions.
+\begin{equation} \begin{split} e^{\pi} &amp;amp;\odot \pi^e \\
+e^{\frac{\pi}{e}} &amp;amp;\odot \pi^{\frac{e}{e}} \\
+e^{\frac{1}{e}} &amp;amp;\odot \pi^{\frac{1}{\pi}} \end{split} \end{equation}
+To show that \(e^\pi &amp;gt; \pi^e\), it suffices to show that \(e^{\frac{1}{e}} &amp;gt; \pi^{\frac{1}{\pi}}\).</description>
+    </item>
+    
+  </channel>
+</rss>

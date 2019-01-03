@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Gautam Manohar</title>
+    <link>https://gautammanohar.com/</link>
+    <description>Recent content in Home on Gautam Manohar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Jul 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://gautammanohar.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Euler 75: Singular Integer Right Triangles</title>
+      <link>https://gautammanohar.com/euler/75/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/75/</guid>
+      <description>Problem Statement For how many values \(P \le N\) is there exactly one way to form a right triangle with integer side lengths and perimeter \(P\)?
+My Algorithm See my solution to Project Euler 39, as the techniques I use there are exactly the ones I use for this problem. The only difference is that we count only &amp;ldquo;singular&amp;rdquo; values of \(P\), and we binary search on the index of the greatest value up to \(N\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 76: Counting Summations</title>
+      <link>https://gautammanohar.com/euler/76/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/76/</guid>
+      <description>Problem Statement It is possible to write 5 as the sum of at least two positive integers in exactly 6 different ways:
+\begin{equation*} \begin{split} 5 &amp;amp;= 4+1 \\
+&amp;amp;= 3+2 \\
+&amp;amp;= 3+1+1 \\
+&amp;amp;= 2+2+1 \\
+&amp;amp;= 2+1+1+1 \\
+&amp;amp;= 1+1+1+1+1 \end{split} \end{equation*}
+How many ways can \(N\) be written as the sum of at least two positive integers? Report your answer modulo \(10^9 + 7\).
+My Algorithm Please see my solution to Project Euler 31, as we use the same dynamic programming techniques.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 77: Prime Summations</title>
+      <link>https://gautammanohar.com/euler/77/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/77/</guid>
+      <description>Problem Statement It is possible to write 10 as the sum of primes in exactly 5 different ways:
+\begin{equation*} \begin{split} 10 &amp;amp;= 7+3 \\
+&amp;amp;= 5+5 \\
+&amp;amp;= 5+3+2 \\
+&amp;amp;= 2+2+1 \\
+&amp;amp;= 3+3+2+2 \\
+&amp;amp;= 2+2+2+2+2 \end{split} \end{equation*}
+How many ways can \(N\) be written as the sum of primes?
+My Algorithm Please see my solution to Project Euler 31, as we use the same dynamic programming techniques.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 72: Counting Fractions</title>
+      <link>https://gautammanohar.com/euler/72/</link>
+      <pubDate>Sun, 22 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/72/</guid>
+      <description>Problem Statement The fraction \(\frac{a}{b}\) is called a reduced proper fraction if \(a\) and \(b\) are positive integers with \(a &amp;lt; b\) and \(\mathrm{gcd}(a,b) = 1\). If we list the reduced proper fractions for \(b \le 8\) in increasing order, we get
+\begin{equation*} \frac18, \frac17, \frac16, \frac15, \frac14, \frac27, \frac13, \frac38, \frac25, \frac37, \frac12, \frac47, \frac35, \frac58, \frac23, \frac57, \frac34, \frac45, \frac56, \frac67, \frac78 \end{equation*}
+How many elements are contained in the set of reduced proper fractions with denominator at most \(N\)?</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 71: Ordered Fractions</title>
+      <link>https://gautammanohar.com/euler/71/</link>
+      <pubDate>Sat, 21 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/71/</guid>
+      <description>Problem Statement The fraction \(\frac{a}{b}\) is called a reduced proper fraction if \(a\) and \(b\) are positive integers with \(a &amp;lt; b\) and \(\mathrm{gcd}(a,b) = 1\). If we list the reduced proper fractions for \(b \le 8\) in increasing order, we get
+\begin{equation*} \frac18, \frac17, \frac16, \frac15, \frac14, \frac27, \frac13, \frac38, \frac25, \frac37, \frac12, \frac47, \frac35, \frac58, \frac23, \frac57, \frac34, \frac45, \frac56, \frac67, \frac78 \end{equation*}
+It can be seen that \(\frac25\) is the fraction immediately to the left of \(\frac37\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 44: Pentagonal Numbers</title>
+      <link>https://gautammanohar.com/euler/44/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/44/</guid>
+      <description>Problem Statement Pentagonal numbers are given by the formula
+\begin{equation*} P_n = \frac{n(3n-1)}{2}. \end{equation*}
+The first ten pentagonal numbers are
+\begin{equation} 1,5,12,22,35,51,70,92,117,145,\ldots \end{equation}
+It can be seen that \(P_4 + P_7 = 22 + 70 = 92 = P_8\). Also, \(P_7 - P_5 = 70 - 35 = 35 = P_5\) is also pentagonal. Generalizing for a given \(k\), find all \(P_n\), where \(n &amp;lt; N\), such that at least one of \(P_n \pm P_{n-k}\) is pentagonal.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 47: Distinct Prime Factors</title>
+      <link>https://gautammanohar.com/euler/47/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/47/</guid>
+      <description>Problem Statement The first two consecutive numbers to have distinct prime factors are \(14 = 2\cdot7\) and \(15 = 3\cdot5\). The first three consecutive such numbers are
+\begin{equation*} \begin{split} 644 &amp;amp;= 2^2 \cdot 7 \cdot 23,\\
+645 &amp;amp;= 3 \cdot 5 \cdot 43,\\
+646 &amp;amp;= 2 \cdot 17 \cdot 19 \end{split} \end{equation*}
+Given \(N\), find all the sets of \(K\) consecutive integers that each have exactly \(K\) distinct prime factors.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 48: Self Powers</title>
+      <link>https://gautammanohar.com/euler/48/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/48/</guid>
+      <description>Problem Statement The sum \(1^1 + 2^2 + \cdots + 10^{10} = 10405071317\). Find the last ten digits of
+\begin{equation} \sum\limits_{n=1}^N n^n. \end{equation}
+My Algorithm This problem is a simple bignum computation. Because we only need the last ten digits, it suffices to carry out all calculations modulo \(10^{10}\). In particular, we use modular exponentiation. This solution has time complexity \(O(N\log N)\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 52: Permuted Multiples</title>
+      <link>https://gautammanohar.com/euler/52/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/52/</guid>
+      <description>Problem Statement It can be seen that the number \(125874\) and its double, \(251748\), contain exactly the same digits, but in a different order. Given \(N\), find all the positive integers up \(x \le N\) such that \(2x,3x,\ldots,Kx\) contain the same digits.
+My Algorithm To check whether two strings are permutations of each other, we can check if they are equal after sorting. To check whether an array contains only strings that are permutations of each other, we take the first element of the array and apply the above procedure to each other string in the array.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 53: Combinatoric Selections</title>
+      <link>https://gautammanohar.com/euler/53/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/53/</guid>
+      <description>Problem Statement How many, not necessarily distinct, values of \(\binom{n}{r}\), for \(n \le N\), are greater than \(K\)?
+My Algorithm A brute-force search is too slow. And so we exploit the symmetry of Pascal&amp;rsquo;s triangle, which contains the binomial coefficients. Because \(\binom{n}{k} = \binom{n}{n-k}\), we need only check up to \(\frac{n}{2}\). Furthermore, if \(\binom{n}{k}\) is the first value greater than \(K\), then because the entries of Pascal&amp;rsquo;s triangle strictly increase until the central term, all the entries between \(k\) and \(n-k\), inclusive, will be greater than \(K\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 55: Lychrel Numbers</title>
+      <link>https://gautammanohar.com/euler/55/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/55/</guid>
+      <description>Problem Statement If we take 47, reverse it, and add, we get \(47 + 74 = 121\), which is a palindrome. Not all numbers produce palindromes so quickly. For example,
+\begin{equation*} \begin{split} 349 + 943 &amp;amp;= 1292, \\
+1292 + 2921 &amp;amp;= 4213, \\
+4213 + 3124 &amp;amp;= 7337. \end{split} \end{equation*}
+That is, 349 takes 3 iterations to arrive at a palindrome. Although no one has proved it yet, it is thought that some numbers, like 196, never produce a palindrome.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 56: Powerful Digit Sum</title>
+      <link>https://gautammanohar.com/euler/56/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/56/</guid>
+      <description>Problem Statement Considering natural numbers \(a,b \le N\), which number of the form \(a^b\) has the maximum digital sum?
+My Algorithm For each \(a,b \le N\), we simply compute \(a^b\) in \(\log b\) time and store its digital sum if it is maximal so far. This solution has time complexity \(O(N^2\log N)\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 57: Square Root Convergents</title>
+      <link>https://gautammanohar.com/euler/57/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/57/</guid>
+      <description>Problem Statement It is possible to show that \(\sqrt{2}\) has the following infinite continued fraction expansion:
+\begin{equation*} \sqrt{2} = 1 + \frac{1}{2+\frac{1}{2 + \frac{1}{2 + \cdots}}} \end{equation*}
+By expanding this for the first four iterations, we get the convergents of \(\sqrt{2}\)
+\begin{equation*} \begin{split} 1 + \frac{1}{2} &amp;amp;= \frac{3}{2} \\
+1 + \frac{1}{2 + \frac{1}{2}} &amp;amp;= \frac{7}{5} \\
+1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}} &amp;amp;= \frac{17}{12} \\
+1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}} &amp;amp;= \frac{41}{29}.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 58: Spiral Primes</title>
+      <link>https://gautammanohar.com/euler/58/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/58/</guid>
+      <description>Problem Statement Starting with 1 and spiralling clockwise in the following way, a square spiral with side length 7 is formed. { width=45% } It is interesting to note that 8 out of the 13 numbers lying along both diagonals are prime; that is, a ratio of \(\frac{8}{13} \approx 62\%\). If one complete new layer is wrapped around the spiral above, a square spiral with side length 9 will be formed.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 63: Powerful Digit Counts</title>
+      <link>https://gautammanohar.com/euler/63/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/63/</guid>
+      <description>Problem Statement The five-digit number \(16807 = 7^5\) is also a fifth power. Given \(N\), find the $N$-digit positive integers that are also an $N$-th power.
+My Algorithm An $n$-digit $n$-th power has $n$-th root at most 9, because \(10^n\) is an $(n+1)$-digit number. If \(a^n\) is an $n$-digit number, then unless \(a = 9\), we also have that \((a+1)^n\) is an $n$-digit number. We must find the lowest \(a\) such that \(a^n\) has \(n\) digits.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 65: Convergents of $e$</title>
+      <link>https://gautammanohar.com/euler/65/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/65/</guid>
+      <description>Problem Statement The constant \(e\) can be written as the infinite continued fraction \([2;1,2,1,\,1,4,1,\,1,6,1,\ldots,1,2k,\ldots]\). Find the sum of the digits in the $N$-th convergent of the continued fraction expansion for \(e\).
+A Recurrence Relation We will show the following theorem. Let the the $n$-th convergent of a continued fraction \([a_0;a_1,a_2,\ldots]\) be \(\frac{P_n}{Q_n}\). Then the $(n+1)$-th convergent is
+\begin{equation} \frac{a_{n+1}P_n + P_{n-1}}{a_{n+1}Q_{n} + Q_{n-1}}. \end{equation}
+We use induction. Because the 0-th convergent is \(a_0\), we define \(P_0 = a_0, Q_0 = 1\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 69: Totient Maximum</title>
+      <link>https://gautammanohar.com/euler/69/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/69/</guid>
+      <description>Problem Statement Euler&amp;rsquo;s totient function, \(\varphi(n)\), counts the number of positive integers less than \(n\) that are coprime to \(n\). { width=30% } Given \(N\), find the smallest value \(n\) such that \(\frac{n}{\varphi(n)}\) achieves a maximum.
+My Algorithm We use Euler&amp;rsquo;s product formula for the totient function,
+\begin{equation} \varphi(n) = n\prod\limits_{p|n}\left(1 - \frac{1}{p}\right), \end{equation}
+taken over the distinct primes dividing \(n\). This formula gives
+\begin{equation} \frac{n}{\varphi(n)} = \frac{1}{\prod\limits_{p|n}\left(1 - \frac{1}{p}\right)}.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 31: Coin Sums</title>
+      <link>https://gautammanohar.com/euler/31/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/31/</guid>
+      <description>Problem Statement In England, the currency is made up of pounds (£) and pence (p), and there are eight coins in general circulation: 1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p). It is possible to make £2 in the following way:
+\begin{equation*} 1\cdot\mathrm{£}1 + 1\cdot50\mathrm{p} + 2 \cdot 20\mathrm{p} + 1 \cdot 5\mathrm{p} + 1 \cdot 2\mathrm{p} + 3\cdot1\mathrm{p} \end{equation*}
+In how many ways can \(N\) pence be made from any denomination of coins?</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 32: Pandigital Products</title>
+      <link>https://gautammanohar.com/euler/32/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/32/</guid>
+      <description>Problem Statement We shall say that an $N$-digit number is pandigital if it makes use of all the digits 1 to \(N\) exactly once; for example, the 5-digit number 15234 is 1 through 5 pandigital. The product 7254 is unusual, as the identity \(39 \cdot 186 = 7254\) containing multiplicand, multiplier, and product is 1 through 9 pandigital. Find the sum of all products whose multiplicand/multiplier/product identity can be written as a 1 through \(N\) pandigital.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 34: Digit Factorials</title>
+      <link>https://gautammanohar.com/euler/34/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/34/</guid>
+      <description>Problem Statement 145 is a curious number, as \(1! + 4! + 5! = 145\). Find the sum of all numbers that are the sum of the factorials of their digits. Note that \(1! = 1\) and \(2! = 2\) are not sums, as they contain only one digit.
+My Algorithm We use a combinatorial approach similar to Project Euler 30. The sum of the factorials of the digits of a number with \(d\) digits is \(d\cdot9!</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 35: Circular Primes</title>
+      <link>https://gautammanohar.com/euler/35/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/35/</guid>
+      <description>Problem Statement The number 197 is called a circular prime because all rotations of the digits (197,719,917) are prime. There are thirteen such prime under 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97. What is the sum of all circular primes less than \(N\)?
+My Algorithm A permutation of a number \(n\) cannot be greater than the smallest power of 10 not more than \(n\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 36: Double Base Palindromes</title>
+      <link>https://gautammanohar.com/euler/36/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/36/</guid>
+      <description>Problem Statement The decimal number \(65 = 1001001001_2\) is palindromic in both decimal and binary. Find the sum of all natural numers less than \(N\) which are palindromic in base 10 and base \(K\).
+My Algorithm We need two things to solve this problem: a way to convert a number from base 10 to base \(K\) and a way to generate palindromes. First, let&amp;rsquo;s think about how numbers are written in base 10.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 37: Truncatable Primes</title>
+      <link>https://gautammanohar.com/euler/37/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/37/</guid>
+      <description>Problem Statement The number 3797 has an interesting property. Being prime itself, it is possible to continuously remove digits from left to right, and remain prime at each stage: 3797, 797, 97, 7. Similarly, we can remove digits from right to left: 3797, 379, 37, 3. Find the sum of primes that are truncatable from left to right and right to left less than \(N\).
+My Algorithm A prime is greater than all of its truncations.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 39: Integer Right Triangles</title>
+      <link>https://gautammanohar.com/euler/39/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/39/</guid>
+      <description>Problem Statement If \(p\) is the perimeter of a right triangle with side lengths \({a,b,c}\), then there are exactly 3 solutions for \(p = 120\):
+\begin{equation*} {20,48,52}, {24,45,51}, {30,40,50} \end{equation*}
+For which value of \(p \le N\) is the number of solutions maximized? If there are multiple possible answers, print the minimum one.
+My Algorithm A famous method of generating Pythagorean triples is due to Euclid:
+\begin{equation} a = m^2 - n^2 \quad b = 2mn \quad c = m^2 + n^2 \quad m &amp;gt; n \label{generating} \end{equation}</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 40: Champernowne&#39;s Constant</title>
+      <link>https://gautammanohar.com/euler/40/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/40/</guid>
+      <description>Problem Statement An irrational decimal is created by concatenating the positive integers:
+\begin{equation*} 0.12345678910\mathbf{1}112131415161718192021\ldots \end{equation*}
+It can be seen that the 12th digit of the fractional part is 1. If \(d_n\) represents the $n$-th digit of the fractional part, then given integers \(i_j\), find the product of \(d_{i_j}\).
+My Algorithm We can split up the fractional part into &amp;ldquo;blocks&amp;rdquo; where each positive integer used has the same number of digits.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 41: Pandigital Prime</title>
+      <link>https://gautammanohar.com/euler/41/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/41/</guid>
+      <description>Problem Statement We shall say that an $n$-digit number is pandigital if it makes use of all the digits 1 to \(n\) exactly once. For example, 2143 is a 4-digit pandigital and is also prime. What is the largest pandigital prime less than or equal to \(N\)? If there is none, return \(-1\).
+My Algorithm The sum of digits of an $n$-digit number is the sum of the first \(n\) positive integers, or \(\frac{n(n+1)}{2}\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 42: Coded Triangle Numbers</title>
+      <link>https://gautammanohar.com/euler/42/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/42/</guid>
+      <description>Problem Statement The $n$-th term of the sequence of triangle numbers is given by \(t_n = \frac{n(n+1)}{2}\); so the first ten triangle numbers are
+\begin{equation*} 1,3,6,10,15,21,28,36,45,55,\ldots \end{equation*}
+By converting each letter in a word to a number corresponding to its alphabetical position and adding these values we form a word value. For example, the word value for SKY is \(19 + 11 + 25 = 55 = t_{10}\). You are given a file words.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 46: Goldbach&#39;s Other Conjecture</title>
+      <link>https://gautammanohar.com/euler/46/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/46/</guid>
+      <description>Problem Statement It was proposed by Christian Goldbach that every odd composite number can be written as the sum of a prime and twice a square. It turns out that the conjecture was false. How many ways can a given \(N\) be represented as the sum of a prime and twice a square?
+My Algorithm Suppose an odd composite number \(n\) and a prime \(p\) provide a match. Then \(n = p + 2k^2\) for some positive integer \(k\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 22: Names Scores</title>
+      <link>https://gautammanohar.com/euler/22/</link>
+      <pubDate>Sat, 23 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/22/</guid>
+      <description>Problem Statement You are given around five-thousand names. Begin by sorting them by alphabetical order. Then working out the alphabetical value of each name, multiply this value by the alphabetical position of the name in the list. For example, suppose COLIN is the 983rd element of a sorted list of names. It is worth \(3 + 15 + 12 + 9 + 14 = 53\), so this name has a score of \(53 \cdot 983 = 49714\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 30: Digit Fifth Powers</title>
+      <link>https://gautammanohar.com/euler/30/</link>
+      <pubDate>Sat, 23 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/30/</guid>
+      <description>Problem Statement Surprisingly, there are only three numbers that can be written as the sum of fourth powers of their digits:
+\begin{equation*} \begin{split} 1634 &amp;amp;= 1^4 + 6^4 + 3^4 + 4^4 \\
+8208 &amp;amp;= 8^4 + 2^4 + 0^4 + 8^4 \\
+9474 &amp;amp;= 9^4 + 4^4 + 7^4 + 4^4 \end{split} \end{equation*}
+Note that because \(1 = 1^4\) is not a sum, it is not included. The sum of these numbers is \(11634 + 8208 + 9474 = 9316\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 20: Factorial Digit Sum</title>
+      <link>https://gautammanohar.com/euler/20/</link>
+      <pubDate>Wed, 13 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/20/</guid>
+      <description>Problem Statement Find the sum of the digits in \(N!\).
+My Algorithm With Python, an \(O(1)\) solution is simple. We compute \(n!\), convert it to a string, and sum the digits.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 24: Lexicographic Permutations</title>
+      <link>https://gautammanohar.com/euler/24/</link>
+      <pubDate>Wed, 13 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/24/</guid>
+      <description>Problem Statement A permutation is an ordered arrangement of objects. For example, \(\mathrm{dabc}\) is a permutation of the word \(\mathrm{abcd}\). If the permutations are listed alphabetically, we call it lexicographic order. The lexicographic permutations of \(\mathrm{abc}\) are:
+\begin{equation*} \mathrm{abc}, \mathrm{acb}, \mathrm{bac}, \mathrm{bca}, \mathrm{cab}, \mathrm{cba}. \end{equation*}
+What is the $N$-th lexicographic permutation of the word \(\mathrm{abcdefghijklm}\)?
+My Algorithm Suppose our word has \(n\) letters. Then the first \((n-1)!\) lexicographic permutations begin with \(a\), the next \((n-1)!</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 27: Quadratic Primes</title>
+      <link>https://gautammanohar.com/euler/27/</link>
+      <pubDate>Wed, 13 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/27/</guid>
+      <description>Problem Statement Euler published the remarkable quadratic equation
+\begin{equation*} n^2 + 41n + 41. \end{equation*}
+It turns out that the formula will produce 40 primes for the consecutive integer values \(0 \le n \le 39\). However, when \(n = 40\), we have \(40^2 + 40 + 41 = 41(40+1) + 41\), which is divisiblye by 41, and certainly when \(n = 41\), the expression \(41^2 + 41 + 41\) is clearly divisible by 41.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 28: Number Spiral Diagonals</title>
+      <link>https://gautammanohar.com/euler/28/</link>
+      <pubDate>Wed, 13 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/28/</guid>
+      <description>Problem Statement Starting with the number 1 and moving to the right in a clockwise direction, a 5-by-5 spiral is formed: { width=30% } It can be verified that the sum of the numbers on the diagonals is 101. What is the sum of the numbers on the diagonals in an \(N \times N\) spiral (\(N\) odd)? Report your answer modulo \(10^9 + 7\).
+My Algorithm We can think of the spiral as being made up of a central 1 surrounded by \(n\) rings of side length \(2n+1\), where \(n = \frac{N - 1}{2}\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 21: Amicable Numbers</title>
+      <link>https://gautammanohar.com/euler/21/</link>
+      <pubDate>Tue, 12 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/21/</guid>
+      <description>Problem Statement Let \(d(n)\) be defined as the sum of proper divisors of \(n\) (numbers less than \(n\) that divide evenly into \(n\)). If \(d(a) = b\) and \(d(b) = a\), where \(a \neq b\), then \(a\) and \(b\) are an amicable pair and each of \(a\) and \(b\) are amicable numbers. For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore \(d(220) = 284\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 23: Non-abundant Sums</title>
+      <link>https://gautammanohar.com/euler/23/</link>
+      <pubDate>Tue, 12 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/23/</guid>
+      <description>Problem Statement A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number. A number \(n\) is called deficient if the sum of its proper divisors is less than \(n\) and it is called abundant if this sum exceeds \(n\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 25: N-digit Fibonacci Number</title>
+      <link>https://gautammanohar.com/euler/25/</link>
+      <pubDate>Tue, 12 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/25/</guid>
+      <description>Problem Statement What is the first term in the Fibonacci sequence to contain \(N\) digits?
+My Algorithm We will use Binet&amp;rsquo;s formula for the $n$-th fibonacci number
+\begin{equation} F_n = \frac{\varphi^n - (-\varphi)^{-n}}{\sqrt{5}}. \end{equation}
+The \((-\varphi)^{-n}\) quickly becomes negligible. So we can make the approximation
+\begin{equation} F_n \approx \frac{\varphi^n}{\sqrt{5}}. \label{approx} \end{equation}
+A number \(n\) has \(\lfloor \log_{10} n \rfloor + 1\) digits. So we must solve the following equation such that \(n\) is minimized:</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 15: Lattice Paths</title>
+      <link>https://gautammanohar.com/euler/15/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/15/</guid>
+      <description>Problem Statement Suppose we start at the top-left corner of an \(N\times M\) grid and that we can only travel to the right or down. How many routes are there to the bottom-right corner? Output the answer modulo \(10^9 + 7\).
+My Algorithm In total, we must make \(N+M\) moves, of which \(N\) are to the right. Choosing these \(N\) moves uniquely identifies each possible route, as this is equivalent to choosing the \(M\) downwards moves.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 16: Power Digit Sum</title>
+      <link>https://gautammanohar.com/euler/16/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/16/</guid>
+      <description>Problem Statement What is the sum of the digits of \(2^N\)?
+My Algorithm Python has built-in infinite precision integer arithmetic, so this problem is easily done. We find \(2^N\) using built-in modular exponentiation in \(O(\log N)\) time. The length of this number is \(\lceil N\log_{10} 2 \rceil \in O(N)\). And so our solution has complexity \(O(N \log N)\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 17: Number Letter Counts</title>
+      <link>https://gautammanohar.com/euler/17/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/17/</guid>
+      <description>Problem Statement Given a number, write it in English words.
+My Algorithm The Hackerank bounds for this problem are \(N \le 10^{12}\). First, we create a dictionary of all the &amp;ldquo;special&amp;rdquo; number names that cannot be procedurally generated:
+\begin{equation*} 0,1,\ldots,9, \quad 10,20,\ldots,90, \quad 10^2,10^3,10^6,10^9,10^{12} \end{equation*}
+Now to process the number \(N\). We begin by breaking the number into five blocks of three digits each, starting from the ones digit. These will have, in increasing order, no suffix, the suffix ~`thousand,&amp;rdquo; ``million,&amp;rdquo; ``billion,&amp;rdquo; and `~trillion.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 18: Maximum Path Sum I</title>
+      <link>https://gautammanohar.com/euler/18/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/18/</guid>
+      <description>Problem Statement By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximal total from top to bottom is 23. { width=10% } Find the maximum path length for a given such triangle.
+My Algorithm We use a data structure that mimics the structure of a given triangle. For each row, we update a parent array to store the maximal path sums that end in each entry of the row above.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 67: Maximum Path Sum II</title>
+      <link>https://gautammanohar.com/euler/67/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/67/</guid>
+      <description>Problem Statement By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximal total from top to bottom is 23. { width=10% } Find the maximum path length for a given such triangle with 100 rows.
+My Algorithm Please see Project Euler 18, which has an identical solution.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 10: Summation of Primes</title>
+      <link>https://gautammanohar.com/euler/10/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/10/</guid>
+      <description>Problem Statement The sum of all primes below 10 is \(2+3+5+7 = 17\). Find the sum of all primes at most \(N\).
+My Algorithm We use a Sieve of Eratosthenes to compute the primes up to the maximum possible value of \(N\). We then construct a prefix sum array in \(O(\frac{N}{\log N})\) time. Using a binary search, we find the index of largest prime less than \(N\) in \(O(\log N - \log \log N)\) time.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 11: Largest Product in a Grid</title>
+      <link>https://gautammanohar.com/euler/11/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/11/</guid>
+      <description>Problem Statement In the 20-by-20 grid below, four numbers have been marked in bold. { width=95% } The product of these numbers is \(26 \cdot 63 \cdot 78 \cdot 14 = 1788696\). What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+My Algorithm The important thing in this problem is to be careful of boundary conditions.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 12: Highly Divisible Triangular Number</title>
+      <link>https://gautammanohar.com/euler/12/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/12/</guid>
+      <description>Problem Statement The sequence of triangle numbers is generated by adding the natural numbers. So the 7th triangle number would be \(1 + 2 + 3 + 4 + 5 + 6 + 7 = 28\). The first ten terms would be:
+\begin{equation*} 1, 3, 6, 10, 15, 21, 28, 36, 45, 55,\ldots \end{equation*}
+What is the value of the first triangle number to have over \(N\) divisors?
+My Algorithm If we prime factor a number \(n\) as</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 13: Large Sum</title>
+      <link>https://gautammanohar.com/euler/13/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/13/</guid>
+      <description>Problem Statement Find the first ten digits of the sum of \(N\) 50-digit numbers.
+My Algorithm Thanks to Python&amp;rsquo;s built-in ability to handle infinitely large integers, this problem is a piece of cake. We read in the numbers, add them, convert the result to a string, and output the first ten characters.
+Other Solutions In languages without big integer support, we would need an algorithm to add big integers, using string arrays and the carrying method often taught in elementary schools.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 14: Longest Collatz Sequence</title>
+      <link>https://gautammanohar.com/euler/14/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/14/</guid>
+      <description>Problem Statement The following iterative sequence is defined for the set of positive integers:
+\begin{equation*} \begin{cases} n \to \frac{n}{2} \quad n \,\text{even}, \\
+n \to 3n + 1 \quad n\,\text{odd} \end{cases} \end{equation*}
+Using the rule above and starting with 13 generates the following sequence:
+\begin{equation*} 13 \to 40 \to 20 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1 \end{equation*}
+This sequence contains 10 terms.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 2: Even Fibonacci Numbers</title>
+      <link>https://gautammanohar.com/euler/2/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/2/</guid>
+      <description>Problem Statement Each new term in the Fibonacci sequence is generated by adding the previous two terms. By starting with 1 and 2, the first 10 terms will be:
+\begin{equation*} 1, 2, 3, 5, 8, 13, 21, 34, 55, 89,\ldots \end{equation*}
+By considering the terms in the Fibonacci sequence whose values do not exceed \(N\), find the sum of the even-valued terms.
+My Algorithm For the Project Euler problem, \(N = 4\times10^6\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 3: Largest Prime Factor</title>
+      <link>https://gautammanohar.com/euler/3/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/3/</guid>
+      <description>Problem Statement The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor a given number \(N\)?
+My Algorithm Suppose we split \(n\) into two factors. Then one of them is at least \(\sqrt{n}\) and the other is at most \(\sqrt{n}\). To see this, we argue by contradiction; if both were strictly less than \(\sqrt{n}\), then their product would be strictly less than \(n\), and if both were strictly greater, so would their product.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 4: Largest Palindrome Product</title>
+      <link>https://gautammanohar.com/euler/4/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/4/</guid>
+      <description>Problem Statement A palindromic number reads the same both ways. The smallest 6 digit palindrome made from the product of two 3-digit numbers is \(101101 = 143 \cdot 707\). Find the largest palindrome made from the product of two 3-digit numbers which is less than \(N\).
+My Algorithm There are less than \(10^6\) possible products of two 3-digit numbers, so brute force is a possible solution. We compute all products \(ij\) of numbers \(100 \le i,j \le 999\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 5: Smallest Multiple</title>
+      <link>https://gautammanohar.com/euler/5/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/5/</guid>
+      <description>Problem Statement 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder. What is the smallest positive number that is evenly divisible by all of the numbers from 1 to \(N\)?
+My Algorithm For a number \(a\) to divide another number \(b\), each of the prime powers that divide \(a\) must also divide \(b\). That is, the exponent on each of the prime powers that divide \(a\) is less than or equal to the corresponding exponent on a prime power that divides \(b\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 6: Sum Square Difference</title>
+      <link>https://gautammanohar.com/euler/6/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/6/</guid>
+      <description>Problem Statement The sum of the squares of the first ten natural numbers is
+\begin{equation*} 1^2 + 2^2 + \cdots + 10^2 = 385. \end{equation*}
+The square of the sum of the first ten natural numbers is
+\begin{equation*} (1 + 2 + \cdots + 10)^2 = 55^2 = 3025 \end{equation*}
+Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is \(3025 - 385 = 2640\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 7: 10001st Prime</title>
+      <link>https://gautammanohar.com/euler/7/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/7/</guid>
+      <description>Problem Statement By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13. What is the $N$-th prime number?
+My Algorithm We use the following identity, which is a consequence of the Prime Number Theorem:
+\begin{equation} n(\log n + \log \log n - 1) &amp;lt; p_n &amp;lt; n(\log n + \log \log n), n &amp;gt; 5. \end{equation}</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 8: Largest Product in a Series</title>
+      <link>https://gautammanohar.com/euler/8/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/8/</guid>
+      <description>Problem Statement Find the greatest product of \(K\) consecutive digits in the given \(N\) digit number.
+My Algorithm We use a brute force solution. There are \(N-K+1\) possible $K$-length substrings of a string of length \(N\). We convert the given number to a string, find the substrings, and multiply the digits in them. We then find the maximal product. This is easily done with time complexity \(O(K(N-K+1))\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 9: Special Pythagorean Triplets</title>
+      <link>https://gautammanohar.com/euler/9/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/9/</guid>
+      <description>Problem Statement A Pythagorean triplet is a set of three natural numbers, \(a &amp;lt; b &amp;lt; c\), for which,
+\begin{equation*} a^2 + b^2 = c^2 \end{equation*}
+For example, \(3^2 + 4^2 = 9 + 16 = 25 = 52\). Given \(N\), find the maximal product \(abc\) such that \(a,b,c\) form a Pythagorean triplet for which \(a+b+c = N\). If no such triplet exists, output \(-1\).
+My Algorithm We know</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 1: Multiples of 3 or 5</title>
+      <link>https://gautammanohar.com/euler/1/</link>
+      <pubDate>Sat, 09 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/1/</guid>
+      <description>Problem Statement If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+Find the sum of all the multiples of 3 or 5 below \(n\).
+My Algorithm In general, the sum of the natural numbers up to \(n\) is the $n$-th triangular number. Let&amp;rsquo;s call this \(T(n)\). A well known formula for this is</description>
+    </item>
+    
+    <item>
+      <title>Prime Reciprocals Diverge!</title>
+      <link>https://gautammanohar.com/prime-reciprocals-diverge/</link>
+      <pubDate>Sun, 20 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/prime-reciprocals-diverge/</guid>
+      <description>Introduction In this post, we will investigate the infinite series
+\begin{equation} \sum_{p} \frac{1}{p}, \end{equation}
+taken over all primes \(p\). In particular, we will show that this series diverges.
+Calculus and the Prime Number Theorem First, we&amp;rsquo;ll show that this problem falls to the incredible might of the following inequalty, which bounds the value of the $n$-th prime:
+\begin{equation} n\log n - n \log\log n \le p_n \le n\log n + n\log\log n \quad (n &amp;gt; 5) \end{equation}</description>
+    </item>
+    
+    <item>
+      <title>Relatively Prime, Relatively Often</title>
+      <link>https://gautammanohar.com/relatively-prime-relatively-often/</link>
+      <pubDate>Tue, 17 Apr 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/relatively-prime-relatively-often/</guid>
+      <description>Say you choose two integers. What&amp;rsquo;s the chance that they&amp;rsquo;re coprime? My intuition says that it can&amp;rsquo;t be more than one-half, because half of all numbers share a factor of 2. But I&amp;rsquo;m thoroughly wrong here. The probability is actually \(\frac{6}{\pi^2}\), which is about \(61\%\).
+We wish to find the probability that two randomly selected integers \(m\) and \(n\) are coprime. If this is true, then \(\mathrm{gcd}(m,n) = 1\). Let&amp;rsquo;s say that \(p = \mathrm{P}(\mathrm{gcd}(m,n)=1)\).</description>
+    </item>
+    
+    <item>
+      <title>Almost There I</title>
+      <link>https://gautammanohar.com/almost-there-i/</link>
+      <pubDate>Fri, 02 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/almost-there-i/</guid>
+      <description>Mathematics students are often told not to carelessly extrapolate small sample sizes into general claims. Indeed, this is a general truth of life: isolated examples do not constitute general proof. Say you wanted to convince me of a fact about numbers. You could show me that your fact was true for all numbers up to ten, a hundred, a million, or to whatever ridiculously huge number you could think of&amp;mdash;but it wouldn&amp;rsquo;t constitute a mathematical proof.</description>
+    </item>
+    
+    <item>
+      <title>Inspheres and Circumspheres of Simplices</title>
+      <link>https://gautammanohar.com/inspheres-and-circumspheres-of-simplices/</link>
+      <pubDate>Sat, 17 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/inspheres-and-circumspheres-of-simplices/</guid>
+      <description>Every triangle can be circumscribed by a circle, because a circle can always be drawn through three given points, so long as they are not colinear. In fact, every triangle also has a circle that is inscribed in it. These two circles are called the triangle&amp;rsquo;s circumcircle and incircle. Finding these circles for a triangle is simple if the triangle is equilateral, a bit harder if it is right-angled, and a bit harder still if it is not.</description>
+    </item>
+    
+    <item>
+      <title>On the Ball in $n$ Euclidean Dimensions</title>
+      <link>https://gautammanohar.com/on-the-ball-in-n-euclidean-dimensions/</link>
+      <pubDate>Tue, 06 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/on-the-ball-in-n-euclidean-dimensions/</guid>
+      <description>One of my favourite formulas in mathematics is the one for the area of a circle, \(\pi r^2\). Its simplicity intrigued my young mind; the circle is, in a sense, the simplest, the roundest shape, and this formula seems to encapsulate the circle&amp;rsquo;s aura of &amp;ldquo;completion.&amp;rdquo; As I grew older, I learned more such formulas for the volumes and surface areas of familiar geometric objects. In particular, I learned of the formula for the volume of a sphere \(\frac{4}{3}\pi r^3\).</description>
+    </item>
+    
+    <item>
+      <title>Harmonic Numbers and Binomial Coefficients</title>
+      <link>https://gautammanohar.com/harmonic-numbers-and-binomial-coefficients/</link>
+      <pubDate>Sun, 04 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/harmonic-numbers-and-binomial-coefficients/</guid>
+      <description>The $n$-th harmonic number is defined as the sum of reciprocals of the first \(n\) natural numbers:
+\begin{equation} \sum\limits_{k=1}^n \frac{1}{k}. \end{equation}
+We wish to prove the following identity involving harmonic numbers and binomial coefficients:
+\begin{equation} \sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k. \label{identity} \end{equation}
+I have two solutions: one with calculus, and one by induction.
+Calculus First, we notice that
+\begin{equation} \int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Biggr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.</description>
+    </item>
+    
+    <item>
+      <title>Generalizing Heron&#39;s Formula</title>
+      <link>https://gautammanohar.com/generalizing-herons-formula/</link>
+      <pubDate>Sat, 03 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/generalizing-herons-formula/</guid>
+      <description>A well-known fact in Euclidean geometry is the following expression for the area of a triangle given its side lengths:
+\begin{equation} A = \sqrt{s(s-a)(s-b)(s-c)}, \end{equation}
+where \(s\) is the semiperimeter of the triangle, \(\frac{a+b+c}{2}\). Our goal is to generalize this formula to quadrilaterals. Just like in proofs of Heron&amp;rsquo;s formula that use trigonometry, we will use the formula for the area of a triangle
+\begin{equation} A = \frac{1}{2}ab\sin C \end{equation}</description>
+    </item>
+    
+    <item>
+      <title>Comparing $e^\pi$ and $\pi^e$</title>
+      <link>https://gautammanohar.com/comparing-e%5Cpi-and-%5Cpie/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/comparing-e%5Cpi-and-%5Cpie/</guid>
+      <description>The constants \(e\) and \(\pi\) are everywhere in mathematics. Determining the greater of the two expressions \(e^\pi\) and \(\pi^e\) (without using a calculator, of course&amp;hellip;) is a fun puzzle that you can approach in many ways. I&amp;rsquo;d like to discuss my solutions.
+Differentiation We shall perform the same operations on the two expressions.
+\begin{equation} \begin{split} e^{\pi} &amp;amp;\odot \pi^e \\
+e^{\frac{\pi}{e}} &amp;amp;\odot \pi^{\frac{e}{e}} \\
+e^{\frac{1}{e}} &amp;amp;\odot \pi^{\frac{1}{\pi}} \end{split} \end{equation}
+To show that \(e^\pi &amp;gt; \pi^e\), it suffices to show that \(e^{\frac{1}{e}} &amp;gt; \pi^{\frac{1}{\pi}}\).</description>
+    </item>
+    
+  </channel>
+</rss>

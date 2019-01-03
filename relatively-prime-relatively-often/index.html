@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8" />
+<meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
+<meta name="robots" content="index,follow">
+
+<meta name="author" content="Gautam Manohar" />
+<meta name="copyright" content="Gautam Manohar" />
+<meta name="date" content="2018-04-17" />
+<meta name="description" content="We derive the probability that two random integers are coprime.">
+<meta name="keywords" content="proof, { .Section }}" /><title>Relatively Prime, Relatively Often &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color"             content="#ffffff" />
+<link rel="apple-touch-icon"      sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32"   href="/img/favicons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="16x16"   href="/img/favicons/favicon-16x16.png" />
+<link rel="manifest"                              href="/img/favicons/manifest.json" />
+<link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
+<link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
+    
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.c2d8d5f799652dc30a8998f7eea1aadd7875a19ee2fc2659abc439098bc22c6c.css"><style>
+.title .math {
+  font-size: 50% !important;
+}
+</style>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
+    jax: ["input/TeX","output/CommonHTML", "output/PreviewHTML"],
+    "CommonHTML": {
+      scale: 100,
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+	processEscapes: true,
+	processEnvironments: true
+    },
+    TeX: {
+      equationNumbers: {  autoNumber: "all"  },
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    });
+</script>
+<div class="invisible">
+  \(
+  \let\Pr\relax
+  \DeclareMathOperator\LCM{LCM}
+  \DeclareMathOperator\Pr{P}
+  \DeclareMathOperator\arccot{arccot}
+  \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1 )}
+  \renewcommand{\vec}[1]{\mathbf{ #1 }}
+  \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+  \newcommand{\abs}[1]{\lvert #1 \rvert}
+  \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+
+  \newcommand{\inn}[1]{\in\left\{ #1 \right\}}
+  \newcommand{\ninn}[1]{\not\in\left\{ #1 \right\}}
+  \newcommand{\orr}{\qquad&amp;\,\text{or}\qquad}
+
+  \renewcommand\d{\mathop{}\!\mathrm{d}}
+  \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
+  \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
+  \)
+</div>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115904815-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115904815-1');
+</script>
+</head>
+  <body>
+    <div class="nav-wrapper">
+      <nav id="blog-top" class="fixed">
+        <ul>
+          <li><a href="https://gautammanohar.com/./">about</a></li>
+          <li><a href="https://gautammanohar.com/blog">blog</a></li>
+          <li><a href="https://gautammanohar.com/euler">project euler</a></li>
+        </ul>
+      </nav>
+    </div>
+<div class="main">
+  <article class="article "><header>
+  <h1 class="title">
+    <a href="https://gautammanohar.com/relatively-prime-relatively-often/" rel="bookmark" title ="Link to Relatively Prime, Relatively Often">Relatively Prime, Relatively Often</a>
+  </h1>
+  
+</header>
+<p>Say you choose two integers. What&rsquo;s the chance that they&rsquo;re coprime? My
+intuition says that it can&rsquo;t be more than one-half, because half of all numbers
+share a factor of 2. But I&rsquo;m thoroughly wrong here. The probability is actually
+\(\frac{6}{\pi^2}\), which is about \(61\%\).</p>
+
+<p>We wish to find the probability that two randomly selected integers \(m\) and \(n\)
+are coprime. If this is true, then \(\mathrm{gcd}(m,n) = 1\). Let&rsquo;s say that \(p =
+\mathrm{P}(\mathrm{gcd}(m,n)=1)\). Consider \(p_k =
+\mathrm{P}(\mathrm{gcd}(a,b)=k)\) for some positive integer \(k\). For this to happen, \(k\) must divide both \(a\) and \(b\), and \(\frac{a}{k}\) and \(\frac{b}{k}\) must
+be coprime.</p>
+
+<p>And so \(p_k =
+\mathrm{P}(k|a\,\text{and}\,k|b)\cdot\mathrm{P}\left(\mathrm{gcd}\left(\frac{a}{k},\frac{b}{k}\right)
+= 1\right)\). One in every \(k\) integers is divisible by \(k\), so the first
+probability is \(\frac{1}{k^2}\). The second probability is just $p$&mdash;because \(a\) and \(b\) were
+random, so are \(\frac{a}{k}\) and \(\frac{b}{k}\). And so \(p_k = \frac{p}{k^2}\).</p>
+
+<p>But any two numbers have a greatest common divisor. That means the sum of \(p_k\)
+over all \(k\) covers all the possibilities, so it must be 1. That is,</p>
+
+<p>\begin{equation}
+\begin{split}
+\sum_{k=1}^\infty \frac{p}{k^2} &amp;= 1 \\<br />
+p &amp;= \left(\sum_{k=1}^\infty \frac{1}{k^2}\right)^{-1}.
+\end{split}
+\end{equation}</p>
+
+<p>That sum is famously equal to \(\frac{\pi^2}{6}\), as shown by Euler. And
+so we conclude that \(p = \frac{6}{\pi^2}\).</p>
+<hr>
+
+
+<h3>Related Posts</h3>
+<div id="related">
+	
+	<div class="post"><a href="/inspheres-and-circumspheres-of-simplices/">Inspheres and Circumspheres of Simplices</a></div>
+	
+	<div class="post"><a href="/on-the-ball-in-n-euclidean-dimensions/">On the Ball in $n$ Euclidean Dimensions</a></div>
+	
+	<div class="post"><a href="/harmonic-numbers-and-binomial-coefficients/">Harmonic Numbers and Binomial Coefficients</a></div>
+	
+</div>
+
+<table id="next-prev">
+  <tr>
+    
+    <td class="left arrow">&#8592; older</td>
+    
+    
+    <td class="right arrow">newer &#8594;</td>
+    
+  </tr>
+  <tr>
+    <td class="left">
+      
+      <a class="previous" href="https://gautammanohar.com/almost-there-i/"> Almost There I</a>
+      
+    </td>
+    <td class="right">
+      
+      <a class="next" href="https://gautammanohar.com/prime-reciprocals-diverge/"> Prime Reciprocals Diverge!</a>
+      
+    </td>
+  </tr>
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $('.title a').html(function(index, value) {
+	return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
+  });
+</script>
+</article><div class="side">
+  <section id="info">
+    <p class="date">Posted 17 April 2018</p>
+    <p class="category">
+      
+      <a href="https://gautammanohar.com/categories/math/" title="Posts under category math">math</a>&nbsp;
+      
+    <p>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+<p>
+  </section>
+  <section id="recent">
+  <h2>Recent Posts</h2>
+  <ul><li><a href="https://gautammanohar.com/euler/75/">Project Euler 75: Singular Integer Right Triangles</a></li><li><a href="https://gautammanohar.com/euler/76/">Project Euler 76: Counting Summations</a></li><li><a href="https://gautammanohar.com/euler/77/">Project Euler 77: Prime Summations</a></li><li><a href="https://gautammanohar.com/euler/72/">Project Euler 72: Counting Fractions</a></li><li><a href="https://gautammanohar.com/euler/71/">Project Euler 71: Ordered Fractions</a></li></ul>
+  </section>
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gautam-2" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	</body>
+</html>

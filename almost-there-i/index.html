@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8" />
+<meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
+<meta name="robots" content="index,follow">
+
+<meta name="author" content="Gautam Manohar" />
+<meta name="copyright" content="Gautam Manohar" />
+<meta name="date" content="2018-03-02" />
+<meta name="description" content="Some patterns in mathematics go on forever. But many &#34;patterns&#34; do anything but, instead ending spectacularly. Explore patterns that are &#34;almost there.&#34;">
+<meta name="keywords" content="fun, { .Section }}" /><title>Almost There I &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color"             content="#ffffff" />
+<link rel="apple-touch-icon"      sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32"   href="/img/favicons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="16x16"   href="/img/favicons/favicon-16x16.png" />
+<link rel="manifest"                              href="/img/favicons/manifest.json" />
+<link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
+<link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
+    
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.c2d8d5f799652dc30a8998f7eea1aadd7875a19ee2fc2659abc439098bc22c6c.css"><style>
+.title .math {
+  font-size: 50% !important;
+}
+</style>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
+    jax: ["input/TeX","output/CommonHTML", "output/PreviewHTML"],
+    "CommonHTML": {
+      scale: 100,
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+	processEscapes: true,
+	processEnvironments: true
+    },
+    TeX: {
+      equationNumbers: {  autoNumber: "all"  },
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    });
+</script>
+<div class="invisible">
+  \(
+  \let\Pr\relax
+  \DeclareMathOperator\LCM{LCM}
+  \DeclareMathOperator\Pr{P}
+  \DeclareMathOperator\arccot{arccot}
+  \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1 )}
+  \renewcommand{\vec}[1]{\mathbf{ #1 }}
+  \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+  \newcommand{\abs}[1]{\lvert #1 \rvert}
+  \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+
+  \newcommand{\inn}[1]{\in\left\{ #1 \right\}}
+  \newcommand{\ninn}[1]{\not\in\left\{ #1 \right\}}
+  \newcommand{\orr}{\qquad&amp;\,\text{or}\qquad}
+
+  \renewcommand\d{\mathop{}\!\mathrm{d}}
+  \newcommand{\diff}[2]{\frac{\d #1}{\d #2}}
+  \newcommand{\qed}{\begin{equation*}\tag*{$\blacksquare$}\end{equation*}}
+  \)
+</div>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115904815-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115904815-1');
+</script>
+</head>
+  <body>
+    <div class="nav-wrapper">
+      <nav id="blog-top" class="fixed">
+        <ul>
+          <li><a href="https://gautammanohar.com/./">about</a></li>
+          <li><a href="https://gautammanohar.com/blog">blog</a></li>
+          <li><a href="https://gautammanohar.com/euler">project euler</a></li>
+        </ul>
+      </nav>
+    </div>
+<div class="main">
+  <article class="article "><header>
+  <h1 class="title">
+    <a href="https://gautammanohar.com/almost-there-i/" rel="bookmark" title ="Link to Almost There I">Almost There I</a>
+  </h1>
+  
+</header>
+<p>Mathematics students are often told not to carelessly extrapolate small sample
+sizes into general claims. Indeed, this is a general truth of life: isolated
+examples do not constitute general proof. Say you wanted to convince me of a
+fact about numbers. You could show me that your fact was true for all numbers up
+to ten, a hundred, a million, or to whatever ridiculously huge number you could
+think of&mdash;but it wouldn&rsquo;t constitute a mathematical proof. This post will
+hopefully be the first in a series called &ldquo;Almost There.&rdquo; I will share
+interesting patterns that, although they seem to <em>surely</em> continue, break down
+eventually. You may have noticed that I spelled &ldquo;sink&rdquo; incorrectly in the title.
+Sharp eye. That&rsquo;s because we&rsquo;re investigating some interesting properties the
+\(\mathrm{sinc}\) function:</p>
+
+<p>\begin{equation}
+\mathrm{sinc}\, x =
+\begin{cases}
+\frac{\sin x}{x} &amp; \text{if}\ x \neq 0 \\<br />
+1 &amp; \text{if}\ x = 0
+\end{cases}
+\end{equation}</p>
+
+<p>It looks like this:</p>
+
+<figure>
+    <img src="/img/math/sinc.png" width="50%"/> 
+</figure>
+
+
+<p>This function famously has no elementary antiderivative, yet its definite
+integral over the real line evaluates to</p>
+
+<p>\begin{equation}
+\int_{-\infty}^\infty \mathrm{sinc}\, x \d x = \pi.
+\end{equation}</p>
+
+<p>Stay tuned for a proof of this fact. A great tool for playing around with
+computations in math (and, thanks to the wonders of technology, a lot more) is
+<a href="https://www.wolframalpha.com/">Wolfram Alpha</a>. We can compute some pretty complicated integrals with it, like</p>
+
+<p>\begin{equation}
+\int_{-\infty}^\infty \mathrm{sinc}\, x\,\mathrm{sinc}\, \frac{x}{3} \d x = \pi,
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\int_{-\infty}^\infty \mathrm{sinc}\, x\,\mathrm{sinc}\, \frac{x}{3}\,\mathrm{sinc}\, \frac{x}{5} \d x = \pi.
+\end{equation}</p>
+
+<p>Even as we multiply the integrand by another \(\mathrm{sinc}\) function, the value
+of the definite integral remains constant at \(\pi\). The pattern continues for
+quite a while. In fact,</p>
+
+<p>\begin{equation}
+\int_{-\infty}^\infty \mathrm{sinc}\, x\, \mathrm{sinc}\, \frac{x}{3}\, \mathrm{sinc}\, \frac{x}{5}\,\cdots\,\mathrm{sinc}\, \frac{x}{13} \d x = \pi.
+\end{equation}</p>
+
+<p>But with one more term, the pattern fails spectacularly:</p>
+
+<p>\begin{equation}
+\int_{-\infty}^\infty \mathrm{sinc}\, x\, \mathrm{sinc}\, \frac{x}{3}\, \mathrm{sinc}\, \frac{x}{5}\,\cdots\,\mathrm{sinc}\, \frac{x}{15} \d x = \frac{467807924713440738696537864469}{467807924720320453655260875000}\pi.
+\end{equation}</p>
+
+<p>This value is \(4.62 \times 10^{-11}\) less than \(\pi\). What happened? After some
+research, I found that such integrals were documented in <a href="https://carma.newcastle.edu.au/jon/sinc-sums.pdf">this paper</a>. It turns
+out that, in general, for real numbers \(a_1,\ldots,a_n\),</p>
+
+<p>\begin{equation}
+\int_{-\infty}^\infty \prod_{k=1}^n \mathrm{sinc}\, a_kx \d x
+\end{equation}</p>
+
+<p>evaluates to \(\pi\) if \(\sum_k a_k \le 2\). In particular, \(1 + \frac{1}{3} +
+\cdots + \frac{1}{13} = \frac{88069}{45045} = 2 - \frac{2021}{45045}\), but
+adding \(\frac{1}{15}\) pushes it over the edge. So we can construct sequences of
+numbers \(a_k\) such that the pattern holds for arbitrarily many terms before
+failing, when the partial sum of the numbers \(a_k\) crosses \(2\). Similarly, we
+can make it so the pattern always holds. For example, the series \(1 +
+\frac{1}{2} + \frac{1}{4} + \cdots\) famously converges to \(2\), so if we set
+\(a_k\) to be the reciprocal powers of two, the corresponding integral will be
+equal to \(\pi\)&hellip; forever. But not all patterns hold forever&mdash;certainly not
+this one!</p>
+<hr>
+
+
+<table id="next-prev">
+  <tr>
+    
+    <td class="left arrow">&#8592; older</td>
+    
+    
+    <td class="right arrow">newer &#8594;</td>
+    
+  </tr>
+  <tr>
+    <td class="left">
+      
+      <a class="previous" href="https://gautammanohar.com/inspheres-and-circumspheres-of-simplices/"> Inspheres and Circumspheres of Simplices</a>
+      
+    </td>
+    <td class="right">
+      
+      <a class="next" href="https://gautammanohar.com/relatively-prime-relatively-often/"> Relatively Prime, Relatively Often</a>
+      
+    </td>
+  </tr>
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $('.title a').html(function(index, value) {
+	return value.replace(/(\d+)/g, '<span style="font-size: 1.5em;">$1</span>');
+  });
+</script>
+</article><div class="side">
+  <section id="info">
+    <p class="date">Posted 2 March 2018</p>
+    <p class="category">
+      
+      <a href="https://gautammanohar.com/categories/math/" title="Posts under category math">math</a>&nbsp;
+      
+    <p>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged fun" href="/tags/fun">fun</a></li></ul>
+<p>
+  </section>
+  <section id="recent">
+  <h2>Recent Posts</h2>
+  <ul><li><a href="https://gautammanohar.com/euler/75/">Project Euler 75: Singular Integer Right Triangles</a></li><li><a href="https://gautammanohar.com/euler/76/">Project Euler 76: Counting Summations</a></li><li><a href="https://gautammanohar.com/euler/77/">Project Euler 77: Prime Summations</a></li><li><a href="https://gautammanohar.com/euler/72/">Project Euler 72: Counting Fractions</a></li><li><a href="https://gautammanohar.com/euler/71/">Project Euler 71: Ordered Fractions</a></li></ul>
+  </section>
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gautam-2" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	</body>
+</html>

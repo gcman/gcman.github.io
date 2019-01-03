@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fun on Gautam Manohar</title>
+    <link>https://gautammanohar.com/tags/fun/</link>
+    <description>Recent content in Fun on Gautam Manohar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Jul 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://gautammanohar.com/tags/fun/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Euler 55: Lychrel Numbers</title>
+      <link>https://gautammanohar.com/euler/55/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/55/</guid>
+      <description>Problem Statement If we take 47, reverse it, and add, we get \(47 + 74 = 121\), which is a palindrome. Not all numbers produce palindromes so quickly. For example,
+\begin{equation*} \begin{split} 349 + 943 &amp;amp;= 1292, \\
+1292 + 2921 &amp;amp;= 4213, \\
+4213 + 3124 &amp;amp;= 7337. \end{split} \end{equation*}
+That is, 349 takes 3 iterations to arrive at a palindrome. Although no one has proved it yet, it is thought that some numbers, like 196, never produce a palindrome.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 40: Champernowne&#39;s Constant</title>
+      <link>https://gautammanohar.com/euler/40/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/40/</guid>
+      <description>Problem Statement An irrational decimal is created by concatenating the positive integers:
+\begin{equation*} 0.12345678910\mathbf{1}112131415161718192021\ldots \end{equation*}
+It can be seen that the 12th digit of the fractional part is 1. If \(d_n\) represents the $n$-th digit of the fractional part, then given integers \(i_j\), find the product of \(d_{i_j}\).
+My Algorithm We can split up the fractional part into &amp;ldquo;blocks&amp;rdquo; where each positive integer used has the same number of digits.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 17: Number Letter Counts</title>
+      <link>https://gautammanohar.com/euler/17/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/17/</guid>
+      <description>Problem Statement Given a number, write it in English words.
+My Algorithm The Hackerank bounds for this problem are \(N \le 10^{12}\). First, we create a dictionary of all the &amp;ldquo;special&amp;rdquo; number names that cannot be procedurally generated:
+\begin{equation*} 0,1,\ldots,9, \quad 10,20,\ldots,90, \quad 10^2,10^3,10^6,10^9,10^{12} \end{equation*}
+Now to process the number \(N\). We begin by breaking the number into five blocks of three digits each, starting from the ones digit. These will have, in increasing order, no suffix, the suffix ~`thousand,&amp;rdquo; ``million,&amp;rdquo; ``billion,&amp;rdquo; and `~trillion.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 14: Longest Collatz Sequence</title>
+      <link>https://gautammanohar.com/euler/14/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/14/</guid>
+      <description>Problem Statement The following iterative sequence is defined for the set of positive integers:
+\begin{equation*} \begin{cases} n \to \frac{n}{2} \quad n \,\text{even}, \\
+n \to 3n + 1 \quad n\,\text{odd} \end{cases} \end{equation*}
+Using the rule above and starting with 13 generates the following sequence:
+\begin{equation*} 13 \to 40 \to 20 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1 \end{equation*}
+This sequence contains 10 terms.</description>
+    </item>
+    
+    <item>
+      <title>Almost There I</title>
+      <link>https://gautammanohar.com/almost-there-i/</link>
+      <pubDate>Fri, 02 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/almost-there-i/</guid>
+      <description>Mathematics students are often told not to carelessly extrapolate small sample sizes into general claims. Indeed, this is a general truth of life: isolated examples do not constitute general proof. Say you wanted to convince me of a fact about numbers. You could show me that your fact was true for all numbers up to ten, a hundred, a million, or to whatever ridiculously huge number you could think of&amp;mdash;but it wouldn&amp;rsquo;t constitute a mathematical proof.</description>
+    </item>
+    
+  </channel>
+</rss>
