@@ -8,8 +8,8 @@
   {{- partial "related-posts.html" . -}}
   {{- partial "next-prev.html" . -}}
   {{- partial "footer/larger-title-numbers.html" -}}
+  {{ template "_internal/disqus.html" . }}
   </article>
   {{- partial "sidebar.html" . -}}
 </div>
-{{ template "_internal/disqus.html" . }}
 {{ end }}
