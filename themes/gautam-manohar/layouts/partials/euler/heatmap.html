@@ -53,22 +53,23 @@
   {{ if le ($s.Get "num") ($s.Get "max") }}
   <tr>
     {{ range $idx3, $cell := (seq 20) }}
-    {{ $s.Set "num" (add 1 (add (add (mul $idx 100) (mul $idx2 20)) $idx3)) }}
-    {{ if le ($s.Get "num") (mul 20 (math.Ceil (div ($s.Get "max") 20.0))) }}
-    {{ $s.Set "path" (printf "euler/%d" ($s.Get "num")) }}
-    {{ if (fileExists (printf "%s.md" ($s.Get "path"))) }}
-    {{ $s.Set "status" (($.Site.GetPage ($s.Get "path")).Params.status | default "dg" ) }}
-    {{ else }}
-    {{ $s.Set "status" "gr" }}
-    {{ end }}
-    {{ if le ($s.Get "num") ($s.Get "max") }}
+      {{ $s.Set "num" (add 1 (add (add (mul $idx 100) (mul $idx2 20)) $idx3)) }}
+      {{ if le ($s.Get "num") (mul 20 (math.Ceil (div ($s.Get "max") 20.0))) }}
+        {{ $s.Set "path" (printf "euler/%d" ($s.Get "num")) }}
+        {{ if (fileExists (printf "%s.md" ($s.Get "path"))) }}
+          {{ $s.Set "status" (($.Site.GetPage ($s.Get "path")).Params.status | default "dg" ) }}
+        {{ else }}
+          {{ $s.Set "status" "gr" }}
+        {{ end }}
+        {{ if le ($s.Get "num") ($s.Get "max") }}
     <td class="{{ index $.Site.Data.euler.colourCodes ($s.Get "status") }}">
-      <a title="{{ with $.Site.GetPage ($s.Get "path") }}{{.Title}}{{ end }}" href="{{ $s.Get "path" | absURL }}">{{ $s.Get "num" }}</a>
-    </td>
-    {{ else }}
-    <td></td>
-    {{ end }}
-    {{ end }}
+      {{ if (fileExists (printf "%s.md" ($s.Get "path"))) }}
+          <a title="{{ with $.Site.GetPage ($s.Get "path") }}{{.Title}}{{ end }}" href="{{ $s.Get "path" | absURL }}">{{end}}{{ $s.Get "num" }}{{ if (fileExists (printf "%s.md" ($s.Get "path"))) }}</a>{{end}}
+        </td>
+        {{ else }}
+        <td></td>
+        {{ end }}
+      {{ end }}
     {{ end }}
   </tr>
   {{ end }}
