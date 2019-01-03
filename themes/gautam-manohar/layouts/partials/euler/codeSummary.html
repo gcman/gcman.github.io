@@ -22,7 +22,7 @@
     {{- $s.Set "time" "less than 0.1&#8239;s" }}
   {{- else if and (ge $time 100) (lt $time 1000) }}
     {{- $s.Set "speedclass" "fast" }}
-    {{- $s.Set "time" (printf "%s&#8239;ms" $time) }}
+    {{- $s.Set "time" (printf "%d&#8239;ms" $time) }}
   {{- else if and (ge $time 1000) (lt $time 10000) }}
     {{- $s.Set "speedclass" "medium" }}
   {{- else if and (ge $time 10000) (le $time 60000) }}
