@@ -148,7 +148,7 @@ def push():
     call("ghp-import public --force --push --branch=master", shell=True)
 
 
-def publish(message):
+def publish():
     preview()
     push()
     call("rm -rf public", shell=True)
