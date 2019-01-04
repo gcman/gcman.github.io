@@ -8,7 +8,7 @@
 <meta name="copyright" content="Gautam Manohar" />
 <meta name="date" content="2018-07-16" />
 <meta name="description" content="My solution to problem 69 of Project Euler.">
-<meta name="keywords" content="proof, { .Section }}" /><title>Project Euler 69: Totient Maximum &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="keywords" content="proof,totient, { .Section }}" /><title>Project Euler 69: Totient Maximum &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
 <meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
 <meta name="msapplication-TileColor" content="#da532c" />
 <meta name="theme-color"             content="#ffffff" />
@@ -99,9 +99,18 @@
 <h2 id="problem-statement">Problem Statement</h2>
 
 <p>Euler&rsquo;s totient function, \(\varphi(n)\), counts the number of positive integers
-less than \(n\) that are coprime to \(n\). <img src="../../figures/euler-69-tot-table.png" alt="Note that 6 produces a maximum for the
-desired ratio in the range of this table." />{ width=30% } Given \(N\), find the
-smallest value \(n\) such that \(\frac{n}{\varphi(n)}\) achieves a maximum.</p>
+less than \(n\) that are coprime to \(n\).</p>
+
+<figure>
+    <img src="/img/euler/69-tot-table.png"
+         alt="Figure 1: Note that 6 produces a maximum for the desired ratio in the range of this table." width="40%"/> <figcaption>
+            <p>Figure 1: Note that 6 produces a maximum for the desired ratio in the range of this table.</p>
+        </figcaption>
+</figure>
+
+
+<p>Given \(N\), find the smallest value \(n&lt;N\) such that \(\frac{n}{\varphi(n)}\) achieves
+a maximum.</p>
 
 <h2 id="my-algorithm">My Algorithm</h2>
 
@@ -1531,11 +1540,11 @@ about \(e^n\), our solution is \(O(\log n)\).</p>
 <h3>Related Posts</h3>
 <div id="related">
 	
-	<div class="post"><a href="/euler/65/">Project Euler 65: Convergents of $e$</a></div>
-	
-	<div class="post"><a href="/euler/44/">Project Euler 44: Pentagonal Numbers</a></div>
-	
 	<div class="post"><a href="/euler/63/">Project Euler 63: Powerful Digit Counts</a></div>
+	
+	<div class="post"><a href="/euler/57/">Project Euler 57: Square Root Convergents</a></div>
+	
+	<div class="post"><a href="/euler/65/">Project Euler 65: Convergents of $e$</a></div>
 	
 </div>
 
@@ -1597,8 +1606,10 @@ about \(e^n\), our solution is \(O(\log n)\).</p>
       
       <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
       
+      <a href="https://gautammanohar.com/categories/math/" title="Posts under category math">math</a>&nbsp;
+      
     <p>
-    <p><ul class="taglist"><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li><li><a class="tag" title="Posts tagged totient" href="/tags/totient">totient</a></li></ul>
 <p>
   </section>
   <section id="recent">

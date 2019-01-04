@@ -8,7 +8,7 @@
 <meta name="copyright" content="Gautam Manohar" />
 <meta name="date" content="2018-07-22" />
 <meta name="description" content="My solution to problem 72 of Project Euler.">
-<meta name="keywords" content="proof, { .Section }}" /><title>Project Euler 72: Counting Fractions &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="keywords" content="proof,totient, { .Section }}" /><title>Project Euler 72: Counting Fractions &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
 <meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
 <meta name="msapplication-TileColor" content="#da532c" />
 <meta name="theme-color"             content="#ffffff" />
@@ -129,17 +129,19 @@ there are</p>
 
 <p>We can calculate this by using successive subtractions, starting from \(n\). For
 example, the primes that divide 15 are 3 and 5. This gives \(15 - \frac{15}{3} =
-10 \to 10 - \frac{10}{5} = 8 = \phi(n)\). We initialize an array <code>phi` of $n$
-`0</code>-entries. This accounts for \(\varphi(1)\), which we do not wish to include in
-our final count. Then, we use a method similar to the Sieve of Eratosthenes. If
-<code>phi[n] = 0</code>, we have not yet dealt with \(n\) and its multiples. Because \(n\) is
-prime, we set <code>phi[n] = n - 1</code>. For all other multiples \(kn &lt; N\), we account for
-\(n\) being a prime factor by setting <code>phi[k/n] -= phi[k/n]//n</code>. Then, we sum the
-entries of <code>phi</code>, and add 1. To give our final answer, we sum <code>phi[n]</code> for all \(n &lt;
-N\). Doing this once for each test case would have time complexity \(O(Tn\log\log
-n)\). There are too many test cases for this, so we create a prefix sum array.
-And so our solution has time complexity \(O(n\log\log n + T)\), where \(T\) is the
-number of test cases.</p>
+10 \to 10 - \frac{10}{5} = 8 = \phi(n)\). We initialize an array <code>phi</code> of \(n\)
+0-entries. This accounts for \(\varphi(1)\), which we do not wish to include in
+our final count.</p>
+
+<p>Then, we use a method similar to the Sieve of Eratosthenes. If <code>phi[n] = 0</code>, we
+have not yet dealt with \(n\) and its multiples. Because \(n\) is prime, we set
+<code>phi[n] = n - 1</code>. For all other multiples \(kn &lt; N\), we account for \(n\) being a
+prime factor by setting <code>phi[k/n] = phi[k/n]//n</code>. Then, we sum the entries of <code>phi</code>,
+and add 1. To give our final answer, we sum <code>phi[n]</code> for all \(n &lt; N\). Doing this
+once for each test case would have time complexity \(O(Tn\log\log n)\). There are
+too many test cases for this, so we create a prefix sum array. And so our
+solution has time complexity \(O(n\log\log n + T)\), where \(T\) is the number of
+test cases.</p>
 
 
 <h2 id="my-code">My Code</h2>
@@ -1556,11 +1558,11 @@ number of test cases.</p>
 <h3>Related Posts</h3>
 <div id="related">
 	
-	<div class="post"><a href="/euler/71/">Project Euler 71: Ordered Fractions</a></div>
-	
 	<div class="post"><a href="/euler/69/">Project Euler 69: Totient Maximum</a></div>
 	
-	<div class="post"><a href="/euler/57/">Project Euler 57: Square Root Convergents</a></div>
+	<div class="post"><a href="/euler/71/">Project Euler 71: Ordered Fractions</a></div>
+	
+	<div class="post"><a href="/euler/63/">Project Euler 63: Powerful Digit Counts</a></div>
 	
 </div>
 
@@ -1623,7 +1625,7 @@ number of test cases.</p>
       <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
       
     <p>
-    <p><ul class="taglist"><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li><li><a class="tag" title="Posts tagged totient" href="/tags/totient">totient</a></li></ul>
 <p>
   </section>
   <section id="recent">

@@ -211,11 +211,11 @@ We use induction. Because the 0-th convergent is \(a_0\), we define \(P_0 = a_0,
       <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
       
       <guid>https://gautammanohar.com/euler/69/</guid>
-      <description>Problem Statement Euler&amp;rsquo;s totient function, \(\varphi(n)\), counts the number of positive integers less than \(n\) that are coprime to \(n\). { width=30% } Given \(N\), find the smallest value \(n\) such that \(\frac{n}{\varphi(n)}\) achieves a maximum.
+      <description>Problem Statement Euler&amp;rsquo;s totient function, \(\varphi(n)\), counts the number of positive integers less than \(n\) that are coprime to \(n\).
+  Figure 1: Note that 6 produces a maximum for the desired ratio in the range of this table.
+  Given \(N\), find the smallest value \(n&amp;lt;N\) such that \(\frac{n}{\varphi(n)}\) achieves a maximum.
 My Algorithm We use Euler&amp;rsquo;s product formula for the totient function,
-\begin{equation} \varphi(n) = n\prod\limits_{p|n}\left(1 - \frac{1}{p}\right), \end{equation}
-taken over the distinct primes dividing \(n\). This formula gives
-\begin{equation} \frac{n}{\varphi(n)} = \frac{1}{\prod\limits_{p|n}\left(1 - \frac{1}{p}\right)}.</description>
+\begin{equation} \varphi(n) = n\prod\limits_{p|n}\left(1 - \frac{1}{p}\right), \end{equation}</description>
     </item>
     
     <item>
@@ -482,7 +482,9 @@ My Algorithm We use a data structure that mimics the structure of a given triang
       <pubDate>Mon, 11 Jun 2018 00:00:00 -0400</pubDate>
       
       <guid>https://gautammanohar.com/euler/67/</guid>
-      <description>Problem Statement By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximal total from top to bottom is 23. { width=10% } Find the maximum path length for a given such triangle with 100 rows.
+      <description>Problem Statement By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximal total from top to bottom is 23.
+  Figure 1: Note that3 + 7 + 4 + 9 = 23.
+  Find the maximum path length for a given such triangle with 100 rows.
 My Algorithm Please see Project Euler 18, which has an identical solution.</description>
     </item>
     

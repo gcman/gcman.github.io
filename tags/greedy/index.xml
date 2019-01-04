@@ -29,7 +29,9 @@ My Algorithm We use a data structure that mimics the structure of a given triang
       <pubDate>Mon, 11 Jun 2018 00:00:00 -0400</pubDate>
       
       <guid>https://gautammanohar.com/euler/67/</guid>
-      <description>Problem Statement By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximal total from top to bottom is 23. { width=10% } Find the maximum path length for a given such triangle with 100 rows.
+      <description>Problem Statement By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximal total from top to bottom is 23.
+  Figure 1: Note that3 + 7 + 4 + 9 = 23.
+  Find the maximum path length for a given such triangle with 100 rows.
 My Algorithm Please see Project Euler 18, which has an identical solution.</description>
     </item>
     

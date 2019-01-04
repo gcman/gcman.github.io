@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Totient on Gautam Manohar</title>
+    <link>https://gautammanohar.com/tags/totient/</link>
+    <description>Recent content in Totient on Gautam Manohar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Jul 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://gautammanohar.com/tags/totient/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Euler 72: Counting Fractions</title>
+      <link>https://gautammanohar.com/euler/72/</link>
+      <pubDate>Sun, 22 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/72/</guid>
+      <description>Problem Statement The fraction \(\frac{a}{b}\) is called a reduced proper fraction if \(a\) and \(b\) are positive integers with \(a &amp;lt; b\) and \(\mathrm{gcd}(a,b) = 1\). If we list the reduced proper fractions for \(b \le 8\) in increasing order, we get
+\begin{equation*} \frac18, \frac17, \frac16, \frac15, \frac14, \frac27, \frac13, \frac38, \frac25, \frac37, \frac12, \frac47, \frac35, \frac58, \frac23, \frac57, \frac34, \frac45, \frac56, \frac67, \frac78 \end{equation*}
+How many elements are contained in the set of reduced proper fractions with denominator at most \(N\)?</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 69: Totient Maximum</title>
+      <link>https://gautammanohar.com/euler/69/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/69/</guid>
+      <description>Problem Statement Euler&amp;rsquo;s totient function, \(\varphi(n)\), counts the number of positive integers less than \(n\) that are coprime to \(n\).
+  Figure 1: Note that 6 produces a maximum for the desired ratio in the range of this table.
+  Given \(N\), find the smallest value \(n&amp;lt;N\) such that \(\frac{n}{\varphi(n)}\) achieves a maximum.
+My Algorithm We use Euler&amp;rsquo;s product formula for the totient function,
+\begin{equation} \varphi(n) = n\prod\limits_{p|n}\left(1 - \frac{1}{p}\right), \end{equation}</description>
+    </item>
+    
+  </channel>
+</rss>
