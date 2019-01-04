@@ -88,7 +88,7 @@ nav li {
 nav li a {
   opacity: 0.9;
   font-variant: small-caps;
-  font-size: 1.45em;
+  font-size: 1.75em;
   color: ivory;
 }
 
@@ -115,5 +115,19 @@ p a {
   font-weight: normal;
 }
 @media only screen and (max-width: 800px){
-.banner h1 {font-size: 5em}
+  .banner {
+    margin: 0;
+    padding-top: 2em;
+    padding-bottom: 0;
+    h1 {font-size: 5em}
+  }
+  .content {padding-top:0}
+  .nav-wrapper {
+    padding-top: 0;
+    #blog-top ul li {font-size: 1.25em;}
+  }
+  #padding {display: none}
+}
+@media only screen and (max-width: 400px){
+  .banner h1 {font-size: 4em;}
 }
