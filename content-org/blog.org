@@ -36,7 +36,7 @@ basketball.
 :EXPORT_FILE_NAME: _index
 :END:
 ** Math                                                              :@math:
-*** Prime Reciprocals Diverge!                 :primes:combinatorics:proof:
+*** Prime Reciprocals Diverge!                 :primes:combinatorics:
 :PROPERTIES:
 :EXPORT_FILE_NAME: prime-reciprocals
 :EXPORT_DATE: 2018-05-20
@@ -195,7 +195,7 @@ right---one uses continuous methods to analyze prime numbers, which are discrete
 entities, while the other is just mind-numbingly brilliant. Perhaps the calculus
 arguments are cleaner, but the combinatorics ones are much more inspiring and
 hide some deeper insights.
-*** Relatively Prime, Relatively Often                              :proof:
+*** Relatively Prime, Relatively Often                ::combinatorics:
 :PROPERTIES:
 :EXPORT_FILE_NAME: coprime-prob
 :EXPORT_DATE: 2018-04-17
@@ -228,7 +228,7 @@ p &= \left(\sum_{k=1}^\infty \frac{1}{k^2}\right)^{-1}.
 \end{equation}
 That sum is famously equal to $\frac{\pi^2}{6}$, as shown by Euler. And
 so we conclude that $p = \frac{6}{\pi^2}$.
-*** Almost There I                                                    :fun:
+*** Almost There I                                           :fun:calculus:
 :PROPERTIES:
 :EXPORT_FILE_NAME: almost-patterns-sinc
 :EXPORT_DATE: 2018-03-02
@@ -239,12 +239,13 @@ sizes into general claims. Indeed, this is a general truth of life: isolated
 examples do not constitute general proof. Say you wanted to convince me of a
 fact about numbers. You could show me that your fact was true for all numbers up
 to ten, a hundred, a million, or to whatever ridiculously huge number you could
-think of---but it wouldn't constitute a mathematical proof. This post will
-hopefully be the first in a series called "Almost There." I will share
-interesting patterns that, although they seem to /surely/ continue, break down
-eventually. You may have noticed that I spelled "sink" incorrectly in the title.
-Sharp eye. That's because we're investigating some interesting properties the
-$\mathrm{sinc}$ function:
+think of---but it wouldn't constitute a mathematical proof.
+
+This post will hopefully be the first in a series called "Almost There." I will
+share interesting patterns that, although they seem to /surely/ continue, break
+down eventually. You may have noticed that I spelled "sink" incorrectly in the
+title. Sharp eye. That's because we're investigating some interesting properties
+the $\mathrm{sinc}$ function:
 \begin{equation}
 \mathrm{sinc}\, x =
 \begin{cases}
@@ -279,25 +280,29 @@ quite a while. In fact,
 \end{equation}
 But with one more term, the pattern fails spectacularly:
 \begin{equation}
-\int_{-\infty}^\infty \mathrm{sinc}\, x\, \mathrm{sinc}\, \frac{x}{3}\, \mathrm{sinc}\, \frac{x}{5}\,\cdots\,\mathrm{sinc}\, \frac{x}{15} \d x = \frac{467807924713440738696537864469}{467807924720320453655260875000}\pi.
+\int_{-\infty}^\infty \mathrm{sinc}\, x\, \mathrm{sinc}\, \frac{x}{3}\, \mathrm{sinc}\, \frac{x}{5}\,\cdots\,\mathrm{sinc}\, \frac{x}{15} \d x
 \end{equation}
-This value is $4.62 \times 10^{-11}$ less than $\pi$. What happened? After some
-research, I found that such integrals were documented in [[https://carma.newcastle.edu.au/jon/sinc-sums.pdf][this paper]]. It turns
-out that, in general, for real numbers $a_1,\ldots,a_n$,
+takes on a value of
+\begin{equation}
+\frac{467807924713440738696537864469}{467807924720320453655260875000}\pi = \pi - 4.62 \times 10^{11}.
+\end{equation}
+What happened? After some research, I found that such integrals were documented
+in [[https://carma.newcastle.edu.au/jon/sinc-sums.pdf][this paper]]. It turns out that, in general, for real numbers $a_1,\ldots,a_n$,
 \begin{equation}
 \int_{-\infty}^\infty \prod_{k=1}^n \mathrm{sinc}\, a_kx \d x
 \end{equation}
 evaluates to $\pi$ if $\sum_k a_k \le 2$. In particular, $1 + \frac{1}{3} +
-\cdots + \frac{1}{13} = \frac{88069}{45045} = 2 - \frac{2021}{45045}$, but
+\cdots + \frac{1}{13} = 2 - \frac{2021}{45045}$, but
 adding $\frac{1}{15}$ pushes it over the edge. So we can construct sequences of
 numbers $a_k$ such that the pattern holds for arbitrarily many terms before
-failing, when the partial sum of the numbers $a_k$ crosses $2$. Similarly, we
-can make it so the pattern always holds. For example, the series $1 +
-\frac{1}{2} + \frac{1}{4} + \cdots$ famously converges to $2$, so if we set
+failing, when the partial sum of the numbers $a_k$ crosses $2$.
+
+Similarly, we can make sure the pattern always holds. For example, the series
+$1 + \frac{1}{2} + \frac{1}{4} + \cdots$ famously converges to $2$, so if we set
 $a_k$ to be the reciprocal powers of two, the corresponding integral will be
 equal to $\pi$... forever. But not all patterns hold forever---certainly not
 this one!
-*** Inspheres and Circumspheres of Simplices                :algebra:proof:
+*** Inspheres and Circumspheres of Simplices             :algebra:geometry:
 :PROPERTIES:
 :EXPORT_FILE_NAME: simplex-sphere
 :EXPORT_DATE: 2018-02-17
@@ -705,7 +710,7 @@ circumsphere and insphere (3 in 3 dimensions) changes as the dimension
 increases. It will probably get much larger (because most of a high-dimensional
 sphere's volume is near its surface and because the insphere's volume will
 become very small), but how quickly?
-*** On the Ball in $n$ Euclidean Dimensions                :calculus:proof:
+*** On the Ball in $n$ Euclidean Dimensions             :calculus:geometry:
 :PROPERTIES:
 :EXPORT_FILE_NAME: n-ball
 :EXPORT_DATE: 2018-02-06
@@ -1335,7 +1340,7 @@ and
 Our next steps would be to examine the properties of other geometric figures in
 $n$ Euclidean dimensions, such as hypercubes and simplices. We could also
 analyze balls in non-Euclidean spaces, such as hyperbolic space.
-*** Harmonic Numbers and Binomial Coefficients             :calculus:proof:
+*** Harmonic Numbers and Binomial Coefficients     :calculus:combinatorics:
 :PROPERTIES:
 :EXPORT_FILE_NAME: harm-id
 :EXPORT_DATE: 2018-02-04
@@ -1461,7 +1466,7 @@ By the inductive hypothesis, we have
 \end{split}
 \end{equation}
 which closes the induction.
-*** Generalizing Heron's Formula                           :geometry:proof:
+*** Generalizing Heron's Formula                                 :geometry:
 :PROPERTIES:
 :EXPORT_FILE_NAME: herons-formula
 :EXPORT_DATE: 2018-02-03
@@ -1564,7 +1569,7 @@ $\alpha + \beta = \pi$. This is true if the quadrilateral is cyclic. And so we
 have discovered that, given four side lengths, we can form the quadrilateral
 with the maximum area if we arrange the lengths such that opposite angles are
 supplementary (if we make a cyclic quadrilateral).
-*** Comparing $e^\pi$ and $\pi^e$                          :calculus:proof:
+*** Comparing $e^\pi$ and $\pi^e$                            :calculus:fun:
 :PROPERTIES:
 :EXPORT_FILE_NAME: e-pi
 :EXPORT_DATE: 2018-02-01
