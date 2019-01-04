@@ -33,15 +33,13 @@ a {
 }
 
 .content {
-  padding-top: 25px;
-  padding-bottom: 50px;
+  padding: 1em 0;
 }
 
 .banner {
   background-color: firebrick;
   color: ivory;
   text-align: center;
-  min-width: 500px;
   padding: 8em 0 0.75em 0;
 }
 
@@ -107,8 +105,8 @@ h2 {
 p {
   font-size: 1.15em;
   line-height: 1.6em;
-  width: 30%;
-  min-width: 500px;
+  width: 25em;
+  max-width: 90%;
   margin: 0 auto 0.5em auto;
 }
 

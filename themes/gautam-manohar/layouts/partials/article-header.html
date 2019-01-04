@@ -3,8 +3,16 @@
     <a href="{{ .Permalink }}" rel="bookmark" title="Link to {{ .Params.shorttitle | default .Params.title }}">{{ .Params.shorttitle | default .Params.title }}</a>
   </h1>
   {{ if isset .Params "subtitle" }}
-    <h1 class="subtitle">
-      <a href="{{ .Permalink }}" rel="bookmark" title="Link to {{ .Params.shorttitle | default .Params.title }}">{{ .Params.subtitle | default .Params.title }}</a>
-    </h1>
+  <h1 class="subtitle">
+    <a href="{{ .Permalink }}" rel="bookmark" title="Link to {{ .Params.shorttitle | default .Params.title }}">{{ .Params.subtitle | default .Params.title }}</a>
+  </h1>
   {{ end }}
+  <div class="mobile">
+    <div class="date">{{ dateFormat "2 January 2006" .Date }}</div>
+    <div class="category">
+      {{ range .Params.categories }}
+      <a href="{{ $.Site.BaseURL }}/categories/{{ . }}/" title="Posts under category {{ . }}">{{ . }}</a>&nbsp;
+      {{ end }}
+      </div>
+   </div>
 </header>

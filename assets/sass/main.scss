@@ -42,14 +42,14 @@ ol {
 }
 
 .invisible {
-    position: absolute;
-    left: -9999px;
+  position: absolute;
+  left: -9999px;
 }
 
 .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+  content: "";
+  clear: both;
+  display: table;
 }
 
 /* Pseudo element: selection */
@@ -77,9 +77,9 @@ figure {
   margin: 1em 0;
   text-align: center;
   counter-increment: figures;
-	figcaption {
-  		font-size: .8em;
-  	}
+  figcaption {
+  	font-size: .8em;
+  }
 }
 
 img {
@@ -133,22 +133,18 @@ th[role=columnheader]:not(.no-sort):hover:after {
 
 nav {
   text-align: center;
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav li {
-  display: inline;
-  padding: 0 0.4em;
-}
-
-nav li a {
-  opacity: 0.9;
-  font-variant: small-caps;
-  font-size: 1.45em;
-  color: ivory;
-}
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: inline;
+    padding: 0 0.4em;
+    a {
+      opacity: 0.9;
+      font-variant: small-caps;
+      font-size: 1.45em;
+      color: ivory;
+    }
+  }}

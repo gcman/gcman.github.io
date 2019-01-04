@@ -36,7 +36,7 @@ basketball.
 :EXPORT_FILE_NAME: _index
 :END:
 ** Math                                                              :@math:
-*** Prime Reciprocals Diverge!                 :primes:combinatorics:
+*** Prime Reciprocals Diverge!              :primes:combinatorics:calculus:
 :PROPERTIES:
 :EXPORT_FILE_NAME: prime-reciprocals
 :EXPORT_DATE: 2018-05-20
@@ -195,7 +195,7 @@ right---one uses continuous methods to analyze prime numbers, which are discrete
 entities, while the other is just mind-numbingly brilliant. Perhaps the calculus
 arguments are cleaner, but the combinatorics ones are much more inspiring and
 hide some deeper insights.
-*** Relatively Prime, Relatively Often                ::combinatorics:
+*** Relatively Prime, Relatively Often               :primes:combinatorics:
 :PROPERTIES:
 :EXPORT_FILE_NAME: coprime-prob
 :EXPORT_DATE: 2018-04-17
@@ -254,7 +254,7 @@ the $\mathrm{sinc}$ function:
 \end{cases}
 \end{equation}
 It looks like this:
-#+attr_html: :width 50%
+#+attr_html: :width 70%
 [[/img/math/sinc.png]]
 
 This function famously has no elementary antiderivative, yet its definite

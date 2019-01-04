@@ -5,20 +5,34 @@ a.tag {
 }
 .main {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   .side {
-    margin-left: 5%;
-    margin-top: 7.5%;
-    width: 15%;
-    h2 {margin-bottom: 0.25em;}
-    section#info {
+    display: none;
+    flex-direction: column;
+    margin: 7em 0 0 3em;
+    width: 12em;
+    h3 {margin-bottom: 0.25em;}
+    section {justify-content: flex-start;}
+    section.info {
       .date {font-size: .75em;}
       .category {
         font-variant: small-caps;
         font-weight: bold;
       }
+      .taglist {
+        li {display: inline-block;}
+        li:after {
+          content: ',\00a0';
+	      color: black;
+          opacity: .4;
+        }
+        li:last-child:after {
+          content: ''
+        }
+      }
     }
-    section#recent{
+    section.recent{
       margin-top: 1.25em;
       li {
         line-height: 1.2em;
@@ -28,11 +42,13 @@ a.tag {
   }
 }
 .blog {
-  width: 30% !important;
+  width: 30em !important;
+  max-width: 90%;
   margin: 0 auto;
 }
 .article {
-  width: 40%;
+  width: 37em;
+  max-width: 90%;
   line-height: 1.5em;
 
   h1.title {
@@ -56,6 +72,24 @@ a.tag {
       margin-top: -0.75em;
       font-size: 1.125em;
       font-style: normal;
+    }
+    .mobile {
+      margin-top: -0.75em;
+      margin-bottom: 0.5em;
+      display: flex;
+      flex-direction: row;
+      * {
+        flex-basis: 50%;
+      }
+      .date {
+        text-align: left;
+        font-size: 0.8em;
+        font-variant: normal;
+      }
+      .category {
+        text-align: right;
+        font-weight: bold;
+      }
     }
   }
 
@@ -84,4 +118,34 @@ a.tag {
     .arrow {font-variant: small-caps;}
   }
 
+  .mobile {
+    .tags {
+      font-size: 0.8em;
+      color: black;
+      opacity: .5;
+    }
+    .tags:after {content: '\00a0'}
+    .taglist {
+      display: inline;
+      li {display: inline-block;}
+      li:after {
+        content: ',\00a0';
+	    color: black;
+        opacity: .4;
+      }
+      li:last-child:after {
+        content: ''
+      }
+    }
+  }
+}
+@media only screen and (min-width: 57em) {
+  .side {display: flex !important}
+  .mobile {display: none !important}
+}
+@media only screen and (min-width: 60em) {
+  .side {width: 15em !important}
+}
+@media only screen and (min-width: 70em) {
+  .side {width: 20em !important}
 }
