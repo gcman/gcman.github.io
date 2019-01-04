@@ -1,17 +1,18 @@
 '1': {code: !!python/unicode "<table class=\"highlighttable\"><tr><td class=\"linenos\"\
     ><div class=\"linenodiv\"><pre> 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n\
     13\n14</pre></div></td><td class=\"code\"><div class=\"highlight\"><pre><span></span><span\
-    \ class=\"c1\"># Implement eq. (1)</span>\n<span class=\"k\">def</span> <span\
-    \ class=\"nf\">triangular</span><span class=\"p\">(</span><span class=\"n\">n</span><span\
-    \ class=\"p\">):</span>\n    <span class=\"k\">return</span> <span class=\"n\"\
-    >n</span> <span class=\"o\">*</span> <span class=\"p\">(</span><span class=\"\
-    n\">n</span><span class=\"o\">+</span><span class=\"mi\">1</span><span class=\"\
-    p\">)</span> <span class=\"o\">//</span> <span class=\"mi\">2</span>\n\n\n<span\
-    \ class=\"c1\"># These are the terms in eq. (3)</span>\n<span class=\"k\">def</span>\
-    \ <span class=\"nf\">sum_under</span><span class=\"p\">(</span><span class=\"\
-    n\">n</span><span class=\"p\">,</span> <span class=\"n\">m</span><span class=\"\
-    p\">):</span>\n    <span class=\"k\">return</span> <span class=\"n\">m</span><span\
-    \ class=\"o\">*</span><span class=\"n\">triangular</span><span class=\"p\">((</span><span\
+    \ class=\"k\">def</span> <span class=\"nf\">triangular</span><span class=\"p\"\
+    >(</span><span class=\"n\">n</span><span class=\"p\">):</span>\n    <span class=\"\
+    sd\">&quot;&quot;&quot;Implement eq. (1)&quot;&quot;&quot;</span>\n    <span class=\"\
+    k\">return</span> <span class=\"n\">n</span> <span class=\"o\">*</span> <span\
+    \ class=\"p\">(</span><span class=\"n\">n</span><span class=\"o\">+</span><span\
+    \ class=\"mi\">1</span><span class=\"p\">)</span> <span class=\"o\">//</span>\
+    \ <span class=\"mi\">2</span>\n\n\n<span class=\"k\">def</span> <span class=\"\
+    nf\">sum_under</span><span class=\"p\">(</span><span class=\"n\">n</span><span\
+    \ class=\"p\">,</span> <span class=\"n\">m</span><span class=\"p\">):</span>\n\
+    \    <span class=\"sd\">&quot;&quot;&quot;Terms in eq. (3)&quot;&quot;&quot;</span>\n\
+    \    <span class=\"k\">return</span> <span class=\"n\">m</span><span class=\"\
+    o\">*</span><span class=\"n\">triangular</span><span class=\"p\">((</span><span\
     \ class=\"n\">n</span><span class=\"o\">-</span><span class=\"mi\">1</span><span\
     \ class=\"p\">)</span><span class=\"o\">//</span><span class=\"n\">m</span><span\
     \ class=\"p\">)</span>\n\n\n<span class=\"n\">T</span> <span class=\"o\">=</span>\
@@ -28,7 +29,7 @@
     \ class=\"p\">,</span> <span class=\"mi\">5</span><span class=\"p\">)</span> <span\
     \ class=\"o\">-</span> <span class=\"n\">sum_under</span><span class=\"p\">(</span><span\
     \ class=\"n\">N</span><span class=\"p\">,</span> <span class=\"mi\">15</span><span\
-    \ class=\"p\">))</span>\n</pre></div>\n</td></tr></table>", comments: '2', difficulty: '5',
+    \ class=\"p\">))</span>\n</pre></div>\n</td></tr></table>", comments: '0', difficulty: '5',
   empty: '4', hrdifficulty: Easy, memory: '8716', name: Multiples of 3 and 5, num: '1',
   path: 1-Multiples-of-3-and-5, runtime: '10'}
 '10': {code: !!python/unicode "<table class=\"highlighttable\"><tr><td class=\"linenos\"\
