@@ -3579,7 +3579,7 @@ once for each test case would have time complexity $O(Tn\log\log n)$. There are
 too many test cases for this, so we create a prefix sum array. And so our
 solution has time complexity $O(n\log\log n + T)$, where $T$ is the number of
 test cases.
-** Project Euler 75: Singular Integer Right Triangles                        :proof:
+** Project Euler 75: Singular Integer Right Triangles    :proof:pythagorean:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 75
 :EXPORT_DATE: 2018-07-23
