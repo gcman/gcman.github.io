@@ -2019,7 +2019,7 @@ We use a brute force solution. There are $N-K+1$ possible $K$-length substrings
 of a string of length $N$. We convert the given number to a string, find the
 substrings, and multiply the digits in them. We then find the maximal product.
 This is easily done with time complexity $O(K(N-K+1))$.
-** Project Euler 9: Special Pythagorean Triplets   :@math:proof:pythagorean:
+** Project Euler 9: Special Pythagorean Triplets   :@math:pythagorean:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 9
 :EXPORT_DATE: 2018-06-10
@@ -2107,7 +2107,7 @@ Checking up, left, left-up, or right-up would be redundant. We take the maximum
 of these four values and the existing maximum product and set that to be our new
 maximum product. We continue like this over all cells in the grid. Our final
 answer is found in $O(n^2)$ time---not surprising for a square grid.
-** Project Euler 12: Highly Divisible Triangular Number               :primes:proof:
+** Project Euler 12: Highly Divisible Triangular Number               :primes:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 12
 :EXPORT_DATE: 2018-06-10
@@ -2209,7 +2209,7 @@ where $M$ is the maximum possible starting value and $T$ is the number of
 queries.
 **** Other Solutions
 Solutions which do not use memoization are too slow.
-** Project Euler 15: Lattice Paths                     :proof:combinatorics:
+** Project Euler 15: Lattice Paths                     :combinatorics:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 15
 :EXPORT_DATE: 2018-06-11
@@ -2418,7 +2418,7 @@ $a$. If the intersection of this list and the list of abundant numbers is empty,
 then we print =NO=; otherwise, we print =YES=. This solution has time complexity
 $O(n\sqrt{n} + AT)$, where $T$ is the number of queries and $A$ is the number of
 abundant numbers under 28123.
-** Project Euler 24: Lexicographic Permutations            :@math:proof:fun:
+** Project Euler 24: Lexicographic Permutations            :@math:fun:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 24
 :EXPORT_DATE: 2018-06-13
@@ -2454,7 +2454,7 @@ a list of the letters in the word, in alphabetical order. For $n-1 \ge i \ge 0$,
 delete the $c_i$-th element from the list and add it to the string representing
 the lexicographic permutation. This solution has time complexity $O(L)$, where
 $L$ is the length of the given word.
-** Project Euler 25: N-digit Fibonacci Number        :@math:fibonacci:proof:
+** Project Euler 25: N-digit Fibonacci Number        :@math:fibonacci:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 25
 :EXPORT_DATE: 2018-06-12
@@ -2833,7 +2833,7 @@ when the value returned is not prime. If at the end of both processes, the
 remaining value is 0, it means both truncations were completed and the prime is
 fully truncatable. In this case, we add the prime to a running count. This
 algorithm has time complexity $O(n\log\log n)$.
-** Project Euler 39: Integer Right Triangles             :proof:pythagorean:
+** Project Euler 39: Integer Right Triangles             :pythagorean:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 39
 :EXPORT_DATE: 2018-06-24
@@ -2983,7 +2983,7 @@ $\frac{3162}{\log 3162}$ primes. Finally, we perform a binary search on our list
 of pandigital primes with at most $\log 3162$ operations. All in all, the time
 complexity for this solution does not depend on the size of $N$, and so it is
 $O(1)$; however, the constant term is quite large.
-** Project Euler 42: Coded Triangle Numbers                                  :proof:
+** Project Euler 42: Coded Triangle Numbers                   :fun:identity:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 42
 :EXPORT_DATE: 2018-06-24
@@ -3023,7 +3023,7 @@ of names.
 The HackerRank version of this problem is simpler. It does not involve words.
 Instead, it asks whether a number $n \le 10^{18}$ is triangular. We have an
 $O(1)$ method of answering this question.
-** Project Euler 44: Pentagonal Numbers                  :brute_force:proof:
+** Project Euler 44: Pentagonal Numbers                  :brute_force:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 44
 :EXPORT_DATE: 2018-07-16
@@ -3074,7 +3074,7 @@ while True:
             print(a-b)
             break
 #+END_SRC
-** Project Euler 46: Goldbach's Other Conjecture              :proof:primes:
+** Project Euler 46: Goldbach's Other Conjecture              :primes:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 46
 :EXPORT_DATE: 2018-06-24
@@ -3249,7 +3249,7 @@ maximum digital sum?
 For each $a,b \le N$, we simply compute $a^b$ in $\log b$ time and store its
 digital sum if it is maximal so far. This solution has time complexity
 $O(N^2\log N)$.
-** Project Euler 57: Square Root Convergents                                 :proof:
+** Project Euler 57: Square Root Convergents           :continued_fractions:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 57
 :EXPORT_DATE: 2018-07-16
@@ -3315,7 +3315,7 @@ discount the case where $i = 4$, because this is $(n+2)^2$. We use the
 [[https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test][Miller-Rabin primality test]] to search such numbers and count the primes until
 the desired ratio is reached. This solution has time complexity $O(N\log^3N)$,
 where $N$ is the maximum side length we must search.
-** Project Euler 63: Powerful Digit Counts                                   :proof:
+** Project Euler 63: Powerful Digit Counts               :fun:combinatorics:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 63
 :EXPORT_DATE: 2018-07-16
@@ -3338,7 +3338,7 @@ a &= \lceil10^{1-\frac{1}{n}}\rceil.
 \end{equation}
 And so $k^n$ is an $n$-digit number for all $k \in
 [\lceil10^{1-\frac{1}{n}}\rceil,9]$. We enumerate these in $O(1)$ time.
-** Project Euler 65: Convergents of $e$                         :proof:math:
+** Project Euler 65: Convergents of $e$    :proof:@math:continued_fractions:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 65
 :EXPORT_DATE: 2018-07-16
@@ -3425,7 +3425,7 @@ the row below, the maximal total from top to bottom is 23.
 Find the maximum path length for a given such triangle with 100 rows.
 *** My Algorithm
 Please see [[../18/][Project Euler 18]], which has an identical solution.
-** Project Euler 69: Totient Maximum                   :@math:proof:totient:
+** Project Euler 69: Totient Maximum                         :@math:totient:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 69
 :EXPORT_DATE: 2018-07-16
@@ -3457,7 +3457,7 @@ the $k$-th [[https://en.wikipedia.org/wiki/Primorial][primorial number]]. The fi
 the product of the primes up to 41. Our solution consists of multiplying primes
 until the given upper bound is reached. Because the $n$-th primorial has size
 about $e^n$, our solution is $O(\log n)$.
-** Project Euler 71: Ordered Fractions                         :proof:@math:
+** Project Euler 71: Ordered Fractions                         :@math:farey:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 71
 :EXPORT_DATE: 2018-07-21
@@ -3521,12 +3521,13 @@ Applying the sum of \eqref{ineq1} and \eqref{ineq2} to \eqref{step1} gives
 \end{equation}
 By \eqref{fundineq} and the above, we thus have $\frac{1}{by} > \frac{n}{bdy}$.
 Because $d < n$, we obtain the contradiction $\frac{1}{by} > \frac{1}{by}$. Thus
-$(x,y) = (c,d)$. This proves the result that $ad - bc = 1$. Given $a,b$, we must
-solve for $ad - bc = 1$ such that $d$, the denominator, is maximized. We can do
-this using the extended Euclidean algorithm. Suppose $k$ is the multiplicative
-inverse of $a$ modulo $b$. Then $ak \equiv 1 \pmod b$. This means $ak - bj = 1$,
-for some positive integer $j$. We wish to maximize $k$. Given that $(k,j)$ is a
-solution, so is $(k+nb,j+na)$. Thus we set
+$(x,y) = (c,d)$. This proves the result that $ad - bc = 1$.
+
+Given $a,b$, we must solve for $ad - bc = 1$ such that $d$, the denominator, is
+maximized. We can do this using the extended Euclidean algorithm. Suppose $k$ is
+the multiplicative inverse of $a$ modulo $b$. Then $ak \equiv 1 \pmod b$. This
+means $ak - bj = 1$, for some positive integer $j$. We wish to maximize $k$.
+Given that $(k,j)$ is a solution, so is $(k+nb,j+na)$. Thus we set
 \begin{equation}
 \begin{split}
 k + nb &\le N \\
@@ -3541,7 +3542,7 @@ Solving for $j$, we get $j = \frac{a\left\lfloor \frac{N-k}{b} \right\rfloor +
 \end{equation}
 The only expensive part of this procedure is calculating the modular inverse,
 and so our solution has $O(\log b)$ time complexity.
-** Project Euler 72: Counting Fractions                      :proof:totient:
+** Project Euler 72: Counting Fractions                            :totient:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 72
 :EXPORT_DATE: 2018-07-22
@@ -3584,7 +3585,7 @@ once for each test case would have time complexity $O(Tn\log\log n)$. There are
 too many test cases for this, so we create a prefix sum array. And so our
 solution has time complexity $O(n\log\log n + T)$, where $T$ is the number of
 test cases.
-** Project Euler 75: Singular Integer Right Triangles    :proof:pythagorean:
+** Project Euler 75: Singular Integer Right Triangles          :pythagorean:
 :PROPERTIES:
 :EXPORT_FILE_NAME: 75
 :EXPORT_DATE: 2018-07-23
