@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a5fceec4f8e12b6750967f89e3a6e712168a15bc46c19d43eac373e2e4ce8429.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.cd7cbdee58e87879170f2f7f1340a46ab757d7a1f527ad68d84e38659b5ca8b9.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -130,25 +130,27 @@ A further optimization is to check that each digit of \(n\) is unique.</p>
 12
 13
 14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Check sorted strings</span>
-<span class="k">def</span> <span class="nf">is_perm</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
-	<span class="k">return</span> <span class="nb">all</span><span class="p">([</span><span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">])</span>
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_perm</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Does arr consist of permutations of some string&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">([</span><span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">])</span>
 
-<span class="n">N</span><span class="p">,</span><span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+
+<span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
 <span class="c1"># We are given N &gt;= 125874</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">125874</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-	<span class="c1"># First check that all digits are unique</span>
-	<span class="c1"># Then check that Ki is not too long</span>
-	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">K</span><span class="p">))</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)):</span>
-		<span class="c1"># Generate multiples</span>
-		<span class="n">S</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">K</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
-		<span class="c1"># Check that all multiples are permutations</span>
-		<span class="k">if</span> <span class="n">is_perm</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
-			<span class="k">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">125874</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># First check that all digits are unique</span>
+    <span class="c1"># Then check that Ki is not too long</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">K</span><span class="p">))</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)):</span>
+        <span class="c1"># Generate multiples</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">K</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+        <span class="c1"># Check that all multiples are permutations</span>
+        <span class="k">if</span> <span class="n">is_perm</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 6 comments and 1 empty lines.</p>
+<p>This code has 5 comments and 2 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">less than 0.1 s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.7 KB</span>.</p>
 
@@ -1497,11 +1499,11 @@ A further optimization is to check that each digit of \(n\) is unique.</p>
 <h3>Related Posts</h3>
 <div id="related">
 	
-	<div class="post"><a href="/euler/55/">Project Euler 55: Lychrel Numbers</a></div>
+	<div class="post"><a href="/euler/48/">Project Euler 48: Self Powers</a></div>
+	
+	<div class="post"><a href="/euler/44/">Project Euler 44: Pentagonal Numbers</a></div>
 	
 	<div class="post"><a href="/euler/58/">Project Euler 58: Spiral Primes</a></div>
-	
-	<div class="post"><a href="/euler/56/">Project Euler 56: Powerful Digit Sum</a></div>
 	
 </div>
 

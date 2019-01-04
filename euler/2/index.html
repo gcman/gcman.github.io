@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a5fceec4f8e12b6750967f89e3a6e712168a15bc46c19d43eac373e2e4ce8429.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.cd7cbdee58e87879170f2f7f1340a46ab757d7a1f527ad68d84e38659b5ca8b9.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -243,32 +243,36 @@ answer is</p>
 19
 20
 21
-22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Implement eq. (5)</span>
-<span class="k">def</span> <span class="nf">next_even</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-	<span class="k">return</span> <span class="mi">4</span><span class="o">*</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">next_even</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Implement eq. (5)&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">4</span><span class="o">*</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
 
 <span class="k">def</span> <span class="nf">even_fib_sum</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="c1"># Start with first two evens</span>
-	<span class="n">fib</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-	<span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
-		<span class="n">count</span> <span class="o">=</span> <span class="mi">2</span>
-	<span class="k">else</span><span class="p">:</span>
-		<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-	<span class="c1"># Go up to the maximum</span>
-	<span class="k">while</span> <span class="n">next_even</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
-		<span class="n">count</span> <span class="o">+=</span> <span class="n">next_even</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
-		<span class="c1"># Keep track of last two evens</span>
-		<span class="n">fib</span> <span class="o">=</span> <span class="p">[</span><span class="n">fib</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">next_even</span><span class="p">(</span><span class="n">fib</span><span class="p">)]</span>
-	<span class="k">return</span> <span class="n">count</span>
+    <span class="sd">&quot;&quot;&quot;Find the sum of even Fibonacci numbers up to n&quot;&quot;&quot;</span>
+    <span class="n">fib</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># Start with first two evens</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># Go up to the maximum</span>
+    <span class="k">while</span> <span class="n">next_even</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="n">next_even</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
+        <span class="c1"># Keep track of last two evens</span>
+        <span class="n">fib</span> <span class="o">=</span> <span class="p">[</span><span class="n">fib</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">next_even</span><span class="p">(</span><span class="n">fib</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">count</span>
+
 
 <span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">even_fib_sum</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">even_fib_sum</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 4 comments and 2 empty lines.</p>
+<p>This code has 3 comments and 4 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">less than 0.1 s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.8 KB</span>.</p>
 

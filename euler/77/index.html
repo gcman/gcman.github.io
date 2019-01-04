@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a5fceec4f8e12b6750967f89e3a6e712168a15bc46c19d43eac373e2e4ce8429.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.cd7cbdee58e87879170f2f7f1340a46ab757d7a1f527ad68d84e38659b5ca8b9.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -150,38 +150,48 @@ about \(\frac{N}{\log N}\) primes up to \(N\). Our solution has time complexity
 25
 26
 27
-28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Sieve of Eratosthenes</span>
-<span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
-	<span class="n">sieve</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-		<span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
-			<span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-				<span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-	<span class="k">return</span> <span class="n">primes</span>
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sieve of Eratosthenes&quot;&quot;&quot;</span>
+    <span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sieve</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
+            <span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="c1"># Cross out all multiples of p</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+                <span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">return</span> <span class="n">primes</span>
 
-<span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">coins</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
-	<span class="c1"># Initialize dp array</span>
-	<span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-	<span class="c1"># There is only one way to make nothing</span>
-	<span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-	<span class="k">for</span> <span class="n">coin</span> <span class="ow">in</span> <span class="n">coins</span><span class="p">:</span>
-		<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">coin</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-			<span class="n">dp</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">val</span><span class="o">-</span><span class="n">coin</span><span class="p">]</span>
-	<span class="k">return</span> <span class="n">dp</span>
+
+<span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">coins</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;No. of ways to write n</span>
+<span class="sd">    as a sum of elements of coins&quot;&quot;&quot;</span>
+    <span class="c1"># Initialize dp array</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># There is only one way to make nothing</span>
+    <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">coin</span> <span class="ow">in</span> <span class="n">coins</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">coin</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">val</span><span class="o">-</span><span class="n">coin</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">dp</span>
+
 
 <span class="c1"># N &lt;= 1000</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">primes</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">COUNT</span> <span class="o">=</span> <span class="n">count</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">COUNT</span> <span class="o">=</span> <span class="n">count</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">COUNT</span><span class="p">[</span><span class="n">N</span><span class="p">])</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">COUNT</span><span class="p">[</span><span class="n">N</span><span class="p">])</span>
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 4 comments and 2 empty lines.</p>
+<p>This code has 4 comments and 4 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">less than 0.1 s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.5 KB</span>.</p>
 

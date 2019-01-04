@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a5fceec4f8e12b6750967f89e3a6e712168a15bc46c19d43eac373e2e4ce8429.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.cd7cbdee58e87879170f2f7f1340a46ab757d7a1f527ad68d84e38659b5ca8b9.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -151,19 +151,19 @@ N! \binom{N-1}{2} = \frac{N!(N-1)!}{2(N-3)!} = \frac{N!(N-1)(N-2)}{2} \le \frac{
 <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 
 <span class="c1"># Get all pandigital numbers</span>
-<span class="n">PANDIGITAL</span> <span class="o">=</span> <span class="n">permutations</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">))))</span>
+<span class="n">PANDIGITAL</span> <span class="o">=</span> <span class="n">permutations</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">))))</span>
 <span class="c1"># Use set to avoid duplicates</span>
 <span class="n">PROD</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">perm</span> <span class="ow">in</span> <span class="n">PANDIGITAL</span><span class="p">:</span>
-	<span class="c1"># Split into 3 parts</span>
-	<span class="c1"># Make sure end of second part is after beginning</span>
-	<span class="c1"># j &gt; i</span>
-	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
-		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
-			<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">perm</span><span class="p">)</span>
-			<span class="c1"># Check if three parts in order are valid</span>
-			<span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">])</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">:]):</span>
-				<span class="n">PROD</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">:]))</span>
+    <span class="c1"># Split into 3 parts</span>
+    <span class="c1"># Make sure end of second part is after beginning</span>
+    <span class="c1"># j &gt; i</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">perm</span><span class="p">)</span>
+            <span class="c1"># Check if three parts in order are valid</span>
+            <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">])</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">:]):</span>
+                <span class="n">PROD</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">:]))</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">PROD</span><span class="p">))</span>
 </pre></div>
 </td></tr></table>
@@ -1519,9 +1519,9 @@ N! \binom{N-1}{2} = \frac{N!(N-1)!}{2(N-3)!} = \frac{N!(N-1)(N-2)}{2} \le \frac{
 	
 	<div class="post"><a href="/euler/36/">Project Euler 36: Double Base Palindromes</a></div>
 	
-	<div class="post"><a href="/euler/37/">Project Euler 37: Truncatable Primes</a></div>
+	<div class="post"><a href="/euler/35/">Project Euler 35: Circular Primes</a></div>
 	
-	<div class="post"><a href="/euler/34/">Project Euler 34: Digit Factorials</a></div>
+	<div class="post"><a href="/euler/41/">Project Euler 41: Pandigital Prime</a></div>
 	
 </div>
 

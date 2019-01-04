@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a5fceec4f8e12b6750967f89e3a6e712168a15bc46c19d43eac373e2e4ce8429.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.cd7cbdee58e87879170f2f7f1340a46ab757d7a1f527ad68d84e38659b5ca8b9.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -181,25 +181,36 @@ O\left(\frac{N^3\sqrt{N}}{\log N}\right)\).</p>
 41
 42
 43
-44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 
-<span class="c1"># Sieve of Eratosthenes</span>
+
 <span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
-	<span class="n">sieve</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-		<span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
-			<span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-				<span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-	<span class="k">return</span> <span class="n">primes</span>
+    <span class="sd">&quot;&quot;&quot;Sieve of Eratosthenes&quot;&quot;&quot;</span>
+    <span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sieve</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
+            <span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="c1"># Cross out all multiples of p</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+                <span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">return</span> <span class="n">primes</span>
 
-<span class="c1"># Use trial division to test if n is prime</span>
+
 <span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="c1"># We don&#39;t want negative primes</span>
-	<span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-		<span class="k">return</span> <span class="bp">False</span>
-	<span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">([</span><span class="n">n</span><span class="o">%</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+    <span class="sd">&quot;&quot;&quot;Trial division test: is n prime?&quot;&quot;&quot;</span>
+    <span class="c1"># We don&#39;t want negative primes</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">([</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span>
+                    <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+
 
 <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">primes</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
@@ -207,28 +218,29 @@ O\left(\frac{N^3\sqrt{N}}{\log N}\right)\).</p>
 <span class="n">COUNT</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="c1"># The coefficients that generate COUNT primes</span>
 <span class="n">COEFF</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
-	<span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">P</span><span class="p">:</span>
-		<span class="c1"># Iterate over +/- a,b</span>
-		<span class="k">for</span> <span class="n">sgna</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]:</span>
-			<span class="k">for</span> <span class="n">sgnb</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]:</span>
-				<span class="c1"># No. of primes given by a,b</span>
-				<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-				<span class="c1"># The quadratic given by a,b</span>
-				<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">sgna</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">sgnb</span><span class="o">*</span><span class="n">b</span>
-				<span class="c1"># Keep going until f(x) is not prime</span>
-				<span class="k">while</span> <span class="n">f</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">count</span><span class="p">)):</span>
-					<span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-				<span class="c1"># Only keep the maximum so far</span>
-				<span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">COUNT</span><span class="p">:</span>
-					<span class="n">COUNT</span> <span class="o">=</span> <span class="n">count</span>
-					<span class="c1"># Update coefficients</span>
-					<span class="n">COEFF</span> <span class="o">=</span> <span class="p">[</span><span class="n">sgna</span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="n">sgnb</span><span class="o">*</span><span class="n">b</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">COEFF</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">COEFF</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">P</span><span class="p">:</span>
+        <span class="c1"># Iterate over +/- a,b</span>
+        <span class="k">for</span> <span class="n">sgna</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">sgnb</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="c1"># No. of primes given by a,b</span>
+                <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="c1"># The quadratic given by a,b</span>
+
+                <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">sgna</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">sgnb</span><span class="o">*</span><span class="n">b</span>
+                <span class="c1"># Keep going until f(x) is not prime</span>
+                <span class="k">while</span> <span class="n">f</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">count</span><span class="p">)):</span>
+                    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="c1"># Only keep the maximum so far</span>
+                <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">COUNT</span><span class="p">:</span>
+                    <span class="n">COUNT</span> <span class="o">=</span> <span class="n">count</span>
+                    <span class="c1"># Update coefficients</span>
+                    <span class="n">COEFF</span> <span class="o">=</span> <span class="p">[</span><span class="n">sgna</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">sgnb</span><span class="o">*</span><span class="n">b</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">COEFF</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">COEFF</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 11 comments and 3 empty lines.</p>
+<p>This code has 10 comments and 7 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="medium">1.17 s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.8 KB</span>.</p>
 

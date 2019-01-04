@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a5fceec4f8e12b6750967f89e3a6e712168a15bc46c19d43eac373e2e4ce8429.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.cd7cbdee58e87879170f2f7f1340a46ab757d7a1f527ad68d84e38659b5ca8b9.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -167,42 +167,44 @@ factor.</p>
 29
 30
 31
-32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="c1"># Sieve of Eratosthenes</span>
-	<span class="c1"># Finds the primes up to n</span>
-	<span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
-	<span class="n">sieve</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-		<span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
-			<span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-			<span class="c1"># Cross out all multiples of p</span>
-			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-				<span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-	<span class="k">return</span> <span class="n">primes</span>
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sieve of Eratosthenes&quot;&quot;&quot;</span>
+    <span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sieve</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
+            <span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="c1"># Cross out all multiples of p</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+                <span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="n">primes</span>
+
 
 <span class="k">def</span> <span class="nf">prime_factors</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="c1"># Finds the prime factors of n</span>
-	<span class="n">factors</span> <span class="o">=</span> <span class="p">[]</span>
-	<span class="n">P</span> <span class="o">=</span> <span class="n">primes</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mf">0.5</span><span class="p">))</span>
-	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span><span class="p">:</span>
-		<span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-			<span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-			<span class="c1"># Divide out all factors of p</span>
-			<span class="k">while</span> <span class="n">n</span> <span class="o">%</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-				<span class="n">n</span> <span class="o">//=</span> <span class="n">p</span>
-	<span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-		<span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">factors</span>
+    <span class="sd">&quot;&quot;&quot;Finds the prime factors of n&quot;&quot;&quot;</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">primes</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mf">0.5</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="c1"># Divide out all factors of p</span>
+            <span class="k">while</span> <span class="n">n</span> <span class="o">%</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">n</span> <span class="o">//=</span> <span class="n">p</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">factors</span>
+
 
 <span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-	<span class="n">ans</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">prime_factors</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">prime_factors</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 5 comments and 2 empty lines.</p>
+<p>This code has 2 comments and 4 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">163 ms</span> with a peak memory usage of <span style="font-weight: bold" class="fast">17.1 KB</span>.</p>
 
@@ -1553,9 +1555,9 @@ factor.</p>
 	
 	<div class="post"><a href="/euler/10/">Project Euler 10: Summation of Primes</a></div>
 	
-	<div class="post"><a href="/euler/12/">Project Euler 12: Highly Divisible Triangular Number</a></div>
-	
 	<div class="post"><a href="/euler/7/">Project Euler 7: 10001st Prime</a></div>
+	
+	<div class="post"><a href="/euler/5/">Project Euler 5: Smallest Multiple</a></div>
 	
 </div>
 

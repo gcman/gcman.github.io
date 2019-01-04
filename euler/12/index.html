@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a5fceec4f8e12b6750967f89e3a6e712168a15bc46c19d43eac373e2e4ce8429.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.cd7cbdee58e87879170f2f7f1340a46ab757d7a1f527ad68d84e38659b5ca8b9.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -196,59 +196,77 @@ gives complexity \(O(\sqrt{M}\log \log M + \frac{M}{\log M}\log M) = O(M)\).</p>
 46
 47
 48
-49</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Sieve of Eratosthenes</span>
-<span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
-	<span class="n">sieve</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-		<span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
-			<span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-				<span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-	<span class="k">return</span> <span class="n">primes</span>
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sieve of Eratosthenes&quot;&quot;&quot;</span>
+    <span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sieve</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
+            <span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="c1"># Cross out all multiples of p</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+                <span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">return</span> <span class="n">primes</span>
+
 
 <span class="n">P</span> <span class="o">=</span> <span class="n">primes</span><span class="p">(</span><span class="mi">202</span><span class="p">)</span>
-<span class="c1"># Returns the prime factorization of n</span>
+
+
 <span class="k">def</span> <span class="nf">prime_factors</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="n">factors</span> <span class="o">=</span> <span class="p">{}</span>
-	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span><span class="p">:</span>
-		<span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-			<span class="n">factors</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-			<span class="k">while</span> <span class="n">n</span> <span class="o">%</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-				<span class="n">n</span> <span class="o">//=</span> <span class="n">p</span>
-				<span class="n">factors</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-	<span class="k">return</span> <span class="n">factors</span>
+    <span class="sd">&quot;&quot;&quot;Return the prime factorization of n&quot;&quot;&quot;</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">factors</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">while</span> <span class="n">n</span> <span class="o">%</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">n</span> <span class="o">//=</span> <span class="n">p</span>
+                <span class="n">factors</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">factors</span>
+
 
 <span class="c1"># Memoize the latest num_of_factors</span>
-<span class="n">LATEST</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="c1"># Computes the number of factors of n</span>
-<span class="k">def</span> <span class="nf">num_of_factors</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="k">global</span> <span class="n">LATEST</span>
-	<span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="n">LATEST</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-		<span class="k">return</span> <span class="n">LATEST</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-	<span class="n">P</span> <span class="o">=</span> <span class="n">prime_factors</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-	<span class="n">ans</span> <span class="o">=</span> <span class="mi">1</span>
-	<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">P</span><span class="p">:</span>
-		<span class="n">ans</span> <span class="o">*=</span> <span class="n">P</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
-	<span class="n">LATEST</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">ans</span><span class="p">]</span>
-	<span class="k">return</span> <span class="n">ans</span>
+<span class="n">LATEST</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 
-<span class="c1"># Get the no. of factors of T_n</span>
+
+<span class="k">def</span> <span class="nf">factors</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Find the number of factors of n&quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">LATEST</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="n">LATEST</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">LATEST</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">prime_factors</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">P</span><span class="p">:</span>
+        <span class="n">ans</span> <span class="o">*=</span> <span class="n">P</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">LATEST</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">ans</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">ans</span>
+
+
 <span class="k">def</span> <span class="nf">triangle_factors</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="n">k</span> <span class="o">=</span> <span class="n">prime_factors</span><span class="p">((</span><span class="n">n</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="n">n</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
-	<span class="k">return</span> <span class="n">num_of_factors</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">num_of_factors</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">k</span> <span class="o">//</span> <span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="sd">&quot;&quot;&quot;Find the number of factors of T_n&quot;&quot;&quot;</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">prime_factors</span><span class="p">((</span><span class="n">n</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">factors</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">factors</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">k</span> <span class="o">//</span> <span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
 
 <span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-	<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-	<span class="k">while</span> <span class="n">triangle_factors</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">:</span>
-		<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">triangle_factors</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 5 comments and 4 empty lines.</p>
+<p>This code has 2 comments and 12 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">106 ms</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.9 KB</span>.</p>
 
@@ -1599,9 +1617,9 @@ gives complexity \(O(\sqrt{M}\log \log M + \frac{M}{\log M}\log M) = O(M)\).</p>
 	
 	<div class="post"><a href="/prime-reciprocals/">Prime Reciprocals Diverge!</a></div>
 	
-	<div class="post"><a href="/euler/5/">Project Euler 5: Smallest Multiple</a></div>
+	<div class="post"><a href="/euler/9/">Project Euler 9: Special Pythagorean Triplets</a></div>
 	
-	<div class="post"><a href="/euler/10/">Project Euler 10: Summation of Primes</a></div>
+	<div class="post"><a href="/euler/5/">Project Euler 5: Smallest Multiple</a></div>
 	
 </div>
 

@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a5fceec4f8e12b6750967f89e3a6e712168a15bc46c19d43eac373e2e4ce8429.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.cd7cbdee58e87879170f2f7f1340a46ab757d7a1f527ad68d84e38659b5ca8b9.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -164,49 +164,55 @@ ones that are below \(N\). Our solution has time complexity
 36
 37
 38
-39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Sieve of Eratosthenes</span>
-<span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
-	<span class="n">sieve</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-		<span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
-			<span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-				<span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-	<span class="k">return</span> <span class="n">primes</span>
+39
+40
+41
+42</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sieve of Eratosthenes&quot;&quot;&quot;</span>
+    <span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sieve</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
+            <span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="c1"># Cross out all multiples of p</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+                <span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">return</span> <span class="n">primes</span>
 
-<span class="c1"># Get all the rotated versions of integer x</span>
+
 <span class="k">def</span> <span class="nf">rotations</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-	<span class="n">x</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-	<span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
-	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-		<span class="c1"># Move last char in x to front</span>
-		<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-		<span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-	<span class="k">return</span> <span class="n">out</span>
+    <span class="sd">&quot;&quot;&quot;Find all rotations of integer x&quot;&quot;&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+        <span class="c1"># Move last char in x to front</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">out</span>
+
 
 <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">primes</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">1e6</span><span class="p">))</span>
 <span class="n">CIRCULAR</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 <span class="c1"># Make sure we don&#39;t exceed upper bound</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">]:</span>
-	<span class="c1"># Exclude primes with even digits or 5; they can&#39;t be circular</span>
-	<span class="c1"># Except when x = 2 or x = 5; include those, because they are circular</span>
-	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">([</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="s2">&quot;024568&quot;</span><span class="p">]):</span>
-		<span class="c1"># Avoid duplicates</span>
-		<span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">CIRCULAR</span><span class="p">:</span>
-			<span class="n">ROT</span> <span class="o">=</span> <span class="n">rotations</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-			<span class="c1"># Make sure all of the rotations are prime</span>
-			<span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">rot</span> <span class="ow">in</span> <span class="n">P</span> <span class="k">for</span> <span class="n">rot</span> <span class="ow">in</span> <span class="n">ROT</span><span class="p">]):</span>
-				<span class="k">for</span> <span class="n">rot</span> <span class="ow">in</span> <span class="n">ROT</span><span class="p">:</span>
-					<span class="c1"># Add the rotations that are less than N</span>
-					<span class="k">if</span> <span class="n">rot</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">:</span>
-						<span class="n">CIRCULAR</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span>
+    <span class="c1"># Exclude primes with even digits or 5; they can&#39;t be circular</span>
+    <span class="c1"># Except when x = 2 or x = 5; include those, because they are circular</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">([</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="s2">&quot;024568&quot;</span><span class="p">]):</span>
+        <span class="c1"># Avoid duplicates</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">CIRCULAR</span><span class="p">:</span>
+            <span class="n">ROT</span> <span class="o">=</span> <span class="n">rotations</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="c1"># Make sure all of the rotations are prime</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">rot</span> <span class="ow">in</span> <span class="n">P</span> <span class="k">for</span> <span class="n">rot</span> <span class="ow">in</span> <span class="n">ROT</span><span class="p">]):</span>
+                <span class="k">for</span> <span class="n">rot</span> <span class="ow">in</span> <span class="n">ROT</span><span class="p">:</span>
+                    <span class="c1"># Add the rotations that are less than N</span>
+                    <span class="k">if</span> <span class="n">rot</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">:</span>
+                        <span class="n">CIRCULAR</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">CIRCULAR</span><span class="p">))</span>
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 9 comments and 2 empty lines.</p>
+<p>This code has 8 comments and 4 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="medium">4.75 s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">19.5 KB</span>.</p>
 
@@ -1555,9 +1561,9 @@ ones that are below \(N\). Our solution has time complexity
 <h3>Related Posts</h3>
 <div id="related">
 	
-	<div class="post"><a href="/euler/37/">Project Euler 37: Truncatable Primes</a></div>
-	
 	<div class="post"><a href="/euler/36/">Project Euler 36: Double Base Palindromes</a></div>
+	
+	<div class="post"><a href="/euler/37/">Project Euler 37: Truncatable Primes</a></div>
 	
 	<div class="post"><a href="/euler/22/">Project Euler 22: Names Scores</a></div>
 	

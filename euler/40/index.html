@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a5fceec4f8e12b6750967f89e3a6e712168a15bc46c19d43eac373e2e4ce8429.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.cd7cbdee58e87879170f2f7f1340a46ab757d7a1f527ad68d84e38659b5ca8b9.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -189,54 +189,64 @@ find.</p>
 41
 42
 43
-44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">MAX</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">18</span>
+44
+45
+46
+47
+48
+49</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">MAX</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">18</span>
 
-<span class="c1"># Find the block that dig is part of</span>
-<span class="c1"># and its position in the block</span>
+
 <span class="k">def</span> <span class="nf">loc</span><span class="p">(</span><span class="n">dig</span><span class="p">):</span>
-	<span class="c1"># block in which dig resides</span>
-	<span class="n">block</span> <span class="o">=</span> <span class="mi">1</span>
-	<span class="c1"># no. of integers in block-th block</span>
-	<span class="n">fact</span> <span class="o">=</span> <span class="mi">9</span>
-	<span class="c1"># fact * block represents the length of the block-th block</span>
-	<span class="c1"># If what&#39;s left of dig is less than fact*block,</span>
-	<span class="c1"># then dig is partway through &#39;block&#39;; we&#39;ve found the right block</span>
-	<span class="c1"># Make sure block is not too big, based on input</span>
-	<span class="k">while</span> <span class="n">dig</span> <span class="o">-</span> <span class="n">fact</span><span class="o">*</span><span class="n">block</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">fact</span><span class="o">*</span><span class="n">block</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="o">*</span><span class="n">MAX</span><span class="p">:</span>
-		<span class="c1"># subtract away the length of the currrent block</span>
-		<span class="n">dig</span> <span class="o">-=</span> <span class="n">fact</span><span class="o">*</span><span class="n">block</span>
-		<span class="c1"># Move to the next block</span>
-		<span class="n">block</span> <span class="o">+=</span> <span class="mi">1</span>
-		<span class="c1"># The next block contains ten times more numbers</span>
-		<span class="n">fact</span> <span class="o">*=</span> <span class="mi">10</span>
-	<span class="c1"># Subtract 1 to zero-index position of dig in block</span>
-	<span class="k">return</span> <span class="n">dig</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">block</span>
+    <span class="sd">&quot;&quot;&quot;Find block that dig is part of</span>
+<span class="sd">    and its position in the block&quot;&quot;&quot;</span>
+    <span class="c1"># block in which dig resides</span>
+    <span class="n">block</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># no. of integers in block-th block</span>
+    <span class="n">fact</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="c1"># fact * block represents the length of the block-th block</span>
+    <span class="c1"># If what&#39;s left of dig is less than fact*block,</span>
+    <span class="c1"># then dig is partway through &#39;block&#39;; we&#39;ve found the right block</span>
+    <span class="c1"># Make sure block is not too big, based on input</span>
+    <span class="k">while</span> <span class="n">dig</span> <span class="o">-</span> <span class="n">fact</span><span class="o">*</span><span class="n">block</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">fact</span><span class="o">*</span><span class="n">block</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="o">*</span><span class="n">MAX</span><span class="p">:</span>
+        <span class="c1"># subtract away the length of the currrent block</span>
+        <span class="n">dig</span> <span class="o">-=</span> <span class="n">fact</span><span class="o">*</span><span class="n">block</span>
+        <span class="c1"># Move to the next block</span>
+        <span class="n">block</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># The next block contains ten times more numbers</span>
+        <span class="n">fact</span> <span class="o">*=</span> <span class="mi">10</span>
+    <span class="c1"># Subtract 1 to zero-index position of dig in block</span>
+    <span class="k">return</span> <span class="n">dig</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">block</span>
 
-<span class="c1"># Get the value of the n-th digit of Champernowne&#39;s constant</span>
+
 <span class="k">def</span> <span class="nf">digit</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="n">pos</span><span class="p">,</span><span class="n">block</span> <span class="o">=</span> <span class="n">loc</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-	<span class="c1"># First num in block is 10**(block-1)</span>
-	<span class="c1"># pos//block nums precede the number that the n-th digit is part of</span>
-	<span class="c1"># So the number dig is part of is 10**(block-1) + pos//block</span>
-	<span class="c1"># dig is the pos%block-th digit in its number</span>
-	<span class="n">dig</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">block</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">pos</span><span class="o">//</span><span class="n">block</span><span class="p">)[</span><span class="n">pos</span><span class="o">%</span><span class="n">block</span><span class="p">])</span>
-	<span class="k">return</span> <span class="n">dig</span>
+    <span class="sd">&quot;&quot;&quot;n-th digit of Champernowne&#39;s constant&quot;&quot;&quot;</span>
+    <span class="n">pos</span><span class="p">,</span> <span class="n">block</span> <span class="o">=</span> <span class="n">loc</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="c1"># First num in block is 10**(block-1)</span>
+    <span class="c1"># pos//block nums precede the number that the n-th digit is part of</span>
+    <span class="c1"># So the number dig is part of is 10**(block-1) + pos//block</span>
+    <span class="c1"># dig is the pos%block-th digit in its number</span>
+    <span class="n">dig</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">block</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">pos</span><span class="o">//</span><span class="n">block</span><span class="p">)[</span><span class="n">pos</span> <span class="o">%</span> <span class="n">block</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">dig</span>
 
-<span class="c1"># Multiply the i-th digit for each given i in arr</span>
+
 <span class="k">def</span> <span class="nf">dig_prod</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
-	<span class="n">out</span> <span class="o">=</span> <span class="mi">1</span>
-	<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
-		<span class="n">out</span> <span class="o">*=</span> <span class="n">digit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">out</span>
+    <span class="sd">&quot;&quot;&quot;Product of i-th digits of Champ. constant,</span>
+<span class="sd">    where i are the elements of arr&quot;&quot;&quot;</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">*=</span> <span class="n">digit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
+
 
 <span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-	<span class="n">D</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">dig_prod</span><span class="p">(</span><span class="n">D</span><span class="p">))</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">dig_prod</span><span class="p">(</span><span class="n">D</span><span class="p">))</span>
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 18 comments and 4 empty lines.</p>
+<p>This code has 14 comments and 8 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">less than 0.1 s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.7 KB</span>.</p>
 

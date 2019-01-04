@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a5fceec4f8e12b6750967f89e3a6e712168a15bc46c19d43eac373e2e4ce8429.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.cd7cbdee58e87879170f2f7f1340a46ab757d7a1f527ad68d84e38659b5ca8b9.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -173,43 +173,39 @@ test cases.</p>
 26
 27
 28
-29
-30
-31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">MAX</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e6</span><span class="p">)</span>
-<span class="n">memo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">MAX</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">phi</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;phi(k) for all k &lt; n&quot;&quot;&quot;</span>
+    <span class="n">PHI</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># If p is prime, set its totient value</span>
+        <span class="c1"># and that of all its multiples</span>
+        <span class="k">if</span> <span class="n">PHI</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">PHI</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">-</span><span class="mi">1</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+                <span class="c1"># Initialize phi(i)</span>
+                <span class="k">if</span> <span class="n">PHI</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">PHI</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+                <span class="c1"># Use Euler product formula</span>
+                <span class="n">PHI</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="n">PHI</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">//</span><span class="n">p</span>
+    <span class="k">return</span> <span class="n">PHI</span>
 
-<span class="c1"># Sieve of Eratosthenes</span>
-<span class="c1"># Return totient of i for all i &lt; n</span>
-<span class="k">def</span> <span class="nf">phi</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="n">PHI</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-		<span class="c1"># If p is prime, set its totient value</span>
-		<span class="c1"># and that of all its multiples</span>
-		<span class="k">if</span> <span class="n">PHI</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-			<span class="n">PHI</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">-</span><span class="mi">1</span>
-			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-				<span class="c1"># Initialize phi(i)</span>
-				<span class="k">if</span> <span class="n">PHI</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-					<span class="n">PHI</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
-				<span class="c1"># Use Euler product formula</span>
-				<span class="n">PHI</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="n">PHI</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">//</span><span class="n">p</span>
-	<span class="k">return</span> <span class="n">PHI</span>
 
 <span class="c1"># Create prefix sum array</span>
 <span class="n">S</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">MAX</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e6</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">phi</span><span class="p">(</span><span class="n">MAX</span><span class="p">):</span>
-	<span class="n">count</span> <span class="o">+=</span> <span class="n">n</span>
-	<span class="n">S</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="n">n</span>
+    <span class="n">S</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
 
 <span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">N</span><span class="p">])</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">N</span><span class="p">])</span>
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 7 comments and 3 empty lines.</p>
+<p>This code has 5 comments and 3 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="medium">1.37 s</span> with a peak memory usage of <span style="font-weight: bold" class="medium">102.8 KB</span>.</p>
 
@@ -1562,7 +1558,7 @@ test cases.</p>
 	
 	<div class="post"><a href="/euler/71/">Project Euler 71: Ordered Fractions</a></div>
 	
-	<div class="post"><a href="/euler/63/">Project Euler 63: Powerful Digit Counts</a></div>
+	<div class="post"><a href="/euler/65/">Project Euler 65: Convergents of $e$</a></div>
 	
 </div>
 

@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a5fceec4f8e12b6750967f89e3a6e712168a15bc46c19d43eac373e2e4ce8429.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.cd7cbdee58e87879170f2f7f1340a46ab757d7a1f527ad68d84e38659b5ca8b9.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -164,42 +164,48 @@ a brute force solution would have time complexity \(O(2^n)\).</p>
 29
 30
 31
-32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Get indices of adjacent entries to (i,j) in row above</span>
-<span class="k">def</span> <span class="nf">parents</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">):</span>
-	<span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
-	<span class="k">if</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">:</span>
-		<span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-	<span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">:</span>
-		<span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">out</span>
+32
+33
+34
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parents</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Indices of adjacent entries to (i,j) in row above&quot;&quot;&quot;</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">:</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
+
 
 <span class="k">def</span> <span class="nf">max_sum</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
-	<span class="c1"># The previous rows max_sums</span>
-	<span class="n">parent</span> <span class="o">=</span> <span class="p">[]</span>
-	<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
-		<span class="n">curr</span> <span class="o">=</span> <span class="p">[]</span>
-		<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-			<span class="c1"># Handle the case where there are no parents</span>
-			<span class="n">curr</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-		<span class="k">else</span><span class="p">:</span>
-			<span class="c1"># Get the higher parent sum and add the current entry</span>
-			<span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">elem</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
-				<span class="n">curr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elem</span> <span class="o">+</span> <span class="nb">max</span><span class="p">([</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">parents</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)]))</span>
-		<span class="c1"># We&#39;re done with the row</span>
-		<span class="c1"># So move it into memory for the next row</span>
-		<span class="n">parent</span> <span class="o">=</span> <span class="n">curr</span>
-	<span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+    <span class="sd">&quot;&quot;&quot;Maximal path sum down triangular array&quot;&quot;&quot;</span>
+    <span class="c1"># The previous rows max_sums</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+        <span class="n">curr</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Handle the case where there are no parents</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Get the higher parent sum and add the current entry</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">elem</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+                <span class="n">curr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elem</span> <span class="o">+</span> <span class="nb">max</span><span class="p">([</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">parents</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)]))</span>
+        <span class="c1"># We&#39;re done with the row</span>
+        <span class="c1"># So move it into memory for the next row</span>
+        <span class="n">parent</span> <span class="o">=</span> <span class="n">curr</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+
 
 <span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-	<span class="n">rows</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
-	<span class="n">ans</span> <span class="o">=</span> <span class="n">max_sum</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="n">max_sum</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 6 comments and 2 empty lines.</p>
+<p>This code has 5 comments and 4 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">less than 0.1 s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.7 KB</span>.</p>
 

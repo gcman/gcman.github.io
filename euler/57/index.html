@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a5fceec4f8e12b6750967f89e3a6e712168a15bc46c19d43eac373e2e4ce8429.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.cd7cbdee58e87879170f2f7f1340a46ab757d7a1f527ad68d84e38659b5ca8b9.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -155,21 +155,23 @@ has time complexity \(O(N)\).</p>
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Implement eq. (2)</span>
-<span class="k">def</span> <span class="nf">next_convergent</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">):</span>
-	<span class="k">return</span> <span class="n">p</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">q</span><span class="p">,</span><span class="n">p</span><span class="o">+</span><span class="n">q</span>
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">next_convergent</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Implement eq. (2)&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">p</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">q</span><span class="p">,</span> <span class="n">p</span><span class="o">+</span><span class="n">q</span>
 
-<span class="n">p</span><span class="p">,</span><span class="n">q</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span>
+
+<span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
 <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-	<span class="n">p</span><span class="p">,</span><span class="n">q</span> <span class="o">=</span> <span class="n">next_convergent</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">)</span>
-	<span class="c1"># Does num have more digits than den?</span>
-	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">q</span><span class="p">)):</span>
-		<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="n">next_convergent</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+    <span class="c1"># Does num have more digits than den?</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">q</span><span class="p">)):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 2 comments and 1 empty lines.</p>
+<p>This code has 1 comments and 2 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">less than 0.1 s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.8 KB</span>.</p>
 
@@ -1518,11 +1520,11 @@ has time complexity \(O(N)\).</p>
 <h3>Related Posts</h3>
 <div id="related">
 	
-	<div class="post"><a href="/euler/44/">Project Euler 44: Pentagonal Numbers</a></div>
-	
-	<div class="post"><a href="/euler/69/">Project Euler 69: Totient Maximum</a></div>
-	
 	<div class="post"><a href="/euler/65/">Project Euler 65: Convergents of $e$</a></div>
+	
+	<div class="post"><a href="/euler/63/">Project Euler 63: Powerful Digit Counts</a></div>
+	
+	<div class="post"><a href="/euler/44/">Project Euler 44: Pentagonal Numbers</a></div>
 	
 </div>
 

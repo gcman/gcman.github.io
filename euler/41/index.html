@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a5fceec4f8e12b6750967f89e3a6e712168a15bc46c19d43eac373e2e4ce8429.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.cd7cbdee58e87879170f2f7f1340a46ab757d7a1f527ad68d84e38659b5ca8b9.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -187,41 +187,47 @@ complexity for this solution does not depend on the size of \(N\), and so it is
 48
 49
 50
-51</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">permutations</span>
+51
+52
+53
+54</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">permutations</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 
-<span class="c1"># Sieve of Eratosthenes</span>
-<span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
-	<span class="n">sieve</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-		<span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
-			<span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-				<span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-	<span class="k">return</span> <span class="n">primes</span>
 
-<span class="c1"># Return all n-digit pandigital numbers</span>
-<span class="k">def</span> <span class="nf">pandigital</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="n">pan</span> <span class="o">=</span> <span class="s2">&quot;123456789&quot;</span>
-	<span class="c1"># Permute first n characters of pan</span>
-	<span class="n">out</span> <span class="o">=</span> <span class="n">permutations</span><span class="p">(</span><span class="n">pan</span><span class="p">[:</span><span class="n">n</span><span class="p">])</span>
-	<span class="c1"># Join each tuple into a str, then an int</span>
-	<span class="k">return</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">out</span><span class="p">]</span>
-
-<span class="c1"># Binary search</span>
 <span class="k">def</span> <span class="nf">bs</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-	<span class="k">while</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">:</span>
-		<span class="n">mid</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">;</span>
-		<span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
-			<span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span>
-		<span class="k">elif</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">:</span>
-			<span class="n">l</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
-		<span class="k">else</span><span class="p">:</span>
-			<span class="n">r</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
-	<span class="k">if</span> <span class="n">r</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-		<span class="k">return</span> <span class="n">r</span>
-	<span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
+    <span class="sd">&quot;&quot;&quot;Binary Search arr from index l to r for x&quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sieve of Eratosthenes&quot;&quot;&quot;</span>
+    <span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sieve</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
+            <span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="c1"># Cross out all multiples of p</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+                <span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">return</span> <span class="n">primes</span>
+
+
+<span class="k">def</span> <span class="nf">pandigital</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Find all n-digit pandigital numbers&quot;&quot;&quot;</span>
+    <span class="n">pan</span> <span class="o">=</span> <span class="s2">&quot;123456789&quot;</span>
+    <span class="c1"># Permute first n characters of pan</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">permutations</span><span class="p">(</span><span class="n">pan</span><span class="p">[:</span><span class="n">n</span><span class="p">])</span>
+    <span class="c1"># Join each tuple into a str, then an int</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">out</span><span class="p">]</span>
+
 
 <span class="c1"># We need primes up to int(sqrt(10**7 - 1)) = 3162</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">primes</span><span class="p">(</span><span class="mi">3162</span><span class="p">)</span>
@@ -229,19 +235,19 @@ complexity for this solution does not depend on the size of \(N\), and so it is
 <span class="n">PAN</span> <span class="o">=</span> <span class="n">pandigital</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">pandigital</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 <span class="n">PAN_PRIME</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">pan</span> <span class="ow">in</span> <span class="n">PAN</span><span class="p">:</span>
-	<span class="c1"># Test if pan is in our list of primes</span>
-	<span class="c1"># Or it is not divisible by any prime &lt;= sqrt(pan)</span>
-	<span class="k">if</span> <span class="n">pan</span> <span class="ow">in</span> <span class="n">P</span> <span class="ow">or</span> <span class="nb">all</span><span class="p">([</span><span class="n">pan</span><span class="o">%</span><span class="n">p</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pan</span><span class="p">))]):</span>
-		<span class="n">PAN_PRIME</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pan</span><span class="p">)</span>
+    <span class="c1"># Test if pan is in our list of primes</span>
+    <span class="c1"># Or it is not divisible by any prime &lt;= sqrt(pan)</span>
+    <span class="k">if</span> <span class="n">pan</span> <span class="ow">in</span> <span class="n">P</span> <span class="ow">or</span> <span class="nb">all</span><span class="p">([</span><span class="n">pan</span> <span class="o">%</span> <span class="n">p</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pan</span><span class="p">))]):</span>
+        <span class="n">PAN_PRIME</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pan</span><span class="p">)</span>
 
 <span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-	<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">bs</span><span class="p">(</span><span class="n">PAN_PRIME</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">PAN_PRIME</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">bs</span><span class="p">(</span><span class="n">PAN_PRIME</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">PAN_PRIME</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 9 comments and 5 empty lines.</p>
+<p>This code has 7 comments and 9 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">678 ms</span> with a peak memory usage of <span style="font-weight: bold" class="fast">9.0 KB</span>.</p>
 
@@ -1592,9 +1598,9 @@ complexity for this solution does not depend on the size of \(N\), and so it is
 	
 	<div class="post"><a href="/prime-reciprocals/">Prime Reciprocals Diverge!</a></div>
 	
-	<div class="post"><a href="/euler/32/">Project Euler 32: Pandigital Products</a></div>
+	<div class="post"><a href="/euler/37/">Project Euler 37: Truncatable Primes</a></div>
 	
-	<div class="post"><a href="/euler/35/">Project Euler 35: Circular Primes</a></div>
+	<div class="post"><a href="/euler/46/">Project Euler 46: Goldbach&#39;s Other Conjecture</a></div>
 	
 </div>
 

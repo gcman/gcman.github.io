@@ -20,7 +20,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a5fceec4f8e12b6750967f89e3a6e712168a15bc46c19d43eac373e2e4ce8429.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.cd7cbdee58e87879170f2f7f1340a46ab757d7a1f527ad68d84e38659b5ca8b9.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -174,41 +174,53 @@ where \(N\) is the maximum side length we must search.</p>
 46
 47
 48
-49</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">s</span><span class="p">):</span>
-	<span class="k">if</span> <span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-		<span class="k">return</span> <span class="bp">False</span>
-	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-		<span class="k">if</span> <span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-			<span class="k">return</span> <span class="bp">False</span>
-	<span class="k">return</span> <span class="bp">True</span>
+49
+50
+51
+52
+53
+54
+55</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Helper function for Miller-Rabin</span>
+<span class="sd">    Test if n is definitely composite&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">True</span>
 
-<span class="c1"># Miller-Rabin primality test</span>
-<span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">precision_for_huge_n</span><span class="o">=</span><span class="mi">16</span><span class="p">):</span>
-	<span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">known_primes</span> <span class="ow">or</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
-		<span class="k">return</span> <span class="bp">True</span>
-	<span class="k">if</span> <span class="nb">any</span><span class="p">((</span><span class="n">n</span> <span class="o">%</span> <span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">known_primes</span><span class="p">):</span>
-		<span class="k">return</span> <span class="bp">False</span>
-	<span class="n">d</span><span class="p">,</span><span class="n">s</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span>
-	<span class="k">while</span> <span class="ow">not</span> <span class="n">d</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
-		<span class="n">d</span><span class="p">,</span><span class="n">s</span> <span class="o">=</span> <span class="n">d</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">,</span><span class="n">s</span> <span class="o">+</span> <span class="mi">1</span>
-	<span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1373653</span><span class="p">:</span> 
-		<span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-	<span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">25326001</span><span class="p">:</span> 
-		<span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-	<span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">118670087467</span><span class="p">:</span> 
-		<span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3215031751</span><span class="p">:</span> 
-			<span class="k">return</span> <span class="bp">False</span>
-		<span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
-	<span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2152302898747</span><span class="p">:</span> 
-		<span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
-	<span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">3474749660383</span><span class="p">:</span> 
-		<span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">))</span>
-	<span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">341550071728321</span><span class="p">:</span> 
-		<span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">17</span><span class="p">))</span>
-	<span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">known_primes</span><span class="p">[:</span><span class="n">precision_for_huge_n</span><span class="p">])</span>
- 
-<span class="n">known_primes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">known_primes</span> <span class="o">+=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
+
+<span class="n">known_primes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">16</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Miller-Rabin primality test&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">known_primes</span> <span class="ow">or</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">((</span><span class="n">n</span> <span class="o">%</span> <span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">known_primes</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="n">d</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">d</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">d</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">d</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1373653</span><span class="p">:</span>
+            <span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">25326001</span><span class="p">:</span>
+            <span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">118670087467</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3215031751</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+            <span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2152302898747</span><span class="p">:</span>
+            <span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">3474749660383</span><span class="p">:</span>
+            <span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">341550071728321</span><span class="p">:</span>
+            <span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">))</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">try_composite</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">known_primes</span><span class="p">[:</span><span class="n">precision</span><span class="p">])</span>
+
+
+<span class="n">known_primes</span> <span class="o">+=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
 
 <span class="c1"># Side length of square</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
@@ -216,17 +228,17 @@ where \(N\) is the maximum side length we must search.</p>
 <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-	<span class="c1"># Go to next odd number</span>
-	<span class="n">n</span> <span class="o">+=</span> <span class="mi">2</span>
-	<span class="c1"># Add all the primes of the form n^2 - i(n-1), i in {1,2,3}</span>
-	<span class="n">p</span> <span class="o">+=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">is_prime</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)]])</span>
-	<span class="k">if</span> <span class="mi">100</span><span class="o">*</span><span class="n">p</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">:</span>
-		<span class="k">break</span>
+    <span class="c1"># Go to next odd number</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="mi">2</span>
+    <span class="c1"># Add all the primes of the form n^2 - i(n-1), i in {1,2,3}</span>
+    <span class="n">p</span> <span class="o">+=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">is_prime</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]])</span>
+    <span class="k">if</span> <span class="mi">100</span><span class="o">*</span><span class="n">p</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">:</span>
+        <span class="k">break</span>
 <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 5 comments and 2 empty lines.</p>
+<p>This code has 4 comments and 7 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">492 ms</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.9 KB</span>.</p>
 
@@ -1579,7 +1591,7 @@ where \(N\) is the maximum side length we must search.</p>
 	
 	<div class="post"><a href="/euler/35/">Project Euler 35: Circular Primes</a></div>
 	
-	<div class="post"><a href="/euler/56/">Project Euler 56: Powerful Digit Sum</a></div>
+	<div class="post"><a href="/euler/44/">Project Euler 44: Pentagonal Numbers</a></div>
 	
 </div>
 
