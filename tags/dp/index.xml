@@ -28,33 +28,5 @@ How many ways can \(N\) be written as the sum of at least two positive integers?
 My Algorithm Please see my solution to Project Euler 31, as we use the same dynamic programming techniques.</description>
     </item>
     
-    <item>
-      <title>Project Euler 77: Prime Summations</title>
-      <link>https://gautammanohar.com/euler/77/</link>
-      <pubDate>Mon, 23 Jul 2018 00:00:00 -0400</pubDate>
-      
-      <guid>https://gautammanohar.com/euler/77/</guid>
-      <description>Problem Statement It is possible to write 10 as the sum of primes in exactly 5 different ways:
-\begin{equation*} \begin{split} 10 &amp;amp;= 7+3 \\
-&amp;amp;= 5+5 \\
-&amp;amp;= 5+3+2 \\
-&amp;amp;= 2+2+1 \\
-&amp;amp;= 3+3+2+2 \\
-&amp;amp;= 2+2+2+2+2 \end{split} \end{equation*}
-How many ways can \(N\) be written as the sum of primes?
-My Algorithm Please see my solution to Project Euler 31, as we use the same dynamic programming techniques.</description>
-    </item>
-    
-    <item>
-      <title>Project Euler 31: Coin Sums</title>
-      <link>https://gautammanohar.com/euler/31/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
-      
-      <guid>https://gautammanohar.com/euler/31/</guid>
-      <description>Problem Statement In England, the currency is made up of pounds (£) and pence (p), and there are eight coins in general circulation: 1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p). It is possible to make £2 in the following way:
-\begin{equation*} 1\cdot\mathrm{£}1 + 1\cdot50\mathrm{p} + 2 \cdot 20\mathrm{p} + 1 \cdot 5\mathrm{p} + 1 \cdot 2\mathrm{p} + 3\cdot1\mathrm{p} \end{equation*}
-In how many ways can \(N\) pence be made from any denomination of coins?</description>
-    </item>
-    
   </channel>
 </rss>

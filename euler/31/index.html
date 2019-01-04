@@ -8,7 +8,7 @@
 <meta name="copyright" content="Gautam Manohar" />
 <meta name="date" content="2018-06-24" />
 <meta name="description" content="My solution to problem 31 of Project Euler.">
-<meta name="keywords" content="dp, { .Section }}" /><title>Project Euler 31: Coin Sums &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="keywords" content="dynamic-programming, { .Section }}" /><title>Project Euler 31: Coin Sums &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
 <meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
 <meta name="msapplication-TileColor" content="#da532c" />
 <meta name="theme-color"             content="#ffffff" />
@@ -90,7 +90,7 @@
 <div class="main">
   <article class="article euler"><header>
   <h1 class="title">
-    <a href="https://gautammanohar.com/euler/31/" rel="bookmark" title ="Link to Project Euler 31: Coin Sums">Project Euler 31: Coin Sums</a>
+    <a href="https://gautammanohar.com/euler/31/" rel="bookmark" title="Link to Project Euler 31: Coin Sums">Project Euler 31: Coin Sums</a>
   </h1>
   
 </header>
@@ -115,14 +115,16 @@ your answer modulo \(10^9 + 7\).</p>
 breaking up a problem into smaller, reusable chunks. To make \(N\) pence, we can
 first make \(N - c\) pence, then add one \(c\) pence coin, where \(c\) is the value of
 some denomination. Then the number of ways we can make \(N\) pence is the sum of
-\(N - c\) over all valid \(c\). Using this principle, our solution is simple. We
-maintain a list <code>coins` such that `coins[n]</code> is the number of ways we can make \(n\)
-pence, where \(0 \le n \le N\). Then, for each valid denomination of coins \(c\), we
-loop over \(c \le n \le N\) and increment <code>coins[n]` by `coins[n-c]</code>. At each step,
-we perform addition modulo \(10^9 + 7\). Because we maintain the list for all \(0
-\le n \le N_{\text{max}}\), we can answer each query in \(O(1)\) time. And so our
-solution has time complexity \(O(CN_{\text{max}} + T)\), where \(C\) is the number
-of coins and \(T\) is the number of queries.</p>
+\(N - c\) over all valid \(c\).</p>
+
+<p>Using this principle, our solution is simple. We maintain a list <code>coins</code> such that
+<code>coins[n]</code> is the number of ways we can make \(n\) pence, where \(0 \le n \le N\).
+Then, for each valid denomination of coins \(c\), we loop over \(c \le n \le N\) and
+increment <code>~coins[n]</code> by <code>coins[n-c]</code>. At each step, we perform addition modulo
+\(10^9 + 7\). Because we maintain the list for all \(0 \le n \le N_{\text{max}}\),
+we can answer each query in \(O(1)\) time. And so our solution has time complexity
+\(O(CN_{\text{max}} + T)\), where \(C\) is the number of coins and \(T\) is the number
+of queries.</p>
 
 
 <h2 id="my-code">My Code</h2>
@@ -1567,7 +1569,7 @@ of coins and \(T\) is the number of queries.</p>
       <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
       
     <p>
-    <p><ul class="taglist"><li><a class="tag" title="Posts tagged dp" href="/tags/dp">dp</a></li></ul>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged dynamic-programming" href="/tags/dynamic-programming">dynamic-programming</a></li></ul>
 <p>
   </section>
   <section id="recent">

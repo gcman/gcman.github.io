@@ -369,6 +369,12 @@
   </url>
   
   <url>
+    <loc>https://gautammanohar.com/tags/dynamic-programming/</loc>
+    <lastmod>2018-07-23T00:00:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://gautammanohar.com/categories/euler/</loc>
     <lastmod>2018-07-23T00:00:00-04:00</lastmod>
     <priority>0</priority>
@@ -421,8 +427,14 @@
   </url>
   
   <url>
-    <loc>https://gautammanohar.com/categories/math/</loc>
+    <loc>https://gautammanohar.com/tags/math/</loc>
     <lastmod>2018-06-13T00:00:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gautammanohar.com/categories/math/</loc>
+    <lastmod>2018-06-23T00:00:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -440,13 +452,13 @@
   
   <url>
     <loc>https://gautammanohar.com/tags/pythagorean/</loc>
-    <lastmod>2018-06-10T00:00:00-04:00</lastmod>
+    <lastmod>2018-06-24T00:00:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://gautammanohar.com/tags/string/</loc>
-    <lastmod>2018-06-23T00:00:00-04:00</lastmod>
+    <lastmod>2018-06-24T00:00:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   

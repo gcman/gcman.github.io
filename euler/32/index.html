@@ -8,7 +8,7 @@
 <meta name="copyright" content="Gautam Manohar" />
 <meta name="date" content="2018-06-24" />
 <meta name="description" content="My solution to problem 32 of Project Euler.">
-<meta name="keywords" content="brute-force, { .Section }}" /><title>Project Euler 32: Pandigital Products &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="keywords" content="brute-force,combinatorics, { .Section }}" /><title>Project Euler 32: Pandigital Products &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
 <meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
 <meta name="msapplication-TileColor" content="#da532c" />
 <meta name="theme-color"             content="#ffffff" />
@@ -90,7 +90,7 @@
 <div class="main">
   <article class="article euler"><header>
   <h1 class="title">
-    <a href="https://gautammanohar.com/euler/32/" rel="bookmark" title ="Link to Project Euler 32: Pandigital Products">Project Euler 32: Pandigital Products</a>
+    <a href="https://gautammanohar.com/euler/32/" rel="bookmark" title="Link to Project Euler 32: Pandigital Products">Project Euler 32: Pandigital Products</a>
   </h1>
   
 </header>
@@ -111,12 +111,14 @@ written as a 1 through \(N\) pandigital.</p>
 three non-empty parts. We can generate each pandigital number by finding the
 permutations of a string with digits from \(1\) to \(N\). There are \(N!\) of these.
 It is then simple to verify whether the product of the first two parts is equal
-to the third part. Using the combinatorial technique of <a href="https://en.wikipedia.org/wiki/Stars%5Fand%5Fbars%5F(combinatorics)">stars and bars</a>, there
-are \(\binom{n-1}{k-1}\) ways to distribute \(n\) indistinguishable objects among
-\(k\) distinguishable groups. Our groups&mdash;the three parts&mdash;are distinguishable,
-as their order matters. For a given pandigital number, the digits cannot move,
-so they are thought of as indistinguishable. And so there are \(\binom{N-1}{2}\)
-ways of splitting up each pandigital number. We know</p>
+to the third part.</p>
+
+<p>Using the combinatorial technique of <a href="https://en.wikipedia.org/wiki/Stars%5Fand%5Fbars%5F(combinatorics)">stars and bars</a>, we find that there are
+\(\binom{n-1}{k-1}\) ways to distribute \(n\) indistinguishable objects among \(k\)
+distinguishable groups. Our groups&mdash;the three parts&mdash;are distinguishable, as
+their order matters. For a given pandigital number, the digits cannot move, so
+they are thought of as indistinguishable. And so there are \(\binom{N-1}{2}\) ways
+of splitting up each pandigital number. We know</p>
 
 <p>\begin{equation}
 N! \binom{N-1}{2} = \frac{N!(N-1)!}{2(N-3)!} = \frac{N!(N-1)(N-2)}{2} \le \frac{N^2N!}{2}.
@@ -1515,11 +1517,11 @@ N! \binom{N-1}{2} = \frac{N!(N-1)!}{2(N-3)!} = \frac{N!(N-1)(N-2)}{2} \le \frac{
 <h3>Related Posts</h3>
 <div id="related">
 	
-	<div class="post"><a href="/euler/37/">Project Euler 37: Truncatable Primes</a></div>
+	<div class="post"><a href="/euler/34/">Project Euler 34: Digit Factorials</a></div>
 	
 	<div class="post"><a href="/euler/35/">Project Euler 35: Circular Primes</a></div>
 	
-	<div class="post"><a href="/euler/36/">Project Euler 36: Double Base Palindromes</a></div>
+	<div class="post"><a href="/euler/37/">Project Euler 37: Truncatable Primes</a></div>
 	
 </div>
 
@@ -1582,7 +1584,7 @@ N! \binom{N-1}{2} = \frac{N!(N-1)!}{2(N-3)!} = \frac{N!(N-1)(N-2)}{2} \le \frac{
       <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
       
     <p>
-    <p><ul class="taglist"><li><a class="tag" title="Posts tagged brute-force" href="/tags/brute-force">brute-force</a></li></ul>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged brute-force" href="/tags/brute-force">brute-force</a></li><li><a class="tag" title="Posts tagged combinatorics" href="/tags/combinatorics">combinatorics</a></li></ul>
 <p>
   </section>
   <section id="recent">

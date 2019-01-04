@@ -6,10 +6,23 @@
     <description>Recent content in Math on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Jun 2018 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 23 Jun 2018 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="https://gautammanohar.com/categories/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Euler 30: Digit Fifth Powers</title>
+      <link>https://gautammanohar.com/euler/30/</link>
+      <pubDate>Sat, 23 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/30/</guid>
+      <description>Problem Statement Surprisingly, there are only three numbers that can be written as the sum of fourth powers of their digits:
+\begin{equation*} \begin{split} 1634 &amp;amp;= 1^4 + 6^4 + 3^4 + 4^4 \\
+8208 &amp;amp;= 8^4 + 2^4 + 0^4 + 8^4 \\
+9474 &amp;amp;= 9^4 + 4^4 + 7^4 + 4^4 \end{split} \end{equation*}
+Note that because \(1 = 1^4\) is not a sum, it is not included. The sum of these numbers is \(11634 + 8208 + 9474 = 9316\).</description>
+    </item>
     
     <item>
       <title>Project Euler 24: Lexicographic Permutations</title>

@@ -22,6 +22,25 @@ My Algorithm A brute-force search is too slow. And so we exploit the symmetry of
     </item>
     
     <item>
+      <title>Project Euler 32: Pandigital Products</title>
+      <link>https://gautammanohar.com/euler/32/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/32/</guid>
+      <description>Problem Statement We shall say that an $N$-digit number is pandigital if it makes use of all the digits 1 to \(N\) exactly once; for example, the 5-digit number 15234 is 1 through 5 pandigital. The product 7254 is unusual, as the identity \(39 \cdot 186 = 7254\) containing multiplicand, multiplier, and product is 1 through 9 pandigital. Find the sum of all products whose multiplicand/multiplier/product identity can be written as a 1 through \(N\) pandigital.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 41: Pandigital Prime</title>
+      <link>https://gautammanohar.com/euler/41/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/41/</guid>
+      <description>Problem Statement We shall say that an $n$-digit number is pandigital if it makes use of all the digits 1 to \(n\) exactly once. For example, 2143 is a 4-digit pandigital and is also prime. What is the largest pandigital prime less than or equal to \(N\)? If there is none, return \(-1\).
+My Algorithm The sum of digits of an $n$-digit number is the sum of the first \(n\) positive integers, or \(\frac{n(n+1)}{2}\).</description>
+    </item>
+    
+    <item>
       <title>Project Euler 30: Digit Fifth Powers</title>
       <link>https://gautammanohar.com/euler/30/</link>
       <pubDate>Sat, 23 Jun 2018 00:00:00 -0400</pubDate>

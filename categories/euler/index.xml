@@ -100,7 +100,7 @@ It can be seen that \(P_4 + P_7 = 22 + 70 = 92 = P_8\). Also, \(P_7 - P_5 = 70 -
 \begin{equation*} \begin{split} 644 &amp;amp;= 2^2 \cdot 7 \cdot 23,\\
 645 &amp;amp;= 3 \cdot 5 \cdot 43,\\
 646 &amp;amp;= 2 \cdot 17 \cdot 19 \end{split} \end{equation*}
-Given \(N\), find all the sets of \(K\) consecutive integers that each have exactly \(K\) distinct prime factors.</description>
+Find all the sets of \(K\) consecutive integers (whose first integer is less than \(N\)) that each have exactly \(K\) distinct prime factors.</description>
     </item>
     
     <item>
@@ -178,7 +178,9 @@ By expanding this for the first four iterations, we get the convergents of \(\sq
       <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
       
       <guid>https://gautammanohar.com/euler/58/</guid>
-      <description>Problem Statement Starting with 1 and spiralling clockwise in the following way, a square spiral with side length 7 is formed. { width=45% } It is interesting to note that 8 out of the 13 numbers lying along both diagonals are prime; that is, a ratio of \(\frac{8}{13} \approx 62\%\). If one complete new layer is wrapped around the spiral above, a square spiral with side length 9 will be formed.</description>
+      <description>Problem Statement Starting with 1 and spiralling clockwise in the following way, a square spiral with side length 7 is formed.
+  Figure 1: A 7-by-7 number spiral.
+  It is interesting to note that 8 out of the 13 numbers lying along both diagonals are prime; that is, a ratio of \(\frac{8}{13} \approx 62\%\). If one complete new layer is wrapped around the spiral above, a square spiral with side length 9 will be formed.</description>
     </item>
     
     <item>
@@ -253,7 +255,7 @@ My Algorithm We use a combinatorial approach similar to Project Euler 30. The su
       
       <guid>https://gautammanohar.com/euler/35/</guid>
       <description>Problem Statement The number 197 is called a circular prime because all rotations of the digits (197,719,917) are prime. There are thirteen such prime under 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97. What is the sum of all circular primes less than \(N\)?
-My Algorithm A permutation of a number \(n\) cannot be greater than the smallest power of 10 not more than \(n\).</description>
+My Algorithm A permutation of a number \(n\) cannot be greater than the smallest power of 10 that is at least \(n\).</description>
     </item>
     
     <item>
@@ -393,8 +395,9 @@ It turns out that the formula will produce 40 primes for the consecutive integer
       <pubDate>Wed, 13 Jun 2018 00:00:00 -0400</pubDate>
       
       <guid>https://gautammanohar.com/euler/28/</guid>
-      <description>Problem Statement Starting with the number 1 and moving to the right in a clockwise direction, a 5-by-5 spiral is formed: { width=30% } It can be verified that the sum of the numbers on the diagonals is 101. What is the sum of the numbers on the diagonals in an \(N \times N\) spiral (\(N\) odd)? Report your answer modulo \(10^9 + 7\).
-My Algorithm We can think of the spiral as being made up of a central 1 surrounded by \(n\) rings of side length \(2n+1\), where \(n = \frac{N - 1}{2}\).</description>
+      <description>Problem Statement Starting with the number 1 and moving to the right in a clockwise direction, a 5-by-5 spiral is formed:
+  Figure 1: A 5-by-5 number spiral. The diagonal entries are bolded.
+  It can be verified that the sum of the numbers on the diagonals is 101. What is the sum of the numbers on the diagonals in an \(N \times N\) spiral (\(N\) odd)? Report your answer modulo \(10^9 + 7\).</description>
     </item>
     
     <item>

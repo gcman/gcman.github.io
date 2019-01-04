@@ -8,7 +8,7 @@
 <meta name="copyright" content="Gautam Manohar" />
 <meta name="date" content="2018-07-16" />
 <meta name="description" content="My solution to problem 44 of Project Euler.">
-<meta name="keywords" content="brute-force, { .Section }}" /><title>Project Euler 44: Pentagonal Numbers &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="keywords" content="brute-force,proof, { .Section }}" /><title>Project Euler 44: Pentagonal Numbers &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
 <meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
 <meta name="msapplication-TileColor" content="#da532c" />
 <meta name="theme-color"             content="#ffffff" />
@@ -90,7 +90,7 @@
 <div class="main">
   <article class="article euler"><header>
   <h1 class="title">
-    <a href="https://gautammanohar.com/euler/44/" rel="bookmark" title ="Link to Project Euler 44: Pentagonal Numbers">Project Euler 44: Pentagonal Numbers</a>
+    <a href="https://gautammanohar.com/euler/44/" rel="bookmark" title="Link to Project Euler 44: Pentagonal Numbers">Project Euler 44: Pentagonal Numbers</a>
   </h1>
   
 </header>
@@ -141,10 +141,33 @@ complexity \(O(N - K)\).</p>
 <p>The Project Euler version of this problem is more involved. We must instead find
 the first \(P_n\) such that both \(P_n - P_{n-k}\) and \(P_n + P_{n-k}\) are
 pentagonal. To do this, we check all \(k &lt; n\) for each \(n\) until we find the
-answer. I used the following code, along with the same <code>pent` and `is_pent</code>
-functions as in the HackerRank solution: ~`~python n = 0 while True: n += 1 a =
-pent(n) for k in range(1,n): b = pent(n-k) if pent(a-b) and pent(a+b):
-print(a-b) break <code>`</code></p>
+answer. I used the following code, along with the same <code>pent</code> and <code>is_pent</code>
+functions as in the HackerRank solution:</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">pent</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">pent</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pent</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span> <span class="ow">and</span> <span class="n">pent</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+            <span class="k">break</span></code></pre></td></tr></table>
+</div>
+</div>
 
 
 <h2 id="my-code">My Code</h2>
@@ -1543,11 +1566,11 @@ print(a-b) break <code>`</code></p>
 <h3>Related Posts</h3>
 <div id="related">
 	
-	<div class="post"><a href="/euler/55/">Project Euler 55: Lychrel Numbers</a></div>
+	<div class="post"><a href="/euler/56/">Project Euler 56: Powerful Digit Sum</a></div>
+	
+	<div class="post"><a href="/euler/65/">Project Euler 65: Convergents of $e$</a></div>
 	
 	<div class="post"><a href="/euler/52/">Project Euler 52: Permuted Multiples</a></div>
-	
-	<div class="post"><a href="/euler/58/">Project Euler 58: Spiral Primes</a></div>
 	
 </div>
 
@@ -1610,7 +1633,7 @@ print(a-b) break <code>`</code></p>
       <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
       
     <p>
-    <p><ul class="taglist"><li><a class="tag" title="Posts tagged brute-force" href="/tags/brute-force">brute-force</a></li></ul>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged brute-force" href="/tags/brute-force">brute-force</a></li><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
 <p>
   </section>
   <section id="recent">

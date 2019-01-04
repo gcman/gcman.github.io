@@ -6,10 +6,23 @@
     <description>Recent content in Pythagorean on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Jun 2018 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 24 Jun 2018 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="https://gautammanohar.com/tags/pythagorean/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Euler 39: Integer Right Triangles</title>
+      <link>https://gautammanohar.com/euler/39/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/39/</guid>
+      <description>Problem Statement If \(p\) is the perimeter of a right triangle with side lengths \({a,b,c}\), then there are exactly 3 solutions for \(p = 120\):
+\begin{equation*} {20,48,52}, {24,45,51}, {30,40,50} \end{equation*}
+For which value of \(p \le N\) is the number of solutions maximized? If there are multiple possible answers, print the minimum one.
+My Algorithm A famous method of generating Pythagorean triples is due to Euclid:
+\begin{equation} a = m^2 - n^2 \quad b = 2mn \quad c = m^2 + n^2 \quad m &amp;gt; n \label{generating} \end{equation}</description>
+    </item>
     
     <item>
       <title>Project Euler 9: Special Pythagorean Triplets</title>

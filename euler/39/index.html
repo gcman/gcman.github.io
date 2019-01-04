@@ -8,7 +8,7 @@
 <meta name="copyright" content="Gautam Manohar" />
 <meta name="date" content="2018-06-24" />
 <meta name="description" content="My solution to problem 39 of Project Euler.">
-<meta name="keywords" content="proof, { .Section }}" /><title>Project Euler 39: Integer Right Triangles &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="keywords" content="proof,pythagorean, { .Section }}" /><title>Project Euler 39: Integer Right Triangles &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
 <meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
 <meta name="msapplication-TileColor" content="#da532c" />
 <meta name="theme-color"             content="#ffffff" />
@@ -90,7 +90,7 @@
 <div class="main">
   <article class="article euler"><header>
   <h1 class="title">
-    <a href="https://gautammanohar.com/euler/39/" rel="bookmark" title ="Link to Project Euler 39: Integer Right Triangles">Project Euler 39: Integer Right Triangles</a>
+    <a href="https://gautammanohar.com/euler/39/" rel="bookmark" title="Link to Project Euler 39: Integer Right Triangles">Project Euler 39: Integer Right Triangles</a>
   </h1>
   
 </header>
@@ -137,29 +137,31 @@ a + b + c = 2m^2 + mn = 2m(m+n).
 <p>We know \(n &gt; 0\), so \eqref{perimeter} is at least \(2m^2\). This means that we
 need not search \(m\) for which \(2m^2 &gt; N_{\text{max}}\). And so we search \(1 \le m
 \le \sqrt{\frac{N_{\text{max}}}{2}}\). We also know that \(m &gt; n\) (otherwise \(a\)
-would not be a positive length), so we only search \(1 \le n &lt; m\). For each
-\(m,n\), we must check three things. First, we check that the perimeter \(2m(m+n)\)
-is not more than \(N\). Then we check that \(m\) and \(n\) are coprime
+would not be a positive length), so we only search \(1 \le n &lt; m\).</p>
+
+<p>For each \(m,n\), we must check three things. First, we check that the perimeter
+\(2m(m+n)\) is not more than \(N\). Then we check that \(m\) and \(n\) are coprime
 (\(\mathrm{gcd}(m,n) = 1\)). Finally, we must check that \(m\) and \(n\) have opposite
 parity. This means one of them is odd, the other even. So their sum must be odd.
 We perform \(O(\sqrt{N})\) iterations in each loop for \(m\) and \(n\). And so we
 check each \(m,n\) in \(O(N)\) time. If we pass all of these tests, then we have a
-primitive Pythagorean triple. We will maintain a list <code>pythag` for which
-`pythag[i]</code> gives the number of solutions for perimeter \(i\). For each primitive
-Pythagorean triple, we increment each <code>pythag[k*P]</code>, where \(P\) is the perimeter of
-the triple and \(1 \le k \le \lfloor \frac{N_{\text{max}}}{P} \rfloor\). This
-means we count each primitive triple and all the multiples derived from it.
-Because we make a list, we can answer each query quickly. We maintain a second
-list <code>freq` of the indices corresponding to the strictly right maximal values of
-`pythag</code>. That is, for each \(i\) in <code>freq`, we have `pythag[i]` $&gt;$ `pythag[j]</code> for
-each \(0 \le j &lt; i\). Because this order is strict, we only store the lowest
-solution in cases where there are multiple. Then, we can binary search <code>freq</code> for
-the largest element less than each query. This is better than slicing <code>pythag`
-and using `max`, which is linear in `len(freq)</code>; binary search is logarithmic.
-The list <code>freq</code> has at most \(N\) elements&mdash;this is where each \(n &lt; N\) is strictly
-right maximal. This means we answer each query in \(O(\log N)\) time. And so our
-solution has time complexity \(O(N_{\text{max}} + T\log N_{\text{max}})\), where
-\(T\) is the number of queries.</p>
+primitive Pythagorean triple.</p>
+
+<p>We will maintain a list <code>pythag</code> for which <code>pythag[i]</code>
+gives the number of solutions for perimeter \(i\). For each primitive Pythagorean
+triple, we increment each <code>pythag[k*P]</code>, where \(P\) is the perimeter of the triple
+and \(1 \le k \le \lfloor \frac{N_{\text{max}}}{P} \rfloor\). This means we count
+each primitive triple and all the multiples derived from it. Because we make a
+list, we can answer each query quickly. We maintain a second list <code>freq</code> of the
+indices corresponding to the strictly right maximal values of <code>pythag</code>. That is,
+for each \(i\) in <code>freq</code>, we have <code>pythag[i]</code> \(&gt;\) <code>pythag[j]</code> for each \(0 \le j &lt; i\).
+Because this order is strict, we only store the lowest solution in cases where
+there are multiple. Then, we can binary search <code>freq</code> for the largest element less
+than each query. This is better than slicing <code>pythag</code> and using <code>max</code>, which is
+linear in <code>len(freq)</code>; binary search is logarithmic. The list <code>freq</code> has at most \(N\)
+elements&mdash;this is where each \(n &lt; N\) is strictly right maximal. This means we
+answer each query in \(O(\log N)\) time. And so our solution has time complexity
+\(O(N_{\text{max}} + T\log N_{\text{max}})\), where \(T\) is the number of queries.</p>
 
 
 <h2 id="my-code">My Code</h2>
@@ -1616,11 +1618,11 @@ solution has time complexity \(O(N_{\text{max}} + T\log N_{\text{max}})\), where
 <h3>Related Posts</h3>
 <div id="related">
 	
+	<div class="post"><a href="/euler/9/">Project Euler 9: Special Pythagorean Triplets</a></div>
+	
 	<div class="post"><a href="/euler/42/">Project Euler 42: Coded Triangle Numbers</a></div>
 	
 	<div class="post"><a href="/euler/46/">Project Euler 46: Goldbach&#39;s Other Conjecture</a></div>
-	
-	<div class="post"><a href="/euler/41/">Project Euler 41: Pandigital Prime</a></div>
 	
 </div>
 
@@ -1683,7 +1685,7 @@ solution has time complexity \(O(N_{\text{max}} + T\log N_{\text{max}})\), where
       <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
       
     <p>
-    <p><ul class="taglist"><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li><li><a class="tag" title="Posts tagged pythagorean" href="/tags/pythagorean">pythagorean</a></li></ul>
 <p>
   </section>
   <section id="recent">

@@ -8,7 +8,7 @@
 <meta name="copyright" content="Gautam Manohar" />
 <meta name="date" content="2018-06-24" />
 <meta name="description" content="My solution to problem 36 of Project Euler.">
-<meta name="keywords" content="brute-force, { .Section }}" /><title>Project Euler 36: Double Base Palindromes &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="keywords" content="brute-force,string, { .Section }}" /><title>Project Euler 36: Double Base Palindromes &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
 <meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
 <meta name="msapplication-TileColor" content="#da532c" />
 <meta name="theme-color"             content="#ffffff" />
@@ -90,7 +90,7 @@
 <div class="main">
   <article class="article euler"><header>
   <h1 class="title">
-    <a href="https://gautammanohar.com/euler/36/" rel="bookmark" title ="Link to Project Euler 36: Double Base Palindromes">Project Euler 36: Double Base Palindromes</a>
+    <a href="https://gautammanohar.com/euler/36/" rel="bookmark" title="Link to Project Euler 36: Double Base Palindromes">Project Euler 36: Double Base Palindromes</a>
   </h1>
   
 </header>
@@ -114,7 +114,9 @@ as many multiples of it as possible, and continue. This procedure has
 This is because we perform one step for each possible exponent, where the
 maximal exponent on \(K\) is \(\lfloor \log_K n \rfloor\). To generate palindromes
 of length at most \(n\), we start with all numbers of length at most
-\(\frac{n}{2}\). To generate palindromes of even length at most \(n\), we take one
+\(\frac{n}{2}\).</p>
+
+<p>To generate palindromes of even length at most \(n\), we take one
 of these numbers \(p\) and add on the reverse of \(p\). For odd-length palindromes,
 we do the same thing, but add one of the digits \(0,\ldots,9\) in the middle. And
 so there are \(9\cdot10^{k-1}\) palindromes with \(2k\) digits and \(9\cdot10^{k}\)
@@ -1554,11 +1556,11 @@ has time complexity \(O(\sqrt{n}\log n)\).</p>
 <h3>Related Posts</h3>
 <div id="related">
 	
-	<div class="post"><a href="/euler/37/">Project Euler 37: Truncatable Primes</a></div>
-	
 	<div class="post"><a href="/euler/35/">Project Euler 35: Circular Primes</a></div>
 	
-	<div class="post"><a href="/euler/32/">Project Euler 32: Pandigital Products</a></div>
+	<div class="post"><a href="/euler/22/">Project Euler 22: Names Scores</a></div>
+	
+	<div class="post"><a href="/euler/13/">Project Euler 13: Large Sum</a></div>
 	
 </div>
 
@@ -1621,7 +1623,7 @@ has time complexity \(O(\sqrt{n}\log n)\).</p>
       <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
       
     <p>
-    <p><ul class="taglist"><li><a class="tag" title="Posts tagged brute-force" href="/tags/brute-force">brute-force</a></li></ul>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged brute-force" href="/tags/brute-force">brute-force</a></li><li><a class="tag" title="Posts tagged string" href="/tags/string">string</a></li></ul>
 <p>
   </section>
   <section id="recent">

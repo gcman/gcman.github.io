@@ -74,7 +74,9 @@ My Algorithm For each \(a,b \le N\), we simply compute \(a^b\) in \(\log b\) tim
       <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
       
       <guid>https://gautammanohar.com/euler/58/</guid>
-      <description>Problem Statement Starting with 1 and spiralling clockwise in the following way, a square spiral with side length 7 is formed. { width=45% } It is interesting to note that 8 out of the 13 numbers lying along both diagonals are prime; that is, a ratio of \(\frac{8}{13} \approx 62\%\). If one complete new layer is wrapped around the spiral above, a square spiral with side length 9 will be formed.</description>
+      <description>Problem Statement Starting with 1 and spiralling clockwise in the following way, a square spiral with side length 7 is formed.
+  Figure 1: A 7-by-7 number spiral.
+  It is interesting to note that 8 out of the 13 numbers lying along both diagonals are prime; that is, a ratio of \(\frac{8}{13} \approx 62\%\). If one complete new layer is wrapped around the spiral above, a square spiral with side length 9 will be formed.</description>
     </item>
     
     <item>
@@ -103,7 +105,7 @@ My Algorithm We use a combinatorial approach similar to Project Euler 30. The su
       
       <guid>https://gautammanohar.com/euler/35/</guid>
       <description>Problem Statement The number 197 is called a circular prime because all rotations of the digits (197,719,917) are prime. There are thirteen such prime under 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97. What is the sum of all circular primes less than \(N\)?
-My Algorithm A permutation of a number \(n\) cannot be greater than the smallest power of 10 not more than \(n\).</description>
+My Algorithm A permutation of a number \(n\) cannot be greater than the smallest power of 10 that is at least \(n\).</description>
     </item>
     
     <item>

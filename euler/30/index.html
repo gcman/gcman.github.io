@@ -90,7 +90,7 @@
 <div class="main">
   <article class="article euler"><header>
   <h1 class="title">
-    <a href="https://gautammanohar.com/euler/30/" rel="bookmark" title ="Link to Project Euler 30: Digit Fifth Powers">Project Euler 30: Digit Fifth Powers</a>
+    <a href="https://gautammanohar.com/euler/30/" rel="bookmark" title="Link to Project Euler 30: Digit Fifth Powers">Project Euler 30: Digit Fifth Powers</a>
   </h1>
   
 </header>
@@ -125,19 +125,24 @@ we could check all numbers \(11 \le n &lt; 10^{\lceil \log_{10} N + N \log_{10} 
 number that fits the criteria is the sum of some combination (with replacement)
 of integers in \(0^N,1^N,\ldots,9^N\). And so we can check each combination with
 replacement of \(2 \le k \le \lceil \log_{10} N + N \log_{10} 9 \rceil\) elements
-(this represents the number of digits) from this set of 10 $N$-th powers. We can
-find these combinations using <code>combinations_with_replacement` from the `itertools</code>
-package. We skip the case where \(k = 1\) because, as stated in the problem, the
-sum of the digits in a one-digit number is a degenerate sum. To avoid counting
-duplicate combinations with extra <code>0`s, we use multisets, implemented with
-`Counter` from `collections</code>. A multiset is like a set, but elements can appear
-more than once. Two multisets are equal if and only if they contain the same
-elements the same number of times. We get the multiset of the $N$-th roots of
-each combination. Then, we sum the elements of the combination and find the
-multiset of digits of the sum. If these two multisets are equal, we have found a
-valid solution. There are \(\binom{n+k-1}{k}\) ways to choose \(k\) elements with
-replacement from a pool of \(n\) elements. In our case, \(n = 10\). We therefore
-perform</p>
+(this represents the number of digits) from this set of 10 $N$-th powers.</p>
+
+<p>We can find these combinations using <code>combinations_with_replacement</code> from the
+<code>itertools</code> package. We skip the case where \(k = 1\) because, as stated in the
+problem, the sum of the digits in a one-digit number is a degenerate sum. To
+avoid counting duplicate combinations with extra 0s, we use multisets,
+implemented with <code>Counter</code> from <code>collections</code>. A multiset is like a set, but
+elements can appear more than once. Two multisets are equal if and only if they
+contain the same elements the same number of times. We get the multiset of the
+$N$-th roots of each combination. Then, we sum the elements of the combination
+and find the multiset of digits of the sum. If these two multisets are equal, we
+have found a valid solution.</p>
+
+<h3 id="complexity-analysis">Complexity Analysis</h3>
+
+<p>There are \(\binom{n+k-1}{k}\) ways to choose \(k\)
+elements with replacement from a pool of \(n\) elements. In our case, \(n = 10\). We
+therefore perform</p>
 
 <p>\begin{equation}
 \sum\limits_{k=2}^{\lceil \log_{10} N9^N \rceil} \mkern-5mu \binom{9+k}{k}
@@ -145,7 +150,9 @@ perform</p>
 \end{equation}</p>
 
 <p>operations. For \(N = 6\), this turns out to be 19437&mdash;much less than the \(10^7\)
-required by brute force. Just for fun, let&rsquo;s do some upper bound analysis on
+required by brute force.</p>
+
+<p>Just for fun, let&rsquo;s do some upper bound analysis on
 this expression. Using Stirling&rsquo;s approximation for \(n!\), we find that
 \(\binom{n}{k} \le \frac{n^k}{k!}\). In our case, we have \(\frac{(9+k)^k}{k!}
 \approx \frac{k^k}{k!}\). The upper limit of our sum is \(O(\log_{10} N +
@@ -1618,6 +1625,8 @@ Project Euler problem. It has complexity \(O(N10^{N})\).</p>
     <p class="category">
       
       <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
+      
+      <a href="https://gautammanohar.com/categories/math/" title="Posts under category math">math</a>&nbsp;
       
     <p>
     <p><ul class="taglist"><li><a class="tag" title="Posts tagged combinatorics" href="/tags/combinatorics">combinatorics</a></li></ul>

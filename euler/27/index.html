@@ -90,7 +90,7 @@
 <div class="main">
   <article class="article euler"><header>
   <h1 class="title">
-    <a href="https://gautammanohar.com/euler/27/" rel="bookmark" title ="Link to Project Euler 27: Quadratic Primes">Project Euler 27: Quadratic Primes</a>
+    <a href="https://gautammanohar.com/euler/27/" rel="bookmark" title="Link to Project Euler 27: Quadratic Primes">Project Euler 27: Quadratic Primes</a>
   </h1>
   
 </header>
@@ -124,16 +124,17 @@ maximum number of primes with consecutive values of \(n\), starting with \(n = 0
 observations that exclude many cases. First, the expression \(n^2 + an + b\) is
 equal to \(b\) when \(n = 0\). Thus \(b\) must be prime. Second, when \(n = 1\), we have
 \(1 + a + b\). Above 2, \(b\) is odd. So \(a\) must also be odd; otherwise, the
-expression is an even number greater than 2, which is not prime. We need two
-things to proceed: a list of primes under \(N\) and a way to check if a given \(n\)
-is prime. For the first, we use a Sieve of Eratosthenes, and for the second, we
-use trial division up to \(\sqrt{n}\). We iterate through odd \(-N \le a \le N\),
-which takes \(N\) steps, and prime \(-N \le b N\), which takes about \(\frac{N}{\log
-N}\). Then, we compute the expression \(n^2 + an + b\) until it is not prime; we do
-this up to \(N\) times, with time complexity \(\sqrt{N}\) each time. Including the
-sieve, our solution has time complexity \(O\left(N\cdot\frac{N}{\log N}\cdot
-N\sqrt{N} + \sqrt{N}\log\log N\right) \in O\left(\frac{N^3\sqrt{N}}{\log
-N}\right)\).</p>
+expression is an even number greater than 2, which is not prime.</p>
+
+<p>We need two things to proceed: a list of primes under \(N\) and a way to check if
+a given \(n\) is prime. For the first, we use a Sieve of Eratosthenes, and for the
+second, we use trial division up to \(\sqrt{n}\). We iterate through odd \(-N \le a
+\le N\), which takes \(N\) steps, and prime \(-N \le b \le  N\), which takes about
+\(\frac{N}{\log N}\). Then, we compute the expression \(n^2 + an + b\) until it is
+not prime; we do this up to \(N\) times, with time complexity \(\sqrt{N}\) each
+time. Including the sieve, our solution has time complexity
+\(O\left(N\cdot\frac{N}{\log N}\cdot N\sqrt{N} + \sqrt{N}\log\log N\right) =
+O\left(\frac{N^3\sqrt{N}}{\log N}\right)\).</p>
 
 
 <h2 id="my-code">My Code</h2>

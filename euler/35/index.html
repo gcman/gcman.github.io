@@ -8,7 +8,7 @@
 <meta name="copyright" content="Gautam Manohar" />
 <meta name="date" content="2018-06-24" />
 <meta name="description" content="My solution to problem 35 of Project Euler.">
-<meta name="keywords" content="primes,brute-force, { .Section }}" /><title>Project Euler 35: Circular Primes &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="keywords" content="primes,brute-force,string, { .Section }}" /><title>Project Euler 35: Circular Primes &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
 <meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
 <meta name="msapplication-TileColor" content="#da532c" />
 <meta name="theme-color"             content="#ffffff" />
@@ -90,7 +90,7 @@
 <div class="main">
   <article class="article euler"><header>
   <h1 class="title">
-    <a href="https://gautammanohar.com/euler/35/" rel="bookmark" title ="Link to Project Euler 35: Circular Primes">Project Euler 35: Circular Primes</a>
+    <a href="https://gautammanohar.com/euler/35/" rel="bookmark" title="Link to Project Euler 35: Circular Primes">Project Euler 35: Circular Primes</a>
   </h1>
   
 </header>
@@ -106,21 +106,23 @@ less than \(N\)?</p>
 <h2 id="my-algorithm">My Algorithm</h2>
 
 <p>A permutation of a number \(n\) cannot be greater than the smallest power of 10
-not more than \(n\). This is because it maintains the same number of digits, and
+that is at least \(n\). This is because it maintains the same number of digits, and
 such a power of 10 contains one more digit than \(n\). This means that a
 permutation of \(n\) is not more than \(10^{\lceil \log_{10} n \rceil}\). And so we
 can precompute a list of the primes under \(10^{\lceil \log_{10} N_{\text{max}}
-\rceil}\), which in our case is \(10^6\). Then, we need a way to get all the
-rotations of a number. To do this, we can turn the number into a string and
-repeatedly remove the last character and add it back to the front, saving the
-new rotation each time. From here, the problem just consists of spotting some
-optimizations. We need not check any primes with digits 0, 2, 4, 5, 6, or 8.
-This is because the last digit of one of their rotations will be either even or
-5, which means they are divisible by 2 or 5 and so they are not prime. However,
-we must include the single-digit primes 2 and 5, which are circular. After
-computing the rotations of a prime below \(N\) that passes the above tests, we
-check if all of them are prime; if so, we count the ones that are below \(N\). Our
-solution has time complexity \(O(N_{\text{max}}\log\log N_{\text{max}})\).</p>
+\rceil}\), which in our case is \(10^6\).</p>
+
+<p>Now we need a way to get all the rotations of a number. To do this, we can turn
+the number into a string and repeatedly remove the last character and add it
+back to the front, saving the new rotation each time. From here, the problem
+just consists of spotting some optimizations. We need not check any primes with
+digits 0, 2, 4, 5, 6, or 8. This is because the last digit of one of their
+rotations will be either even or 5, which means they are divisible by 2 or 5 and
+so they are not prime. However, we must include the single-digit primes 2 and 5,
+which are circular. After computing the rotations of a prime below \(N\) that
+passes the above tests, we check if all of them are prime; if so, we count the
+ones that are below \(N\). Our solution has time complexity
+\(O(N_{\text{max}}\log\log N_{\text{max}})\).</p>
 
 
 <h2 id="my-code">My Code</h2>
@@ -1553,11 +1555,11 @@ solution has time complexity \(O(N_{\text{max}}\log\log N_{\text{max}})\).</p>
 <h3>Related Posts</h3>
 <div id="related">
 	
-	<div class="post"><a href="/euler/37/">Project Euler 37: Truncatable Primes</a></div>
-	
 	<div class="post"><a href="/euler/36/">Project Euler 36: Double Base Palindromes</a></div>
 	
-	<div class="post"><a href="/euler/32/">Project Euler 32: Pandigital Products</a></div>
+	<div class="post"><a href="/euler/37/">Project Euler 37: Truncatable Primes</a></div>
+	
+	<div class="post"><a href="/euler/22/">Project Euler 22: Names Scores</a></div>
 	
 </div>
 
@@ -1620,7 +1622,7 @@ solution has time complexity \(O(N_{\text{max}}\log\log N_{\text{max}})\).</p>
       <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
       
     <p>
-    <p><ul class="taglist"><li><a class="tag" title="Posts tagged primes" href="/tags/primes">primes</a></li><li><a class="tag" title="Posts tagged brute-force" href="/tags/brute-force">brute-force</a></li></ul>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged primes" href="/tags/primes">primes</a></li><li><a class="tag" title="Posts tagged brute-force" href="/tags/brute-force">brute-force</a></li><li><a class="tag" title="Posts tagged string" href="/tags/string">string</a></li></ul>
 <p>
   </section>
   <section id="recent">

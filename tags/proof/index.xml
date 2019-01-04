@@ -44,6 +44,19 @@ It can be seen that \(\frac25\) is the fraction immediately to the left of \(\fr
     </item>
     
     <item>
+      <title>Project Euler 44: Pentagonal Numbers</title>
+      <link>https://gautammanohar.com/euler/44/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/44/</guid>
+      <description>Problem Statement Pentagonal numbers are given by the formula
+\begin{equation*} P_n = \frac{n(3n-1)}{2}. \end{equation*}
+The first ten pentagonal numbers are
+\begin{equation} 1,5,12,22,35,51,70,92,117,145,\ldots \end{equation}
+It can be seen that \(P_4 + P_7 = 22 + 70 = 92 = P_8\). Also, \(P_7 - P_5 = 70 - 35 = 35 = P_5\) is also pentagonal. Generalizing for a given \(k\), find all \(P_n\), where \(n &amp;lt; N\), such that at least one of \(P_n \pm P_{n-k}\) is pentagonal.</description>
+    </item>
+    
+    <item>
       <title>Project Euler 57: Square Root Convergents</title>
       <link>https://gautammanohar.com/euler/57/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
@@ -104,16 +117,6 @@ taken over the distinct primes dividing \(n\). This formula gives
 For which value of \(p \le N\) is the number of solutions maximized? If there are multiple possible answers, print the minimum one.
 My Algorithm A famous method of generating Pythagorean triples is due to Euclid:
 \begin{equation} a = m^2 - n^2 \quad b = 2mn \quad c = m^2 + n^2 \quad m &amp;gt; n \label{generating} \end{equation}</description>
-    </item>
-    
-    <item>
-      <title>Project Euler 41: Pandigital Prime</title>
-      <link>https://gautammanohar.com/euler/41/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
-      
-      <guid>https://gautammanohar.com/euler/41/</guid>
-      <description>Problem Statement We shall say that an $n$-digit number is pandigital if it makes use of all the digits 1 to \(n\) exactly once. For example, 2143 is a 4-digit pandigital and is also prime. What is the largest pandigital prime less than or equal to \(N\)? If there is none, return \(-1\).
-My Algorithm The sum of digits of an $n$-digit number is the sum of the first \(n\) positive integers, or \(\frac{n(n+1)}{2}\).</description>
     </item>
     
     <item>

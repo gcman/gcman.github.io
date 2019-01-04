@@ -90,7 +90,7 @@
 <div class="main">
   <article class="article euler"><header>
   <h1 class="title">
-    <a href="https://gautammanohar.com/euler/40/" rel="bookmark" title ="Link to Project Euler 40: Champernowne&#39;s Constant">Project Euler 40: Champernowne&#39;s Constant</a>
+    <a href="https://gautammanohar.com/euler/40/" rel="bookmark" title="Link to Project Euler 40: Champernowne&#39;s Constant">Project Euler 40: Champernowne&#39;s Constant</a>
   </h1>
   
 </header>
@@ -112,25 +112,25 @@ find the product of \(d_{i_j}\).</p>
 
 <p>We can split up the fractional part into &ldquo;blocks&rdquo; where each positive integer
 used has the same number of digits. For example, starting at zero, the zeroth
-block is <code>123456789`, the first `101112...9899</code>, and so on. The numbers used to
-make up the $n$-th block (where the first block is \(n = 0\)) range from \(10^n\) to
+block is <code>123456789</code>, the first <code>101112...9899</code>, and so on. The numbers used to make
+up the $n$-th block (where the first block is \(n = 0\)) range from \(10^n\) to
 \(10^{n+1} - 1\), inclusive. There are therefore \(10^{n+1} - 10^n = 9\cdot10^n\)
 numbers in the $n$-th block. Because each number in the $n$-th block has \(n+1\)
 digits, the $n$-th block is \(9(n+1)10^n\) digits long. We initialize <code>block</code> at 1.
 This means <code>block</code> is equal to \(n+1\). It represents the number of digits in each
 integer in the block that \(d_i\) is part of. We initialize <code>fact</code> at 9. It
 represents the number of positive integers that make up <code>block</code>. This means
-<code>fact*block` represents the length of `block</code>. Then, as long as the result is
-positive and ~fact / block` is less than \(9M\), where \(M\) is the maximum possible
+<code>fact*block</code> represents the length of <code>block</code>. Then, as long as the result is
+positive and <code>fact / block</code> is less than \(9M\), where \(M\) is the maximum possible
 value of \(i\) in \(d_i\) (a hard upper bound on the length of the largest block,
-given the input constraints), we subtract `fact/block~ from the given \(d_i\).
-Then, we multiply <code>fact` by 10, representing the ten-fold increase in the number
-of elements of the next block, and increment `block</code> by 1, representing the fact
+given the input constraints), we subtract <code>fact/block</code> from the given \(d_i\).
+Then, we multiply <code>fact</code> by 10, representing the ten-fold increase in the number
+of elements of the next block, and increment <code>block</code> by 1, representing the fact
 that we are moving to the next block. The resulting value of <code>block</code> is the block
-in which \(d_i\) is located. The resulting value of \(d_i\) is ~pos+1`, where `pos`
+in which \(d_i\) is located. The resulting value of \(d_i\) is <code>pos+1</code>, where <code>pos</code>
 is the zero-indexed &ldquo;position&rdquo; of \(d_i\) in its block; that is, \(d_i\) is the
-`pos~-th digit in its block. Because \(d_i\) is in the block given by <code>block`, the
-first number in its block is `10//(block-1)</code>. Each number in this block has <code>block</code>
+<code>pos</code>-th digit in its block. Because \(d_i\) is in the block given by <code>block</code>, the
+first number in its block is <code>10//(block-1)</code>. Each number in this block has <code>block</code>
 digits. And so <code>pos//block</code> gives the number of positive integers that precede the
 integer \(d_i\) is part of in its block. This means \(d_i\) is part of the positive
 integer <code>10//(block-1) + pos//block</code> The leftover after this division (that is,

@@ -90,7 +90,7 @@
 <div class="main">
   <article class="article euler"><header>
   <h1 class="title">
-    <a href="https://gautammanohar.com/euler/47/" rel="bookmark" title ="Link to Project Euler 47: Distinct Prime Factors">Project Euler 47: Distinct Prime Factors</a>
+    <a href="https://gautammanohar.com/euler/47/" rel="bookmark" title="Link to Project Euler 47: Distinct Prime Factors">Project Euler 47: Distinct Prime Factors</a>
   </h1>
   
 </header>
@@ -109,14 +109,15 @@
 \end{split}
 \end{equation*}</p>
 
-<p>Given \(N\), find all the sets of \(K\) consecutive integers that each have exactly
+<p>Find all the sets of \(K\) consecutive integers (whose first integer is less than
+\(N\)) that each have exactly
 \(K\) distinct prime factors. Print the first number of each set in ascending
 order.</p>
 
 <h2 id="my-algorithm">My Algorithm</h2>
 
 <p>The mathematical notation for the number of distinct prime factors of \(n\) is
-\(\omega(n)\) (\(\Omega(n)\) denotes the total number of prime factors, counting
+\(\omega(n)\) (we write \(\Omega(n)\) for the total number of prime factors, counting
 multiplicity). We use a modified Sieve of Eratosthenes: instead of storing
 whether \(n\) is prime, we store \(\omega(n)\). Whenever we hit an \(n\) with
 \(\omega(n) = 0\), we find all the multiples of \(n\) less than \(N\) and add one to
@@ -1527,9 +1528,9 @@ factors.</p>
 	
 	<div class="post"><a href="/euler/58/">Project Euler 58: Spiral Primes</a></div>
 	
-	<div class="post"><a href="/euler/37/">Project Euler 37: Truncatable Primes</a></div>
+	<div class="post"><a href="/euler/46/">Project Euler 46: Goldbach&#39;s Other Conjecture</a></div>
 	
-	<div class="post"><a href="/euler/41/">Project Euler 41: Pandigital Prime</a></div>
+	<div class="post"><a href="/euler/35/">Project Euler 35: Circular Primes</a></div>
 	
 </div>
 
