@@ -2,6 +2,7 @@ public/
 resources/
 content/
 content-org/ltximg/
+scripts/euler/euler-solutions/
 *~*
 *#*
 *.pyc
