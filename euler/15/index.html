@@ -8,7 +8,7 @@
 <meta name="copyright" content="Gautam Manohar" />
 <meta name="date" content="2018-06-11" />
 <meta name="description" content="My solution to problem 15 of Project Euler.">
-<meta name="keywords" content="proof, { .Section }}" />
+<meta name="keywords" content="combinatorics, { .Section }}" />
 <title>Project Euler 15: Lattice Paths &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
 <meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
 <meta name="msapplication-TileColor" content="#da532c" />
@@ -135,11 +135,11 @@ we can find the value of</p>
 \(10^9 + 7\), we must use the modular multiplicative inverse of \(b+1\). Because the
 modulus is prime, this is guaranteed to exist.</p>
 
-<p>Starting with
-\(\binom{N+M}{0} = 1\), we iterate over \(0 \le k \le \mathrm{min}(N,M) - 1\) use
-the recurrence relation \eqref{recurrence}, multiplying by \(N + M - k\) and the
-modular inverse of \(k + 1\) under \(P\). At each step, we take the expression
-modulo \(P\). Our solution has time complexity \(O(\mathrm{min}(N,M)\log P)\).</p>
+<p>Starting with \(\binom{N+M}{0} = 1\), we iterate over \(0 \le k \le
+\mathrm{min}(N,M) - 1\) use the recurrence relation \eqref{recurrence},
+multiplying by \(N + M - k\) and the modular inverse of \(k + 1\) under \(P\). At each
+step, we take the expression modulo \(P\). Our solution has time complexity
+\(O(\mathrm{min}(N,M)\log P)\).</p>
 
 
 <h2 id="my-code">My Code</h2>
@@ -1402,16 +1402,18 @@ modulo \(P\). Our solution has time complexity \(O(\mathrm{min}(N,M)\log P)\).</
   
 </div>
 <hr>
-<div class="mobile"><span class="tags">Tagged under</span><ul class="taglist"><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+<div class="mobile"><span class="tags">Tagged under</span><ul class="taglist"><li><a class="tag" title="Posts tagged combinatorics" href="/tags/combinatorics">combinatorics</a></li></ul>
 </div>
 
 
 <h3>Related Posts</h3>
 <div id="related">
 	
-	<div class="post"><a href="/euler/12/">Project Euler 12: Highly Divisible Triangular Number</a></div>
+	<div class="post"><a href="/prime-reciprocals/">Prime Reciprocals Diverge!</a></div>
 	
-	<div class="post"><a href="/euler/9/">Project Euler 9: Special Pythagorean Triplets</a></div>
+	<div class="post"><a href="/coprime-prob/">Relatively Prime, Relatively Often</a></div>
+	
+	<div class="post"><a href="/harm-id/">Harmonic Numbers and Binomial Coefficients</a></div>
 	
 </div>
 
@@ -1474,7 +1476,7 @@ modulo \(P\). Our solution has time complexity \(O(\mathrm{min}(N,M)\log P)\).</
       <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
       
     <p>
-    <p><ul class="taglist"><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged combinatorics" href="/tags/combinatorics">combinatorics</a></li></ul>
 <p>
   </section>
   <section class="recent">

@@ -25,6 +25,16 @@ That is, 349 takes 3 iterations to arrive at a palindrome. Although no one has p
     </item>
     
     <item>
+      <title>Project Euler 63: Powerful Digit Counts</title>
+      <link>https://gautammanohar.com/euler/63/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/63/</guid>
+      <description>Problem Statement The five-digit number \(16807 = 7^5\) is also a fifth power. Given \(N\), find the $N$-digit positive integers that are also an $N$-th power.
+My Algorithm An $n$-digit $n$-th power has $n$-th root at most 9, because \(10^n\) is an $(n+1)$-digit number. If \(a^n\) is an $n$-digit number, then unless \(a = 9\), we also have that \((a+1)^n\) is an $n$-digit number. We must find the lowest \(a\) such that \(a^n\) has \(n\) digits.</description>
+    </item>
+    
+    <item>
       <title>Project Euler 40: Champernowne&#39;s Constant</title>
       <link>https://gautammanohar.com/euler/40/</link>
       <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
@@ -34,6 +44,17 @@ That is, 349 takes 3 iterations to arrive at a palindrome. Although no one has p
 \begin{equation*} 0.12345678910\mathbf{1}112131415161718192021\ldots \end{equation*}
 It can be seen that the 12th digit of the fractional part is 1. If \(d_n\) represents the $n$-th digit of the fractional part, then given integers \(i_j\), find the product of \(d_{i_j}\).
 My Algorithm We can split up the fractional part into &amp;ldquo;blocks&amp;rdquo; where each positive integer used has the same number of digits.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 42: Coded Triangle Numbers</title>
+      <link>https://gautammanohar.com/euler/42/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/42/</guid>
+      <description>Problem Statement The $n$-th term of the sequence of triangle numbers is given by \(t_n = \frac{n(n+1)}{2}\); so the first ten triangle numbers are
+\begin{equation*} 1,3,6,10,15,21,28,36,45,55,\ldots \end{equation*}
+By converting each letter in a word to a number corresponding to its alphabetical position and adding these values we form a word value. For example, the word value for SKY is \(19 + 11 + 25 = 55 = t_{10}\). You are given a file words.</description>
     </item>
     
     <item>

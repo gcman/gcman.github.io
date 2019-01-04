@@ -123,9 +123,7 @@ n(\log n + \log \log n - 1) &lt; p_n &lt; n(\log n + \log \log n), n &gt; 5.
 a list of the primes up to \(n(\log n + \log \log n)\), which is guaranteed to
 contain the $n$-th prime. Our answer is the $n$-th element of this array. We do
 this with time complexity \(O(n \log n \log \log (n \log n))\), using \(p_n \approx
-n \log n\).</p>
-
-<p>Because \(O(\log \log (n \log n)) \in O(\log n)\), this can be
+n \log n\). Because \(O(\log \log (n \log n)) \in O(\log n)\), this can be
 simpified to \(O(n \log^2 n)\). To optimize the constant factor, we compute the
 first \(N_{\text{max}} = 10^4\) primes and store them in memory, rather than
 computing the list for each query, which takes too long.</p>
@@ -1414,11 +1412,11 @@ computing the list for each query, which takes too long.</p>
 <h3>Related Posts</h3>
 <div id="related">
 	
-	<div class="post"><a href="/euler/12/">Project Euler 12: Highly Divisible Triangular Number</a></div>
-	
 	<div class="post"><a href="/euler/5/">Project Euler 5: Smallest Multiple</a></div>
 	
-	<div class="post"><a href="/euler/3/">Project Euler 3: Largest Prime Factor</a></div>
+	<div class="post"><a href="/euler/10/">Project Euler 10: Summation of Primes</a></div>
+	
+	<div class="post"><a href="/euler/12/">Project Euler 12: Highly Divisible Triangular Number</a></div>
 	
 </div>
 

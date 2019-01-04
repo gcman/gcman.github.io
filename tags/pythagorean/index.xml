@@ -6,10 +6,20 @@
     <description>Recent content in Pythagorean on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Jun 2018 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 23 Jul 2018 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="https://gautammanohar.com/tags/pythagorean/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Euler 75: Singular Integer Right Triangles</title>
+      <link>https://gautammanohar.com/euler/75/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/75/</guid>
+      <description>Problem Statement For how many values \(P \le N\) is there exactly one way to form a right triangle with integer side lengths and perimeter \(P\)?
+My Algorithm See my solution to Project Euler 39, as the techniques I use there are exactly the ones I use for this problem. The only difference is that we count only &amp;ldquo;singular&amp;rdquo; values of \(P\), and we binary search on the index of the greatest value up to \(N\).</description>
+    </item>
     
     <item>
       <title>Project Euler 39: Integer Right Triangles</title>

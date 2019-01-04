@@ -41,6 +41,28 @@ My Algorithm We need two things to solve this problem: a way to convert a number
     </item>
     
     <item>
+      <title>Project Euler 16: Power Digit Sum</title>
+      <link>https://gautammanohar.com/euler/16/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/16/</guid>
+      <description>Problem Statement What is the sum of the digits of \(2^N\)?
+My Algorithm Python has built-in infinite precision integer arithmetic, so this problem is easily done. We find \(2^N\) using built-in modular exponentiation in \(O(\log N)\) time. The length of this number is \(\lceil N\log_{10} 2 \rceil \in O(N)\). And so our solution has complexity \(O(N \log N)\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 17: Number Letter Counts</title>
+      <link>https://gautammanohar.com/euler/17/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/17/</guid>
+      <description>Problem Statement Given a number, write it in English words.
+My Algorithm The Hackerank bounds for this problem are \(N \le 10^{12}\). First, we create a dictionary of all the &amp;ldquo;special&amp;rdquo; number names that cannot be procedurally generated:
+\begin{equation*} 0,1,\ldots,9, \quad 10,20,\ldots,90, \quad 10^2,10^3,10^6,10^9,10^{12} \end{equation*}
+Now to process the number \(N\). We begin by breaking the number into five blocks of three digits each, starting from the ones digit. These will have, in increasing order, no suffix, the suffix &amp;ldquo;thousand,&amp;rdquo; &amp;ldquo;million,&amp;rdquo; &amp;ldquo;billion,&amp;rdquo; and &amp;ldquo;trillion.</description>
+    </item>
+    
+    <item>
       <title>Project Euler 13: Large Sum</title>
       <link>https://gautammanohar.com/euler/13/</link>
       <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
@@ -49,6 +71,16 @@ My Algorithm We need two things to solve this problem: a way to convert a number
       <description>Problem Statement Find the first ten digits of the sum of \(N\) 50-digit numbers.
 My Algorithm Thanks to Python&amp;rsquo;s built-in ability to handle infinitely large integers, this problem is a piece of cake. We read in the numbers, add them, convert the result to a string, and output the first ten characters.
 Other Solutions In languages without big integer support, we would need an algorithm to add big integers, using string arrays and the carrying method often taught in elementary schools.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 8: Largest Product in a Series</title>
+      <link>https://gautammanohar.com/euler/8/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/8/</guid>
+      <description>Problem Statement Find the greatest product of \(K\) consecutive digits in the given \(N\) digit number.
+My Algorithm We use a brute force solution. There are \(N-K+1\) possible $K$-length substrings of a string of length \(N\). We convert the given number to a string, find the substrings, and multiply the digits in them. We then find the maximal product. This is easily done with time complexity \(O(K(N-K+1))\).</description>
     </item>
     
   </channel>

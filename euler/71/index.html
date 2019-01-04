@@ -8,7 +8,7 @@
 <meta name="copyright" content="Gautam Manohar" />
 <meta name="date" content="2018-07-21" />
 <meta name="description" content="My solution to problem 71 of Project Euler.">
-<meta name="keywords" content="proof, { .Section }}" />
+<meta name="keywords" content="farey, { .Section }}" />
 <title>Project Euler 71: Ordered Fractions &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
 <meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
 <meta name="msapplication-TileColor" content="#da532c" />
@@ -100,6 +100,8 @@
       
       <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
       
+      <a href="https://gautammanohar.com/categories/math/" title="Posts under category math">math</a>&nbsp;
+      
       </div>
    </div>
 </header>
@@ -182,12 +184,13 @@ fact that \(y \le n\), we have \(\frac{x}{y} \in F_n\). Furthermore,</p>
 
 <p>By \eqref{fundineq} and the above, we thus have \(\frac{1}{by} &gt; \frac{n}{bdy}\).
 Because \(d &lt; n\), we obtain the contradiction \(\frac{1}{by} &gt; \frac{1}{by}\). Thus
-\((x,y) = (c,d)\). This proves the result that \(ad - bc = 1\). Given \(a,b\), we must
-solve for \(ad - bc = 1\) such that \(d\), the denominator, is maximized. We can do
-this using the extended Euclidean algorithm. Suppose \(k\) is the multiplicative
-inverse of \(a\) modulo \(b\). Then \(ak \equiv 1 \pmod b\). This means \(ak - bj = 1\),
-for some positive integer \(j\). We wish to maximize \(k\). Given that \((k,j)\) is a
-solution, so is \((k+nb,j+na)\). Thus we set</p>
+\((x,y) = (c,d)\). This proves the result that \(ad - bc = 1\).</p>
+
+<p>Given \(a,b\), we must solve for \(ad - bc = 1\) such that \(d\), the denominator, is
+maximized. We can do this using the extended Euclidean algorithm. Suppose \(k\) is
+the multiplicative inverse of \(a\) modulo \(b\). Then \(ak \equiv 1 \pmod b\). This
+means \(ak - bj = 1\), for some positive integer \(j\). We wish to maximize \(k\).
+Given that \((k,j)\) is a solution, so is \((k+nb,j+na)\). Thus we set</p>
 
 <p>\begin{equation}
 \begin{split}
@@ -1482,20 +1485,9 @@ and so our solution has \(O(\log b)\) time complexity.</p>
   
 </div>
 <hr>
-<div class="mobile"><span class="tags">Tagged under</span><ul class="taglist"><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+<div class="mobile"><span class="tags">Tagged under</span><ul class="taglist"><li><a class="tag" title="Posts tagged farey" href="/tags/farey">farey</a></li></ul>
 </div>
 
-
-<h3>Related Posts</h3>
-<div id="related">
-	
-	<div class="post"><a href="/euler/44/">Project Euler 44: Pentagonal Numbers</a></div>
-	
-	<div class="post"><a href="/euler/57/">Project Euler 57: Square Root Convergents</a></div>
-	
-	<div class="post"><a href="/euler/65/">Project Euler 65: Convergents of $e$</a></div>
-	
-</div>
 
 <table id="next-prev">
   <tr>
@@ -1555,8 +1547,10 @@ and so our solution has \(O(\log b)\) time complexity.</p>
       
       <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
       
+      <a href="https://gautammanohar.com/categories/math/" title="Posts under category math">math</a>&nbsp;
+      
     <p>
-    <p><ul class="taglist"><li><a class="tag" title="Posts tagged proof" href="/tags/proof">proof</a></li></ul>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged farey" href="/tags/farey">farey</a></li></ul>
 <p>
   </section>
   <section class="recent">

@@ -22,6 +22,16 @@ My Algorithm A brute-force search is too slow. And so we exploit the symmetry of
     </item>
     
     <item>
+      <title>Project Euler 63: Powerful Digit Counts</title>
+      <link>https://gautammanohar.com/euler/63/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/63/</guid>
+      <description>Problem Statement The five-digit number \(16807 = 7^5\) is also a fifth power. Given \(N\), find the $N$-digit positive integers that are also an $N$-th power.
+My Algorithm An $n$-digit $n$-th power has $n$-th root at most 9, because \(10^n\) is an $(n+1)$-digit number. If \(a^n\) is an $n$-digit number, then unless \(a = 9\), we also have that \((a+1)^n\) is an $n$-digit number. We must find the lowest \(a\) such that \(a^n\) has \(n\) digits.</description>
+    </item>
+    
+    <item>
       <title>Project Euler 32: Pandigital Products</title>
       <link>https://gautammanohar.com/euler/32/</link>
       <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
@@ -51,6 +61,16 @@ My Algorithm The sum of digits of an $n$-digit number is the sum of the first \(
 8208 &amp;amp;= 8^4 + 2^4 + 0^4 + 8^4 \\
 9474 &amp;amp;= 9^4 + 4^4 + 7^4 + 4^4 \end{split} \end{equation*}
 Note that because \(1 = 1^4\) is not a sum, it is not included. The sum of these numbers is \(11634 + 8208 + 9474 = 9316\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 15: Lattice Paths</title>
+      <link>https://gautammanohar.com/euler/15/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/15/</guid>
+      <description>Problem Statement Suppose we start at the top-left corner of an \(N\times M\) grid and that we can only travel to the right or down. How many routes are there to the bottom-right corner? Output the answer modulo \(10^9 + 7\).
+My Algorithm In total, we must make \(N+M\) moves, of which \(N\) are to the right. Choosing these \(N\) moves uniquely identifies each possible route, as this is equivalent to choosing the \(M\) downwards moves.</description>
     </item>
     
     <item>

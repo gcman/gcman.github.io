@@ -363,8 +363,8 @@
   </url>
   
   <url>
-    <loc>https://gautammanohar.com/tags/dp/</loc>
-    <lastmod>2018-07-23T00:00:00-04:00</lastmod>
+    <loc>https://gautammanohar.com/tags/continued-fractions/</loc>
+    <lastmod>2018-07-16T00:00:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -383,6 +383,12 @@
   <url>
     <loc>https://gautammanohar.com/euler/</loc>
     <lastmod>2018-07-23T00:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gautammanohar.com/tags/farey/</loc>
+    <lastmod>2018-07-21T00:00:00-04:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -416,7 +422,7 @@
   
   <url>
     <loc>https://gautammanohar.com/tags/identity/</loc>
-    <lastmod>2018-06-10T00:00:00-04:00</lastmod>
+    <lastmod>2018-06-24T00:00:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -427,14 +433,14 @@
   </url>
   
   <url>
-    <loc>https://gautammanohar.com/tags/math/</loc>
-    <lastmod>2018-07-16T00:00:00-04:00</lastmod>
+    <loc>https://gautammanohar.com/categories/math/</loc>
+    <lastmod>2018-07-21T00:00:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://gautammanohar.com/categories/math/</loc>
-    <lastmod>2018-07-16T00:00:00-04:00</lastmod>
+    <loc>https://gautammanohar.com/tags/math/</loc>
+    <lastmod>2018-06-13T00:00:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -446,13 +452,13 @@
   
   <url>
     <loc>https://gautammanohar.com/tags/proof/</loc>
-    <lastmod>2018-07-23T00:00:00-04:00</lastmod>
+    <lastmod>2018-07-16T00:00:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://gautammanohar.com/tags/pythagorean/</loc>
-    <lastmod>2018-06-24T00:00:00-04:00</lastmod>
+    <lastmod>2018-07-23T00:00:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   

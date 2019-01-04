@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Continued Fractions on Gautam Manohar</title>
+    <link>https://gautammanohar.com/tags/continued-fractions/</link>
+    <description>Recent content in Continued Fractions on Gautam Manohar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Jul 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://gautammanohar.com/tags/continued-fractions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Euler 57: Square Root Convergents</title>
+      <link>https://gautammanohar.com/euler/57/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/57/</guid>
+      <description>Problem Statement It is possible to show that \(\sqrt{2}\) has the following infinite continued fraction expansion:
+\begin{equation*} \sqrt{2} = 1 + \frac{1}{2+\frac{1}{2 + \frac{1}{2 + \cdots}}} \end{equation*}
+By expanding this for the first four iterations, we get the convergents of \(\sqrt{2}\)
+\begin{equation*} \begin{split} 1 + \frac{1}{2} &amp;amp;= \frac{3}{2} \\
+1 + \frac{1}{2 + \frac{1}{2}} &amp;amp;= \frac{7}{5} \\
+1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}} &amp;amp;= \frac{17}{12} \\
+1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}} &amp;amp;= \frac{41}{29}.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 65: Convergents of $e$</title>
+      <link>https://gautammanohar.com/euler/65/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/65/</guid>
+      <description>Problem Statement The constant \(e\) can be written as the infinite continued fraction \([2;1,2,1,\,1,4,1,\,1,6,1,\ldots,1,2k,\ldots]\). Find the sum of the digits in the $N$-th convergent of the continued fraction expansion for \(e\).
+A Recurrence Relation We will show the following theorem. Let the the $n$-th convergent of a continued fraction \([a_0;a_1,a_2,\ldots]\) be \(\frac{P_n}{Q_n}\). Then the $(n+1)$-th convergent is
+\begin{equation} \frac{a_{n+1}P_n + P_{n-1}}{a_{n+1}Q_{n} + Q_{n-1}}. \end{equation}
+We use induction. Because the 0-th convergent is \(a_0\), we define \(P_0 = a_0, Q_0 = 1\).</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,10 +6,33 @@
     <description>Recent content in Math on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Jul 2018 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 21 Jul 2018 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="https://gautammanohar.com/categories/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Euler 71: Ordered Fractions</title>
+      <link>https://gautammanohar.com/euler/71/</link>
+      <pubDate>Sat, 21 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/71/</guid>
+      <description>Problem Statement The fraction \(\frac{a}{b}\) is called a reduced proper fraction if \(a\) and \(b\) are positive integers with \(a &amp;lt; b\) and \(\mathrm{gcd}(a,b) = 1\). If we list the reduced proper fractions for \(b \le 8\) in increasing order, we get
+\begin{equation*} \frac18, \frac17, \frac16, \frac15, \frac14, \frac27, \frac13, \frac38, \frac25, \frac37, \frac12, \frac47, \frac35, \frac58, \frac23, \frac57, \frac34, \frac45, \frac56, \frac67, \frac78 \end{equation*}
+It can be seen that \(\frac25\) is the fraction immediately to the left of \(\frac37\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 65: Convergents of $e$</title>
+      <link>https://gautammanohar.com/euler/65/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/65/</guid>
+      <description>Problem Statement The constant \(e\) can be written as the infinite continued fraction \([2;1,2,1,\,1,4,1,\,1,6,1,\ldots,1,2k,\ldots]\). Find the sum of the digits in the $N$-th convergent of the continued fraction expansion for \(e\).
+A Recurrence Relation We will show the following theorem. Let the the $n$-th convergent of a continued fraction \([a_0;a_1,a_2,\ldots]\) be \(\frac{P_n}{Q_n}\). Then the $(n+1)$-th convergent is
+\begin{equation} \frac{a_{n+1}P_n + P_{n-1}}{a_{n+1}Q_{n} + Q_{n-1}}. \end{equation}
+We use induction. Because the 0-th convergent is \(a_0\), we define \(P_0 = a_0, Q_0 = 1\).</description>
+    </item>
     
     <item>
       <title>Project Euler 69: Totient Maximum</title>

@@ -76,6 +76,17 @@ My Algorithm Suppose an odd composite number \(n\) and a prime \(p\) provide a m
     </item>
     
     <item>
+      <title>Project Euler 27: Quadratic Primes</title>
+      <link>https://gautammanohar.com/euler/27/</link>
+      <pubDate>Wed, 13 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/27/</guid>
+      <description>Problem Statement Euler published the remarkable quadratic equation
+\begin{equation*} n^2 + 41n + 41. \end{equation*}
+It turns out that the formula will produce 40 primes for the consecutive integer values \(0 \le n \le 39\). However, when \(n = 40\), we have \(40^2 + 40 + 41 = 41(40+1) + 41\), which is divisiblye by 41, and certainly when \(n = 41\), the expression \(41^2 + 41 + 41\) is clearly divisible by 41.</description>
+    </item>
+    
+    <item>
       <title>Project Euler 28: Number Spiral Diagonals</title>
       <link>https://gautammanohar.com/euler/28/</link>
       <pubDate>Wed, 13 Jun 2018 00:00:00 -0400</pubDate>
