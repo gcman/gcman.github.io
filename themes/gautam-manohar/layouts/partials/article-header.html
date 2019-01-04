@@ -1,10 +1,10 @@
 <header>
   <h1 class="title">
-    <a href="{{ .Permalink }}" rel="bookmark" title ="Link to {{ .Params.shortttitle | default .Params.title }}">{{ .Params.shorttitle | default .Params.title }}</a>
+    <a href="{{ .Permalink }}" rel="bookmark" title="Link to {{ .Params.shorttitle | default .Params.title }}">{{ .Params.shorttitle | default .Params.title }}</a>
   </h1>
   {{ if isset .Params "subtitle" }}
     <h1 class="subtitle">
-      <a href="{{ .Permalink }}" rel="bookmark" title ="Link to {{ .Params.shortttitle | default .Params.title }}">{{ .Params.subtitle | default .Params.title }}</a>
+      <a href="{{ .Permalink }}" rel="bookmark" title="Link to {{ .Params.shorttitle | default .Params.title }}">{{ .Params.subtitle | default .Params.title }}</a>
     </h1>
   {{ end }}
 </header>
