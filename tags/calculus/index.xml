@@ -6,10 +6,32 @@
     <description>Recent content in Calculus on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Feb 2018 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 20 May 2018 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="https://gautammanohar.com/tags/calculus/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Prime Reciprocals Diverge!</title>
+      <link>https://gautammanohar.com/prime-reciprocals/</link>
+      <pubDate>Sun, 20 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/prime-reciprocals/</guid>
+      <description>Introduction In this post, we will investigate the infinite series
+\begin{equation} \sum_{p} \frac{1}{p}, \end{equation}
+taken over all primes \(p\). In particular, we will show that this series diverges.
+Calculus and the Prime Number Theorem First, we&amp;rsquo;ll show that this problem falls to the incredible might of the following inequalty, which bounds the value of the $n$-th prime:
+\begin{equation} n\log n - n \log\log n \le p_n \le n\log n + n\log\log n \quad (n &amp;gt; 5) \end{equation}</description>
+    </item>
+    
+    <item>
+      <title>Almost There I</title>
+      <link>https://gautammanohar.com/almost-patterns-sinc/</link>
+      <pubDate>Fri, 02 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/almost-patterns-sinc/</guid>
+      <description>Mathematics students are often told not to carelessly extrapolate small sample sizes into general claims. Indeed, this is a general truth of life: isolated examples do not constitute general proof. Say you wanted to convince me of a fact about numbers. You could show me that your fact was true for all numbers up to ten, a hundred, a million, or to whatever ridiculously huge number you could think of&amp;mdash;but it wouldn&amp;rsquo;t constitute a mathematical proof.</description>
+    </item>
     
     <item>
       <title>On the Ball in $n$ Euclidean Dimensions</title>

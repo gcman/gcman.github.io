@@ -83,5 +83,19 @@ This sequence contains 10 terms.</description>
       <description>Mathematics students are often told not to carelessly extrapolate small sample sizes into general claims. Indeed, this is a general truth of life: isolated examples do not constitute general proof. Say you wanted to convince me of a fact about numbers. You could show me that your fact was true for all numbers up to ten, a hundred, a million, or to whatever ridiculously huge number you could think of&amp;mdash;but it wouldn&amp;rsquo;t constitute a mathematical proof.</description>
     </item>
     
+    <item>
+      <title>Comparing $e^\pi$ and $\pi^e$</title>
+      <link>https://gautammanohar.com/e-pi/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/e-pi/</guid>
+      <description>The constants \(e\) and \(\pi\) are everywhere in mathematics. Determining the greater of the two expressions \(e^\pi\) and \(\pi^e\) (without using a calculator, of course&amp;hellip;) is a fun puzzle that you can approach in many ways. I&amp;rsquo;d like to discuss my solutions.
+Differentiation We shall perform the same operations on the two expressions.
+\begin{equation} \begin{split} e^{\pi} &amp;amp;\odot \pi^e \\
+e^{\frac{\pi}{e}} &amp;amp;\odot \pi^{\frac{e}{e}} \\
+e^{\frac{1}{e}} &amp;amp;\odot \pi^{\frac{1}{\pi}} \end{split} \end{equation}
+To show that \(e^\pi &amp;gt; \pi^e\), it suffices to show that \(e^{\frac{1}{e}} &amp;gt; \pi^{\frac{1}{\pi}}\).</description>
+    </item>
+    
   </channel>
 </rss>

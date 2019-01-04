@@ -152,5 +152,15 @@ Calculus and the Prime Number Theorem First, we&amp;rsquo;ll show that this prob
 \begin{equation} n\log n - n \log\log n \le p_n \le n\log n + n\log\log n \quad (n &amp;gt; 5) \end{equation}</description>
     </item>
     
+    <item>
+      <title>Relatively Prime, Relatively Often</title>
+      <link>https://gautammanohar.com/coprime-prob/</link>
+      <pubDate>Tue, 17 Apr 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/coprime-prob/</guid>
+      <description>Say you choose two integers. What&amp;rsquo;s the chance that they&amp;rsquo;re coprime? My intuition says that it can&amp;rsquo;t be more than one-half, because half of all numbers share a factor of 2. But I&amp;rsquo;m thoroughly wrong here. The probability is actually \(\frac{6}{\pi^2}\), which is about \(61\%\).
+We wish to find the probability that two randomly selected integers \(m\) and \(n\) are coprime. If this is true, then \(\mathrm{gcd}(m,n) = 1\). Let&amp;rsquo;s say that \(p = \mathrm{P}(\mathrm{gcd}(m,n)=1)\).</description>
+    </item>
+    
   </channel>
 </rss>

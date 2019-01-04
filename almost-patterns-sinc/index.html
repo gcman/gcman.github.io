@@ -3,12 +3,13 @@
   <head><meta charset="utf-8" />
 <meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
 <meta name="robots" content="index,follow">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Gautam Manohar" />
 <meta name="copyright" content="Gautam Manohar" />
 <meta name="date" content="2018-03-02" />
 <meta name="description" content="Some patterns in mathematics go on forever. But many &#34;patterns&#34; do anything but, instead ending spectacularly. Explore patterns that are &#34;almost there.&#34;">
-<meta name="keywords" content="fun, { .Section }}" /><title>Almost There I &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="keywords" content="fun,calculus, { .Section }}" />
+<title>Almost There I &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
 <meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
 <meta name="msapplication-TileColor" content="#da532c" />
 <meta name="theme-color"             content="#ffffff" />
@@ -20,7 +21,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.4c8a4c04b13ca5d7422f35c14c1a2ff5d8caa7abfb4c4b8ca9e25db0f64111ea.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.b987fbbde86ef59f59326a0df88e2648fc2dfc89a18ff05dfcd101845162c4ab.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -93,18 +94,27 @@
     <a href="https://gautammanohar.com/almost-patterns-sinc/" rel="bookmark" title="Link to Almost There I">Almost There I</a>
   </h1>
   
+  <div class="mobile">
+    <div class="date">2 March 2018</div>
+    <div class="category">
+      
+      <a href="https://gautammanohar.com/categories/math/" title="Posts under category math">math</a>&nbsp;
+      
+      </div>
+   </div>
 </header>
 <p>Mathematics students are often told not to carelessly extrapolate small sample
 sizes into general claims. Indeed, this is a general truth of life: isolated
 examples do not constitute general proof. Say you wanted to convince me of a
 fact about numbers. You could show me that your fact was true for all numbers up
 to ten, a hundred, a million, or to whatever ridiculously huge number you could
-think of&mdash;but it wouldn&rsquo;t constitute a mathematical proof. This post will
-hopefully be the first in a series called &ldquo;Almost There.&rdquo; I will share
-interesting patterns that, although they seem to <em>surely</em> continue, break down
-eventually. You may have noticed that I spelled &ldquo;sink&rdquo; incorrectly in the title.
-Sharp eye. That&rsquo;s because we&rsquo;re investigating some interesting properties the
-\(\mathrm{sinc}\) function:</p>
+think of&mdash;but it wouldn&rsquo;t constitute a mathematical proof.</p>
+
+<p>This post will hopefully be the first in a series called &ldquo;Almost There.&rdquo; I will
+share interesting patterns that, although they seem to <em>surely</em> continue, break
+down eventually. You may have noticed that I spelled &ldquo;sink&rdquo; incorrectly in the
+title. Sharp eye. That&rsquo;s because we&rsquo;re investigating some interesting properties
+the \(\mathrm{sinc}\) function:</p>
 
 <p>\begin{equation}
 \mathrm{sinc}\, x =
@@ -117,7 +127,7 @@ Sharp eye. That&rsquo;s because we&rsquo;re investigating some interesting prope
 <p>It looks like this:</p>
 
 <figure>
-    <img src="/img/math/sinc.png" width="50%"/> 
+    <img src="/img/math/sinc.png" width="70%"/> 
 </figure>
 
 
@@ -153,29 +163,48 @@ quite a while. In fact,</p>
 <p>But with one more term, the pattern fails spectacularly:</p>
 
 <p>\begin{equation}
-\int_{-\infty}^\infty \mathrm{sinc}\, x\, \mathrm{sinc}\, \frac{x}{3}\, \mathrm{sinc}\, \frac{x}{5}\,\cdots\,\mathrm{sinc}\, \frac{x}{15} \d x = \frac{467807924713440738696537864469}{467807924720320453655260875000}\pi.
+\int_{-\infty}^\infty \mathrm{sinc}\, x\, \mathrm{sinc}\, \frac{x}{3}\, \mathrm{sinc}\, \frac{x}{5}\,\cdots\,\mathrm{sinc}\, \frac{x}{15} \d x
 \end{equation}</p>
 
-<p>This value is \(4.62 \times 10^{-11}\) less than \(\pi\). What happened? After some
-research, I found that such integrals were documented in <a href="https://carma.newcastle.edu.au/jon/sinc-sums.pdf">this paper</a>. It turns
-out that, in general, for real numbers \(a_1,\ldots,a_n\),</p>
+<p>takes on a value of</p>
+
+<p>\begin{equation}
+\frac{467807924713440738696537864469}{467807924720320453655260875000}\pi = \pi - 4.62 \times 10^{11}.
+\end{equation}</p>
+
+<p>What happened? After some research, I found that such integrals were documented
+in <a href="https://carma.newcastle.edu.au/jon/sinc-sums.pdf">this paper</a>. It turns out that, in general, for real numbers \(a_1,\ldots,a_n\),</p>
 
 <p>\begin{equation}
 \int_{-\infty}^\infty \prod_{k=1}^n \mathrm{sinc}\, a_kx \d x
 \end{equation}</p>
 
 <p>evaluates to \(\pi\) if \(\sum_k a_k \le 2\). In particular, \(1 + \frac{1}{3} +
-\cdots + \frac{1}{13} = \frac{88069}{45045} = 2 - \frac{2021}{45045}\), but
+\cdots + \frac{1}{13} = 2 - \frac{2021}{45045}\), but
 adding \(\frac{1}{15}\) pushes it over the edge. So we can construct sequences of
 numbers \(a_k\) such that the pattern holds for arbitrarily many terms before
-failing, when the partial sum of the numbers \(a_k\) crosses \(2\). Similarly, we
-can make it so the pattern always holds. For example, the series \(1 +
-\frac{1}{2} + \frac{1}{4} + \cdots\) famously converges to \(2\), so if we set
+failing, when the partial sum of the numbers \(a_k\) crosses \(2\).</p>
+
+<p>Similarly, we can make sure the pattern always holds. For example, the series
+\(1 + \frac{1}{2} + \frac{1}{4} + \cdots\) famously converges to \(2\), so if we set
 \(a_k\) to be the reciprocal powers of two, the corresponding integral will be
 equal to \(\pi\)&hellip; forever. But not all patterns hold forever&mdash;certainly not
 this one!</p>
 <hr>
+<div class="mobile"><span class="tags">Tagged under</span><ul class="taglist"><li><a class="tag" title="Posts tagged calculus" href="/tags/calculus">calculus</a></li><li><a class="tag" title="Posts tagged fun" href="/tags/fun">fun</a></li></ul>
+</div>
 
+
+<h3>Related Posts</h3>
+<div id="related">
+	
+	<div class="post"><a href="/e-pi/">Comparing $e^\pi$ and $\pi^e$</a></div>
+	
+	<div class="post"><a href="/n-ball/">On the Ball in $n$ Euclidean Dimensions</a></div>
+	
+	<div class="post"><a href="/harm-id/">Harmonic Numbers and Binomial Coefficients</a></div>
+	
+</div>
 
 <table id="next-prev">
   <tr>
@@ -229,19 +258,19 @@ this one!</p>
   });
 </script>
 </article><div class="side">
-  <section id="info">
+  <section class="info">
     <p class="date">Posted 2 March 2018</p>
     <p class="category">
       
       <a href="https://gautammanohar.com/categories/math/" title="Posts under category math">math</a>&nbsp;
       
     <p>
-    <p><ul class="taglist"><li><a class="tag" title="Posts tagged fun" href="/tags/fun">fun</a></li></ul>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged calculus" href="/tags/calculus">calculus</a></li><li><a class="tag" title="Posts tagged fun" href="/tags/fun">fun</a></li></ul>
 <p>
   </section>
-  <section id="recent">
-  <h2>Recent Posts</h2>
-  <ul><li><a href="https://gautammanohar.com/euler/75/">Project Euler 75: Singular Integer Right Triangles</a></li><li><a href="https://gautammanohar.com/euler/76/">Project Euler 76: Counting Summations</a></li><li><a href="https://gautammanohar.com/euler/77/">Project Euler 77: Prime Summations</a></li><li><a href="https://gautammanohar.com/euler/72/">Project Euler 72: Counting Fractions</a></li><li><a href="https://gautammanohar.com/euler/71/">Project Euler 71: Ordered Fractions</a></li></ul>
+  <section class="recent">
+  <h3>Recent Posts</h3>
+  <ul><li><a href="https://gautammanohar.com/euler/75/">Euler 75: Singular Integer Right Triangles</a></li><li><a href="https://gautammanohar.com/euler/76/">Euler 76: Counting Summations</a></li><li><a href="https://gautammanohar.com/euler/77/">Euler 77: Prime Summations</a></li><li><a href="https://gautammanohar.com/euler/72/">Euler 72: Counting Fractions</a></li><li><a href="https://gautammanohar.com/euler/71/">Euler 71: Ordered Fractions</a></li></ul>
   </section>
 </div>
 </div>

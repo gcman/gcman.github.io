@@ -66,5 +66,30 @@ Calculus and the Prime Number Theorem First, we&amp;rsquo;ll show that this prob
 \begin{equation} n\log n - n \log\log n \le p_n \le n\log n + n\log\log n \quad (n &amp;gt; 5) \end{equation}</description>
     </item>
     
+    <item>
+      <title>Relatively Prime, Relatively Often</title>
+      <link>https://gautammanohar.com/coprime-prob/</link>
+      <pubDate>Tue, 17 Apr 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/coprime-prob/</guid>
+      <description>Say you choose two integers. What&amp;rsquo;s the chance that they&amp;rsquo;re coprime? My intuition says that it can&amp;rsquo;t be more than one-half, because half of all numbers share a factor of 2. But I&amp;rsquo;m thoroughly wrong here. The probability is actually \(\frac{6}{\pi^2}\), which is about \(61\%\).
+We wish to find the probability that two randomly selected integers \(m\) and \(n\) are coprime. If this is true, then \(\mathrm{gcd}(m,n) = 1\). Let&amp;rsquo;s say that \(p = \mathrm{P}(\mathrm{gcd}(m,n)=1)\).</description>
+    </item>
+    
+    <item>
+      <title>Harmonic Numbers and Binomial Coefficients</title>
+      <link>https://gautammanohar.com/harm-id/</link>
+      <pubDate>Sun, 04 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/harm-id/</guid>
+      <description>The $n$-th harmonic number is defined as the sum of reciprocals of the first \(n\) natural numbers:
+\begin{equation} \sum\limits_{k=1}^n \frac{1}{k}. \end{equation}
+We wish to prove the following identity involving harmonic numbers and binomial coefficients:
+\begin{equation} \sum\limits_{k=1}^n \frac{1}{k} = -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k. \label{identity} \end{equation}
+I have two solutions: one with calculus, and one by induction.
+Calculus First, we notice that
+\begin{equation} \int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Biggr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.</description>
+    </item>
+    
   </channel>
 </rss>
