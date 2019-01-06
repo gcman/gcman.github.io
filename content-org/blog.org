@@ -1974,7 +1974,7 @@ S &= \Big| \frac{n^2(n+1)^2}{4} - \frac{n(n+1)(2n+1)}{6} \Big| \\
 \end{split}
 \label{final-sum}
 \end{equation}
-This value is non-negative for $$, so the absolute value bars
+This value is non-negative for $n > 0$, so the absolute value bars
 are not necessary. Our algorithm is just a computation, so it has time
 complexity $O(1)$.
 **** Other Solutions
