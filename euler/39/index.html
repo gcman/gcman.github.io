@@ -228,8 +228,7 @@ T\log N_{\text{max}})\), where \(T\) is the number of queries.</p>
 52
 53
 54
-55
-56</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+55</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 
 
 <span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -243,14 +242,13 @@ T\log N_{\text{max}})\), where \(T\) is the number of queries.</p>
     <span class="sd">&quot;&quot;&quot;Binary Search arr from index l to r for x&quot;&quot;&quot;</span>
     <span class="k">while</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">:</span>
         <span class="n">mid</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
-        <span class="c1"># Is N in the array?</span>
         <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span>
         <span class="k">elif</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">:</span>
             <span class="n">l</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">r</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
-            <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
 
 
 <span class="n">MAX</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">5e6</span><span class="p">)</span>
@@ -288,9 +286,9 @@ T\log N_{\text{max}})\), where \(T\) is the number of queries.</p>
 </pre></div>
 </td></tr></table>
 </div>
-<p>This code has 12 comments and 9 empty lines.</p>
+<p>This code has 11 comments and 9 empty lines.</p>
   <h2 id="Performance">Performance</h2>
-  <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">less than 0.1 s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">8.8 KB</span>.</p>
+  <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">250 ms</span> with a peak memory usage of <span style="font-weight: bold" class="fast">4.8 KB</span>.</p>
 
 <h3 id="Difficulty">Difficulty</h3>
 <p><a href="https://projecteuler.net/problem=39">Project Euler</a> ranks this problem at 5% difficulty (out of 100%). <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler%25!d%28string=039%29">HackerRank</a> classifies this problem as easy.</p>
