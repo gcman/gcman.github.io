@@ -32,9 +32,10 @@ a {
   .math {color: firebrick;}
 }
 
-p {
-  margin-bottom: 1ex;
-}
+.MathJax_Display {overflow-y: hidden}
+
+
+p {margin-bottom: 1ex;}
 
 ol {
   list-style-type: decimal;
@@ -69,24 +70,18 @@ ol {
 
 /* Content  */
 
-body {
-  counter-reset: figures;
-}
-
 figure {
   margin: 1em 0;
   text-align: center;
-  counter-increment: figures;
   figcaption {
   	font-size: .8em;
   }
 }
 
 img {
-  margin: 0.5em;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0.5em auto;
+  max-width: 90%;
 }
 
 .line-block {
@@ -116,19 +111,17 @@ th[role=columnheader]:not(.no-sort):hover:after {
   font-family: "Palatino Linotype";
   height: 60px;
   background-color: firebrick;
-}
-
-.nav-wrapper nav {
-  line-height: 60px;
-  background-color: firebrick;
-  padding: 0;
-}
-
-.nav-wrapper nav.fixed {
-  position: fixed;
-  z-index: 2;
-  width: 100%;
-  top: 0;
+  nav {
+    line-height: 60px;
+    background-color: firebrick;
+    padding: 0;
+  }
+  nav.fixed {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    top: 0;
+  }
 }
 
 nav {
@@ -147,4 +140,5 @@ nav {
       font-size: 1.45em;
       color: ivory;
     }
-  }}
+  }
+}
