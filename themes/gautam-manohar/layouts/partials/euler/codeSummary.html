@@ -36,7 +36,9 @@
   {{- end }}
   {{- $s.Set "memtemp" (div $mem 1000.0) }}
   {{- $s.Set "mem" (printf "%s&#8239;KB" (printf "%.1f" ($s.Get "memtemp"))) }}
-  {{- if lt $mem 25000 }}
+  {{- if lt $mem 1000 }}
+    {{- $s.Set "mem" "less than 1&#8239;KB"}}
+  {{- else if lt $mem 25000 }}
     {{- $s.Set "memclass" "fast" }}
   {{- else if and (ge $mem 25000) (lt $mem 125000) }}
     {{- $s.Set "memclass" "medium" }}
