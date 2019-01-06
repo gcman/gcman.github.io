@@ -43,8 +43,8 @@ def compute_time(n, runs):
     test_case = INPUT[str(n)]
     TIME = 0
     MEM = 0
+    print("Measuring performance of problem {}.".format(n))
     for i in range(runs):
-        print("Performing problem {}, run {}.".format(n, i+1), end="\r")
         sys.stdout.flush()
         p = run(cmd, input=test_case, stdout=PIPE,
                 stderr=PIPE, encoding="ascii")
