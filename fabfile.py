@@ -4,9 +4,6 @@ from fabric import api
 from git import Repo
 from yaml import load, dump
 from subprocess import call
-from pygments import highlight
-from pygments.lexers import PythonLexer
-from pygments.formatters import HtmlFormatter
 
 ROOT = os.path.abspath(os.path.dirname(__file__))
 EULER_CONTENT_DIR = os.path.join(ROOT, "content/euler/")
@@ -75,8 +72,8 @@ def build_solutions():
                     comments += 1
                 elif line == "\n":
                     empty += 1
-        DATA[x]["code"] = highlight(
-            code, PythonLexer(), HtmlFormatter(linenos=True))
+        code = code[:-2]
+        DATA[x]["code"] = code
         DATA[x]["empty"] = str(empty)
         DATA[x]["comments"] = str(comments)
     save_euler_data(DATA)

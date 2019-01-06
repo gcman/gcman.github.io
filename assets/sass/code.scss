@@ -1,79 +1,27 @@
+code,kbc,pre {
+  font-family: Hack, Consolas, Inconsolata, monospace;
+  font-size: 0.95em;
+}
+
 code,kbc {
   background-color: #fdf6e3;
   color: #cb4b16;
   padding: 0 2px;
-  font-family: Inconsolata, monospace;
-}
-
-p code {
-  font-size: 0.9em;
-}
-
-.highlighttable, .lntable {
-  width: 100%;
-  padding: 0;
-  margin: 10px 0 10px 0;
-  border-radius: 0.75em;
-  background-color: #fdf6e3;
-  display: block;
-  white-space: nowrap;
-  overflow-x: auto;
-}
-
-td.linenos, td.lntd:first-child {
-  border-right: 1px solid #93a1a1;
-  white-space: nowrap;
-  color: #93a1a1;
-  text-align: right;
-  padding-left: 7px;
-}
-
-td.linenos {
-  padding-right: 5px;
-}
-
-td.lntd:first-child {
-  padding-right: 5px;
-}
-
-td.lntd:last-child {
-  padding-left: 12px;
-}
-
-td.code {
-  width: 99%;
-  padding: 0;
-}
-
-.code pre {
-  padding-bottom: 10px !important;
-  padding-top: 10px !important;
 }
 
 .highlight {
+  background-color: #fdf6e3;
+  width: 100%;
   padding: 0;
-  border-radius: 0.75em;
   margin: 10px 0;
-  overflow-x: auto;
-}
-
-.highlight pre {
+  border-radius: 0.75em;
   line-height: 1.3em;
-  tab-size: 4;
-}
-
-.highlighttable .highlight pre {
-  padding: 15px 0 5px 15px;
-}
-
-.linenodiv pre{
-  line-height: 1.3em;
-}
-
-.chroma code > :first-child {
-  margin-left: -2px;
-}
-
-.chroma pre {
-  padding: 15px 0 15px 5px;
+  code {padding: 0}
+  pre {padding: 15px 0}
+  td.lntd {padding-right: 5px;}
+  td.lntd:first-child {
+    border-right: 1px solid #93a1a1;
+    padding-left: 7px;
+  }
+  td.lntd:last-child {padding-left: 12px;}
 }

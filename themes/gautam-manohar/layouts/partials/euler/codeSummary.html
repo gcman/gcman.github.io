@@ -8,9 +8,7 @@
 {{- $s := newScratch }}
 
 <h2 id="my-code">My Code</h2>
-<div class="euler-code">
-  {{- $code }}
-</div>
+{{ highlight $code "python" "linenos=true" }}
 <p>This code has {{ $comments }} comments and {{ $empty }} empty lines.</p>
 
 {{- if and (index (index $meta $num) "runtime") (index (index $meta $num) "memory") }}
