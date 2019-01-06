@@ -21,7 +21,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.068a26f4b4a8e82e226b9b92b9afe20483c510c3b59d548ecbff7c24b32d1ad3.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a3494c6ed9586d0dc9e95252c8d64c4e9c6c0f918ac646b7b892436148a8481b.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -141,82 +141,87 @@ constant factor is small.</p>
 
 
 <h2 id="my-code">My Code</h2>
-<div class="euler-code"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Special names</span>
-<span class="n">NUMS</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;zero&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;three&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;four&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;five&quot;</span><span class="p">,</span>
-        <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;six&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;seven&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;eight&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;nine&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="s2">&quot;ten&quot;</span><span class="p">,</span>
-        <span class="mi">11</span><span class="p">:</span> <span class="s2">&quot;eleven&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span> <span class="s2">&quot;twelve&quot;</span><span class="p">,</span> <span class="mi">13</span><span class="p">:</span> <span class="s2">&quot;thirteen&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">:</span> <span class="s2">&quot;fourteen&quot;</span><span class="p">,</span>
-        <span class="mi">15</span><span class="p">:</span> <span class="s2">&quot;fifteen&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">:</span> <span class="s2">&quot;sixteen&quot;</span><span class="p">,</span> <span class="mi">17</span><span class="p">:</span> <span class="s2">&quot;seventeen&quot;</span><span class="p">,</span> <span class="mi">18</span><span class="p">:</span> <span class="s2">&quot;eighteen&quot;</span><span class="p">,</span>
-        <span class="mi">19</span><span class="p">:</span> <span class="s2">&quot;nineteen&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="s2">&quot;twenty&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">:</span> <span class="s2">&quot;thirty&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">:</span> <span class="s2">&quot;forty&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="s2">&quot;fifty&quot;</span><span class="p">,</span>
-        <span class="mi">60</span><span class="p">:</span> <span class="s2">&quot;sixty&quot;</span><span class="p">,</span> <span class="mi">70</span><span class="p">:</span> <span class="s2">&quot;seventy&quot;</span><span class="p">,</span> <span class="mi">80</span><span class="p">:</span> <span class="s2">&quot;eighty&quot;</span><span class="p">,</span> <span class="mi">90</span><span class="p">:</span> <span class="s2">&quot;ninety&quot;</span><span class="p">}</span>
-<span class="n">TEN_POW</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;ten&quot;</span><span class="p">,</span> <span class="s2">&quot;hundred&quot;</span><span class="p">,</span> <span class="s2">&quot;thousand&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;million&quot;</span><span class="p">,</span> <span class="s2">&quot;billion&quot;</span><span class="p">,</span> <span class="s2">&quot;trillion&quot;</span><span class="p">]</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Special names</span>
+<span class="n">NUMS</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&#34;zero&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&#34;one&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&#34;two&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&#34;three&#34;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s2">&#34;four&#34;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s2">&#34;five&#34;</span><span class="p">,</span>
+        <span class="mi">6</span><span class="p">:</span> <span class="s2">&#34;six&#34;</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="s2">&#34;seven&#34;</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="s2">&#34;eight&#34;</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="s2">&#34;nine&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="s2">&#34;ten&#34;</span><span class="p">,</span>
+        <span class="mi">11</span><span class="p">:</span> <span class="s2">&#34;eleven&#34;</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span> <span class="s2">&#34;twelve&#34;</span><span class="p">,</span> <span class="mi">13</span><span class="p">:</span> <span class="s2">&#34;thirteen&#34;</span><span class="p">,</span> <span class="mi">14</span><span class="p">:</span> <span class="s2">&#34;fourteen&#34;</span><span class="p">,</span>
+        <span class="mi">15</span><span class="p">:</span> <span class="s2">&#34;fifteen&#34;</span><span class="p">,</span> <span class="mi">16</span><span class="p">:</span> <span class="s2">&#34;sixteen&#34;</span><span class="p">,</span> <span class="mi">17</span><span class="p">:</span> <span class="s2">&#34;seventeen&#34;</span><span class="p">,</span> <span class="mi">18</span><span class="p">:</span> <span class="s2">&#34;eighteen&#34;</span><span class="p">,</span>
+        <span class="mi">19</span><span class="p">:</span> <span class="s2">&#34;nineteen&#34;</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="s2">&#34;twenty&#34;</span><span class="p">,</span> <span class="mi">30</span><span class="p">:</span> <span class="s2">&#34;thirty&#34;</span><span class="p">,</span> <span class="mi">40</span><span class="p">:</span> <span class="s2">&#34;forty&#34;</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="s2">&#34;fifty&#34;</span><span class="p">,</span>
+        <span class="mi">60</span><span class="p">:</span> <span class="s2">&#34;sixty&#34;</span><span class="p">,</span> <span class="mi">70</span><span class="p">:</span> <span class="s2">&#34;seventy&#34;</span><span class="p">,</span> <span class="mi">80</span><span class="p">:</span> <span class="s2">&#34;eighty&#34;</span><span class="p">,</span> <span class="mi">90</span><span class="p">:</span> <span class="s2">&#34;ninety&#34;</span><span class="p">}</span>
+<span class="n">TEN_POW</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;one&#34;</span><span class="p">,</span> <span class="s2">&#34;ten&#34;</span><span class="p">,</span> <span class="s2">&#34;hundred&#34;</span><span class="p">,</span> <span class="s2">&#34;thousand&#34;</span><span class="p">,</span>
+           <span class="s2">&#34;million&#34;</span><span class="p">,</span> <span class="s2">&#34;billion&#34;</span><span class="p">,</span> <span class="s2">&#34;trillion&#34;</span><span class="p">]</span>
 <span class="n">UPPERCASE</span> <span class="o">=</span> <span class="bp">True</span>
 
 
 <span class="k">def</span> <span class="nf">three_dig_name</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;English name of a three-digit number&quot;&quot;&quot;</span>
+    <span class="s2">&#34;&#34;&#34;English name of a three-digit number&#34;&#34;&#34;</span>
     <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">NUMS</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">NUMS</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
@@ -224,7 +229,7 @@ constant factor is small.</p>
         <span class="n">name</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="c1"># Check if hundreds digit exists</span>
         <span class="k">if</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">100</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="c1"># 342 -&gt; &quot;three hundred&quot;</span>
+            <span class="c1"># 342 -&gt; &#34;three hundred&#34;</span>
             <span class="n">name</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">NUMS</span><span class="p">[</span><span class="n">n</span><span class="o">//</span><span class="mi">100</span><span class="p">])</span>
             <span class="n">name</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TEN_POW</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
         <span class="c1"># Check if we know this number</span>
@@ -238,11 +243,11 @@ constant factor is small.</p>
             <span class="c1"># Ones digit</span>
             <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">name</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">NUMS</span><span class="p">[</span><span class="n">n</span> <span class="o">%</span> <span class="mi">10</span><span class="p">])</span>
-        <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&#34; &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">num_name</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;English name of a number&quot;&quot;&quot;</span>
+    <span class="s2">&#34;&#34;&#34;English name of a number&#34;&#34;&#34;</span>
     <span class="c1"># Split up into 5 blocks of 3 digits</span>
     <span class="n">blocks</span> <span class="o">=</span> <span class="p">[(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">1000</span><span class="o">**</span><span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">1000</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
     <span class="n">name</span> <span class="o">=</span> <span class="p">[]</span>
@@ -255,7 +260,7 @@ constant factor is small.</p>
             <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
                 <span class="c1"># When i = 4, this is the smallest block</span>
                 <span class="n">name</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TEN_POW</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-    <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">&#34; &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
 
 <span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
@@ -265,9 +270,8 @@ constant factor is small.</p>
     <span class="k">if</span> <span class="n">UPPERCASE</span><span class="p">:</span>
         <span class="c1"># Capitalize first letters</span>
         <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
+    <span class="k">print</span><span class="p">(</span><span class="n">name</span></code></pre></td></tr></table>
+</div>
 </div>
 <p>This code has 13 comments and 6 empty lines.</p>
   <h2 id="Performance">Performance</h2>
@@ -1497,9 +1501,9 @@ constant factor is small.</p>
 	
 	<div class="post"><a href="/euler/16/">Project Euler 16: Power Digit Sum</a></div>
 	
-	<div class="post"><a href="/euler/8/">Project Euler 8: Largest Product in a Series</a></div>
-	
 	<div class="post"><a href="/euler/13/">Project Euler 13: Large Sum</a></div>
+	
+	<div class="post"><a href="/euler/14/">Project Euler 14: Longest Collatz Sequence</a></div>
 	
 </div>
 

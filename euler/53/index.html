@@ -21,7 +21,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.068a26f4b4a8e82e226b9b92b9afe20483c510c3b59d548ecbff7c24b32d1ad3.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.a3494c6ed9586d0dc9e95252c8d64c4e9c6c0f918ac646b7b892436148a8481b.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -131,28 +131,33 @@ time complexity \(O(N^2)\) (this is really not a tight bound).</p>
 
 
 <h2 id="my-code">My Code</h2>
-<div class="euler-code"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">choose_max</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;No. of entries in n-th row of Pascal&#39;s triangle</span>
-<span class="sd">    less than k&quot;&quot;&quot;</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">choose_max</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;No. of entries in n-th row of Pascal&#39;s triangle
+</span><span class="s2">    less than k&#34;&#34;&#34;</span>
     <span class="c1"># The current binomial coefficient</span>
     <span class="n">curr</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="c1"># Go up to the central coefficient</span>
@@ -169,9 +174,8 @@ time complexity \(O(N^2)\) (this is really not a tight bound).</p>
 
 <span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
 <span class="c1"># Add up all the rows up to N</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">choose_max</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)]))</span>
-</pre></div>
-</td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">choose_max</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span></code></pre></td></tr></table>
+</div>
 </div>
 <p>This code has 6 comments and 2 empty lines.</p>
   <h2 id="Performance">Performance</h2>
@@ -1401,9 +1405,9 @@ time complexity \(O(N^2)\) (this is really not a tight bound).</p>
 	
 	<div class="post"><a href="/euler/63/">Project Euler 63: Powerful Digit Counts</a></div>
 	
-	<div class="post"><a href="/euler/32/">Project Euler 32: Pandigital Products</a></div>
-	
 	<div class="post"><a href="/euler/41/">Project Euler 41: Pandigital Prime</a></div>
+	
+	<div class="post"><a href="/euler/32/">Project Euler 32: Pandigital Products</a></div>
 	
 </div>
 
