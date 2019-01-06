@@ -2,24 +2,24 @@
   <tr>
     <td class="left arrow">
       {{ with .PrevInSection }}
-      &#8592; older
+      <a style="color: black" href={{.Permalink}}>&#8592; older</a>
       {{end}}
     </td>
     <td class="right arrow">
       {{with.NextInSection}}
-      newer &#8594;
+      <a style="color: black" href={{.Permalink}}>newer &#8594; </a>
       {{end}}
     </td>
   </tr>
   <tr>
     <td class="left">
       {{ with .PrevInSection }}
-      <a class="previous" href="{{.Permalink}}"> {{.Title}}</a>
+      <a href="{{.Permalink}}">{{.Title}}</a>
       {{ end }}
     </td>
     <td class="right">
       {{ with .NextInSection }}
-      <a class="next" href="{{.Permalink}}"> {{.Title}}</a>
+      <a href="{{.Permalink}}">{{.Title}}</a>
       {{ end }}
     </td>
   </tr>
