@@ -4,7 +4,7 @@ body {
   background-color: ivory;
   color: black;
   font-size: 16px;
-  font-family: "Segoe UI";
+  font-family: "Segoe UI", "Helvetica Neue", 'Helvetica', 'Palatino Linotype', 'Palatino', 'Book Antiqua', 'URW Palladio L', 'Palladio URW', 'TeX Gyre Pagella', sans-serif;
   cursor: default;
   overflow-x: hidden;
   margin: 0;
@@ -98,7 +98,7 @@ h2 {
   color: firebrick;
   text-align: center;
   margin: 1.25em auto 0.5em auto;
-  font-family: "Palatino Linotype";
+  font-family: "Palatino Linotype", "Palatino";
   width: 25em;
   max-width: 90%;
 }
