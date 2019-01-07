@@ -1,0 +1,131 @@
++++
+title = "Comparing $e^\\pi$ and $\\pi^e$"
+author = ["Gautam Manohar"]
+description = "Which is greater: e^pi or pi^e? No calculators allowed! I solve this puzzle with differentiation, Taylor series, concavity, and the AM-GM inequality."
+date = 2018-02-01
+tags = ["calculus", "fun"]
+categories = ["math"]
+draft = false
+shorttitle = "Comparing Powers of e and pi"
++++
+
+The constants \\(e\\) and \\(\pi\\) are everywhere in mathematics. Determining the
+greater of the two expressions \\(e^\pi\\) and \\(\pi^e\\) (without using a calculator,
+of course...) is a fun puzzle that you can approach in many ways. I'd like to
+discuss my solutions.
+
+
+## Differentiation {#differentiation}
+
+We shall perform the same operations on the two expressions.
+
+\begin{equation}
+    \begin{split}
+        e^{\pi} &\odot \pi^e \\\\\\
+        e^{\frac{\pi}{e}} &\odot \pi^{\frac{e}{e}} \\\\\\
+        e^{\frac{1}{e}} &\odot \pi^{\frac{1}{\pi}}
+    \end{split}
+\end{equation}
+
+To show that \\(e^\pi > \pi^e\\), it suffices to show that \\(e^{\frac{1}{e}} >
+\pi^{\frac{1}{\pi}}\\). Let \\(y = x^{\frac{1}{x}}\\). Then we can implicitly
+differentiate to find the critical points.
+
+\begin{equation}
+\begin{split}
+\ln{y} &= \ln{x^{\frac{1}{x}}} \\\\\\
+\ln{y} &= \frac{\ln{x}}{x} \\\\\\
+\diff{}{x}\ln{y} &= \diff{}{x}\frac{\ln{x}}{x} \\\\\\
+\frac{1}{y}y' &= \frac{x\left(\frac{1}{x}\right) - \ln{x}\cdot1}{x^2} \\\\\\
+y' &= x^{\frac{1}{x}}\frac{1 - \ln{x}}{x^2}.
+\end{split}
+\end{equation}
+
+The expressions \\(x^{\frac{1}{x}}\\) and \\(x^2\\) are always positive, so there is
+only critical point: when \\(1 - \ln{x} = 0\\), or when \\(x = e\\). We must find
+whether this point is a global minimum or a maximum. When \\(x = 1 < e\\), we have
+\\(1 - \ln{x} = 1\\), so the function is increasing. The value \\(x = e^2 > e\\) gives
+\\(1 - \ln{x} = -1\\), which means the function is decreasing. Thus
+\\(x^{\frac{1}{x}}\\) has a global maximum at \\(x = e\\). And so \\(e^{\frac{1}{e}} >
+\pi^{\frac{1}{\pi}}\\), which shows that \\(e^\pi > \pi^e\\).
+
+
+## Inequality {#inequality}
+
+If we use the inequality \\(1 + x < e^x\\) (I will present three proofs of this
+below), then a very simple solution presents itself. The equality holds for all
+\\(x\\), but we only require it to hold for positive \\(x\\). Make the substitution \\(x =
+\frac{\pi}{e} - 1\\), in an effort to cancel out the 1 on the right side of the
+inequality and introduce \\(\pi\\). Because \\(\pi > e\\), \\(\frac{\pi}{e} - 1 > 0\\), and
+so
+
+\begin{equation}
+    \begin{split}
+        1 + \frac{\pi}{e} - 1 &< e^{\frac{\pi}{e} - 1} \\\\\\
+    \pi\cdot\frac{1}{e} &< e^{\frac{\pi}{e}} \cdot \frac{1}{e} \\\\\\
+\pi &< e^{\frac{\pi}{e}}\\\\\\
+\pi^e &< e^\pi.
+    \end{split}
+\end{equation}
+
+Wonderful, isn't it?
+
+
+### Taylor Series {#taylor-series}
+
+This is the most standard proof I have; I think it's the least exciting. We only
+prove the equality for positive \\(x\\). We know
+
+\begin{equation}
+e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
+\end{equation}
+
+Thus for \\(x > 0\\), all the terms on the right side will be positive, and so \\(e^x
+> 1 + x\\).
+
+
+### Concavity {#concavity}
+
+This method requires a little more "geometric intuition" than the last. At \\(x =
+0\\), we have \\(e^x = 1\\). At this point \\((0,1)\\), the tangent line to \\(e^x\\) has
+slope \\(1\\) and has the equation \\(y = 1 + x\\). Because \\((e^x)'' = e^x > 0\\), \\(e^x\\)
+is always concave up, so it is always above its tangent line. Therefore, \\(1 + x
+< e^x\\).
+
+
+### AM-GM {#am-gm}
+
+This is my favourite proof. It's a little less intuitive than the others, but I
+think it's beautiful. We use the arithmetic-geometric mean inequality.
+
+\begin{equation}
+    \begin{split}
+     \sqrt[n]{1+x} &= \sqrt[n]{\smash[b]{\underbrace{1\cdot1\cdots1}\_{\text{$n-1$ times}}\cdot(1+x)}} \\\\\[1em]
+     &\le \frac{\overbrace{1+\dotsb+1}^{\text{$n-1$ times}}+(1+x)}{n} \\\\\\
+     &= \frac{\overbrace{1+\dotsb+1}^{\text{$n$ times}}+x}{n} \\\\\\
+    &= 1 + \frac{x}{n}.
+    \end{split}
+\end{equation}
+
+Strict equality in the AM-GM inequality only holds when all the terms are equal.
+In this case, \\(x > 0\\), so \\(1 + x \neq 1\\), so we have strict inequality. This
+gives \\(\sqrt[n]{1+x} < 1 + \frac{x}{n}\\). Raising both sides to the $n$-th power
+gives
+
+\begin{equation}
+    1 + x < \left(1 + \frac{x}{n}\right)^n.
+\end{equation}
+
+Taking the limit as \\(n\\) approaches \\(\infty\\) on both sides yields
+
+\begin{equation}
+    \begin{split}
+        \lim\_{n\to\infty} (1 + x) &< \lim\_{n\to\infty} \left(1 + \frac{x}{n}\right)^n \\\\\\
+        1 + x &< e^x.
+    \end{split}
+\end{equation}
+
+Using the limit definition of \\(e\\), we conclude our proof.
+
+I get the feeling that there are many other ways to attack this problem. If you
+can solve it with a method that I have not shown, please let me know!
