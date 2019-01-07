@@ -212,7 +212,7 @@ We use induction. Because the 0-th convergent is \(a_0\), we define \(P_0 = a_0,
       
       <guid>https://gautammanohar.com/euler/69/</guid>
       <description>Problem Statement Euler&amp;rsquo;s totient function, \(\varphi(n)\), counts the number of positive integers less than \(n\) that are coprime to \(n\).
-  Figure 1: Note that 6 produces a maximum for the desired ratio in the range of this table.
+  Figure 1: Note that \(\frac{n}{\varphi(n)}\) takes on a maximum at \(n = 6\) in the range of this table.
   Given \(N\), find the smallest value \(n&amp;lt;N\) such that \(\frac{n}{\varphi(n)}\) achieves a maximum.
 My Algorithm We use Euler&amp;rsquo;s product formula for the totient function,
 \begin{equation} \varphi(n) = n\prod\limits_{p|n}\left(1 - \frac{1}{p}\right), \end{equation}</description>
@@ -471,7 +471,7 @@ Now to process the number \(N\). We begin by breaking the number into five block
       
       <guid>https://gautammanohar.com/euler/18/</guid>
       <description>Problem Statement By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximal total from top to bottom is 23.
-  Figure 1: Note that 3+7+4+9 = 23.
+  Figure 1: Note that \(3+7+4+9 = 23\).
   Find the maximum path length for a given such triangle.
 My Algorithm We use a data structure that mimics the structure of a given triangle. For each row, we update a parent array to store the maximal path sums that end in each entry of the row above.</description>
     </item>
@@ -483,7 +483,7 @@ My Algorithm We use a data structure that mimics the structure of a given triang
       
       <guid>https://gautammanohar.com/euler/67/</guid>
       <description>Problem Statement By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximal total from top to bottom is 23.
-  Figure 1: Note that3 + 7 + 4 + 9 = 23.
+  Figure 1: Note that \(3+7+4+9 = 23\).
   Find the maximum path length for a given such triangle with 100 rows.
 My Algorithm Please see Project Euler 18, which has an identical solution.</description>
     </item>

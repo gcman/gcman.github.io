@@ -41,7 +41,7 @@ We use induction. Because the 0-th convergent is \(a_0\), we define \(P_0 = a_0,
       
       <guid>https://gautammanohar.com/euler/69/</guid>
       <description>Problem Statement Euler&amp;rsquo;s totient function, \(\varphi(n)\), counts the number of positive integers less than \(n\) that are coprime to \(n\).
-  Figure 1: Note that 6 produces a maximum for the desired ratio in the range of this table.
+  Figure 1: Note that \(\frac{n}{\varphi(n)}\) takes on a maximum at \(n = 6\) in the range of this table.
   Given \(N\), find the smallest value \(n&amp;lt;N\) such that \(\frac{n}{\varphi(n)}\) achieves a maximum.
 My Algorithm We use Euler&amp;rsquo;s product formula for the totient function,
 \begin{equation} \varphi(n) = n\prod\limits_{p|n}\left(1 - \frac{1}{p}\right), \end{equation}</description>
