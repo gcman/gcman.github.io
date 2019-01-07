@@ -21,7 +21,7 @@
 <link rel="mask-icon"  color="#5bbad5"            href="/img/favicons/safari-pinned-tab.svg" />
 <link rel="shortcut icon"                         href="/img/favicons/favicon.ico" />
     
-    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.856844e0ebbc9206b01f9b09eefb7485414a1694277e92d31601f34b052ccea3.css"><style>
+    <link type="text/css" rel="stylesheet" href="https://gautammanohar.com/sass/main.min.43af245edfb15e5f1c488457cf43ffe4fe943f6da7bfa410d30a06adcfd39f08.css"><style>
 .title .math {
   font-size: 50% !important;
 }
@@ -112,7 +112,7 @@ the row below, the maximal total from top to bottom is 23.</p>
 
 <figure>
     <img src="/img/euler/18-triangle.png"
-         alt="Figure 1: Note that 3&#43;7&#43;4&#43;9 = 23." width="20%"/> <figcaption>
+         alt="Figure 1: Note that 3&#43;7&#43;4&#43;9 = 23." width="100px"/> <figcaption>
             <p>Figure 1: Note that 3+7+4+9 = 23.</p>
         </figcaption>
 </figure>
@@ -125,10 +125,10 @@ the row below, the maximal total from top to bottom is 23.</p>
 <p>We use a data structure that mimics the structure of a given triangle. For each
 row, we update a <code>parent</code> array to store the maximal path sums that end in each
 entry of the row above. We process each row of the tree into an array called
-<code>current</code>. For each element <code>x` in the row, we add to current the sum of `x` and
-the maximum of the sums corresponding to the two (or one) entries adjacent to `x</code>
+<code>current</code>. For each element <code>x</code> in the row, we add to current the sum of <code>x</code> and
+the maximum of the sums corresponding to the two (or one) entries adjacent to <code>x</code>
 in the previous row. These sums are found in <code>parent</code>. When we finish processing a
-row, we set <code>parent` equal to `current</code> and continue until all the rows have been
+row, we set <code>parent</code> equal to <code>current</code> and continue until all the rows have been
 processed. The final answer is the maximal element in <code>parent</code>. This solution has
 time complexity \(O(n^2)\), because we perform an operation for each element of
 the triangle.</p>
