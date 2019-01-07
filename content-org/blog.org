@@ -254,7 +254,7 @@ the $\mathrm{sinc}$ function:
 \end{cases}
 \end{equation}
 It looks like this:
-#+attr_html: :width 70%
+#+attr_html: :width 400px
 [[/img/math/sinc.png]]
 
 This function famously has no elementary antiderivative, yet its definite
@@ -1272,7 +1272,6 @@ S_n(R) &= \frac{nR^{n-1}\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2}+1\right)} \\
 \end{equation}
 **** Implications
 ***** Small Dimensions
-#+attr_html: :width 75%
 #+caption: Note the global maximum, after which the content quickly decreases.
 [[/img/math/n-ball-graph.png]]
 
@@ -1487,7 +1486,7 @@ A = \frac{1}{2}ab\sin C
 and the cosine law. Our strategy will be to square these expressions and use the
 Pythagorean trigonometric identity. Consider a quadrilateral $ABCD$ with side
 lengths $a,b,c,d$.
-#+attr_html: :width 50%
+#+attr_html: :width 400px
 [[/img/math/herons-quadrilateral.png]]
 
 Then its area is the sum of the areas of the triangles $ABD$ and $BCD$. Let $A$
@@ -2089,7 +2088,6 @@ T\log n)$, where $T$ is the number of queries.
 :END:
 *** Problem Statement
 In the 20-by-20 grid below, four numbers have been marked in bold.
-#+attr_html: :width 95%
 #+caption: A nice friendly matrix.
 [[/img/euler/11-matrix.png]]
 
@@ -2299,7 +2297,7 @@ constant factor is small.
 *** Problem Statement
 By starting at the top of the triangle below and moving to adjacent numbers on
 the row below, the maximal total from top to bottom is 23.
-#+attr_html: :width 20%
+#+attr_html: :width 100px
 #+caption: Note that 3+7+4+9 = 23.
 [[/img/euler/18-triangle.png]]
 
@@ -2308,10 +2306,10 @@ Find the maximum path length for a given such triangle.
 We use a data structure that mimics the structure of a given triangle. For each
 row, we update a ~parent~ array to store the maximal path sums that end in each
 entry of the row above. We process each row of the tree into an array called
-~current~. For each element ~x` in the row, we add to current the sum of `x` and
-the maximum of the sums corresponding to the two (or one) entries adjacent to `x~
+~current~. For each element =x= in the row, we add to current the sum of =x= and
+the maximum of the sums corresponding to the two (or one) entries adjacent to =x=
 in the previous row. These sums are found in ~parent~. When we finish processing a
-row, we set ~parent` equal to `current~ and continue until all the rows have been
+row, we set =parent= equal to =current= and continue until all the rows have been
 processed. The final answer is the maximal element in ~parent~. This solution has
 time complexity $O(n^2)$, because we perform an operation for each element of
 the triangle.
@@ -2552,7 +2550,7 @@ O\left(\frac{N^3\sqrt{N}}{\log N}\right)$.
 *** Problem Statement
 Starting with the number 1 and moving to the right in a clockwise direction, a
 5-by-5 spiral is formed:
-#+attr_html: :width 40%
+#+attr_html: :width 250px
 #+caption: A 5-by-5 number spiral. The diagonal entries are bolded.
 [[/img/euler/28-spiral.png]]
 
@@ -3418,7 +3416,7 @@ sum. Our solution has time complexity $O(N)$.
 *** Problem Statement
 By starting at the top of the triangle below and moving to adjacent numbers on
 the row below, the maximal total from top to bottom is 23.
-#+attr_html: :width 20%
+#+attr_html: :width 100px
 #+caption: Note that3 + 7 + 4 + 9 = 23.
 [[/img/euler/18-triangle.png]]
 
@@ -3434,7 +3432,7 @@ Please see [[../18/][Project Euler 18]], which has an identical solution.
 *** Problem Statement
 Euler's totient function, $\varphi(n)$, counts the number of positive integers
 less than $n$ that are coprime to $n$.
-#+attr_html: :width 40%
+#+attr_html: :width 250px
 #+caption: Note that 6 produces a maximum for the desired ratio in the range of this table.
 [[/img/euler/69-tot-table.png]]
 
