@@ -13,7 +13,7 @@ body {
   background-color: ivory;
   color: black;
   font-size: 16px;
-  font-family: "Segoe UI", "Helvetica Neue", 'Helvetica', 'Palatino Linotype', 'Palatino', 'Book Antiqua', 'URW Palladio L', 'Palladio URW', 'TeX Gyre Pagella', sans-serif;
+  font-family: 'Open Sans', 'Segoe UI', sans-serif;
   cursor: default;
   overflow-x: hidden;
   margin: 0;
@@ -31,7 +31,7 @@ a {
   .math {color: firebrick;}
 }
 
-.MathJax_Display {overflow-y: hidden}
+.MathJax_Display, .MathJax_Preview {overflow-y: hidden}
 
 
 p {margin-bottom: 1ex;}
@@ -107,7 +107,7 @@ th[role=columnheader]:not(.no-sort):hover:after {
 }
 
 .nav-wrapper {
-  font-family: "Palatino Linotype", "Palatino";
+  font-family: "Palatino Linotype", "Palatino", serif;
   height: 60px;
   background-color: firebrick;
   nav {

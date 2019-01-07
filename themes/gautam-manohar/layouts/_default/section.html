@@ -1,15 +1,13 @@
 {{ define "title" }}
-{{- $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
-{{ title $currentSec }} &ndash; {{ .Site.Title }}
+{{ title .Section }} &ndash; {{ .Site.Title }}
 {{ end }}
 {{ define "main" }}
-{{- $currentSec := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
-<article {{if eq $currentSec "euler"}}style="margin:auto;"{{end}} class="article {{ if eq $currentSec "blog" }}blog{{ end }} {{if ne $currentSec "euler"}}section{{else}} euler{{end}}">
+<article {{if eq .Section "euler"}}style="margin:auto;"{{end}} class="article {{ if eq .Section "blog" }}blog{{ end }} {{if ne .Section "euler"}}section{{else}} euler{{end}}">
   <div id="content">
     <section>
-      {{ if eq $currentSec "euler" }}
+      {{ if eq .Section "euler" }}
       {{- partial "euler/progress.html" . -}}
-      {{ else if eq $currentSec "blog" }}
+      {{ else if eq .Section "blog" }}
       {{- partial "blog-listing.html" . -}}
       {{ else }}
       {{- partial "category-listing.html" . -}}

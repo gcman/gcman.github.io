@@ -1,13 +1,13 @@
 a.tag {
   color: black;
   opacity: 0.5;
-  font-size: 0.8em;
 }
 .main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   p {font-size: 0.9em}
+  a.tag {font-size: 0.8em}
   .side {
     display: none;
     flex-direction: column;
@@ -20,6 +20,7 @@ a.tag {
       .category {
         font-variant: small-caps;
         font-weight: bold;
+        font-size: 1.1em;
       }
       .taglist {
         li {display: inline-block;}
@@ -38,6 +39,7 @@ a.tag {
       li {
         line-height: 1.2em;
         padding: 3px;
+        font-size: 0.95em;
       }
     }
   }
@@ -145,7 +147,9 @@ a.tag {
   .main p {font-size: 1em}
   .side {display: flex !important}
   .mobile {display: none !important}
-  .MathJax_Display {overflow-y: visible !important}
+  .MathJax_Display, .MathJax_Preview {
+    overflow-y: visible !important
+  }
 }
 @media only screen and (min-width: 60em) {
   .side {width: 15em !important}
