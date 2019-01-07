@@ -7,6 +7,7 @@ a.tag {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  p {font-size: 0.9em}
   .side {
     display: none;
     flex-direction: column;
@@ -111,7 +112,7 @@ a.tag {
   }
 
   #next-prev {
-    margin-top: 1em;
+    margin: 1em 0;
     width: 100%;
     .left {text-align: left;}
     .right {text-align: right;}
@@ -139,7 +140,9 @@ a.tag {
     }
   }
 }
+
 @media only screen and (min-width: 57em) {
+  .main p {font-size: 1em}
   .side {display: flex !important}
   .mobile {display: none !important}
   .MathJax_Display {overflow-y: visible !important}
@@ -150,5 +153,3 @@ a.tag {
 @media only screen and (min-width: 70em) {
   .side {width: 20em !important}
 }
-
-#comment-policy {display: none}

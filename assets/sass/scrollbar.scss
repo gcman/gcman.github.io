@@ -39,3 +39,10 @@
 .lntable::-webkit-scrollbar-thumb:window-inactive {
   background-color: gainsboro;
 }
+
+@media only screen and (pointer: coarse) {
+  .MathJax_Display::-webkit-scrollbar {display: none}
+  .MathJax_Display::-webkit-scrollbar-track {display: none}
+  .MathJax_Display::-webkit-scrollbar-thumb {display: none}
+  .MathJax_Display::-webkit-scrollbar-thumb:window-inactive {display: none}
+}
