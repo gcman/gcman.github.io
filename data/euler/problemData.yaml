@@ -2,7 +2,7 @@
     \ (n+1) // 2\n\n\ndef sum_under(n, m):\n    \"\"\"Terms in eq. (3)\"\"\"\n   \
     \ return m*triangular((n-1)//m)\n\n\nT = int(input())\nfor _ in range(T):\n  \
     \  N = int(input())\n    print(sum_under(N, 3) + sum_under(N, 5) - sum_under(N,\
-    \ 15)", comments: '0', difficulty: '5', empty: '4', hrdifficulty: Easy, memory: '930',
+    \ 15))\n", comments: '0', difficulty: '5', empty: '4', hrdifficulty: Easy, memory: '930',
   name: Multiples of 3 and 5, num: '1', path: 1-Multiples-of-3-and-5, runtime: '3'}
 '10': {code: "def bs(arr, l, r, x):\n    \"\"\"Binary Search arr from index l to r\
     \ for x\"\"\"\n    while l <= r:\n        mid = l + (r - l)//2\n        if arr[mid]\
@@ -15,7 +15,7 @@
     \ = primes(int(2e6))\n# Construct the prefix sum array\nP = [0]\ncount = 0\nfor\
     \ p in PRIMES:\n    count += p\n    P.append(count)\ndel P[0]\n\nT = int(input())\n\
     for _ in range(T):\n    N = int(input())\n    idx = bs(PRIMES, 0, len(PRIMES)-1,\
-    \ N)\n    print(P[idx]", comments: '2', difficulty: '5', empty: '5', hrdifficulty: Medium,
+    \ N)\n    print(P[idx])\n", comments: '2', difficulty: '5', empty: '5', hrdifficulty: Medium,
   memory: '3064', name: Summation of Primes, num: '10', path: 10-Summation-of-Primes,
   runtime: '50'}
 '100': {difficulty: '30', hrdifficulty: Advanced, name: Arranged probability, num: '100'}
@@ -39,7 +39,7 @@
     \     ldiag = prod([G[x+i][y+i] for i in range(4)])\n        else:\n         \
     \   ldiag = 0\n        # Read down and to the left\n        if x >= 3 and y <\
     \ 17:\n            rdiag = prod([G[x-i][y+i] for i in range(4)])\n        else:\n\
-    \            rdiag = 0\n        ans = max(ans, horiz, vert, ldiag, rdiag)\nprint(ans",
+    \            rdiag = 0\n        ans = max(ans, horiz, vert, ldiag, rdiag)\nprint(ans)\n",
   comments: '4', difficulty: '5', empty: '2', hrdifficulty: Easy, memory: '954', name: Largest
     Product in a Grid, num: '11', path: 11-Largest-Product-in-a-Grid, runtime: '6'}
 '110': {difficulty: '40', hrdifficulty: Easy, name: Diophantine reciprocals II}
@@ -70,9 +70,9 @@
     \ of T_n\"\"\"\n    k = prime_factors((n//2 + n % 2) * 2)[2]\n    return factors(n)\
     \ * factors(n+1) * k // (k+1)\n\n\nT = int(input())\nfor _ in range(T):\n    N\
     \ = int(input())\n    i = 1\n    while triangle_factors(i) <= N:\n        i +=\
-    \ 1\n        print(i*(i+1)//2", comments: '2', difficulty: '5', empty: '12', hrdifficulty: Easy,
-  memory: '952', name: Highly Divisible Triangular Number, num: '12', path: 12-Highly-Divisible-Triangular-Number,
-  runtime: '17'}
+    \ 1\n        print(i*(i+1)//2)\n", comments: '2', difficulty: '5', empty: '12',
+  hrdifficulty: Easy, memory: '952', name: Highly Divisible Triangular Number, num: '12',
+  path: 12-Highly-Divisible-Triangular-Number, runtime: '17'}
 '120': {difficulty: '25', hrdifficulty: Easy, name: Square remainders}
 '121': {difficulty: '35', hrdifficulty: Easy, name: Disc game prize fund}
 '122': {difficulty: '40', hrdifficulty: Easy, name: Efficient exponentiation}
@@ -83,9 +83,9 @@
 '127': {difficulty: '50', hrdifficulty: Advanced, name: abc-hits}
 '128': {difficulty: '55', hrdifficulty: Hard, name: Hexagonal tile differences}
 '129': {difficulty: '45', hrdifficulty: Hard, name: Repunit divisibility}
-'13': {code: 'print(str(sum([int(input()) for _ in range(int(input()))]))[:10', comments: '0',
-  difficulty: '5', empty: '0', hrdifficulty: Easy, memory: '937', name: Large Sum,
-  num: '13', path: 13-Large-Sum, runtime: '6'}
+'13': {code: 'print(str(sum([int(input()) for _ in range(int(input()))]))[:10])',
+  comments: '0', difficulty: '5', empty: '0', hrdifficulty: Easy, memory: '937', name: Large
+    Sum, num: '13', path: 13-Large-Sum, runtime: '6'}
 '130': {difficulty: '45', hrdifficulty: Easy, name: Composites with prime repunit
     property}
 '131': {difficulty: '40', hrdifficulty: Hard, name: Prime cube partnership}
@@ -112,7 +112,7 @@
     \ collatz(3*n+1) + 1\n\n\nfor i in range(2, MAX+1):\n    collatz(i)\n    # Track\
     \ right-maximal indices\n    if memo[i] >= memo[max_list[-1]]:\n        max_list.append(i)\n\
     \nT = int(input())\nfor _ in range(T):\n    N = int(input())\n    print(bs(max_list,\
-    \ 0, len(max_list)-1, N)", comments: '6', difficulty: '5', empty: '7', hrdifficulty: Easy,
+    \ 0, len(max_list)-1, N))\n", comments: '6', difficulty: '5', empty: '7', hrdifficulty: Easy,
   memory: '5603', name: Longest Collatz Sequence, num: '14', path: 14-Longest-Collatz-Sequence,
   runtime: '493'}
 '140': {difficulty: '55', hrdifficulty: Easy, name: Modified Fibonacci golden nuggets}
@@ -134,7 +134,7 @@
     \ k mod p\"\"\"\n    ans = 1\n    # Recurrence in eq. (2)\n    for i in range(k):\n\
     \        ans = (ans * (n-i) * inv(i+1, p)) % p\n    return ans\n\n\nP = 1000000007\n\
     T = int(input())\nfor _ in range(T):\n    N, M = map(int, input().split())\n \
-    \   print(choose(N+M, min(N, M), P)", comments: '1', difficulty: '5', empty: '4',
+    \   print(choose(N+M, min(N, M), P))\n", comments: '1', difficulty: '5', empty: '4',
   hrdifficulty: Easy, memory: '923', name: Lattice Paths, num: '15', path: 15-Lattice-Paths,
   runtime: '4'}
 '150': {difficulty: '55', hrdifficulty: Easy, name: Searching a triangular array for
@@ -155,7 +155,7 @@
 '16': {code: "def digit_sum(n):\n    \"\"\"Sum of digits of n\"\"\"\n    s = 0\n \
     \   while n > 0:\n        s += n % 10\n        n = (n - n % 10) // 10\n    return\
     \ s\n\n\nT = int(input())\nfor _ in range(T):\n    N = int(input())\n    print(digit_sum(pow(2,\
-    \ N))", comments: '0', difficulty: '5', empty: '2', hrdifficulty: Easy, memory: '917',
+    \ N)))\n", comments: '0', difficulty: '5', empty: '2', hrdifficulty: Easy, memory: '917',
   name: Power Digit Sum, num: '16', path: 16-Power-Digit-Sum, runtime: '4'}
 '160': {difficulty: '60', hrdifficulty: Advanced, name: Factorial trailing digits}
 '161': {difficulty: '70', hrdifficulty: Hard, name: Triominoes}
@@ -196,7 +196,7 @@
     \                name.append(TEN_POW[-i-1])\n    return \" \".join(name)\n\n\n\
     T = int(input())\nfor _ in range(T):\n    N = int(input())\n    name = num_name(N)\n\
     \    if UPPERCASE:\n        # Capitalize first letters\n        name = name.title()\n\
-    \    print(name", comments: '13', difficulty: '5', empty: '6', hrdifficulty: Easy,
+    \    print(name)\n", comments: '13', difficulty: '5', empty: '6', hrdifficulty: Easy,
   memory: '952', name: Number Letter Counts, num: '17', path: 17-Number-Letter-Counts,
   runtime: '4'}
 '170': {difficulty: '70', hrdifficulty: Easy, name: Find the largest 0 to 9 pandigital
@@ -228,7 +228,7 @@
     \        # We're done with the row\n        # So move it into memory for the next\
     \ row\n        parent = curr\n    return max(parent)\n\n\nT = int(input())\nfor\
     \ _ in range(T):\n    N = int(input())\n    rows = [list(map(int, input().split()))\
-    \ for _ in range(N)]\n    ans = max_sum(rows)\n    print(ans", comments: '5',
+    \ for _ in range(N)]\n    ans = max_sum(rows)\n    print(ans)\n", comments: '5',
   difficulty: '5', empty: '4', hrdifficulty: Easy, memory: '932', name: Maximum Path
     Sum I, num: '18', path: 18-Maximum-Path-Sum-I, runtime: '6'}
 '180': {difficulty: '75', hrdifficulty: Medium, name: Rational zeros of a function
@@ -263,12 +263,12 @@
     \        count = 2\n    else:\n        count = 0\n    # Go up to the maximum\n\
     \    while next_even(fib) <= n:\n        count += next_even(fib)\n        # Keep\
     \ track of last two evens\n        fib = [fib[1], next_even(fib)]\n    return\
-    \ count\n\n\nT = int(input())\nfor _ in range(T):\n    N = int(input())\n    print(even_fib_sum(N)",
+    \ count\n\n\nT = int(input())\nfor _ in range(T):\n    N = int(input())\n    print(even_fib_sum(N))\n",
   comments: '3', difficulty: '5', empty: '4', hrdifficulty: Easy, memory: '922', name: Even
     Fibonacci Numbers, num: '2', path: 2-Even-Fibonacci-Numbers, runtime: '3'}
 '20': {code: "from math import factorial\n\n\ndef digit_sum(n):\n    return sum([int(x)\
     \ for x in str(n)])\n\n\nT = int(input())\nfor _ in range(T):\n    N = int(input())\n\
-    \    print(digit_sum(factorial(N))", comments: '0', difficulty: '5', empty: '4',
+    \    print(digit_sum(factorial(N)))\n", comments: '0', difficulty: '5', empty: '4',
   hrdifficulty: Easy, memory: '930', name: Factorial Digit Sum, num: '20', path: 20-Factorial-Digit-Sum,
   runtime: '4'}
 '200': {difficulty: '65', hrdifficulty: Medium, name: Find the 200th prime-proof sqube
@@ -290,7 +290,7 @@
     \ # Check if x = d(d(x)) and x != d(x)\n    if x == divisor_sum(friend) and x\
     \ != friend:\n        # Avoid duplicates\n        AMICABLE.add(x)\n\nT = int(input())\n\
     for _ in range(T):\n    N = int(input())\n    S = sum([x for x in AMICABLE if\
-    \ x < N])\n    print(S", comments: '3', difficulty: '5', empty: '5', hrdifficulty: Easy,
+    \ x < N])\n    print(S)\n", comments: '3', difficulty: '5', empty: '5', hrdifficulty: Easy,
   memory: '936', name: Amicable Numbers, num: '21', path: 21-Amicable-Numbers, runtime: '183'}
 '210': {difficulty: '70', hrdifficulty: Medium, name: Obtuse Angled Triangles}
 '211': {difficulty: '50', hrdifficulty: Hard, name: Divisor Square Sum}
@@ -310,7 +310,7 @@
     \ + 1) for each letter\n    return sum([ALPH.index(x) for x in s]) + len(s)\n\n\
     \nN = int(input())\nnames = sorted([input().strip() for _ in range(N)])\nQ = int(input())\n\
     for _ in range(Q):\n    # Remove any possible whitespace\n    name = input().strip()\n\
-    \    # Index starts at 0\n    ans = score(name)*(names.index(name) + 1)\n    print(ans",
+    \    # Index starts at 0\n    ans = score(name)*(names.index(name) + 1)\n    print(ans)\n",
   comments: '7', difficulty: '5', empty: '5', hrdifficulty: Easy, memory: '974', name: Names
     Scores, num: '22', path: 22-Names-Scores, runtime: '30'}
 '220': {difficulty: '55', name: Heighway Dragon}
@@ -333,7 +333,7 @@
     \ - x for x in ABUNDANT)\n    # Check if any of these differences are abundant\n\
     \    if diff & ABUNDANT:\n        return True\n    return False\n\n\nT = int(input())\n\
     for _ in range(T):\n    N = int(input())\n    if abundant_sum(N):\n        print(\"\
-    YES\")\n    else:\n        print(\"NO\"", comments: '3', difficulty: '5', empty: '6',
+    YES\")\n    else:\n        print(\"NO\")\n", comments: '3', difficulty: '5', empty: '6',
   hrdifficulty: Easy, memory: '1100', name: Non-abundant Sums, num: '23', path: 23-Non-Abundant-Sums,
   runtime: '21'}
 '230': {difficulty: '50', name: Fibonacci Words}
@@ -354,7 +354,7 @@
     \    out = \"\"\n    for i in indices:\n        # Remove the i-th remaining element\n\
     \        # i is the coeffcient in the\n        # factorial base expansion of n\n\
     \        out += s.pop(i)\n    return out\n\n\nS = \"abcdefghijklm\"\nT = int(input())\n\
-    for _ in range(T):\n    N = int(input())-1\n    print(lex_perm(N, S)", comments: '5',
+    for _ in range(T):\n    N = int(input())-1\n    print(lex_perm(N, S))\n", comments: '5',
   difficulty: '5', empty: '4', hrdifficulty: Easy, memory: '930', name: Lexicographic
     Permutations, num: '24', path: 24-Lexicographic-Permutations, runtime: '6'}
 '240': {difficulty: '60', name: Top Dice}
@@ -372,7 +372,7 @@
     \ number with n digits\"\"\"\n    # Implement eq. (6)\n    PHI = (1 + 5**0.5)/2\n\
     \    # Handle the one place our approximation fails\n    if n == 1:\n        return\
     \ 1\n    return ceil((n-1+log(5, 10)/2)/log(PHI, 10))\n\n\nT = int(input())\n\
-    for _ in range(T):\n    N = int(input())\n    print(fib_dig(N)", comments: '2',
+    for _ in range(T):\n    N = int(input())\n    print(fib_dig(N))\n", comments: '2',
   difficulty: '5', empty: '4', hrdifficulty: Easy, memory: '943', name: 1000-digit
     Fibonacci Number, num: '25', path: 25-1000-Digit-Fibonacci-Number, runtime: '7'}
 '250': {difficulty: '55', name: '250250'}
@@ -415,7 +415,7 @@
     \                    count += 1\n                # Only keep the maximum so far\n\
     \                if count > COUNT:\n                    COUNT = count\n      \
     \              # Update coefficients\n                    COEFF = [sgna*a, sgnb*b]\n\
-    print(\"{} {}\".format(COEFF[0], COEFF[1])", comments: '10', difficulty: '5',
+    print(\"{} {}\".format(COEFF[0], COEFF[1]))\n", comments: '10', difficulty: '5',
   empty: '7', hrdifficulty: Easy, memory: '931', name: Quadratic Primes, num: '27',
   path: 27-Quadratic-Primes, runtime: '165'}
 '270': {difficulty: '80', name: Cutting Squares}
@@ -432,7 +432,7 @@
     \"\"\n    return pow(a, m-2, m)\n\n\ndef diag_sum(n, p):\n    \"\"\"Implement\
     \ eq. (4), mod p\"\"\"\n    return ((4*pow(n, 3, p) + 3*pow(n, 2, p) + 8*n - 9)*inv(6,\
     \ p)) % p\n\n\nT = int(input())\nP = 1000000007\nfor _ in range(T):\n    N = int(input())\n\
-    \    print(diag_sum(N, P)", comments: '0', difficulty: '5', empty: '4', hrdifficulty: Easy,
+    \    print(diag_sum(N, P))\n", comments: '0', difficulty: '5', empty: '4', hrdifficulty: Easy,
   memory: '941', name: Number Spiral Diagonals, num: '28', path: 28-Number-Spiral-Diagonals,
   runtime: '6'}
 '280': {difficulty: '65', name: Ant and seeds}
@@ -467,7 +467,7 @@
     \ all factors of p\n            while n % p == 0:\n                n //= p\n \
     \   if n != 1:\n        factors.append(n)\n    return factors\n\n\nT = int(input())\n\
     for _ in range(T):\n    N = int(input())\n    ans = max(prime_factors(N))\n  \
-    \  print(ans", comments: '2', difficulty: '5', empty: '4', hrdifficulty: Easy,
+    \  print(ans)\n", comments: '2', difficulty: '5', empty: '4', hrdifficulty: Easy,
   memory: '1804', name: Largest Prime Factor, num: '3', path: 3-Largest-Prime-Factor,
   runtime: '16'}
 '30': {code: "from itertools import combinations_with_replacement\nfrom collections\
@@ -479,7 +479,7 @@
     \   digits_used = Counter(map(lambda x: DIGITS[x], candidate))\n        # Candidate\
     \ sum\n        S = str(sum(candidate))\n        # Get multiset of digits of candidate\
     \ sum\n        powers_used = Counter(map(int, S))\n        if digits_used == powers_used:\n\
-    \            ans += int(S)\nprint(ans", comments: '6', difficulty: '5', empty: '2',
+    \            ans += int(S)\nprint(ans)\n", comments: '6', difficulty: '5', empty: '2',
   hrdifficulty: Easy, memory: '918', name: Digit Fifth Powers, num: '30', path: 30-Digit-Fifth-Powers,
   runtime: '15'}
 '300': {difficulty: '50', name: Protein folding}
@@ -498,7 +498,7 @@
     \ = 1\n    for coin in coins:\n        for val in range(coin, n+1):\n        \
     \    dp[val] = (dp[val] + dp[val-coin]) % 1000000007\n    return dp\n\n\nCOINS\
     \ = [1, 2, 5, 10, 20, 50, 100, 200]\n# N <= 10^5\nCOUNT = count(COINS, int(1e5))\n\
-    T = int(input())\nfor _ in range(T):\n    N = int(input())\n    print(COUNT[N]",
+    T = int(input())\nfor _ in range(T):\n    N = int(input())\n    print(COUNT[N])\n",
   comments: '3', difficulty: '5', empty: '2', hrdifficulty: Easy, memory: '1307',
   name: Coin Sums, num: '31', path: 31-Coin-Sums, runtime: '20'}
 '310': {difficulty: '40', name: Nim Square}
@@ -518,7 +518,7 @@
     \ > i\n    for i in range(1, N):\n        for j in range(i+1, N):\n          \
     \  x = \"\".join(perm)\n            # Check if three parts in order are valid\n\
     \            if int(x[:i]) * int(x[i:j]) == int(x[j:]):\n                PROD.add(int(x[j:]))\n\
-    print(sum(PROD)", comments: '6', difficulty: '5', empty: '2', hrdifficulty: Easy,
+    print(sum(PROD))\n", comments: '6', difficulty: '5', empty: '2', hrdifficulty: Easy,
   memory: '925', name: Pandigital Products, num: '32', path: 32-Pandigital-Products,
   runtime: '1299'}
 '320': {difficulty: '50', name: Factorials divisible by a huge integer}
@@ -552,7 +552,7 @@
     \ candidate factorial sum\n        S = sum([factorial(x) for x in candidate])\n\
     \        # Get multiset of digits in ^\n        # Are these digit multisets the\
     \ same?\n        factorials_used = Counter(str(S))\n        if digits_used ==\
-    \ factorials_used:\n            ans += S\nprint(ans", comments: '8', difficulty: '5',
+    \ factorials_used:\n            ans += S\nprint(ans)\n", comments: '8', difficulty: '5',
   empty: '2', hrdifficulty: Easy, memory: '940', name: Digit Factorials, num: '34',
   path: 34-Digit-Factorials, runtime: '20'}
 '340': {difficulty: '30', name: Crazy Function}
@@ -581,7 +581,7 @@
     \ Make sure all of the rotations are prime\n            if all([rot in P for rot\
     \ in ROT]):\n                for rot in ROT:\n                    # Add the rotations\
     \ that are less than N\n                    if rot < N:\n                    \
-    \    CIRCULAR.add(rot)\nprint(sum(CIRCULAR)", comments: '8', difficulty: '5',
+    \    CIRCULAR.add(rot)\nprint(sum(CIRCULAR))\n", comments: '8', difficulty: '5',
   empty: '4', hrdifficulty: Easy, memory: '2018', name: Circular Primes, num: '35',
   path: 35-Circular-Primes, runtime: '384'}
 '350': {difficulty: '60', name: Constraining the least greatest and the greatest least}
@@ -612,7 +612,7 @@
     \    return [int(x) for x in PALS if int(x) < m]\n\n\nN, K = map(int, input().split())\n\
     # 10-palindromes with as many digits as N less than N\nP = pals(int(log(N, 10)),\
     \ N)\n# Check if 10-palindrome is also k-palindromic\nprint(sum([x for x in P\
-    \ if base(x, K) == base(x, K)[::-1]])", comments: '14', difficulty: '5', empty: '6',
+    \ if base(x, K) == base(x, K)[::-1]]))\n", comments: '14', difficulty: '5', empty: '6',
   hrdifficulty: Easy, memory: '998', name: Double Base Palindromes, num: '36', path: 36-Double-Base-Palindromes,
   runtime: '11'}
 '360': {difficulty: '50', name: Scary Sphere}
@@ -641,7 +641,7 @@
     \                    digit //= 10\n                # Is nothing left after right\
     \ and left truncations?\n                # Incomplete truncation -> non-truncatable\
     \ prime\n                if left == 0 and right == 0:\n                    S +=\
-    \ p\n    return S\n\n\nN = int(input())\nprint(truncatable_primes(N)", comments: '9',
+    \ p\n    return S\n\n\nN = int(input())\nprint(truncatable_primes(N))\n", comments: '9',
   difficulty: '5', empty: '2', hrdifficulty: Easy, memory: '1700', name: Truncatable
     Primes, num: '37', path: 37-Truncatable-Primes, runtime: '29'}
 '370': {difficulty: '65', name: Geometric triangles}
@@ -683,9 +683,9 @@
     \    # Only store if stricly greater than max val so far\n    # This makes sure\
     \ the minimal answer is stored\n    if x > pythag[freq[-1]]:\n        freq.append(i)\n\
     # Delete placeholder\ndel freq[0]\n\nT = int(input())\nfor _ in range(T):\n  \
-    \  N = int(input())\n    print(bs(freq, 0, len(freq)-1, N)", comments: '11', difficulty: '5',
-  empty: '9', hrdifficulty: Easy, memory: '4802', name: Integer Right Triangles, num: '39',
-  path: 39-Integer-Right-Triangles, runtime: '250'}
+    \  N = int(input())\n    print(bs(freq, 0, len(freq)-1, N))\n", comments: '11',
+  difficulty: '5', empty: '9', hrdifficulty: Easy, memory: '4802', name: Integer Right
+    Triangles, num: '39', path: 39-Integer-Right-Triangles, runtime: '250'}
 '390': {difficulty: '60', name: Triangles with non rational sides and integral area}
 '391': {difficulty: '75', name: Hopping Game}
 '392': {difficulty: '35', name: Enmeshed unit circle}
@@ -704,7 +704,7 @@
     \npals = set()\nfor i in range(100, 1000):\n    for j in range(100, 1000):\n \
     \       # Test if palindrome\n        if str(i*j) == str(i*j)[::-1]:\n       \
     \     pals.add(i*j)\npals = sorted(list(pals))\n\nT = int(input())\nfor _ in range(T):\n\
-    \    N = int(input())\n    ans = bs(pals, 0, len(pals)-1, N)\n    print(ans",
+    \    N = int(input())\n    ans = bs(pals, 0, len(pals)-1, N)\n    print(ans)\n",
   comments: '3', difficulty: '5', empty: '3', hrdifficulty: Medium, memory: '925',
   name: Largest Palindrome Product, num: '4', path: 4-Largest-Palindrome-Product,
   runtime: '49'}
@@ -726,7 +726,7 @@
     \ % block])\n    return dig\n\n\ndef dig_prod(arr):\n    \"\"\"Product of i-th\
     \ digits of Champ. constant,\n    where i are the elements of arr\"\"\"\n    out\
     \ = 1\n    for x in arr:\n        out *= digit(x)\n    return out\n\n\nT = int(input())\n\
-    for _ in range(T):\n    D = map(int, input().split())\n    print(dig_prod(D)",
+    for _ in range(T):\n    D = map(int, input().split())\n    print(dig_prod(D))\n",
   comments: '14', difficulty: '5', empty: '8', hrdifficulty: Medium, memory: '920',
   name: Champernowne's Constant, num: '40', path: 40-Champernownes-Constant, runtime: '5'}
 '400': {difficulty: '55', name: Fibonacci tree game}
@@ -757,7 +757,7 @@
     \    # Or it is not divisible by any prime <= sqrt(pan)\n    if pan in P or all([pan\
     \ % p != 0 for p in P if p <= int(sqrt(pan))]):\n        PAN_PRIME.append(pan)\n\
     \nT = int(input())\nfor _ in range(T):\n    N = int(input())\n    print(bs(PAN_PRIME,\
-    \ 0, len(PAN_PRIME)-1, N)", comments: '7', difficulty: '5', empty: '9', hrdifficulty: Easy,
+    \ 0, len(PAN_PRIME)-1, N))\n", comments: '7', difficulty: '5', empty: '9', hrdifficulty: Easy,
   memory: '958', name: Pandigital Prime, num: '41', path: 41-Pandigital-Prime, runtime: '62'}
 '410': {difficulty: '70', name: Circle and tangent line}
 '411': {difficulty: '45', name: Uphill paths}
@@ -778,9 +778,9 @@
     , \"r\") as f:\n    # Remove spaces and quotation marks\n    words = f.readline().split(\"\
     ,\")\n    words = [x.replace('\"', \"\") for x in words]\n\ncount = 0\nfor x in\
     \ words:\n    # Check if word score is triangular\n    if is_triangular(score(x))\
-    \ != -1:\n        count += 1\nprint(count", comments: '4', difficulty: '5', empty: '5',
-  hrdifficulty: Easy, memory: '8792', name: Coded Triangle Numbers, num: '42', path: 42-Coded-Triangle-Numbers,
-  runtime: '30'}
+    \ != -1:\n        count += 1\nprint(count)\n", comments: '4', difficulty: '5',
+  empty: '5', hrdifficulty: Easy, memory: '8792', name: Coded Triangle Numbers, num: '42',
+  path: 42-Coded-Triangle-Numbers, runtime: '30'}
 '420': {difficulty: '60', name: 2x2 positive integer matrix}
 '421': {difficulty: '50', name: Prime factors of n15+1}
 '422': {difficulty: '75', name: Sequence of points on a hyperbola}
@@ -808,7 +808,7 @@
     \    return inv == int(inv)\n\n\nN, K = map(int, input().split())\nout = set()\n\
     \n# Try everything up to max\nfor n in range(K+1, N):\n    a, b = pent(n), pent(n-K)\n\
     \    # Do we have a pent no.?\n    if is_pent(a-b) or is_pent(a+b):\n        out.add(a)\n\
-    for x in sorted(out):\n    print(x", comments: '3', difficulty: '5', empty: '5',
+    for x in sorted(out):\n    print(x)\n", comments: '3', difficulty: '5', empty: '5',
   hrdifficulty: Easy, memory: '8716', name: Pentagon Numbers, num: '44', path: 44-Pentagon-Numbers,
   runtime: '2128'}
 '440': {difficulty: '60', name: GCD and Tiling}
@@ -842,7 +842,7 @@
     \ prime p and integer k\"\"\"\n    # Implement eq. (1)\n    def cand(p): return\
     \ ((n-p)/2)**0.5\n    # Get no. of primes less than n which produce a valid candidate\n\
     \    return len(set(p for p in P if p < n and cand(p) == int(cand(p))))\n\n\n\
-    T = int(input())\nfor _ in range(T):\n    N = int(input())\n    print(ways(N)",
+    T = int(input())\nfor _ in range(T):\n    N = int(input())\n    print(ways(N))\n",
   comments: '4', difficulty: '5', empty: '6', hrdifficulty: Easy, memory: '1295',
   name: Goldbach's Other Conjecture, num: '46', path: 46-Goldbachs-Other-Conjecture,
   runtime: '9'}
@@ -859,13 +859,12 @@
 '47': {code: "def omega(n):\n    \"\"\"No. of distinct prime factors of all m < n\"\
     \"\"\n    sieve = [0] * (n + 1)\n    for p in range(2, n + 1):\n        if sieve[p]\
     \ == 0:\n            for i in range(p, n + 1, p):\n                sieve[i] +=\
-    \ 1\n    return sieve\n\n# Find all consec. sets of size k\n# k distinct prime\
-    \ factors each\n\n\ndef consecutive(n, k):\n    \"\"\"Find all consec. sets of\
-    \ size k where\n    each element has exactly k distinct prime factors\"\"\"\n\
-    \    FACTORS = omega(n+k-1)\n    out = []\n    for i in range(n+1):\n        if\
-    \ all([FACTORS[i+j] == k for j in range(k)]):\n            out.append(i)\n   \
-    \ return out\n\n\nN, K = map(int, input().split())\nfor x in consecutive(N, K):\n\
-    \    print(x", comments: '2', difficulty: '5', empty: '5', hrdifficulty: Easy,
+    \ 1\n    return sieve\n\n\ndef consecutive(n, k):\n    \"\"\"Find all consec.\
+    \ sets of size k where\n    each element has exactly k distinct prime factors\"\
+    \"\"\n    FACTORS = omega(n+k-1)\n    out = []\n    for i in range(n+1):\n   \
+    \     if all([FACTORS[i+j] == k for j in range(k)]):\n            out.append(i)\n\
+    \    return out\n\n\nN, K = map(int, input().split())\nfor x in consecutive(N,\
+    \ K):\n    print(x)\n", comments: '0', difficulty: '5', empty: '4', hrdifficulty: Easy,
   memory: '1021', name: Distinct Primes Factors, num: '47', path: 47-Distinct-Primes-Factors,
   runtime: '17'}
 '470': {difficulty: '65', name: Super Ramvok}
@@ -880,7 +879,7 @@
 '479': {difficulty: '25', name: Roots on the Rise}
 '48': {code: "N = int(input())\nM = 10**10\nS = 0\nfor n in range(1, N+1):\n    #\
     \ Take powers mod 10^10\n    # Mod 10^10 at the end\n    S = (S + pow(n, n, M))\
-    \ % M\nprint(S", comments: '2', difficulty: '5', empty: '0', hrdifficulty: Easy,
+    \ % M\nprint(S)\n", comments: '2', difficulty: '5', empty: '0', hrdifficulty: Easy,
   memory: '923', name: Self Powers, num: '48', path: 48-Self-Powers, runtime: '3'}
 '480': {difficulty: '45', name: The Last Question}
 '481': {difficulty: '70', name: Chef Showdown}
@@ -910,9 +909,9 @@
     \           sieve[i] = False\n    return primes\n\n\ndef min_mult(n):\n    \"\"\
     \"Implement eq. (1)\"\"\"\n    P = primes(n)\n    ans = 1\n    for p in P:\n \
     \       ans *= p**int(log(n, p))\n    return ans\n\n\nT = int(input())\nfor _\
-    \ in range(T):\n    N = int(input())\n    print(min_mult(N)", comments: '1', difficulty: '5',
-  empty: '6', hrdifficulty: Medium, memory: '917', name: Smallest Multiple, num: '5',
-  path: 5-Smallest-Multiple, runtime: '3'}
+    \ in range(T):\n    N = int(input())\n    print(min_mult(N))\n", comments: '1',
+  difficulty: '5', empty: '6', hrdifficulty: Medium, memory: '917', name: Smallest
+    Multiple, num: '5', path: 5-Smallest-Multiple, runtime: '3'}
 '50': {difficulty: '5', hrdifficulty: Hard, name: Consecutive prime sum, num: '50'}
 '500': {difficulty: '15', name: Problem 500!!!}
 '501': {difficulty: '40', name: Eight Divisors}
@@ -942,7 +941,7 @@
     \ is not too long\n    if len(str(i)) == len(set(str(i))) and len(str(i*K)) ==\
     \ len(str(i)):\n        # Generate multiples\n        S = [str(i*j) for j in range(1,\
     \ K+1)]\n        # Check that all multiples are permutations\n        if is_perm(S):\n\
-    \            print(\" \".join(S)", comments: '5', difficulty: '5', empty: '2',
+    \            print(\" \".join(S))\n", comments: '5', difficulty: '5', empty: '2',
   hrdifficulty: Easy, memory: '942', name: Permuted Multiples, num: '52', path: 52-Permuted-Multiples,
   runtime: '8'}
 '520': {difficulty: '45', name: Simbers}
@@ -962,7 +961,7 @@
     \            return n + 1 - 2*i\n        # Recurrence relation for next coeff\n\
     \        curr *= n - i\n        curr //= i + 1\n    # No entries > K were found\n\
     \    return 0\n\n\nN, K = map(int, input().split())\n# Add up all the rows up\
-    \ to N\nprint(sum([choose_max(n, K) for n in range(1, N+1)])", comments: '6',
+    \ to N\nprint(sum([choose_max(n, K) for n in range(1, N+1)]))\n", comments: '6',
   difficulty: '5', empty: '2', hrdifficulty: Easy, memory: '942', name: Combinatoric
     Selections, num: '53', path: 53-Combinatoric-Selections, runtime: '5'}
 '530': {difficulty: '55', name: GCD of Divisors}
@@ -998,7 +997,7 @@
     \ to n\n    freq[res] += 1\n# Remove all suspected Lychrel numbers from count\n\
     freq[0] = 0\n\n# Get (pal, count) pairs\n# Sort pairs by count in decreasing order\n\
     # Get first pair\npals = [(x, freq[x]) for x in freq]\npals = sorted(pals, key=lambda\
-    \ t: t[1], reverse=True)[0]\nprint(\"{} {}\".format(pals[0], pals[1])", comments: '10',
+    \ t: t[1], reverse=True)[0]\nprint(\"{} {}\".format(pals[0], pals[1]))\n", comments: '10',
   difficulty: '5', empty: '6', hrdifficulty: Easy, memory: '934', name: Lychrel Numbers,
   num: '55', path: 55-Lychrel-Numbers, runtime: '9'}
 '550': {difficulty: '55', name: Divisor game}
@@ -1012,7 +1011,7 @@
 '558': {difficulty: '60', name: Irrational base}
 '559': {difficulty: '95', name: Permuted Matrices}
 '56': {code: "def dig_sum(n):\n    return sum([int(x) for x in str(n)])\n\n\nN = int(input())\n\
-    print(max([dig_sum(a**b) for a in range(1, N) for b in range(1, N)])", comments: '0',
+    print(max([dig_sum(a**b) for a in range(1, N) for b in range(1, N)]))\n", comments: '0',
   difficulty: '5', empty: '2', hrdifficulty: Easy, memory: '944', name: Powerful Digit
     Sum, num: '56', path: 56-Powerful-Digit-Sum, runtime: '21'}
 '560': {difficulty: '70', name: Coprime Nim}
@@ -1028,7 +1027,7 @@
 '57': {code: "def next_convergent(p, q):\n    \"\"\"Implement eq. (2)\"\"\"\n    return\
     \ p+2*q, p+q\n\n\np, q = 1, 1\nN = int(input())\nfor i in range(1, N+1):\n   \
     \ p, q = next_convergent(p, q)\n    # Does num have more digits than den?\n  \
-    \  if len(str(p)) > len(str(q)):\n        print(i", comments: '1', difficulty: '5',
+    \  if len(str(p)) > len(str(q)):\n        print(i)\n", comments: '1', difficulty: '5',
   empty: '2', hrdifficulty: Easy, memory: '918', name: Square Root Convergents, num: '57',
   path: 57-Square-Root-Convergents, runtime: '4'}
 '570': {difficulty: '50', name: Snowflakes}
@@ -1063,7 +1062,7 @@
     n = 1\n# No. of primes found\np = 0\nN = int(input())\nwhile True:\n    # Go to\
     \ next odd number\n    n += 2\n    # Add all the primes of the form n^2 - i(n-1),\
     \ i in {1,2,3}\n    p += sum([is_prime(x) for x in [n**2 - i*(n-1) for i in range(1,\
-    \ 4)]])\n    if 100*p/(2*n - 1) < N:\n        break\nprint(n", comments: '4',
+    \ 4)]])\n    if 100*p/(2*n - 1) < N:\n        break\nprint(n)\n", comments: '4',
   difficulty: '5', empty: '7', hrdifficulty: Easy, memory: '944', name: Spiral Primes,
   num: '58', path: 58-Spiral-Primes, runtime: '38'}
 '580': {difficulty: '70', name: Squarefree Hilbert numbers}
@@ -1088,9 +1087,9 @@
 '598': {difficulty: '40', name: Split Divisibilities}
 '599': {difficulty: '60', name: Distinct Colourings of a Rubik's Cube}
 '6': {code: "T = int(input())\nfor _ in range(T):\n    N = int(input())\n    ans =\
-    \ abs((3*N**4 + 2*N**3 - 3*N**2 - 2*N)//12)\n    print(ans", comments: '0', difficulty: '5',
-  empty: '0', hrdifficulty: Easy, memory: '918', name: Sum Square Difference, num: '6',
-  path: 6-Sum-Square-Difference, runtime: '2'}
+    \ abs((3*N**4 + 2*N**3 - 3*N**2 - 2*N)//12)\n    print(ans)\n", comments: '0',
+  difficulty: '5', empty: '0', hrdifficulty: Easy, memory: '918', name: Sum Square
+    Difference, num: '6', path: 6-Sum-Square-Difference, runtime: '2'}
 '60': {difficulty: '20', hrdifficulty: Hard, name: Prime pair sets, num: '60'}
 '600': {difficulty: '35', name: Integer sided equiangular hexagons}
 '601': {difficulty: '20', name: Divisibility streaks}
@@ -1122,7 +1121,7 @@
 '624': {name: Two heads are better than one}
 '625': {name: Gcd sum}
 '63': {code: "from math import ceil\nN = int(input())\nlo = ceil(10**(1 - 1/N))\n\
-    for n in range(lo, 10):\n    print(n**N", comments: '0', difficulty: '5', empty: '0',
+    for n in range(lo, 10):\n    print(n**N)\n", comments: '0', difficulty: '5', empty: '0',
   hrdifficulty: Easy, memory: '938', name: Powerful Digit Counts, num: '63', path: 63-Powerful-Digit-Counts,
   runtime: '3'}
 '64': {difficulty: '20', hrdifficulty: Easy, name: Odd period square roots, num: '64'}
@@ -1130,7 +1129,7 @@
     \       return 2\n    elif n % 3 == 2:\n        return 2*(n+1)//3\n    return\
     \ 1\n\n\n# Cache P(n-1) and P(n-2)\nCONV = [1, coeff(0)]\nN = int(input())\nfor\
     \ i in range(2, N+1):\n    next_term = coeff(i-1)*CONV[1] + CONV[0]\n    CONV.append(next_term)\n\
-    \    del CONV[0]\n# Take digital sum\nprint(sum([int(x) for x in str(CONV[1])])",
+    \    del CONV[0]\n# Take digital sum\nprint(sum([int(x) for x in str(CONV[1])]))\n",
   comments: '2', difficulty: '15', empty: '2', hrdifficulty: Easy, memory: '930',
   name: Convergents of $e$, num: '65', path: 65-Convergents-of-e, runtime: '6'}
 '66': {difficulty: '25', hrdifficulty: Hard, name: Diophantine equation, num: '66'}
@@ -1146,7 +1145,7 @@
     \        # We're done with the row\n        # So move it into memory for the next\
     \ row\n        parent = curr\n    return max(parent)\n\n\nT = int(input())\nfor\
     \ _ in range(T):\n    N = int(input())\n    rows = [list(map(int, input().split()))\
-    \ for _ in range(N)]\n    ans = max_sum(rows)\n    print(ans", comments: '5',
+    \ for _ in range(N)]\n    ans = max_sum(rows)\n    print(ans)\n", comments: '5',
   difficulty: '5', empty: '4', hrdifficulty: Medium, memory: '938', name: Maximum
     Path Sum II, num: '67', path: 67-Maximum-Path-Sum-II, runtime: '4'}
 '68': {difficulty: '25', hrdifficulty: Hard, name: Magic 5-gon ring, num: '68'}
@@ -1158,7 +1157,7 @@
     def max_ratio(n):\n    \"\"\"Maximize k/phi(k), where k < n\"\"\"\n    out = 1\n\
     \    i = 0\n    # Multiply primes until upper bound\n    while out*P[i] < n:\n\
     \        out *= P[i]\n        i += 1\n    return out\n\n\nT = int(input())\nfor\
-    \ _ in range(T):\n    N = int(input())\n    print(max_ratio(N)", comments: '3',
+    \ _ in range(T):\n    N = int(input())\n    print(max_ratio(N))\n", comments: '3',
   difficulty: '10', empty: '6', hrdifficulty: Easy, memory: '929', name: Totient Maximum,
   num: '69', path: 69-Totient-Maximum, runtime: '5'}
 '7': {code: "from math import log\n\n\ndef primes(n):\n    \"\"\"Sieve of Eratosthenes\"\
@@ -1168,7 +1167,7 @@
     \           sieve[i] = False\n    return primes\n\n\ndef n_primes(n):\n    \"\"\
     \"Generate more than n primes with eq. (1)\"\"\"\n    upper = int(n*log(n) + n*log(log(n)))\n\
     \    return primes(upper)\n\n\nP = n_primes(10001)\nT = int(input())\nfor _ in\
-    \ range(T):\n    N = int(input())\n    print(P[N-1]", comments: '1', difficulty: '5',
+    \ range(T):\n    N = int(input())\n    print(P[N-1])\n", comments: '1', difficulty: '5',
   empty: '6', hrdifficulty: Easy, memory: '1026', name: 10001st Prime, num: '7', path: 7-10001-Prime,
   runtime: '4'}
 '70': {difficulty: '20', hrdifficulty: Easy, name: Totient permutation, num: '70'}
@@ -1178,7 +1177,7 @@
     Modular inverse\"\"\"\n    g, x, y = egcd(a, m)\n    if g != 1:\n        return\
     \ None\n    else:\n        return x % m\n\n\nT = int(input())\nfor _ in range(T):\n\
     \    a, b, N = map(int, input().split())\n    k = inv(a, b)\n    # Implement eq.\
-    \ (9)\n    den = b*((N-k)//b) + k\n    num = (a*den - 1)//b\n    print(num, den",
+    \ (9)\n    den = b*((N-k)//b) + k\n    num = (a*den - 1)//b\n    print(num, den)\n",
   comments: '1', difficulty: '10', empty: '4', hrdifficulty: Medium, memory: '930',
   name: Ordered Fractions, num: '71', path: 71-Ordered-Fractions, runtime: '4'}
 '72': {code: "def phi(n):\n    \"\"\"phi(k) for all k < n\"\"\"\n    PHI = [0] * (n+1)\n\
@@ -1189,9 +1188,9 @@
     \ = i\n                # Use Euler product formula\n                PHI[i] -=\
     \ PHI[i]//p\n    return PHI\n\n\n# Create prefix sum array\nS = []\ncount = 0\n\
     MAX = int(1e6)\nfor n in phi(MAX):\n    count += n\n    S.append(count)\n\nT =\
-    \ int(input())\nfor _ in range(T):\n    N = int(input())\n    print(S[N]", comments: '5',
-  difficulty: '20', empty: '3', hrdifficulty: Easy, memory: '9571', name: Counting
-    Fractions, num: '72', path: 72-Counting-Fractions, runtime: '132'}
+    \ int(input())\nfor _ in range(T):\n    N = int(input())\n    print(S[N])\n",
+  comments: '5', difficulty: '20', empty: '3', hrdifficulty: Easy, memory: '9571',
+  name: Counting Fractions, num: '72', path: 72-Counting-Fractions, runtime: '132'}
 '73': {difficulty: '15', hrdifficulty: Easy, name: Counting fractions in a range,
   num: '73'}
 '74': {difficulty: '15', hrdifficulty: Easy, name: Digit factorial chains, num: '74'}
@@ -1210,7 +1209,7 @@
     \          pythag[k*P] += 1\n\n# Find indices of perims with only one sol\nsingular\
     \ = [0]\nfor i, x in enumerate(pythag):\n    if x == 1:\n        singular.append(i)\n\
     \nT = int(input())\nfor _ in range(T):\n    N = int(input())\n    # Binary search\
-    \ for answer.\n    print(bs(singular, 0, len(singular)-1, N)", comments: '8',
+    \ for answer.\n    print(bs(singular, 0, len(singular)-1, N))\n", comments: '8',
   difficulty: '25', empty: '9', hrdifficulty: Easy, memory: '6249', name: Singular
     Integer Right Triangles, num: '75', path: 75-Singular-Integer-Right-Triangles,
   runtime: '115'}
@@ -1218,9 +1217,9 @@
     \ * (1001)\n# There is 1 way to partition nothing\ndp[0] = 1\n# \"Coins\" are\
     \ 1...1000\nfor i in range(1, 1001):\n    for j in range(i, 1001):\n        dp[j]\
     \ += dp[j-i]\n\nT = int(input())\nfor _ in range(T):\n    N = int(input())\n \
-    \   # Exclude case with just N\n    print((dp[N] - 1) % P", comments: '5', difficulty: '10',
-  empty: '1', hrdifficulty: Easy, memory: '918', name: Counting Summations, num: '76',
-  path: 76-Counting-Summations, runtime: '12'}
+    \   # Exclude case with just N\n    print((dp[N] - 1) % P)\n", comments: '5',
+  difficulty: '10', empty: '1', hrdifficulty: Easy, memory: '918', name: Counting
+    Summations, num: '76', path: 76-Counting-Summations, runtime: '12'}
 '77': {code: "def primes(n):\n    \"\"\"Sieve of Eratosthenes\"\"\"\n    primes =\
     \ []\n    sieve = [True] * (n + 1)\n    for p in range(2, n + 1):\n        if\
     \ sieve[p]:\n            primes.append(p)\n            # Cross out all multiples\
@@ -1231,7 +1230,7 @@
     \ = 1\n    for coin in coins:\n        for val in range(coin, n+1):\n        \
     \    dp[val] += dp[val-coin]\n    return dp\n\n\n# N <= 1000\nP = primes(1000)\n\
     COUNT = count(P, 1000)\nT = int(input())\nfor _ in range(T):\n    N = int(input())\n\
-    \    print(COUNT[N]", comments: '4', difficulty: '25', empty: '4', hrdifficulty: Easy,
+    \    print(COUNT[N])\n", comments: '4', difficulty: '25', empty: '4', hrdifficulty: Easy,
   memory: '918', name: Counting Summations, num: '77', path: 77-Prime-Summations,
   runtime: '3'}
 '78': {code: "def sgn(n):\n\t\treturn 1 if (n//2)%2 == 0 else -1\n\ndef pent(n):\n\
@@ -1241,7 +1240,7 @@
     \ +1)\nPART[0] = 1\n# Report ans mod 10^9 + 7\nP = 1000000007\n\nfor n in range(MAX+1):\n\
     \tfor i,p in enumerate([x for x in PENT if x <= n]):\n\t\tPART[n] += sgn(i)*PART[n-p]\n\
     \tPART[n] %= P\n\nT = int(input())\nfor _ in range(T):\n\tN = int(input())\n\t\
-    print(PART[N", comments: '1', difficulty: '30', empty: '4', hrdifficulty: Medium,
+    print(PART[N])", comments: '1', difficulty: '30', empty: '4', hrdifficulty: Medium,
   memory: '14390', name: Counting Summations, num: '78', path: 78-Coin-Partitions,
   runtime: '9074'}
 '79': {difficulty: '5', hrdifficulty: Hard, name: Passcode derivation, num: '79'}
@@ -1252,7 +1251,7 @@
     \  for x in s:\n        ans *= int(x)\n    return ans\n\n\nT = int(input())\n\
     for _ in range(T):\n    N, K = map(int, input().split())\n    S = input().strip()\n\
     \    # Brute force each substring\n    ans = max([string_prod(x) for x in substrings(S,\
-    \ K)])\n    print(ans", comments: '1', difficulty: '5', empty: '4', hrdifficulty: Easy,
+    \ K)])\n    print(ans)\n", comments: '1', difficulty: '5', empty: '4', hrdifficulty: Easy,
   memory: '934', name: Largest Product in a Series, num: '8', path: 8-Largest-Product-in-a-Series,
   runtime: '2'}
 '80': {difficulty: '20', hrdifficulty: Easy, name: Square root digital expansion,
@@ -1260,7 +1259,7 @@
 '81': {code: "N = int(input())\nG = [list(map(int,input().split())) for _ in range(N)]\n\
     \nfor i in range(N-2,-1,-1):\n\tG[N-1][i] += G[N-1][i+1]\n\tG[i][N-1] += G[i+1][N-1]\n\
     \nfor i in range(N-2,-1,-1):\n\tfor j in range(N-2,-1,-1):\n\t\tG[i][j] += min(G[i+1][j],G[i][j+1])\n\
-    \nprint(G[0][0", comments: '0', difficulty: '10', empty: '3', hrdifficulty: Easy,
+    \nprint(G[0][0])", comments: '0', difficulty: '10', empty: '3', hrdifficulty: Easy,
   memory: '8949', name: 'Path sum: two ways', num: '81', path: 81-Path-Sum-Two-Ways,
   runtime: '24'}
 '82': {difficulty: '20', hrdifficulty: Easy, name: 'Path sum: three ways', num: '82'}
@@ -1276,7 +1275,7 @@
     \ N//3):\n        b = (N**2 - 2*a*N)/(2*N - 2*a)\n        c = N - a - b\n    \
     \    # Check that Pythagorean identity holds\n        if b == int(b) and c ==\
     \ int(c) and c*c == a*a + b*b:\n            # Keep maximal product\n         \
-    \   ans = max(ans, int(a*b*c))\n    print(ans", comments: '3', difficulty: '5',
+    \   ans = max(ans, int(a*b*c))\n    print(ans)\n", comments: '3', difficulty: '5',
   empty: '0', hrdifficulty: Easy, memory: '929', name: Special Pythagorean Triplets,
   num: '9', path: 9-Special-Pythagorean-Triplet, runtime: '2'}
 '90': {difficulty: '40', hrdifficulty: Easy, name: Cube digit pairs, num: '90'}

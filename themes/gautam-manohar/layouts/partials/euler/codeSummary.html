@@ -1,6 +1,6 @@
 {{- $meta := .Site.Data.euler.problemData }}
 {{- $num := index (last 1 (split (delimit (split .URL "/") "," "") ",")) 0 }}
-{{- $code := safeHTML (index (index $meta $num) "code") }}
+{{- $code := index (index $meta $num) "code" }}
 {{- $empty := int (index (index $meta $num) "empty") }}
 {{- $comments := int (index (index $meta $num) "comments") }}
 {{- $diff := int (index (index $meta $num) "difficulty") }}

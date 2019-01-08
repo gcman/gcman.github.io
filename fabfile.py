@@ -58,6 +58,9 @@ def build_solutions():
         dt = load(f)
     diff = {"m": "Medium", "h": "Hard", "a": "Advanced", "e": "Expert"}
     for i in range(1, max([int(x) for x in dt.keys()])+1):
+        hrdiff = "Easy"
+        if str(i) in dt:
+            hrdiff = diff[dt[str(i)]]
         DATA[str(i)]["hrdifficulty"] = diff[dt[str(i)]
                                             ] if str(i) in dt else "Easy"
     for x in [y for y in DATA if "path" in DATA[y]]:
@@ -72,7 +75,7 @@ def build_solutions():
                     comments += 1
                 elif line == "\n":
                     empty += 1
-        code = code[:-2]
+        code = code[:-1]
         DATA[x]["code"] = code
         DATA[x]["empty"] = str(empty)
         DATA[x]["comments"] = str(comments)

@@ -728,10 +728,10 @@ Questions filled my mind: isn't it interesting, that as the dimension of the
 round shape went from 2 to 3, so did the exponent on the radius? Where did the
 $\frac{4}{3}$ come from? Why do the formulas stop after circle and sphere? What
 comes next? Does anything come next? These questions lay dormant in my mind for
-a while, until my friend [[https://www.arifaulakh.com][Arif Aulakh]] challenged
-me to find an expression for the volume of a sphere in an arbitrary number of
-dimensions. My curiosity rekindled, I set out in search of the
-higher-dimensional sphere to answer the question: what comes next?
+a while, until my friend [[https://www.arifaulakh.com][Arif Aulakh]] challenged me to find an expression for the
+volume of a sphere in an arbitrary number of dimensions. My curiosity rekindled,
+I set out in search of the higher-dimensional sphere to answer the question:
+what comes next?
 **** Introduction
 Before we embark on our journey, we need to lay out some basic definitions. A
 sphere is the set of all points a given distance (let's call it $R$) from a
