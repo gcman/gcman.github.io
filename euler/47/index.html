@@ -165,8 +165,6 @@ factors.</p>
 </span><span class="lnt">23
 </span><span class="lnt">24
 </span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">omega</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -177,9 +175,6 @@ factors.</p>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
                 <span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">sieve</span>
-
-<span class="c1"># Find all consec. sets of size k</span>
-<span class="c1"># k distinct prime factors each</span>
 
 
 <span class="k">def</span> <span class="nf">consecutive</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
@@ -195,10 +190,11 @@ factors.</p>
 
 <span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">consecutive</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">x</span></code></pre></td></tr></table>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div>
-<p>This code has 2 comments and 5 empty lines.</p>
+<p>This code has 0 comments and 4 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">less than 0.1 s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">1.0 KB</span>.</p>
 
@@ -1428,7 +1424,7 @@ factors.</p>
 	
 	<div class="post"><a href="/euler/35/">Project Euler 35: Circular Primes</a></div>
 	
-	<div class="post"><a href="/euler/46/">Project Euler 46: Goldbach&#39;s Other Conjecture</a></div>
+	<div class="post"><a href="/euler/37/">Project Euler 37: Truncatable Primes</a></div>
 	
 </div>
 

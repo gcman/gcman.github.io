@@ -145,6 +145,7 @@ A further optimization is to check that each digit of \(n\) is unique.</p>
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
+</span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">is_perm</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
@@ -162,7 +163,8 @@ A further optimization is to check that each digit of \(n\) is unique.</p>
         <span class="n">S</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">K</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
         <span class="c1"># Check that all multiples are permutations</span>
         <span class="k">if</span> <span class="n">is_perm</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">S</span><span class="p">)</span></code></pre></td></tr></table>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>This code has 5 comments and 2 empty lines.</p>
@@ -1395,7 +1397,7 @@ A further optimization is to check that each digit of \(n\) is unique.</p>
 	
 	<div class="post"><a href="/euler/56/">Project Euler 56: Powerful Digit Sum</a></div>
 	
-	<div class="post"><a href="/euler/58/">Project Euler 58: Spiral Primes</a></div>
+	<div class="post"><a href="/euler/44/">Project Euler 44: Pentagonal Numbers</a></div>
 	
 </div>
 
