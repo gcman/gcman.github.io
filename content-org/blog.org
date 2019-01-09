@@ -2000,7 +2000,7 @@ If $n \le 5$, we use a look-up table. Using a Sieve of Eratosthenes, we generate
 a list of the primes up to $n(\log n + \log \log n)$, which is guaranteed to
 contain the $n$-th prime. Our answer is the $n$-th element of this array. We do
 this with time complexity $O(n \log n \log \log (n \log n))$, using $p_n \approx
-n \log n$. Because $O(\log \log (n \log n)) \in O(\log n)$, this can be
+n \log n$. Because $O(\log \log (n \log n)) \subset O(\log n)$, this can be
 simpified to $O(n \log^2 n)$. To optimize the constant factor, we compute the
 first $N_{\text{max}} = 10^4$ primes and store them in memory, rather than
 computing the list for each query, which takes too long.
@@ -2252,7 +2252,7 @@ What is the sum of the digits of $2^N$?
 *** My Algorithm
 Python has built-in infinite precision integer arithmetic, so this problem is
 easily done. We find $2^N$ using built-in modular exponentiation in $O(\log N)$
-time. The length of this number is $\lceil N\log_{10} 2 \rceil \in O(N)$. And so
+time. The length of this number is $\lceil N\log_{10} 2 \rceil \subset O(N)$. And so
 our solution has complexity $O(N \log N)$.
 ** Project Euler 17: Number Letter Counts                       :fun:string:
 :PROPERTIES:
@@ -2650,7 +2650,7 @@ Just for fun, let's do some upper bound analysis on
 this expression. Using Stirling's approximation for $n!$, we find that
 $\binom{n}{k} \le \frac{n^k}{k!}$. In our case, we have $\frac{(9+k)^k}{k!}
 \approx \frac{k^k}{k!}$. The upper limit of our sum is $O(\log_{10} N +
-N\log_{10} 9) \in O(N + \log_{10} N) \in O(N)$. And so our solution is
+N\log_{10} 9) \subset  O(N + \log_{10} N) \subset O(N)$. And so our solution is
 $O(\frac{N^N}{N!})$. This is not a tight upper bound; it grows much faster than
 the exact number of operations given in \eqref{operations}.
 **** Other Solutions
