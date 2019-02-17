@@ -3681,7 +3681,44 @@ right. This way, at each point of the algorithm, the value of every processed
 entry is the minimal path sum to that entry. The final entry to be processed is
 the top-left one, so we end up with the minimal path sum of the whole matrix.
 
-Because we traverse the whole matrix, this solution has time complexity \(O(n^2)\).
+Because we traverse the whole matrix, this solution has time complexity
+\(O(n^2)\).
+** Project Euler 87: Prime Power Triples                :brute_force:primes:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 87
+:EXPORT_DATE: 2019-02-17
+:EXPORT_DESCRIPTION: My solution to problem 87 of Project Euler.
+:END:
+*** Problem Statement
+The smallest number that can be written as the sum of a prime square, prime
+cube, and prime fourth power is 28. In fact, there are exactly four numbers
+below fifty that can be expressed in this way:
+\begin{equation*}
+\begin{split}
+28 &= 2^2 + 2^3 + 2^{4}, \\
+33 &= 3^2 + 2^3+2^{4}, \\
+49 &= 5^2+2^3+2^{4}, \\
+47 &= 2^2+3^3+2^{4}.
+\end{split}
+\end{equation*}
+How many numbers less than or equal to \(N\) can be expressed in this way?
+*** My Algorithm
+Clearly, each prime we use must be less than \(\sqrt{N}\). We can
+sieve for all the primes up to \(\sqrt{N}\) and run a triple =for=-loop over this
+list and store each possible sum of square, cube, and fourth power. Finally, we
+binary search the list of possible sums to find how many there are up to \(N\).
+As an optimization, we run the inner two =for=-loops over the primes up to
+\(\sqrt[3]{N}\) and \(\sqrt[4]{N}\).
+
+We sieve the primes in time \(O(\sqrt{N}\log N)\). This generates a list of size
+\(O(\frac{\sqrt{N}}{\log N})\). We then run a triple =for=-loop in
+\begin{equation*}
+O\left(\frac{\sqrt[2]{N}}{\log N} \cdot \frac{\sqrt[3]{N}}{\log N} \cdot
+\frac{\sqrt[4]{N}}{\log N}\right) = O\left(\frac{N^{\frac{13}{12}}}{(\log N)^3}\right).
+\end{equation*}
+Finally, we
+binary search in time \(O(T\log N)\), where \(T\) is the number of test cases.
+All in all, this is sublinear in \(N\).
 * Drafts
 ** Project Euler 78: Coin Partitions                                         :proof:
 :PROPERTIES:

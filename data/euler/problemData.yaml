@@ -1269,7 +1269,22 @@
 '84': {difficulty: '35', hrdifficulty: Hard, name: Monopoly odds, num: '84'}
 '85': {difficulty: '15', hrdifficulty: Medium, name: Counting rectangles, num: '85'}
 '86': {difficulty: '35', hrdifficulty: Hard, name: Cuboid route, num: '86'}
-'87': {difficulty: '20', hrdifficulty: Easy, name: Prime power triples, num: '87'}
+'87': {code: "def bs(arr, l, r, x):\n    \"\"\"Binary Search arr from index l to r\
+    \ for x\"\"\"\n    while l <= r:\n        mid = l + (r - l)//2\n        if arr[mid]\
+    \ == x:\n            return mid + 1\n        elif arr[mid] < x:\n            l\
+    \ = mid + 1\n        else:\n            r = mid - 1\n    return r + 1\n\n\ndef\
+    \ primes(n):\n    \"\"\"Sieve of Eratosthenes\"\"\"\n    primes = []\n    sieve\
+    \ = [True] * (n + 1)\n    for p in range(2, n + 1):\n        if sieve[p]:\n  \
+    \          primes.append(p)\n            # Cross out all multiples of p\n    \
+    \        for i in range(p * p, n + 1, p):\n                sieve[i] = False\n\
+    \    return primes\n\n\n# Create lists of valid prime powers\nMAX = int(5e7)\n\
+    P = primes(int(MAX**(1./2.)))\np2 = [p**2 for p in P]\np3 = [p**3 for p in P if\
+    \ p < MAX**(1./3.)]\np4 = [p**4 for p in P if p < MAX**(1./4.)]\n\n# keep unique\n\
+    sums = set()\nfor a in p2:\n    for b in p3:\n        for c in p4:\n         \
+    \   sums.add(a+b+c)\nsums = list(sorted(sums))\n\nT = int(input())\nfor _ in range(T):\n\
+    \    N = int(input())\n    print(bs(sums, 0, len(sums)-1, N))", comments: '3',
+  difficulty: '20', empty: '6', hrdifficulty: Easy, memory: '15205', name: Prime power
+    triples, num: '87', path: 87-Prime-Power-Triples, runtime: '279'}
 '88': {difficulty: '40', hrdifficulty: Easy, name: Product-sum numbers, num: '88'}
 '89': {difficulty: '20', hrdifficulty: Easy, name: Roman numerals, num: '89'}
 '9': {code: "T = int(input())\nfor _ in range(T):\n    N = int(input())\n    ans =\

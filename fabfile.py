@@ -1,5 +1,6 @@
 import os
 import shutil
+import re
 from fabric import api
 from git import Repo
 from yaml import load, dump
@@ -86,16 +87,13 @@ def get_solution_paths():
     DATA = load_euler_data()
     solved = []
     for file in os.listdir(EULER_CONTENT_DIR):
-        num = None
-        try:
-            num = int(file.split(".")[0])
-        except ValueError as err:
-            pass
+        num = re.match("\d+", file)
         if num:
-            solved.append(str(num))
+            num = str(num.group(0))
+            solved.append(num)
     for file in os.listdir(os.path.join(ROOT, "scripts/euler/euler-solutions/")):
-        num_cand = file.split(".")[0]
-        if num_cand in solved:
+        num = file.split("-")[0]
+        if num in solved:
             DATA[num]["path"] = file
     save_euler_data(DATA)
 
