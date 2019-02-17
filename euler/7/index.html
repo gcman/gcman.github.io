@@ -125,7 +125,7 @@ n(\log n + \log \log n - 1) &lt; p_n &lt; n(\log n + \log \log n), n &gt; 5.
 a list of the primes up to \(n(\log n + \log \log n)\), which is guaranteed to
 contain the $n$-th prime. Our answer is the $n$-th element of this array. We do
 this with time complexity \(O(n \log n \log \log (n \log n))\), using \(p_n \approx
-n \log n\). Because \(O(\log \log (n \log n)) \in O(\log n)\), this can be
+n \log n\). Because \(O(\log \log (n \log n)) \subset O(\log n)\), this can be
 simpified to \(O(n \log^2 n)\). To optimize the constant factor, we compute the
 first \(N_{\text{max}} = 10^4\) primes and store them in memory, rather than
 computing the list for each query, which takes too long.</p>
@@ -232,7 +232,6 @@ computing the list for each query, which takes too long.</p>
     </td>
   </tr>
 </table>
-
 
 
 
@@ -1409,6 +1408,50 @@ computing the list for each query, which takes too long.</p>
     
   </div>
   
+  
+  
+  
+  
+  <div class="unsolved">
+    
+    78
+    
+  </div>
+  
+  
+  
+  
+  
+  <div class="unsolved">
+    
+    79
+    
+  </div>
+  
+  
+  
+  
+  
+  <div class="unsolved">
+    
+    80
+    
+  </div>
+  
+  
+  
+  
+  
+  <div class="complete">
+    
+      <a title="Project Euler 81: Path Sum Two Ways" href="https://gautammanohar.com/euler/81">
+    
+    81
+    
+      </a>
+    
+  </div>
+  
 </div>
 <hr>
 <div class="mobile"><span class="tags">Tagged under</span><ul class="taglist"><li><a class="tag" title="Posts tagged primes" href="/tags/primes">primes</a></li></ul>
@@ -1418,11 +1461,11 @@ computing the list for each query, which takes too long.</p>
 <h3>Related Posts</h3>
 <div id="related">
 	
-	<div class="post"><a href="/euler/47/">Project Euler 47: Distinct Prime Factors</a></div>
-	
 	<div class="post"><a href="/euler/58/">Project Euler 58: Spiral Primes</a></div>
 	
-	<div class="post"><a href="/euler/37/">Project Euler 37: Truncatable Primes</a></div>
+	<div class="post"><a href="/euler/47/">Project Euler 47: Distinct Prime Factors</a></div>
+	
+	<div class="post"><a href="/euler/46/">Project Euler 46: Goldbach&#39;s Other Conjecture</a></div>
 	
 </div>
 
@@ -1490,7 +1533,7 @@ computing the list for each query, which takes too long.</p>
   </section>
   <section class="recent">
   <h3>Recent Posts</h3>
-  <ul><li><a href="https://gautammanohar.com/euler/75/">Euler 75: Singular Integer Right Triangles</a></li><li><a href="https://gautammanohar.com/euler/76/">Euler 76: Counting Summations</a></li><li><a href="https://gautammanohar.com/euler/77/">Euler 77: Prime Summations</a></li><li><a href="https://gautammanohar.com/euler/72/">Euler 72: Counting Fractions</a></li><li><a href="https://gautammanohar.com/euler/71/">Euler 71: Ordered Fractions</a></li></ul>
+  <ul><li><a href="https://gautammanohar.com/euler/81/">Euler 81: Path Sum Two Ways</a></li><li><a href="https://gautammanohar.com/euler/75/">Euler 75: Singular Integer Right Triangles</a></li><li><a href="https://gautammanohar.com/euler/76/">Euler 76: Counting Summations</a></li><li><a href="https://gautammanohar.com/euler/77/">Euler 77: Prime Summations</a></li><li><a href="https://gautammanohar.com/euler/72/">Euler 72: Counting Fractions</a></li></ul>
   </section>
 </div>
 </div>

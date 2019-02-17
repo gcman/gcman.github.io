@@ -6,10 +6,22 @@
     <description>Recent content in Home on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Jul 2018 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 17 Feb 2019 00:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://gautammanohar.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Euler 81: Path Sum Two Ways</title>
+      <link>https://gautammanohar.com/euler/81/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/81/</guid>
+      <description>Problem Statement In the \(5\)-by-\(5\) matrix below, the minimal path from the top left to the bottom right, where only moves to the right and down are allowed, is indicated in bold.
+  Figure 1: The minimal path sum is \(2427\).
+  Find the minimal path sum in a square matrix with \(n\) rows.
+My Algorithm Starting at the bottom-right entry and traversing the matrix going up and to the right will yield a path from the top left to the bottom right.</description>
+    </item>
     
     <item>
       <title>Project Euler 75: Singular Integer Right Triangles</title>
@@ -449,7 +461,7 @@ My Algorithm In total, we must make \(N+M\) moves, of which \(N\) are to the rig
       
       <guid>https://gautammanohar.com/euler/16/</guid>
       <description>Problem Statement What is the sum of the digits of \(2^N\)?
-My Algorithm Python has built-in infinite precision integer arithmetic, so this problem is easily done. We find \(2^N\) using built-in modular exponentiation in \(O(\log N)\) time. The length of this number is \(\lceil N\log_{10} 2 \rceil \in O(N)\). And so our solution has complexity \(O(N \log N)\).</description>
+My Algorithm Python has built-in infinite precision integer arithmetic, so this problem is easily done. We find \(2^N\) using built-in modular exponentiation in \(O(\log N)\) time. The length of this number is \(\lceil N\log_{10} 2 \rceil \subset O(N)\). And so our solution has complexity \(O(N \log N)\).</description>
     </item>
     
     <item>

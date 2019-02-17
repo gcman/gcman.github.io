@@ -6,10 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Gautam Manohar" />
 <meta name="copyright" content="Gautam Manohar" />
-<meta name="date" content="2018-06-11" />
-<meta name="description" content="My solution to problem 67 of Project Euler.">
-<meta name="keywords" content="greedy, { .Section }}" />
-<title>Project Euler 67: Maximum Path Sum II &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
+<meta name="date" content="2019-02-17" />
+<meta name="description" content="My solution to problem 81 of Project Euler.">
+<meta name="keywords" content="dynamic-programming, { .Section }}" />
+<title>Project Euler 81: Path Sum Two Ways &ndash; Gautam Manohar</title><meta name="msapplication-TileImage"           content="/img/favicons/mstile-144x144.png" />
 <meta name="msapplication-config"              content="/img/favicons/browserconfig.xml" />
 <meta name="msapplication-TileColor" content="#da532c" />
 <meta name="theme-color"             content="#ffffff" />
@@ -93,11 +93,11 @@
 <div class="main">
   <article class="article euler"><header>
   <h1 class="title">
-    <a href="https://gautammanohar.com/euler/67/" rel="bookmark" title="Link to Project Euler 67: Maximum Path Sum II">Project Euler 67: Maximum Path Sum II</a>
+    <a href="https://gautammanohar.com/euler/81/" rel="bookmark" title="Link to Project Euler 81: Path Sum Two Ways">Project Euler 81: Path Sum Two Ways</a>
   </h1>
   
   <div class="mobile">
-    <div class="date">11 June 2018</div>
+    <div class="date">17 February 2019</div>
     <div class="category">
       
       <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
@@ -109,22 +109,38 @@
 
 <h2 id="problem-statement">Problem Statement</h2>
 
-<p>By starting at the top of the triangle below and moving to adjacent numbers on
-the row below, the maximal total from top to bottom is 23.</p>
+<p>In the \(5\)-by-\(5\) matrix below, the minimal path from the top left to
+the bottom right, where only moves to the right and down are allowed, is
+indicated in bold.</p>
 
 <figure>
-    <img src="/img/euler/18-triangle.png"
-         alt="Figure 1: Note that \(3&#43;7&#43;4&#43;9 = 23\)." width="100px"/> <figcaption>
-            <p>Figure 1: Note that \(3+7+4+9 = 23\).</p>
+    <img src="/img/euler/81-matrix.png"
+         alt="Figure 1: The minimal path sum is \(2427\)." width="250px"/> <figcaption>
+            <p>Figure 1: The minimal path sum is \(2427\).</p>
         </figcaption>
 </figure>
 
 
-<p>Find the maximum path length for a given such triangle with 100 rows.</p>
+<p>Find the minimal path sum in a square matrix with \(n\) rows.</p>
 
 <h2 id="my-algorithm">My Algorithm</h2>
 
-<p>Please see <a href="../18/">Project Euler 18</a>, which has an identical solution.</p>
+<p>Starting at the bottom-right entry and traversing the matrix going up and to
+the right will yield a path from the top left to the bottom right. If we keep
+track of the minimal cost to get to each entry from the bottom right, then when
+this process is completed, we will have a minimal path sum.</p>
+
+<p>This is a standard technique in dynamic programming. First, there is only one
+path to each entry in the bottom row and rightmost column; straight to the left
+or straight up. After calculating these path sums, we proceed as follows.
+Starting from the bottom left entry in the matrix consisting of each entry not
+in the bottom row or leftmost column of the larger matrix, we increment the
+value of each entry by the minimum of the values directly below and to the
+right. This way, at each point of the algorithm, the value of every processed
+entry is the minimal path sum to that entry. The final entry to be processed is
+the top-left one, so we end up with the minimal path sum of the whole matrix.</p>
+
+<p>Because we traverse the whole matrix, this solution has time complexity \(O(n^2)\).</p>
 
 
 <h2 id="my-code">My Code</h2>
@@ -146,70 +162,32 @@ the row below, the maximal total from top to bottom is 23.</p>
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">parents</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
-    <span class="s2">&#34;&#34;&#34;Indices of adjacent entries to (i,j) in row above&#34;&#34;&#34;</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">if</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">:</span>
-        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">:</span>
-        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">out</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">G</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
 
+<span class="c1"># MPS = minimal path sum</span>
+<span class="c1"># Find MPS for bottom row and rightmost col</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">G</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">G</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">max_sum</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
-    <span class="s2">&#34;&#34;&#34;Maximal path sum down triangular array&#34;&#34;&#34;</span>
-    <span class="c1"># The previous rows max_sums</span>
-    <span class="n">parent</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
-        <span class="n">curr</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="c1"># Handle the case where there are no parents</span>
-            <span class="n">curr</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># Get the higher parent sum and add the current entry</span>
-            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">elem</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
-                <span class="n">curr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elem</span> <span class="o">+</span> <span class="nb">max</span><span class="p">([</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">parents</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)]))</span>
-        <span class="c1"># We&#39;re done with the row</span>
-        <span class="c1"># So move it into memory for the next row</span>
-        <span class="n">parent</span> <span class="o">=</span> <span class="n">curr</span>
-    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+<span class="c1"># Find MPS for each square starting at bot-right</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">min</span><span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
 
-
-<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-    <span class="n">rows</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
-    <span class="n">ans</span> <span class="o">=</span> <span class="n">max_sum</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="c1"># Return topleft value</span>
+<span class="k">print</span><span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>This code has 5 comments and 4 empty lines.</p>
+<p>This code has 4 comments and 3 empty lines.</p>
   <h2 id="Performance">Performance</h2>
   <p>My code solves the original Project Euler problem in <span style="font-weight: bold" class="fast">less than 0.1 s</span> with a peak memory usage of <span style="font-weight: bold" class="fast">less than 1 KB</span>.</p>
 
 <h3 id="Difficulty">Difficulty</h3>
-<p><a href="https://projecteuler.net/problem=67">Project Euler</a> ranks this problem at 5% difficulty (out of 100%). <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler%25!d%28string=067%29">HackerRank</a> classifies this problem as medium.</p>
+<p><a href="https://projecteuler.net/problem=81">Project Euler</a> ranks this problem at 10% difficulty (out of 100%). <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler%25!d%28string=081%29">HackerRank</a> classifies this problem as easy.</p>
 <h2 id="progress">Progress</h2>
 <p><emph>Click on a problem's number to see my solution for it.</emph></p>
 <table class="legend euler">
@@ -1466,14 +1444,18 @@ the row below, the maximal total from top to bottom is 23.</p>
   
 </div>
 <hr>
-<div class="mobile"><span class="tags">Tagged under</span><ul class="taglist"><li><a class="tag" title="Posts tagged greedy" href="/tags/greedy">greedy</a></li></ul>
+<div class="mobile"><span class="tags">Tagged under</span><ul class="taglist"><li><a class="tag" title="Posts tagged dynamic-programming" href="/tags/dynamic-programming">dynamic-programming</a></li></ul>
 </div>
 
 
 <h3>Related Posts</h3>
 <div id="related">
 	
-	<div class="post"><a href="/euler/18/">Project Euler 18: Maximum Path Sum I</a></div>
+	<div class="post"><a href="/euler/77/">Project Euler 77: Prime Summations</a></div>
+	
+	<div class="post"><a href="/euler/76/">Project Euler 76: Counting Summations</a></div>
+	
+	<div class="post"><a href="/euler/31/">Project Euler 31: Coin Sums</a></div>
 	
 </div>
 
@@ -1481,24 +1463,20 @@ the row below, the maximal total from top to bottom is 23.</p>
   <tr>
     <td class="left arrow">
       
-      <a style="color: black" href=https://gautammanohar.com/euler/10/>&#8592; older</a>
+      <a style="color: black" href=https://gautammanohar.com/euler/75/>&#8592; older</a>
       
     </td>
     <td class="right arrow">
-      
-      <a style="color: black" href=https://gautammanohar.com/euler/18/>newer &#8594; </a>
       
     </td>
   </tr>
   <tr>
     <td class="left">
       
-      <a href="https://gautammanohar.com/euler/10/">Project Euler 10: Summation of Primes</a>
+      <a href="https://gautammanohar.com/euler/75/">Project Euler 75: Singular Integer Right Triangles</a>
       
     </td>
     <td class="right">
-      
-      <a href="https://gautammanohar.com/euler/18/">Project Euler 18: Maximum Path Sum I</a>
       
     </td>
   </tr>
@@ -1530,13 +1508,13 @@ the row below, the maximal total from top to bottom is 23.</p>
 </script>
 </article><div class="side">
   <section class="info">
-    <p class="date">Posted 11 June 2018</p>
+    <p class="date">Posted 17 February 2019</p>
     <p class="category">
       
       <a href="https://gautammanohar.com/categories/euler/" title="Posts under category euler">euler</a>&nbsp;
       
     <p>
-    <p><ul class="taglist"><li><a class="tag" title="Posts tagged greedy" href="/tags/greedy">greedy</a></li></ul>
+    <p><ul class="taglist"><li><a class="tag" title="Posts tagged dynamic-programming" href="/tags/dynamic-programming">dynamic-programming</a></li></ul>
 <p>
   </section>
   <section class="recent">
