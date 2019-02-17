@@ -1675,7 +1675,7 @@ can solve it with a method that I have not shown, please let me know!
 :EXPORT_FILE_NAME: _index
 :END:
 #+BEGIN_EXPORT md
-<figure class="logos"><a href="https://projecteuler.net/archives" title="Go to Project Euler" rel="nofollow"><img src="https://projecteuler.net/profile/GautamManohar.png" alt="My Project Euler profile"></a><a href="https://www.hackerrank.com/GautamManohar" title="Go to my HackerRank profile" rel="nofollow"><img src="/img/other/hr-logo.png" height="60px" alt="My HackerRank profile"></a>
+<figure class="logos"><a href="https://projecteuler.net/archives" title="Go to Project Euler" rel="nofollow"><img src="https://projecteuler.net/profile/GautamManohar.png" height="60px" alt="My Project Euler profile"></a><a href="https://www.hackerrank.com/GautamManohar" title="Go to my HackerRank profile" rel="nofollow"><img src="/img/other/hr-logo.png" height="60px" alt="My HackerRank profile"></a>
 </figure>
 #+END_EXPORT
 Welcome to the homepage of my [[https://projecteuler.net/][Project Euler]] solutions. Once I solve the original
@@ -3453,7 +3453,7 @@ these primes as possible to be small, so that their reciprocals are big. And so
 $n$ should be the product of the first $k$ primes, for some $k$. That is, $n$ is
 the $k$-th [[https://en.wikipedia.org/wiki/Primorial][primorial number]]. The first primorial number greater than $10^18$ is
 the product of the primes up to 41. Our solution consists of multiplying primes
-until the given upper bound is reached. Because the $n$-th primorial has size
+until the given upper bound is reached. Because the \(n\)-th primorial has size
 about $e^n$, our solution is $O(\log n)$.
 ** Project Euler 71: Ordered Fractions                         :@math:farey:
 :PROPERTIES:
@@ -3650,58 +3650,84 @@ programming techniques. This problem is a variant on the coin sum problem in
 Euler 31. Here the coins take on the values of the primes up to $N$. There are
 about $\frac{N}{\log N}$ primes up to $N$. Our solution has time complexity
 $O(\frac{N^2}{\log N} + T)$.
+** Project Euler 81: Path Sum Two Ways                 :dynamic_programming:
+:PROPERTIES:
+:EXPORT_FILE_NAME: 81
+:EXPORT_DATE: 2019-02-17
+:EXPORT_DESCRIPTION: My solution to problem 81 of Project Euler.
+:END:
+*** Problem Statement
+In the \(5\)-by-\(5\) matrix below, the minimal path from the top left to
+the bottom right, where only moves to the right and down are allowed, is
+indicated in bold.
+#+attr_html: :width 250px
+#+caption: The minimal path sum is \(2427\).
+[[/img/euler/81-matrix.png]]
+
+Find the minimal path sum in a square matrix with \(n\) rows.
+*** My Algorithm
+Starting at the bottom-right entry and traversing the matrix going up and to
+the right will yield a path from the top left to the bottom right. If we keep
+track of the minimal cost to get to each entry from the bottom right, then when
+this process is completed, we will have a minimal path sum.
+
+This is a standard technique in dynamic programming. First, there is only one
+path to each entry in the bottom row and rightmost column; straight to the left
+or straight up. After calculating these path sums, we proceed as follows.
+Starting from the bottom left entry in the matrix consisting of each entry not
+in the bottom row or leftmost column of the larger matrix, we increment the
+value of each entry by the minimum of the values directly below and to the
+right. This way, at each point of the algorithm, the value of every processed
+entry is the minimal path sum to that entry. The final entry to be processed is
+the top-left one, so we end up with the minimal path sum of the whole matrix.
+
+Because we traverse the whole matrix, this solution has time complexity \(O(n^2)\).
 * Drafts
 ** Project Euler 78: Coin Partitions                                         :proof:
 :PROPERTIES:
-:EXPORT_FILE_NAME: 78
-:EXPORT_DATE: 2018-07-31
-:EXPORT_DESCRIPTION: My solution to problem 78 of Project Euler.
-:EXPORT_HUGO_DRAFT: true
+:EXPORT_FILE_NAME: 78 :EXPORT_DATE: 2018-07-31 :EXPORT_DESCRIPTION: My solution
+to problem 78 of Project Euler. :EXPORT_HUGO_DRAFT: true
 :END:
 *** Problem Statement
 Let $p(n)$ represent the number of ways $n$ can be written as the sum of
 positive integers. For example, $p(5) = 7$. Given $N$, return $p(N)$ modulo
 $10^9 + 7$.
 *** My Algorithm
-We cannot use the $O(n^2)$ technique given in [[../31/][Project Euler 31]]. Instead, we will
-make use of a wonderful piece of mathematics known as [[https://en.wikipedia.org/wiki/Pentagonal_number_theorem][Euler's pentagonal number
-theorem]]. It states that
+We cannot use the $O(n^2)$ technique given in [[../31/][Project Euler 31]].
+Instead, we will make use of a wonderful piece of mathematics known as
+[[https://en.wikipedia.org/wiki/Pentagonal_number_theorem][Euler's pentagonal
+number theorem]]. It states that
 \begin{equation}
 \prod_{k=1}^\infty (1-x^k) = \sum_{i \in \mathbb{Z}}(-1)^ix^{g_i},
-\end{equation}
-where $g_i$ is the $i$-th generalized pentagonal number, given by $g_n =
-\frac{n(3n-1)}{2}$ for $n = \pm1,\pm2,\pm3,\ldots$ (note that $n$ is positive
-then negative and so on). In other words,
+\end{equation} where $g_i$ is the $i$-th generalized pentagonal number, given by
+$g_n = \frac{n(3n-1)}{2}$ for $n = \pm1,\pm2,\pm3,\ldots$ (note that $n$ is
+positive then negative and so on). In other words,
 \begin{equation}
-(1-x)(1-x^2)(1-x^3) \cdots = 1 - x - x^2 + x^5 + x^7 - x^12 - x^15 + x^22 + \cdots
-\end{equation}
-To prove this, let's first define the series $A_n$ as
+(1-x)(1-x^2)(1-x^3) \cdots = 1 - x - x^2 + x^5 + x^7 - x^12 - x^15 + x^22 +
+\cdots \end{equation} To prove this, let's first define the series $A_n$ as
 \begin{equation}
-A_n = 1 - x^{2n - 1} - \sum_{i=3}^\infty x^{in - 1} \prod_{j = 0}^{i-3} (1 - x^{n+j}).
-\end{equation}
-Factoring out an $x^{3n-1}$ term from the last summand gives
+A_n = 1 - x^{2n - 1} - \sum_{i=3}^\infty x^{in - 1} \prod_{j = 0}^{i-3} (1 -
+x^{n+j}). \end{equation} Factoring out an $x^{3n-1}$ term from the last summand
+gives
 \begin{equation}
-A_n = 1 - x^{2n - 1} - x^{3n-1}\sum_{i=0}^\infty x^{in} \prod_{j = 0}^{i} (1 - x^{n+j}).
-\end{equation}
-Let us denote this new series as $B_n$, such that
+A_n = 1 - x^{2n - 1} - x^{3n-1}\sum_{i=0}^\infty x^{in} \prod_{j = 0}^{i} (1 -
+x^{n+j}). \end{equation} Let us denote this new series as $B_n$, such that
 \begin{equation}
-A_n = 1 - x^{2n - 1} - x^{3n-1}B_n.
-\end{equation}
-Pulling out the $i=j=0$ term from the series $B_n$ gives
+A_n = 1 - x^{2n - 1} - x^{3n-1}B_n. \end{equation} Pulling out the $i=j=0$ term
+from the series $B_n$ gives
 \begin{equation}
 \begin{split}
-B_n &= \sum_{i=0}^\infty x^{in} \prod_{j = 0}^{i} (1 - x^{n+j}) \\
-&= x^0(1 - x^{n+0}) + \sum_{i=1}^\infty x^{in} (1-x^n)\prod_{j = 0}^{i} (1 - x^{n+j}) \\
-&= 1 - x^n + \sum_{i=1}^\infty x^{in} (1-x^n)\prod_{j = 1}^{i} (1 - x^{n+j}).
-\end{split}
-\end{equation}
-Distributing the $j = 0$ term we pulled out of the product, we have
+B_n &= \sum_{i=0}^\infty x^{in} \prod_{j = 0}^{i} (1 - x^{n+j}) \\ &= x^0(1 -
+x^{n+0}) + \sum_{i=1}^\infty x^{in} (1-x^n)\prod_{j = 0}^{i} (1 - x^{n+j}) \\ &=
+1 - x^n + \sum_{i=1}^\infty x^{in} (1-x^n)\prod_{j = 1}^{i} (1 - x^{n+j}).
+\end{split} \end{equation} Distributing the $j = 0$ term we pulled out of the
+product, we have
 \begin{equation}
 \begin{split}
-B_n &= 1 - x^n + \sum_{i=1}^\infty x^{in}\prod_{j = 1}^{i} (1 - x^{n+j}) - \sum_{i=1}^\infty x^nx^{in}\prod_{j = 1}^{i} (1 - x^{n+j}) \\
-B_n &= 1 - x^n + \sum_{i=1}^\infty x^{in}\prod_{j = 1}^{i} (1 - x^{n+j}) - \sum_{i=1}^\infty x^{(i+1)n}\prod_{j = 1}^{i} (1 - x^{n+j}) \\
-\end{split}
-\end{equation}
+B_n &= 1 - x^n + \sum_{i=1}^\infty x^{in}\prod_{j = 1}^{i} (1 - x^{n+j}) -
+\sum_{i=1}^\infty x^nx^{in}\prod_{j = 1}^{i} (1 - x^{n+j}) \\ B_n &= 1 - x^n +
+\sum_{i=1}^\infty x^{in}\prod_{j = 1}^{i} (1 - x^{n+j}) - \sum_{i=1}^\infty
+x^{(i+1)n}\prod_{j = 1}^{i} (1 - x^{n+j}) \\ \end{split} \end{equation}
 
 It implies that
 \begin{equation}
@@ -3730,9 +3756,9 @@ from each term in the sum. In other words, each term is of the form $x^{k_1 +
 $k_i$ represents the number of times $i$ appears in a particular way of writing
 $n$ as a sum of natural numbers. This means that the coefficient on $x^n$ is the
 number of such ways to write $n$, which is $p(n)$.
-
 * ​Footnotes
 * COMMENT Local Variables                                              :ARCHIVE:
+#+OPTIONS: :toc nil
 # Local Variables:
-# org-hugo-auto-export-on-save: t
+# after-save-hook: org-hugo-export-wim-to-md
 # End:

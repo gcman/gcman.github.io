@@ -1256,12 +1256,14 @@
   runtime: '2'}
 '80': {difficulty: '20', hrdifficulty: Easy, name: Square root digital expansion,
   num: '80'}
-'81': {code: "N = int(input())\nG = [list(map(int,input().split())) for _ in range(N)]\n\
-    \nfor i in range(N-2,-1,-1):\n\tG[N-1][i] += G[N-1][i+1]\n\tG[i][N-1] += G[i+1][N-1]\n\
-    \nfor i in range(N-2,-1,-1):\n\tfor j in range(N-2,-1,-1):\n\t\tG[i][j] += min(G[i+1][j],G[i][j+1])\n\
-    \nprint(G[0][0]", comments: '0', difficulty: '10', empty: '3', hrdifficulty: Easy,
-  memory: '8949', name: 'Path sum: two ways', num: '81', path: 81-Path-Sum-Two-Ways,
-  runtime: '24'}
+'81': {code: "N = int(input())\nG = [list(map(int, input().split())) for _ in range(N)]\n\
+    \n# MPS = minimal path sum\n# Find MPS for bottom row and rightmost col\nfor i\
+    \ in range(N-2, -1, -1):\n    G[N-1][i] += G[N-1][i+1]\n    G[i][N-1] += G[i+1][N-1]\n\
+    \n# Find MPS for each square starting at bot-right\nfor i in range(N-2, -1, -1):\n\
+    \    for j in range(N-2, -1, -1):\n        G[i][j] += min(G[i+1][j], G[i][j+1])\n\
+    \n# Return topleft value\nprint(G[0][0])", comments: '4', difficulty: '10', empty: '3',
+  hrdifficulty: Easy, memory: '949', name: 'Path sum: two ways', num: '81', path: 81-Path-Sum-Two-Ways,
+  runtime: '6'}
 '82': {difficulty: '20', hrdifficulty: Easy, name: 'Path sum: three ways', num: '82'}
 '83': {difficulty: '25', hrdifficulty: Hard, name: 'Path sum: four ways', num: '83'}
 '84': {difficulty: '35', hrdifficulty: Hard, name: Monopoly odds, num: '84'}
