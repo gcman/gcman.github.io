@@ -3,7 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://gautammanohar.com/euler/123/</loc>
+    <lastmod>2019-02-17T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gautammanohar.com/euler/81/</loc>
+    <lastmod>2019-02-17T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gautammanohar.com/euler/85/</loc>
+    <lastmod>2019-02-17T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gautammanohar.com/euler/87/</loc>
+    <lastmod>2019-02-17T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gautammanohar.com/euler/94/</loc>
+    <lastmod>2019-02-17T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gautammanohar.com/euler/97/</loc>
+    <lastmod>2019-02-17T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gautammanohar.com/euler/99/</loc>
     <lastmod>2019-02-17T00:00:00-05:00</lastmod>
   </url>
   
@@ -340,7 +370,7 @@
   
   <url>
     <loc>https://gautammanohar.com/tags/brute-force/</loc>
-    <lastmod>2018-07-16T00:00:00-04:00</lastmod>
+    <lastmod>2019-02-17T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -363,7 +393,7 @@
   
   <url>
     <loc>https://gautammanohar.com/tags/combinatorics/</loc>
-    <lastmod>2018-07-16T00:00:00-04:00</lastmod>
+    <lastmod>2019-02-17T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -433,13 +463,7 @@
   
   <url>
     <loc>https://gautammanohar.com/tags/implementation/</loc>
-    <lastmod>2018-06-24T00:00:00-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://gautammanohar.com/tags/math/</loc>
-    <lastmod>2018-06-13T00:00:00-04:00</lastmod>
+    <lastmod>2019-02-17T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -450,14 +474,26 @@
   </url>
   
   <url>
+    <loc>https://gautammanohar.com/tags/math/</loc>
+    <lastmod>2018-06-13T00:00:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gautammanohar.com/tags/number-theory/</loc>
+    <lastmod>2019-02-17T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://gautammanohar.com/tags/primes/</loc>
-    <lastmod>2018-07-16T00:00:00-04:00</lastmod>
+    <lastmod>2019-02-17T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://gautammanohar.com/tags/proof/</loc>
-    <lastmod>2018-07-16T00:00:00-04:00</lastmod>
+    <lastmod>2019-02-17T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   

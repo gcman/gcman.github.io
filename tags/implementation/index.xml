@@ -6,10 +6,21 @@
     <description>Recent content in Implementation on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Jun 2018 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 17 Feb 2019 00:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://gautammanohar.com/tags/implementation/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Euler 97: Large Non-Mersenne Prime</title>
+      <link>https://gautammanohar.com/euler/97/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/97/</guid>
+      <description>Problem Statement Given \(N\) pairs \(a_i,b_i,c_{i},d_i\), calculate the last twelve digits of
+\begin{equation*} \sum_{i=1}^N (a_ib_{i}^{c_i}+d_{i}). \end{equation*}
+My Algorithm This is equivalent to finding the value of the sum modulo \(10^{12}\). Using Python, this calculation is simple. The hardest part is formatting the answer, which must have the appropriate number of leading zeroes. We do all this in \(O(N)\) time.</description>
+    </item>
     
     <item>
       <title>Project Euler 40: Champernowne&#39;s Constant</title>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Number Theory on Gautam Manohar</title>
+    <link>https://gautammanohar.com/tags/number-theory/</link>
+    <description>Recent content in Number Theory on Gautam Manohar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Feb 2019 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://gautammanohar.com/tags/number-theory/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Euler 123: Prime Square Remainders</title>
+      <link>https://gautammanohar.com/euler/123/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/123/</guid>
+      <description>Problem Statement Let \(p_n\) be the \(n\)-th prime and let \(r \equiv (p_n-1)^n +(p_n + 1)^n \Mod p_n^2\). Find the least value of \(n\) for which \(r &amp;gt; N\).
+My Algorithm Expanding with the binomial theorem gives
+\begin{equation} (p_n-1)^n +(p_n + 1)^n = \sum_{k=0}^n \binom{n}{k} p_n^k((-1)^{n-k}+1). \end{equation}
+That is, we sum \(2\binom{n}{k} p_n^k\) over even \(n-k\). Taking this modulo \(p_n^2\) means that all terms \(p_n^k\) with \(k&amp;gt;1\) disappear. And so when \(n\) is even, the sum evaluates to \(2\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 94: Almost Equilateral Triangles</title>
+      <link>https://gautammanohar.com/euler/94/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/94/</guid>
+      <description>Problem Statement It is easily proved that there exists no equilateral triangle with integral side lengths and integral area. Define an almost equilateral triangle as an isoceles triangle in which the third side length differs from the others by one. Some almost equilateral triangles have an integral area. One example is \((5,5,6)\) which has an area of 12.
+Find the sum of the perimeters of all almost equilateral triangles with integral side lengths and integral area whose perimeters are at most \(N\).</description>
+    </item>
+    
+  </channel>
+</rss>

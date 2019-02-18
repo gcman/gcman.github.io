@@ -6,10 +6,36 @@
     <description>Recent content in Primes on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Jul 2018 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 17 Feb 2019 00:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://gautammanohar.com/tags/primes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Euler 123: Prime Square Remainders</title>
+      <link>https://gautammanohar.com/euler/123/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/123/</guid>
+      <description>Problem Statement Let \(p_n\) be the \(n\)-th prime and let \(r \equiv (p_n-1)^n +(p_n + 1)^n \Mod p_n^2\). Find the least value of \(n\) for which \(r &amp;gt; N\).
+My Algorithm Expanding with the binomial theorem gives
+\begin{equation} (p_n-1)^n +(p_n + 1)^n = \sum_{k=0}^n \binom{n}{k} p_n^k((-1)^{n-k}+1). \end{equation}
+That is, we sum \(2\binom{n}{k} p_n^k\) over even \(n-k\). Taking this modulo \(p_n^2\) means that all terms \(p_n^k\) with \(k&amp;gt;1\) disappear. And so when \(n\) is even, the sum evaluates to \(2\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 87: Prime Power Triples</title>
+      <link>https://gautammanohar.com/euler/87/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/87/</guid>
+      <description>Problem Statement The smallest number that can be written as the sum of a prime square, prime cube, and prime fourth power is 28. In fact, there are exactly four numbers below fifty that can be expressed in this way:
+\begin{equation*} \begin{split} 28 &amp;amp;= 2^2 + 2^3 + 2^{4}, \\
+33 &amp;amp;= 3^2 + 2^3+2^{4}, \\
+49 &amp;amp;= 5^2+2^3+2^{4}, \\
+47 &amp;amp;= 2^2+3^3+2^{4}. \end{split} \end{equation*}
+How many numbers less than or equal to \(N\) can be expressed in this way?</description>
+    </item>
     
     <item>
       <title>Project Euler 47: Distinct Prime Factors</title>

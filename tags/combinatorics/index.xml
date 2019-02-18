@@ -6,10 +6,21 @@
     <description>Recent content in Combinatorics on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Jul 2018 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 17 Feb 2019 00:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://gautammanohar.com/tags/combinatorics/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Euler 85: Counting Rectangles</title>
+      <link>https://gautammanohar.com/euler/85/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/85/</guid>
+      <description>Problem Statement A \(3\)-by-\(2\) rectangular grid contains eighteen rectangles.
+Given \(N\), consider all rectangular grids such that the number of rectangles in the grid is nearest to \(N\). Out of all such rectangular grids, return the area of the grid with the largest area.
+My Algorithm The first thing we need is a way to count the number of rectangles contained within an \(n\)-by-\(m\) grid. Choosing a subrectangle is equivalent to choosing two vertical and two horizontal lines to cut out a rectangle.</description>
+    </item>
     
     <item>
       <title>Project Euler 53: Combinatoric Selections</title>

@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>Project Euler 123: Prime Square Remainders</title>
+      <link>https://gautammanohar.com/euler/123/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/123/</guid>
+      <description>Problem Statement Let \(p_n\) be the \(n\)-th prime and let \(r \equiv (p_n-1)^n +(p_n + 1)^n \Mod p_n^2\). Find the least value of \(n\) for which \(r &amp;gt; N\).
+My Algorithm Expanding with the binomial theorem gives
+\begin{equation} (p_n-1)^n +(p_n + 1)^n = \sum_{k=0}^n \binom{n}{k} p_n^k((-1)^{n-k}+1). \end{equation}
+That is, we sum \(2\binom{n}{k} p_n^k\) over even \(n-k\). Taking this modulo \(p_n^2\) means that all terms \(p_n^k\) with \(k&amp;gt;1\) disappear. And so when \(n\) is even, the sum evaluates to \(2\).</description>
+    </item>
+    
+    <item>
       <title>Project Euler 81: Path Sum Two Ways</title>
       <link>https://gautammanohar.com/euler/81/</link>
       <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
@@ -21,6 +33,62 @@
   Figure 1: The minimal path sum is \(2427\).
   Find the minimal path sum in a square matrix with \(n\) rows.
 My Algorithm Starting at the bottom-right entry and traversing the matrix going up and to the right will yield a path from the top left to the bottom right.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 85: Counting Rectangles</title>
+      <link>https://gautammanohar.com/euler/85/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/85/</guid>
+      <description>Problem Statement A \(3\)-by-\(2\) rectangular grid contains eighteen rectangles.
+Given \(N\), consider all rectangular grids such that the number of rectangles in the grid is nearest to \(N\). Out of all such rectangular grids, return the area of the grid with the largest area.
+My Algorithm The first thing we need is a way to count the number of rectangles contained within an \(n\)-by-\(m\) grid. Choosing a subrectangle is equivalent to choosing two vertical and two horizontal lines to cut out a rectangle.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 87: Prime Power Triples</title>
+      <link>https://gautammanohar.com/euler/87/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/87/</guid>
+      <description>Problem Statement The smallest number that can be written as the sum of a prime square, prime cube, and prime fourth power is 28. In fact, there are exactly four numbers below fifty that can be expressed in this way:
+\begin{equation*} \begin{split} 28 &amp;amp;= 2^2 + 2^3 + 2^{4}, \\
+33 &amp;amp;= 3^2 + 2^3+2^{4}, \\
+49 &amp;amp;= 5^2+2^3+2^{4}, \\
+47 &amp;amp;= 2^2+3^3+2^{4}. \end{split} \end{equation*}
+How many numbers less than or equal to \(N\) can be expressed in this way?</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 94: Almost Equilateral Triangles</title>
+      <link>https://gautammanohar.com/euler/94/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/94/</guid>
+      <description>Problem Statement It is easily proved that there exists no equilateral triangle with integral side lengths and integral area. Define an almost equilateral triangle as an isoceles triangle in which the third side length differs from the others by one. Some almost equilateral triangles have an integral area. One example is \((5,5,6)\) which has an area of 12.
+Find the sum of the perimeters of all almost equilateral triangles with integral side lengths and integral area whose perimeters are at most \(N\).</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 97: Large Non-Mersenne Prime</title>
+      <link>https://gautammanohar.com/euler/97/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/97/</guid>
+      <description>Problem Statement Given \(N\) pairs \(a_i,b_i,c_{i},d_i\), calculate the last twelve digits of
+\begin{equation*} \sum_{i=1}^N (a_ib_{i}^{c_i}+d_{i}). \end{equation*}
+My Algorithm This is equivalent to finding the value of the sum modulo \(10^{12}\). Using Python, this calculation is simple. The hardest part is formatting the answer, which must have the appropriate number of leading zeroes. We do all this in \(O(N)\) time.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 99: Largest Exponential</title>
+      <link>https://gautammanohar.com/euler/99/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/99/</guid>
+      <description>Problem Statement Given \(N\) pairs \((a_i,b_i)\), find the \(K\)-th smallest value of \(a_i^{b_{i}}\).
+My Algorithm Because \(\log x\) is strictly increasing, if \(a^b &amp;lt; c^d\), then \(b\log a &amp;lt; d\log c\). Using this principle, we sort the list of \((a_i,b_i)\) by the value of \(b_i\log a_i\) and select the \(K\)-th smallest value.</description>
     </item>
     
     <item>
