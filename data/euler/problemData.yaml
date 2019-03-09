@@ -19,7 +19,22 @@
   memory: '3064', name: Summation of Primes, num: '10', path: 10-Summation-of-Primes,
   runtime: '50'}
 '100': {difficulty: '30', hrdifficulty: Advanced, name: Arranged probability, num: '100'}
-'101': {difficulty: '35', hrdifficulty: Medium, name: Optimum polynomial}
+'101': {code: "def prod(arr, m):\n    \"\"\"Multiply an array mod m\"\"\"\n    out\
+    \ = 1\n    for x in arr:\n        out = out * x % m\n    return out\n\n\ndef P(coeffs,\
+    \ x, m):\n    \"\"\"Evaluate P (given by its coefficients) at x mod m\"\"\"\n\
+    \    out = 0\n    for i, coeff in enumerate(coeffs):\n        out = (out + coeff*pow(x,\
+    \ i, m)) % m\n    return out\n\n\ndef next_row(row, m):\n    \"\"\"Given a row\
+    \ of Pascal's triangle, gives the next mod m\"\"\"\n    out = [(row[i] + row[i+1])\
+    \ % m for i in range(len(row)-1)]\n    return [1] + out + [1]\n\n\ndef fit(N,\
+    \ m):\n    \"\"\"Implement eq. (8) to find the first N FITs\"\"\"\n    curr_row\
+    \ = [1]\n    FIT = []\n    for n in range(1, N+1):\n        # this is L_n from\
+    \ eq. (8)\n        curr_row = next_row(curr_row, m)\n        next_fit = sum([pow(-1,\
+    \ (n-i) % 2)*curr_row[i-1]*seq[i-1]\n                        for i in range(1,\
+    \ n+1)]) % m\n        FIT.append(next_fit)\n    return FIT\n\n\nMOD = 1000000007\n\
+    N = int(input())\nCOEFFS = [x % MOD for x in list(map(int, input().split()))]\n\
+    seq = [P(i+1, MOD) for i, x in enumerate(COEFFS)]\n\nprint(*fit(N, MOD))", comments: '1',
+  difficulty: '35', empty: '9', hrdifficulty: Medium, memory: '956', name: Optimum
+    polynomial, path: 101-Optimum-Polynomial, runtime: '7'}
 '102': {difficulty: '15', hrdifficulty: Easy, name: Triangle containment}
 '103': {difficulty: '45', hrdifficulty: Easy, name: 'Special subset sums: optimum'}
 '104': {difficulty: '25', hrdifficulty: Easy, name: Pandigital Fibonacci ends}
@@ -89,8 +104,8 @@
     \ odd\nrem = [2*(i+1)*P[i] % P[i]**2 for i in range(0, len(P)-1, 2)]\n\nT = int(input())\n\
     for _ in range(T):\n    N = int(input())\n    if N == 1:\n        print(2)\n \
     \   else:\n        ans = 2*bs(rem, 0, len(rem)-1, N) + 1\n        print(ans)",
-  comments: '4', difficulty: '30', empty: '5', hrdifficulty: Easy, memory: '4636',
-  name: Prime square remainders, path: 123-Prime-Remainders, runtime: '155'}
+  comments: '4', difficulty: '30', empty: '5', hrdifficulty: Easy, memory: '4644',
+  name: Prime square remainders, path: 123-Prime-Remainders, runtime: '81'}
 '124': {difficulty: '25', hrdifficulty: Advanced, name: Ordered radicals}
 '125': {difficulty: '25', hrdifficulty: Easy, name: Palindromic sums}
 '126': {difficulty: '55', hrdifficulty: Advanced, name: Cuboid layers}
