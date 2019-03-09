@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Polynomial on Gautam Manohar</title>
+    <link>https://gautammanohar.com/tags/polynomial/</link>
+    <description>Recent content in Polynomial on Gautam Manohar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Mar 2019 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://gautammanohar.com/tags/polynomial/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Euler 101: Optimum Polynomial</title>
+      <link>https://gautammanohar.com/euler/101/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/101/</guid>
+      <description>Problem Statement Given the first \(k\) terms of a sequence, it is impossible to say what the next one will be, as there are infinitely many polynomial functions that interpolate (that is, go through) each of these \(k\) points.
+As an example, consider the perfect cubes \(1,8,27,64,\ldots\), given by \(P(n) = n^3\). We try to find an interpolating polynomial, operating by the principle of &amp;ldquo;simpler is better.&amp;rdquo; If we were given just the first term, the simplest possibility is that the sequence is constant.</description>
+    </item>
+    
+  </channel>
+</rss>

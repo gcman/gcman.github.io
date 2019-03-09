@@ -6,10 +6,20 @@
     <description>Recent content in Euler on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Feb 2019 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 09 Mar 2019 00:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://gautammanohar.com/categories/euler/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Euler 101: Optimum Polynomial</title>
+      <link>https://gautammanohar.com/euler/101/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/101/</guid>
+      <description>Problem Statement Given the first \(k\) terms of a sequence, it is impossible to say what the next one will be, as there are infinitely many polynomial functions that interpolate (that is, go through) each of these \(k\) points.
+As an example, consider the perfect cubes \(1,8,27,64,\ldots\), given by \(P(n) = n^3\). We try to find an interpolating polynomial, operating by the principle of &amp;ldquo;simpler is better.&amp;rdquo; If we were given just the first term, the simplest possibility is that the sequence is constant.</description>
+    </item>
     
     <item>
       <title>Project Euler 123: Prime Square Remainders</title>
@@ -729,7 +739,7 @@ My Algorithm The sum of the natural numbers up to \(n\) is the \(n\)-th triangul
     <item>
       <title>Euler Home</title>
       <link>https://gautammanohar.com/euler/</link>
-      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 -0500</pubDate>
       
       <guid>https://gautammanohar.com/euler/</guid>
       <description>Welcome to the homepage of my Project Euler solutions. Once I solve the original problem, I also take on the modified version from ProjectEuler+ on HackerRank, where the problems usually have multiple, harder test cases. The time limits are much stricter, and brute force is rarely an option.

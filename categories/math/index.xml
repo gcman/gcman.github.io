@@ -6,10 +6,30 @@
     <description>Recent content in Math on Gautam Manohar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Jul 2018 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 09 Mar 2019 00:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://gautammanohar.com/categories/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Euler 101: Optimum Polynomial</title>
+      <link>https://gautammanohar.com/euler/101/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/101/</guid>
+      <description>Problem Statement Given the first \(k\) terms of a sequence, it is impossible to say what the next one will be, as there are infinitely many polynomial functions that interpolate (that is, go through) each of these \(k\) points.
+As an example, consider the perfect cubes \(1,8,27,64,\ldots\), given by \(P(n) = n^3\). We try to find an interpolating polynomial, operating by the principle of &amp;ldquo;simpler is better.&amp;rdquo; If we were given just the first term, the simplest possibility is that the sequence is constant.</description>
+    </item>
+    
+    <item>
+      <title>Project Euler 94: Almost Equilateral Triangles</title>
+      <link>https://gautammanohar.com/euler/94/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/94/</guid>
+      <description>Problem Statement It is easily proved that there exists no equilateral triangle with integral side lengths and integral area. Define an almost equilateral triangle as an isoceles triangle in which the third side length differs from the others by one. Some almost equilateral triangles have an integral area. One example is \((5,5,6)\) which has an area of 12.
+Find the sum of the perimeters of all almost equilateral triangles with integral side lengths and integral area whose perimeters are at most \(N\).</description>
+    </item>
     
     <item>
       <title>Project Euler 71: Ordered Fractions</title>
