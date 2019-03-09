@@ -35,6 +35,7 @@
 {{ $s := newScratch }}
 {{ $s.Set "max" 0 }}
 {{ $currMax := 70 }}
+
 {{ range (where (.Site.RegularPages.ByParam "slug") "Section" .Section) }}
 {{ $currMax = (int .File.BaseFileName) }}
 {{ if ge $currMax ($s.Get "max") }}
