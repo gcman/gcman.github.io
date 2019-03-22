@@ -1,0 +1,6 @@
+[submodule "scripts/euler/euler-solutions"]
+	path = scripts/euler/euler-solutions
+	url = https://github.com/gcman/project-euler
+[submodule "themes/gautam-manohar"]
+	path = themes/gautam-manohar
+	url = git@github.com:gcman/gautam-theme.git

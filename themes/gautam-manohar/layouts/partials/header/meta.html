@@ -1,9 +1,0 @@
-<meta charset="utf-8" />
-<meta name="google-site-verification" content="yMFFIOIN7PiAoCbBJmLSutrBWZCfjqM7intNsFjKXew" />
-<meta name="robots" content="{{- block "robots" . -}}index,follow{{ end }}">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="Gautam Manohar" />
-<meta name="copyright" content="Gautam Manohar" />
-<meta name="date" content="{{ dateFormat "2006-01-02" .Date }}" />
-<meta name="description" content="{{ .Description }}">
-<meta name="keywords" content="{{ if isset .Params "tags" }}{{ delimit .Params.tags ","}}, {{ end }}{ .Section }}" />

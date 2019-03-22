@@ -1,1 +1,0 @@
-<ul class="taglist">{{ range (sort .Params.tags) }}<li><a class="tag" title="Posts tagged {{.}}" href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a></li>{{ end }}</ul>
