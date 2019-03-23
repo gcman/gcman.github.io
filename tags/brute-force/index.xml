@@ -43,7 +43,7 @@ My Algorithm This is equivalent to finding the value of the sum modulo \(10^{12}
       
       <guid>https://gautammanohar.com/euler/99/</guid>
       <description>Problem Statement Given \(N\) pairs \((a_i,b_i)\), find the \(K\)-th smallest value of \(a_i^{b_{i}}\).
-My Algorithm Because \(\log x\) is strictly increasing, if \(a^b &amp;lt; c^d\), then \(b\log a &amp;lt; d\log c\). Using this principle, we sort the list of \((a_i,b_i)\) by the value of \(b_i\log a_i\) and select the \(K\)-th smallest value.</description>
+My Algorithm Because \(\log x\) is strictly increasing, if \(a^b &amp;lt; c^d\), then \(b\log a &amp;lt; d\log c\). Using this principle, we sort the list of \((a_i,b_i)\) by the value of \(b_i\log a_i\) and select the \(K\)-th smallest value in \(O(N\log N)\) time.</description>
     </item>
     
     <item>

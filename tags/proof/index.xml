@@ -33,6 +33,17 @@ Find the sum of the perimeters of all almost equilateral triangles with integral
     </item>
     
     <item>
+      <title>Project Euler 71: Ordered Fractions</title>
+      <link>https://gautammanohar.com/euler/71/</link>
+      <pubDate>Sat, 21 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gautammanohar.com/euler/71/</guid>
+      <description>Problem Statement The fraction \(\frac{a}{b}\) is called a reduced proper fraction if \(a\) and \(b\) are positive integers with \(a &amp;lt; b\) and \(\mathrm{gcd}(a,b) = 1\). If we list the reduced proper fractions for \(b \le 8\) in increasing order, we get
+\begin{equation*} \frac18, \frac17, \frac16, \frac15, \frac14, \frac27, \frac13, \frac38, \frac25, \frac37, \frac12, \frac47, \frac35, \frac58, \frac23, \frac57, \frac34, \frac45, \frac56, \frac67, \frac78 \end{equation*}
+It can be seen that \(\frac25\) is the fraction immediately to the left of \(\frac37\).</description>
+    </item>
+    
+    <item>
       <title>Project Euler 65: Convergents of $e$</title>
       <link>https://gautammanohar.com/euler/65/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>

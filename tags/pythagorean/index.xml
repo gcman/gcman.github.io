@@ -27,8 +27,8 @@ My Algorithm See my solution to Project Euler 39, as the techniques I use there 
       <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
       
       <guid>https://gautammanohar.com/euler/39/</guid>
-      <description>Problem Statement If \(p\) is the perimeter of a right triangle with side lengths \({a,b,c}\), then there are exactly 3 solutions for \(p = 120\):
-\begin{equation*} {20,48,52}, {24,45,51}, {30,40,50} \end{equation*}
+      <description>Problem Statement If \(p\) is the perimeter of a right triangle with side lengths \(\{a,b,c\}\), then there are exactly 3 solutions for \(p = 120\):
+\begin{equation*} \{20,48,52\}, \{24,45,51\}, \{30,40,50\} \end{equation*}
 For which value of \(p \le N\) is the number of solutions maximized? If there are multiple possible answers, print the minimum one.
 My Algorithm A famous method of generating Pythagorean triples is due to Euclid:
 \begin{equation} a = m^2 - n^2 \quad b = 2mn \quad c = m^2 + n^2 \quad m &amp;gt; n \label{generating} \end{equation}</description>

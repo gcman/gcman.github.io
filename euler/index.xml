@@ -98,7 +98,7 @@ My Algorithm This is equivalent to finding the value of the sum modulo \(10^{12}
       
       <guid>https://gautammanohar.com/euler/99/</guid>
       <description>Problem Statement Given \(N\) pairs \((a_i,b_i)\), find the \(K\)-th smallest value of \(a_i^{b_{i}}\).
-My Algorithm Because \(\log x\) is strictly increasing, if \(a^b &amp;lt; c^d\), then \(b\log a &amp;lt; d\log c\). Using this principle, we sort the list of \((a_i,b_i)\) by the value of \(b_i\log a_i\) and select the \(K\)-th smallest value.</description>
+My Algorithm Because \(\log x\) is strictly increasing, if \(a^b &amp;lt; c^d\), then \(b\log a &amp;lt; d\log c\). Using this principle, we sort the list of \((a_i,b_i)\) by the value of \(b_i\log a_i\) and select the \(K\)-th smallest value in \(O(N\log N)\) time.</description>
     </item>
     
     <item>
@@ -374,8 +374,8 @@ My Algorithm A prime is greater than all of its truncations.</description>
       <pubDate>Sun, 24 Jun 2018 00:00:00 -0400</pubDate>
       
       <guid>https://gautammanohar.com/euler/39/</guid>
-      <description>Problem Statement If \(p\) is the perimeter of a right triangle with side lengths \({a,b,c}\), then there are exactly 3 solutions for \(p = 120\):
-\begin{equation*} {20,48,52}, {24,45,51}, {30,40,50} \end{equation*}
+      <description>Problem Statement If \(p\) is the perimeter of a right triangle with side lengths \(\{a,b,c\}\), then there are exactly 3 solutions for \(p = 120\):
+\begin{equation*} \{20,48,52\}, \{24,45,51\}, \{30,40,50\} \end{equation*}
 For which value of \(p \le N\) is the number of solutions maximized? If there are multiple possible answers, print the minimum one.
 My Algorithm A famous method of generating Pythagorean triples is due to Euclid:
 \begin{equation} a = m^2 - n^2 \quad b = 2mn \quad c = m^2 + n^2 \quad m &amp;gt; n \label{generating} \end{equation}</description>
