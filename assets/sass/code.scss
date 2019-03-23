@@ -1,11 +1,9 @@
 code,kbc,pre {
-  font-family: Hack, Consolas, Inconsolata, monospace;
-  font-size: 0.95em;
+  font-family: Hack, DejaVu Sans Mono, FiraCode, Consolas, Inconsolata, monospace;
+  font-size: 90%;
 }
 
 code,kbc {
-  background-color: #fdf6e3;
-  color: #cb4b16;
   padding: 0 2px;
 }
 
@@ -14,14 +12,11 @@ code,kbc {
   width: 100%;
   padding: 0;
   margin: 10px 0;
-  border-radius: 0.75em;
+  border-radius: 0.75em 0.75em 0 0;
   line-height: 1.3em;
+  overflow-x: auto;
   code {padding: 0}
-  pre {padding: 15px 0}
+  pre {padding: 10px 0 10px 12px}
   td.lntd {padding-right: 5px;}
-  td.lntd:first-child {
-    border-right: 1px solid #93a1a1;
-    padding-left: 7px;
-  }
-  td.lntd:last-child {padding-left: 12px;}
+  td.lntd:first-child {border-right: 1px solid #93a1a1;}
 }

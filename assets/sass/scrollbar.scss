@@ -21,22 +21,22 @@
   background-color: gainsboro;
 }
 
-.lntable::-webkit-scrollbar {
+.highlight::-webkit-scrollbar {
   border-radius: 8px;
   background-color: #fdf6e3;
 }
 
-.lntable::-webkit-scrollbar-track {
+.highlight::-webkit-scrollbar-track {
   background-color: #fdf6e3;
   border-radius: 0.75em;
 }
 
-.lntable::-webkit-scrollbar-thumb {
+.highlight::-webkit-scrollbar-thumb {
   border-color: #fdf6e3;
   background-color: #B58900;
 }
 
-.lntable::-webkit-scrollbar-thumb:window-inactive {
+.highlight::-webkit-scrollbar-thumb:window-inactive {
   background-color: gainsboro;
 }
 
