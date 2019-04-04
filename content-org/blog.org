@@ -73,7 +73,7 @@ $f$ is non-negative, continuous, and monotonically decreasing on a certain
 interval $[a,b+1]$, then the sum of $f(n)$ over integers $a \le n \le b$ is
 greater than the integral of $f$ over that interval:
 \begin{equation}
-\int_a^{b+1} f(x) \d x < \sum\limits_{\substack{n \in \mathbb{Z}\\ a\le n \le b}}f(n)
+\int_a^{b+1} f(x) \d x < \sum_{n=a}^{b} f(n)
 \end{equation}
 We know $x$ is increasing and continuous, as is $\log x$. And so $x \log x$ is
 increasing and continuous, which means that $\frac{1}{x \log x}$ is decreasing.

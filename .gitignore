@@ -1,3 +1,4 @@
+bin/
 public/
 resources/
 content/
@@ -7,3 +8,5 @@ content-org/ltximg/
 *.pyc
 *.table
 *.gnuplot
+lib64
+pyvenv.cfg

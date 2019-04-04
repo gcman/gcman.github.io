@@ -1,7 +1,6 @@
 import os
 import shutil
 import re
-from fabric import api
 from git import Repo
 from yaml import load, dump
 from subprocess import call
