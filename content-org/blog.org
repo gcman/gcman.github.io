@@ -73,17 +73,17 @@ $f$ is non-negative, continuous, and monotonically decreasing on a certain
 interval $[a,b+1]$, then the sum of $f(n)$ over integers $a \le n \le b$ is
 greater than the integral of $f$ over that interval:
 \begin{equation}
-\int_a^{b+1} f(x) \d x < \sum_{n=a}^{b} f(n)
+\int_a^{b+1} f(x) \dd x < \sum_{n=a}^{b} f(n)
 \end{equation}
 We know $x$ is increasing and continuous, as is $\log x$. And so $x \log x$ is
 increasing and continuous, which means that $\frac{1}{x \log x}$ is decreasing.
 On $[6,\infty)$, it's also non-negative. This means that
 \begin{equation}
-\sum_{p} \frac{1}{p} \ge \sum\limits_{n=6}^\infty \frac{1}{2n\log n} \ge \frac{1}{2} \int_6^\infty \frac{1}{x\log x} \d x.
+\sum_{p} \frac{1}{p} \ge \sum\limits_{n=6}^\infty \frac{1}{2n\log n} \ge \frac{1}{2} \int_6^\infty \frac{1}{x\log x} \dd x.
 \end{equation}
-Substituting $u = \log x, \d u = \frac{1}{x} \d x$ gives
+Substituting $u = \log x, \dd u = \frac{1}{x} \dd x$ gives
 \begin{equation}
-\int_{\log 6}^\infty \frac{\d u}{u},
+\int_{\log 6}^\infty \frac{\dd u}{u},
 \end{equation}
 which we evaluate as $\left[ \log u \right]_{\log 6}^\infty = \infty$. But wait!
 This means that the sum of the reciprocals of the primes is greater than
@@ -183,7 +183,7 @@ We can make this even prettier by... using some calculus. Because $\frac{1}{x}$
 is decreasing and continuous, we can use the integral test to bound the partial
 harmonic series
 \begin{equation}
-\log\sum\limits_{n=1}^k \frac{1}{n} \ge \int_1^{k+1} \frac{1}{x} \d x = \log(k+1) - \log 1 = \log(k+1).
+\log\sum\limits_{n=1}^k \frac{1}{n} \ge \int_1^{k+1} \frac{1}{x} \dd x = \log(k+1) - \log 1 = \log(k+1).
 \end{equation}
 And so we obtain the very nice lower bound
 \begin{equation}
@@ -243,8 +243,7 @@ think of---but it wouldn't constitute a mathematical proof.
 
 This post will hopefully be the first in a series called "Almost There." I will
 share interesting patterns that, although they seem to /surely/ continue, break
-down eventually. You may have noticed that I spelled "sink" incorrectly in the
-title. Sharp eye. That's because we're investigating some interesting properties
+down eventually. This time, we're investigating some interesting properties
 the $\mathrm{sinc}$ function:
 \begin{equation}
 \mathrm{sinc}\, x =
@@ -260,41 +259,41 @@ It looks like this:
 This function famously has no elementary antiderivative, yet its definite
 integral over the real line evaluates to
 \begin{equation}
-\int_{-\infty}^\infty \mathrm{sinc}\, x \d x = \pi.
+\int_{-\infty}^\infty \mathrm{sinc}\, x \dd x = \pi.
 \end{equation}
 Stay tuned for a proof of this fact. A great tool for playing around with
 computations in math (and, thanks to the wonders of technology, a lot more) is
 [[https://www.wolframalpha.com/][Wolfram Alpha]]. We can compute some pretty complicated integrals with it, like
 \begin{equation}
-\int_{-\infty}^\infty \mathrm{sinc}\, x\,\mathrm{sinc}\, \frac{x}{3} \d x = \pi,
+\int_{-\infty}^\infty \mathrm{sinc}\, x\,\mathrm{sinc}\, \frac{x}{3} \dd x = \pi,
 \end{equation}
 and
 \begin{equation}
-\int_{-\infty}^\infty \mathrm{sinc}\, x\,\mathrm{sinc}\, \frac{x}{3}\,\mathrm{sinc}\, \frac{x}{5} \d x = \pi.
+\int_{-\infty}^\infty \mathrm{sinc}\, x\,\mathrm{sinc}\, \frac{x}{3}\,\mathrm{sinc}\, \frac{x}{5} \dd x = \pi.
 \end{equation}
 Even as we multiply the integrand by another $\mathrm{sinc}$ function, the value
 of the definite integral remains constant at $\pi$. The pattern continues for
 quite a while. In fact,
 \begin{equation}
-\int_{-\infty}^\infty \mathrm{sinc}\, x\, \mathrm{sinc}\, \frac{x}{3}\, \mathrm{sinc}\, \frac{x}{5}\,\cdots\,\mathrm{sinc}\, \frac{x}{13} \d x = \pi.
+\int_{-\infty}^\infty \mathrm{sinc}\, x\, \mathrm{sinc}\, \frac{x}{3}\, \mathrm{sinc}\, \frac{x}{5}\,\cdots\,\mathrm{sinc}\, \frac{x}{13} \dd x = \pi.
 \end{equation}
 But with one more term, the pattern fails spectacularly:
 \begin{equation}
-\int_{-\infty}^\infty \mathrm{sinc}\, x\, \mathrm{sinc}\, \frac{x}{3}\, \mathrm{sinc}\, \frac{x}{5}\,\cdots\,\mathrm{sinc}\, \frac{x}{15} \d x
+\int_{-\infty}^\infty \mathrm{sinc}\, x\, \mathrm{sinc}\, \frac{x}{3}\, \mathrm{sinc}\, \frac{x}{5}\,\cdots\,\mathrm{sinc}\, \frac{x}{15} \dd x
 \end{equation}
 takes on a value of
 \begin{equation}
 \frac{467807924713440738696537864469}{467807924720320453655260875000}\pi = \pi - 4.62 \times 10^{11}.
 \end{equation}
-What happened? After some research, I found that such integrals were documented
-in [[https://carma.newcastle.edu.au/jon/sinc-sums.pdf][this paper]]. It turns out that, in general, for real numbers $a_1,\ldots,a_n$,
+What happened? As [[https://carma.newcastle.edu.au/jon/sinc-sums.pdf][this paper]] explains, it turns out that, for real coefficients
+$a_1,\ldots,a_n$, the integral
 \begin{equation}
-\int_{-\infty}^\infty \prod_{k=1}^n \mathrm{sinc}\, a_kx \d x
+\int_{-\infty}^\infty \prod_{k=1}^n \mathrm{sinc}\, a_kx \dd x
 \end{equation}
-evaluates to $\pi$ if $\sum_k a_k \le 2$. In particular, $1 + \frac{1}{3} +
-\cdots + \frac{1}{13} = 2 - \frac{2021}{45045}$, but
-adding $\frac{1}{15}$ pushes it over the edge. So we can construct sequences of
-numbers $a_k$ such that the pattern holds for arbitrarily many terms before
+evaluates to $\pi$ if $\sum_k a_k \le 2$. In
+particular, $1 + \frac{1}{3} + \cdots + \frac{1}{13} = 2 - \frac{2021}{45045}$,
+but adding $\frac{1}{15}$ pushes it over the edge. So we can construct sequences
+of numbers $a_k$ such that the pattern holds for arbitrarily many terms before
 failing, when the partial sum of the numbers $a_k$ crosses $2$.
 
 Similarly, we can make sure the pattern always holds. For example, the series
@@ -347,7 +346,7 @@ programming to numerically solve for the desired ratio.
 Let's first deal with the insphere. Let $(a,b,c)$ be the vector that gives the
 coordinates of the incenter, and let $r$ be the inradius. Let the four vertices
 of the tetrahedron be given by $\vec{V}_i = (x_i,y_i,z_i)$, where $i
-\inn{1,2,3,4}$. Let $F_1$ be the face with vertices $\vec{V}_1, \vec{V}_2,
+\in \{1,2,3,4\}$. Let $F_1$ be the face with vertices $\vec{V}_1, \vec{V}_2,
 \vec{V}_3$. Let $F_2$ be formed by $\vec{V}_1,\vec{V}_2,\vec{V}_4$, $F_3$ by
 $\vec{V}_1,\vec{V}_3,\vec{V}_4$, and $F_4$ by $\vec{V}_2,\vec{V}_3,\vec{V}_4$.
 Let $\vec{n}_i$ represent the unit vector pointing out of the tetrahedron and
@@ -765,7 +764,7 @@ $1$-balls. Similarly, we can construct a $3$-ball from infinitely many $2$-balls
 centered on and perpendicular to the interval $[-R,R]$. Generalizing to $n$
 dimensions yields the recurrence relation
 \begin{equation}
-V_{n}(R) = \int_{-R}^{R} V_{n-1}\left(\sqrt{R^2 - r^2}\right) \d r.
+V_{n}(R) = \int_{-R}^{R} V_{n-1}\left(\sqrt{R^2 - r^2}\right) \dd r.
 \label{first-recurrence}
 \end{equation}
 Uniformly scaling any object in $n$ dimensions by $R$ increases the content of
@@ -781,11 +780,11 @@ scales content by a factor of $R^0 = 1$. Then assume inductively that
 proportionality holds for an $(n-1)$-ball. Then we can factor $R^{n-1}$ from the
 integrand in \eqref{first-recurrence}:
 \begin{equation}
-V_{n}(R) = R^{n-1}\int_{-R}^{R} V_{n-1}\left(\sqrt{1 - \left(\frac{r}{R}\right)^2}\right) \d r.
+V_{n}(R) = R^{n-1}\int_{-R}^{R} V_{n-1}\left(\sqrt{1 - \left(\frac{r}{R}\right)^2}\right) \dd r.
 \end{equation}
-Substituting $x = \frac{r}{R}, \d x = \frac{\d x}{R}$ yields
+Substituting $x = \frac{r}{R}, \dd x = \frac{\dd x}{R}$ yields
 \begin{equation}
-V_n(R) = R^n\int_{-1}^1 V_{n-1}\left(\sqrt{1-x^2}\right) \d x = R^nV_n(1),
+V_n(R) = R^n\int_{-1}^1 V_{n-1}\left(\sqrt{1-x^2}\right) \dd x = R^nV_n(1),
 \label{induction-2}
 \end{equation}
 which proves that proportionality holds in $n$ dimensions and, by induction, in
@@ -793,18 +792,18 @@ all non-negative integer dimensions. $\qed$ Then proportionality transforms
 \eqref{induction-2} into
 \begin{equation}
 \begin{split}
-V_{n}(R) &= R^nV_{n-1}(1)\int_{-1}^{1} \left(\sqrt{1-x^2}\right)^{n-1} \d x \\
-&= V_{n-1}(R)R \int_{-1}^{1} \left(1-x^2\right)^\frac{n-1}{2} \d x.
+V_{n}(R) &= R^nV_{n-1}(1)\int_{-1}^{1} \left(\sqrt{1-x^2}\right)^{n-1} \dd x \\
+&= V_{n-1}(R)R \int_{-1}^{1} \left(1-x^2\right)^\frac{n-1}{2} \dd x.
 \end{split}
 \end{equation}
 Because the integrand is an even function in $x$,
 \begin{equation}
-V_{n}(R) = 2V_{n-1}(R)R \int_{0}^{1} \left(1-x^2\right)^\frac{n-1}{2} \d x.
+V_{n}(R) = 2V_{n-1}(R)R \int_{0}^{1} \left(1-x^2\right)^\frac{n-1}{2} \dd x.
 \end{equation}
 The expression of interest to us is the integral. For notational simplicity, we
 define
 \begin{equation}
-I_{k} = 2\int_{0}^{1} \left(1-x^2\right)^\frac{k}{2} \d x.
+I_{k} = 2\int_{0}^{1} \left(1-x^2\right)^\frac{k}{2} \dd x.
 \label{I-initial}
 \end{equation}
 Then
@@ -821,7 +820,7 @@ I_{n-1} = \frac{\sqrt{\pi}\Gamma\left(\frac{n+1}{2}\right)}{\Gamma(\frac{n}{2}+1
 \end{equation}
 in two ways: analytically and with a probabalistic argument.
 ***** An Analytical Argument
-We substitute $x = \cos\theta, \d x = -\sin\theta\d\theta$ into
+We substitute $x = \cos\theta, \dd x = -\sin\theta\d\theta$ into
 \eqref{I-initial}.
 \begin{equation}
 \begin{split}
@@ -839,7 +838,7 @@ We define the function
 \mathcal{I}(n,m) = 2\int_0^{\frac{\pi}{2}} \sin^n\theta \cos^m\theta \d\theta.
 \label{I-definition}
 \end{equation}
-Then $I_{n-1} = \mathcal{I}(n,0)$. We substitute $t = \tan^2\theta, \d t =
+Then $I_{n-1} = \mathcal{I}(n,0)$. We substitute $t = \tan^2\theta, \dd t =
 2\tan\theta\sec^2\theta \d\theta = 2\sin\theta\sec^3\theta\d\theta$ into
 \eqref{I-definition}. This gives $\frac{1}{1+t} = \cos^2\theta$ and $1 -
 \frac{1}{1+t} = \frac{t}{1+t} = \sin^2\theta$.
@@ -847,20 +846,20 @@ Then $I_{n-1} = \mathcal{I}(n,0)$. We substitute $t = \tan^2\theta, \d t =
 \begin{split}
 \mathcal{I}(n,m) &= 2\int_0^{\frac{\pi}{2}} (\sin^2\theta)^\frac{n}{2} (\cos^2\theta)^\frac{m}{2} \d\theta \\
 &= \int_0^{\frac{\pi}{2}} (\sin^2\theta)^{\frac{n-1}{2}} (\cos^2\theta)^{\frac{m+3}{2}} 2\sin\theta\sec^3\theta \d\theta \\
-&= \int_0^{\infty} \left(\frac{t}{1+t}\right)^{\frac{n-1}{2}} \left(\frac{1}{1+t}\right)^{\frac{m+3}{2}} \d t \\
-&= \int_0^{\infty} \frac{t^{\frac{n-1}{2}}}{(1+t)^{\frac{n+m}{2}+1}} \d t.
+&= \int_0^{\infty} \left(\frac{t}{1+t}\right)^{\frac{n-1}{2}} \left(\frac{1}{1+t}\right)^{\frac{m+3}{2}} \dd t \\
+&= \int_0^{\infty} \frac{t^{\frac{n-1}{2}}}{(1+t)^{\frac{n+m}{2}+1}} \dd t.
 \end{split}
 \end{equation}
 For simplicity, let $n = 2\alpha - 1, m = 2\beta - 1$. Then
 \begin{equation}
-\mathcal{I}(n,m) = \int_0^{\infty} \frac{t^{\frac{n-1}{2}}}{(1+t)^{\frac{n+m}{2}+1}} \d t = \int_0^{\infty} \frac{t^{\alpha-1}}{(1+t)^{\alpha + \beta}} \d t.
+\mathcal{I}(n,m) = \int_0^{\infty} \frac{t^{\frac{n-1}{2}}}{(1+t)^{\frac{n+m}{2}+1}} \dd t = \int_0^{\infty} \frac{t^{\alpha-1}}{(1+t)^{\alpha + \beta}} \dd t.
 \label{alpha-beta}
 \end{equation}
 Let us now state two lemmas which we shall prove later.
 
 *Lemma 2.* Given real numbers $\alpha, \beta$, we have
 \begin{equation}
-\int_0^{\infty} \frac{t^{\alpha-1}}{(1+t)^{\alpha + \beta}} \d t = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)}.
+\int_0^{\infty} \frac{t^{\alpha-1}}{(1+t)^{\alpha + \beta}} \dd t = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)}.
 \label{claim}
 \end{equation}
 
@@ -887,7 +886,7 @@ Let “choosing a number“ be done with a uniform probability. Let $\alpha$ and
 $\beta$ be positive integers. The probability of choosing first choosing a real
 $p$ in the interval $[0,1]$, then choosing $\alpha$ real numbers in $[0,p]$, and
 then choosing $\beta$ real numbers in $[p,1]$ is $\int_0^1 p^\alpha(1-p)^\beta
-\d p$. Then the probability of choosing $\alpha + \beta + 1$ real numbers in
+\dd p$. Then the probability of choosing $\alpha + \beta + 1$ real numbers in
 $[0,1]$ such that the first number is $p$, some $\alpha$ of the remaining
 numbers are in $[0,p]$, and some $\beta$ of them are in $[p,1]$ is
 $\binom{\alpha + \beta}{\alpha}\int_0^1 p^\alpha(1-p)^\beta$. But this is the
@@ -896,24 +895,24 @@ $[0,1]$ are placed in increasing order, $p$ happens to be in the $(\alpha +
 1)$-th position, or $\frac{1}{\alpha + \beta + 1}$. This yields
 \begin{equation}
 \begin{split}
-\binom{\alpha + \beta}{\alpha} \int_0^1 p^\alpha(1-p)^\beta \d p &= \frac{1}{\alpha + \beta + 1} \\
-\frac{(\alpha + \beta)!}{\alpha!\beta!}\int_0^1 p^\alpha(1-p)^\beta \d p &= \frac{1}{\alpha + \beta + 1} \\
-\int_0^1 p^\alpha(1-p)^\beta \d p &= \frac{\alpha!\beta!}{(\alpha + \beta + 1)!}.
+\binom{\alpha + \beta}{\alpha} \int_0^1 p^\alpha(1-p)^\beta \dd p &= \frac{1}{\alpha + \beta + 1} \\
+\frac{(\alpha + \beta)!}{\alpha!\beta!}\int_0^1 p^\alpha(1-p)^\beta \dd p &= \frac{1}{\alpha + \beta + 1} \\
+\int_0^1 p^\alpha(1-p)^\beta \dd p &= \frac{\alpha!\beta!}{(\alpha + \beta + 1)!}.
 \end{split}
 \end{equation}
 Generalizing with the gamma function $\Gamma(n+1) = n!$, we have
 \begin{equation}
-\int_0^1 p^\alpha(1-p)^\beta \d p = \frac{\Gamma(\alpha + 1)\Gamma(\beta + 1)}{\Gamma(\alpha + \beta + 2)}.
+\int_0^1 p^\alpha(1-p)^\beta \dd p = \frac{\Gamma(\alpha + 1)\Gamma(\beta + 1)}{\Gamma(\alpha + \beta + 2)}.
 \end{equation}
-Substituting $p = x^2, \d p = 2x\d x$ yields
+Substituting $p = x^2, \dd p = 2x\dd x$ yields
 \begin{equation}
-2\int_0^1 x^{2\alpha+1}(1-x^2)^\beta \d x = \frac{\Gamma(\alpha + 1)\Gamma(\beta + 1)}{\Gamma(\alpha + \beta + 2)}
+2\int_0^1 x^{2\alpha+1}(1-x^2)^\beta \dd x = \frac{\Gamma(\alpha + 1)\Gamma(\beta + 1)}{\Gamma(\alpha + \beta + 2)}
 \end{equation}
 Setting $\alpha = -\frac{1}{2}, \beta = \frac{n-1}{2}$ yields the desired
 \eqref{I-final}:
 \begin{equation}
 \begin{split}
-2\int_0^1 (1-x^2)^\frac{n-1}{2} \d x &= \frac{\Gamma\left(\frac{1}{2}\right)\Gamma(\frac{n+1}{2})}{\Gamma(\frac{n}{2}+1)} \\
+2\int_0^1 (1-x^2)^\frac{n-1}{2} \dd x &= \frac{\Gamma\left(\frac{1}{2}\right)\Gamma(\frac{n+1}{2})}{\Gamma(\frac{n}{2}+1)} \\
 I_{n-1} &= \frac{\sqrt{\pi}\Gamma(\frac{n+1}{2})}{\Gamma(\frac{n}{2}+1)}.
 \end{split}
 \end{equation}
@@ -955,38 +954,38 @@ interesting identity
 ***** Gamma Fraction Identity: Proof of Lemma 2
 Lemma 2, which states that
 \begin{equation}
-\int_0^{\infty} \frac{t^{\alpha-1}}{(1+t)^{\alpha + \beta}} \d t = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)},
+\int_0^{\infty} \frac{t^{\alpha-1}}{(1+t)^{\alpha + \beta}} \dd t = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)},
 \end{equation}
 was key in our analytical argument. We shall prove it here. The gamma function
 is defined as
 \begin{equation}
-\Gamma(z) = \int_0^\infty e^{-t}t^{z-1} \d t.
+\Gamma(z) = \int_0^\infty e^{-t}t^{z-1} \dd t.
 \label{gamma}
 \end{equation}
-In \eqref{gamma} we make the substitution $t = pq$, $\d t = q\d p$.
+In \eqref{gamma} we make the substitution $t = pq$, $\dd t = q\dd p$.
 \begin{equation}
 \begin{split}
-\Gamma(\alpha) &= \int_0^\infty e^{-pq}(pq)^{\alpha-1} q\d p \\
-&= \int_0^\infty q^\alpha e^{-pq}p^{\alpha-1} \d p.
+\Gamma(\alpha) &= \int_0^\infty e^{-pq}(pq)^{\alpha-1} q\dd p \\
+&= \int_0^\infty q^\alpha e^{-pq}p^{\alpha-1} \dd p.
 \end{split}
 \label{gamma-reworked}
 \end{equation}
 We multiply both sides of \eqref{gamma-reworked} by $\Gamma(\beta) =
-\int_0^\infty e^{-q}q^{\beta-1} \d q$.
+\int_0^\infty e^{-q}q^{\beta-1} \dd q$.
 \begin{equation}
 \begin{split}
-\Gamma(\alpha)\Gamma(\beta) &= \left(\int_0^\infty q^\alpha e^{-pq}p^{\alpha-1} \d p\right)\left(\int_0^\infty e^{-q}q^{\beta-1} \d q\right) \\
-&= \int_0^\infty \int_0^\infty e^{-q-pq}q^{\alpha+\beta-1}p^{\alpha-1} \d p \d q \\
-&= \int_0^\infty p^{\alpha-1} \d p \int_0^\infty e^{-q(1+p)}q^{\alpha+\beta-1} \d q.
+\Gamma(\alpha)\Gamma(\beta) &= \left(\int_0^\infty q^\alpha e^{-pq}p^{\alpha-1} \dd p\right)\left(\int_0^\infty e^{-q}q^{\beta-1} \dd q\right) \\
+&= \int_0^\infty \int_0^\infty e^{-q-pq}q^{\alpha+\beta-1}p^{\alpha-1} \dd p \dd q \\
+&= \int_0^\infty p^{\alpha-1} \dd p \int_0^\infty e^{-q(1+p)}q^{\alpha+\beta-1} \dd q.
 \end{split}
 \label{gamma-product}
 \end{equation}
-In the inner integral we substitute $q = \frac{s}{1+p}, \d q = \frac{\d s}{1 +
+In the inner integral we substitute $q = \frac{s}{1+p}, \dd q = \frac{\dd s}{1 +
 p}$. Then
 \begin{equation}
 \begin{split}
-\int_0^\infty e^{-q(1+p)}q^{\alpha+\beta-1} \d q &= \int_0^\infty e^{-s}\left(\frac{s}{1+p}\right)^{\alpha+\beta-1} \frac{\d s}{1+p} \\
-&= \frac{1}{(1+p)^{\alpha+\beta}}\int_0^\infty e^{-s}s^{\alpha+\beta-1} \d s \\
+\int_0^\infty e^{-q(1+p)}q^{\alpha+\beta-1} \dd q &= \int_0^\infty e^{-s}\left(\frac{s}{1+p}\right)^{\alpha+\beta-1} \frac{\dd s}{1+p} \\
+&= \frac{1}{(1+p)^{\alpha+\beta}}\int_0^\infty e^{-s}s^{\alpha+\beta-1} \dd s \\
 &= \frac{\Gamma(\alpha+\beta)}{(1+p)^{\alpha+\beta}}.
 \end{split}
 \label{g-prod-reworked}
@@ -994,8 +993,8 @@ p}$. Then
 Substituting \eqref{g-prod-reworked} into \eqref{gamma-product}, we have
 \begin{equation}
 \begin{split}
-\Gamma(\alpha)\Gamma(\beta) &= \int_0^\infty p^{\alpha-1} \frac{\Gamma(\alpha+\beta)}{(1+p)^{\alpha+\beta}} \d p \\
-\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)} &= \int_0^\infty \frac{p^{\alpha-1}}{(1+p)^{\alpha+\beta}} \d p,
+\Gamma(\alpha)\Gamma(\beta) &= \int_0^\infty p^{\alpha-1} \frac{\Gamma(\alpha+\beta)}{(1+p)^{\alpha+\beta}} \dd p \\
+\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)} &= \int_0^\infty \frac{p^{\alpha-1}}{(1+p)^{\alpha+\beta}} \dd p,
 \end{split}
 \end{equation}
 which establishes the desired result. $\qed$
@@ -1004,14 +1003,14 @@ We shall prove Lemma 3, that $\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}$. In
 \eqref{claim}, set $\alpha = \beta = \frac{1}{2}$. Then
 \begin{equation}
 \begin{split}
-\frac{\Gamma\left(\frac{1}{2}\right)\Gamma\left(\frac{1}{2}\right)}{\Gamma(1)} &= \int_0^\infty \frac{t^{-\frac{1}{2}}}{1+t} \d t \\
-\Gamma^2\left(\frac{1}{2}\right) &= \int_0^\infty \frac{1}{\sqrt{t}(1+t)} \d t.
+\frac{\Gamma\left(\frac{1}{2}\right)\Gamma\left(\frac{1}{2}\right)}{\Gamma(1)} &= \int_0^\infty \frac{t^{-\frac{1}{2}}}{1+t} \dd t \\
+\Gamma^2\left(\frac{1}{2}\right) &= \int_0^\infty \frac{1}{\sqrt{t}(1+t)} \dd t.
 \end{split}
 \end{equation}
-We substitute $t = x^2, \d t = 2x\d x = 2\sqrt{t}\d x$:
+We substitute $t = x^2, \dd t = 2x\dd x = 2\sqrt{t}\dd x$:
 \begin{equation}
 \begin{split}
-\Gamma^2\left(\frac{1}{2}\right) &= 2\int_0^\infty \frac{1}{1 + x^2} \d x \\
+\Gamma^2\left(\frac{1}{2}\right) &= 2\int_0^\infty \frac{1}{1 + x^2} \dd x \\
 &= 2\left(\arctan x \big|_0^\infty \right) \\
 &= 2\cdot\frac{\pi}{2} \\
 &= \pi,
@@ -1028,21 +1027,21 @@ is positive if $z > 0$. This yields the desired result,
 \end{equation}
 A consequence of this result is the value of the famous Gaussian integral
 \begin{equation}
-\int_{-\infty}^\infty e^{-x^2} \d x,
+\int_{-\infty}^\infty e^{-x^2} \dd x,
 \end{equation}
-whose integrand has no elementary antiderivative. Substituting $t = x^2, \d t =
-2t^{\frac{1}{2}}\d x$ into the integral representation of
+whose integrand has no elementary antiderivative. Substituting $t = x^2, \dd t =
+2t^{\frac{1}{2}}\dd x$ into the integral representation of
 $\Gamma\left(\frac{1}{2}\right)$, we have
 \begin{equation}
 \begin{split}
 \sqrt{\pi} &= \Gamma\left(\frac{1}{2}\right) \\
-&= \int_0^\infty e^{-t}t^{-\frac{1}{2}} \d t \\
-&= 2\int_0^\infty e^{-x^2} \d x.
+&= \int_0^\infty e^{-t}t^{-\frac{1}{2}} \dd t \\
+&= 2\int_0^\infty e^{-x^2} \dd x.
 \end{split}
 \end{equation}
 Because the integrand $e^{-x^2}$ is an even function, it follows that
 \begin{equation}
-\int_{-\infty}^\infty e^{-x^2} \d x = \sqrt{\pi}.
+\int_{-\infty}^\infty e^{-x^2} \dd x = \sqrt{\pi}.
 \end{equation}
 ***** Gamma Function Doubling Formula
 We have the following result.
@@ -1055,16 +1054,16 @@ We have the following result.
 
 To prove this result, we shall use integration by parts and \eqref{I-final}. Let
 \begin{equation}
-A_k = \int_{0}^{1} \left(1-x^2\right)^k \d x.
+A_k = \int_{0}^{1} \left(1-x^2\right)^k \dd x.
 \label{A-definition}
 \end{equation}
 Then, integrating by parts, we have
 \begin{equation}
 \begin{split}
-A_k &= x(1-x^2)^k \big|_0^1 - \int_0^1 -2xk(1-x^2)^{k-1}x \d x \\
-&= 2k\int_0^1 x^2(1-x^2)^{k-1} \d x \\
-&= 2k\int_0^1 (1-(1-x^2))(1-x^2)^{k-1} \d x \\
-&= 2k\int_0^1 (1-x^2)^{k-1} - (1-x^2)^k \d x \\
+A_k &= x(1-x^2)^k \big|_0^1 - \int_0^1 -2xk(1-x^2)^{k-1}x \dd x \\
+&= 2k\int_0^1 x^2(1-x^2)^{k-1} \dd x \\
+&= 2k\int_0^1 (1-(1-x^2))(1-x^2)^{k-1} \dd x \\
+&= 2k\int_0^1 (1-x^2)^{k-1} - (1-x^2)^k \dd x \\
 &= 2kA_{k-1} - 2kA_k \\
 &= \frac{2k}{2k+1}A_{k-1}.
 \end{split}
@@ -1124,7 +1123,7 @@ $\Gamma(r)$ for any positive real $r$.
 Consider the logarithmic derivative of the gamma function, which we shall call
 $\mathcal{G}(x)$:
 \begin{equation}
-\mathcal{G}(x) = \frac{\d}{\d x}\ln\Gamma(x) = \frac{\Gamma'(x)}{\Gamma(x)}.
+\mathcal{G}(x) = \frac{\d}{\dd x}\ln\Gamma(x) = \frac{\Gamma'(x)}{\Gamma(x)}.
 \label{log-deriv-gamma}
 \end{equation}
 For the sake of this section, let $\mathcal{G} = \frac{\Gamma'(x)}{\Gamma(x)}$.
@@ -1144,7 +1143,7 @@ $f'(x) > 0$ for all $x \in [a,b]$, then $f(x)$ is strictly increasing.
 
 By the Fundamental Theorem of Calculus,
 \begin{equation}
-\int_a^b f'(x) \d x = f(b) - f(a).
+\int_a^b f'(x) \dd x = f(b) - f(a).
 \end{equation}
 If $f'(x) > 0$ for all $x$, then because the integral of a positive integrand is
 also positive, $f(b) > f(a)$ for all $x$. That is, $f(x)$ is strictly
@@ -1154,7 +1153,7 @@ which is a special case of the Cauchy-Schwarz inequality.
 *Lemma 5.* Let $f$ and $g$ be continuous functions defined over $[a,b]$. Then we
 have
 \begin{equation}
-\left(\int_a^b fg \d t\right)^2 \le \left(\int_a^b f^2 \d t\right)\left(\int_a^b g^2 \d t\right).
+\left(\int_a^b fg \dd t\right)^2 \le \left(\int_a^b f^2 \dd t\right)\left(\int_a^b g^2 \dd t\right).
 \end{equation}
 In particular, equality holds if and only if $f$ is proportional to $g$; that
 is, there exists some $z$ such that for all $x \in [a,b]$, we have $zf(x) =
@@ -1164,16 +1163,16 @@ Let's take some contant $z$. Then $0 \le (fz - g)^2$. And because the
 integral of a non-negative function is also non-negative, for all real $z$, we
 have
 \begin{equation}
-0 \le \int_a^b (fz - g)^2 \d t = \left(\int_a^b f^2 \d t \right)z^2 - \left(\int_a^b 2fg \d t\right)z + \left(\int_a^b g^2 \d t\right).
+0 \le \int_a^b (fz - g)^2 \dd t = \left(\int_a^b f^2 \dd t \right)z^2 - \left(\int_a^b 2fg \dd t\right)z + \left(\int_a^b g^2 \dd t\right).
 \end{equation}
 Because this quadratic is non-negative, its discriminant must be non-positive,
 such that
 \begin{equation}
-4\left(\int_a^b fg \d t\right)^2 \le 4\left(\int_a^b f^2 \d t\right)\left(\int_a^b g^2 \d t\right).
+4\left(\int_a^b fg \dd t\right)^2 \le 4\left(\int_a^b f^2 \dd t\right)\left(\int_a^b g^2 \dd t\right).
 \label{discriminant}
 \end{equation}
-Equality only holds in \eqref{discriminant} if $\int_a^b (fz - g)^2 \d t = 0$.
-Consider a function $h'$ continuous over $[a,b]$ such that $\int_a^b h'(x) \d x
+Equality only holds in \eqref{discriminant} if $\int_a^b (fz - g)^2 \dd t = 0$.
+Consider a function $h'$ continuous over $[a,b]$ such that $\int_a^b h'(x) \dd x
 = 0$. By the Fundamental Theorem of Calculus, this integral equals $h(b) -
 h(a)$, so $h(a) = h(b)$; that is, $h$ is a constant function, so the integrand
 $h'$ is the zero function. Thus equality only holds in \eqref{discriminant} if
@@ -1186,14 +1185,14 @@ We will prove Lemma 6 by showing that $\mathcal{G}'(x)$ is positive everywhere.
 We have
 \begin{equation}
 \begin{split}
-\Gamma'(x) &= \frac{\d}{\d x}\int_0^\infty e^{-t}t^{x-1} \d t \\
-&= \int_0^\infty \frac{\partial}{\partial x}\, e^{-t}t^{x-1} \d t \\
-&= \int_0^\infty e^{-t}t^{x-1}\ln t \d t,
+\Gamma'(x) &= \frac{\d}{\dd x}\int_0^\infty e^{-t}t^{x-1} \dd t \\
+&= \int_0^\infty \frac{\partial}{\partial x}\, e^{-t}t^{x-1} \dd t \\
+&= \int_0^\infty e^{-t}t^{x-1}\ln t \dd t,
 \end{split}
 \end{equation}
 and, similarly,
 \begin{equation}
-\Gamma''(x) = \int_0^\infty e^{-t}t^{x-1} \ln^2 t \d t.
+\Gamma''(x) = \int_0^\infty e^{-t}t^{x-1} \ln^2 t \dd t.
 \end{equation}
 Furthermore,
 \begin{equation}
@@ -1203,14 +1202,14 @@ Furthermore,
 Substituting $\alpha = \sqrt{e^{-t}t^{x-1}}$ and $\beta = \ln
 t\sqrt{e^{-t}t^{x-1}}$ into \eqref{gamma-second-deriv} yields
 \begin{equation}
-\mathcal{G}'(x) = \frac{\left(\int_0^\infty \alpha^2 \d t\right) \left(\int_0^\infty \beta^2 \d t\right) - \left(\int_0^\infty \alpha\beta \d t\right)^2}{\Gamma^2(x)}.
+\mathcal{G}'(x) = \frac{\left(\int_0^\infty \alpha^2 \dd t\right) \left(\int_0^\infty \beta^2 \dd t\right) - \left(\int_0^\infty \alpha\beta \dd t\right)^2}{\Gamma^2(x)}.
 \label{integral-gamma-2-deriv}
 \end{equation}
 We note that functions $\alpha$ and $\beta$ are continuous and not proportional
 (because $\ln t$ is not constant with respect to $t$) to one another over
 $[0,\infty)$. Then Lemma 5 shows, with strict inequality, that
 \begin{equation}
-\left(\int_0^\infty \alpha\beta \d t\right)^2 < \left(\int_0^\infty \alpha^2 \d t\right) \left(\int_0^\infty \beta^2 \d t\right).
+\left(\int_0^\infty \alpha\beta \dd t\right)^2 < \left(\int_0^\infty \alpha^2 \dd t\right) \left(\int_0^\infty \beta^2 \dd t\right).
 \label{fg-inequality}
 \end{equation}
 The denominator of \eqref{integral-gamma-2-deriv} is always positive, so
@@ -1250,17 +1249,17 @@ Finally, we can establish Theorem 3 by applying Lemma 7 and Lemma 8:
 $\qed$
 ***** Surface Area of Hyperspheres
 We can build a the $2$-ball, or disk, from the union of concentric $2$-sphere
-(circle) shells all evenly spaced by a distance $\d r$. This is like the layers
+(circle) shells all evenly spaced by a distance $\dd r$. This is like the layers
 of an onion. This generalizes to $n$ dimensions, where an $n$-ball is the union
-of concentric $n$-sphere shells. As $\d r$ tends to $0$, we find that the
+of concentric $n$-sphere shells. As $\dd r$ tends to $0$, we find that the
 content of a $n$-ball is the sum of the surface areas of the infinitely many
 $n$-spheres with radii ranging from $0$ to $R$. That is,
 \begin{equation}
-V_n(R) = \int_0^R S_n(r) \d r,
+V_n(R) = \int_0^R S_n(r) \dd r,
 \end{equation}
 which gives
 \begin{equation}
-S_n(R) = \frac{\d V_n(R)}{\d R}.
+S_n(R) = \frac{\dd V_n(R)}{\dd R}.
 \end{equation}
 Substituting \eqref{general-volume} yields
 \begin{equation}
@@ -1283,7 +1282,7 @@ at $n \approx 5.26$. In fact, the global maximum of the function $n\mapsto
 $R$ and is given by
 \begin{equation}
 \begin{split}
-\frac{\d}{\d n}\left(\frac{R^n\pi^\frac{n}{2}}{\Gamma\left(\frac{n}{2}+1\right)}\right) &= 0\\
+\frac{\d}{\dd n}\left(\frac{R^n\pi^\frac{n}{2}}{\Gamma\left(\frac{n}{2}+1\right)}\right) &= 0\\
 \frac{\Gamma\left(\frac{n}{2}+1\right)(R\sqrt{\pi})^n\ln(R\sqrt{\pi}) - \frac{1}{2}(R\sqrt{\pi})^n\Gamma'\left(\frac{n}{2}+1\right)}{\Gamma^2\left(\frac{n}{2}+1\right)} &= 0 \\
 \Gamma\left(\frac{n}{2}+1\right)\ln(R\sqrt{\pi}) - \frac{1}{2}\Gamma'\left(\frac{n}{2}+1\right) &= 0 \\
 \ln(\pi R^2) &= \frac{\Gamma'\left(\frac{n}{2}+1\right)}{\Gamma\left(\frac{n}{2}+1\right)}.
@@ -1360,36 +1359,36 @@ I have two solutions: one with calculus, and one by induction.
 **** Calculus
 First, we notice that
 \begin{equation}
-\int_0^1 x^{k-1} \d x = \frac{x^k}{k} \Biggr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.
+\int_0^1 x^{k-1} \dd x = \frac{x^k}{k} \Biggr\rvert_0^1 = \frac{1}{k} - \frac{0}{k} = \frac{1}{k}.
 \label{integral-rep}
 \end{equation}
 Then, substituting \eqref{integral-rep} into \eqref{identity} gives
 \begin{equation}
-\sum\limits_{k=1}^n \frac{1}{k} = \sum\limits_{k=1}^n \int_0^1 x^{k-1} \d x.
+\sum\limits_{k=1}^n \frac{1}{k} = \sum\limits_{k=1}^n \int_0^1 x^{k-1} \dd x.
 \end{equation}
 Because this is a finite sum of converging integrals, we can switch the sum and
 the integral to get
 \begin{equation}
-\int_0^1 \sum\limits_{k=1}^n x^{k-1} \d x.
+\int_0^1 \sum\limits_{k=1}^n x^{k-1} \dd x.
 \end{equation}
 This sum is a geometric series! We can use the formula for the $n$-th partial
 sum of a geometric series.
 \begin{equation}
 1 + x + x^2 + \cdots + x^{n-1} = \frac{1 - x^n}{1-x}.
 \end{equation}
-Then we can solve the integral, using the substitution $x = 1-u, \d x = -\d u$.
+Then we can solve the integral, using the substitution $x = 1-u, \dd x = -\dd u$.
 \begin{equation}
-\int_0^1 \frac{1 - x^n}{1-x} \d x = -\int_1^0 \frac{1 - (1-u)^n}{u} \d u \\
+\int_0^1 \frac{1 - x^n}{1-x} \dd x = -\int_1^0 \frac{1 - (1-u)^n}{u} \dd u \\
 \end{equation}
 Now the motivation for substituting $x = 1-u$ becomes clear. We can expand the
 $(1-u)^n$ term using the binomial theorem:
 \begin{equation}
 \begin{split}
--\int_1^0 \frac{1 - (1-u)^n}{u} \d u &= \int_0^1 \frac{1}{u}\left( 1 - \sum\limits_{k=0}^n \binom{n}{k}(-1)^ku^k \right) \d x \\
-&= -\int_0^1 \frac{1}{u}\left(\sum\limits_{k=0}^n \binom{n}{k}(-1)^ku^k - 1 \right) \d x \\
-&= -\int_0^1 \frac{1}{u}\sum\limits_{k=1}^n \binom{n}{k}(-1)^ku^k \d x \\
-&= -\int_0^1 \sum\limits_{k=1}^n \binom{n}{k}(-1)^ku^{k-1} \d x \\
-&= -\sum\limits_{k=1}^n \binom{n}{k}(-1)^k\int_0^1 u^{k-1} \d x \\
+-\int_1^0 \frac{1 - (1-u)^n}{u} \dd u &= \int_0^1 \frac{1}{u}\left( 1 - \sum\limits_{k=0}^n \binom{n}{k}(-1)^ku^k \right) \dd x \\
+&= -\int_0^1 \frac{1}{u}\left(\sum\limits_{k=0}^n \binom{n}{k}(-1)^ku^k - 1 \right) \dd x \\
+&= -\int_0^1 \frac{1}{u}\sum\limits_{k=1}^n \binom{n}{k}(-1)^ku^k \dd x \\
+&= -\int_0^1 \sum\limits_{k=1}^n \binom{n}{k}(-1)^ku^{k-1} \dd x \\
+&= -\sum\limits_{k=1}^n \binom{n}{k}(-1)^k\int_0^1 u^{k-1} \dd x \\
 &= -\sum\limits_{k=1}^n \frac{1}{k}\binom{n}{k}(-1)^k.
 \end{split}
 \end{equation}
@@ -2963,7 +2962,7 @@ The multiplicative modular inverse of 2 modulo 3 is 2, because $2 \cdot 2 = 4
 \end{equation}
 If and only if 3 divides one of $n$ and $n+1$, then this expression is congruent
 to 0 modulo 3; thus it is not prime. This means that $n \equiv 1 \pmod{3}$; and
-so if an $n$-digit pandigital prime exists, we must have $n \inn{4,7}$.
+so if an $n$-digit pandigital prime exists, we must have $n \in \{4,7\}$.
 
 This observation really reduces the search space of this problem. Our strategy
 is to generate pandigital numbers and check if they are prime. The maximum
@@ -3959,8 +3958,8 @@ it!
 :EXPORT_DESCRIPTION: My solution to problem 123 of Project Euler.
 :END:
 *** Problem Statement
-Let \(p_n\) be the \(n\)-th prime and let \(r \equiv (p_n-1)^n +(p_n + 1)^n \Mod
-p_n^2\). Find the least value of \(n\) for which \(r > N\).
+Let \(p_n\) be the \(n\)-th prime and let \(r \equiv (p_n-1)^n +(p_n + 1)^n \
+(\mathrm{mod}\ p_n^2)\). Find the least value of \(n\) for which \(r > N\).
 *** My Algorithm
 Expanding with the binomial theorem gives
 \begin{equation}
@@ -3972,7 +3971,7 @@ That is, we sum \(2\binom{n}{k} p_n^k\) over even \(n-k\). Taking this modulo
 to \(2np_n\). The one exception is when \(n = 1\); in this case, the answer is
 \(2\) (from taking 1 + 0 mod 4).
 
-To solve the problem, we consider \(2np_n \Mod p_n^2\) up to a suitably large
+To solve the problem, we consider \(2np_n \ (\mathrm{mod}\ p_n^2)\) up to a suitably large
 \(n\) and binary search for \(N\). A rough estimate of time complexity is \(O(\sqrt{N})\).
 * Drafts
 ** Project Euler 78: Coin Partitions                                         :proof:
